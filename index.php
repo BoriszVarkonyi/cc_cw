@@ -1,6 +1,6 @@
 <?php include "includes\db.php"; ?>
 <?php ob_start(); ?>
-asd
+
 <?php
 
 if (isset($_POST["submit"])) {
