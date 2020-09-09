@@ -19,7 +19,7 @@
             <p>FINAL RESULTS OF {COMP NAME}</p>
         </div>
 
-        <p>g</p>
+
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
             <input type="search" name="" id="" placeholder="Search by Fencer">
