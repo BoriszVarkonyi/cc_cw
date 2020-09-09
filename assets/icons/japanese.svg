@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12">
+  <defs>
+    <style>
+      .a {
+        fill: #fff;
+      }
+
+      .b {
+        fill: #bc002d;
+      }
+    </style>
+  </defs>
+  <title>japanese</title>
+  <path class="a" d="M0,12H0V0H0Z" transform="translate(0)"/>
+  <circle class="b" cx="9" cy="6" r="3"/>
+</svg>

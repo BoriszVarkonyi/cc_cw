@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Informations</title>
+    <link rel="stylesheet" href="../css/mainstyle.css">
+</head>
+<body>
+    <header>
+        <div id="header_bar">
+            <p id="app_name">Competition Control</p>
+            <section id="menu_button_section">
+                <button type="button" onclick="toggle_nav_bar()" id="menu_button"></button>
+            </section>
+            <section class="settings_section">
+                <button class="hb_button" id="language_button"></button>
+                <button class="hb_button" id="colormode_button"></button>
+            </section>
+            <img src="https://thispersondoesnotexist.com/image" alt="profile picture" id="profile_picture">
+            <section class="identity_section">
+                <p id="username">Username</p>
+                <p id="role">Role</p>
+            </section>
+        </div>
+    </header>
+    <div id="flexbox_container">
+        <div class="nav_bar_flex">
+            <div id="nav_bar" class="nav_bar">
+                <ul id="nav_bar_list">
+                    <li class="nav_bar_title">OVERVIEW</li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/home-black-18dp.svg" alt="" class="nav_bar_icon">Dashboard</a></li>
+                    <li class="nav_bar_title">CONTROLS</li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/table_view-black-18dp.svg" alt="" class="nav_bar_icon">Call Room</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/library_add_check-black-18dp.svg" alt="" class="nav_bar_icon">Weapon Control</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/login-black-18dp.svg" alt="" class="nav_bar_icon">Registration</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/assignment_turned_in-black-18dp.svg" alt="" class="nav_bar_icon">DT</a></li>
+                    <li class="nav_bar_title">SETUP</li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/people_alt-black-18dp.svg" alt="" class="nav_bar_icon">Fencers</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/work-black-18dp.svg" alt="" class="nav_bar_icon">Technicians</a></li>
+                    <li class="nav_bar_item current_page"><a href="" class="nav_bar_link"><img src="../assets/icons/info-black-18dp.svg" alt="" class="nav_bar_icon">Information</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/calendar_today-black-18dp.svg" alt="" class="nav_bar_icon">Timetable</a></li>
+                </ul>
+                <a href="" class="need_help nav_bar_item"><img src="../assets/icons/help-black-18dp.svg" alt="" class="nav_bar_icon">Need help?</a>
+            </div>
+        </div>
+
+        <div class="page_content_flex">
+            <div class="page_content_panel">
+                <div id="title_stripe">
+                    <section class="stripe_section">
+                        <p class="page_title">Informations</p>
+                        <button class="stripe_button orange">
+                            <p class="stripe_button_text">Save Information</p>
+                            <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                        </button>
+                    </section>
+                </div>
+                <div id="page_content_panel_main">
+                    <div id="needed_equipment_panel" class="info_panel"> 
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
+                            <p>Equipment needed to be checked</p>
+                        </div>
+                        <div class="db_panel_main">
+                        </div>
+                    </div>
+                    <div id="additional_info_panel" class="info_panel">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
+                            <p>Additional Information</p>
+                        </div>
+                        <div class="db_panel_main">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

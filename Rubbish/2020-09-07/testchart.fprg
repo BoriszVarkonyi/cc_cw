@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Boriszka"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-09-07 09:02:14 du."/>
+        <attribute name="created" value="Qm9yaXN6a2E7REVTS1RPUC1WRFUxSlFUOzIwMjAtMDktMDc7MDg6MTI6NTEgZHUuOzMzMzQ="/>
+        <attribute name="edited" value="Qm9yaXN6a2E7REVTS1RPUC1WRFUxSlFUOzIwMjAtMDktMDc7MDk6MDI6MTQgZHUuOzE7MzQ0MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="versenyzoszam" type="Real" array="False" size=""/>
+            <input variable="versenyzoszam"/>
+            <declare name="kiemelt" type="Boolean" array="False" size=""/>
+            <input variable="kiemelt"/>
+            <if expression="kiemelt = true">
+                <then>
+                    <output expression="&quot;dsa&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;asd&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

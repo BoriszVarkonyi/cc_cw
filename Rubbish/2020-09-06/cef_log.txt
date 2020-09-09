@@ -1,0 +1,8 @@
+[0113/214114.824:ERROR:gpu_process_transport_factory.cc(990)] Lost UI shared context.
+[0113/221530.675:INFO:CONSOLE(36)] "fadeInPage()", source: package://GTAH/GTAH_client/login/core.js (36)
+[0113/221835.424:ERROR:gpu_process_transport_factory.cc(990)] Lost UI shared context.
+[0113/221948.981:INFO:CONSOLE(36)] "fadeInPage()", source: package://GTAH/GTAH_client/login/core.js (36)
+[0113/224706.773:INFO:CONSOLE(2)] "Uncaught Error: Syntax error, unrecognized expression: javascript://", source: mp://rui//js/jquery-2.2.4.min.js (2)
+[0113/224822.167:ERROR:gpu_process_transport_factory.cc(990)] Lost UI shared context.
+[0113/224936.276:INFO:CONSOLE(36)] "fadeInPage()", source: package://GTAH/GTAH_client/login/core.js (36)
+[0113/225032.556:INFO:CONSOLE(97)] "destroy", source: package://GTAH/GTAH_client/login/core.js (97)

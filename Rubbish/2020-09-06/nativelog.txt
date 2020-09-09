@@ -1,0 +1,103 @@
+﻿Set run directory to D:\Program Files (x86)
+Native Launcher Version: 1665
+Operating System: Windows 10 Enterprise
+Application Hash: c9b11bc96b23ea3e08c45e9e04fa9d3d6ae47fe7
+Application Data directory: C:\Users\User\AppData\Roaming/.minecraft
+Executable Path: MinecraftLauncher.exe
+App Directory dir: D:\Program Files (x86)
+Start dir: C:/Users/User/AppData/Roaming/.minecraft
+Launcher dir: D:/Program Files (x86)/game
+TmpDir dir: D:/Program Files (x86)/tmp
+(Optional) Java Launcher hash: 
+Java Version: 1.8.0_51
+x64: 1
+LauncherConfiguration from: http://launchermeta.mojang.com/mc/launcher.json
+Downloaded config
+Native launcher is current
+Native launcher is current
+Detected previous run with new launcher, format of C:/Users/User/AppData/Roaming/.minecraft/launcher_profiles.json is 2
+Using new launcher as self upgrade has been detected.
+We need to extract the launcher library, it doesn't exist!
+Game launcher outdated!
+Check to see if we can run the launcher
+Native launcher is current
+Installing java launcher
+Unpacking launcher
+Unpack D:/Program Files (x86)/tmp/launcher.zip.lzma to D:/Program Files (x86)/tmp/launcher.zip
+Unpack successful
+Unpack D:/Program Files (x86)/tmp/launcher.zip to D:/Program Files (x86)/game_tmp
+Extracted cef.pak to D:/Program Files (x86)/game_tmp/cef.pak (4799564 bytes)
+Extracted cef_100_percent.pak to D:/Program Files (x86)/game_tmp/cef_100_percent.pak (340041 bytes)
+Extracted cef_200_percent.pak to D:/Program Files (x86)/game_tmp/cef_200_percent.pak (432559 bytes)
+Extracted cef_extensions.pak to D:/Program Files (x86)/game_tmp/cef_extensions.pak (3671695 bytes)
+Extracted d3dcompiler_43.dll to D:/Program Files (x86)/game_tmp/d3dcompiler_43.dll (2106216 bytes)
+Extracted d3dcompiler_47.dll to D:/Program Files (x86)/game_tmp/d3dcompiler_47.dll (3709120 bytes)
+Extracted icudtl.dat to D:/Program Files (x86)/game_tmp/icudtl.dat (10127200 bytes)
+Extracted launcher.dll to D:/Program Files (x86)/game_tmp/launcher.dll (6129664 bytes)
+Extracted launcher.exp to D:/Program Files (x86)/game_tmp/launcher.exp (984 bytes)
+Extracted launcher.lib to D:/Program Files (x86)/game_tmp/launcher.lib (2208 bytes)
+Extracted libcef.dll to D:/Program Files (x86)/game_tmp/libcef.dll (63805440 bytes)
+Extracted libEGL.dll to D:/Program Files (x86)/game_tmp/libEGL.dll (78848 bytes)
+Extracted libGLESv2.dll to D:/Program Files (x86)/game_tmp/libGLESv2.dll (1872896 bytes)
+Extracted locales/am.pak to D:/Program Files (x86)/game_tmp/locales/am.pak (344462 bytes)
+Extracted locales/ar.pak to D:/Program Files (x86)/game_tmp/locales/ar.pak (340456 bytes)
+Extracted locales/bg.pak to D:/Program Files (x86)/game_tmp/locales/bg.pak (411550 bytes)
+Extracted locales/bn.pak to D:/Program Files (x86)/game_tmp/locales/bn.pak (527907 bytes)
+Extracted locales/ca.pak to D:/Program Files (x86)/game_tmp/locales/ca.pak (249775 bytes)
+Extracted locales/cs.pak to D:/Program Files (x86)/game_tmp/locales/cs.pak (251252 bytes)
+Extracted locales/da.pak to D:/Program Files (x86)/game_tmp/locales/da.pak (226170 bytes)
+Extracted locales/de.pak to D:/Program Files (x86)/game_tmp/locales/de.pak (245241 bytes)
+Extracted locales/el.pak to D:/Program Files (x86)/game_tmp/locales/el.pak (442047 bytes)
+Extracted locales/en-GB.pak to D:/Program Files (x86)/game_tmp/locales/en-GB.pak (202096 bytes)
+Extracted locales/en-US.pak to D:/Program Files (x86)/game_tmp/locales/en-US.pak (202095 bytes)
+Extracted locales/es-419.pak to D:/Program Files (x86)/game_tmp/locales/es-419.pak (247546 bytes)
+Extracted locales/es.pak to D:/Program Files (x86)/game_tmp/locales/es.pak (251674 bytes)
+Extracted locales/et.pak to D:/Program Files (x86)/game_tmp/locales/et.pak (219356 bytes)
+Extracted locales/fa.pak to D:/Program Files (x86)/game_tmp/locales/fa.pak (350799 bytes)
+Extracted locales/fi.pak to D:/Program Files (x86)/game_tmp/locales/fi.pak (232627 bytes)
+Extracted locales/fil.pak to D:/Program Files (x86)/game_tmp/locales/fil.pak (251749 bytes)
+Extracted locales/fr.pak to D:/Program Files (x86)/game_tmp/locales/fr.pak (266391 bytes)
+Extracted locales/gu.pak to D:/Program Files (x86)/game_tmp/locales/gu.pak (492571 bytes)
+Extracted locales/he.pak to D:/Program Files (x86)/game_tmp/locales/he.pak (288774 bytes)
+Extracted locales/hi.pak to D:/Program Files (x86)/game_tmp/locales/hi.pak (502822 bytes)
+Extracted locales/hr.pak to D:/Program Files (x86)/game_tmp/locales/hr.pak (235955 bytes)
+Extracted locales/hu.pak to D:/Program Files (x86)/game_tmp/locales/hu.pak (262393 bytes)
+Extracted locales/id.pak to D:/Program Files (x86)/game_tmp/locales/id.pak (218664 bytes)
+Extracted locales/it.pak to D:/Program Files (x86)/game_tmp/locales/it.pak (242315 bytes)
+Extracted locales/ja.pak to D:/Program Files (x86)/game_tmp/locales/ja.pak (296010 bytes)
+Extracted locales/kn.pak to D:/Program Files (x86)/game_tmp/locales/kn.pak (569041 bytes)
+Extracted locales/ko.pak to D:/Program Files (x86)/game_tmp/locales/ko.pak (250795 bytes)
+Extracted locales/lt.pak to D:/Program Files (x86)/game_tmp/locales/lt.pak (251606 bytes)
+Extracted locales/lv.pak to D:/Program Files (x86)/game_tmp/locales/lv.pak (253314 bytes)
+Extracted locales/ml.pak to D:/Program Files (x86)/game_tmp/locales/ml.pak (624330 bytes)
+Extracted locales/mr.pak to D:/Program Files (x86)/game_tmp/locales/mr.pak (499322 bytes)
+Extracted locales/ms.pak to D:/Program Files (x86)/game_tmp/locales/ms.pak (224591 bytes)
+Extracted locales/nb.pak to D:/Program Files (x86)/game_tmp/locales/nb.pak (223787 bytes)
+Extracted locales/nl.pak to D:/Program Files (x86)/game_tmp/locales/nl.pak (237213 bytes)
+Extracted locales/pl.pak to D:/Program Files (x86)/game_tmp/locales/pl.pak (245430 bytes)
+Extracted locales/pt-BR.pak to D:/Program Files (x86)/game_tmp/locales/pt-BR.pak (240774 bytes)
+Extracted locales/pt-PT.pak to D:/Program Files (x86)/game_tmp/locales/pt-PT.pak (244316 bytes)
+Extracted locales/ro.pak to D:/Program Files (x86)/game_tmp/locales/ro.pak (251557 bytes)
+Extracted locales/ru.pak to D:/Program Files (x86)/game_tmp/locales/ru.pak (384506 bytes)
+Extracted locales/sk.pak to D:/Program Files (x86)/game_tmp/locales/sk.pak (256324 bytes)
+Extracted locales/sl.pak to D:/Program Files (x86)/game_tmp/locales/sl.pak (235867 bytes)
+Extracted locales/sr.pak to D:/Program Files (x86)/game_tmp/locales/sr.pak (377523 bytes)
+Extracted locales/sv.pak to D:/Program Files (x86)/game_tmp/locales/sv.pak (225066 bytes)
+Extracted locales/sw.pak to D:/Program Files (x86)/game_tmp/locales/sw.pak (227951 bytes)
+Extracted locales/ta.pak to D:/Program Files (x86)/game_tmp/locales/ta.pak (579316 bytes)
+Extracted locales/te.pak to D:/Program Files (x86)/game_tmp/locales/te.pak (554319 bytes)
+Extracted locales/th.pak to D:/Program Files (x86)/game_tmp/locales/th.pak (481955 bytes)
+Extracted locales/tr.pak to D:/Program Files (x86)/game_tmp/locales/tr.pak (242878 bytes)
+Extracted locales/uk.pak to D:/Program Files (x86)/game_tmp/locales/uk.pak (390701 bytes)
+Extracted locales/vi.pak to D:/Program Files (x86)/game_tmp/locales/vi.pak (275378 bytes)
+Extracted locales/zh-CN.pak to D:/Program Files (x86)/game_tmp/locales/zh-CN.pak (203828 bytes)
+Extracted locales/zh-TW.pak to D:/Program Files (x86)/game_tmp/locales/zh-TW.pak (206063 bytes)
+Extracted natives_blob.bin to D:/Program Files (x86)/game_tmp/natives_blob.bin (350711 bytes)
+Extracted snapshot_blob.bin to D:/Program Files (x86)/game_tmp/snapshot_blob.bin (687516 bytes)
+Unpack successful
+Successfully moved D:/Program Files (x86)/game_tmp to D:/Program Files (x86)/game
+Starting launcher.dll with D:\Program Files (x86)\runtime\jre-x64\1.8.0_51\bin\javaw.exe
+Found SetDllDirectoryW in kernel32.dll!
+Added D:\Program Files (x86)\game to DLL search path
+Running launcher!
+Launcher ended with 0

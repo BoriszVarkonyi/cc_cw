@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12">
+  <defs>
+    <style>
+      .a {
+        fill: #002654;
+      }
+
+      .b {
+        fill: #fff;
+      }
+
+      .c {
+        fill: #ce1126;
+      }
+    </style>
+  </defs>
+  <title>french</title>
+  <path class="a" d="M1,0H6A0,0,0,0,1,6,0V12a0,0,0,0,1,0,0H1a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0Z"/>
+  <rect class="b" x="6" width="6" height="12"/>
+  <path class="c" d="M12,0h5a1,1,0,0,1,1,1V11a1,1,0,0,1-1,1H12a0,0,0,0,1,0,0V0A0,0,0,0,1,12,0Z"/>
+</svg>

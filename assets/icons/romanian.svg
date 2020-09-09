@@ -1,0 +1,21 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #002b7f;
+      }
+
+      .cls-2 {
+        fill: #fcd116;
+      }
+
+      .cls-3 {
+        fill: #ce1126;
+      }
+    </style>
+  </defs>
+  <title>romanian</title>
+  <path class="cls-1" d="M1,0H6A0,0,0,0,1,6,0V12a0,0,0,0,1,0,0H1a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0Z"/>
+  <rect class="cls-2" x="6" width="6" height="12"/>
+  <path class="cls-3" d="M12,0h5a1,1,0,0,1,1,1V11a1,1,0,0,1-1,1H12a0,0,0,0,1,0,0V0A0,0,0,0,1,12,0Z"/>
+</svg>
