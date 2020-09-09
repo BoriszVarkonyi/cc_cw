@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Technicians</title>
+    <link rel="stylesheet" href="../css/mainstyle.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="images/ico"/>
+</head>
+<body>
+    <header>
+        <div id="header_bar">
+            <p id="app_name">Competition Control</p>
+            <section id="menu_button_section">
+                <button type="button" onclick="toggle_nav_bar()" id="menu_button"></button>
+            </section>
+            <section class="settings_section">
+                <button class="hb_button" id="language_button" onclick="toggle_language_panel()"></button>
+                <button class="hb_button" id="colormode_button" onclick="toggle_colormode_panel()"></button>
+            </section>
+            <img src="https://thispersondoesnotexist.com/image" alt="profile picture" id="profile_picture">
+            <section class="identity_section">
+                <p id="username">Username</p>
+                <p id="role">Role</p>
+            </section>
+            <div id="language_panel" class="small_overlay_panel overlay_panel hidden" >
+                <button id="close_button" class="round_button" onclick="toggle_language_panel()">
+                    <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                    <button id="language_english" class="language_button">
+                        <img src="../assets/img/uk_flag.svg" alt="" class="language_icon">
+                        <p class="language_label">English</p>  
+                    </button>
+
+                    <button id="language_english" class="language_button">
+                        <img src="../assets/img/uk_flag.svg" alt="" class="language_icon">
+                        <p class="language_label">Russian</p>  
+                    </button>
+
+                    <button id="language_english" class="language_button">
+                        <img src="../assets/img/uk_flag.svg" alt="" class="language_icon">
+                        <p class="language_label">Chinese</p>  
+                    </button>
+
+                    <button id="language_english" class="language_button">
+                        <img src="../assets/img/uk_flag.svg" alt="" class="language_icon">
+                        <p class="language_label">Hungarian</p>  
+                    </button>
+                </button>
+            </div>
+            <div id="colormode_panel" class="small_overlay_panel overlay_panel hidden" >
+                <button id="close_button" class="round_button" onclick="toggle_colormode_panel()">
+                    <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                </button>
+
+
+
+
+                <form action="" id="colormode_form">
+                    <input type="range" min="1" max="3" value="1">
+                </form>
+
+
+
+            </div>
+        </div>
+    </header>
+    <div id="flexbox_container">
+        <div class="nav_bar_flex">
+            <div id="nav_bar" class="nav_bar">
+                <ul id="nav_bar_list">
+                    <li class="nav_bar_title">OVERVIEW</li>
+                    <li class="nav_bar_item"><a href="../php/dashboard.php" class="nav_bar_link"><img src="../assets/icons/home-black-18dp.svg" alt="" class="nav_bar_icon">Dashboard</a></li>
+                    <li class="nav_bar_title">CONTROLS</li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/table_view-black-18dp.svg" alt="" class="nav_bar_icon">Call Room</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/library_add_check-black-18dp.svg" alt="" class="nav_bar_icon">Weapon Control</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/login-black-18dp.svg" alt="" class="nav_bar_icon">Registration</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/assignment_turned_in-black-18dp.svg" alt="" class="nav_bar_icon">DT</a></li>
+                    <li class="nav_bar_title">SETUP</li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/people_alt-black-18dp.svg" alt="" class="nav_bar_icon">Fencers</a></li>
+                    <li class="nav_bar_item current_page"><a href="" class="nav_bar_link"><img src="../assets/icons/work-black-18dp.svg" alt="" class="nav_bar_icon">Technicians</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/info-black-18dp.svg" alt="" class="nav_bar_icon">Information</a></li>
+                    <li class="nav_bar_item"><a href="" class="nav_bar_link"><img src="../assets/icons/calendar_today-black-18dp.svg" alt="" class="nav_bar_icon">Timetable</a></li>
+                </ul>
+                <a href="" class="need_help nav_bar_item"><img src="../assets/icons/help-black-18dp.svg" alt="" class="nav_bar_icon">Need help?</a>
+            </div>
+        </div>
+        <div class="page_content_flex">
+            <div class="page_content_panel">
+                <div id="title_stripe">
+                    <section class="stripe_section">
+                        <p class="page_title">Technicians</p>
+                        <button class="stripe_button bold" onclick="toggle_add_technician()">
+                            <p class="stripe_button_text">Add Technicians</p>
+                            <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+                        </button>
+                    </section>
+                    <div id="add_technician_panel" class="big_overlay_panel overlay_panel hidden" >
+                        <button id="close_button" class="round_button" onclick="toggle_add_technician()">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        </button>
+                        <div class="form_wrapper_small">
+                            <label for="username" class="label_text">NAME</label></br>
+                            <input type="text" placeholder="Type the technician's name" id="username_input"><br>
+                            <label for="password"class="label_text">PASSWORD</label></br>
+                            <input type="password" placeholder="Type the technician's password" id="password_input"><br>
+                            <label for="" class="label_text">ROLE</label></br>
+                           <div class="option_container">
+                                <ul class="option_list">
+                                    <li class="option_list_item">
+                                        <input type="radio" class="option_button" name="role" id="a"/>
+                                        <label for="a" class="option_label">Semi</label>
+                                    </li>
+                                    <li class="list_item">
+                                        <input type="radio" class="option_button" name="role" id="b" />
+                                        <label for="b" class="option_label">DT</label>
+                                    </li>
+                                    <li class="list_item">
+                                        <input type="radio" class="option_button" name="role" id="c" />
+                                        <label for="c" class="option_label">Weapon Control</label>
+                                    </li>
+                                    <li class="list_item">
+                                        <input type="radio" class="option_button" name="role" id="d" />
+                                        <label for="d" class="option_label">Registration</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="submit" name="submit" form="add_technician_panel" class="submit_button">
+                                <span class="submit_button_text">Save</span>
+                            </button>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="page_content_panel_main">
+
+                    <div id="technicians_wrapper">
+                            <div id="no_technicians_panel">
+                                <p id="no_technicians_text">You have no technicians set up!</p>
+                            </div>
+                    <!--
+                        <div class="table_header">
+                            <div class="table_header_text">NAME</div>
+                            <div class="table_header_text">PASSWORD</div>
+                            <div class="table_header_text">ROLE</div>
+                            <div class="table_header_text">STATUS</div>
+                        </div>
+                    -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggle_nav_bar() {
+            var element = document.getElementById("nav_bar");
+            element.classList.toggle("closed");
+            var element = document.getElementById("app_name");
+            element.classList.toggle("closed");
+            var element = document.getElementById("menu_button_section");
+            element.classList.toggle("closed");
+            var element = document.getElementById("menu_button");
+            element.classList.toggle("closed");
+        }
+
+        function toggle_language_panel() {
+            var lang_panel = document.getElementById("language_panel");
+            var color_panel = document.getElementById("colormode_panel");
+
+            if (color_panel.classList.contains("hidden")) {
+                lang_panel.classList.toggle("hidden");
+            } else {
+                color_panel.classList.toggle("hidden");
+                lang_panel.classList.toggle("hidden");
+            }
+        }
+
+        function toggle_colormode_panel() {
+            var lang_panel = document.getElementById("language_panel");
+            var color_panel = document.getElementById("colormode_panel");
+
+            if (lang_panel.classList.contains("hidden")) {
+                color_panel.classList.toggle("hidden");
+            } else {
+                lang_panel.classList.toggle("hidden");
+                color_panel.classList.toggle("hidden");
+            }
+        }
+
+        function toggle_add_technician() {
+            var element = document.getElementById("add_technician_panel");
+            element.classList.toggle("hidden");
+        }
+
+
+
+        const current_theme = localStorage.getItem("theme");
+        const cs_light_switch = document.getElementById("cs_light");
+        const cs_highcontrast_switch = document.getElementById("cs_highcontrast");
+        const cs_dark_switch = document.getElementById("cs_dark");
+
+        if (current_theme) {
+            document.documentElement.setAttribute('data-theme', current_theme);
+
+            if (current_theme === 'light') {
+                cs_light_switch.checked = true;
+            }
+            if (current_theme === 'highcontrast') {
+                cs_highcontrast_switch.checked = true;
+            }
+            if (current_theme === 'dark') {
+                cs_dark_switch.checked = true;
+            }
+        }
+
+        function switch_to_light() {
+            document.documentElement.setAttribute("data-theme", "");
+            localStorage.setItem("theme", "");
+        }
+
+        function switch_to_highcontrast() {
+            document.documentElement.setAttribute("data-theme", "highcontrast");
+            localStorage.setItem("theme", "highcontrast");
+        }
+
+        function switch_to_dark() {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+        }
+
+    </script>
+
+
+</body>
+
+</html>
