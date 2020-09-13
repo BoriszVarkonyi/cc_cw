@@ -5,11 +5,11 @@
 
 <?php 
 
-$ranking_id = $_GET["rankid"]; 
+$ranking_id = $_GET["rank_id"]; 
 
 if(isset($_POST["create"])){
 
-$create_query = "CREATE TABLE `ccdatabase`.`rk_$ranking_id` ( id INT(11) NOT NULL AUTO_INCREMENT , name VARCHAR(255) NOT NULL , nationality VARCHAR(255) NOT NULL , position INT(11) NOT NULL , points INT(20) NOT NULL , dob DATE NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
+$create_query = "CREATE TABLE `ccdatabase`.'rk_$ranking_id' ( id INT(11) NOT NULL AUTO_INCREMENT , name VARCHAR(255) NOT NULL , nationality VARCHAR(255) NOT NULL , position INT(11) NOT NULL , points INT(20) NOT NULL , dob DATE NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
 $create_query_do = mysqli_query($connection, $create_query);
 
 header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");

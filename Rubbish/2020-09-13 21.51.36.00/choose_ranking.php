@@ -59,7 +59,7 @@ if(isset($_POST["submit"])){
     $update_id = "UPDATE competitions SET comp_ranking_id = $maxid WHERE comp_id = $comp_id";
     $update_id_do = mysqli_query($connection, $update_id);
 
-    header("Location: ranking.php?comp_id=$comp_id&rankid=$maxid");
+    header("Location: ranking.php?comp_id=$comp_id&rankid=$toranking");
 
 }
 

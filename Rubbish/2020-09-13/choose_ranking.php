@@ -11,14 +11,6 @@ $comp_org = $_COOKIE["org_id"];
 $assigned_to_ranking = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
 $assigned_to_ranking_do = mysqli_query($connection, $assigned_to_ranking);
 
-$to_get = "SELECT * FROM competitions WHERE comp_id = $comp_id";
-$to_get_do = mysqli_query($connection, $to_get);
-
-if($row = mysqli_fetch_assoc($to_get_do)){
-
-    $toranking = $row["comp_ranking_id"];
-}
-
 
 if(mysqli_num_rows($assigned_to_ranking_do) == 0){
 echo "NINCS HOZZÁRENDELVE";
@@ -26,7 +18,7 @@ echo "NINCS HOZZÁRENDELVE";
 elseif(mysqli_num_rows($assigned_to_ranking_do) == 1){
     echo "HOZZÁ VAN RENDELVE";
 
-    header("Location: ranking.php?comp_id=$comp_id&rankid=$toranking");
+    header("Location: ranking.php?comp_id=$comp_id");
 }
 
 
@@ -59,7 +51,7 @@ if(isset($_POST["submit"])){
     $update_id = "UPDATE competitions SET comp_ranking_id = $maxid WHERE comp_id = $comp_id";
     $update_id_do = mysqli_query($connection, $update_id);
 
-    header("Location: ranking.php?comp_id=$comp_id&rankid=$maxid");
+    header("Location: ranking.php?comp_id=$comp_id");
 
 }
 

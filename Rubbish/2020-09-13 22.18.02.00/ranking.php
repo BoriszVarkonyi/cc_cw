@@ -5,7 +5,7 @@
 
 <?php 
 
-$ranking_id = $_GET["rankid"]; 
+$ranking_id = $_GET["rank_id"]; 
 
 if(isset($_POST["create"])){
 
