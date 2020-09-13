@@ -104,12 +104,7 @@ function chooseRankingCreate() {
 }
 
 closeUploadPanelButton.addEventListener("mousedown", closeUploadRankingPanel);
-closeCreatePanelButton.addEventListener("mousedown", closeCreateRankingPanel);
 
 function closeUploadRankingPanel() {
     console.log("szia")
-}
-
-function closeCreateRankingPanel() {
-    console.log("cső")
 }

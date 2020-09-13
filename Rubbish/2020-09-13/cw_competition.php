@@ -85,7 +85,7 @@
                 <a href="cw_competitors.php">Competitors</a>
                 <a href="cw_pools.php">Pools</a>
                 <a href="cw_temporary_ranking.php">Temporary Ranking</a>
-                <a href="cw_call_room.php">Table</a>
+                <a href="">Table</a>
                 <a href="cw_final_results.php">Final Results</a>
 
                 <a href="">Watch Video / Watch Live</a>

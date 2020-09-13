@@ -332,6 +332,8 @@ img[src$=".svg"] {
 
 #logout_form {
 	margin: 0;
+	display: flex;
+	justify-content: center;
 }
 
 #logout_form > button {
@@ -2101,6 +2103,7 @@ div.desc_box > p:nth-child(2) {
 
 
 .close_ranking_button {
+	z-index: 10;
 	display: initial;
 	visibility: visible;
 	opacity: 1;

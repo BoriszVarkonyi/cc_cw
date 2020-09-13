@@ -693,6 +693,7 @@ input[type="number"].number_input.big {
 
 .entry.opened > .table_row > .table_item {
 	font-family: ProximaNovaBold;
+	font-size: clac;
 }
 
 .entry_panel.gray {
@@ -722,13 +723,5 @@ input[type="number"].number_input.big {
 	top: 5px;
 	font-size: var(--f-large);
 	font-family: ProximaNovaBold;
-}
-
-/* ///CALL_ROOM/// */
-
-#call_room {
-	flex-grow: 1;
-	margin: 0 50px;
-	background-color: var(--c-lightergray);
 }
 

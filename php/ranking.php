@@ -5,8 +5,14 @@
 
 <?php 
 
+$ranking_id = $_GET["rankid"]; 
+
 if(isset($_POST["create"])){
 
+$create_query = "CREATE TABLE `ccdatabase`.`rk_$ranking_id` ( id INT(11) NOT NULL AUTO_INCREMENT , name VARCHAR(255) NOT NULL , nationality VARCHAR(255) NOT NULL , position INT(11) NOT NULL , points INT(20) NOT NULL , dob DATE NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
+$create_query_do = mysqli_query($connection, $create_query);
+
+header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
 
 
 }
@@ -16,7 +22,7 @@ if(isset($_POST["undo"])){
 $query = "DELETE FROM `ranking` WHERE ass_comp_id = $comp_id";
 $query_do = mysqli_query($connection, $query);
 
-header("Location: choose_ranking.php?comp_id=$comp_id");
+header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
 
 }
 
@@ -35,9 +41,19 @@ header("Location: choose_ranking.php?comp_id=$comp_id");
 </head>
 <body>
 
+<?php 
 
+$query = "SELECT * 
+FROM `information_schema`.`tables`
+WHERE table_schema = 'ccdatabase' 
+    AND table_name = 'rk_$ranking_id'
+LIMIT 1;";
+$query_do = mysqli_query($connection, $query);
 
-    <div id="confirmation" class="hidden" autocomplete="off">
+if(mysqli_num_rows($query_do) == 0){
+?>
+
+<div id="confirmation" class="" autocomplete="off">
         <form id="create_ranking_form" action="" method="POST">
             <p>Are you sure you want to create a new ranking?</p>
             <div id="confirmation_button_section">
@@ -48,8 +64,11 @@ header("Location: choose_ranking.php?comp_id=$comp_id");
         </form>
     </div>
 
+<?php
+}
+?>
 
-
+    
 
 
 

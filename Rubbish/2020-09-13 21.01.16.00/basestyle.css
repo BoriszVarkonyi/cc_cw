@@ -693,6 +693,7 @@ input[type="number"].number_input.big {
 
 .entry.opened > .table_row > .table_item {
 	font-family: ProximaNovaBold;
+	font-size: clac;
 }
 
 .entry_panel.gray {
@@ -731,4 +732,5 @@ input[type="number"].number_input.big {
 	margin: 0 50px;
 	background-color: var(--c-lightergray);
 }
+
 

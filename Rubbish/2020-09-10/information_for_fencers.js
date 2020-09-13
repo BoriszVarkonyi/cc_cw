@@ -48,14 +48,16 @@ baloldal.addEventListener("keyup", event => {
 
     var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
 
+    
+
     if (ertek.value > 5) {
 
     ertek.value = 5;
 
     }
-    if (ertek.value < 0) {
+    if (ertek.value < 1) {
 
-        ertek.value = 0;
+        ertek.value = 1;
 
         }
   });
