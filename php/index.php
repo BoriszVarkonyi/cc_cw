@@ -25,7 +25,7 @@ checkComp($connection);
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-<!-- header -->
+<!-- header test 1 -->
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
