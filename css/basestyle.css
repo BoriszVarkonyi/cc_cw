@@ -828,6 +828,16 @@ input[type="number"].number_input.big {
 	transition: transform var(--t-basic);
 }
 
+.tableu_fencer.dna > .tableu_fencer_nat, .tableu_fencer.dna > .tableu_fencer_number {
+	visibility: hidden;
+}
+
+.tableu_fencer.dna > .tableu_fencer_name {
+	font-family: ProximaNovaBold;
+	color: var(--c-red);
+	text-transform: uppercase;
+}
+
 .tableu_fencer_number {
 	width: 40px;
 	background-color: var(--c-green);
@@ -870,18 +880,17 @@ input[type="number"].number_input.big {
 	left: calc(100% - 30px);	
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
 	padding: 20px 30px 20px 50px;
 	opacity: 0;
 	transition: opacity var(--t-basic);
 }
-
 
 .round_information > p {
 	color: var(--c-white);
 	font-size: var(--f-small);
 	font-family: ProximaNovaBold;
 	white-space: nowrap;
+	padding: 1px 0;
 }
 
 .tableu_round:hover > .round_information {

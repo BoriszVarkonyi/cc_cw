@@ -385,7 +385,7 @@ input[value="Search"] {
 }
 
 #cw_main_full {
-	padding: 100px 50px 50px 50px;
+	padding: 100px 75px 75px 75px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
