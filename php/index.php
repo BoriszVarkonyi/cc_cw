@@ -25,13 +25,20 @@ checkComp($connection);
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
+<<<<<<< HEAD
 <!-- header test 1 -->
+=======
+<!-- header -->
+>>>>>>> 207ac21dbaef1b78f16779cad932c69e3380732f
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
             <div class="page_content_panel">
+<<<<<<< HEAD
                 <!-- Competition Name nav bar -->
+=======
+>>>>>>> 207ac21dbaef1b78f16779cad932c69e3380732f
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
@@ -52,10 +59,17 @@ checkComp($connection);
                         </div>
                         <div class="half_width_flex">
                             <div class="db_panel">
+<<<<<<< HEAD
 
                                 <!-- competition status -->
                                 <?php include "../php/comp_status.php"; ?>
 
+=======
+                                <div class="db_panel_title_stripe">
+                                    <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
+                                    <p>Competition's status</p>
+                                </div>
+>>>>>>> 207ac21dbaef1b78f16779cad932c69e3380732f
                                 <div class="db_panel_main">
                                     <div id="sheduled_to_do_list">
                                         <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="../assets/icons/close-black-18dp.svg" alt=""></a>

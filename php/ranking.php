@@ -159,13 +159,20 @@ if(mysqli_num_rows($query_do) == 0){
                             <div class="table_header_text">NATIONALITY</div>
                             <div class="table_header_text">DATE OF BIRTH</div>
                         </div>
+<<<<<<< HEAD
                         <?php/*
                     
                     $query = "SELECT * FROM fencers_$comp_org WHERE competition = $comp_id";
+=======
+                        <?php
+                    
+                    $query = "SELECT * FROM rk_$ranking_id ORDER BY points DESC";
+>>>>>>> 207ac21dbaef1b78f16779cad932c69e3380732f
                     $query_do = mysqli_query($connection, $query);
 
                     while($row = mysqli_fetch_assoc($query_do)){
 
+<<<<<<< HEAD
                     $position = $row["position"];
                     $name = $row["name"];
                     $nationality = $row["nationality"];?>
@@ -180,6 +187,25 @@ if(mysqli_num_rows($query_do) == 0){
                         </div>
 
                    <?php*/ } ?> 
+=======
+                    $name = $row["name"];
+                    $nat = $row["nationality"];
+                    $pos = $row["position"];
+                    $points = $row["points"];
+                    $dob = $row["dob"];
+                    ?>
+
+
+                        <div class="table_row">
+                            <div class="table_item"> <input type="number" name="" id="" value="<?php echo $pos ?>"> </div>
+                            <div class="table_item"><?php echo $points ?></div>
+                            <div class="table_item"><?php echo $name ?></div>
+                            <div class="table_item"><?php echo $nat ?></div>
+                            <div class="table_item"><?php echo $dob ?></div>
+                        </div>
+
+                   <?php } ?> 
+>>>>>>> 207ac21dbaef1b78f16779cad932c69e3380732f
                     </div>
                 </div>
             </div>
