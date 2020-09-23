@@ -695,20 +695,20 @@ input[type="number"].number_input.big {
 	font-family: ProximaNovaBold;
 }
 
-.entry_panel.gray {
+.entry_panel {
+	width: 100%;
 	height: 40vh;
 	max-height: 500px;
 	background-color: var(--c-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	transition: height 0.3s ease-out;
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-.entry_panel.gray {
-	background-color: var(--c-lightergray);
 }
 
 .entry_panel.collapsed {
