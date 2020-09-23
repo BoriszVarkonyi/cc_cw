@@ -861,11 +861,31 @@ input[type="number"].number_input.big {
 	height: 100%;
 }
 
-#round_information {
-	background-color: var(--c-black);
-	width: 200px;
-	height: 150px;
+.round_information {
+	clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%);
+	background-color: rgba(37, 37, 37, 0.8);
+	border-radius: 10px;
+	z-index: 3;
 	position: absolute;
+	left: calc(100% - 30px);	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	padding: 20px 30px 20px 50px;
+	opacity: 0;
+	transition: opacity var(--t-basic);
+}
+
+
+.round_information > p {
+	color: var(--c-white);
+	font-size: var(--f-small);
+	font-family: ProximaNovaBold;
+	white-space: nowrap;
+}
+
+.tableu_round:hover > .round_information {
+	opacity: 1;
 }
 
 

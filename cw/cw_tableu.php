@@ -26,14 +26,17 @@
         </form>
 
         <div id="call_room" class="">
-            <!--
-            <div id="round_information">
             
-            </div>
-            -->
             <div id="e_1" class="elimination first visible">
                 <div class="elimination_label">Table of __</div>
                 <div class="tableu_round" onclick="location.href='cw_round_live.php'">
+                    <div class="round_information">
+                        <p>Ref: {Referee's Name}</p>
+                        <p>20 / 12 / 2020 15:20</p>
+                        <p>Piste No.: 5</p>
+                        <p>Ref: {Referee's Name}</p>
+                    </div>
+                    
                     <div class="tableu_fencer">
                         <div class="tableu_fencer_number">
                         25
