@@ -31,6 +31,7 @@ checkComp($connection);
         <!-- navbar -->
         <div class="page_content_flex">
             <div class="page_content_panel">
+                <!-- Competition Name nav bar -->
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
@@ -51,10 +52,10 @@ checkComp($connection);
                         </div>
                         <div class="half_width_flex">
                             <div class="db_panel">
-                                <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
-                                    <p>Competition's status</p>
-                                </div>
+
+                                <!-- competition status -->
+                                <?php include "../php/comp_status.php"; ?>
+
                                 <div class="db_panel_main">
                                     <div id="sheduled_to_do_list">
                                         <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
