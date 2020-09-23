@@ -55,27 +55,8 @@ checkComp($connection);
 
                                 <!-- competition status -->
                                 <?php include "../php/comp_status.php"; ?>
-
-                                <div class="db_panel_main">
-                                    <div id="sheduled_to_do_list">
-                                        <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                        <ul id="general_to_do" class="sheduled_to_do_sublist">
-                                            <li>Basic Information<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Information for fencers<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Timetable<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Invitations<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                        </ul>
-                                        <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                        <ul id="technical_to_do" class="sheduled_to_do_sublist">
-                                            <li>Technicians<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Referees<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Pistes<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Formula<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                        </ul>
-                                        <a>Ranking<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                        <a>Pre-entries<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                    </div>
-                                </div>
+                                <!-- competiton status table (kis tábla amin xek meg pipák vannak) -->
+                                <?php include "../php/comp_status_table.php" ?>
                             </div>
                         </div>
                         <div class="half_width_flex">
