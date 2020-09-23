@@ -10,7 +10,7 @@
     $t_pistes = TICK;
     $t_formula = TICK;
     $pre_entries = TICK;
-
+    
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connection, $query);
         

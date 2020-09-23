@@ -11,5 +11,5 @@
 
 <div class="db_panel_title_stripe">
     <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
-    <p>Competition's status:</p><p><?php echo statusConverter($comp_status) ?></p>
+    <p>Competition's status:</p><p class="dp_comp_status"><?php echo statusConverter($comp_status) ?></p>
 </div>

@@ -26,14 +26,17 @@
         </form>
 
         <div id="call_room" class="">
-            <!--
-            <div id="round_information">
             
-            </div>
-            -->
             <div id="e_1" class="elimination first visible">
                 <div class="elimination_label">Table of __</div>
                 <div class="tableu_round" onclick="location.href='cw_round_live.php'">
+                    <div class="round_information">
+                        <p>Ref: {Referee's Name}</p>
+                        <p>20 / 12 / 2020 15:20</p>
+                        <p>Piste No.: 5</p>
+                        <p>Ref: {Referee's Name}</p>
+                    </div>
+                    
                     <div class="tableu_fencer">
                         <div class="tableu_fencer_number">
                         25
@@ -87,14 +90,14 @@
                     
                 </div>
                 <div class="tableu_round">
-                    <div class="tableu_fencer">
-                        <div class="tableu_fencer_number">
+                    <div class="tableu_fencer dna">
+                        <div class="tableu_fencer_number"> <!-- Not visible if dna-->
                         25
                         </div>
-                        <div class="tableu_fencer_name">
-                            Szia Enber
+                        <div class="tableu_fencer_name"> <!-- Has to be rewritten to dna-->
+                            DDA
                         </div>
-                        <div class="tableu_fencer_nat">
+                        <div class="tableu_fencer_nat"> <!-- Not visible if dna-->
                             NAT
                             <img src="../assets/icons/english.svg" alt="">
                         </div>
@@ -424,6 +427,12 @@
                 <div class="elimination_label">Table of __</div>
 
                 <div class="tableu_round">
+                    <div class="round_information">
+                        <p>Ref: {Referee's Name}</p>
+                        <p>20 / 12 / 2020 15:20</p>
+                        <p>Piste No.: 5</p>
+                        <p>Ref: {Referee's Name}</p>
+                    </div>
                     <div class="tableu_fencer">
                         <div class="tableu_fencer_number">
                         25

@@ -1340,6 +1340,12 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	font-size: var(--f-medium);
 }
 
+.dp_comp_status {
+	margin-left: auto;
+	padding-right: 10px;
+	font-family: ProximaNovaBold;
+}
+
 .db_panel_stripe_icon {
 	padding: 0 5px 0 10px;
 	width: 20px;
@@ -1496,7 +1502,6 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 #other_apps.opened > #other_apps_dropdown > a:hover {
 	font-family: ProximaNovaBold;
 }
-
 
 /* ///TECHNICIANS ELEMENTS/// */
 

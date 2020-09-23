@@ -159,27 +159,30 @@ if(mysqli_num_rows($query_do) == 0){
                             <div class="table_header_text">NATIONALITY</div>
                             <div class="table_header_text">DATE OF BIRTH</div>
                         </div>
-                        <?php/*
+                        <?php
                     
-                    $query = "SELECT * FROM fencers_$comp_org WHERE competition = $comp_id";
+                    $query = "SELECT * FROM rk_$ranking_id ORDER BY points DESC";
                     $query_do = mysqli_query($connection, $query);
 
                     while($row = mysqli_fetch_assoc($query_do)){
 
-                    $position = $row["position"];
                     $name = $row["name"];
-                    $nationality = $row["nationality"];?>
+                    $nat = $row["nationality"];
+                    $pos = $row["position"];
+                    $points = $row["points"];
+                    $dob = $row["dob"];
+                    ?>
 
 
                         <div class="table_row">
-                            <div class="table_item"> <input type="number" name="" id="" value="<?php echo $position ?>"> </div>
-                            <div class="table_item"></div>
+                            <div class="table_item"><?php echo $pos ?>"></div>
+                            <div class="table_item"><?php echo $points ?></div>
                             <div class="table_item"><?php echo $name ?></div>
-                            <div class="table_item"><?php echo $nationality ?></div>
-                            <div class="table_item"></div>
+                            <div class="table_item"><?php echo $nat ?></div>
+                            <div class="table_item"><?php echo $dob ?></div>
                         </div>
 
-                   <?php*/ } ?> 
+                   <?php } ?> 
                     </div>
                 </div>
             </div>

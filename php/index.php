@@ -25,13 +25,12 @@ checkComp($connection);
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-<!-- header test 1 -->
+<!-- header -->
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
             <div class="page_content_panel">
-                <!-- Competition Name nav bar -->
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
@@ -52,11 +51,41 @@ checkComp($connection);
                         </div>
                         <div class="half_width_flex">
                             <div class="db_panel">
+<<<<<<< HEAD
 
                                 <!-- competition status -->
                                 <?php include "../php/comp_status.php"; ?>
+<<<<<<< HEAD
                                 <!-- competiton status table (kis tábla amin xek meg pipák vannak) -->
                                 <?php include "../php/comp_status_table.php" ?>
+=======
+
+=======
+                                <div class="db_panel_title_stripe">
+                                    <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
+                                    <p>Competition's status</p>
+                                </div>
+                                <div class="db_panel_main">
+                                    <div id="sheduled_to_do_list">
+                                        <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
+                                        <ul id="general_to_do" class="sheduled_to_do_sublist">
+                                            <li>Basic Information<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                            <li>Information for fencers<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                            <li>Timetable<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                            <li>Invitations<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                        </ul>
+                                        <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
+                                        <ul id="technical_to_do" class="sheduled_to_do_sublist">
+                                            <li>Technicians<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                            <li>Referees<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                            <li>Pistes<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                            <li>Formula<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
+                                        </ul>
+                                        <a>Ranking<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
+                                        <a>Pre-entries<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
+                                    </div>
+                                </div>
+>>>>>>> 430cf28e02bf177c01e106774dc2da090e6a9cad
                             </div>
                         </div>
                         <div class="half_width_flex">
