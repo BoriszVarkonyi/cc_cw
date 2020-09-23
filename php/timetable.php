@@ -282,6 +282,7 @@ if($query_do){
                         </div>
                         <div id="timetable_container">
                             <div id="timetable_header">
+
                                 <div>Monday</div>
                                 <div>Tuesday</div>
                                 <div>Wednesday</div>
@@ -289,6 +290,7 @@ if($query_do){
                                 <div>Friday</div>
                                 <div>Saturday</div>
                                 <div>Sunday</div>
+                                
                             </div>
                             <div id="timetable">
                                 <?php
