@@ -727,8 +727,145 @@ input[type="number"].number_input.big {
 /* ///CALL_ROOM/// */
 
 #call_room {
-	flex-grow: 1;
 	margin: 0 50px;
 	background-color: var(--c-lightergray);
+	display: flex;
+	position: relative;
 }
+
+.elimination {
+	flex-grow: 1;
+	background-color: var(--c-lightestgray);
+	display: none;
+}
+
+.elimination:nth-child(even) {
+	background-color: var(--c-lightergray);
+}
+
+.elimination_label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--f-large);
+	font-family: ProximaNovaBold;
+	margin: 10px 0;
+}
+
+.elimination.visible {
+	display: flex;
+	flex-direction: column;
+}
+
+.elimination.first {
+	/* background-color: red; */
+}
+
+.elimination.first > .tableu_round {
+	height: 100px;
+}
+
+.tableu_round {
+	height: 200px;
+	padding: 0px 30px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: center;
+	cursor: pointer;
+	transition: height var(--t-basic);
+}
+
+.tableu_round:hover > .tableu_fencer {
+	transform: scale(1.02);
+	transition: transform var(--t-basic);
+}
+
+.tableu_round:before, .tableu_round:after {
+	background-color: var(--c-gray);
+	z-index: 2;
+	content: "";
+	position: absolute;
+}
+
+.tableu_round:before {
+	width: 100%;
+	height: 2px;
+	right: 0;
+	top: calc(50% - 1px);
+}
+
+.tableu_round:after {
+	width: 2px;
+	height: 50%;
+	right: -1px;
+	top: calc(50% - 1px);
+}
+
+.elimination > .tableu_round:nth-child(2n+3):after {
+	width: 2px;
+	height: 50%;
+	right: -1px;
+	top: 0;
+}
+
+.elimination:first-of-type > .tableu_round:before {
+	width: 95%;
+}
+
+.elimination:last-of-type > .tableu_round:after {
+	display: none;
+}
+
+.tableu_fencer {
+	align-self: stretch;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--c-white);
+	transition: transform var(--t-basic);
+}
+
+.tableu_fencer_number {
+	width: 40px;
+	background-color: var(--c-green);
+	font-family: ProximaNovaBold;
+	justify-content: center;
+}
+
+.tableu_fencer_name {
+	flex-grow: 5;
+	font-family: ProximaNova;
+	justify-content: center;
+}
+
+.tableu_fencer_nat {
+	flex-basis: 65px;
+	justify-content: space-evenly;
+	background-color: var(--c-lightergray);
+}
+
+.elimination:nth-child(even) > .tableu_round > .tableu_fencer > .tableu_fencer_nat {
+	background-color: var(--c-lightestgray);
+}
+
+.tableu_fencer_nat > img {
+	max-height: var(--f-smaller);
+}
+
+.tableu_fencer > div {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+#round_information {
+	background-color: var(--c-black);
+	width: 200px;
+	height: 150px;
+	position: absolute;
+}
+
 

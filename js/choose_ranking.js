@@ -17,32 +17,15 @@ function toggleUploadRankingPanel() {
     rankingSearch.classList.add("closed");
 
     uploadPanel.ontransitionend = () => {
-        placeCloseButtonU();
+        
     };
 
-    if (uploadPanel.hasAttribute("onclick")) {
-        uploadPanel.removeAttribute("onclick")
-        console.log("kinyitom");
-        closeUploadPanelButton.classList.remove("hidden");
+    uploadPanel.removeAttribute("onclick")
+    closeUploadPanelButton.classList.remove("hidden");
+    uploadPanelForm.classList.toggle("hidden");
+    chooseRankingWrapper.style.flexDirection = "row";
+    uploadPanelTitle.innerHTML = "";
 
-        uploadPanelForm.classList.toggle("hidden");
-
-        chooseRankingWrapper.style.flexDirection = "row";
-
-        uploadPanelTitle.innerHTML = "";
-
-
-    } else {
-        console.log("bezárom");
-        uploadPanel.setAttribute("onclick", "toggleUploadRankingPanel()");
-        closeUploadPanelButton.classList.add("hidden");
-        uploadPanelForm.classList.toggle("hidden");
-
-        chooseRankingWrapper.style.flexDirection = "row";
-
-        uploadPanelTitle.innerHTML = "";
-        uploadPanelTitle.innerHTML = "Upload Ranking";
-    }
 }
 
 // expands and minimizes the Create Panel
@@ -54,45 +37,13 @@ function toggleCreateRankingPanel() {
     rankingCreate.classList.add("closed");
 
     createPanel.ontransitionend = () => {
-        placeCloseButtonC();
+      
     };
 
-    if (createPanel.hasAttribute("onclick")) {
-        createPanel.removeAttribute("onclick")
-        console.log("van");
-        closeCreatePanelButton.classList.remove("hidden");
+    createPanel.removeAttribute("onclick")
+    closeCreatePanelButton.classList.remove("hidden");
+    chooseRankingWrapper.style.flexDirection = "row-reverse";
 
-        chooseRankingWrapper.style.flexDirection = "row-reverse";
-
-    } else {
-        console.log("nincs");
-        createPanel.setAttribute("onclick", "toggleCreateRankingPanel()");
-        closeCreatePanelButton.classList.add("hidden");
-
-        chooseRankingWrapper.style.flexDirection = "row";
-    }
-}
-
-// places the Close button for the Upload Panel
-function placeCloseButtonU() {
-    
-    const  uploadPanelPos = uploadPanel.getBoundingClientRect();
-    var upr = uploadPanelPos.right - 50;
-    var upt = uploadPanelPos.top - 40;
-
-    closeUploadPanelButton.style.left = upr;
-    closeUploadPanelButton.style.top = upt;
-}
-
-// places the Close button for the Create Panel
-function placeCloseButtonC() {
-    
-    const  createPanelPos = createPanel.getBoundingClientRect();
-    var upr = createPanelPos.right - 50;
-    var upt = createPanelPos.top - 40;
-
-    closeCreatePanelButton.style.left = upr;
-    closeCreatePanelButton.style.top = upt;
 }
 
 function chooseRankingSearch() {
@@ -107,9 +58,15 @@ closeUploadPanelButton.addEventListener("mousedown", closeUploadRankingPanel);
 closeCreatePanelButton.addEventListener("mousedown", closeCreateRankingPanel);
 
 function closeUploadRankingPanel() {
-    console.log("szia")
+    uploadPanel.classList.toggle("opened");
+    createPanel.classList.toggle("closed");
+
+    closeUploadPanelButton.classList.toggle("hidden");
 }
 
 function closeCreateRankingPanel() {
-    console.log("cső")
+    uploadPanel.classList.toggle("closed");
+    createPanel.classList.toggle("opened");
+
+    closeCreatePanelButton.classList.toggle("hidden")
 }
