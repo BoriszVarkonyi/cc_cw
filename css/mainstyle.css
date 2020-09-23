@@ -2074,6 +2074,7 @@ input:focus::placeholder {
 	opacity: 1;
 	transition: opacity var(--t-basic);
 	box-shadow: var(--s-black);
+	position: relative;
 }
 
 #choose_ranking_wrapper > div > div {
@@ -2101,7 +2102,6 @@ div.desc_box > p:nth-child(2) {
 	padding-left: 20px;
 }
 
-
 .close_ranking_button {
 	z-index: 10;
 	display: initial;
@@ -2110,16 +2110,22 @@ div.desc_box > p:nth-child(2) {
 	transition: opacity var(--t-basic);
 	transition-delay: .2s;
 	position: absolute;
+	top: 10px;
+	right: 10px;
 	align-self: flex-end;
 	height: 50px;
 	width: 50px;
 	border: 0;
 	border-radius: 50%;
-	background-size: 60% 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: var(--c-transparent);
-	background-image: url("../assets/icons/close-black-18dp.svg"), linear-gradient(to right, var(--c-transparent), var(--c-transparent));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+}
+
+.close_ranking_button > img {
+	height: 30px;
+	width: 30px;
 }
 
 .close_ranking_button.hidden {

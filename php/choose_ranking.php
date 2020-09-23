@@ -88,12 +88,18 @@ if(isset($_POST["submit"])){
                 </div>
                 <div id="page_content_panel_main">
 
-                <button class="close_ranking_button hidden" onclick="toggleUploadRankingPanel()" id="close_upload_ranking_panel"></button>
-                <button class="close_ranking_button hidden" onclick="toggleCreateRankingPanel()" id="close_create_ranking_panel"></button>
+                
+            
 
 
                     <div id="choose_ranking_wrapper">
+
+
                         <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()">
+
+                            <button class="close_ranking_button hidden" id="close_upload_ranking_panel">
+                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                            </button>
                             <div class="desc_box">
                                 <p>Use existing Ranking</p>
                                 <p>You can choose a ranking from our database.</p>
@@ -174,6 +180,9 @@ if(isset($_POST["submit"])){
                         </div>
                     
                         <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
+                        <button class="close_ranking_button hidden" id="close_create_ranking_panel">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="">
+                        </button>
                             <div class="desc_box">
                                 <p>Create Ranking</p>
                                 <p>You can create your own ranking that you can download and use later.</p>
