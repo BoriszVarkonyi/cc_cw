@@ -95,6 +95,10 @@ if(mysqli_num_rows($query_do) == 0){
                 </div>
                 <div id="page_content_panel_main">
 
+                    <div id="no_something_panel">
+                        <p>You have no fencers set up!</p>
+                    </div>
+
                     <div id="add_fencer_panel" class="big_overlay_panel overlay_panel hidden">
                             <button id="close_button" class="round_button" onclick="toggleAddFencer()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
@@ -150,7 +154,7 @@ if(mysqli_num_rows($query_do) == 0){
                             </button>
                         </div>
                     </div>
-
+                    
                     <div id="ranking_wrapper">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
