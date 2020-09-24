@@ -1,5 +1,6 @@
 <?php
 
+//connecting and testing databse connections
 $connection = mysqli_connect("localhost","root","","ccdatabase");
 
 if (!$connection) {

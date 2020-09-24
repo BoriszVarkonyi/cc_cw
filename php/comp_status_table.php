@@ -6,10 +6,10 @@
     define("CROSS", "../assets/icons/close-black-18dp.svg");
 
     //még nincsenek
-    $g_invitations = TICK;
-    $t_pistes = TICK;
-    $t_formula = TICK;
-    $pre_entries = TICK;
+    $g_invitations = CROSS;
+    $t_pistes = CROSS;
+    $t_formula = CROSS;
+    $pre_entries = CROSS;
     
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connection, $query);

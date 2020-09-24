@@ -13,7 +13,7 @@ checkComp($connection);
     
     }
 ?>
-
+<!-- ez miert nincs headerburgerben? -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +25,17 @@ checkComp($connection);
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
+
 <!-- header -->
     <div id="flexbox_container">
+
+        <!-- left navigation bar -->
         <?php include "../includes/navbar.php"; ?>
-        <!-- navbar -->
+        
         <div class="page_content_flex">
             <div class="page_content_panel">
+
+                <!-- dashboard header -->  
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
@@ -40,23 +45,36 @@ checkComp($connection);
                         <p class="stripe_button_text">Publish Competition</p>
                         <img class="stripe_button_icon" src="../assets/icons/send-black-18dp.svg"></img>
                     </button>
+
                 </div>
+
+                
+                <!-- dashboard body -->  
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
+
+                        <!-- blank panel top-->
                         <div class="full_width_flex">
                             <div class="db_panel">
                                 <div onclick="location.href='https://www.example.com'">
+                                    <p>blank top panel</p>
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- competition status -->
                         <div class="half_width_flex">
                             <div class="db_panel">
-                                <!-- competition status -->
+                                
+                                <!-- competition status panel header -->
                                 <?php include "../php/comp_status.php"; ?>
-                                <!-- competiton status table (kis tábla amin xek meg pipák vannak) -->
+                                <!-- competiton status table -->
                                 <?php include "../php/comp_status_table.php" ?>
                             </div>
                         </div>
+
+                        <!-- chat panel -->
                         <div class="half_width_flex">
                             <div class="db_panel">
                                 <div class="db_panel_title_stripe">
@@ -65,6 +83,7 @@ checkComp($connection);
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
