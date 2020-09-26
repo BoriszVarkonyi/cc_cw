@@ -44,10 +44,10 @@ tofocus.focus();
 
 var baloldal = document.getElementById("needed_equipment_panel");
 
-baloldal.addEventListener("keyup", event => {
+baloldal.addEventListener("keydown", event => {
 
     var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
-    if (ertek.value > 5) {
+    if (ertek.value >5) {
 
     ertek.value = 5;
 
