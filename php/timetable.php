@@ -254,8 +254,8 @@ if($query_do){
                                     <div class="table_header_text">ENDING TIME</div>
                                 </div>
                                 <div class="table_row" id="table_row_1">
-                                    <div class="table_item" id="start_1"> <input type="time" class="number_input big" name="wc_period_start_1"> </div>
-                                    <div class="table_item" id="end_1"> <input type="time" class="number_input big" name="wc_period_end_1"> </div>
+                                    <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p class="wc_time">:00</p></div>
+                                    <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p class="wc_time">:00</p></div>
                                   <!-- <button type="button" onclick="" class="close_add_peroid">
                                         <img src="../assets/icons/close-black-18dp.svg" alt="">
                                     </button> -->

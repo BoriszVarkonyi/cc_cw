@@ -657,6 +657,16 @@ input[type="number"].number_input.big {
 	max-width: 80%;
 }
 
+input[type="number"].wc_time {
+	text-align: right;
+	margin: 0;
+	font-size: var(--f-small);
+}
+
+p.wc_time {
+	font-size: var(--f-small);
+}
+
 .back_button {
 	margin-left: 40px;
 	height: 35px;
