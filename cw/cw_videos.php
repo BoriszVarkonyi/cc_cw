@@ -19,7 +19,8 @@
         <div id="videos_wrapper">
             <div id="latest_videos_panel_full">
                 <p class="cw_panel_subtitle">Latest Videos</p>
-
+                
+                <!-- latest video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -28,6 +29,7 @@
                     </div>
                 </div>
 
+                <!-- latest video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -36,6 +38,7 @@
                     </div>
                 </div>
 
+                <!-- latest video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -44,6 +47,7 @@
                     </div>
                 </div>
 
+                <!-- latest video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -52,6 +56,7 @@
                     </div>
                 </div>
 
+                <!-- latest video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -64,6 +69,7 @@
             <div id="top_videos_panel_full">
                 <p class="cw_panel_subtitle">Top Videos</p>
 
+                <!-- top video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -72,6 +78,7 @@
                     </div>
                 </div>
 
+                <!-- top video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -80,6 +87,7 @@
                     </div>
                 </div>
 
+                <!-- top video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -88,6 +96,7 @@
                     </div>
                 </div>
 
+                <!-- top video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
@@ -96,6 +105,7 @@
                     </div>
                 </div>
 
+                <!-- top video placeholder -->
                 <div class="video_wrapper">
                     <img src="../assets/img/fencers_bg.svg" alt="">
                     <div>
