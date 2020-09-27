@@ -73,7 +73,7 @@ header("Location: ../index.php");
     <div id="header_bar">
         
         <!-- header title left -->
-        <p id="app_name">Competition Control</p>
+        <p id="app_name">Competition Control Alpha</p>
         
         <!-- colormode and language buttons -->
         <section class="settings_section">

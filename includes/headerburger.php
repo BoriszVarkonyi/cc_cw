@@ -69,7 +69,7 @@ header("Location: ../index.php");
 
 <header>
     <div id="header_bar">
-        <p id="app_name">Competition Control</p>
+        <p id="app_name">Competition Control Alpha</p>
 
         <!-- hamburger tab for navbar left -->
         <section id="menu_button_section">

@@ -75,10 +75,15 @@ newstart.setAttribute("id", "start_" + periods);
 document.getElementById("table_row_" + periods).appendChild(newstart);
 
 var startinput = document.createElement("INPUT");
-startinput.setAttribute("type", "time");
-startinput.setAttribute("class", "number_input_big");
+startinput.setAttribute("type", "number");
+startinput.setAttribute("class", "wc_time");
 startinput.setAttribute("name", "wc_period_start_" + periods);
 document.getElementById("start_" + periods).appendChild(startinput);
+
+var starttext = document.createElement("P");
+starttext.setAttribute("class", "cw_time");
+starttext.innerHTML(":00");
+
 
 
 var newend = document.createElement("DIV");
@@ -87,8 +92,8 @@ newend.setAttribute("id", "end_" + periods);
 document.getElementById("table_row_" + periods).appendChild(newend);
 
 var endinput = document.createElement("INPUT");
-endinput.setAttribute("type", "time");
-endinput.setAttribute("class", "number_input_big");
+endinput.setAttribute("type", "number");
+endinput.setAttribute("class", "wc_time");
 endinput.setAttribute("name", "wc_period_end_" + periods);
 document.getElementById("end_" + periods).appendChild(endinput);
 
