@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
+
+    <!-- slideshow top -->
     <div id="slideshow">
         <div id="slide_nav">
             <button class="active" id="first_button" onclick="toggleFirst()"></button>
@@ -18,24 +20,28 @@
             <button id="third_button" onclick="toggleThird()"></button>
             <button id="fourth_button" onclick="toggleForth()"></button>
         </div>
+        <!-- slide1 -->
         <div class="slide">
             <p>Check Competitions</p>
             <button>Competitions</button>
             <img src="../assets/img/fencers_bg.svg" alt="">
         </div>
 
+        <!-- slide2 -->
         <div class="slide">
             <p>Check Results</p>
             <button>Finished Competitions</button>
             <img src="../assets/img/fencers_bg.svg" alt="">
         </div>
 
+        <!-- slide3 -->
         <div class="slide">
             <p>Watch Competitions Live</p>
             <button>Ongoing Competitions</button>
             <img src="../assets/img/fencers_bg.svg" alt="">
         </div>
-
+        
+        <!-- slide4 -->
         <div class="slide">
             <p>Watch Videos</p>
             <button>Videos</button>
@@ -43,7 +49,11 @@
         </div>
     </div>
 
+
+
     <div id="cw_main">
+
+        <!-- ongoing competitions panel (left) (placeholder)  -->
         <div id="ongoing_competitions_panel">
             <p class="cw_panel_title">Ongoing Competitions</p>
             <div class="cw_table_wrapper">
@@ -89,6 +99,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- latest videos (right) (placeholder)  -->
         <div id="latest_videos_panel">
             <p class="cw_panel_title">Latest Videos</p>
 

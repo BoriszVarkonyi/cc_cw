@@ -193,35 +193,23 @@ function closeConf() {
 
 
 //patrik timetable weapon controls /10min maxnak 25-öt adtam nem tudom mennyi kell
-var wp = document.getElementById("wc_input");
-document.getElementById("wc_input").maxLength = "2";
-wp.addEventListener("keydown", event => {
+
+var baloldal = document.getElementById("wc_input");
+baloldal.addEventListener("keydown", event => {
 
     var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
-    if (ertek.value > 25) {
+    if (ertek.value >25) {
 
     ertek.value = 25;
 
     }
-    if (ertek.value < 0) {
+    if (ertek.value < 1) {
 
         ertek.value = "";
 
     }
-    if (ertek.value <10){
-    }
-    var alerted = localStorage.getItem('alerted') || '';
-    if (alerted != 'yes') 
-    {
-         alert("Are you sure you want to add more than 10?");
-         localStorage.setItem('alerted','yes')
-    }
-    if (ertek.maxLength>2){
-        ertek.value=""
-    }
   });
-
-  function isNumberKey(evt)//Csak számok írhatók be az inputba 0-25 között, írásjelek nem.
+  function isNumberKey(evt)//Csak számok írhatók be az inputba 0-5 között, írásjelek nem.
       {
          var inp =document.getElementById("wc_input") (evt.which) ? evt.which : event.keyCode
     
@@ -230,29 +218,21 @@ wp.addEventListener("keydown", event => {
          return false;
 
          return true;
-      }
+      };
 
+var igen = document.getElementById("table_row_1");
 
-
-      var egy = document.getElementsByName("wc_period_start_1");
-      document.addEventListener("keydown", igen);
-      document.addEventListener("click", igen);
-        function igen(){
-          var kettovege = egy.substring (2,4) ;//11:00
-          
-          var input = document.activeElement; //table_input
+      igen.addEventListener("keydown", event => {
       
-      console.log(kettovege);
-         
-        if (egy= Math.max(1)) {    
+          var ja = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
+          if (ja.value >24) {
       
-          input.value = "0";
+          ja.value = 24;
+      
           }
-          {
-        
-        if (kettovege>0);{
-              kettovege.value=0;}
+          if (ja.value < 1) {
+      
+              ja.value = "";
+      
           }
-        
-        };
-    
+        });

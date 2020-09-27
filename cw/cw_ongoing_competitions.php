@@ -1,4 +1,5 @@
 <?php include "cw_header.php"; ?>
+<?php $statusofpage = 2; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,8 @@
         <form id="browsing_bar">
             <input type="submit" value="Search">
         </form>
-
+        
+        <!-- buttons menu -->
         <div id="competition_color_legend">
             <button id="registration_lengend" value="Registration Finished"></button>
             <p>Registration Finished</p>
@@ -27,96 +29,8 @@
         </div>
 
         <div class="cw_table_wrapper competitions">
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-                <div class="table_item live">
-                    <a href="">Live</a>
-                </div>
-                <div class="small_status_item blue"></div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-                <div class="table_item live">
-                    <a href="">Live</a>
-                </div>
-                <div class="small_status_item blue"></div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-                <div class="table_item live">
-                    <a href="">Live</a>
-                </div>
-                <div class="small_status_item yellow"></div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-                <div class="table_item live">
-                    <a href="">Live</a>
-                </div>
-                <div class="small_status_item purple"></div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-                <div class="table_item live">
-                    <a href="">Live</a>
-                </div>
-                <div class="small_status_item yellow"></div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-                <div class="table_item live">
-                    <a href="">Live</a>
-                </div>
-                <div class="small_status_item blue"></div>
-            </div>
+            <!-- comps display scheduled -->
+            <?php include "../cw/comps_display.php" ?>
         </div>
     </div>
 <?php include "cw_footer.php"; ?>

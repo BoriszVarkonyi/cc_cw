@@ -1,4 +1,5 @@
 <?php include "cw_header.php"; ?>
+<?php $statusofpage = 1; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +15,12 @@
     <div id="cw_main_full">
         <p class="cw_panel_title">SHEDULED COMPETITIONS</p>
         <form id="browsing_bar">
+
+            <!-- search by name box -->
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
             <input type="search" name="" id="" placeholder="Search by name">
 
+            <!-- year drop-down -->
             <div class="select_input">
                 <button type="button" onclick="toggleYearSelect()">
                     <p>-Year-</p>
@@ -32,6 +36,7 @@
                 </div>
             </div>
 
+            <!-- sex drop-down -->
             <div class="select_input">
                 <button type="button" onclick="toggleSexSelect()">
                     <p>-Sex-</p>
@@ -43,6 +48,8 @@
                 </div>
             </div>
 
+            
+            <!-- weapon type drop-down -->
             <div class="select_input">
                 <button type="button" onclick="toggleWTSelect()">
                     <p>-Weapon Type-</p>
@@ -59,72 +66,9 @@
         </form>
 
         <div class="cw_table_wrapper competitions">
-            <div class="table_row" onclick="window.location.href='cw_competition.php'">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row" onclick="window.location.href='cw_competition.php'">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
+
+            <!-- comps display scheduled -->
+            <?php include "../cw/comps_display.php" ?>
         </div>
     </div>
 <?php include "cw_footer.php"; ?>
