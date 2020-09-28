@@ -1792,19 +1792,32 @@ input:focus::placeholder {
 #plus_info_wrapper > .entry > .table_row > .table_item {
 	font-family: ProximaNovaBold;
 	justify-content: flex-start;
-	padding: 0 10px;
+	padding: 0 15px;
 }
 
 .entry_panel > textarea {
+	padding: 5px;
 	width: 80%;
 	height: 70%;
 	font-family: ProximaNova;
 	font-size: var(--f--medium);
+	background-color: transparent;
+	border: 2px dashed var(--c-gray);
+	transition: background-color var(--t-basic), border var(--t-basic);
+}
+
+.entry_panel > textarea:hover, .entry_panel > textarea:focus {
 	background-color: var(--c-white);
+	border: 2px dashed var(--c-orange);
+	transition: background-color var(--t-basic), border var(--t-basic);
 }
 
 #add_entry {
 	width: 100%;
+}
+
+#add_entry.hidden {
+	display: none;
 }
 
 #add_entry > button {
@@ -1817,6 +1830,20 @@ input:focus::placeholder {
 	margin-bottom: 75px;
 	min-width: 100%;
 	background-color: var(--c-lightestgray);
+}
+
+#adding_entry > .table_row > .table_item {
+	min-width: 100%;
+	background-color: var(--c-lightestgray);
+	justify-content: flex-start;
+	padding: 0 15px;
+}
+
+
+#adding_entry > .table_row > .table_item > input {
+	margin: 0;
+	padding-left: 0;
+	border: none;
 }
 
 

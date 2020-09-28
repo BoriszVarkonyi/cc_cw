@@ -112,28 +112,6 @@
                                         </div>
                                     </div>
 
-                                    
-                                    <div class="entry" id="">
-                                        <div class="table_row" onclick="toggleEntry(this)">
-                                            <div class="table_item invitation">Hungarian Fencing Federation</div>
-                                        </div>
-                                        <div class="entry_panel collapsed">
-                                            <textarea name="" id=""></textarea>
-                                            <input type="text" class="hidden">
-                                        </div>
-                                    </div>
-
-                                    
-                                    <div class="entry" id="">
-                                        <div class="table_row" onclick="toggleEntry(this)">
-                                            <div class="table_item invitation">Hungarian Fencing Federation</div>
-                                        </div>
-                                        <div class="entry_panel collapsed">
-                                            <textarea name="" id=""></textarea>
-                                            <input type="text" class="hidden">
-                                        </div>
-                                    </div>
-
                                     <div id="add_entry">
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
@@ -142,6 +120,14 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <form id="adding_entry">
+                                        <div class="table_row" onclick="">
+                                            <div class="table_item">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
