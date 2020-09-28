@@ -8,3 +8,20 @@ function toggleEntry(x) {
     entryPanel.classList.toggle("collapsed");
 
 }
+
+//patrik
+
+
+
+
+//Pre-entries -> Manage Entries -> approve all buttons
+
+
+function selectAll(){
+
+    var cb = document.getElementsByClassName("approved_status_item");
+    for(var i=0; i<cb.length; i++){
+        if(cb[i].type=="button")
+            items[i].checked=true;
+    }
+}

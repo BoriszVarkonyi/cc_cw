@@ -192,47 +192,47 @@ function closeConf() {
 
 
 
-//patrik timetable weapon controls / maxnak 5 van adva
+//patrik timetable weapon controls / max is 5
 
 var baloldal = document.getElementById("wc_input");
 baloldal.addEventListener("keyup", event => {
 
-    var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
+    var ertek = document.activeElement; //Max value five for wc_input
     if (ertek.value >5) {
 
-    ertek.value = 5;
+    ertek.value = 5;//if it is bigger than 5, returns to 5
 
     }
     if (ertek.value < 1) {
 
-        ertek.value = "";
+        ertek.value = "";//if it smaller than 1, returns to an empty space (won't storage capacity in the database)
 
     }
   });
-  function isNumberKey(evt)//Csak számok írhatók be az inputba 0-5 között, írásjelek nem.
+  function isNumberKey(evt)//You can olny write numbers as inputs 
       {
          var inp =document.getElementById("wc_input") (evt.which) ? evt.which : event.keyCode
     
-         if (inp > 0 && (inp <= 5  || inp > 0))
+         if (inp > 0 && (inp <= 5  || inp > 0)) //inupt can't be higher than 5
     
          return false;
 
          return true;
       };
 
-var igen = document.getElementById("table_row_1");
+var tr1 = document.getElementById("table_row_1");
 
-      igen.addEventListener("keyup", event => {
+      tr1.addEventListener("keyup", event => {
       
-          var ja = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
-          if (ja.value >24) {
+          var inupt = document.activeElement; // Max value 24 (hours) for table_row_1
+          if (inupt.value >24) {
       
-          ja.value = 24;
+          inupt.value = 24; //if it is bigger than 24, returns to 24
       
           }
-          if (ja.value < 1) {
+          if (inupt.value < 1) {
       
-              ja.value = "";
+              inupt.value = ""; //if it smaller than 1, returns to an empty space (won't storage capacity in the database)
       
           }
         });
