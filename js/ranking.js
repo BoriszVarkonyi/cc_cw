@@ -18,10 +18,6 @@ function toggleAddFencer() {
 
     addFencerPanel.classList.toggle("hidden");
 
-<<<<<<< HEAD
 }
 
 //igen ez egy változtatás
-=======
-}
->>>>>>> 207ac21dbaef1b78f16779cad932c69e3380732f

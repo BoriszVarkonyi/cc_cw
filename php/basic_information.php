@@ -45,6 +45,7 @@ $query_do = mysqli_query($connection, $query);
                         <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
+
                 <div id="page_content_panel_main">
                     <div id="basic_information_wrapper">
                         <form action="" id="basic_information_form" method="POST">

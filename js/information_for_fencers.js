@@ -47,16 +47,25 @@ var baloldal = document.getElementById("needed_equipment_panel");
 baloldal.addEventListener("keyup", event => {
 
     var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
-
-    if (ertek.value > 5) {
+    if (ertek.value >5) {
 
     ertek.value = 5;
 
     }
-    if (ertek.value < 0) {
+    if (ertek.value < 1) {
 
-        ertek.value = 0;
+        ertek.value = "";
 
-        }
+    }
   });
+  function isNumberKey(evt)//Csak számok írhatók be az inputba 0-5 között, írásjelek nem.
+      {
+         var inp =document.getElementById("needed_equipment_panel") (evt.which) ? evt.which : event.keyCode
+    
+         if (inp > 0 && (inp <= 5  || inp > 0))
+    
+         return false;
 
+         return true;
+      }
+    

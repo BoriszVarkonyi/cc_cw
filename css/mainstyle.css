@@ -438,27 +438,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	background: var(--c-gray);
 }
 
-
-/* Number input */
-
-input[type="number"] {
-	width: 40px;
-	background-color: transparent;
-	font-family: ProximaNova;
-	font-size: var(--f-small);
-	margin-right: -35px;
-}
-
-input[type="number"]:focus {
-	font-family: ProximaNovaBold;
-}
-
-
-input[type=number]::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	display: none;
-}
-
 /* Navigation */
 
 #nav_bar {
@@ -2573,12 +2552,10 @@ div.icon_box > img {
 }
 
 .approve_fencers_wrapper {
-	width: 75%;
-	height: 85%;
+	width: 80%;
 	overflow-y: auto;
 	overflow-x: hidden;
-	margin: 0;
-	margin-right: 10px;
+	margin: 30px 0;
 }
 
 .approve_fencers_wrapper > .table_header {
@@ -2623,11 +2600,13 @@ div.icon_box > img {
 	font-size: var(--f-small);
 }
 
-input[type="time"] {
+input.wc_time {
 	background-color: transparent;
 	color: var(--c-input);
 	font-family: ProximaNova;
-	font-size: var(--f-small);
+	font-size: var(--f--medium);
+	margin: 0;
+	padding: 0;
 }
 
 /* Confirmation */

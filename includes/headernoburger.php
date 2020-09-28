@@ -71,7 +71,11 @@ header("Location: ../index.php");
 
 <header>
     <div id="header_bar">
-        <p id="app_name">Competition Control</p>
+        
+        <!-- header title left -->
+        <p id="app_name">Competition Control Alpha</p>
+        
+        <!-- colormode and language buttons -->
         <section class="settings_section">
             <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
                 <img src="../assets/icons/language-black-18dp.svg" alt="">
@@ -80,6 +84,8 @@ header("Location: ../index.php");
                 <img src="../assets/icons/color_lens-black-18dp.svg" alt="">
             </button>
         </section>
+
+        <!-- language select drop-down -->
         <div id="language_panel" class="small_overlay_panel hidden">
             <div class="close_button_wrapper">
                 <button id="close_lang_button" class="round_button" onclick="toggle_language_panel()">
@@ -117,6 +123,8 @@ header("Location: ../index.php");
                 </button>
             </div>
         </div>
+
+        <!-- colormode select drop-down -->
         <div id="colormode_panel" class="small_overlay_panel hidden">
             <button id="close_button" class="round_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
@@ -128,11 +136,17 @@ header("Location: ../index.php");
                 <p>Dark</p>
             </section>
         </div>
+        
+        <!-- profile pic -->
         <img src="https://thispersondoesnotexist.com/image" alt="profile picture" id="profile_picture" onclick="toggle_profile_panel()">
+        
+        <!-- profile data -->
         <section class="identity_section">
             <p id="username"><?php echo $name; ?></p>
             <p id="role"><?php echo $role; ?></p>
         </section>
+
+        <!-- profile panel drop-down -->
         <div id="profile_panel" class="small_overlay_panel hidden">
             <button id="close_button" class="round_button" onclick="toggle_profile_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">

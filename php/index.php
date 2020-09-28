@@ -13,7 +13,7 @@ checkComp($connection);
     
     }
 ?>
-
+<!-- ez miert nincs headerburgerben? -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +27,14 @@ checkComp($connection);
 <body>
 <!-- header -->
     <div id="flexbox_container">
+
+        <!-- left navigation bar -->
         <?php include "../includes/navbar.php"; ?>
-        <!-- navbar -->
+        
         <div class="page_content_flex">
             <div class="page_content_panel">
+
+                <!-- dashboard header -->  
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
@@ -40,43 +44,36 @@ checkComp($connection);
                         <p class="stripe_button_text">Publish Competition</p>
                         <img class="stripe_button_icon" src="../assets/icons/send-black-18dp.svg"></img>
                     </button>
+
                 </div>
+
+                
+                <!-- dashboard body -->  
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
+
+                        <!-- blank panel top-->
                         <div class="full_width_flex">
                             <div class="db_panel">
                                 <div onclick="location.href='https://www.example.com'">
+                                    <p>blank top panel</p>
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- competition status -->
                         <div class="half_width_flex">
                             <div class="db_panel">
-
-                                <!-- competition status -->
+                                
+                                <!-- competition status panel header -->
                                 <?php include "../php/comp_status.php"; ?>
-
-                                <div class="db_panel_main">
-                                    <div id="sheduled_to_do_list">
-                                        <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                        <ul id="general_to_do" class="sheduled_to_do_sublist">
-                                            <li>Basic Information<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Information for fencers<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Timetable<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Invitations<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                        </ul>
-                                        <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                        <ul id="technical_to_do" class="sheduled_to_do_sublist">
-                                            <li>Technicians<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Referees<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Pistes<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                            <li>Formula<img src="../assets/icons/close-black-18dp.svg" alt=""></li>
-                                        </ul>
-                                        <a>Ranking<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                        <a>Pre-entries<img src="../assets/icons/close-black-18dp.svg" alt=""></a>
-                                    </div>
-                                </div>
+                                <!-- competiton status table -->
+                                <?php include "../php/comp_status_table.php" ?>
                             </div>
                         </div>
+
+                        <!-- chat panel -->
                         <div class="half_width_flex">
                             <div class="db_panel">
                                 <div class="db_panel_title_stripe">
@@ -85,6 +82,7 @@ checkComp($connection);
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

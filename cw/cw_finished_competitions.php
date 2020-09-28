@@ -1,4 +1,5 @@
 <?php include "cw_header.php"; ?>
+<?php $statusofpage = 3; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,72 +19,8 @@
         </form>
 
         <div class="cw_table_wrapper competitions">
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    Landesmeisterschaft Mecklenburg-Vorpommern
-                </div>
-                <div class="table_item">
-                    22 / 08 / 2020 - 30 / 08 / 2020
-                </div>
-                <div class="table_item">
-                    Hungary
-                </div>
-            </div>
+            <!-- comps display scheduled -->
+            <?php include "../cw/comps_display.php" ?>
         </div>
     </div>
 <?php include "cw_footer.php"; ?>

@@ -49,7 +49,7 @@ function roleConverter($rolein) {
     
     return $roleout;
     
-    }
+}
 
 
 function checkComp($connectionin){

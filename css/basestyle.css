@@ -450,8 +450,7 @@ input[value="Create Ranking"].disabled {
 }
 
 .select_input > div {
-	height: 50vh;
-	max-height: 225px;
+	max-height: 40vh;
 	position: absolute;
 	top: calc( var(--f-medium) + 18px );
 	background-color: var(--c-white);
@@ -469,6 +468,15 @@ input[value="Create Ranking"].disabled {
 	font-size: var(--f-medium);
 	background-color: var(--c-white);
 	width: 100%;
+	padding: 5px 0;
+}
+
+.select_input > div > button:first-of-type {
+	margin-top: 15px;
+}
+
+.select_input > div > button:last-of-type {
+	margin-bottom: 15px;
 }
 
 .select_input > div > button:hover {
@@ -649,6 +657,16 @@ input[type="number"].number_input.big {
 	max-width: 80%;
 }
 
+input[type="number"].wc_time {
+	text-align: right;
+	margin: 0;
+	font-size: var(--f-small);
+}
+
+p.wc_time {
+	font-size: var(--f-small);
+}
+
 .back_button {
 	margin-left: 40px;
 	height: 35px;
@@ -695,20 +713,20 @@ input[type="number"].number_input.big {
 	font-family: ProximaNovaBold;
 }
 
-.entry_panel.gray {
+.entry_panel {
+	width: 100%;
 	height: 40vh;
 	max-height: 500px;
 	background-color: var(--c-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	transition: height 0.3s ease-out;
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-.entry_panel.gray {
-	background-color: var(--c-lightergray);
 }
 
 .entry_panel.collapsed {
@@ -896,5 +914,4 @@ input[type="number"].number_input.big {
 .tableu_round:hover > .round_information {
 	opacity: 1;
 }
-
 
