@@ -192,15 +192,15 @@ function closeConf() {
 
 
 
-//patrik timetable weapon controls /10min maxnak 25-öt adtam nem tudom mennyi kell
+//patrik timetable weapon controls / maxnak 5 van adva
 
 var baloldal = document.getElementById("wc_input");
-baloldal.addEventListener("keydown", event => {
+baloldal.addEventListener("keyup", event => {
 
     var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
-    if (ertek.value >25) {
+    if (ertek.value >5) {
 
-    ertek.value = 25;
+    ertek.value = 5;
 
     }
     if (ertek.value < 1) {
@@ -213,7 +213,7 @@ baloldal.addEventListener("keydown", event => {
       {
          var inp =document.getElementById("wc_input") (evt.which) ? evt.which : event.keyCode
     
-         if (inp > 0 && (inp <= 25  || inp > 0))
+         if (inp > 0 && (inp <= 5  || inp > 0))
     
          return false;
 
@@ -222,7 +222,7 @@ baloldal.addEventListener("keydown", event => {
 
 var igen = document.getElementById("table_row_1");
 
-      igen.addEventListener("keydown", event => {
+      igen.addEventListener("keyup", event => {
       
           var ja = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
           if (ja.value >24) {
