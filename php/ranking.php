@@ -80,11 +80,14 @@ if(mysqli_num_rows($query_do) == 0){
             <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
+
                     <button class="stripe_button first_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
                         <p class="stripe_button_text">Ranking Information</p>
                         <img class="stripe_button_icon" src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange red" type="submit" form="needed_equimpment_wrapper">
+
+                <form id="delete_ranking"></form>
+                    <button class="stripe_button orange red" type="submit" form="delete_ranking">
                         <p class="stripe_button_text">Delete Ranking</p>
                         <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
@@ -92,6 +95,7 @@ if(mysqli_num_rows($query_do) == 0){
                         <p class="stripe_button_text">Add fencer</p>
                         <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
+
                 </div>
                 <div id="page_content_panel_main">
 
@@ -99,20 +103,22 @@ if(mysqli_num_rows($query_do) == 0){
                         <p>You have no fencers set up!</p>
                     </div>
 
+                    <!-- add fencers -->
                     <div id="add_fencer_panel" class="big_overlay_panel overlay_panel hidden">
-                            <button id="close_button" class="round_button" onclick="toggleAddFencer()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
-                            </button>
-                            <div class="form_wrapper_small">
-                            <form action="" method="" id="new_fencer" autocomplete="off">
+
+                        <button id="close_button" class="round_button" onclick="toggleAddFencer()">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        </button>
+
+
+                        <!-- add fencers drop-down -->
+                        <div class="form_wrapper_small">
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off">
                                 <label for="fencers_name" class="label_text">NAME</label></br>
                                 <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name"><br>
 
                                 <label for="fencers_nationality" class="label_text">NATIONALITY</label></br>
-                                <input type="search" name="fencers_nationality" id="" placeholder="idk">
-                    
-                                <label for="fencers_position" class="label_text">POSITION</label></br>
-                                <input type="number" placeholder="-" class="number_input extra_small" name="fencer_position"><br>
+                                <input type="search" name="fencers_nationality" id="username_input" placeholder="Type the fencers's nationality">
 
                                 <label for="fencers_points" class="label_text">POINTS</label></br>
                                 <input type="number" placeholder="-" class="number_input extra_small" name="fencer_points"><br>
@@ -123,7 +129,51 @@ if(mysqli_num_rows($query_do) == 0){
                             </form>
                         </div>
                     </div>
+                    <?php
 
+                        //jelenlegi tábla neve 
+                        $table_name = "rk_" . $ranking_id;
+
+                        //utolso letrehozott sor lekerese
+                        $query_get_last_row = "SELECT * FROM $table_name  ORDER BY id DESC LIMIT 1;";
+                        $result = mysqli_query($connection, $query_get_last_row);
+
+                        if($row = mysqli_fetch_assoc($result)){
+                            
+                            $last_row_fencer_name = $row["name"];
+                            $last_row_fencer_nationality = $row["nationality"];
+                            $last_row_fencer_points = $row["points"];
+                            $last_row_fencer_dob = $row["dob"];
+                        }
+                        
+
+                        //POSTbol infokat insert eljuk a db be es testeljuk nem e akarnak felvenni egy meglevo embert
+                        if (isset($_POST['submit'])) {
+
+                            $fencer_name = $_POST['fencer_name'];
+                            $fencers_nationality = $_POST['fencers_nationality'];
+                            $fencer_points = $_POST['fencer_points'];
+                            $fencer_dob = $_POST['fencer_dob'];
+
+                            $query_insert_data = "INSERT INTO $table_name (name, nationality, points, dob) VALUES ('$fencer_name', '$fencers_nationality', '$fencer_points', '$fencer_dob')";
+
+                            if ($last_row_fencer_name != $fencer_name && $last_row_fencer_dob != $fencer_dob) {
+
+                                if ($connection->query($query_insert_data) === TRUE) {
+                                    $insert_feedback = "New record created successfully";
+
+                                } else {
+                                    $insert_feedback = "Error: " . $query_insert_data . "<br>" . $connection->error;
+                                }
+
+                            }
+                            else {
+
+                                $insert_feedback = "You allready added this fencer!";
+
+                            }
+                        }
+                    ?>
                     <div id="ranking_info_panel" class="thin_overlay_panel overlay_panel hidden">
                         <button id="close_button" class="round_button" onclick="toggleRankingInfo()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
@@ -184,9 +234,11 @@ if(mysqli_num_rows($query_do) == 0){
                             <div class="table_item"><?php echo $name ?></div>
                             <div class="table_item"><?php echo $nat ?></div>
                             <div class="table_item"><?php echo $dob ?></div>
-                        </div>
 
-                   <?php } ?> 
+                        </div>
+                    
+                   <?php }
+                   ?> 
                     </div>
                 </div>
             </div>
