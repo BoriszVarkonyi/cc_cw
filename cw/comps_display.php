@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
         <div class="table_item">
             <p><?php echo $comp_host; ?></p>
         </div>
-        </div>
+    </div>
 
 <?php } ?>
     

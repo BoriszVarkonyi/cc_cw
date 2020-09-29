@@ -1,7 +1,7 @@
 <header id="cw_header">
     <a href="competition_view.php">CompetitionView</a>
     <div>
-        <a href="saved_competitions.php">Saved Competitions</a>
+        <a href="cw_saved_competitions.php">Saved Competitions</a>
         <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
             <img src="../assets/icons/language-black-18dp.svg" alt="">
         </button>
