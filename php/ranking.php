@@ -6,6 +6,14 @@
 <?php 
 
 $ranking_id = $_GET["rankid"]; 
+$drop_row_feedback = "";
+$drop_table_feedback = "";
+$insert_feedback = "";
+$last_row_fencer_dob = NULL;
+$last_row_fencer_name = NULL;
+//jelenlegi tábla neve 
+$table_name = "rk_" . $ranking_id;
+
 
 if(isset($_POST["create"])){
 
@@ -81,16 +89,45 @@ if(mysqli_num_rows($query_do) == 0){
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
 
-                    <button class="stripe_button first_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
+                    <button class="stripe_button first_stripe_item" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
                         <p class="stripe_button_text">Ranking Information</p>
                         <img class="stripe_button_icon" src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
-
-                <form id="delete_ranking"></form>
-                    <button class="stripe_button orange red" type="submit" form="delete_ranking">
+                
+                <!-- delete ranking button -->
+                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking">
+                </form>
+                    <button class="stripe_button orange red" type="submit" name="drop_table" form="delete_ranking">
                         <p class="stripe_button_text">Delete Ranking</p>
                         <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
+                
+                    <?php
+
+                        if (isset($_POST['drop_table'])) {
+
+                            //queryes
+                            $drop_table = "DROP TABLE $table_name";
+                            $drop_row = "DELETE FROM ranking WHERE id = '$ranking_id'";
+                            
+                            //drop table feedback
+                            if (mysqli_query($connection, $drop_table)) {
+                                $drop_table_feedback = $table_name . " has been dropped!";
+                            } else {
+                                $drop_table_feedback = $mysqli_error($connection) . " :You had a problem with the TABLE dropping!";
+                            }
+
+                            //drop row feedback
+                            if (mysqli_query($connection, $drop_row)) {
+                                $drop_row_feedback = $table_name . " has been dropped!";
+                            } else {
+                                $drop_row_feedback = $mysqli_error($connection) . " :You had a problem with the ROW dropping!";
+                            }
+
+                            header("Location: http://localhost/php/choose_ranking.php?comp_id=52");
+                        }  
+                    ?>
+                
                     <button class="stripe_button last_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
                         <p class="stripe_button_text">Add fencer</p>
                         <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
@@ -131,8 +168,15 @@ if(mysqli_num_rows($query_do) == 0){
                     </div>
                     <?php
 
-                        //jelenlegi tábla neve 
-                        $table_name = "rk_" . $ranking_id;
+                        $chck_for_rows = "SELECT * FROM $table_name";
+
+                        if ($result = mysqli_query($connection, $chck_for_rows)) {
+
+                            /* determine number of rows result set */
+                            $row_cnt = mysqli_num_rows($result);
+                        }
+                        
+                        echo $drop_row_feedback . $drop_table_feedback;
 
                         //utolso letrehozott sor lekerese
                         $query_get_last_row = "SELECT * FROM $table_name  ORDER BY id DESC LIMIT 1;";
@@ -157,9 +201,9 @@ if(mysqli_num_rows($query_do) == 0){
 
                             $query_insert_data = "INSERT INTO $table_name (name, nationality, points, dob) VALUES ('$fencer_name', '$fencers_nationality', '$fencer_points', '$fencer_dob')";
 
-                            if ($last_row_fencer_name != $fencer_name && $last_row_fencer_dob != $fencer_dob) {
-
-                                if ($connection->query($query_insert_data) === TRUE) {
+                            if ($last_row_fencer_name != $fencer_name && $last_row_fencer_dob != $fencer_dob || $row_cnt == 0) {
+                                
+                                if (mysqli_query($connection, $query_insert_data)) {
                                     $insert_feedback = "New record created successfully";
 
                                 } else {
