@@ -29,7 +29,7 @@ elseif(mysqli_num_rows($assigned_to_ranking_do) == 1){
     header("Location: ranking.php?comp_id=$comp_id&rankid=$toranking");
 }
 
-
+//new ranking létrehozás
 if(isset($_POST["submit"])){
 
     $name = $_POST["ranking_name"];
@@ -44,6 +44,7 @@ if(isset($_POST["submit"])){
         echo "HIBA";
 
     }
+
 
     $get_id = "SELECT MAX(id) FROM ranking";
     $get_id_do = mysqli_query($connection, $get_id);
@@ -60,6 +61,7 @@ if(isset($_POST["submit"])){
     $update_id_do = mysqli_query($connection, $update_id);
 
     header("Location: ranking.php?comp_id=$comp_id&rankid=$maxid");
+
 
 }
 
@@ -111,55 +113,31 @@ if(isset($_POST["submit"])){
                                     <input type="button" name="" id="" value="Search">
                                 </form>
                                 <div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Név</div>
-                                    </div>
-                                </div>
+                                    <?php
+
+                                        $select_ranking_rows = "SELECT * FROM ranking";
+                                        $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
+
+                                        while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
+                                            
+                                            $ranking_name = $row['name'];
+
+                                    ?>
+
+
+                                            <div class="table_row">
+                                                <div class="table_item"><?php echo $ranking_name ?></div>
+                                            </div>
+
+                                    <?php } ?>
+
+
+
+
+
+
+
+                                </div> <!--From * SELECT table name LIKE sadsadas -->
                                 <form action="">
                                     <input type="text" class="hidden"> <!-- IF storing the seleted ranking in text form-->
                                     <input type="submit" value="Use Ranking">
@@ -180,9 +158,9 @@ if(isset($_POST["submit"])){
                         </div>
                     
                         <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
-                        <button class="close_ranking_button hidden" id="close_create_ranking_panel">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="">
-                        </button>
+                            <button class="close_ranking_button hidden" id="close_create_ranking_panel">
+                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                            </button>
                             <div class="desc_box">
                                 <p>Create Ranking</p>
                                 <p>You can create your own ranking that you can download and use later.</p>

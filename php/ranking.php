@@ -107,6 +107,7 @@ if(mysqli_num_rows($query_do) == 0){
                         if (isset($_POST['drop_table'])) {
 
                             //queryes
+                            $change_comp_rank_id = "UPDATE competitions SET comp_ranking_id = 0";
                             $drop_table = "DROP TABLE $table_name";
                             $drop_row = "DELETE FROM ranking WHERE id = '$ranking_id'";
                             
@@ -114,14 +115,21 @@ if(mysqli_num_rows($query_do) == 0){
                             if (mysqli_query($connection, $drop_table)) {
                                 $drop_table_feedback = $table_name . " has been dropped!";
                             } else {
-                                $drop_table_feedback = $mysqli_error($connection) . " :You had a problem with the TABLE dropping!";
+                                $drop_table_feedback = mysqli_error($connection) . " :You had a problem with the TABLE dropping!";
                             }
 
                             //drop row feedback
                             if (mysqli_query($connection, $drop_row)) {
                                 $drop_row_feedback = $table_name . " has been dropped!";
                             } else {
-                                $drop_row_feedback = $mysqli_error($connection) . " :You had a problem with the ROW dropping!";
+                                $drop_row_feedback = mysqli_error($connection) . " :You had a problem with the ROW dropping!";
+                            }
+
+                            //change comp_ranking_id in comp to 0 back
+                            if (mysqli_query($connection, $change_comp_rank_id)) {
+                                $rank_id_change_feedback = "comp_rank_id has been changed has been changed!";
+                            } else {
+                                $rank_id_change_feedback = mysqli_error($connection) . " :You had a problem with changing rank id in compteititons table!";
                             }
 
                             header("Location: http://localhost/php/choose_ranking.php?comp_id=52");
@@ -259,21 +267,32 @@ if(mysqli_num_rows($query_do) == 0){
                         </div>
                         <?php
                     
-                    $query = "SELECT * FROM rk_$ranking_id ORDER BY points DESC";
+                    $query = "SELECT * FROM $table_name ORDER BY points DESC";
                     $query_do = mysqli_query($connection, $query);
+                    $pos = 1;
 
-                    while($row = mysqli_fetch_assoc($query_do)){
+                while($row = mysqli_fetch_assoc($query_do)){
+                    
 
+                    $id = $row['id'];
                     $name = $row["name"];
                     $nat = $row["nationality"];
-                    $pos = $row["position"];
                     $points = $row["points"];
                     $dob = $row["dob"];
+
+                    $query_pos = "UPDATE $table_name SET positions = '$pos' WHERE id = '$id'";
+
+                    if (mysqli_query($connection, $query_pos)) {
+                        $drop_table_feedback = "position has been changed in" . $table_name;
+                    } else {
+                        $drop_table_feedback = mysqli_error($connection) . " :You had a problem position changing!";
+                    }
+
                     ?>
 
 
                         <div class="table_row">
-                            <div class="table_item"><?php echo $pos ?>"></div>
+                            <div class="table_item"><?php echo $pos ?></div>
                             <div class="table_item"><?php echo $points ?></div>
                             <div class="table_item"><?php echo $name ?></div>
                             <div class="table_item"><?php echo $nat ?></div>
@@ -281,7 +300,10 @@ if(mysqli_num_rows($query_do) == 0){
 
                         </div>
                     
-                   <?php }
+                   <?php 
+
+                   $pos += $pos;
+                }
                    ?> 
                     </div>
                 </div>
