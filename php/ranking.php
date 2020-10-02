@@ -186,7 +186,7 @@ if(mysqli_num_rows($query_do) == 0){
                         
                         echo $drop_row_feedback . $drop_table_feedback;
 
-                        //utolso letrehozott sor lekerese
+                        //getting last row of $table_name
                         $query_get_last_row = "SELECT * FROM $table_name  ORDER BY id DESC LIMIT 1;";
                         $result = mysqli_query($connection, $query_get_last_row);
 
@@ -199,7 +199,7 @@ if(mysqli_num_rows($query_do) == 0){
                         }
                         
 
-                        //POSTbol infokat insert eljuk a db be es testeljuk nem e akarnak felvenni egy meglevo embert
+                        //testing for duplicate lines & insertin new fencer to DB
                         if (isset($_POST['submit'])) {
 
                             $fencer_name = $_POST['fencer_name'];
@@ -226,14 +226,16 @@ if(mysqli_num_rows($query_do) == 0){
                             }
                         }
                     ?>
+
+                    <!-- ranking info button -->
                     <div id="ranking_info_panel" class="thin_overlay_panel overlay_panel hidden">
                         <button id="close_button" class="round_button" onclick="toggleRankingInfo()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
 
-
-                        <?php
                         
+                        <?php
+                        //ranking info hidden box
                         $get_ranking_info = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
                         $get_ranking_info_do = mysqli_query($connection, $get_ranking_info);
                         
@@ -270,9 +272,9 @@ if(mysqli_num_rows($query_do) == 0){
                     $query = "SELECT * FROM $table_name ORDER BY points DESC";
                     $query_do = mysqli_query($connection, $query);
                     $pos = 1;
-
-                while($row = mysqli_fetch_assoc($query_do)){
-                    
+                
+                // fencers dinamic table
+                while($row = mysqli_fetch_assoc($query_do)) {
 
                     $id = $row['id'];
                     $name = $row["name"];
@@ -280,18 +282,21 @@ if(mysqli_num_rows($query_do) == 0){
                     $points = $row["points"];
                     $dob = $row["dob"];
 
-                    $query_pos = "UPDATE $table_name SET positions = '$pos' WHERE id = '$id'";
+
+                    //postion changing in database and dinamic table
+                    $query_pos = "UPDATE $table_name SET position = $pos WHERE id = $id";
 
                     if (mysqli_query($connection, $query_pos)) {
-                        $drop_table_feedback = "position has been changed in" . $table_name;
+                        $pos_feedback = "position has been changed in" . $table_name;
                     } else {
-                        $drop_table_feedback = mysqli_error($connection) . " :You had a problem position changing!";
+                        $pos_feedback = mysqli_error($connection);
                     }
 
                     ?>
 
 
                         <div class="table_row">
+
                             <div class="table_item"><?php echo $pos ?></div>
                             <div class="table_item"><?php echo $points ?></div>
                             <div class="table_item"><?php echo $name ?></div>
@@ -299,10 +304,10 @@ if(mysqli_num_rows($query_do) == 0){
                             <div class="table_item"><?php echo $dob ?></div>
 
                         </div>
-                    
+                                            
                    <?php 
 
-                   $pos += $pos;
+                   $pos += 1;
                 }
                    ?> 
                     </div>
