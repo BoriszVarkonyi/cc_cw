@@ -138,7 +138,7 @@
                                     <form id="adding_entry">
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
-                                                <input type="text">
+                                                <input type="text" placeholder="Type in the title">
                                             </div>
                                         </div>
                                     </form>
@@ -152,6 +152,9 @@
                                 <p>Add header picture</p>
                             </div>
                             <div class="db_panel_main">
+                                <button class="round_button close_button">
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="header_img">
                                     <label for="header_img">Upload picture</label>
@@ -164,6 +167,9 @@
                                 <p>Add watermark</p>
                             </div>
                             <div class="db_panel_main">
+                                <button class="round_button close_button">
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="watermark_img">
                                     <label for="watermark_img">Upload picture</label>
@@ -176,6 +182,9 @@
                                 <p>Add footer picture</p>
                             </div>
                             <div class="db_panel_main">
+                                <button class="round_button close_button">
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="footer_img">
                                     <label for="footer_img">Upload picture</label>

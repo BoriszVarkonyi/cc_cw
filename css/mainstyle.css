@@ -1127,10 +1127,14 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	justify-content: flex-end;
 }
 
-#close_button {
+#close_button, .close_button {
 	position: absolute;
 	top: 10px;
 	right: 10px;
+}
+
+.close_button.hidden {
+	display: none;
 }
 
 #edit_button {
@@ -1330,6 +1334,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 }
 
 .db_panel_main.not_centered {
@@ -1706,7 +1711,7 @@ input:focus::placeholder {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	flex-basis: 30%;
-	height: 50vh;
+	height: 300px;
 	margin-bottom: 30px;
 	flex-grow: 1;
 }
@@ -1832,6 +1837,10 @@ input:focus::placeholder {
 	background-color: var(--c-lightestgray);
 }
 
+#adding_entry.hidden {
+	display: none;
+}
+
 #adding_entry > .table_row > .table_item {
 	min-width: 100%;
 	background-color: var(--c-lightestgray);
@@ -1843,7 +1852,8 @@ input:focus::placeholder {
 #adding_entry > .table_row > .table_item > input {
 	margin: 0;
 	padding-left: 0;
-	border: none;
+	height: 80%;
+	width: 50%;
 }
 
 /* ///TIMETABLE/// */
