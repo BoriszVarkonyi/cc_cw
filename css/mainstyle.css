@@ -1484,7 +1484,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 }
 
 #no_something_panel {
-	width: 100%;
+	width: 80%;
 	height: 50vh;
 	background-color: var(--c-gray);
 	display: flex;
@@ -1492,6 +1492,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	align-items: center;
 	font-size: var(--f-large);
 	font-family: ProximaNovaBold;
+	position: absolute;
 }
 
 #add_technician_panel {

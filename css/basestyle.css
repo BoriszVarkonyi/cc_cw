@@ -667,6 +667,10 @@ p.wc_time {
 	font-size: var(--f-small);
 }
 
+.ghost_form {
+	display: none;
+}
+
 .back_button {
 	margin-left: 40px;
 	height: 35px;
