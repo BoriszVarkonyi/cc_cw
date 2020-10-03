@@ -5,10 +5,10 @@
 
 
 
-$comp_name = $_GET['comp_name'];
+$comp_id = $_GET['comp_id'];
 
 //query for selecting relevant competition for display
-$query = "SELECT * FROM competitions WHERE comp_name = '$comp_name'";
+$query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
 $result = mysqli_query($connection, $query);
 
 if ($row = mysqli_fetch_assoc($result)) {
@@ -28,6 +28,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     $comp_end = $row['comp_end'];
     $comp_pre_end = $row['comp_pre_end'];
     $comp_wc_info = $row['comp_wc_info'];
+    $comp_name = $row['comp_name'];
 } else {
     echo mysqli_error($connection);
 }
