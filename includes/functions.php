@@ -1,5 +1,7 @@
 <?php
 
+
+//status converter (converts status from DB to string status)
 function statusConverter($statusin) {
 
 $statusout = "";
@@ -26,6 +28,7 @@ return $statusout;
 }
 
 
+//role converter (converts role from DB to string role)
 function roleConverter($rolein) {
 
     $roleout = "";
@@ -52,6 +55,7 @@ function roleConverter($rolein) {
 }
 
 
+//check competition 
 function checkComp($connectionin){
 
     $lastlogin = $_COOKIE["lastlogin"];

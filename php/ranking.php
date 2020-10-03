@@ -34,6 +34,13 @@ header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
 
 }
 
+$chck_for_rows = "SELECT * FROM $table_name";
+
+if ($result = mysqli_query($connection, $chck_for_rows)) {
+
+    /* determine number of rows result set */
+    $row_cnt = mysqli_num_rows($result);
+}
 
 ?>
 
@@ -95,9 +102,9 @@ if(mysqli_num_rows($query_do) == 0){
                     </button>
                 
                 <!-- delete ranking button -->
-                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking">
+                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="ghost_form">
                 </form>
-                    <button class="stripe_button orange red" type="submit" name="drop_table" form="delete_ranking">
+                    <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
                         <p class="stripe_button_text">Delete Ranking</p>
                         <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
@@ -141,49 +148,81 @@ if(mysqli_num_rows($query_do) == 0){
                         <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
 
-                </div>
-                <div id="page_content_panel_main">
 
-                    <div id="no_something_panel">
-                        <p>You have no fencers set up!</p>
-                    </div>
-
-                    <!-- add fencers -->
                     <div id="add_fencer_panel" class="big_overlay_panel overlay_panel hidden">
+                            <button id="close_button" class="round_button" onclick="toggleAddFencer()">
+                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                            </button>
+                            <!-- add fencers drop-down -->
+                            <div class="form_wrapper_small">
+                                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off">
+                                    <label for="fencers_name" class="label_text">NAME</label></br>
+                                    <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name"><br>
 
-                        <button id="close_button" class="round_button" onclick="toggleAddFencer()">
+                                    <label for="fencers_nationality" class="label_text">NATIONALITY</label></br>
+                                    <input type="search" name="fencers_nationality" id="username_input" placeholder="Type the fencers's nationality">
+
+                                    <label for="fencers_points" class="label_text">POINTS</label></br>
+                                    <input type="number" placeholder="-" class="number_input extra_small" name="fencer_points"><br>
+
+                                    <label for="fencers_dob" class="label_text">DATE OF BIRTH</label></br>
+                                    <input type="date" name="fencer_dob"><br>
+                                    <button type="submit" name="submit" class="submit_button" value="Save">Save</button>
+                                </form>
+                            </div>
+                    </div>
+                                        <!-- ranking info button -->
+                                        <div id="ranking_info_panel" class="thin_overlay_panel overlay_panel hidden">
+                        <button id="close_button" class="round_button" onclick="toggleRankingInfo()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
 
+                        
+                        <?php
+                        //ranking info hidden box
+                        $get_ranking_info = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
+                        $get_ranking_info_do = mysqli_query($connection, $get_ranking_info);
+                        
+                        if($row = mysqli_fetch_assoc($get_ranking_info_do)){
 
-                        <!-- add fencers drop-down -->
-                        <div class="form_wrapper_small">
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off">
-                                <label for="fencers_name" class="label_text">NAME</label></br>
-                                <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name"><br>
+                           $name = $row["name"];
+                           $pass = $row["password"];
 
-                                <label for="fencers_nationality" class="label_text">NATIONALITY</label></br>
-                                <input type="search" name="fencers_nationality" id="username_input" placeholder="Type the fencers's nationality">
+                        }
 
-                                <label for="fencers_points" class="label_text">POINTS</label></br>
-                                <input type="number" placeholder="-" class="number_input extra_small" name="fencer_points"><br>
+                        ?>
 
-                                <label for="fencers_dob" class="label_text">DATE OF BIRTH</label></br>
-                                <input type="date" name="fencer_dob"><br>
-                                <button type="submit" name="submit" class="submit_button" value="Save">Save</button>
-                            </form>
+                        <label class="label_text">NAME</label>
+                        <p><?php echo $name ?></p>
+                        <label class="label_text">PASSWORD</label>
+                        <div>
+                            <p><?php echo $pass ?></p>
+                            <button onclick="hidePasswords(this)" id="visibility_button">
+                                <img src="../assets/icons/visibility-black-18dp.svg" alt="">
+                            </button>
                         </div>
                     </div>
+                        
+                </div>
+                <div id="page_content_panel_main">
+
+
+
+
+                <?php 
+                    if ($row_cnt == 0) {
+                ?>
+
+                        <!-- you have no fenceers set up div -->
+                        <div id="no_something_panel">
+                            <p>You have no fencers set up!</p>
+                        </div>
+
+                <?php 
+                    }
+                ?>
                     <?php
 
-                        $chck_for_rows = "SELECT * FROM $table_name";
-
-                        if ($result = mysqli_query($connection, $chck_for_rows)) {
-
-                            /* determine number of rows result set */
-                            $row_cnt = mysqli_num_rows($result);
-                        }
-                        
                         echo $drop_row_feedback . $drop_table_feedback;
 
                         //getting last row of $table_name
@@ -217,6 +256,7 @@ if(mysqli_num_rows($query_do) == 0){
                                 } else {
                                     $insert_feedback = "Error: " . $query_insert_data . "<br>" . $connection->error;
                                 }
+                                header("Refresh:0");
 
                             }
                             else {
@@ -227,47 +267,21 @@ if(mysqli_num_rows($query_do) == 0){
                         }
                     ?>
 
-                    <!-- ranking info button -->
-                    <div id="ranking_info_panel" class="thin_overlay_panel overlay_panel hidden">
-                        <button id="close_button" class="round_button" onclick="toggleRankingInfo()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
-                        </button>
-
-                        
-                        <?php
-                        //ranking info hidden box
-                        $get_ranking_info = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
-                        $get_ranking_info_do = mysqli_query($connection, $get_ranking_info);
-                        
-                        if($row = mysqli_fetch_assoc($get_ranking_info_do)){
-
-                           $name = $row["name"];
-                           $pass = $row["password"];
-
-                        }
-
-                        ?>
-
-                        <label class="label_text">NAME</label>
-                        <p><?php echo $name ?></p>
-                        <label class="label_text">PASSWORD</label>
-                        <div>
-                            <p><?php echo $pass ?></p>
-                            <button onclick="hidePasswords(this)" id="visibility_button">
-                                <img src="../assets/icons/visibility-black-18dp.svg" alt="">
-                            </button>
-                        </div>
-                    </div>
-                    
                     <div id="ranking_wrapper">
-                        <div class="table_header">
-                            <div class="table_header_text">POSITION</div>
-                            <div class="table_header_text">POINTS</div>
-                            <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">NATIONALITY</div>
-                            <div class="table_header_text">DATE OF BIRTH</div>
-                        </div>
+
                         <?php
+                            if ($row_cnt != 0) {
+                        ?>
+                                <div class="table_header">
+                                    <div class="table_header_text">POSITION</div>
+                                    <div class="table_header_text">POINTS</div>
+                                    <div class="table_header_text">NAME</div>
+                                    <div class="table_header_text">NATIONALITY</div>
+                                    <div class="table_header_text">DATE OF BIRTH</div>
+                                </div>
+                        <?php
+
+                            } 
                     
                     $query = "SELECT * FROM $table_name ORDER BY points DESC";
                     $query_do = mysqli_query($connection, $query);

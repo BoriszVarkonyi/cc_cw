@@ -1,5 +1,5 @@
 <?php include "cw_header.php"; ?>
-<?php $statusofpage = 3; ?>
+<?php $statusofpage = 4; ?>
 
 <!DOCTYPE html>
 <html lang="en">
