@@ -76,7 +76,7 @@ header("Location: ../index.php");
         <p id="app_name">Competition Control Alpha</p>
         
         <!-- colormode and language buttons -->
-        <section class="settings_section">
+         class="settings_section">
             <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
                 <img src="../assets/icons/language-black-18dp.svg" alt="">
             </button>
@@ -130,21 +130,21 @@ header("Location: ../index.php");
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
             <input type="range" id="cs_range" value="1" min="1" max="3">
-            <section class="cs_label_section">
+            <div class="cs_label_section">
                 <p>Light</p>
                 <p>High Contrast</p>
                 <p>Dark</p>
-            </section>
+            </div>
         </div>
         
         <!-- profile pic -->
         <img src="https://thispersondoesnotexist.com/image" alt="profile picture" id="profile_picture" onclick="toggle_profile_panel()">
         
         <!-- profile data -->
-        <section class="identity_section">
+        <div class="identity_section">
             <p id="username"><?php echo $name; ?></p>
             <p id="role"><?php echo $role; ?></p>
-        </section>
+        </div>
 
         <!-- profile panel drop-down -->
         <div id="profile_panel" class="small_overlay_panel hidden">
