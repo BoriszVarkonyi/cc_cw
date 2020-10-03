@@ -121,7 +121,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         <p class="page_title">Referees</p>
                         <form action="" method="POST" id="remove_technician">
                         </form>
-                        <button class="stripe_button first_stripe_item disabled" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                        <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                             <p class="stripe_button_text">Remove Referee</p>
                             <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>
@@ -159,7 +159,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             
                         </div>
 
-                        <button class="stripe_button bold last_stripe_item" onclick="toggle_add_technician()">
+                        <button class="stripe_button bold" onclick="toggle_add_technician()">
                             <p class="stripe_button_text">Add Referees</p>
                             <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                         </button>

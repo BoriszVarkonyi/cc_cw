@@ -96,7 +96,7 @@ if(mysqli_num_rows($query_do) == 0){
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
 
-                    <button class="stripe_button first_stripe_item" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
+                    <button class="stripe_button" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
                         <p class="stripe_button_text">Ranking Information</p>
                         <img class="stripe_button_icon" src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
@@ -148,7 +148,7 @@ if(mysqli_num_rows($query_do) == 0){
                         <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
 
-                    <button class="stripe_button last_stripe_item disabled" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                    <button class="stripe_button disabled" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
                         <p class="stripe_button_text">Delete fencer</p>
                         <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>

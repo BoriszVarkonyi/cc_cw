@@ -147,7 +147,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         <p class="page_title">Technicians</p>
                         <form action="" method="POST" id="remove_technician">
                         </form>
-                        <button class="stripe_button first_stripe_item disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
+                        <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
                             <p class="stripe_button_text">Remove Technician</p>
                             <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>
@@ -184,7 +184,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <button type="submit" name="import_tech" class="submit_button" form="import_technician" value="Import">Import</button>
                         </div>
 
-                        <button class="stripe_button bold last_stripe_item" onclick="toggle_add_technician()">
+                        <button class="stripe_button bold" onclick="toggle_add_technician()">
                             <p class="stripe_button_text">Add Technicians</p>
                             <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                         </button>

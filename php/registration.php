@@ -18,7 +18,7 @@
             <div class="page_content_panel">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
-                        <button class="stripe_button orange only_stripe_item">
+                        <button class="stripe_button orange">
                             <p class="stripe_button_text">Add Fencer</p>
                             <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                         </button>

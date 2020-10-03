@@ -776,16 +776,16 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin-right: 15px;
 }
 
-.first_stripe_item {
+.stripe_button:first-of-type {
 	margin-left: auto;
 	margin-right: 15px;
 }
 
-.last_stripe_item {
+.stripe_button:last-of-type {
 	margin-right: 40px;
 }
 
-.only_stripe_item {
+.stripe_button:only-of-type {
 	margin-left: auto;
 	margin-right: 40px;
 }
@@ -1243,22 +1243,13 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 
 /* ///CREATE COMPETITION ELEMENTS/// */
 
-.create_comp_wrapper {
-	font-size: 1.2em;
+#create_new_comp {
 	display: flex;
-	justify-content: space-between;
-
-	margin: 0;
-	min-width: 600px;
-	min-height: 200px;
-	max-width: 1000px;
-	max-height: 250px;
-	width: 50vw;
-	height: 30vh;
 }
 
 .form_column {
-	width: 40%;
+	width: 50%;
+	padding-left: 75px;
 }
 
 /* ///DASHBOARD ELEMENTS/// */

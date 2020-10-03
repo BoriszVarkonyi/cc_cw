@@ -60,7 +60,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
             <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Informations for fencers</p>
-                    <button onclick="copyContent()" class="stripe_button orange only_stripe_item" type="submit" form="needed_equimpment_wrapper" name="submit">
+                    <button onclick="copyContent()" class="stripe_button orange" type="submit" form="needed_equimpment_wrapper" name="submit">
                         <p class="stripe_button_text">Save Information</p>
                         <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
                     </button>

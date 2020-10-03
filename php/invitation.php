@@ -28,7 +28,7 @@
             <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Invitation</p>
-                    <button class="stripe_button orange only_stripe_item" type="submit" form="needed_equimpment_wrapper">
+                    <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
                         <p class="stripe_button_text orange">Download Invitation</p>
                         <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
                     </button>

@@ -41,7 +41,7 @@ checkComp($connection);
                         <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
                     </button>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
-                    <button class="stripe_button orange only_stripe_item">
+                    <button class="stripe_button orange">
                         <p class="stripe_button_text">Publish Competition</p>
                         <img class="stripe_button_icon" src="../assets/icons/send-black-18dp.svg"></img>
                     </button>
