@@ -131,17 +131,19 @@ if(isset($_POST["submit"])){
 
                                     <?php } ?>
 
-
-
-
-
-
-
                                 </div> <!--From * SELECT table name LIKE sadsadas -->
                                 <form action="">
                                     <input type="text" class="hidden"> <!-- IF storing the seleted ranking in text form-->
                                     <input type="submit" value="Use Ranking">
                                 </form>
+                                <div id="use_this_ranking">
+                                    <p class="ranking_name">Ranking name</p>
+                                    <form name="submit" method="POST" action="" id="use_this_ranking_form">
+                                        <label for="ranking_name" class="label_text">PASSWORD</label>
+                                        <input type="password" name="ranking_password">
+                                        <input type="submit" name="submit" value="Use Ranking">
+                                    </form>
+                                </div>
                             </div>
                             <div class="icon_box">
                                 <svg>

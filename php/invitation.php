@@ -43,6 +43,20 @@
                             <div class="db_panel_main">
                                 <div class="invitation_switch_wrapper">  
                                     <div> 
+                                        <input type="checkbox" name="" id="host_country"> <!-- input's ID has to be indentical to label's for-->
+                                        <label for="host_country">Host Country</label>
+                                    </div>
+
+                                    <div> 
+                                        <input type="checkbox" name="" id="location"> 
+                                        <label for="location">Location and Address</label>
+                                    </div>
+
+                                    <div> 
+                                        <input type="checkbox" name="" id="entry_fee"> 
+                                        <label for="entry_fee">Entry-Fee</label>
+                                    </div>
+                                    <div> 
                                         <input type="checkbox" name="" id="starting_date"> <!-- input's ID has to be indentical to label's for-->
                                         <label for="starting_date">Starting Date</label>
                                     </div>

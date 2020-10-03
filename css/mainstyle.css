@@ -958,7 +958,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin: 20px 0;
 }
 
-
 /* Checkbox Input */
 
 input[type=checkbox] + label {
@@ -982,8 +981,8 @@ input[type=checkbox] + label:before {
 	border: 2px solid var(--c-black);
 	border-radius: 5px;
 	display: inline-block;
-	width: 12px;
-	height: 12px;
+	min-width: 12px;
+	min-height: 12px;
 	transition: var(--t-basic);
 	color: var(--c-black);
 	margin-right: 8px;
@@ -1707,7 +1706,7 @@ input:focus::placeholder {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	flex-basis: 30%;
-	height: 30vh;
+	height: 50vh;
 	margin-bottom: 30px;
 	flex-grow: 1;
 }
@@ -2445,7 +2444,6 @@ div.icon_box > img {
 
 #upload_ranking_panel.opened > .title_box > * {
 	transform: scale(1.05);
-
 }
 
 #create_ranking_panel.opened > .title_box > * {
@@ -2590,6 +2588,28 @@ div.icon_box > img {
 	margin: 0;
 	align-items: center;
 	justify-content: space-between;
+}
+
+#use_this_ranking_form {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#use_this_ranking {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.ranking_name {
+	font-family: ProximaNovaBold;
+	font-size: var(--f-medium);
+	margin-bottom: 25px;
 }
 
 /* RANKING */
