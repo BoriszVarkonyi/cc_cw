@@ -331,7 +331,6 @@ img[src$=".svg"] {
 }
 
 #logout_form {
-	margin: 0;
 	display: flex;
 	justify-content: center;
 }
@@ -776,6 +775,10 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin-right: 15px;
 }
 
+.stripe_button:hover {
+	background-color: var(--c-lightgray);
+}
+
 .stripe_button:first-of-type {
 	margin-left: auto;
 	margin-right: 15px;
@@ -920,9 +923,9 @@ input[type="range"]:focus::-ms-fill-upper {
 /* ///FORMS AND INPUTS/// */
 
 .form_wrapper {		/* centers the form inside the panel_main */
-	min-width: 260px;
-	width: 20vw;
-	max-width: 330px;
+	padding: 35px 75px;
+	width: 100%;
+	height: 100%;
 }
 
 .label_text {	/* Used in forms, all caps, thin font    NO option buttons*/
@@ -1080,7 +1083,6 @@ input[value="Login"] {
 	border-radius: 10px;
 	padding: 5px;
 	position: relative;
-	margin-top: 25px;
 	cursor: pointer;
 }
 
@@ -1191,10 +1193,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 #login_panel {		/* Login panel used on login page */
 	min-width: 400px;
 	max-width: 500px;
-	min-height: 500px;
-	max-height: 600px;
 	width: 30vw;
-	height: 50vh;
 	position: absolute;
 	left: 2em;
 	top: 2em;

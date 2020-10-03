@@ -152,6 +152,10 @@ textarea {
 	font-family: ProximaNova;
 }
 
+form {
+	margin: 0;
+}
+
 :hover {
 	transition: var(--t-basic);
 }
@@ -343,6 +347,9 @@ div.table_row:nth-child(even).selected {
 	background-color: var(--c-orange);
 }
 
+::placeholder {
+	font-family: ProximaNova;
+}
 
 /* Scroll Bar */
 
@@ -547,10 +554,6 @@ input[type="text"].no_margin {
 	margin: 3px 0;
 }
 
-.login_option {
-	margin-bottom: 30px;
-}
-
 .error_text_option {
 	text-transform: uppercase;
 	color: red;
@@ -665,10 +668,6 @@ input[type="number"].wc_time {
 
 p.wc_time {
 	font-size: var(--f-small);
-}
-
-.ghost_form {
-	display: none;
 }
 
 .back_button {

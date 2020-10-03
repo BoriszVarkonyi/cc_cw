@@ -65,8 +65,6 @@
                                 <p id="machine_fencer_2_score">5</p>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -76,20 +74,8 @@
                     <p>Piste No.: 5</p>
                     <p>Ref: {Referee's Name}</p>
                 </div>
-
-
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
     </div>
 <?php include "cw_footer.php"; ?>
 </body>

@@ -239,7 +239,7 @@ print_r($_POST);
                     }
                     
                     ?>
-                   <div class="option_container login_option">
+                   <div class="option_container">
                           <input type="radio" name="role" id="a" value="1"/>
                           <label for="a">I am an organiser</label>
 
@@ -262,7 +262,6 @@ print_r($_POST);
 
             </div>
         </div>
-        <div id="panel_footer"></div>
     </div>
     <div id="other_apps">
         <button type="button" class="other_apps_button" onclick="toggleOtherApps()">Other Applications</button>

@@ -119,8 +119,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
             <div class="page_content_panel">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
-                        <form action="" method="POST" id="remove_technician">
-                        </form>
+                        <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
                         <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                             <p>Remove Referee</p>
                             <img src="../assets/icons/delete-black-18dp.svg"></img>

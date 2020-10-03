@@ -171,7 +171,6 @@ $query = "";
                 </div>
             </form>
         </div>
-        <div id="panel_footer"></div>
     </div>
 <script src="../js/main.js"></script>
 </body>

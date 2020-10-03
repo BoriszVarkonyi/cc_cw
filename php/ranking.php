@@ -101,9 +101,8 @@ if(mysqli_num_rows($query_do) == 0){
                         <img src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
                 
-                <!-- delete ranking button -->
-                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="ghost_form">
-                </form>
+                    <!-- delete ranking button -->
+                    <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking"></form>
                     <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
                         <p>Delete Ranking</p>
                         <img src="../assets/icons/delete-black-18dp.svg"></img>
@@ -143,16 +142,15 @@ if(mysqli_num_rows($query_do) == 0){
                         }  
                     ?>
                 
-                    <button class="stripe_button" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
-                        <p>Add fencer</p>
-                        <img src="../assets/icons/add-black-18dp.svg"></img>
-                    </button>
-
                     <button class="stripe_button disabled" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
                         <p>Delete fencer</p>
                         <img src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
 
+                    <button class="stripe_button bold" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                        <p>Add fencer</p>
+                        <img src="../assets/icons/add-black-18dp.svg"></img>
+                    </button>
 
                     <div id="add_fencer_panel" class="big_overlay_panel overlay_panel hidden">
                             <button id="close_button" class="round_button" onclick="toggleAddFencer()">
