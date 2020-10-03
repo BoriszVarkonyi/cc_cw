@@ -1462,7 +1462,6 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	transition: max-height var(--t-basic);
 }
 
-
 #other_apps.opened > #other_apps_dropdown > p {
 	font-size: var(--f-small);
 	text-transform: uppercase;
@@ -1488,7 +1487,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 }
 
 #no_something_panel {
-	width: 80%;
+	width: 500px;
 	height: 50vh;
 	background-color: var(--c-gray);
 	display: flex;

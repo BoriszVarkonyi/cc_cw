@@ -152,12 +152,14 @@
                                 <p>Add header picture</p>
                             </div>
                             <div class="db_panel_main">
+                                <!--Only visible when file is uploaded-->
                                 <button class="round_button close_button">
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
+
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="header_img">
-                                    <label for="header_img">Upload picture</label>
+                                    <label for="header_img">Upload picture</label> <!--Has to rewritten to file's name after uploading-->
                                 </div>
                             </div>
                         </div>

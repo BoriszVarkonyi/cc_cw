@@ -143,9 +143,14 @@ if(mysqli_num_rows($query_do) == 0){
                         }  
                     ?>
                 
-                    <button class="stripe_button last_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                    <button class="stripe_button" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
                         <p class="stripe_button_text">Add fencer</p>
                         <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+                    </button>
+
+                    <button class="stripe_button last_stripe_item disabled" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                        <p class="stripe_button_text">Delete fencer</p>
+                        <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
 
 
