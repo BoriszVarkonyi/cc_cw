@@ -96,8 +96,8 @@ $query = "";
         <div id="title_stripe">
             <p class="page_title">Create new competition</p>
             <button type="submit" name="submit" form="create_new_comp" class="stripe_button">
-                <p class="stripe_button_text">Create</p>
-                <img  class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+                <p class="">Create</p>
+                <img  class="" src="../assets/icons/add-black-18dp.svg"></img>
             </button>
         </div>
         <div id="panel_main">

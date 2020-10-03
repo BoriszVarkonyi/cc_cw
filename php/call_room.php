@@ -29,8 +29,8 @@
                 <div id="title_stripe">
                     <p class="page_title">Helo</p>
                     <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
-                        <p class="stripe_button_text">Call Room</p>
-                        <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                        <p>Call Room</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
                 <div id="page_content_panel_main">

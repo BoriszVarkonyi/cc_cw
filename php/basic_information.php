@@ -41,8 +41,8 @@ $query_do = mysqli_query($connection, $query);
                 <div id="title_stripe">
                     <p class="page_title">Basic Information</p>
                     <button class="stripe_button orange" type="submit" name="submit" form="basic_information_form">
-                        <p class="stripe_button_text orange" id="save_text">Save Information</p>
-                        <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                        <p id="save_text">Save Information</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
 

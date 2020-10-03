@@ -231,8 +231,8 @@ if($query_do){
                 <div id="title_stripe">
                     <p class="page_title">Timetable</p>
                     <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
-                        <p class="stripe_button_text">Save Timetable</p>
-                        <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                        <p>Save Timetable</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
                 <div id="page_content_panel_main">

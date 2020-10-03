@@ -148,12 +148,12 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         <form action="" method="POST" id="remove_technician">
                         </form>
                         <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
-                            <p class="stripe_button_text">Remove Technician</p>
-                            <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
+                            <p>Remove Technician</p>
+                            <img src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>
                         <button class="stripe_button" onclick="toggle_import_technician()">
-                            <p class="stripe_button_text">Import Technicians</p>
-                            <img class="stripe_button_icon" src="../assets/icons/save_alt-black-18dp.svg"></img>
+                            <p >Import Technicians</p>
+                            <img src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
 
                         <div id="import_technician_panel" class="thin_overlay_panel overlay_panel hidden">
@@ -185,8 +185,8 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </div>
 
                         <button class="stripe_button bold" onclick="toggle_add_technician()">
-                            <p class="stripe_button_text">Add Technicians</p>
-                            <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+                            <p>Add Technicians</p>
+                            <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
                     <div id="add_technician_panel" class="big_overlay_panel overlay_panel hidden" >
                         <button id="close_button" class="round_button" onclick="toggle_add_technician()">

@@ -696,18 +696,25 @@ p.wc_time {
 
 /* Stripe Button Elements */
 
-.stripe_button_icon {
+.stripe_button > img {
 	float: right;
 	width: 20px;
 	height: 22px;
 	margin: 0;
 }
 
-.stripe_button_text {
+.stripe_button > p {
 	float: left;
 	margin: 0;
 	padding-right: 5px;
 	white-space: nowrap;
+}
+
+.back_button > img {
+	float: right;
+	width: 20px;
+	height: 22px;
+	margin: 0;
 }
 
 .entry {
