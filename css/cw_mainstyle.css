@@ -959,3 +959,14 @@ input[value="Search"] {
 	font-family: ProximaNovaBold;
 }
 
+/* Saved Competitions */
+
+.favourite_button {
+	width: 80%;
+	height: 80%;
+}
+
+.favourite_button > img {
+	width: 100%;
+	height: 100%;
+}

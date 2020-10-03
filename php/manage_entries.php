@@ -73,7 +73,7 @@
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
                                             <div class="approved_status_header">
-                                                <button type="button" class="approve_all_button">
+                                                <button type="button" class="approve_all_button" onclick='selectAll()'>
                                                     <img src="../assets/icons/select_all-black-18dp.svg" alt="">
                                                     <p>Approve all</p>
                                                 </button>
@@ -108,7 +108,7 @@
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
                                             <div class="approved_status_header">
-                                                <button type="button" class="approve_all_button">
+                                                <button type="button" class="approve_all_button" onclick='selectAll()'>
                                                     <img src="../assets/icons/select_all-black-18dp.svg" alt="">
                                                     <p>Approve all</p>
                                                 </button>

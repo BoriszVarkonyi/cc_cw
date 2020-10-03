@@ -46,23 +46,23 @@ var baloldal = document.getElementById("needed_equipment_panel");
 
 baloldal.addEventListener("keyup", event => {
 
-    var ertek = document.activeElement; //Érték az éppen aktív input lesz az "ACTIVEELEMENT" miatt 
+    var ertek = document.activeElement; // Max value 5 for needed_equipmen_panel
     if (ertek.value >5) {
 
-    ertek.value = 5;
+    ertek.value = 5;//if it is bigger than 5, won't allow to be bigger than 5
 
     }
     if (ertek.value < 1) {
 
-        ertek.value = "";
+        ertek.value = "";//if it smaller than 1, returns to an empty space (won't storage capacity in the database)
 
     }
   });
-  function isNumberKey(evt)//Csak számok írhatók be az inputba 0-5 között, írásjelek nem.
+  function isNumberKey(evt)//You can olny write numbers as inputs 
       {
          var inp =document.getElementById("needed_equipment_panel") (evt.which) ? evt.which : event.keyCode
     
-         if (inp > 0 && (inp <= 5  || inp > 0))
+         if (inp > 0 && (inp <= 5  || inp > 0)) //inupt can't be higher than 5
     
          return false;
 

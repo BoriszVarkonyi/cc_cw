@@ -6,6 +6,14 @@
 <?php 
 
 $ranking_id = $_GET["rankid"]; 
+$drop_row_feedback = "";
+$drop_table_feedback = "";
+$insert_feedback = "";
+$last_row_fencer_dob = NULL;
+$last_row_fencer_name = NULL;
+//jelenlegi tábla neve 
+$table_name = "rk_" . $ranking_id;
+
 
 if(isset($_POST["create"])){
 
@@ -80,18 +88,59 @@ if(mysqli_num_rows($query_do) == 0){
             <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
-                    <button class="stripe_button first_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
+
+                    <button class="stripe_button first_stripe_item" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
                         <p class="stripe_button_text">Ranking Information</p>
                         <img class="stripe_button_icon" src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange red" type="submit" form="needed_equimpment_wrapper">
+                
+                <!-- delete ranking button -->
+                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking">
+                </form>
+                    <button class="stripe_button orange red" type="submit" name="drop_table" form="delete_ranking">
                         <p class="stripe_button_text">Delete Ranking</p>
                         <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
+                
+                    <?php
+
+                        if (isset($_POST['drop_table'])) {
+
+                            //queryes
+                            $change_comp_rank_id = "UPDATE competitions SET comp_ranking_id = 0";
+                            $drop_table = "DROP TABLE $table_name";
+                            $drop_row = "DELETE FROM ranking WHERE id = '$ranking_id'";
+                            
+                            //drop table feedback
+                            if (mysqli_query($connection, $drop_table)) {
+                                $drop_table_feedback = $table_name . " has been dropped!";
+                            } else {
+                                $drop_table_feedback = mysqli_error($connection) . " :You had a problem with the TABLE dropping!";
+                            }
+
+                            //drop row feedback
+                            if (mysqli_query($connection, $drop_row)) {
+                                $drop_row_feedback = $table_name . " has been dropped!";
+                            } else {
+                                $drop_row_feedback = mysqli_error($connection) . " :You had a problem with the ROW dropping!";
+                            }
+
+                            //change comp_ranking_id in comp to 0 back
+                            if (mysqli_query($connection, $change_comp_rank_id)) {
+                                $rank_id_change_feedback = "comp_rank_id has been changed has been changed!";
+                            } else {
+                                $rank_id_change_feedback = mysqli_error($connection) . " :You had a problem with changing rank id in compteititons table!";
+                            }
+
+                            header("Location: http://localhost/php/choose_ranking.php?comp_id=52");
+                        }  
+                    ?>
+                
                     <button class="stripe_button last_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
                         <p class="stripe_button_text">Add fencer</p>
                         <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
+
                 </div>
                 <div id="page_content_panel_main">
 
@@ -99,20 +148,22 @@ if(mysqli_num_rows($query_do) == 0){
                         <p>You have no fencers set up!</p>
                     </div>
 
+                    <!-- add fencers -->
                     <div id="add_fencer_panel" class="big_overlay_panel overlay_panel hidden">
-                            <button id="close_button" class="round_button" onclick="toggleAddFencer()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
-                            </button>
-                            <div class="form_wrapper_small">
-                            <form action="" method="" id="new_fencer" autocomplete="off">
+
+                        <button id="close_button" class="round_button" onclick="toggleAddFencer()">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        </button>
+
+
+                        <!-- add fencers drop-down -->
+                        <div class="form_wrapper_small">
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off">
                                 <label for="fencers_name" class="label_text">NAME</label></br>
                                 <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name"><br>
 
                                 <label for="fencers_nationality" class="label_text">NATIONALITY</label></br>
-                                <input type="search" name="fencers_nationality" id="" placeholder="idk">
-                    
-                                <label for="fencers_position" class="label_text">POSITION</label></br>
-                                <input type="number" placeholder="-" class="number_input extra_small" name="fencer_position"><br>
+                                <input type="search" name="fencers_nationality" id="username_input" placeholder="Type the fencers's nationality">
 
                                 <label for="fencers_points" class="label_text">POINTS</label></br>
                                 <input type="number" placeholder="-" class="number_input extra_small" name="fencer_points"><br>
@@ -123,15 +174,68 @@ if(mysqli_num_rows($query_do) == 0){
                             </form>
                         </div>
                     </div>
+                    <?php
 
+                        $chck_for_rows = "SELECT * FROM $table_name";
+
+                        if ($result = mysqli_query($connection, $chck_for_rows)) {
+
+                            /* determine number of rows result set */
+                            $row_cnt = mysqli_num_rows($result);
+                        }
+                        
+                        echo $drop_row_feedback . $drop_table_feedback;
+
+                        //getting last row of $table_name
+                        $query_get_last_row = "SELECT * FROM $table_name  ORDER BY id DESC LIMIT 1;";
+                        $result = mysqli_query($connection, $query_get_last_row);
+
+                        if($row = mysqli_fetch_assoc($result)){
+                            
+                            $last_row_fencer_name = $row["name"];
+                            $last_row_fencer_nationality = $row["nationality"];
+                            $last_row_fencer_points = $row["points"];
+                            $last_row_fencer_dob = $row["dob"];
+                        }
+                        
+
+                        //testing for duplicate lines & insertin new fencer to DB
+                        if (isset($_POST['submit'])) {
+
+                            $fencer_name = $_POST['fencer_name'];
+                            $fencers_nationality = $_POST['fencers_nationality'];
+                            $fencer_points = $_POST['fencer_points'];
+                            $fencer_dob = $_POST['fencer_dob'];
+
+                            $query_insert_data = "INSERT INTO $table_name (name, nationality, points, dob) VALUES ('$fencer_name', '$fencers_nationality', '$fencer_points', '$fencer_dob')";
+
+                            if ($last_row_fencer_name != $fencer_name && $last_row_fencer_dob != $fencer_dob || $row_cnt == 0) {
+                                
+                                if (mysqli_query($connection, $query_insert_data)) {
+                                    $insert_feedback = "New record created successfully";
+
+                                } else {
+                                    $insert_feedback = "Error: " . $query_insert_data . "<br>" . $connection->error;
+                                }
+
+                            }
+                            else {
+
+                                $insert_feedback = "You allready added this fencer!";
+
+                            }
+                        }
+                    ?>
+
+                    <!-- ranking info button -->
                     <div id="ranking_info_panel" class="thin_overlay_panel overlay_panel hidden">
                         <button id="close_button" class="round_button" onclick="toggleRankingInfo()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
 
-
-                        <?php
                         
+                        <?php
+                        //ranking info hidden box
                         $get_ranking_info = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
                         $get_ranking_info_do = mysqli_query($connection, $get_ranking_info);
                         
@@ -165,28 +269,47 @@ if(mysqli_num_rows($query_do) == 0){
                         </div>
                         <?php
                     
-                    $query = "SELECT * FROM rk_$ranking_id ORDER BY points DESC";
+                    $query = "SELECT * FROM $table_name ORDER BY points DESC";
                     $query_do = mysqli_query($connection, $query);
+                    $pos = 1;
+                
+                // fencers dinamic table
+                while($row = mysqli_fetch_assoc($query_do)) {
 
-                    while($row = mysqli_fetch_assoc($query_do)){
-
+                    $id = $row['id'];
                     $name = $row["name"];
                     $nat = $row["nationality"];
-                    $pos = $row["position"];
                     $points = $row["points"];
                     $dob = $row["dob"];
+
+
+                    //postion changing in database and dinamic table
+                    $query_pos = "UPDATE $table_name SET position = $pos WHERE id = $id";
+
+                    if (mysqli_query($connection, $query_pos)) {
+                        $pos_feedback = "position has been changed in" . $table_name;
+                    } else {
+                        $pos_feedback = mysqli_error($connection);
+                    }
+
                     ?>
 
 
                         <div class="table_row">
-                            <div class="table_item"><?php echo $pos ?>"></div>
+
+                            <div class="table_item"><?php echo $pos ?></div>
                             <div class="table_item"><?php echo $points ?></div>
                             <div class="table_item"><?php echo $name ?></div>
                             <div class="table_item"><?php echo $nat ?></div>
                             <div class="table_item"><?php echo $dob ?></div>
-                        </div>
 
-                   <?php } ?> 
+                        </div>
+                                            
+                   <?php 
+
+                   $pos += 1;
+                }
+                   ?> 
                     </div>
                 </div>
             </div>

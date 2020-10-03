@@ -21,12 +21,12 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
             <p><?php echo $comp_name; ?></p>
         </div>
         <div class="table_item">
-            <p><?php echo $comp_start . "<h2>&nbsp;-&nbsp;</h2>" . $comp_end; ?></p>
+            <p><?php echo $comp_start . "<p>&nbsp;&nbsp;-&nbsp;&nbsp;</p>" . $comp_end; ?></p>
         </div>
         <div class="table_item">
             <p><?php echo $comp_host; ?></p>
         </div>
-        </div>
+    </div>
 
 <?php } ?>
     
