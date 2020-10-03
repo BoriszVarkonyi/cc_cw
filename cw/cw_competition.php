@@ -1,4 +1,37 @@
 <?php include "cw_header.php"; ?>
+<?php include "../cw/db.php"; ?>
+<?php include "../includes/functions.php"; ?>
+<?php 
+
+
+
+$comp_name = $_GET['comp_name'];
+
+//query for selecting relevant competition for display
+$query = "SELECT * FROM competitions WHERE comp_name = '$comp_name'";
+$result = mysqli_query($connection, $query);
+
+if ($row = mysqli_fetch_assoc($result)) {
+    $comp_wc = $row['comp_wc_type'];
+    $comp_sex = $row['comp_sex'];
+    $comp_weapon = $row['comp_weapon'];
+    $comp_equipment = $row['comp_equipment'];
+    $comp_info = $row['comp_info'];
+    $comp_status = $row['comp_status'];
+    $comp_organiser_id = $row['comp_organiser_id'];
+    $comp_ranking_id = $row['comp_ranking_id'];
+    $comp_host = $row['comp_host'];
+    $comp_location = $row['comp_location'];
+    $comp_postal = $row['comp_postal'];
+    $comp_start = $row['comp_start'];
+    $comp_entry = $row['comp_entry'];
+    $comp_end = $row['comp_end'];
+    $comp_pre_end = $row['comp_pre_end'];
+    $comp_wc_info = $row['comp_wc_info'];
+} else {
+    echo mysqli_error($connection);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,63 +39,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Comp's name}</title>
+    <title><?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
     <div id="cw_main_full">
-        <p class="cw_panel_title">{Comp's name}</p>
-        <p id="comp_status">{STATUS}</p>
+
+
+        <!-- cw title panel top  -->
+        <p class="cw_panel_title"><?php echo $comp_name ?></p>
+        <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
         <div id="comp_data">
-            <p>FEMALE</p>
-            <p>EPEE</p>
-            <p>2020</p>
+            <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
+            <p><?php echo weaponConverter($comp_weapon) ?></p>
+            <p><?php echo date('Y', strtotime($comp_start)) ?></p>
         </div>
         <div id="competition_wrapper">
             <div>
+
+
+                <!-- basic info panel -->
                 <div id="basic_information_panel">
                     <div>
                         <p class="data_label">HOST COUNTRY:</p>
-                        <p>{Country}</p>
+                        <p><?php echo $comp_host ?></p>
                         <p class="data_label">LOCATION AND ADDRESS:</p>
-                        <p>{City},</p>
-                        <p>{Address}</p>
-                        <p>{Zip Code}</p>
+                        <p><?php echo $comp_location ?></p>
+                        <p><?php echo $comp_postal ?></p>
                         <p class="data_label">ENTRY-FEE:</p>
-                        <p>{Entry Fee}</p>
+                        <p><?php echo $comp_entry ?></p>
                     </div>
                     <div>
                         <p class="data_label">STARTING DATE:</p>
-                        <p>{Starting Date}</p>
+                        <p><?php echo $comp_start ?></p>
                         <p class="data_label">ENDING DATE:</p>
-                        <p>{Ending Date}</p>
+                        <p><?php echo $comp_end ?></p>
                         <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                        <p>{Pre-Reg Ending Date}</p>
+                        <p><?php echo $comp_pre_end ?></p>
                     </div>
                 </div>
 
+
+                <!-- equipment panel -->
                 <div id="equipment_panel">
                     <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
+
+                    <!-- weapons check table rows -->
                     <div>
-                        <div class="table_row">
-                            <div class="table_item">Epee</div>
-                            <div class="table_item">max. 5</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Jacket</div>
-                            <div class="table_item">max. 1</div>
-                        </div>
+                        <?php 
+                            $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+
+                            $array_equipment = explode(",", $comp_equipment);
+
+                            for ($i = 0; $i < count($equipment); $i++) {
+                                
+                                if ($array_equipment[$i] != 0) {
+                                    ?>
+                                        <div class="table_row">
+                                            <div class="table_item"><?php echo $equipment[$i] ?></div>
+                                            <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                                    
+                                        </div>
+                                    <?php
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
 
+                <!-- additional info panel -->
                 <div id="additional_panel">
                     <p class="data_label panel_title">ADDITIONAL INFORMATION</p>
                     <div>
-                        <p>{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}</p>
+                        <p><?php echo $comp_info ?></p>
                     </div>
                 </div>
-
+                
+                <!-- weapon control panel -->
                 <div id="weapon_control_panel">
                     <p class="data_label panel_title">WEAPON CONTROL</p>
                     <div>
