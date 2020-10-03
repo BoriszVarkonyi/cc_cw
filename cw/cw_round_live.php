@@ -13,7 +13,7 @@
 <body>
     <div id="cw_main_live">
         <div class="cw_panel_title_wrapper">
-            <button type="button" class="back_button" onclick="location.href='cw_tableu.php'">
+            <button type="button" class="back_button" onclick="location.href='cw_table.php'">
                 <img class="" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
             </button>
             <p>LIVE RESULTS OF {COMP NAME}, {PISTE NUMBER}, {FENCERNAME} VS. {FENCERNAME}</p>
@@ -94,5 +94,5 @@
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
-<script src="../js/cw_tableu.js"></script>
+<script src="../js/cw_table.js"></script>
 </html>

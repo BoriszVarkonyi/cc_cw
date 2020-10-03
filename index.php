@@ -264,7 +264,7 @@ print_r($_POST);
         </div>
         <div id="panel_footer"></div>
     </div>
-    <div id="other_apps" class="">
+    <div id="other_apps">
         <button type="button" class="other_apps_button" onclick="toggleOtherApps()">Other Applications</button>
         <div id="other_apps_dropdown">
             <p>For Organisers</p>

@@ -14,7 +14,7 @@
     <div id="cw_main_full">
         <div class="cw_panel_title_wrapper">
             <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
-                <img class="" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
+                <img src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
             </button>
             <p>PRE-REGISTER FENCERS FOR {COMP'S NAME}</p>
         </div>

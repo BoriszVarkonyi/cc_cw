@@ -105,7 +105,7 @@
                 <a href="cw_competitors.php?comp_id=<?php echo $comp_id ?>">Competitors</a>
                 <a href="cw_pools.php?comp_id=<?php echo $comp_id ?>">Pools</a>
                 <a href="cw_temporary_ranking.php?comp_id=<?php echo $comp_id ?>">Temporary Ranking</a>
-                <a href="cw_tableu.php?comp_id=<?php echo $comp_id ?>">Table</a>
+                <a href="cw_table.php?comp_id=<?php echo $comp_id ?>">Table</a>
                 <a href="cw_final_results.php?comp_id=<?php echo $comp_id ?>">Final Results</a>
 
                 <a href="">Watch Video / Watch Live</a>
