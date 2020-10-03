@@ -1,22 +1,19 @@
-<?php include "cw_header.php"; ?>
-
+<?php include "cw_comp_getdata.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Comp name}'s final results</title>
+    <title><?php echo $comp_name ?>'s final results</title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
     <div id="cw_main_full">
         <div class="cw_panel_title_wrapper">
-            <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
-                <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
-            </button>
-            <p>FINAL RESULTS OF {COMP NAME}</p>
+            <?php include "cw_backbtn_choosecomp.php" ?>
+            <p>FINAL RESULTS OF <?php echo $comp_name ?></p>
         </div>
 
         <p>g</p>
