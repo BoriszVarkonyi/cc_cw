@@ -57,7 +57,6 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Informations for fencers</p>
                     <button onclick="copyContent()" class="stripe_button orange" type="submit" form="needed_equimpment_wrapper" name="submit">
@@ -148,7 +147,6 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                             </div>
                         </form>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>

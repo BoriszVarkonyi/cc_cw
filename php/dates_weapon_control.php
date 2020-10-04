@@ -39,7 +39,6 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title"><?php echo $title ?>'s weapon control</p>
                 </div>
@@ -486,7 +485,6 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                             </div>
                         </div>-->
                     </div>
-                </div>
             </div> 
         </div>
     </body>

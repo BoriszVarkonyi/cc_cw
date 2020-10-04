@@ -25,7 +25,6 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">{Fencer's name}'s weapon control</p>
                     <button class="stripe_button" type="submit">
@@ -202,7 +201,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
     </body>
 <script src="../js/main.js"></script>

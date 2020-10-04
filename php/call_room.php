@@ -25,7 +25,6 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Helo</p>
                     <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
@@ -36,7 +35,6 @@
                 <div id="page_content_panel_main">
                 
                 </div>
-            </div>
         </div>
     </body>
 <script src="../js/main.js"></script>

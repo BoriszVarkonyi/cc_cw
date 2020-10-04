@@ -84,7 +84,6 @@ if(isset($_POST["submit"])){
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Choose Ranking creating method</p>
                 </div>
@@ -188,7 +187,6 @@ if(isset($_POST["submit"])){
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </body>

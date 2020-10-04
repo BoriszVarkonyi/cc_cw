@@ -37,7 +37,6 @@ $query_do = mysqli_query($connection, $query);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Basic Information</p>
                     <button class="stripe_button orange" type="submit" name="submit" form="basic_information_form">
@@ -185,7 +184,6 @@ $query_do = mysqli_query($connection, $query);
                         </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </body>

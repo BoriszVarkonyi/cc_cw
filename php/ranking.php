@@ -92,7 +92,6 @@ if(mysqli_num_rows($query_do) == 0){
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
 
@@ -102,7 +101,7 @@ if(mysqli_num_rows($query_do) == 0){
                     </button>
                 
                     <!-- delete ranking button -->
-                    <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking"></form>
+                    <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="hidden"></form>
                     <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
                         <p>Delete Ranking</p>
                         <img src="../assets/icons/delete-black-18dp.svg"></img>
@@ -329,7 +328,6 @@ if(mysqli_num_rows($query_do) == 0){
                    ?> 
                     </div>
                 </div>
-            </div>
         </div>
     </body>
 <script src="../js/ranking.js"></script>

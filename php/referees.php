@@ -116,7 +116,6 @@ $ref_list_query = mysqli_query($connection, $query_ref);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
                         <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
@@ -268,7 +267,6 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 <script src="../js/main.js"></script>

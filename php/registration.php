@@ -15,7 +15,6 @@
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
                         <button class="stripe_button orange">
@@ -49,7 +48,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 <script src="../js/main.js"></script>

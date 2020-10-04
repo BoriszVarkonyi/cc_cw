@@ -25,7 +25,6 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Weapon Control</p>
                     <button class="stripe_button" type="submit">
@@ -63,7 +62,6 @@
                             <div class="big_status_item red"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </body>

@@ -33,7 +33,6 @@ checkComp($connection);
         <?php include "../includes/navbar.php"; ?>
         
         <div class="page_content_flex">
-            <div class="page_content_panel">
 
                 <!-- dashboard header -->  
                 <div id="title_stripe">
@@ -41,6 +40,7 @@ checkComp($connection);
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
                     </button>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
+                    
                     <button class="stripe_button orange">
                         <p>Publish Competition</p>
                         <img src="../assets/icons/send-black-18dp.svg"></img>
@@ -85,7 +85,6 @@ checkComp($connection);
                         </div>
 
                     </div>
-                </div>
             </div>
         </div>
     </div>    

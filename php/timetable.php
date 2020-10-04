@@ -227,7 +227,6 @@ if($query_do){
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Timetable</p>
                     <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
@@ -346,7 +345,6 @@ if($query_do){
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </body>

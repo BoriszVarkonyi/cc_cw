@@ -142,18 +142,18 @@ $tech_list_query = mysqli_query($connection, $query_tech);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
+
                 <div id="title_stripe">
                         <p class="page_title">Technicians</p>
                         <form action="" method="POST" id="remove_technician">
                         </form>
                         <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
                             <p>Remove Technician</p>
-                            <img src="../assets/icons/delete-black-18dp.svg"></img>
+                            <img class="" src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>
                         <button class="stripe_button" onclick="toggle_import_technician()">
-                            <p >Import Technicians</p>
-                            <img src="../assets/icons/save_alt-black-18dp.svg"></img>
+                            <p class="">Import Technicians</p>
+                            <img class="" src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
 
                         <div id="import_technician_panel" class="thin_overlay_panel overlay_panel hidden">
@@ -304,7 +304,6 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 <script src="../js/main.js"></script>
