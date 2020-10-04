@@ -30,39 +30,53 @@ elseif(mysqli_num_rows($assigned_to_ranking_do) == 1){
 }
 
 //new ranking létrehozás
-if(isset($_POST["submit"])){
+if(isset($_POST["submit"]) ){
 
     $name = $_POST["ranking_name"];
     $pass = $_POST["ranking_password"];
 
+    $num_of_rows_samename = "SELECT * FROM ranking WHERE name = '$name' ";
 
-    $create_table = "INSERT INTO `ranking`(`id`, `name`, `password`, `ass_comp_id`) VALUES (NULL,'$name','$pass',$comp_id)";
-    $create_table_do = mysqli_query($connection, $create_table);
 
-    if(!$create_table){
+    //check for duplicate names
+    if ($result = mysqli_query($connection, $num_of_rows_samename)) {
 
-        echo "HIBA";
-
+        /* determine number of rows result set */
+        $row_cnt = mysqli_num_rows($result);
     }
 
+    if ($row_cnt == 0) {
 
-    $get_id = "SELECT MAX(id) FROM ranking";
-    $get_id_do = mysqli_query($connection, $get_id);
+        $create_table = "INSERT INTO `ranking`(`id`, `name`, `password`, `ass_comp_id`) VALUES (NULL,'$name','$pass',$comp_id)";
+        $create_table_do = mysqli_query($connection, $create_table);
 
-    if($row = mysqli_fetch_assoc($get_id_do)){
+        if($create_table){
 
-    $maxid = $row["MAX(id)"];
+            echo "minden fasza";
 
+        } else {
+            echo mysqli_error($connection);
+        }
+
+
+        $get_id = "SELECT MAX(id) FROM ranking";
+        $get_id_do = mysqli_query($connection, $get_id);
+
+        if($row = mysqli_fetch_assoc($get_id_do)){
+
+        $maxid = $row["MAX(id)"];
+
+        }
+
+        echo $maxid;
+
+        $update_id = "UPDATE competitions SET comp_ranking_id = $maxid WHERE comp_id = $comp_id";
+        $update_id_do = mysqli_query($connection, $update_id);
+
+        header("Location: ranking.php?comp_id=$comp_id&rankid=$maxid");
+    } else {
+        //output when there is a ranking with the same name
     }
-
-    echo $maxid;
-
-    $update_id = "UPDATE competitions SET comp_ranking_id = $maxid WHERE comp_id = $comp_id";
-    $update_id_do = mysqli_query($connection, $update_id);
-
-    header("Location: ranking.php?comp_id=$comp_id&rankid=$maxid");
-
-
 }
 
 ?>
