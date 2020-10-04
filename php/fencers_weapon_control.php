@@ -25,16 +25,15 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">{Fencer's name}'s weapon control</p>
-                    <button class="stripe_button first_stripe_item" type="submit">
-                        <p class="stripe_button_text">Cancel</p>
-                        <img class="stripe_button_icon" src="../assets/icons/close-black-18dp.svg"></img>
+                    <button class="stripe_button" type="submit">
+                        <p>Cancel</p>
+                        <img src="../assets/icons/close-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange last_stripe_item" type="submit" form="fencers_weapon_control_wrapper" onclick="location.href='weapon_control.php?comp_id=<?php echo $comp_id ?>'">
-                        <p class="stripe_button_text">Save weapon control</p>
-                        <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                    <button class="stripe_button orange" type="submit" form="fencers_weapon_control_wrapper" onclick="location.href='weapon_control.php?comp_id=<?php echo $comp_id ?>'">
+                        <p>Save weapon control</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
                 <div id="page_content_panel_main">
@@ -202,7 +201,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
     </body>
 <script src="../js/main.js"></script>

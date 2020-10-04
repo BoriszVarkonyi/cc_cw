@@ -12,11 +12,12 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     $comp_start = $row['comp_start'];
     $comp_end = $row['comp_end'];
     $comp_host = $row['comp_host'];
+    $comp_id = $row['comp_id'];
 
     ?>
 
     <!-- outputting the table -->    
-    <div class="table_row" onclick="window.location.href='cw_competition.php'">
+    <div class="table_row" onclick="window.location.href='cw_competition.php?comp_id=<?php echo $comp_id ?>'">
         <div class="table_item">
             <p><?php echo $comp_name; ?></p>
         </div>

@@ -1,68 +1,88 @@
-<?php include "cw_header.php"; ?>
-
+<?php include "cw_comp_getdata.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Comp's name}</title>
+    <title><?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
     <div id="cw_main_full">
-        <p class="cw_panel_title">{Comp's name}</p>
-        <p id="comp_status">{STATUS}</p>
+
+
+        <!-- cw title panel top  -->
+        <p class="cw_panel_title"><?php echo $comp_name ?></p>
+        <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
         <div id="comp_data">
-            <p>FEMALE</p>
-            <p>EPEE</p>
-            <p>2020</p>
+            <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
+            <p><?php echo weaponConverter($comp_weapon) ?></p>
+            <p><?php echo date('Y', strtotime($comp_start)) ?></p>
         </div>
         <div id="competition_wrapper">
             <div>
+
+
+                <!-- basic info panel -->
                 <div id="basic_information_panel">
                     <div>
                         <p class="data_label">HOST COUNTRY:</p>
-                        <p>{Country}</p>
+                        <p><?php echo $comp_host ?></p>
                         <p class="data_label">LOCATION AND ADDRESS:</p>
-                        <p>{City},</p>
-                        <p>{Address}</p>
-                        <p>{Zip Code}</p>
+                        <p><?php echo $comp_location ?></p>
+                        <p><?php echo $comp_postal ?></p>
                         <p class="data_label">ENTRY-FEE:</p>
-                        <p>{Entry Fee}</p>
+                        <p><?php echo $comp_entry ?></p>
                     </div>
                     <div>
                         <p class="data_label">STARTING DATE:</p>
-                        <p>{Starting Date}</p>
+                        <p><?php echo $comp_start ?></p>
                         <p class="data_label">ENDING DATE:</p>
-                        <p>{Ending Date}</p>
+                        <p><?php echo $comp_end ?></p>
                         <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                        <p>{Pre-Reg Ending Date}</p>
+                        <p><?php echo $comp_pre_end ?></p>
                     </div>
                 </div>
 
+
+                <!-- equipment panel -->
                 <div id="equipment_panel">
                     <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
+
+                    <!-- weapons check table rows -->
                     <div>
-                        <div class="table_row">
-                            <div class="table_item">Epee</div>
-                            <div class="table_item">max. 5</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Jacket</div>
-                            <div class="table_item">max. 1</div>
-                        </div>
+                        <?php 
+                            $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+
+                            $array_equipment = explode(",", $comp_equipment);
+
+                            for ($i = 0; $i < count($equipment); $i++) {
+                                
+                                if ($array_equipment[$i] != 0) {
+                                    ?>
+                                        <div class="table_row">
+                                            <div class="table_item"><?php echo $equipment[$i] ?></div>
+                                            <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                                    
+                                        </div>
+                                    <?php
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
 
+                <!-- additional info panel -->
                 <div id="additional_panel">
                     <p class="data_label panel_title">ADDITIONAL INFORMATION</p>
                     <div>
-                        <p>{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}{Text}</p>
+                        <p><?php echo $comp_info ?></p>
                     </div>
                 </div>
-
+                
+                <!-- weapon control panel -->
                 <div id="weapon_control_panel">
                     <p class="data_label panel_title">WEAPON CONTROL</p>
                     <div>
@@ -81,12 +101,12 @@
             </div>
         
             <div>
-                <a href="cw_pre_registration.php" class="disabled">Pre-Register</a>
-                <a href="cw_competitors.php">Competitors</a>
-                <a href="cw_pools.php">Pools</a>
-                <a href="cw_temporary_ranking.php">Temporary Ranking</a>
-                <a href="cw_tableu.php">Table</a>
-                <a href="cw_final_results.php">Final Results</a>
+                <a href="cw_pre_registration.php?comp_id=<?php echo $comp_id ?>" class="disabled">Pre-Register</a>
+                <a href="cw_competitors.php?comp_id=<?php echo $comp_id ?>">Competitors</a>
+                <a href="cw_pools.php?comp_id=<?php echo $comp_id ?>">Pools</a>
+                <a href="cw_temporary_ranking.php?comp_id=<?php echo $comp_id ?>">Temporary Ranking</a>
+                <a href="cw_table.php?comp_id=<?php echo $comp_id ?>">Table</a>
+                <a href="cw_final_results.php?comp_id=<?php echo $comp_id ?>">Final Results</a>
 
                 <a href="">Watch Video / Watch Live</a>
             </div>

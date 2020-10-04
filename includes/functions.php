@@ -127,4 +127,45 @@ $querysetonline_do = mysqli_query($connectionin, $querysetonline);
     }    
 
 }
+
+//sex converter (converts sex from DB to string sex)
+function sexConverter($sexin) {
+
+    $sexout = "";
+
+    if ($sexin == 1) {
+        $sexout = "Men";
+    } else {
+        $sexout = "Women";
+    }
+    
+    return $sexout;
+    
+}
+
+//weapon type converter nem tom melyik melyik kell borsiz
+function weaponConverter($weaponin) {
+
+    $weaponout = "";
+    
+    switch ($weaponin) {
+        
+        case 1:
+            $weaponout = "Epee";
+        break;
+        case 2:
+            $weaponout = "Foil";
+        break;
+        case 3:
+            $weaponout = "Sabre";
+        break;
+        default:
+            $weaponout = "Unidentified weapon";
+        break;
+    
+    }
+    
+    return $weaponout;
+    
+}
 ?>

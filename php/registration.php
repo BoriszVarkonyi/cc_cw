@@ -15,12 +15,11 @@
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
-                        <button class="stripe_button orange only_stripe_item">
-                            <p class="stripe_button_text">Add Fencer</p>
-                            <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+                        <button class="stripe_button orange">
+                            <p>Add Fencer</p>
+                            <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
                 </div>
                 <div id="page_content_panel_main">
@@ -49,7 +48,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 <script src="../js/main.js"></script>

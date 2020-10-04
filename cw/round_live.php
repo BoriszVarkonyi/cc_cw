@@ -13,8 +13,8 @@
 <body>
     <div id="cw_main_live">
         <div class="cw_panel_title_wrapper">
-            <button type="button" class="back_button" onclick="location.href='cw_tableu.php'">
-                <img class="stripe_button_icon" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
+            <button type="button" class="back_button" onclick="location.href='cw_table.php'">
+                <img class="" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
             </button>
             <p>LIVE RESULTS OF {COMP NAME}, {PISTE NUMBER}, {FENCERNAME} VS. {FENCERNAME}</p>
         </div>
@@ -65,8 +65,6 @@
                                 <p id="machine_fencer_2_score">5</p>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -76,23 +74,11 @@
                     <p>Piste No.: 5</p>
                     <p>Ref: {Referee's Name}</p>
                 </div>
-
-
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
     </div>
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
-<script src="../js/cw_tableu.js"></script>
+<script src="../js/cw_table.js"></script>
 </html>

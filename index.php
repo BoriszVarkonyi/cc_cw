@@ -179,7 +179,7 @@ print_r($_POST);
 </head>
 <body id="illustration_bg">
     <div id="login_panel" class="panel">
-        <div id="title_stripe"><section class="stripe_section"><p class="page_title">Login</p></section></div>
+        <div id="title_stripe"><div class="stripe_section"><p class="page_title">Login</p></div></div>
         <div id="panel_main">
 
 
@@ -239,7 +239,7 @@ print_r($_POST);
                     }
                     
                     ?>
-                   <div class="option_container login_option">
+                   <div class="option_container">
                           <input type="radio" name="role" id="a" value="1"/>
                           <label for="a">I am an organiser</label>
 
@@ -262,9 +262,8 @@ print_r($_POST);
 
             </div>
         </div>
-        <div id="panel_footer"></div>
     </div>
-    <div id="other_apps" class="">
+    <div id="other_apps">
         <button type="button" class="other_apps_button" onclick="toggleOtherApps()">Other Applications</button>
         <div id="other_apps_dropdown">
             <p>For Organisers</p>

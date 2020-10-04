@@ -25,12 +25,11 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Invitation</p>
-                    <button class="stripe_button orange only_stripe_item" type="submit" form="needed_equimpment_wrapper">
-                        <p class="stripe_button_text orange">Download Invitation</p>
-                        <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                    <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
+                        <p>Download Invitation</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
                 <div id="page_content_panel_main">
@@ -42,6 +41,20 @@
                             </div>
                             <div class="db_panel_main">
                                 <div class="invitation_switch_wrapper">  
+                                    <div> 
+                                        <input type="checkbox" name="" id="host_country"> <!-- input's ID has to be indentical to label's for-->
+                                        <label for="host_country">Host Country</label>
+                                    </div>
+
+                                    <div> 
+                                        <input type="checkbox" name="" id="location"> 
+                                        <label for="location">Location and Address</label>
+                                    </div>
+
+                                    <div> 
+                                        <input type="checkbox" name="" id="entry_fee"> 
+                                        <label for="entry_fee">Entry-Fee</label>
+                                    </div>
                                     <div> 
                                         <input type="checkbox" name="" id="starting_date"> <!-- input's ID has to be indentical to label's for-->
                                         <label for="starting_date">Starting Date</label>
@@ -124,7 +137,7 @@
                                     <form id="adding_entry">
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
-                                                <input type="text">
+                                                <input type="text" placeholder="Type in the title">
                                             </div>
                                         </div>
                                     </form>
@@ -138,9 +151,14 @@
                                 <p>Add header picture</p>
                             </div>
                             <div class="db_panel_main">
+                                <!--Only visible when file is uploaded-->
+                                <button class="round_button close_button">
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
+
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="header_img">
-                                    <label for="header_img">Upload picture</label>
+                                    <label for="header_img">Upload picture</label> <!--Has to rewritten to file's name after uploading-->
                                 </div>
                             </div>
                         </div>
@@ -150,6 +168,9 @@
                                 <p>Add watermark</p>
                             </div>
                             <div class="db_panel_main">
+                                <button class="round_button close_button">
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="watermark_img">
                                     <label for="watermark_img">Upload picture</label>
@@ -162,6 +183,9 @@
                                 <p>Add footer picture</p>
                             </div>
                             <div class="db_panel_main">
+                                <button class="round_button close_button">
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
                                 <div class="invitation_file_wrapper">  
                                     <input type="file" id="footer_img">
                                     <label for="footer_img">Upload picture</label>
@@ -175,7 +199,6 @@
 
                     </div>
                 </div>
-            </div>
         </div>
     </body>
 <script src="../js/main.js"></script>

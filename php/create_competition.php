@@ -95,18 +95,17 @@ $query = "";
     <div id="create_competition" class="panel small_panel">
         <div id="title_stripe">
             <p class="page_title">Create new competition</p>
-            <button type="submit" name="submit" form="create_new_comp" class="stripe_button only_stripe_item">
-                <p class="stripe_button_text">Create</p>
-                <img  class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+            <button type="submit" name="submit" form="create_new_comp" class="stripe_button">
+                <p>Create</p>
+                <img src="../assets/icons/add-black-18dp.svg"></img>
             </button>
         </div>
         <div id="panel_main">
             <form id="create_new_comp" action="" method="POST">
-                <div class="create_comp_wrapper">
-                    <section class="form_column">
+                <div class="form_column">
 
-                        <label for="comp_name" class="label_text">NAME</label><br>
-                        <input type="text" name="comp_name" id="name_input"><br>
+                    <label for="comp_name" class="label_text">NAME</label><br>
+                    <input type="text" name="comp_name" id="name_input"><br>
                         <?php
 
                             if(in_array(1, $_GET)) {
@@ -132,9 +131,9 @@ $query = "";
                                 }
                         ?>
 
-                    </section>
+                            </div>
 
-                    <section class="form_column">
+                    <div class="form_column">
                         <label for="sex" class="label_text">SEX</label><br>
 
                         <div class="option_container">
@@ -169,11 +168,9 @@ $query = "";
                             }
                         ?>
 
-                    </section>
                 </div>
             </form>
         </div>
-        <div id="panel_footer"></div>
     </div>
 <script src="../js/main.js"></script>
 </body>

@@ -37,12 +37,11 @@ $query_do = mysqli_query($connection, $query);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Basic Information</p>
-                    <button class="stripe_button orange only_stripe_item" type="submit" name="submit" form="basic_information_form">
-                        <p class="stripe_button_text orange" id="save_text">Save Information</p>
-                        <img class="stripe_button_icon" src="../assets/icons/save-black-18dp.svg"></img>
+                    <button class="stripe_button orange" type="submit" name="submit" form="basic_information_form">
+                        <p id="save_text">Save Information</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
 
@@ -70,7 +69,7 @@ $query_do = mysqli_query($connection, $query);
                         
                         ?>
 
-                        <section class="form_column">
+                        <div class="form_column">
                             <label for="host_country" class="label_text">HOST COUNTRY</label></br>
                             <input type="text" placeholder="Type the name of the country" name="host_country" id="country_input" value="<?php
                             
@@ -85,7 +84,7 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>">
+                            ?>"></br>
 
                             <label for="location" class="label_text">LOCATION AND ADDRESS</label></br>
                             <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin" id="location_input" value="<?php
@@ -101,7 +100,7 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>">
+                            ?>"></br>
                             <input type="number" placeholder="Postal Code" name="postal" class="number_input small" id="postal_input" value="<?php
                             
                             if($postal_get == 0){
@@ -115,7 +114,7 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"> </br>
+                            ?>"></br>
 
                             <label for="entry_fee" class="label_text">ENTRY-FEE</label></br>
                             <input type="text" placeholder="Type the amount" name="entry_fee" class="number_input" id="money_input" value="<?php
@@ -131,9 +130,9 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>">
-                        </section>
-                        <section class="form_column">
+                            ?>"></br>
+                        </div>
+                        <div class="form_column">
 
                             <label for="start_date" class="label_text">STARTING DATE</label></br>
                             <input type="date" name="start_date" id="start_date_input" value="<?php
@@ -149,7 +148,7 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>">
+                            ?>"></br>
 
                             <label for="end_date" class="label_text">ENDING DATE</label></br>
                             <input type="date" name="end_date" id="end_date_input" value="<?php
@@ -165,7 +164,7 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>">
+                            ?>"></br>
 
                             <label for="end_pre_reg" class="label_text">END OF PRE-REGISTRATION</label></br>
                             <input type="date" name="end_pre_reg" id="end_date_input" value="<?php
@@ -182,10 +181,9 @@ $query_do = mysqli_query($connection, $query);
                             }
                             
                             ?>">
-                        </section>
+                        </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </body>

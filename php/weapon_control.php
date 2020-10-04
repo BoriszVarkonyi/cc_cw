@@ -25,16 +25,15 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Weapon Control</p>
-                    <button class="stripe_button first_stripe_item" type="submit">
-                        <p class="stripe_button_text">Send message to fencer</p>
-                        <img class="stripe_button_icon" src="../assets/icons/chat-black-18dp.svg"></img>
+                    <button class="stripe_button" type="submit">
+                        <p>Send message to fencer</p>
+                        <img src="../assets/icons/chat-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button last_stripe_item" type="submit" onclick="location.href='fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>'">
-                        <p class="stripe_button_text">Add weapon control</p>
-                        <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
+                    <button class="stripe_button" type="submit" onclick="location.href='fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>'">
+                        <p>Add weapon control</p>
+                        <img src="../assets/icons/add-black-18dp.svg"></img> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
                 </div>
                 <div id="page_content_panel_main">
@@ -63,7 +62,6 @@
                             <div class="big_status_item red"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </body>

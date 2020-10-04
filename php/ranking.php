@@ -68,7 +68,7 @@ $query_do = mysqli_query($connection, $query);
 if(mysqli_num_rows($query_do) == 0){
 ?>
 
-<div id="confirmation" class="" autocomplete="off">
+<div id="confirmation" autocomplete="off">
         <form id="create_ranking_form" action="" method="POST">
             <p>Are you sure you want to create a new ranking?</p>
             <div id="confirmation_button_section">
@@ -92,21 +92,19 @@ if(mysqli_num_rows($query_do) == 0){
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-            <div class="page_content_panel">
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
 
-                    <button class="stripe_button first_stripe_item" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
-                        <p class="stripe_button_text">Ranking Information</p>
-                        <img class="stripe_button_icon" src="../assets/icons/info-black-18dp.svg"></img>
+                    <button class="stripe_button" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
+                        <p>Ranking Information</p>
+                        <img src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
                 
-                <!-- delete ranking button -->
-                <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="ghost_form">
-                </form>
+                    <!-- delete ranking button -->
+                    <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="hidden"></form>
                     <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
-                        <p class="stripe_button_text">Delete Ranking</p>
-                        <img class="stripe_button_icon" src="../assets/icons/delete-black-18dp.svg"></img>
+                        <p>Delete Ranking</p>
+                        <img src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
                 
                     <?php
@@ -143,11 +141,15 @@ if(mysqli_num_rows($query_do) == 0){
                         }  
                     ?>
                 
-                    <button class="stripe_button last_stripe_item" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
-                        <p class="stripe_button_text">Add fencer</p>
-                        <img class="stripe_button_icon" src="../assets/icons/add-black-18dp.svg"></img>
+                    <button class="stripe_button disabled" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                        <p>Delete fencer</p>
+                        <img src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
 
+                    <button class="stripe_button bold" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                        <p>Add fencer</p>
+                        <img src="../assets/icons/add-black-18dp.svg"></img>
+                    </button>
 
                     <div id="add_fencer_panel" class="big_overlay_panel overlay_panel hidden">
                             <button id="close_button" class="round_button" onclick="toggleAddFencer()">
@@ -326,7 +328,6 @@ if(mysqli_num_rows($query_do) == 0){
                    ?> 
                     </div>
                 </div>
-            </div>
         </div>
     </body>
 <script src="../js/ranking.js"></script>
