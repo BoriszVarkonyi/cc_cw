@@ -29,6 +29,36 @@ elseif(mysqli_num_rows($assigned_to_ranking_do) == 1){
     header("Location: ranking.php?comp_id=$comp_id&rankid=$toranking");
 }
 
+//Existing ranking használata
+
+if(isset($_POST["valid_ranking"])){
+
+    $hidden_rk_id = $_POST["ranking_id"];
+    $user_written_pass = $_POST["ranking_password"];
+
+    $query = "SELECT * FROM ranking WHERE id = $hidden_rk_id";
+    $query_do = mysqli_query($connection, $query);
+
+    if($row = mysqli_fetch_assoc($query_do)){
+
+        $rk_pass = $row["password"];
+
+    }
+    if($user_written_pass == $rk_pass){
+
+        $query_add_rk_comp = "UPDATE competitions SET comp_ranking_id = $hidden_rk_id WHERE comp_id = $comp_id";
+        $query_add_rk_comp_do = mysqli_query($connection, $query_add_rk_comp);
+
+        $query_rk_change_ass = "UPDATE ranking SET ass_comp_id = $comp_id WHERE id = $hidden_rk_id";
+        $query_rk_change_ass_do = mysqli_query($connection, $query_rk_change_ass);
+
+        header("Location: ranking.php?comp_id=$comp_id&rankid=$hidden_rk_id");
+
+    }
+
+}
+
+
 //new ranking létrehozás
 if(isset($_POST["submit"])){
 
@@ -114,33 +144,35 @@ if(isset($_POST["submit"])){
                                 <div>
                                     <?php
 
-                                        $select_ranking_rows = "SELECT * FROM ranking";
+                                        $select_ranking_rows = "SELECT * FROM ranking WHERE ass_comp_id = 0";
                                         $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
 
                                         while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
                                             
                                             $ranking_name = $row['name'];
+                                            $ranking_id = $row['id'];
 
                                     ?>
 
 
-                                            <div class="table_row">
+                                            <div class="table_row" id="<?php echo $ranking_id ?>" onclick="selectRanking(this)">
                                                 <div class="table_item"><?php echo $ranking_name ?></div>
                                             </div>
 
                                     <?php } ?>
 
                                 </div> <!--From * SELECT table name LIKE sadsadas -->
-                                <form action="">
+                                <form>
                                     <input type="text" class="hidden"> <!-- IF storing the seleted ranking in text form-->
-                                    <input type="submit" value="Use Ranking">
+                                    <input type="button" value="Use Ranking" onclick="getName()">
                                 </form>
                                 <div id="use_this_ranking">
-                                    <p class="ranking_name">Ranking name</p>
-                                    <form name="submit" method="POST" action="" id="use_this_ranking_form">
+                                    <p class="ranking_name" id="ranking_name_p">Ranking name</p>
+                                    <form name="ranking_password" method="POST" action="" id="use_this_ranking_form">
+                                    <input id="ranking_id_hidden" type="text" class="hidden" name="ranking_id">
                                         <label for="ranking_name" class="label_text">PASSWORD</label>
-                                        <input type="password" name="ranking_password">
-                                        <input type="submit" name="submit" value="Use Ranking">
+                                        <input id="ranking_password_input" type="password" name="ranking_password">
+                                        <input type="submit" name="valid_ranking" value="Use Ranking">
                                     </form>
                                 </div>
                             </div>
@@ -167,7 +199,7 @@ if(isset($_POST["submit"])){
                                 <p>You can create your own ranking that you can download and use later.</p>
                             </div>
                             <div id="ranking_create" class="closed">
-                                <form name="submit" method="POST" action="">
+                                <form name="submit" method="POST">
                                     <label for="ranking_name" class="label_text">NAME OF THE RANKING</label>
                                     <input type="text" name="ranking_name">
                                     <label for="ranking_name" class="label_text">PASSWORD</label>

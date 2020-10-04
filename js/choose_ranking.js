@@ -70,3 +70,39 @@ function closeCreateRankingPanel() {
 
     closeCreatePanelButton.classList.toggle("hidden")
 }
+
+function selectRanking(x) {
+
+var toselect = document.getElementsByClassName("selected");
+var input = document.getElementById("ranking_id_hidden");
+
+if(toselect.length > 0){
+
+    for (let index = 0; index < toselect.length; index++) {
+        toselect[index].classList.remove("selected");
+    }
+
+    input.value = "";
+    console.log(input.value)
+
+}
+else{
+    x.classList.add("selected");
+
+    input.value = x.id;
+
+    console.log(input.value)
+}
+}
+
+function getName(){
+
+console.log("WORKING");
+
+var name = document.getElementsByClassName("selected");
+var nameto = document.getElementById("ranking_name_p");
+
+console.log(name[0].children[0].innerHTML);
+nameto.innerHTML = name[0].children[0].innerHTML;
+
+} 
