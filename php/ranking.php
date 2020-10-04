@@ -5,44 +5,60 @@
 
 <?php 
 
-$ranking_id = $_GET["rankid"]; 
-$drop_row_feedback = "";
-$drop_table_feedback = "";
-$insert_feedback = "";
-$last_row_fencer_dob = NULL;
-$last_row_fencer_name = NULL;
-//jelenlegi tábla neve 
-$table_name = "rk_" . $ranking_id;
+    $ranking_id = $_GET["rankid"]; 
+    $drop_row_feedback = "";
+    $drop_table_feedback = "";
+    $insert_feedback = "";
+    $last_row_fencer_dob = NULL;
+    $last_row_fencer_name = NULL;
+    //jelenlegi tábla neve 
+    $table_name = "rk_" . $ranking_id;
 
 
-if(isset($_POST["create"])){
+    if(isset($_POST["create"])){
 
-$create_query = "CREATE TABLE `ccdatabase`.`rk_$ranking_id` ( id INT(11) NOT NULL AUTO_INCREMENT , name VARCHAR(255) NOT NULL , nationality VARCHAR(255) NOT NULL , position INT(11) NOT NULL , points INT(20) NOT NULL , dob DATE NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
-$create_query_do = mysqli_query($connection, $create_query);
+    $create_query = "CREATE TABLE `ccdatabase`.`rk_$ranking_id` ( id INT(11) NOT NULL AUTO_INCREMENT , name VARCHAR(255) NOT NULL , nationality VARCHAR(255) NOT NULL , position INT(11) NOT NULL , points INT(20) NOT NULL , dob DATE NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
+    $create_query_do = mysqli_query($connection, $create_query);
 
-header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
+    header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
 
 
-}
+    }
 
-if(isset($_POST["undo"])){
+    if(isset($_POST["undo"])){
 
-$query = "DELETE FROM `ranking` WHERE ass_comp_id = $comp_id";
-$query_do = mysqli_query($connection, $query);
+    $query = "DELETE FROM `ranking` WHERE ass_comp_id = $comp_id";
+    $query_do = mysqli_query($connection, $query);
 
-header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
+    header("Location: choose_ranking.php?comp_id=$comp_id&rankid=$ranking_id");
 
-}
+    }
 
-$chck_for_rows = "SELECT * FROM $table_name";
+    $chck_for_rows = "SELECT * FROM $table_name";
 
-if ($result = mysqli_query($connection, $chck_for_rows)) {
+    if ($result = mysqli_query($connection, $chck_for_rows)) {
 
-    /* determine number of rows result set */
-    $row_cnt = mysqli_num_rows($result);
-}
+        /* determine number of rows result set */
+        $row_cnt = mysqli_num_rows($result);
+    }
+
+    if (isset($_POST["id_to_delete"])) {
+
+        $id_to_delete = $_POST['id_to_delete'];
+
+        $delete_fencer_query = "DELETE FROM `$table_name` WHERE id = '$id_to_delete'";
+        $delete_fencer_result = mysqli_query($connection, $delete_fencer_query);
+
+        if (!$delete_fencer_result) {
+            echo mysqli_error($connection);
+        }
+
+        header("Refresh:0");    
+    }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,10 +98,6 @@ if(mysqli_num_rows($query_do) == 0){
 <?php
 }
 ?>
-
-    
-
-
 
 <!-- header -->
     <div id="flexbox_container">

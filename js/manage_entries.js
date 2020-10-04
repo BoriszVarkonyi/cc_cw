@@ -9,7 +9,7 @@ function toggleEntry(x) {
 
 }
 
-//patrik
+//patrik not approved changes onclick to approved
 
 
 
