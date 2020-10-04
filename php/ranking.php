@@ -140,8 +140,10 @@ if(mysqli_num_rows($query_do) == 0){
                             header("Location: http://localhost/php/choose_ranking.php?comp_id=52");
                         }  
                     ?>
-                
-                    <button class="stripe_button disabled" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                <form id="delete_fencer_form" class="hidden" method="POST">
+                <input class="hidden" id="id_to_delete" type="text" name="id_to_delete">
+                </form>
+                    <button class="stripe_button disabled" id="delete_fencer_button" type="submit" name="delete_fencer" form="delete_fencer_form">
                         <p>Delete fencer</p>
                         <img src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
@@ -311,7 +313,7 @@ if(mysqli_num_rows($query_do) == 0){
                     ?>
 
 
-                        <div class="table_row">
+                        <div class="table_row" id="<?php echo $id ?>" onclick="toDelete(this)">
 
                             <div class="table_item"><?php echo $pos ?></div>
                             <div class="table_item"><?php echo $points ?></div>
