@@ -738,6 +738,12 @@ input[type="range"]:focus::-ms-fill-upper {
 	align-items: center;
 	flex-grow: 1;
 	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+#page_content_panel_main.no_scroll {
+	overflow: hidden;
 }
 
 /* Title Stripe Elements */
@@ -1132,6 +1138,10 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 
 /* Overlaying Panels */
 
+.overlay_panel_form {
+	padding: 50px;
+}
+
 .overlay_panel {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
@@ -1141,16 +1151,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	align-items: center;
 }
 
-.big_overlay_panel {
-	min-width: 350px;
-	width: 20vw;
-	max-width: 500px;
-	min-height: 400px;
-	height: 40vh;
-	max-height: 550px;
-}
-
-.small_overlay_panel {
+.overlay_panel.small {
 	min-width: 200px;
 	width: 10vw;
 	max-width: 300px;
@@ -1160,7 +1161,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	z-index: 2;
 }
 
-.thin_overlay_panel {
+.overlay_panel.thin {
 	min-width: 250px;
 	width: 12vw;
 	max-width: 300px;
@@ -2595,7 +2596,7 @@ div.icon_box > img {
 /* RANKING */
 
 #ranking_wrapper {
-	width: 60%;
+	width: 80%;
 	height: 60%;
 }
 
@@ -2611,7 +2612,7 @@ div.icon_box > img {
 }
 
 #ranking_info_panel {
-	right: 400px;
+	right: 530px;
 	top: calc(50px + 3vh);
 	z-index: 2;
 	flex-direction: column;
@@ -2623,23 +2624,18 @@ div.icon_box > img {
 	display: none;
 }
 
-#ranking_info_panel > label {
-	margin-left: 30px;
-}
 
-#ranking_info_panel > p {
-	margin: 5px 0 10px 50px;
+#ranking_info_panel > div > p {
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
 }
 
-#ranking_info_panel > div {
-	margin: 5px 0 10px 50px;
+#ranking_info_panel > div > div {
 	display: flex;
-	align-items: baseline;
+	align-items: center
 }
 
-#ranking_info_panel > div > p {
+#ranking_info_panel > div > div > p {
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
 }

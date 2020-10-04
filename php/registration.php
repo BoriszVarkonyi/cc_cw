@@ -26,8 +26,8 @@
 
                     <div id="technicians_wrapper">
                     <!--
-                            <div id="no_technicians_panel">
-                                <p id="no_technicians_text">You have no technicians set up!</p>
+                            <div id="no_something_panel">
+                                <p>You have no referees set up!</p>
                             </div>
                -->     
                         <div class="table_header">

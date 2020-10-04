@@ -128,7 +128,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             <img src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
 
-                        <div id="import_technician_panel" class="thin_overlay_panel overlay_panel hidden">
+                        <div id="import_technician_panel" class="thin overlay_panel hidden">
                             <button id="close_button" class="round_button" onclick="toggle_import_technician()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                             </button>
@@ -161,23 +161,27 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             <p>Add Referees</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
-                    <div id="add_technician_panel" class="big_overlay_panel overlay_panel hidden" >
+                    <div id="add_technician_panel" class="overlay_panel hidden">
                         <button id="close_button" class="round_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
-                        <div class="form_wrapper_small">
-                        <form action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
-                            <label for="username" class="label_text">NAME</label></br>
-                            <input type="text" placeholder="Type the referees's name" id="username_input" name="username"><br>
-                            <label for="password"class="label_text">PASSWORD</label></br>
-                            <input type="password" placeholder="Type the referees's password" id="password_input" name="password" class="no_margin_input">
-                            <button type="button" id="random_password_button" onclick="randomPassword()" ><img src="../assets/icons/shuffle-black-18dp.svg"></button>
-                            <label for="password"class="label_text">FULL NAME</label></br>
-                            <input type="text" placeholder="Type the referees's full name" id="full_name_input" name="full_name" class="no_margin_input">
-                            
 
-                            <button type="submit" name="new_technician" class="submit_button" form="new_technician" value="Save">Save</button>
-                        </form>
+                        <div class="overlay_panel_form">
+                            <form action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
+
+                                <label for="username" class="label_text">NAME</label></br>
+                                <input type="text" placeholder="Type the referees's name" id="username_input" name="username"><br>
+
+                                <label for="password"class="label_text">PASSWORD</label></br>
+                                <input type="password" placeholder="Type the referees's password" id="password_input" name="password" class="no_margin_input"></br>
+
+                                <button type="button" id="random_password_button" onclick="randomPassword()" ><img src="../assets/icons/shuffle-black-18dp.svg"></button></br>
+
+                                <label for="full_name" class="label_text">FULL NAME</label></br>
+                                <input type="text" placeholder="Type the referees's full name" id="full_name_input" name="full_name" class="no_margin_input">
+
+                                <button type="submit" name="new_technician" class="submit_button" form="new_technician" value="Save">Save</button>
+                            </form>
                         </div>
                     </div>
                 </div>

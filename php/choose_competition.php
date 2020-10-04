@@ -56,7 +56,7 @@ $query_comps = mysqli_query($connection, $query);
     <div id="your_competitions_panel" class="panel small_panel">
         <div id="title_stripe">
             <p class="page_title">Your competitions</p>
-            <button class="stripe_button" onclick="location.href='create_competition.php'">
+            <button class="stripe_button orange" onclick="location.href='create_competition.php'">
                 <p>Create Competition</p>
                 <img src="../assets/icons/add-black-18dp.svg"></img>
             </button>
@@ -96,7 +96,9 @@ $query_comps = mysqli_query($connection, $query);
                 //If there is no row in competitions table, shows the message below.
                 ?>
 
-                <div id="no_competition"><p id="no_competition_text">You don't have any competitions yet!</p></div>
+                <div id="no_something_panel">
+                    <p>You have no competitions yet!</p>
+                </div>
 
                 <?php
                 }
