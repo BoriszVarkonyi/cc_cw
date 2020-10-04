@@ -81,7 +81,7 @@ setcookie("today",$test,time()+31556926);
             <div id="technical_dropdown_menu" class="dropdown_menu hidden">
                 <a href="technicians.php?comp_id=<?php echo $comp_id ?>">Technicians</a>
                 <a href="referees.php?comp_id=<?php echo $comp_id ?>">Referees</a>
-                <a href="">Pistes</a>
+                <a href="pistes.php?comp_id=<?php echo $comp_id ?>">Pistes</a>
                 <a href="">Formula</a>
             </div>
 
