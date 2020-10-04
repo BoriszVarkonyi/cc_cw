@@ -89,7 +89,7 @@ header("Location: ../index.php");
         </div>
         
         <!-- language select drop-down -->
-        <div id="language_panel" class="small_overlay_panel hidden">
+        <div id="language_panel" class="small overlay_panel hidden">
             <div class="close_button_wrapper">
                 <button id="close_lang_button" class="round_button" onclick="toggle_language_panel()">
                     <img src="../assets/icons/close-black-18dp.svg" alt="">
@@ -128,7 +128,7 @@ header("Location: ../index.php");
         </div>
 
         <!-- colormode select drop-down -->
-        <div id="colormode_panel" class="small_overlay_panel hidden">
+        <div id="colormode_panel" class="small overlay_panel hidden">
             <button id="close_button" class="round_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
@@ -150,7 +150,7 @@ header("Location: ../index.php");
         </div>
 
         <!-- profile panel drop-down -->
-        <div id="profile_panel" class="small_overlay_panel hidden">
+        <div id="profile_panel" class="small overlay_panel hidden">
             <button id="close_button" class="round_button" onclick="toggle_profile_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>

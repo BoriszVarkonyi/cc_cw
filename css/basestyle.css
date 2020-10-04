@@ -187,9 +187,10 @@ form.hidden {
 	position: sticky;
 	top: 0;
 	display: flex;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
+}
+
+.table_header.gray {
+	background-color: var(--c-lightgray);
 }
 
 .table_row.start {
@@ -517,6 +518,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px 0;
 	width: 100%;
+	min-width: 200px;
 	max-width: 400px;
 	height: 35px;
 	padding-left: 35px;

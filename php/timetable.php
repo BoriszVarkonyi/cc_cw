@@ -234,14 +234,14 @@ if($query_do){
                         <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
-                <div id="page_content_panel_main">
+                <div id="page_content_panel_main" class="no_scroll">
 
-                    <div id="set_wc_panel" class="overlay_panel big_overlay_panel hidden">
-                        <div class="form_wrapper">
+                    <div id="set_wc_panel" class="overlay_panel hidden">
                             <button id="close_button" class="round_button" onclick="closeWcPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
-
+                            
+                            <div class="overlay_panel_form">
                             <form action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p></br>
                                 <input type="text" id="save_date" name="save_date" class="hidden">

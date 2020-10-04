@@ -156,7 +156,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <img class="" src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
 
-                        <div id="import_technician_panel" class="thin_overlay_panel overlay_panel hidden">
+                        <div id="import_technician_panel" class="thin overlay_panel hidden">
                             <button id="close_button" class="round_button" onclick="toggle_import_technician()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                             </button>
@@ -188,11 +188,11 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <p>Add Technicians</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
-                    <div id="add_technician_panel" class="big_overlay_panel overlay_panel hidden" >
+                    <div id="add_technician_panel" class="overlay_panel hidden" >
                         <button id="close_button" class="round_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
-                        <div class="form_wrapper_small">
+                        <div class="overlay_panel_form">
                         <form action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
                             <label for="username" class="label_text">NAME</label></br>
                             <input type="text" placeholder="Type the technician's name" id="username_input" name="username"><br>
