@@ -12,30 +12,27 @@ function openCompetitionsDropdown() {
 
     compDropdown.classList.toggle("closed");
 }
-
+/*
 var slideIndex = 0;
+
 slideShow();
 
 function slideShow() {
     
-    var i;
-    var slides = document.getElementsByClassName("slide");
+    var i = 0;
+    var slides = document.getElementsByClassName("slide");*/
+    var myIndex = 0;
+carousel();
 
-    for (i = 0; i < slides.length; i++) {
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("slide");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 5 seconds
+      }
 
-        slides[i].style.zIndex = "0"
-
-        setTimeout( function() { 
-            slides[i].style.display = "none" }, 2000
-        )
-    }
-    
-    slideIndex++;
-
-    if (slideIndex > slides.length) {slideIndex = 1}    
-
-    slides[slideIndex-1].style.display = "flex";
-
-
-    setTimeout(slideShow, 5000);
-}

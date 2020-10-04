@@ -182,10 +182,10 @@ if(isset($_POST["submit"]) ){
                             </div>
                             <div id="ranking_create" class="closed">
                                 <form name="submit" method="POST" action="">
-                                    <label for="ranking_name" class="label_text">NAME OF THE RANKING</label>
-                                    <input type="text" name="ranking_name">
-                                    <label for="ranking_name" class="label_text">PASSWORD</label>
-                                    <input type="password" name="ranking_password">
+                                    <label for="ranking_name" id= "rn" class="label_text">NAME OF THE RANKING</label>
+                                    <input type="text" id="rn" name="ranking_name">
+                                    <label for="ranking_name"  class="label_text">PASSWORD</label>
+                                    <input type="password" id="pw" name="ranking_password">
                                     <input type="submit" name="submit" value="Create Ranking">
                                 </form>
                             </div>
