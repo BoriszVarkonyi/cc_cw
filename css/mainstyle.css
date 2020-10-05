@@ -527,7 +527,8 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .nav_bar_item.disabled {
-	display: none;
+	color: var(--c-darkgray);
+	cursor: default;
 }
 
 .nav_bar_item > p {
@@ -666,6 +667,11 @@ input[type="range"]:focus::-ms-fill-upper {
 	flex-wrap: nowrap;
 	flex-direction: column;
 	padding-left: 55px;
+}
+
+.dropdown_menu > a.disabled {
+	color: var(--c-darkgray);
+	cursor: default;
 }
 
 .dropdown_menu.hidden {

@@ -101,12 +101,6 @@ function toggle_technical_dropdown() {
     dt_drop_icon.classList.toggle("close");
 }
 
-function toggle_pre_entries_dropdown() {
-    var pe_drop = document.getElementById("pre_entries_dropdown_menu");
-    var pe_drop_icon = document.getElementById("pre_entries_dropdown_icon");
-    pe_drop.classList.toggle("hidden");
-    pe_drop_icon.classList.toggle("close");
-}
 //END
 
 /*  Color changer    */

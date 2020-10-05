@@ -21,7 +21,7 @@ setcookie("today",$test,time()+31556926);
 
             <p id="controls_text" class="nav_bar_title">CONTROLS</p>
             <!-- DT -->
-            <button type="button" onclick="toggle_dt_dropdown()" class="nav_bar_item">
+            <button type="button" onclick="toggle_dt_dropdown()" class="nav_bar_item disabled">
                 <img src="../assets/icons/list_alt-black-18dp.svg" alt="">
                 <p>DT</p>
                 <img src="../assets/icons/arrow_drop_down-black-18dp.svg" alt="" id="dt_dropdown_icon" class="dropdown_icon">
@@ -42,7 +42,7 @@ setcookie("today",$test,time()+31556926);
             </a>
 
             <!-- registration -->
-           <a href="registration.php" class="nav_bar_item">
+           <a href="registration.php" class="nav_bar_item disabled">
                <img src="../assets/icons/how_to_reg-black-18dp.svg" alt="">
                <p>Registration</p>
             </a>
@@ -79,7 +79,7 @@ setcookie("today",$test,time()+31556926);
 
             <!-- technical drop-down -->
             <div id="technical_dropdown_menu" class="dropdown_menu hidden">
-                <a href="technicians.php?comp_id=<?php echo $comp_id ?>">Technicians</a>
+                <a href="technicians.php?comp_id=<?php echo $comp_id ?>" class="disabled">Technicians</a>
                 <a href="referees.php?comp_id=<?php echo $comp_id ?>">Referees</a>
                 <a href="pistes.php?comp_id=<?php echo $comp_id ?>">Pistes</a>
                 <a href="">Formula</a>
@@ -91,16 +91,11 @@ setcookie("today",$test,time()+31556926);
                 <p>Ranking</p>
             </a>
 
-            <!-- ranking drop-down -->
-            <button type="button" onclick="toggle_pre_entries_dropdown()" class="nav_bar_item">
-                <img src="../assets/icons/home_repair_service-black-18dp.svg" alt="">
-                <p>Pre-entries</p>
-                <img src="../assets/icons/arrow_drop_down-black-18dp.svg" alt="" id="pre_entries_dropdown_icon" class="dropdown_icon">
-            </button>
-            <div id="pre_entries_dropdown_menu" class="dropdown_menu hidden">
-                <a href="">Accounts</a>
-                <a href="manage_entries.php?comp_id=<?php echo $comp_id ?>">Manage Entries</a>
-            </div>
+            <!-- manage ebtries -->
+            <a href="manage_entries.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
+                <img src="../assets/icons/all_inbox-black-18dp.svg" alt="">
+                <p>Manage Entries</p>
+            </a>
 
             <!-- ?help -->
             <a href="" id="need_help">
