@@ -88,7 +88,6 @@
                                         <input type="checkbox" name="" id="additional_info"> 
                                         <label for="additional_info">Additional Information</label>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -145,7 +144,7 @@
                             </div>
                         </div>
 
-                        <div class="inv_panel" id="">
+                        <div class="inv_panel disabled" id="">
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/build-black-18dp.svg" alt="" class="db_panel_stripe_icon">
                                 <p>Add header picture</p>
@@ -155,14 +154,14 @@
                                 <button class="round_button close_button">
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
-
                                 <div class="invitation_file_wrapper">  
+                                    <p>Not available yet!</p>
                                     <input type="file" id="header_img">
                                     <label for="header_img">Upload picture</label> <!--Has to rewritten to file's name after uploading-->
                                 </div>
                             </div>
                         </div>
-                        <div class="inv_panel" id="">
+                        <div class="inv_panel disabled" id="">
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/build-black-18dp.svg" alt="" class="db_panel_stripe_icon">
                                 <p>Add watermark</p>
@@ -172,12 +171,13 @@
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
                                 <div class="invitation_file_wrapper">  
+                                    <p>Not available yet!</p>
                                     <input type="file" id="watermark_img">
                                     <label for="watermark_img">Upload picture</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="inv_panel" id="">
+                        <div class="inv_panel disabled" id="">
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/build-black-18dp.svg" alt="" class="db_panel_stripe_icon">
                                 <p>Add footer picture</p>
@@ -186,7 +186,8 @@
                                 <button class="round_button close_button">
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
-                                <div class="invitation_file_wrapper">  
+                                <div class="invitation_file_wrapper">
+                                    <p>Not available yet!</p>
                                     <input type="file" id="footer_img">
                                     <label for="footer_img">Upload picture</label>
                                 </div>
