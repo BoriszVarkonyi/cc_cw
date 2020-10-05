@@ -22,7 +22,7 @@
             <p><?php echo date('Y', strtotime($comp_start)) ?></p>
         </div>
         <div id="competition_wrapper">
-            <div>
+            <div id="invitation_cw">
 
 
                 <!-- basic info panel -->
@@ -100,13 +100,14 @@
 
             </div>
         
-            <div>
+            <div id="competition_controls">
                 <a href="cw_pre_registration.php?comp_id=<?php echo $comp_id ?>" class="disabled">Pre-Register</a>
                 <a href="cw_competitors.php?comp_id=<?php echo $comp_id ?>">Competitors</a>
                 <a href="cw_pools.php?comp_id=<?php echo $comp_id ?>">Pools</a>
                 <a href="cw_temporary_ranking.php?comp_id=<?php echo $comp_id ?>">Temporary Ranking</a>
                 <a href="cw_table.php?comp_id=<?php echo $comp_id ?>">Table</a>
                 <a href="cw_final_results.php?comp_id=<?php echo $comp_id ?>">Final Results</a>
+                <a onclick="printPage()">Print</a>
 
                 <a href="">Watch Video / Watch Live</a>
             </div>

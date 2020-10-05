@@ -8,3 +8,15 @@ function toggleEntry(x) {
     entryPanel.classList.toggle("collapsed");
 
 }
+
+function printDiv(y) {
+    var printContents = document.getElementById(y).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+
+    document.body.innerHTML = originalContents;
+
+    window.print();
+}

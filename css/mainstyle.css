@@ -1711,6 +1711,7 @@ input:focus::placeholder {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	margin: 75px 0;
+	flex-direction: column;
 }
 
 .inv_panel {
@@ -1739,10 +1740,6 @@ input:focus::placeholder {
 .invitation_file_wrapper > p {
 	font-size: var(--f-medium);
 	font-family: ProximaNovaBold;
-}
-
-.inv_panel:nth-of-type(2), .inv_panel:nth-of-type(6) {
-	margin: 0 30px 30px 30px;
 }
 
 .invitation_switch_wrapper {
@@ -1855,13 +1852,6 @@ input:focus::placeholder {
 	background-color: transparent;
 }
 
-#invitational_preview {
-	margin-top: 50px;
-	margin-bottom: 75px;
-	min-width: 100%;
-	background-color: var(--c-lightestgray);
-}
-
 #adding_entry.hidden {
 	display: none;
 }
@@ -1873,12 +1863,23 @@ input:focus::placeholder {
 	padding: 0 15px;
 }
 
-
 #adding_entry > .table_row > .table_item > input {
 	margin: 0;
 	padding-left: 0;
 	height: 80%;
 	width: 50%;
+}
+
+#invitational_preview {
+	margin-top: 50px;
+	margin-bottom: 75px;
+	min-width: 100%;
+	background-color: var(--c-lightestgray);
+}
+
+#invitational_wrapper {
+	width: 80%;
+	box-shadow: var(--c-black);
 }
 
 /* ///TIMETABLE/// */
@@ -3298,4 +3299,174 @@ input.wc_time {
 #add_piste_panel {
 	top: calc(50px + 3vh);
 	right: 40px;
+}
+
+/* Invitatinal */
+
+#cw_preview {
+	margin: 75px 0;
+	width: 100%;
+	background-color: var(--c-white);
+	box-shadow: var(--s-black);
+}
+
+/* Competitions page*/
+
+.cw_panel_title {
+	font-family: ProximaNovaBold;
+	font-size: var(--f-large);
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	margin-left: 100px;
+}
+
+#comp_status {
+	font-family: ProximaNovaThin;
+	font-size: var(--f-large);
+	text-transform: uppercase;
+	margin-top: -20px;
+	margin-left: 100px;
+}
+
+#comp_data {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 50px 0;
+}
+
+#comp_data > img {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 25px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+#comp_data > div {
+	display: flex;
+	margin-left: 100px;
+}
+
+#comp_data > div > p {
+	font-family: ProximaNova;
+	font-size: var(--f-large);
+	text-transform: uppercase;
+	margin-right: 20px;
+}
+
+#cw_preview {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: flex-start;
+}
+
+#cw_preview {
+	width: 100%;
+	flex: 0 1 auto;
+	font-family: ProximaNovaBold;
+	font-size: var(--f-medium);
+	display: flex;
+	flex-direction: column;
+}
+
+#cw_preview > div:not(#comp_data) {
+	margin-bottom: 25px;
+	background-color: var(--c-lightestgray);
+	position: relative;
+	min-height: 200px;
+	width: 90%;
+}
+
+#basic_information_panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#basic_information_panel > div {
+	flex: 1 1 250px;
+	margin: 20px 0;
+	padding: 20px;
+}
+
+#basic_information_panel > div:last-child {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.data_label {
+	font-family: ProximaNova;
+	text-transform: uppercase;
+	margin-top: 10px;
+}
+
+.data_label:first-child {
+	font-family: ProximaNova;
+	text-transform: uppercase;
+	margin-top: 0;
+}
+
+.data_label.panel_title {
+	position: absolute;
+	top: 20px;
+	left: 25px;
+}
+
+#equipment_panel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#equipment_panel > div {
+	width: 70%;
+	margin: 100px 0;
+}
+
+#equipment_panel > div > .table_row {
+	max-height: 20px;
+}
+
+#equipment_panel > div > .table_row:nth-child(even) {
+	background-color: var(--c-lightergray);
+}
+
+#additional_panel > div, #weapon_control_panel > div {
+	padding: 50px 40px;
+}
+
+#weapon_control_panel {
+	display: flex;
+	align-items: center;
+}
+
+.weapon_control_day {
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.weapon_control_day:last-child {
+	margin-bottom: 0;
+}
+
+.weapon_control_day > a {
+	margin-left: 10px;
+	text-decoration: underline;
+}
+
+@media print {
+
+	header, header *{
+		display: none;
+	}
+
+
+
+
+
 }

@@ -36,3 +36,7 @@ carousel();
         setTimeout(carousel, 2000); // Change image every 5 seconds
       }
 
+function  printPage() {
+  window.print();
+}
+
