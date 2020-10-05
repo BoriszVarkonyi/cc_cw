@@ -1,5 +1,6 @@
 <?php include "compid.php" ?>
 <?php include "db.php" ?>
+<?php include "navbar_btn_checker.php" ?>
 <?php setOnline($connection); ?>
 <?php
 
@@ -21,7 +22,7 @@ setcookie("today",$test,time()+31556926);
 
             <p id="controls_text" class="nav_bar_title">CONTROLS</p>
             <!-- DT -->
-            <button type="button" onclick="toggle_dt_dropdown()" class="nav_bar_item disabled">
+            <button type="button" <?php echo $assoc_array_functions['dt'] ?> >
                 <img src="../assets/icons/list_alt-black-18dp.svg" alt="">
                 <p>DT</p>
                 <img src="../assets/icons/arrow_drop_down-black-18dp.svg" alt="" id="dt_dropdown_icon" class="dropdown_icon">
@@ -29,26 +30,26 @@ setcookie("today",$test,time()+31556926);
 
             <!-- DT drop-down -->
             <div id="dt_dropdown_menu" class="dropdown_menu hidden">
-                <a href="">Competitiors</a>
-                <a href="">Pools</a>
-                <a href="">Table</a>
-                <a href="">Overview</a>
+                <a <?php echo $assoc_array_functions['competitors'] ?>>Competitiors</a>
+                <a <?php echo $assoc_array_functions['pools'] ?>>Pools</a>
+                <a <?php echo $assoc_array_functions['table'] ?>>Table</a>
+                <a <?php echo $assoc_array_functions['overview'] ?>>Overview</a>
             </div>
 
             <!-- callroom -->
-           <a href="call_room.php" class="nav_bar_item">
+           <a <?php echo $assoc_array_functions['call_room'] ?>>
                <img src="../assets/icons/account_tree-black-18dp.svg" alt="">
                <p>Call Room</p>
             </a>
 
             <!-- registration -->
-           <a href="registration.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item disabled">
+           <a <?php echo $assoc_array_functions['registration'] ?>>
                <img src="../assets/icons/how_to_reg-black-18dp.svg" alt="">
                <p>Registration</p>
             </a>
 
             <!-- weapon control -->
-            <a href="weapon_control.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
+            <a <?php echo $assoc_array_functions['weapon_control'] ?>>
                 <img src="../assets/icons/weapon_control-black-18dp.svg" alt="">
                 <p>Weapon Control</p>
             </a>
@@ -56,7 +57,7 @@ setcookie("today",$test,time()+31556926);
             <p id="setup_text" class="nav_bar_title">SETUP</p>
 
             <!-- general -->
-            <button type="button" onclick="toggle_general_dropdown()" class="nav_bar_item">
+            <button type="button" <?php echo $assoc_array_functions['general'] ?>>
                 <img src="../assets/icons/widgets-black-18dp.svg" alt="">
                 <p>General</p>
                 <img src="../assets/icons/arrow_drop_down-black-18dp.svg" alt="" id="general_dropdown_icon" class="dropdown_icon">
@@ -64,14 +65,14 @@ setcookie("today",$test,time()+31556926);
 
             <!-- general drop-down -->
             <div id="general_dropdown_menu" class="dropdown_menu hidden">
-                <a href="basic_information.php?comp_id=<?php echo $comp_id ?>">Basic Information</a>
-                <a href="information_for_fencers.php?comp_id=<?php echo $comp_id; ?>">Information for fencers</a></li>
-                <a href="timetable.php?comp_id=<?php echo $comp_id; ?>">Timetable</a>
-                <a href="invitation.php?comp_id=<?php echo $comp_id; ?>">Invitation</a>
+                <a <?php echo $assoc_array_functions['basic_info'] ?>>Basic Information</a>
+                <a <?php echo $assoc_array_functions['info_for_fencers'] ?>>Information for fencers</a></li>
+                <a <?php echo $assoc_array_functions['timetable'] ?>>Timetable</a>
+                <a <?php echo $assoc_array_functions['invitation'] ?>>Invitation</a>
             </div>
 
             <!-- technical -->
-            <button type="button" onclick="toggle_technical_dropdown()" class="nav_bar_item">
+            <button type="button" <?php echo $assoc_array_functions['technical'] ?>>
                 <img src="../assets/icons/home_repair_service-black-18dp.svg" alt="">
                 <p>Technical</p>
                 <img src="../assets/icons/arrow_drop_down-black-18dp.svg" alt="" id="technical_dropdown_icon" class="dropdown_icon">
@@ -79,20 +80,20 @@ setcookie("today",$test,time()+31556926);
 
             <!-- technical drop-down -->
             <div id="technical_dropdown_menu" class="dropdown_menu hidden">
-                <a href="technicians.php?comp_id=<?php echo $comp_id ?>" class="disabled">Technicians</a>
-                <a href="referees.php?comp_id=<?php echo $comp_id ?>">Referees</a>
-                <a href="pistes.php?comp_id=<?php echo $comp_id ?>">Pistes</a>
-                <a href="">Formula</a>
+                <a <?php echo $assoc_array_functions['technicians'] ?>>Technicians</a>
+                <a <?php echo $assoc_array_functions['referees'] ?>>Referees</a>
+                <a <?php echo $assoc_array_functions['pistes'] ?>>Pistes</a>
+                <a <?php echo $assoc_array_functions['formula'] ?>>Formula</a>
             </div>
 
             <!-- ranking  -->
-            <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item setup">
+            <a <?php echo $assoc_array_functions['ranking'] ?>>
                 <img src="../assets/icons/leaderboard-black-18dp.svg" alt="">
                 <p>Ranking</p>
             </a>
 
             <!-- manage ebtries -->
-            <a href="manage_entries.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
+            <a <?php echo $assoc_array_functions['manage_entries'] ?>>
                 <img src="../assets/icons/all_inbox-black-18dp.svg" alt="">
                 <p>Manage Entries</p>
             </a>

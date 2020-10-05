@@ -67,9 +67,9 @@ checkComp($connection);
                             <div class="db_panel">
                                 
                                 <!-- competition status panel header -->
-                                <?php include "../php/comp_status.php"; ?>
+                                <?php include "../includes/comp_status.php"; ?>
                                 <!-- competiton status table -->
-                                <?php include "../php/comp_status_table.php" ?>
+                                <?php include "../includes/comp_status_table.php" ?>
                             </div>
                         </div>
 
