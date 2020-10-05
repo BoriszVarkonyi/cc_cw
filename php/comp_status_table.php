@@ -1,14 +1,12 @@
 <?php
 
-    //INVITATION; PISTES, FORMULA; PRE-ENTRIES MÉG NEM LÉTEZIK HA KÉSZ LESZ MEG KELL MÉG CSINÁLNI
+    //INVITATION; PRE-ENTRIES MÉG NEM LÉTEZIK HA KÉSZ LESZ MEG KELL MÉG CSINÁLNI
 
     define("TICK", "../assets/icons/done-black-18dp.svg");
     define("CROSS", "../assets/icons/close-black-18dp.svg");
 
     //még nincsenek
     $g_invitations = CROSS;
-    $t_pistes = CROSS;
-    $t_formula = CROSS;
     $pre_entries = CROSS;
     
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
@@ -62,6 +60,8 @@
         $t_referees = CROSS;
     }
 
+
+
     //tesing technicians
     $query_techn = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
     $technnum = mysqli_query($connection, $query_techn);
@@ -74,7 +74,7 @@
 
     //TESTING TECHICAL__________________________________________________________________________________________
 
-    if ($t_formula == TICK && $t_pistes == TICK && $t_referees == TICK && $t_technicians == TICK) {
+    if ($t_referees == TICK && $t_technicians == TICK) {
         $technical = TICK;
     } else {
         $technical = CROSS;
@@ -106,7 +106,7 @@
                 <li>Basic Information<img src="<?php echo $g_basic_info ?>" alt=""></li>
                 <li>Information for fencers<img src="<?php echo $g_info_for_fencers ?>" alt=""></li>
                 <li>Timetable<img src="<?php echo $g_timetable ?>" alt=""></li>
-                <li>Invitations<img src="<?php echo $g_invitations ?>" alt=""></li>
+                <li>Invitation<img src="<?php echo $g_invitations ?>" alt=""></li>
 
             </ul>
 
@@ -116,8 +116,6 @@
                 
                 <li>Technicians<img src="<?php echo $t_technicians ?>" alt=""></li>
                 <li>Referees<img src="<?php echo $t_referees ?>" alt=""></li>
-                <li>Pistes<img src="<?php echo $t_pistes ?>" alt=""></li>
-                <li>Formula<img src="<?php echo $t_formula ?>" alt=""></li>
             
             </ul>
 

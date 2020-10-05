@@ -42,7 +42,7 @@ setcookie("today",$test,time()+31556926);
             </a>
 
             <!-- registration -->
-           <a href="registration.php" class="nav_bar_item disabled">
+           <a href="registration.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item disabled">
                <img src="../assets/icons/how_to_reg-black-18dp.svg" alt="">
                <p>Registration</p>
             </a>
