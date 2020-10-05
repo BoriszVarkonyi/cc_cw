@@ -87,7 +87,7 @@
         break;
         case 2: /* published */
 
-            $array_button_names_for_change = ["general", "basic_info", "info_for_fencers", "timetable", "ranking"];
+            $array_button_names_for_change = ["basic_info", "info_for_fencers", "timetable", "ranking"];
 
             foreach ($array_button_names_for_change as $name) {
                 $assoc_array_functions[$name] = DISABLED_CLASS;
