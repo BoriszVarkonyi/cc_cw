@@ -5,6 +5,7 @@
     if($row = mysqli_fetch_assoc($check_comp_query)){
 
         $comp_status = $row["comp_status"];
+        $comp_id = $row["comp_id"];
 
     }
 
