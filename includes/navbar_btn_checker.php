@@ -43,22 +43,22 @@
         'href=""',
         'href=""',
         'href=""',
-        'href="call_room.php?comp_id=$comp_id"',
-        'href="registration.php?comp_id=$comp_id"',
-        'href="weapon_control.php?comp_id=$comp_id"',
+        'href="call_room.php?comp_id=' . $comp_id . '"',
+        'href="registration.php?comp_id=' . $comp_id . '"',
+        'href="weapon_control.php?comp_id=' . $comp_id . '"',
         'href  =""',
         'onclick="toggle_general_dropdown()"',
-        'href="basic_information.php?comp_id=$comp_id"',
-        'href="information_for_fencers.php?comp_id=$comp_id"',
-        'href="timetable.php?comp_id=$comp_id"',
-        'href="invitation.php?comp_id=$comp_id"',
+        'href="basic_information.php?comp_id=' . $comp_id . '"',
+        'href="information_for_fencers.php?comp_id=' . $comp_id . '"',
+        'href="timetable.php?comp_id=' . $comp_id . '"',
+        'href="invitation.php?comp_id=' . $comp_id . '"',
         'onclick="toggle_technical_dropdown()"',
-        'href="technicians.php?comp_id=$comp_id"',
-        'href="referees.php?comp_id=$comp_id"',
-        'href="pistes.php?comp_id=$comp_id"',
+        'href="technicians.php?comp_id=' . $comp_id . '"',
+        'href="referees.php?comp_id=' . $comp_id . '"',
+        'href="pistes.php?comp_id=' . $comp_id . '"',
         'href=""',
-        'href="choose_ranking.php?comp_id=$comp_id"',
-        'href="manage_entries.php?comp_id=$comp_id"'
+        'href="choose_ranking.php?comp_id=' . $comp_id . '"',
+        'href="manage_entries.php?comp_id=' . $comp_id . '"'
     ];
 
     if (count($array_functions)==count($array_names)) { //error test
@@ -75,7 +75,6 @@
         echo "ERROR: THE 2 ARRAYS DOES NOT HAVE THE SAME COUNT()"; //error code
     }
     
-    echo $comp_status;
     switch ($comp_status) {
 
         case 1: /* scheduled */
