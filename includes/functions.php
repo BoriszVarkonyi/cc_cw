@@ -168,4 +168,50 @@ function weaponConverter($weaponin) {
     return $weaponout;
     
 }
+
+function pisteColor($color_id) {
+
+    switch ($color_id) {
+
+        case 1:
+        $colortext = "blue";
+        break;
+        case 2:
+        $colortext = "yellow";
+        break;
+        case 3:
+        $colortext = "green";
+        break;
+        case 4:
+        $colortext = "red";
+        break;
+    
+    }
+
+    return $colortext;
+
+}
+
+function pisteColorLetter($color_id) {
+
+    switch ($color_id) {
+
+        case 1:
+        $colortext = "B";
+        break;
+        case 2:
+        $colortext = "Y";
+        break;
+        case 3:
+        $colortext = "G";
+        break;
+        case 4:
+        $colortext = "R";
+        break;
+    
+    }
+
+    return $colortext;
+
+}
 ?>

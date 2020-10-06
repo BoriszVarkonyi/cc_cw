@@ -58,7 +58,7 @@ echo "ALREADY";
                     </button>
 
                     <div class="overlay_panel hidden" id="add_piste_panel">
-                        <button id="close_button" class="round_button" onclick="toggle_add_technician()">
+                        <button id="close_button" class="round_button" onclick="">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
 
@@ -114,13 +114,44 @@ echo "ALREADY";
                 </div>
                 <div id="page_content_panel_main">
                     <div id="pistes_wrapper">
+
+
+
                     <div id="main_pistes_wrapper" class="piste_wrapper">
-                        <div id="m_1" class="piste main">
+
+                        <?php
+                        
+                        $query_main = "SELECT * FROM pistes_$comp_id WHERE piste_type = 1";
+                        $query_main_do = mysqli_query($connection, $query_main);
+
+                        while($row = mysqli_fetch_assoc($query_main_do)){
+                            
+                            $piste_id = $row["id"];
+                            $piste_number = $row["piste_number"];
+                            $piste_activity = $row["piste_activity"];
+                            
+                            
+                            ?>
+
+                            <div id="<?php echo $piste_id ?>" class="piste main">
                             <div>M</div>
                             <div>
                                 <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
+                                <p>No.: <?php echo $piste_number ?></p>
+                                <div class="piste_status_indicator <?php 
+                                
+                                if($piste_activity == 0){
+
+                                    echo "green";
+
+                                }else{
+
+                                    echo "red";
+
+                                }
+                                
+                                
+                                ?>"></div>
                             </div>
                             <div>
                                 <button class="piste_config_button" onclick="togglePisteSettings(this)">
@@ -151,17 +182,67 @@ echo "ALREADY";
                                 </div>
                             </form>
                         </div>
+
+
+
+                        <?php
+                        }  
+                        ?>
+
+                    
+                        
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
+
+                        
+                    
                     </div>
+
+
+
+
+
+
+
+
                     <div id="colored_pistes_wrapper" class="piste_wrapper">
-                        <div id="m_1" class="piste red">
-                            <div>R</div>
+
+                        <?php
+                        
+                        $query_colored = "SELECT * FROM pistes_$comp_id WHERE piste_type = 2 ORDER BY piste_number";
+                        $query_colored_do = mysqli_query($connection, $query_colored);
+
+                        while($row = mysqli_fetch_assoc($query_colored_do)){
+                            
+                            $piste_id = $row["id"];
+                            $piste_number = $row["piste_number"];
+                            $piste_activity = $row["piste_activity"];
+                            $piste_color = $row["piste_color"];
+                            
+                            
+                            
+                            ?>
+
+                        <div id="<?php echo $piste_id ?>" class="piste <?php echo pisteColor($piste_color); ?>">
+                            <div><?php echo pisteColorLetter($piste_color); ?></div>
                             <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
+                                <p>Piste</p>
+                                <p>No.: <?php echo $piste_number ?></p>
+                                <div class="piste_status_indicator <?php 
+                                
+                                if($piste_activity == 0){
+
+                                    echo "green";
+
+                                }else{
+
+                                    echo "red";
+
+                                }
+                                
+                                
+                                ?>"></div>
                             </div>
                             <div>
                                 <button class="piste_config_button" onclick="togglePisteSettings(this)">
@@ -192,269 +273,53 @@ echo "ALREADY";
                                 </div>
                             </form>
                         </div>
-                        <div id="m_1" class="piste red">
-                            <div>R</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="m_1" class="piste green">
-                            <div>G</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="m_1" class="piste green">
-                            <div>M</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="m_1" class="piste yellow">
-                            <div>M</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="m_1" class="piste yellow">
-                            <div>M</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="m_1" class="piste blue">
-                            <div>M</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="m_1" class="piste blue">
-                            <div>M</div>
-                            <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
-                            </div>
-                            <div>
-                                <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                                </button>
-                            </div>
-                            <form class="piste_settings_panel collapsed">
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+
+                        <?php   
+                        }
+                        ?>
+
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
                     </div>
+
+
+
                     <div id="numbered_pistes_wrapper" class="piste_wrapper">
-                        <div id="m_1" class="piste numbered">
-                            <div>1</div>
+
+
+                    <?php
+                    
+                    $query_numbered = "SELECT * FROM pistes_$comp_id WHERE piste_type = 3 ORDER BY piste_number";
+                    $query_numbered_do = mysqli_query($connection, $query_numbered);
+                    
+                    while($row = mysqli_fetch_assoc($query_numbered_do)){
+                        
+                            $piste_id = $row["id"];
+                            $piste_number = $row["piste_number"];
+                            $piste_activity = $row["piste_activity"];
+                        ?>
+
+
+                        <div id="<?php echo $piste_id ?>" class="piste numbered">
+                            <div><?php echo $piste_number ?></div>
                             <div>
-                                <p>Main Piste</p>
-                                <p>No.: 1</p>
-                                <div class="piste_status_indicator"></div>
+                                <p>Piste</p>
+                                <p>No.: <?php echo $piste_number ?></p>
+                                <div class="piste_status_indicator <?php 
+                                
+                                if($piste_activity == 0){
+
+                                    echo "green";
+
+                                }else{
+
+                                    echo "red";
+
+                                }
+                                
+                                
+                                ?>"></div>
                             </div>
                             <div>
                                 <button class="piste_config_button" onclick="togglePisteSettings(this)">
@@ -486,7 +351,9 @@ echo "ALREADY";
                             </form>
                         </div>
 
-
+                    <?php
+                    }
+                    ?>
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
