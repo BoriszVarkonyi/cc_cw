@@ -669,6 +669,18 @@ input[type="range"]:focus::-ms-fill-upper {
 	padding-left: 55px;
 }
 
+
+.dropdown_menu > .nav_bar_item {
+	font-size: var(--f-small);
+	padding: 0;
+	color: var(--c-navbar);
+	transition: var(--t-basic);
+	background-color: transparent;
+	overflow: visible;
+	margin: 0;
+	height: auto;
+}
+
 .dropdown_menu > a.disabled {
 	color: var(--c-darkgray);
 	cursor: default;
@@ -3461,12 +3473,27 @@ input.wc_time {
 
 @media print {
 
-	header, header *{
+	#cw_header {
 		display: none;
 	}
 
+	#competition_wrapper {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
 
+	#invitation_cw {
+		width: 100%;
+	}
 
+	#competition_controls {
+		display: none;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
 
 
 }
