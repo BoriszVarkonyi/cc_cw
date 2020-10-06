@@ -155,10 +155,12 @@
                                 <div>
                                     <div class="weapon_control_day">
                                         <p>{Weapon Control Date}</p>
+                                        <a>Book appointment</a>
                                     </div>
 
                                     <div class="weapon_control_day">
                                         <p>{Weapon Control Date}</p>
+                                        <a>Book appointment</a>
                                     </div>
                                 </div>
                             </div>

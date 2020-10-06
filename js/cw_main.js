@@ -28,11 +28,19 @@ carousel();
         var i;
         var x = document.getElementsByClassName("slide");
         for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";  
+          x[i].style.zIndex = "0";
         }
+
         myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
-        x[myIndex-1].style.display = "block";  
+
+        if (myIndex > x.length) 
+        {
+          myIndex = 1;
+        }
+
+        x[myIndex-1].style.display = "block";
+        x[myIndex-1].style.zIndex = "1";
+
         setTimeout(carousel, 2000); // Change image every 5 seconds
       }
 
