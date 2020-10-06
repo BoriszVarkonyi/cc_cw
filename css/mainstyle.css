@@ -667,11 +667,11 @@ input[type="range"]:focus::-ms-fill-upper {
 	flex-wrap: nowrap;
 	flex-direction: column;
 	padding-left: 55px;
+	font-size: var(--f--medium);
 }
 
-
 .dropdown_menu > .nav_bar_item {
-	font-size: var(--f-small);
+	font-size: var(--f--small);
 	padding: 0;
 	color: var(--c-navbar);
 	transition: var(--t-basic);
@@ -3317,6 +3317,7 @@ input.wc_time {
 /* Invitatinal */
 
 #cw_preview {
+	padding: 50px 0;
 	margin: 75px 0;
 	width: 100%;
 	background-color: var(--c-white);
