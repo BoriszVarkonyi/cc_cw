@@ -213,19 +213,11 @@ if(isset($_POST["submit"]) ){
                                 <p>You can create your own ranking that you can download and use later.</p>
                             </div>
                             <div id="ranking_create" class="closed">
-<<<<<<< HEAD
                                 <form name="submit" method="POST">
                                     <label for="ranking_name" class="label_text">NAME OF THE RANKING</label>
                                     <input type="text" name="ranking_name">
                                     <label for="ranking_name" class="label_text">PASSWORD</label>
                                     <input type="password" name="ranking_password">
-=======
-                                <form name="submit" method="POST" action="">
-                                    <label for="ranking_name" id= "rn" class="label_text">NAME OF THE RANKING</label>
-                                    <input type="text" id="rn" name="ranking_name">
-                                    <label for="ranking_name"  class="label_text">PASSWORD</label>
-                                    <input type="password" id="pw" name="ranking_password">
->>>>>>> fd91ad2a19d1a1d2952b52b0efc5f60b0f95fff4
                                     <input type="submit" name="submit" value="Create Ranking">
                                 </form>
                             </div>
