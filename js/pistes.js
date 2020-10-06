@@ -7,8 +7,12 @@ function togglePisteSettings(x) {
     clickedPiste.classList.toggle("focused");
 
     console.log(pisteSettings)
+}
 
+function toggleAddPistePanel() {
+    var addPistePanel = document.getElementById("add_piste_panel");
 
+    addPistePanel.classList.toggle("hidden");
 }
 
 function coloredPisteCreateButton(x) {

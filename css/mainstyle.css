@@ -1201,6 +1201,10 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	z-index: 5;
 }
 
+.overlay_panel.hidden {
+	display: none;
+}
+
 .overlay_panel.small {
 	min-width: 200px;
 	width: 10vw;

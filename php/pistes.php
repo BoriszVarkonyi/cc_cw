@@ -27,16 +27,16 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Pistes</p>
-                    <button class="stripe_button" type="submit" form="needed_equimpment_wrapper">
+                    <button class="stripe_button" type="submit">
                         <p>Configure match control</p>
                         <img src="../assets/icons/settings_applications-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
+                    <button class="stripe_button orange" type="submit" onclick="toggleAddPistePanel()">
                         <p>Add Piste</p>
                         <img src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
 
-                    <div class="overlay_panel" id="add_piste_panel">
+                    <div class="overlay_panel hidden" id="add_piste_panel">
                         <button id="close_button" class="round_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
                         </button>
