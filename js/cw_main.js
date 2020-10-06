@@ -21,6 +21,8 @@ function slideShow() {
     
     var i = 0;
     var slides = document.getElementsByClassName("slide");*/
+
+//SLIDESHOW    
     var myIndex = 0;
 carousel();
 
@@ -47,4 +49,4 @@ carousel();
 function printPage() {
     window.print();
 }
-
+//SLIDESHOW END

@@ -5,7 +5,28 @@
 
 <?php 
 
+$query = "SELECT * 
+FROM `information_schema`.`tables`
+WHERE table_schema = 'ccdatabase' 
+    AND table_name = 'pistes_$comp_id'
+LIMIT 1;";
+$query_do = mysqli_query($connection, $query);
 
+if(mysqli_num_rows($query_do) == 0){
+
+$query_create_table = "CREATE TABLE `pistes_$comp_id` ( id INT(11) NOT NULL , piste_number INT(11) NOT NULL , piste_type INT(11) NOT NULL , piste_color INT(11) NOT NULL , piste_live VARCHAR(255) NOT NULL , piste_control_type INT(11) NOT NULL , piste_activity INT(11) NOT NULL ) ENGINE = InnoDB;";
+$query_create_table_do = mysqli_query($connection, $query_create_table);
+
+if(!$query_create_table_do){
+echo mysqli_error($connection);
+}
+
+}else {
+
+echo "ALREADY";
+
+    
+}
 
 ?>
 
