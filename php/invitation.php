@@ -27,9 +27,13 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Plus Information</p>
-                    <button class="stripe_button orange" type="button" onclick="printPage()" form="needed_equimpment_wrapper">
+                    <button class="stripe_button" type="button" onclick="printPage()" form="needed_equimpment_wrapper">
                         <p>Print Invitation</p>
                         <img src="../assets/icons/print-black-18dp.svg"></img>
+                    </button>
+                    <button class="stripe_button orange" type="button"  form="">
+                        <p>Save Invitation</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
                 <div id="page_content_panel_main">
@@ -151,10 +155,12 @@
                                 <div>
                                     <div class="weapon_control_day">
                                         <p>{Weapon Control Date}</p>
+                                        <a>Book appointment</a>
                                     </div>
 
                                     <div class="weapon_control_day">
                                         <p>{Weapon Control Date}</p>
+                                        <a>Book appointment</a>
                                     </div>
                                 </div>
                             </div>
