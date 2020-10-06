@@ -52,7 +52,7 @@ echo "ALREADY";
                         <p>Configure match control</p>
                         <img src="../assets/icons/settings_applications-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange" type="submit" onclick="toggleAddPistePanel()">
+                    <button class="stripe_button orange" onclick="toggleAddPistePanel()">
                         <p>Add Piste</p>
                         <img src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
