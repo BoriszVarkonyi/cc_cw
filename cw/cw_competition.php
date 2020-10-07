@@ -11,15 +11,17 @@
 </head>
 <body>
     <div id="cw_main_full">
-
-
         <!-- cw title panel top  -->
-        <p class="cw_panel_title"><?php echo $comp_name ?></p>
-        <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
         <div id="comp_data">
-            <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
-            <p><?php echo weaponConverter($comp_weapon) ?></p>
-            <p><?php echo date('Y', strtotime($comp_start)) ?></p>
+            <img src="../assets/icons/delete-black-18dp.svg" alt="">
+
+            <p class="cw_panel_title"><?php echo $comp_name ?></p>
+            <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
+            <div>
+                <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
+                <p><?php echo statusConverter($comp_status) ?></p>
+                <p><?php echo date('Y', strtotime($comp_start)) ?></p>
+            </div>
         </div>
         <div id="competition_wrapper">
             <div id="invitation_cw">
@@ -97,7 +99,13 @@
                         </div>
                     </div>
                 </div>
-
+            
+                <div id="plus_information_panel">
+                    <p class="data_label panel_title">PLUS INFORMATION</p>
+                    <div>
+                        <p>pluss info heree :)</p>
+                    </div>
+                </div>
             </div>
         
             <div id="competition_controls">

@@ -38,8 +38,8 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Invitation</title>
-    <link rel="stylesheet" media="screen" href="../css/mainstyle.css">
-    <link rel="stylesheet" media="screen" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/mainstyle.css">
+    <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
 <!-- header -->
@@ -49,9 +49,13 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Plus Information</p>
-                    <button class="stripe_button orange" type="button" onclick="printDiv('cw_preview')" form="needed_equimpment_wrapper">
+                    <button class="stripe_button" type="button" onclick="printPage()" form="needed_equimpment_wrapper">
                         <p>Print Invitation</p>
                         <img src="../assets/icons/print-black-18dp.svg"></img>
+                    </button>
+                    <button class="stripe_button orange" type="button"  form="">
+                        <p>Save Invitation</p>
+                        <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>
                 </div>
 
@@ -118,7 +122,11 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <div id="comp_data">
                                 <img src="../assets/icons/delete-black-18dp.svg" alt="">
 
+<<<<<<< HEAD
                                 <p class="cw_panel_title"><?php echo $comp_name ?></p>
+=======
+                                <p class="cw_panel_title">2020 Absolute Fencing Gear FIE WC par equipe</p>
+>>>>>>> 1d6b13716e5fb62e31fc137c874428c7f62eee35
                                 <p id="comp_status">Ongoing</p>
 
                                 <div>
@@ -128,6 +136,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                 </div>
                             </div>
 
+<<<<<<< HEAD
 <!-- basic info panel -->
 <div id="basic_information_panel">
     <div>
@@ -192,14 +201,72 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
             <p>{Weapon Control Date}</p>
             <a>Book appointment</a>
         </div>
+=======
+                            <!-- basic info panel -->
+                            <div id="basic_information_panel">
+                                <div>
+                                    <p class="data_label">HOST COUNTRY:</p>
+                                    <p>Hunagry</p>
+                                    <p class="data_label">LOCATION AND ADDRESS:</p>
+                                    <p>Address</p>
+                                    <p>Address</p>
+                                    <p class="data_label">ENTRY-FEE:</p>
+                                    <p>Address</p>
+                                </div>
+                                <div>
+                                    <p class="data_label">STARTING DATE:</p>
+                                    <p>Address</p>
+                                    <p class="data_label">ENDING DATE:</p>
+                                    <p>Address</p>
+                                    <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                    <p>Address</p>
+                                </div>
+                            </div>
+>>>>>>> 1d6b13716e5fb62e31fc137c874428c7f62eee35
 
-        <div class="weapon_control_day">
-            <p>{Weapon Control Date}</p>
-            <a>Book appointment</a>
-        </div>
-    </div>
-</div>
+                            <!-- equipment panel -->
+                            <div id="equipment_panel">
+                                <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
 
+                                <!-- weapons check table rows -->
+                                <div>
+                                    <div class="table_row">
+                                        <div class="table_item">Epee</div>
+                                        <div class="table_item">max. 5.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- additional info panel -->
+                            <div id="additional_panel">
+                                <p class="data_label panel_title">ADDITIONAL INFORMATION FOR FENCERS</p>
+                                <div>
+                                    <p>Adidtion info heree :)</p>
+                                </div>
+                            </div>
+
+                            <!-- weapon control panel -->
+                            <div id="weapon_control_panel">
+                                <p class="data_label panel_title">WEAPON CONTROL</p>
+                                <div>
+                                    <div class="weapon_control_day">
+                                        <p>{Weapon Control Date}</p>
+                                        <a>Book appointment</a>
+                                    </div>
+
+                                    <div class="weapon_control_day">
+                                        <p>{Weapon Control Date}</p>
+                                        <a>Book appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="plus_information_panel">
+                                <p class="data_label panel_title">PLUS INFORMATION</p>
+                                <div>
+                                    <p>pluss info heree :)</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
