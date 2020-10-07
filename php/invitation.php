@@ -1,11 +1,33 @@
 <?php include "../includes/headerburger.php"; ?>
-<?php include "../includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
 <?php 
 
+$feedback = "";
+//array of colums I need from database
+$array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment", "comp_info", "comp_host", "comp_location", "comp_postal", "comp_start", "comp_end", "comp_pre_end", "comp_wc_info", "comp_entry");
 
+//connecting to database
+$qry_getdata = "SELECT * FROM competitions WHERE comp_id = $comp_id";
+$getdata_do = mysqli_query($connection, $qry_getdata);
+
+    if($row = mysqli_fetch_assoc($getdata_do)) {
+
+        //putting the data from database into an assoc array with $array_getdata[] indexes
+        for ($i = 0; $i <  count($array_getdata); ++$i) {
+
+            if ($i == 0) {
+                $assoc_array_data = [$array_getdata[$i] => $row[$array_getdata[$i]]];
+            } else {
+                $assoc_array_data[$array_getdata[$i]] = $row[$array_getdata[$i]];
+                
+            }
+        }
+
+    } else { //error branch
+       $feedback = "ERROR: " . mysqli($connection); 
+    }
 
 ?>
 
@@ -32,6 +54,9 @@
                         <img src="../assets/icons/print-black-18dp.svg"></img>
                     </button>
                 </div>
+
+                <p><?php echo $feedback ?></p>
+
                 <div id="page_content_panel_main">
                     <div id="invitation_wrapper">
 
@@ -93,13 +118,13 @@
                             <div id="comp_data">
                                 <img src="../assets/icons/delete-black-18dp.svg" alt="">
 
-                                <p class="cw_panel_title">Title ngjfdsjfbsjbfjsdbfjbsfbsTitle ngjfdsjfbsjbfjsdbfjbsfbsTitle ngjfdsjfbsjbfjsdbfjbsfbsTitle ngjfdsjfbsjbfjsdbfjbsfbs</p>
+                                <p class="cw_panel_title"><?php echo $comp_name ?></p>
                                 <p id="comp_status">Ongoing</p>
 
                                 <div>
-                                    <p>EPEE</p>
-                                    <p>YOLO</p>
-                                    <p>HTH></p>
+                                    <p><?php echo sexConverter($assoc_array_data['comp_name']) . "'s" ?></p>
+                                    <p><?php echo weaponConverter($assoc_array_data['comp_weapon']) ?></p>
+                                    <p><?php echo date('Y', strtotime($assoc_array_data['comp_start'])) ?></p>
                                 </div>
                             </div>
 
@@ -107,20 +132,19 @@
 <div id="basic_information_panel">
     <div>
         <p class="data_label">HOST COUNTRY:</p>
-        <p>Hunagry</p>
+        <p><?php echo $assoc_array_data['comp_host'] ?></p>
         <p class="data_label">LOCATION AND ADDRESS:</p>
-        <p>Address</p>
-        <p>Address</p>
+        <p><?php echo $assoc_array_data['comp_location'] ?></p>
         <p class="data_label">ENTRY-FEE:</p>
-        <p>Address</p>
+        <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>
     </div>
     <div>
         <p class="data_label">STARTING DATE:</p>
-        <p>Address</p>
+        <p><?php echo $assoc_array_data['comp_start'] ?></p>
         <p class="data_label">ENDING DATE:</p>
-        <p>Address</p>
+        <p><?php echo $assoc_array_data['comp_end'] ?></p>
         <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-        <p>Address</p>
+        <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>
     </div>
 </div>
 
@@ -134,7 +158,7 @@
         <?php 
             $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
-            $array_equipment = explode(",", $comp_equipment);
+            $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
 
             for ($i = 0; $i < count($equipment); $i++) {
                 
@@ -156,7 +180,7 @@
 <div id="additional_panel">
     <p class="data_label panel_title">ADDITIONAL INFORMATION</p>
     <div>
-        <p><?php echo $comp_info ?></p>
+        <p><?php echo $assoc_array_data['comp_info'] ?></p>
     </div>
 </div>
 
