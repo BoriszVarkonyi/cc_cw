@@ -39,8 +39,8 @@
     $array_functions = // creating href and onclick tags in array
     [
         'onclick="toggle_dt_dropdown()"',
-        'href=""',
-        'href=""',
+        'href="competitors.php?comp_id=' . $comp_id . '"',
+        'href=""pools.php?comp_id=' . $comp_id . '"',
         'href=""',
         'href=""',
         'href="call_room.php?comp_id=' . $comp_id . '"',

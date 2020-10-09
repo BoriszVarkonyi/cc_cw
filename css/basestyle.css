@@ -257,6 +257,7 @@ form.hidden {
 	font-size: var(--f-medium);
 	cursor: pointer;
 	overflow: hidden;
+	position: relative;
 }
 
 .selected {
@@ -745,6 +746,7 @@ p.wc_time {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 .entry_panel.collapsed {

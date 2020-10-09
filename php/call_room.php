@@ -26,10 +26,14 @@
         <!-- navbar -->
         <div class="page_content_flex">
                 <div id="title_stripe">
-                    <p class="page_title">Helo</p>
+                    <p class="page_title">Call Room</p>
+                    <button class="stripe_button" type="submit" form="needed_equimpment_wrapper">
+                        <p>Send Message to Fencer</p>
+                        <img src="../assets/icons/message-black-18dp.svg"></img>
+                    </button>
                     <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
-                        <p>Call Room</p>
-                        <img src="../assets/icons/save-black-18dp.svg"></img>
+                        <p>Pass Fencer</p>
+                        <img src="../assets/icons/send-black-18dp.svg"></img>
                     </button>
                 </div>
                 <div id="page_content_panel_main">

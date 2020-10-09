@@ -40,7 +40,7 @@ carousel();
           myIndex = 1;
         }
 
-        x[myIndex-1].style.display = "block";
+        x[myIndex-1].style.display = "flex"; // Has to be flex if it needs to be displayed
         x[myIndex-1].style.zIndex = "1";
 
         setTimeout(carousel, 2000); // Change image every 5 seconds
