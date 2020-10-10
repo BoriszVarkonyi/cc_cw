@@ -1,10 +1,19 @@
-function togglePool(x) {
+function refPisTimePanel() {
+    var panel = document.getElementById("ref_pis_time_panel");
+    panel.classList.toggle("hidden");
+}
 
-    var tableRow = x;
-    var entry = tableRow.parentNode;
-    var entryPanel = tableRow.nextElementSibling;
+function poolConfigToggle(x) {
+    var clickedButton = x;
+    var pool = clickedButton.parentNode.parentNode;
+    var configPanel = pool.lastElementChild;
 
-    entry.classList.toggle("opened");
-    entryPanel.classList.toggle("collapsed");
+    configPanel.classList.toggle("hidden")
+}
 
+function poolConfigClose(x) {
+    var clickedButton = x;
+    var panel = clickedButton.parentNode;
+
+    panel.classList.toggle("hidden")
 }

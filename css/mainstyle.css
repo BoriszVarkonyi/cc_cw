@@ -97,6 +97,9 @@ img[src$=".svg"] {
 	flex: 1 0 0;
 	display: flex;
 	flex-direction: column;
+	max-height: calc(100vh - 40px);
+	min-height: calc(100vh - 40px);
+	overflow: hidden;
 }
 
 /* ///PAGE LAYOUT ELEMENTS/// */
@@ -522,12 +525,11 @@ input[type="range"]:focus::-ms-fill-upper {
 	overflow: visible;
 }
 
-.nav_bar_item:hover {
+.nav_bar_item:hover:not(.nav_bar_item.disabled) {
 	background-color: var(--c-transparent-white);
 }
 
 .nav_bar_item.disabled {
-	color: var(--c-disabled);
 	cursor: default;
 }
 
@@ -799,15 +801,14 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin-right: 40px;
 }
 
-.stripe_button.disabled {
+.stripe_button.disabled,.stripe_button.orange.disabled, .stripe_button.red.disabled {
 	background-color: var(--c-gray);
-	color: var(--c-disabled);
+	box-shadow: var(--s-black);
 	cursor: default;
 }
 
-.stripe_button.disabled:hover {
-	background-color: var(--c-lightgray);
-	color: var(--c-gray);
+.stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
+	background-color: var(--c-white);
 }
 
 .stripe_button.bold {
@@ -825,10 +826,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	box-shadow: var(--s-orange);
 }
 
-.stripe_button.orange.disabled {
-	background-color: var(--c-gray);
-	color: var(--c-darkgray);
-}
 
 .stripe_button.red {
 	background-color: var(--c-red);
@@ -838,11 +835,6 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .stripe_button.red:hover {
 	background-color: var(--c-red);
-}
-
-.stripe_button.red.disabled {
-	background-color: var(--c-gray);
-	color: var(--c-darkgray);
 }
 
 .comp_title {
@@ -975,6 +967,25 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .option_container.row > label {
 	margin: 0 10px;
+}
+
+.option_container.grid {
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0;
+	flex-wrap: wrap;
+}
+
+.option_container.grid.piste_select {
+	max-width: 330px;
+	padding: 10px;
+	background-color: var(--c-lightergray);
+	box-shadow: none;
+	max-height: 150px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	justify-content: space-around;
+	margin-bottom: 35px;
 }
 
 /* Checkbox Input */
@@ -1192,6 +1203,22 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 
 .overlay_panel_form {
 	padding: 50px;
+}
+
+.overlay_panel_form > * {
+	white-space: nowrap;
+}
+
+.overlay_panel_form.dense {
+	padding: 30px 50px;
+}
+
+.overlay_panel_form.dense > input {
+	margin-bottom: 15px;
+}
+
+.overlay_panel_form.dense > div {
+	margin: 10px 0;
 }
 
 .overlay_panel {
@@ -3538,14 +3565,19 @@ input.wc_time {
 #pools_wrapper {
 	margin: 50px 0;
 	width: 85%;
-	display: flex;
-	align-content: flex-start;
-	align-items: flex-start;
+	height: 100%;
+	position: relative;
 }
 
 #pool_listing {
 	flex-grow: 1;
 	height: 100%;
+}
+
+#pool_listing.with_drag {
+	flex-grow: 1;
+	height: 100%;
+	width: 77.5%;
 }
 
 #pool_listing > .entry {
@@ -3577,21 +3609,51 @@ input.wc_time {
 	width: 100%;
 }
 
-#pools_drag {
-	height: 100vh;
-	flex-grow: 1;
-	flex-basis: 300px;
-	position: relative;
-	margin-left: 50px;
-	display: flex;
-}
-
 #pools_drag_panel {
 	background-color: var(--c-white);
+	box-shadow: var(--s-black);
 	position: fixed;
-	width: auto;
-	height: calc(100vh - 50px);
+	width: 13vw;
+	height: fill;
+	top: 170px;
+	right: 50px;
+	bottom: 50px;
+	display: flex;
+	border-radius: 10px;
+	padding: 10px;
+	border: 5px dashed var(--c-gray)
 }
 
 #pools_drag_title {
+	margin: 0 auto;
+	align-self: center;
+	font-size: var(--f-medium);
+	font-family: ProximaNovaBold;
+	color: var(--c-gray);
+}
+
+#interval_of_match_wrapper {
+	display: flex;
+	align-items: baseline;
+	margin-bottom: 10px;
+}
+
+#interval_of_match_wrapper > input {
+	margin: 0 5px 0 0;
+}
+
+.piste_select {
+	background-color: var(--c-lightestgray);
+	display: flex;
+	margin: 5px;
+	padding: 2px 6px;
+}
+
+#ref_pis_time_panel {
+	top: calc(50px + 3vh);
+	right: 40px;
+}
+
+.entry_config {
+	left: 100%;
 }
