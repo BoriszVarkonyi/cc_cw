@@ -28,6 +28,21 @@ echo "ALREADY";
     
 }
 
+
+if(isset($_POST["create_piste"])){
+
+    if(isset($_POST["main"])){
+
+    }
+    if(isset($_POST["colored"])){
+        
+    }
+    if(isset($_POST["numbered"])){
+        
+    }
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -63,53 +78,53 @@ echo "ALREADY";
                         </button>
 
                         <div class="overlay_panel_form">
-                            <form action="" id="create_piste">
-                                <label for="username" class="label_text">TYPE</label></br>
+                            <form action="" id="create_piste" class="flex">
+                                <label for="username" class="label_text">TYPE</label>
                                 <div class="option_container row">
-                                    <input type="radio" onclick="mainPiste()" name="wc_type" id="main" value=""/>
+                                    <input type="radio" onclick="mainPiste()" name="wc_type" id="main" value="main"/>
                                     <label for="main">Main</label>
 
-                                    <input type="radio" onclick="coloredPiste()" name="wc_type" id="colored" value=""/>
+                                    <input type="radio" onclick="coloredPiste()" name="wc_type" id="colored" value="colored"/>
                                     <label for="colored">Colored</label>
 
-                                    <input type="radio" onclick="numberedPiste()" name="wc_type" id="numbered" value=""/>
+                                    <input type="radio" onclick="numberedPiste()" name="wc_type" id="numbered" value="numbered"/>
                                     <label for="numbered">Numbered</label>
                                 </div>
 
                                 <!--Main-->
-                                <label for="piste_number" id="mainpiste_num_label" class="label_text hidden">PISTE NUMBER</label></br>
-                                <input type="number" id="mainpiste_num_input" class="number_input small hidden" placeholder="e.g. 2" name="piste_number"></br>
+                                <label for="piste_number" id="mainpiste_num_label" class="label_text hidden main_group">PISTE NUMBER</label>
+                                <input type="number" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="e.g. 2" name="piste_number">
                                 
                                 <!--Colored-->
-                                <label for="piste_number" class="label_text">PISTE COLOR</label></br>
-                                <input type="number" class="hidden">
-                                <div class="color_select" id="colored_color_select">
+                                <label for="piste_number" class="label_text hidden colored_group">PISTE COLOR</label>
+                                <input type="number" class="hidden colored_group">
+                                <div class="color_select hidden colored_group" id="colored_color_select">
                                     <button type="button" class="red" onclick="coloredPisteCreateButton(this)"></button>
                                     <button type="button" class="blue" onclick="coloredPisteCreateButton(this)"></button>
                                     <button type="button" class="green" onclick="coloredPisteCreateButton(this)"></button>
                                     <button type="button" class="yellow" onclick="coloredPisteCreateButton(this)"></button>
                                 </div>
 
-                                <label for="piste_number" class="label_text">PISTE NUMBER</label></br>
-                                <input type="number" class="number_input small" placeholder="e.g. 2"></br>
+                                <label for="piste_number" class="label_text hidden colored_group">PISTE NUMBER</label>
+                                <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2">
 
                                 <!--Numbered-->
 
 
 
 
-                                <label for="piste_quanitity" class="label_text">PISTE QUANTITY</label></br>
-                                <input type="number" class="number_input small" placeholder="e.g. 2"></br>
+                                <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE QUANTITY</label>
+                                <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2">
 
-                                <label for="piste_quanitity" class="label_text">PISTE START NUMBER</label></br>
-                                <input type="number" class="number_input small" placeholder="e.g. 2"></br>
+                                <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE START NUMBER</label>
+                                <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2">
 
 
 
                             </form>
                             
                         </div>
-                        <button type="submit" name="import_tech" class="panel_submit" form="create_piste" value="Import">Create</button>
+                        <button type="submit" name="create_piste" class="panel_submit" form="create_piste" value="Import">Create</button>
                     </div>
                 </div>
                 <div id="page_content_panel_main">
