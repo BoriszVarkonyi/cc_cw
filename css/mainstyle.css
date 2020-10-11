@@ -1060,6 +1060,10 @@ input[type=radio]:checked:disabled + label:before {
 	margin: 0;
 }
 
+br.hidden {
+	display: none;
+}
+
 .color_select > button {
 	display: flex;
 	width: 20px;
