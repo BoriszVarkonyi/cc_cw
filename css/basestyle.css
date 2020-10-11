@@ -164,19 +164,6 @@ form.hidden {
 	transition: var(--t-basic);
 }
 
-.hb_button {		/*header bar button */
-	background-color: var(--c-lightgray);
-	height: 35px;
-	width: 35px;
-	border: 0;
-	border-radius: 50%;
-	background-size: 60% 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
 .table_header {
 	width: 100%;
@@ -677,6 +664,38 @@ p.wc_time {
 	font-size: var(--f-small);
 }
 
+
+/* Input Time */
+
+input[type="time"] {
+	background-color: transparent;
+	border-bottom: 1px solid var(--c-darkgray);
+	margin: 3px 0 30px 0;
+	height: 35px;
+	padding-left: 20px;
+	font-size: var(--f-small);
+}
+
+/* ///ALL BUTTONS/// */
+
+/* Header Bar Buttons */
+
+.hb_button {
+	background-color: var(--c-lightgray);
+	height: 35px;
+	width: 35px;
+	border: 0;
+	border-radius: 50%;
+	background-size: 60% 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Back Button used in CC Dasboard And CW Competition's page and subpages */
+
 .back_button {
 	margin-left: 40px;
 	height: 35px;
@@ -691,48 +710,149 @@ p.wc_time {
 
 .back_button > img {
 	margin-right: 3px;
+	height: 25px;
+	width: 25px;
 }
 
 .back_button:hover {
 	background-color: var(--c-gray);
 }
 
-/* Input Time */
+/* Stripe Button Elements Used in CC Title Stripe*/
 
-input[type="time"] {
-	background-color: transparent;
-	border-bottom: 1px solid var(--c-darkgray);
-	margin: 3px 0 30px 0;
-	height: 35px;
-	padding-left: 20px;
-	font-size: var(--f-small);
-}
-
-
-/* Input file */
-
-/* Stripe Button Elements */
-
-.stripe_button > img {
+.stripe_button {
+	background-color: var(--c-gray);
+	box-shadow: var(--s-black);
+	font-size: var(--f--medium);
+	border-radius: 30px;
+	cursor: pointer;
+	margin: 0;
+	padding: 6px 10px 6px 18px;
+	display: flex;
+	align-items: center;
 	float: right;
-	width: 20px;
-	height: 22px;
-	margin: 0;
-}
-
-.stripe_button > p {
-	float: left;
-	margin: 0;
-	padding-right: 5px;
+	margin-right: 15px;
 	white-space: nowrap;
 }
 
-.back_button > img {
-	float: right;
-	width: 20px;
-	height: 22px;
-	margin: 0;
+.stripe_button > p {
+	margin-right: 5px;
 }
+
+.stripe_button:hover {
+	background-color: var(--c-lightgray);
+}
+
+.stripe_button:first-of-type {
+	margin-left: auto;
+	margin-right: 15px;
+}
+
+.stripe_button:last-of-type {
+	margin-right: 40px;
+}
+
+.stripe_button:only-of-type {
+	margin-left: auto;
+	margin-right: 40px;
+}
+
+.stripe_button.disabled,.stripe_button.orange.disabled, .stripe_button.red.disabled {
+	background-color: var(--c-gray);
+	box-shadow: var(--s-black);
+	cursor: default;
+}
+
+.stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
+	background-color: var(--c-white);
+}
+
+.stripe_button.bold {
+	font-family: ProximaNovaBold;
+}
+
+.stripe_button.orange {
+	background-color: var(--c-orange);
+	box-shadow: var(--s-orange);
+	font-family: ProximaNovaBold;
+}
+
+.stripe_button.orange:hover {
+	background-color: var(--c-lightorange);
+	box-shadow: var(--s-orange);
+}
+
+
+.stripe_button.red {
+	background-color: var(--c-red);
+	box-shadow: var(--s-red);
+	font-family: ProximaNovaBold;
+}
+
+.stripe_button.red:hover {
+	background-color: var(--c-red);
+}
+
+/* Panel Button Used in CC Panels */
+
+/* Used on login page */
+
+.login_button {
+	background-color: var(--c-orange);
+	font-family: ProximaNovaBold;
+	font-size: var(--f-medium);
+	border-radius: 10px;
+	padding: 5px;
+	position: relative;
+	cursor: pointer;
+}
+
+/* CC Panels */
+
+.panel_submit {
+	padding: 5px;
+	background-color: var(--c-orange);
+	font-family: ProximaNovaBold;
+	font-size: var(--f-medium);
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+.panel_button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 35px;
+	height: 35px;
+	background-color: var(--c-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.panel_button.left {
+	top: 10px;
+	left: 10px;
+}
+
+.panel_button.fixed {
+	position: fixed;
+	top: auto;
+	right: auto;
+	margin-left: 0;
+}
+
+.panel_button.hidden {
+	display: none;
+}
+
+/* Entry */
 
 .entry {
 	display: flex;

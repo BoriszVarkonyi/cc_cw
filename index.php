@@ -255,7 +255,7 @@ print_r($_POST);
                     }
                     
                     ?>
-                    <input type="submit" name="submit" value="Login">
+                    <input type="submit" name="submit" value="Login" class="login_button">
                 </form>
                 <!-- login form end -->
 

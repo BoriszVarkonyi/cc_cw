@@ -157,8 +157,8 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </button>
 
                         <div id="import_technician_panel" class="thin overlay_panel hidden">
-                            <button id="close_button" class="round_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                            <button class="panel_button" onclick="toggle_import_technician()">
+                                <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             <form action="" id="import_technician" method="POST">
                                 <div class="select_competition_wrapper">
@@ -181,7 +181,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                      ?>
                                 </div>
                             </form>
-                            <button type="submit" name="import_tech" class="submit_button" form="import_technician" value="Import">Import</button>
+                            <button type="submit" name="import_tech" class="panel_submit" form="import_technician" value="Import">Import</button>
                         </div>
 
                         <button class="stripe_button bold" onclick="toggle_add_technician()">
@@ -189,8 +189,8 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
                     <div id="add_technician_panel" class="overlay_panel hidden" >
-                        <button id="close_button" class="round_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        <button class="panel_button" onclick="toggle_add_technician()">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="">
                         </button>
                         <div class="overlay_panel_form">
                         <form action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
@@ -213,7 +213,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                 <input type="radio" class="option_button" name="role" id="d" value="4"/>
                                 <label for="d" class="option_label">Registration</label>
                             </div>
-                            <button type="submit" name="submit" class="submit_button" form="new_technician" value="Save">Save</button>
+                            <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
                         </div>
                     </div>

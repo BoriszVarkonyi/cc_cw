@@ -166,8 +166,8 @@ if(mysqli_num_rows($query_do) == 0){
                     </button>
 
                     <div id="add_fencer_panel" class="overlay_panel hidden">
-                            <button id="close_button" class="round_button" onclick="toggleAddFencer()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                            <button class="panel_button" onclick="toggleAddFencer()">
+                                <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             <!-- add fencers drop-down -->
                             <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
@@ -182,13 +182,13 @@ if(mysqli_num_rows($query_do) == 0){
 
                                 <label for="fencers_dob" class="label_text">DATE OF BIRTH</label></br>
                                 <input type="date" name="fencer_dob"><br>
-                                <button type="submit" name="submit" class="submit_button" value="Save">Save</button>
+                                <button type="submit" name="submit" class="panel_submit" value="Save">Save</button>
                             </form>
                     </div>
                     <!-- ranking info button -->
                     <div id="ranking_info_panel" class="overlay_panel hidden">
-                        <button id="close_button" class="round_button" onclick="toggleRankingInfo()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        <button class="panel_button" onclick="toggleRankingInfo()">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="">
                         </button>
 
                         <?php

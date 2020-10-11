@@ -23,13 +23,13 @@
 <!-- header -->
     <div id="confirmation" class="hidden">
         <form id="confirmation_form">
-            <button id="close_button" class="round_button" onclick="">
-                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+            <button class="panel_button" onclick="">
+                <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
             <p>Are you sure you want to {action} {object}?</p>
             <p>You cannot withdraw this action!</p>
-            <button id="close_button" class="round_button" onclick="">
-                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+            <button class="panel_button" onclick="">
+                <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
             <div id="confirmation_button_section">
                 <button onclick="" type="submit" value="Cancel">Cancel</button>
@@ -87,7 +87,7 @@
                                                 <label for="e1_f1">Not Approved</label>
                                             </div>
                                         </div>
-                                        <input type="submit" value="Save">
+                                        <input type="submit" value="Save" class="panel_submit">
                                     </form>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                                 <label for="e2_f3">Not Approved</label>
                                             </div>
                                         </div>
-                                        <input type="submit" value="Save">
+                                        <input type="submit" value="Save" class="panel_submit">
                                     </form>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@
                                                 <label for="ef1_f3">Approved</label>
                                             </div>
                                         </div>
-                                        <input type="submit" value="Save">
+                                        <input type="submit" value="Save" class="panel_submit">
                                     </form>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@
                                                 <label for="ef1_f3">Approved</label>
                                             </div>
                                         </div>
-                                        <input type="submit" value="Save">
+                                        <input type="submit" value="Save" class="panel_submit">
                                     </form>
                                 </div>
                             </div>

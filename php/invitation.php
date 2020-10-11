@@ -108,7 +108,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             </div>
                             <div class="db_panel_main">
                                 <!--Only visible when file is uploaded-->
-                                <button class="round_button close_button">
+                                <button class="panel_button">
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
                                 <div class="invitation_file_wrapper">  
@@ -122,11 +122,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <div id="comp_data">
                                 <img src="../assets/icons/delete-black-18dp.svg" alt="">
 
-<<<<<<< HEAD
                                 <p class="cw_panel_title"><?php echo $comp_name ?></p>
-=======
-                                <p class="cw_panel_title">2020 Absolute Fencing Gear FIE WC par equipe</p>
->>>>>>> 1d6b13716e5fb62e31fc137c874428c7f62eee35
                                 <p id="comp_status">Ongoing</p>
 
                                 <div>
@@ -136,7 +132,6 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                 </div>
                             </div>
 
-<<<<<<< HEAD
 <!-- basic info panel -->
 <div id="basic_information_panel">
     <div>
@@ -201,28 +196,6 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
             <p>{Weapon Control Date}</p>
             <a>Book appointment</a>
         </div>
-=======
-                            <!-- basic info panel -->
-                            <div id="basic_information_panel">
-                                <div>
-                                    <p class="data_label">HOST COUNTRY:</p>
-                                    <p>Hunagry</p>
-                                    <p class="data_label">LOCATION AND ADDRESS:</p>
-                                    <p>Address</p>
-                                    <p>Address</p>
-                                    <p class="data_label">ENTRY-FEE:</p>
-                                    <p>Address</p>
-                                </div>
-                                <div>
-                                    <p class="data_label">STARTING DATE:</p>
-                                    <p>Address</p>
-                                    <p class="data_label">ENDING DATE:</p>
-                                    <p>Address</p>
-                                    <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                                    <p>Address</p>
-                                </div>
-                            </div>
->>>>>>> 1d6b13716e5fb62e31fc137c874428c7f62eee35
 
                             <!-- equipment panel -->
                             <div id="equipment_panel">

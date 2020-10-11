@@ -129,8 +129,8 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         </button>
 
                         <div id="import_technician_panel" class="thin overlay_panel hidden">
-                            <button id="close_button" class="round_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                            <button class="panel_button" onclick="toggle_import_technician()">
+                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="panel_button">
                             </button>
                             <form action="" id="import_ref" method="POST">
                                 <div class="select_competition_wrapper">
@@ -152,7 +152,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                                 }
                                      ?>
                                 </div>
-                                <button type="submit" name="import_ref" class="submit_button" value="Import">Import</span></button>
+                                <button type="submit" name="import_ref" class="panel_submit" value="Import">Import</span></button>
                             </form>
                             
                         </div>
@@ -162,8 +162,8 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
                     <div id="add_technician_panel" class="overlay_panel hidden">
-                        <button id="close_button" class="round_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        <button class="panel_button" onclick="toggle_add_technician()">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="">
                         </button>
 
                         <div class="overlay_panel_form">
@@ -180,7 +180,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                                 <label for="full_name" class="label_text">FULL NAME</label></br>
                                 <input type="text" placeholder="Type the referees's full name" id="full_name_input" name="full_name" class="no_margin_input">
 
-                                <button type="submit" name="new_technician" class="submit_button" form="new_technician" value="Save">Save</button>
+                                <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
                             </form>
                         </div>
                     </div>

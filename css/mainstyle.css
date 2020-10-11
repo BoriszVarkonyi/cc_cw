@@ -769,74 +769,6 @@ input[type="range"]:focus::-ms-fill-upper {
 
 /* Title Stripe Elements */
 
-.stripe_button {
-	background-color: var(--c-gray);
-	box-shadow: var(--s-black);
-	font-size: var(--f--medium);
-	border-radius: 30px;
-	cursor: pointer;
-	margin: 0;
-	padding: 6px 10px 6px 18px;
-	display: flex;
-	align-items: center;
-	float: right;
-	margin-right: 15px;
-}
-
-.stripe_button:hover {
-	background-color: var(--c-lightgray);
-}
-
-.stripe_button:first-of-type {
-	margin-left: auto;
-	margin-right: 15px;
-}
-
-.stripe_button:last-of-type {
-	margin-right: 40px;
-}
-
-.stripe_button:only-of-type {
-	margin-left: auto;
-	margin-right: 40px;
-}
-
-.stripe_button.disabled,.stripe_button.orange.disabled, .stripe_button.red.disabled {
-	background-color: var(--c-gray);
-	box-shadow: var(--s-black);
-	cursor: default;
-}
-
-.stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
-	background-color: var(--c-white);
-}
-
-.stripe_button.bold {
-	font-family: ProximaNovaBold;
-}
-
-.stripe_button.orange {
-	background-color: var(--c-orange);
-	box-shadow: var(--s-orange);
-	font-family: ProximaNovaBold;
-}
-
-.stripe_button.orange:hover {
-	background-color: var(--c-lightorange);
-	box-shadow: var(--s-orange);
-}
-
-
-.stripe_button.red {
-	background-color: var(--c-red);
-	box-shadow: var(--s-red);
-	font-family: ProximaNovaBold;
-}
-
-.stripe_button.red:hover {
-	background-color: var(--c-red);
-}
-
 .comp_title {
 	font-family: ProximaNovaBold;
 	font-size: var(--f-large);
@@ -1114,90 +1046,6 @@ input[type=radio]:checked:disabled + label:before {
 
 /* Other Inputs */
 
-input[type="button"] {
-	border: 0;
-	outline: none;
-	color: var(--c-black);
-}
-
-button {
-	border: 0;
-	outline: none;
-	color: var(--c-black);
-}
-
-input[value="Login"] {
-	background-color: var(--c-orange);
-	font-family: ProximaNovaBold;
-	font-size: var(--f-medium);
-	border-radius: 10px;
-	padding: 5px;
-	position: relative;
-	cursor: pointer;
-}
-
-input[value="Save"], input[value="Import"], button[value="Save"], button[value="Import"]{
-	padding: 5px;
-	background-color: var(--c-orange);
-	font-family: ProximaNovaBold;
-	font-size: var(--f-medium);
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-}
-
-.round_button {
-	background-color: transparent;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 35px;
-	height: 35px;
-	border-radius: 50%;
-	position: fixed;
-}
-
-.round_button:hover {
-	background-color: var(--c-transparent-black);
-	transition: var(--t-basic);
-}
-
-.round_button > img {
-	height: 60%;
-	width: 60%;
-}
-
-.close_button_wrapper {
-	position: relative;
-	height: 30px;
-	width: 100%;
-	display: flex;
-	justify-content: flex-end;
-}
-
-#close_button, .close_button {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}
-
-.close_button.hidden {
-	display: none;
-}
-
-#edit_button {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-}
-
-#close_lang_button {
-	position: fixed;
-}
 
 /* Overlaying Panels */
 
@@ -1244,6 +1092,7 @@ input[value="Save"], input[value="Import"], button[value="Save"], button[value="
 	height: 10vw;
 	max-height: 300px;
 	z-index: 2;
+	position: relative;
 }
 
 .overlay_panel.thin {
@@ -3656,4 +3505,9 @@ input.wc_time {
 
 .entry_config {
 	left: 100%;
+}
+
+#disqualify_panel {
+	top: calc(50px + 3vh);
+	right: 40px;
 }

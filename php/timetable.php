@@ -211,8 +211,8 @@ if($query_do){
 <!-- header -->
     <div id="confirmation" class="hidden">
         <form id="confirmation_form" action="timetable.php?comp_id=<?php echo $comp_id ?>" method="POST">
-            <button id="close_button" class="round_button" type="button" onclick="closeConf()">
-                <img src="../assets/icons/close-black-18dp.svg" class="round_button_icon">
+            <button class="panel_button" type="button" onclick="closeConf()">
+                <img src="../assets/icons/close-black-18dp.svg">
             </button>
             <p id="remove_warning"></p>
             <p>You cannot withdraw this action!</p>
@@ -237,7 +237,7 @@ if($query_do){
                 <div id="page_content_panel_main" class="no_scroll">
 
                     <div id="set_wc_panel" class="overlay_panel hidden">
-                            <button id="close_button" class="round_button" onclick="closeWcPanel()">
+                            <button class="panel_button"onclick="closeWcPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             
@@ -261,12 +261,12 @@ if($query_do){
                                 </div>
                                         
                                 <div class="add_peroid_container">
-                                    <button type="button" class="round_button" onclick="addPeriod()">
+                                    <button type="button" class="panel_button" onclick="addPeriod()">
                                         <img src="../assets/icons/more_time-black-18dp.svg" alt="">
                                     </button>
                                     
                                 </div>
-                                <input type="submit" name="add_period" value="Save">
+                                <input type="submit" name="add_period" value="Save" class="panel_submit">
                             </form>
                         </div>
                     </div>

@@ -17,3 +17,8 @@ function poolConfigClose(x) {
 
     panel.classList.toggle("hidden")
 }
+
+function disqualifyToggle() {
+    var panel = document.getElementById("disqualify_panel");
+    panel.classList.toggle("hidden");
+}

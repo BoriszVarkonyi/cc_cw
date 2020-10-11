@@ -58,8 +58,8 @@ echo "ALREADY";
                     </button>
 
                     <div class="overlay_panel hidden" id="add_piste_panel">
-                        <button id="close_button" class="round_button" onclick="">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="" class="round_button_icon">
+                        <button class="panel_button" onclick="">
+                            <img src="../assets/icons/close-black-18dp.svg" alt="">
                         </button>
 
                         <div class="overlay_panel_form">
@@ -109,7 +109,7 @@ echo "ALREADY";
                             </form>
                             
                         </div>
-                        <button type="submit" name="import_tech" class="submit_button" form="create_piste" value="Import">Create</button>
+                        <button type="submit" name="import_tech" class="panel_submit" form="create_piste" value="Import">Create</button>
                     </div>
                 </div>
                 <div id="page_content_panel_main">

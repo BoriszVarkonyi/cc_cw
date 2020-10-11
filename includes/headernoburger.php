@@ -76,22 +76,20 @@ header("Location: ../index.php");
         <p id="app_name">Competition Control Alpha</p>
         
         <!-- colormode and language buttons -->
-         class="settings_section">
+        <div class="settings_section">
             <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
                 <img src="../assets/icons/language-black-18dp.svg" alt="">
             </button>
             <button class="hb_button" id="colormode_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/color_lens-black-18dp.svg" alt="">
             </button>
-        </section>
+        </div>
 
         <!-- language select drop-down -->
         <div id="language_panel" class="small overlay_panel hidden">
-            <div class="close_button_wrapper">
-                <button id="close_lang_button" class="round_button" onclick="toggle_language_panel()">
-                    <img src="../assets/icons/close-black-18dp.svg" alt="">
-                </button>  
-            </div>
+            <button class="panel_button fixed" onclick="toggle_language_panel()">
+                <img src="../assets/icons/close-black-18dp.svg" alt="">
+            </button>  
             <div id="languages_wrapper">  
                 <button id="language_english" class="language_button selected">
                     <img src="../assets/icons/english.svg" alt="" class="not_icon">
@@ -126,7 +124,7 @@ header("Location: ../index.php");
 
         <!-- colormode select drop-down -->
         <div id="colormode_panel" class="small overlay_panel hidden">
-            <button id="close_button" class="round_button" onclick="toggle_colormode_panel()">
+            <button class="panel_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
             <input type="range" id="cs_range" value="1" min="1" max="3">
@@ -148,10 +146,10 @@ header("Location: ../index.php");
 
         <!-- profile panel drop-down -->
         <div id="profile_panel" class="small overlay_panel hidden">
-            <button id="close_button" class="round_button" onclick="toggle_profile_panel()">
+            <button class="panel_button" onclick="toggle_profile_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
-            <button id="edit_button" class="round_button" onclick="">
+            <button class="panel_button left" onclick="">
                 <img src="../assets/icons/edit-black-18dp.svg" alt="">
             </button>
             <img src="https://thispersondoesnotexist.com/image" class="profile_picture_big">
