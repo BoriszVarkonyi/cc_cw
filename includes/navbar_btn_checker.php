@@ -40,7 +40,7 @@
     [
         'onclick="toggle_dt_dropdown()"',
         'href="competitors.php?comp_id=' . $comp_id . '"',
-        'href=""pools.php?comp_id=' . $comp_id . '"',
+        'href="pools.php?comp_id=' . $comp_id . '"',
         'href=""',
         'href=""',
         'href="call_room.php?comp_id=' . $comp_id . '"',

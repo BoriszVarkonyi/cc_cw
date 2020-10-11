@@ -31,14 +31,93 @@ echo "ALREADY";
 
 if(isset($_POST["create_piste"])){
 
-    if(isset($_POST["main"])){
+    print_r($_POST);
+
+    $piste_type = $_POST["piste_type"];
+
+    if($piste_type == "main"){
+
+        $pistenum = $_POST["piste_number_main"];
+
+    $query = "SELECT * FROM pistes_$comp_id WHERE piste_type = 1";
+    $query_do = mysqli_query($connection,$query);
+
+    if(mysqli_num_rows($query_do) == 0){
+
+        $query_add_main = "INSERT INTO pistes_$comp_id(`piste_number`, `piste_type`) VALUES ($pistenum, 1)";
+        $query_add_main_do = mysqli_query($connection, $query_add_main);
+
+        header("Location: pistes.php?comp_id=$comp_id");
 
     }
-    if(isset($_POST["colored"])){
-        
+
     }
-    if(isset($_POST["numbered"])){
+    if($piste_type == "colored"){
+
+        $colored_pistenum = $_POST["colored_piste_number"];
+        $piste_add_color = $_POST["piste_color"];
+
+        $query = "SELECT * FROM pistes_$comp_id WHERE piste_number = $colored_pistenum";
+        $query_do = mysqli_query($connection,$query);
+
+        if(mysqli_num_rows($query_do) == 0){
+
+            $query_add_colored = "INSERT INTO `pistes_$comp_id`(`piste_number`, `piste_type`, `piste_color`) VALUES ($colored_pistenum,2,$piste_add_color)";
+            $query_add_colored_do = mysqli_query($connection, $query_add_colored);
+    
+            header("Location: pistes.php?comp_id=$comp_id");
+
+        }
+    }
+    if($piste_type == "numbered"){
         
+        $piste_start_num = $_POST["start_num"];
+        $piste_quantity_to_add = $_POST["quantity"];
+
+        $sn = $piste_start_num;
+
+        $okay = 0;
+
+
+        for ($i=0; $i < $piste_quantity_to_add ; $i++) { 
+            
+            if($okay == 0){
+
+            $query_get_pistes = "SELECT * FROM pistes_$comp_id WHERE piste_number = $sn";
+            $query_get_pistes_do = mysqli_query($connection, $query_get_pistes);
+
+            if(mysqli_num_rows($query_get_pistes_do) > 0){
+
+                $okay++;
+
+            }
+
+            $sn++;
+            }
+        }
+
+        if($okay == 0){
+
+            $sn = $piste_start_num;
+
+            $query_add_numbered_piste = "INSERT INTO `pistes_$comp_id`(`piste_number`, `piste_type`) VALUES";
+    
+            $query_add_numbered_piste .= " ($sn,3)";
+    
+            for ($i=1; $i < $piste_quantity_to_add; $i++) { 
+    
+                $sn++;
+    
+                $query_add_numbered_piste .= ",($sn,3)";
+            }
+    
+            $query_add_numbered_piste_do = mysqli_query($connection, $query_add_numbered_piste);
+    
+            header("Location: pistes.php?comp_id=$comp_id");
+
+
+        }
+
     }
 
 }
@@ -78,38 +157,39 @@ if(isset($_POST["create_piste"])){
                         </button>
 
                         <div class="overlay_panel_form">
-                            <form action="" id="create_piste" class="flex">
+                            <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" class="flex" method="POST">
                                 <label for="username" class="label_text">TYPE</label>
                                 <div class="option_container row">
-                                    <input type="radio" onclick="mainPiste()" name="wc_type" id="main" value="main"/>
+                                    <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main"/>
                                     <label for="main">Main</label>
 
-                                    <input type="radio" onclick="coloredPiste()" name="wc_type" id="colored" value="colored"/>
+                                    <input type="radio" onclick="coloredPiste()" name="piste_type" id="colored" value="colored"/>
                                     <label for="colored">Colored</label>
 
-                                    <input type="radio" onclick="numberedPiste()" name="wc_type" id="numbered" value="numbered"/>
+                                    <input type="radio" onclick="numberedPiste()" name="piste_type" id="numbered" value="numbered"/>
                                     <label for="numbered">Numbered</label>
                                 </div>
 
                                 <!--Main-->
                                 <label for="piste_number" id="mainpiste_num_label" class="label_text hidden main_group">PISTE NUMBER</label>
-                                <input type="number" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="e.g. 2" name="piste_number">
+                                <input type="number" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="e.g. 2" name="piste_number_main">
                                 
                                 <!--Colored-->
                                 <label for="piste_number" class="label_text hidden colored_group">PISTE COLOR</label>
                                 <div class="color_select hidden colored_group" id="colored_color_select">
-                                    <input type="radio" class="red" id="red" name="piste_color">
-                                    <label for="red"></label>
-                                    <input type="radio" class="blue" id="blue" name="piste_color">
+
+                                    <input type="radio" class="blue" id="blue" name="piste_color" value="1">
                                     <label for="blue"></label>
-                                    <input type="radio" class="green" id="green" name="piste_color">
-                                    <label for="green"></label>
-                                    <input type="radio" class="yellow" id="yellow" name="piste_color">
+                                    <input type="radio" class="yellow" id="yellow" name="piste_color" value="2">
                                     <label for="yellow"></label>
+                                    <input type="radio" class="green" id="green" name="piste_color" value="3">
+                                    <label for="green"></label>
+                                    <input type="radio" class="red" id="red" name="piste_color" value="4">
+                                    <label for="red"></label>
                                 </div>
 
                                 <label for="piste_number" class="label_text hidden colored_group">PISTE NUMBER</label>
-                                <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2">
+                                <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_number">
 
                                 <!--Numbered-->
 
@@ -117,10 +197,10 @@ if(isset($_POST["create_piste"])){
 
 
                                 <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE QUANTITY</label>
-                                <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2">
+                                <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="quantity">
 
                                 <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE START NUMBER</label>
-                                <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2">
+                                <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="start_num">
 
 
 
