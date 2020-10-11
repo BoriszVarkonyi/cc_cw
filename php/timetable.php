@@ -275,9 +275,13 @@ if($query_do){
                         <div id="time_stripe">
                         <form action="" method="POST" id="calendar">
                         </form>
-                            <button id="back_month_button" name="back" type="submit" form="calendar"></button>
+                            <button name="back" type="submit" form="calendar">
+                                <img src="../assets/icons/arrow_back_ios-black-18dp.svg" alt="">
+                            </button>
                             <div> <p><?php echo $monthname . " " . $year?></p> </div>
-                            <button id="next_month_button" name="next" type="submit" form="calendar"></button>
+                            <button name="next" type="submit" form="calendar">
+                                <img src="../assets/icons/arrow_forward_ios-black-18dp.svg" alt="">
+                            </button>
                         </div>
                         <div id="timetable_container">
                             <div id="timetable_header">

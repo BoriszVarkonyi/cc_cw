@@ -123,20 +123,6 @@ img[src$=".svg"] {
 	z-index: 5;
 }
 
-.hb_button {		/*header bar button */
-	background-color: var(--c-lightgray);
-	height: 35px;
-	width: 35px;
-	border: 0;
-	border-radius: 50%;
-	background-size: 60% 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 #profile_picture {
 	border-radius: 50%;
 	height: 30px;
@@ -1024,7 +1010,8 @@ input[type=radio]:checked:disabled + label:before {
 	background-color: var(--c-darkgray);
 	border-color: var(--c-darkgray);
 }
-/* Color inoput */
+
+/* Color input */
 
 .color_select {
 	display: flex;
@@ -1797,9 +1784,11 @@ input:focus::placeholder {
 	width: 35px;
 	height: 35px;
 	border-radius: 50%;
-	background-size: 60% 60%;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
+}
+
+#time_stripe > button > img {
+	width: 25px;
+	height: 25px;
 }
 
 #time_stripe > button:hover {
@@ -1823,22 +1812,6 @@ input:focus::placeholder {
 
 #calendar {
 	display: none;
-}
-
-#back_month_button {
-	background-image: url("../assets/icons/arrow_back_ios-black-18dp.svg"), linear-gradient(to right, var(--c-transparent), var(--c-transparent));
-}
-
-#back_month_button:hover {
-	background-image: url("../assets/icons/arrow_back_ios-black-18dp.svg"), linear-gradient(to right, var(--c-lightgray), var(--c-lightgray));
-}
-
-#next_month_button {
-	background-image: url("../assets/icons/arrow_forward_ios-black-18dp.svg"), linear-gradient(to right, var(--c-transparent), var(--c-transparent));
-}
-
-#next_month_button:hover {
-	background-image: url("../assets/icons/arrow_forward_ios-black-18dp.svg"), linear-gradient(to right, var(--c-lightgray), var(--c-lightgray));
 }
 
 #timetable_wrapper {
