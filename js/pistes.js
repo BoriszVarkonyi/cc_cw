@@ -23,3 +23,23 @@ function coloredPisteCreateButton(x) {
     selectedColor.classList.add("selected");
 
 }
+
+var mainpiste_num_label = document.getElementById("mainpiste_num_label");
+
+
+function mainPiste(){
+
+
+
+}
+
+function coloredPiste() {
+
+
+}
+
+function numberedPiste(){
+
+
+
+}

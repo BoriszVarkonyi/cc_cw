@@ -66,19 +66,19 @@ echo "ALREADY";
                             <form action="" id="create_piste">
                                 <label for="username" class="label_text">TYPE</label></br>
                                 <div class="option_container row">
-                                    <input type="radio" name="wc_type" id="main" value=""/>
+                                    <input type="radio" onclick="mainPiste()" name="wc_type" id="main" value=""/>
                                     <label for="main">Main</label>
 
-                                    <input type="radio" name="wc_type" id="colored" value=""/>
+                                    <input type="radio" onclick="coloredPiste()" name="wc_type" id="colored" value=""/>
                                     <label for="colored">Colored</label>
 
-                                    <input type="radio" name="wc_type" id="numbered" value=""/>
+                                    <input type="radio" onclick="numberedPiste()" name="wc_type" id="numbered" value=""/>
                                     <label for="numbered">Numbered</label>
                                 </div>
 
                                 <!--Main-->
-                                <label for="piste_number" class="label_text">PISTE NUMBER</label></br>
-                                <input type="number" class="number_input small" placeholder="e.g. 2" name="piste_number"></br>
+                                <label for="piste_number" id="mainpiste_num_label" class="label_text hidden">PISTE NUMBER</label></br>
+                                <input type="number" id="mainpiste_num_input" class="number_input small hidden" placeholder="e.g. 2" name="piste_number"></br>
                                 
                                 <!--Colored-->
                                 <label for="piste_number" class="label_text">PISTE COLOR</label></br>

@@ -39,7 +39,7 @@
 
                 -->
 
-                <!--
+                
 
                 STATE: 1 
 
@@ -174,7 +174,7 @@
                 -->
                 <!--
 
-                STATE: 2 -->
+                STATE: 2
                 
                 <button class="stripe_button" type="button">
                     <p>Open CC Match Control</p>
@@ -231,7 +231,7 @@
 
                 <div id="pools_wrapper">
 
-                    <!--
+                    
 
                     STATE: 1
                     <div id="pool_listing" class="with_drag"> 
@@ -894,11 +894,11 @@
                         <p id="pools_drag_title">Drag fencers here</p>
                     </div>
 
-                    -->
+                    
 
                     <!--
 
-                    STATE: 2 -->
+                    STATE: 2 
                     <div id="pool_listing"> 
                         <div class="entry" id="">
                             <div class="table_row start">
