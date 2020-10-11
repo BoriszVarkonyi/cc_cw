@@ -130,7 +130,7 @@ p {
 input {
     color: var(--c-input);
     outline: none;
-    border: none;
+	border: none;
 }
 
 input.hidden {
@@ -159,6 +159,14 @@ form {
 form.hidden {
 	display: none;
 }
+
+form.flex {
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	align-items: flex-start;
+}
+
 
 :hover {
 	transition: var(--t-basic);
