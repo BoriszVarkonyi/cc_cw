@@ -164,6 +164,21 @@
                                     <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                                     <label for="piste_1">Piste 1</label>
                                 </div>
+                                
+                                <div class="piste_select ghost">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select ghost">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select ghost">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
 
                         </div>
 

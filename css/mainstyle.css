@@ -3440,6 +3440,10 @@ input.wc_time {
 	padding: 2px 6px;
 }
 
+.piste_select.ghost {
+	visibility: hidden;
+}
+
 #ref_pis_time_panel {
 	top: calc(50px + 3vh);
 	right: 40px;

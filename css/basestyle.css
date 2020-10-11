@@ -902,7 +902,13 @@ input[type="time"] {
 	position: relative;
 }
 
+#call_room.cc {
+	margin: 50px 0;
+	width: 90%;
+}
+
 .elimination {
+	flex-basis: 300px;
 	flex-grow: 1;
 	background-color: var(--c-lightestgray);
 	display: none;
