@@ -187,7 +187,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div id="referees_wrapper">
+                    <div class="wrapper">
 
                     <?php 
                     

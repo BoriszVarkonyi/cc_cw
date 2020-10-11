@@ -37,7 +37,7 @@
                     </button>
                 </div>
                 <div id="page_content_panel_main">
-                    <form action="" id="fencers_weapon_control_wrapper">
+                    <form action="" id="fencers_weapon_control_wrapper" class="wrapper width_80">
                         <div id="issues_panel">
                             <div class="table_header">
                                 <div class="table_header_text">ISSUE</div>

@@ -24,7 +24,7 @@
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div id="technicians_wrapper">
+                    <div class="wrapper">
                     <!--
                             <div id="no_something_panel">
                                 <p>You have no referees set up!</p>

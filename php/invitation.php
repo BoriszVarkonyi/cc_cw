@@ -62,7 +62,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                 <p><?php echo $feedback ?></p>
 
                 <div id="page_content_panel_main">
-                    <div id="invitation_wrapper">
+                    <div id="invitation_wrapper" class="wrapper width_80">
 
                         <div id="plus_information">
                             <div class="db_panel_title_stripe">

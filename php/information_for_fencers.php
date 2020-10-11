@@ -66,7 +66,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div id="information_for_fencers_wrapper">
+                    <div id="information_for_fencers_wrapper" class="wrapper full">
 
                     <div id="needed_equipment_panel" class="info_panel"> 
                         <div class="db_panel_title_stripe">

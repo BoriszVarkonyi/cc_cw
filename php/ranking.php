@@ -282,7 +282,7 @@ if(mysqli_num_rows($query_do) == 0){
                         }
                     ?>
 
-                    <div id="ranking_wrapper">
+                    <div class="wrapper">
 
                         <?php
                             if ($row_cnt != 0) {
