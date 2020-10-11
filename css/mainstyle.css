@@ -1069,50 +1069,52 @@ br.hidden {
 	width: 20px;
 	height: 20px;
 	border-radius: 2px;
-	margin: 0 5px;
-	padding: 3px;
-}
-
-.color_select > input + label:before {
-	border: 3px inset var(--c-black);
-	padding: 3px;
+	margin: 5px;
 }
 
 .color_select > input:checked + label:before {
 	border: 5px inset var(--c-black);
-	padding: 1px;
+	padding: 0px;
 }
 
 .color_select > input:checked.red + label:before {
 	background-color: var(--c-red);
+	border: 5px inset var(--c-black);
 }
 
 .color_select > input.red + label:before {
 	background-color: var(--c-red);
+	border: 5px inset var(--c-red);
 }
 
 .color_select > input:checked.green + label:before {
 	background-color: var(--c-green);
+	border: 5px inset var(--c-black);
 }
 
 .color_select > input.green + label:before {
 	background-color: var(--c-green);
+	border: 5px inset var(--c-green);
 }
 
 .color_select > input:checked.blue + label:before {
 	background-color: var(--c-blue);
+	border: 5px inset var(--c-black);
 }
 
 .color_select > input.blue + label:before {
 	background-color: var(--c-blue);
+	border: 5px inset var(--c-blue);
 }
 
 .color_select > input:checked.yellow + label:before {
 	background-color: var(--c-yellow);
+	border: 5px inset var(--c-black);
 }
 
 .color_select > input.yellow + label:before {
 	background-color: var(--c-yellow);
+	border: 5px inset var(--c-yellow);
 }
 
 
