@@ -107,7 +107,7 @@ if(mysqli_num_rows($query_do) == 0){
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
 
-                    <button class="stripe_button" type="submit" method="post" form="needed_equimpment_wrapper" onclick="toggleRankingInfo()">
+                    <button class="stripe_button" type="submit" method="post" onclick="toggleRankingInfo()">
                         <p>Ranking Information</p>
                         <img src="../assets/icons/info-black-18dp.svg"></img>
                     </button>
@@ -160,7 +160,7 @@ if(mysqli_num_rows($query_do) == 0){
                         <img src="../assets/icons/delete-black-18dp.svg"></img>
                     </button>
 
-                    <button class="stripe_button bold" type="submit" form="needed_equimpment_wrapper" onclick="toggleAddFencer()">
+                    <button class="stripe_button bold" type="submit" onclick="toggleAddFencer()">
                         <p>Add fencer</p>
                         <img src="../assets/icons/add-black-18dp.svg"></img>
                     </button>

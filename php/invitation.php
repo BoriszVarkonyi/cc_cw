@@ -49,11 +49,11 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Plus Information</p>
-                    <button class="stripe_button" type="button" onclick="printPage()" form="needed_equimpment_wrapper">
+                    <button class="stripe_button" type="button" onclick="printPage()">
                         <p>Print Invitation</p>
                         <img src="../assets/icons/print-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange" type="button"  form="">
+                    <button class="stripe_button orange" type="button">
                         <p>Save Invitation</p>
                         <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>

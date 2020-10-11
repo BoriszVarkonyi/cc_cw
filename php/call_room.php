@@ -27,11 +27,11 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Call Room</p>
-                    <button class="stripe_button" type="submit" form="needed_equimpment_wrapper">
+                    <button class="stripe_button" type="submit">
                         <p>Send Message to Fencer</p>
                         <img src="../assets/icons/message-black-18dp.svg"></img>
                     </button>
-                    <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
+                    <button class="stripe_button orange" type="submit">
                         <p>Pass Fencer</p>
                         <img src="../assets/icons/send-black-18dp.svg"></img>
                     </button>

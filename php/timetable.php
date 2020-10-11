@@ -229,7 +229,7 @@ if($query_do){
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Timetable</p>
-                    <button class="stripe_button orange" type="submit" form="needed_equimpment_wrapper">
+                    <button class="stripe_button orange" type="submit">
                         <p>Save Timetable</p>
                         <img src="../assets/icons/save-black-18dp.svg"></img>
                     </button>

@@ -156,7 +156,7 @@ header("Location: ../index.php");
             <p class="username_big"><?php echo $name; ?></p>
             <p class="role_big"><?php echo $role; ?></p>
             <form action="" method="POST" id="logout_form">
-                <button type="submit" name="logout" class="logout_button" form="logout_form">Log out</button>
+                <button type="submit" name="logout" class="logout_button">Log out</button>
             </form>
         </div>
     </div>
