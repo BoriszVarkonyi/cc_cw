@@ -54,7 +54,7 @@
                 </button>
 
                 <button class="stripe_button bold" type="button" onclick="refPisTimePanel()">
-                    <p>Referees & Pisters & Time</p>
+                    <p>Referees & Pistes & Time</p>
                     <img src="../assets/icons/ballot-black-18dp.svg"></img>
                 </button>
                 
@@ -70,7 +70,7 @@
                     <form action="" method="post" id="" autocomplete="off" class="overlay_panel_form dense">
                         <label for="ref_type" class="label_text">REFEREES</label></br>
                         <div class="option_container row">
-                            <input type="radio" name="ref_type" id="auto" value=""/>
+                            <input type="radio" name="ref_type" id="auto" checked value=""/>
                             <label for="auto">Automatic</label>
 
                             <input type="radio" name="ref_type" id="manual" value=""/>
@@ -87,7 +87,7 @@
 
                         <label for="pistes_type" class="label_text">PISTES</label></br>
                         <div class="option_container row">
-                            <input type="radio" name="pistes_type" id="all" value=""/>
+                            <input type="radio" name="pistes_type" checked id="all" value=""/>
                             <label for="all">Use all</label>
 
                             <input type="radio" name="pistes_type" id="manual_select" value=""/>
@@ -161,6 +161,21 @@
                                 </div>
 
                                 <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+                                
+                                <div class="piste_select ghost">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select ghost">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select ghost">
                                     <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                                     <label for="piste_1">Piste 1</label>
                                 </div>

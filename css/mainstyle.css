@@ -872,6 +872,10 @@ input[type="range"]:focus::-ms-fill-upper {
 	align-self: flex-start;
 }
 
+.label_text.hidden {	/* Used in forms, all caps, thin font    NO option buttons*/
+	display: none;
+}
+
 .label_text_small {
 	font-family: ProximaNova;
 	text-transform: initial;
@@ -922,6 +926,20 @@ input[type="range"]:focus::-ms-fill-upper {
 	overflow-x: hidden;
 	justify-content: space-around;
 	margin-bottom: 35px;
+	opacity: 1;
+	transition: opacity var(--t-basic);
+}
+
+.option_container.grid.piste_select.disabled {
+	filter: contrast(0.5);
+	cursor: default;
+	opacity: 0.2;
+	
+}
+
+.option_container.grid.piste_select.disabled * {
+	cursor: default;
+	opacity: 0.2;
 }
 
 /* Checkbox Input */
@@ -3438,6 +3456,10 @@ input.wc_time {
 	display: flex;
 	margin: 5px;
 	padding: 2px 6px;
+}
+
+.piste_select.ghost {
+	visibility: hidden;
 }
 
 #ref_pis_time_panel {

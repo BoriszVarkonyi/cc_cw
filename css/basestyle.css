@@ -902,7 +902,13 @@ input[type="time"] {
 	position: relative;
 }
 
+#call_room.cc {
+	margin: 50px 0;
+	width: 90%;
+}
+
 .elimination {
+	flex-basis: 300px;
 	flex-grow: 1;
 	background-color: var(--c-lightestgray);
 	display: none;
@@ -944,6 +950,18 @@ input[type="time"] {
 	justify-content: center;
 	cursor: pointer;
 	transition: height var(--t-basic);
+}
+
+.table_round.red {
+	background-color: rgba(248, 79, 79, 0.3);
+}
+
+.table_round.green {
+	background-color:rgba(141, 255, 183, 0.4);
+}
+
+.table_round.yellow {
+	background-color: rgba(255, 201, 20, 0.3);
 }
 
 .table_round:hover > .table_fencer {
@@ -1060,6 +1078,16 @@ input[type="time"] {
 	font-family: ProximaNovaBold;
 	white-space: nowrap;
 	padding: 1px 0;
+}
+
+.round_information > button {
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 20px;
+	height: 20px;
+	background-color: var(--c-white);
 }
 
 .table_round:hover > .round_information {
