@@ -1052,7 +1052,7 @@ input[type=radio]:checked:disabled + label:before {
 .color_select {
 	display: flex;
 	width: 100%;
-	margin: 10px 0 30px 0;
+	margin: 10px 0 15px 0;
 }
 
 .color_select.hidden {
@@ -1069,7 +1069,11 @@ br.hidden {
 	width: 20px;
 	height: 20px;
 	border-radius: 2px;
-	margin: 5px;
+	margin: 0 5px;
+}
+
+.color_select > input + label {
+	margin-bottom: 0;
 }
 
 .color_select > input:checked + label:before {
