@@ -1105,4 +1105,37 @@ input[type="time"] {
 	position: absolute;
 	left: 100%;
 	background-color: var(--c-white);
+	z-index: 10;
+	min-width: 300px;
 }
+
+.settings_fencers {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.settings_fencers > div {
+	flex-grow: 1;
+	white-space: normal;
+}
+
+.settings_fencers > div:first-of-type {
+	margin-right: 50px;
+}
+
+.round_settings_fencer {
+	font-size: var(--f-large);
+	font-family: ProximaNovaBold;
+}
+
+.settings_fencers > div:first-of-type > .round_settings_fencer {
+	text-align: start;
+}
+
+.settings_fencers > div:last-of-type > .round_settings_fencer {
+	text-align: end;
+}
+
+

@@ -183,9 +183,24 @@
                     </div>
 
                     <div class="round_settings overlay_panel">
-                        <form action="" class="overlay_panel_form">
-                            <label for="starting_time" class="label_text">REFEREES</label>
-                            <input type="text" value="Referee">
+                        <form action="" class="overlay_panel_form flex dense">
+                            <div class="settings_fencers">
+                                <div>
+                                    <p class="round_settings_fencer">Fencer name 1 Long name LOl</p>
+                                </div>
+                                <div>
+                                    <p class="round_settings_fencer">Fencer name 1 Long name LOl</p>
+                                </div>
+                            </div>
+                            <label class="label_text">REFEREES</label>
+                            <input type="text" value="Referee's name">
+
+                            <label class="label_text">PISTE</label>
+                            <input type="text" value="Piste number">
+
+                            <label class="label_text">STARTING TIME</label>
+                            <input type="time" value="Piste number">
+
                             <button class="panel_submit">
                                 <p>Save</p>
                             </button>

@@ -22,31 +22,34 @@ function slideShow() {
     var i = 0;
     var slides = document.getElementsByClassName("slide");*/
 
-//SLIDESHOW    
-    var myIndex = 0;
-carousel();
+//SLIDESHOW
 
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("slide");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.zIndex = "0";
-        }
+const slides = document.querySelectorAll(".slide")
+var slideNumber = 0;
+var slideZ = 1;
+var i;
 
-        myIndex++;
+const interval = setInterval(function() {
 
-        if (myIndex > x.length) 
-        {
-          myIndex = 1;
-        }
+    slideZ++;
+    slides[slideNumber].classList.remove("hidden");
+    slides[slideNumber].style.zIndex = slideZ;
 
-        x[myIndex-1].style.display = "flex"; // Has to be flex if it needs to be displayed
-        x[myIndex-1].style.zIndex = "1";
+    slideNumber++;
+    if (slideNumber == 4) {
 
-        setTimeout(carousel, 2000); // Change image every 5 seconds
+      for (i = 0; i < slides.length; i++) {
+        slides[i].classList.add("hidden");
       }
 
-function printPage() {
-    window.print();
-}
+      slideNumber = 1;
+    }
+
+
+
+ }, 2000);
+
+
+
+
 //SLIDESHOW END

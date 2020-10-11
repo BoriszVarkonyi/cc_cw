@@ -28,21 +28,21 @@
         </div>
 
         <!-- slide2 -->
-        <div class="slide">
+        <div class="slide hidden">
             <p>Check Results</p>
             <button>Finished Competitions</button>
             <img src="../assets/img/fencers_bg.svg" alt="">
         </div>
 
         <!-- slide3 -->
-        <div class="slide">
+        <div class="slide hidden">
             <p>Watch Competitions Live</p>
             <button>Ongoing Competitions</button>
             <img src="../assets/img/fencers_bg.svg" alt="">
         </div>
         
         <!-- slide4 -->
-        <div class="slide">
+        <div class="slide hidden">
             <p>Watch Videos</p>
             <button>Videos</button>
             <img src="../assets/img/fencers_bg.svg" alt="">
