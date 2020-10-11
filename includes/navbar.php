@@ -99,7 +99,7 @@ setcookie("today",$test,time()+31556926);
             </a>
 
             <!-- ?help -->
-            <a href="" id="need_help">
+            <a href="user_guide.php" id="need_help">
                 <img src="../assets/icons/help-black-18dp.svg" alt="">
                 <p>Need help?</p>
             </a>
