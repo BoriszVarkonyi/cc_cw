@@ -3,7 +3,6 @@ function refPisTimePanel() {
     panel.classList.toggle("hidden");
 }
 
-
 function useAll() {
     var selectPistes = document.getElementById("select_pistes_panel");
     selectPistes.classList.add("disabled")

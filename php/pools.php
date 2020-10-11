@@ -87,10 +87,10 @@
 
                         <label for="pistes_type" class="label_text">PISTES</label></br>
                         <div class="option_container row">
-                            <input type="radio" name="pistes_type" checked id="all" value=""/>
+                            <input type="radio" name="pistes_type" checked id="all" onclick="useAll()" value=""/>
                             <label for="all">Use all</label>
 
-                            <input type="radio" name="pistes_type" id="manual_select" value=""/>
+                            <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>
                             <label for="manual_select">Select manually</label>
                         </div>
 
