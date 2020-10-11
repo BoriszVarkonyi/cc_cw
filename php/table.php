@@ -171,7 +171,7 @@
             
             <div id="e_1" class="elimination first visible">
                 <div class="elimination_label">Table of __</div>
-                <div class="table_round red" onclick="location.href='cw_round_live.php'">
+                <div class="table_round red" onclick="tableRoundConfic(this)">
                     <div class="round_information">
                         <p>Ref: {Referee's Name}</p>
                         <p>20 / 12 / 2020 15:20</p>
@@ -180,6 +180,16 @@
                         <button>
                             <img src="../assets/icons/settings-black-18dp.svg" alt="">
                         </button>
+                    </div>
+
+                    <div class="round_settings overlay_panel">
+                        <form action="" class="overlay_panel_form">
+                            <label for="starting_time" class="label_text">REFEREES</label>
+                            <input type="text" value="Referee">
+                            <button class="panel_submit">
+                                <p>Save</p>
+                            </button>
+                        </form>
                     </div>
                     
                     <div class="table_fencer">

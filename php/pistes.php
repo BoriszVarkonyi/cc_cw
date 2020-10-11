@@ -97,12 +97,15 @@ if(isset($_POST["create_piste"])){
                                 
                                 <!--Colored-->
                                 <label for="piste_number" class="label_text hidden colored_group">PISTE COLOR</label>
-                                <input type="number" class="hidden colored_group">
                                 <div class="color_select hidden colored_group" id="colored_color_select">
-                                    <button type="button" class="red" onclick="coloredPisteCreateButton(this)"></button>
-                                    <button type="button" class="blue" onclick="coloredPisteCreateButton(this)"></button>
-                                    <button type="button" class="green" onclick="coloredPisteCreateButton(this)"></button>
-                                    <button type="button" class="yellow" onclick="coloredPisteCreateButton(this)"></button>
+                                    <input type="radio" class="red" id="red" name="piste_color">
+                                    <label for="red"></label>
+                                    <input type="radio" class="blue" id="blue" name="piste_color">
+                                    <label for="blue"></label>
+                                    <input type="radio" class="green" id="green" name="piste_color">
+                                    <label for="green"></label>
+                                    <input type="radio" class="yellow" id="yellow" name="piste_color">
+                                    <label for="yellow"></label>
                                 </div>
 
                                 <label for="piste_number" class="label_text hidden colored_group">PISTE NUMBER</label>

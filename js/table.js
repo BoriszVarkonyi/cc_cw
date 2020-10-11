@@ -12,3 +12,7 @@ function selectPistes() {
     var selectPistes = document.getElementById("select_pistes_panel");
     selectPistes.classList.remove("disabled")
 }
+
+function tableRoundConfic(x) {
+    var
+}

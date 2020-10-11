@@ -167,7 +167,6 @@ form.flex {
 	align-items: flex-start;
 }
 
-
 :hover {
 	transition: var(--t-basic);
 }
@@ -1098,6 +1097,12 @@ input[type="time"] {
 	background-color: var(--c-white);
 }
 
-.table_round:hover > .round_information {
+.table_round:not(.round_settings):hover > .round_information {
 	opacity: 1;
+}
+
+.round_settings {
+	position: absolute;
+	left: 100%;
+	background-color: var(--c-white);
 }
