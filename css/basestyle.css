@@ -754,12 +754,12 @@ input[type="time"] {
 	margin-right: 15px;
 }
 
-.stripe_button:last-of-type {
+.stripe_button:only-of-type, .stripe_button.only {
+	margin-left: auto;
 	margin-right: 40px;
 }
 
-.stripe_button:only-of-type {
-	margin-left: auto;
+.stripe_button:last-of-type {
 	margin-right: 40px;
 }
 

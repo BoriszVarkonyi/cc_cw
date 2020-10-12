@@ -207,10 +207,12 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	position: absolute;
 	animation-name: slide_anim;
 	animation-duration: 1.5s;
+	opacity: 1;
+	transition: opacity ease-in 1.5s;
 }
 
 .slide.hidden {
-	display: none;
+	opacity: 0;
 }
 
 @keyframes slide_anim {

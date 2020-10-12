@@ -36,11 +36,12 @@ const interval = setInterval(function() {
     slides[slideNumber].style.zIndex = slideZ;
 
     slideNumber++;
+    
     if (slideNumber == 4) {
 
-      for (i = 0; i < slides.length; i++) {
+      /*for (i = 0; i < slides.length; i++) {
         slides[i].classList.add("hidden");
-      }
+      }*/
 
       slideNumber = 1;
     }

@@ -13,6 +13,6 @@ function selectPistes() {
     selectPistes.classList.remove("disabled")
 }
 
-function tableRoundConfic(x) {
+function tableRoundConfig(x) {
     var
 }

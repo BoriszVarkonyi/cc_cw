@@ -171,7 +171,7 @@
             
             <div id="e_1" class="elimination first visible">
                 <div class="elimination_label">Table of __</div>
-                <div class="table_round red" onclick="tableRoundConfic(this)">
+                <div class="table_round red" onclick="tableRoundConfig(this)">
                     <div class="round_information">
                         <p>Ref: {Referee's Name}</p>
                         <p>20 / 12 / 2020 15:20</p>
