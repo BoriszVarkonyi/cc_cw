@@ -2,11 +2,20 @@ function togglePisteSettings(x) {
     var clickedPisteButton = x;
     var clickedPiste = clickedPisteButton.parentNode.parentNode;
     var pisteSettings = clickedPiste.lastElementChild;
+    var pistes = document.querySelectorAll(".piste");
 
-    pisteSettings.classList.toggle("collapsed");
+    for (i=0; i < pistes.length; i++){
+        pistes[i].classList.remove("focused");
+    };
+
     clickedPiste.classList.toggle("focused");
 
-    console.log(pisteSettings)
+    /*
+    console.log(pistes);
+    console.log(pistes.length);
+    console.log(clickedPiste);
+    console.log(pisteSettings);
+    */
 }
 
 function toggleAddPistePanel() {

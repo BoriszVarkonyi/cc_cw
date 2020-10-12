@@ -177,9 +177,6 @@
                         <p>20 / 12 / 2020 15:20</p>
                         <p>Piste No.: 5</p>
                         <p>Ref: {Referee's Name}</p>
-                        <button>
-                            <img src="../assets/icons/settings-black-18dp.svg" alt="">
-                        </button>
                     </div>
 
                     <div class="round_settings overlay_panel">
