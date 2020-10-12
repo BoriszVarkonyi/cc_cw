@@ -1,4 +1,5 @@
 <?php include "cw_header.php"; ?>
+<?php include "../includes/db.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,46 +58,32 @@
         <div id="ongoing_competitions_panel">
             <p class="cw_panel_title">Ongoing Competitions</p>
             <div class="cw_table_wrapper">
-                <div class="table_row">
-                    <div class="table_item">
-                        Landesmeisterschaft Mecklenburg-Vorpommern
+            <?php
+                //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)
+                $qry = "SELECT * FROM competitions WHERE comp_status = 3 ORDER BY comp_start DESC";
+                $qry_do = mysqli_query($connection, $qry);
+
+
+                //displays row in the table with parameters
+                while ($row = mysqli_fetch_assoc($qry_do)) {
+                    $comp_name =  $row['comp_name'];
+
+                    //displays the compnames in a table with href button (live)
+                    ?>
+                    <div class="table_row">
+                        <!-- comp_name displayed -->
+                        <div class="table_item">
+                            <?php echo $comp_name ?>
+                        </div>
+                        <!-- live button href -->
+                        <div class="table_item live">
+                            <a href="">Live</a>
+                        </div>
                     </div>
-                    <div class="table_item live">
-                        <a href="">Live</a>
-                    </div>
-                </div>
-                <div class="table_row">
-                    <div class="table_item">
-                        Landesmeisterschaft Mecklenburg-Vorpommern
-                    </div>
-                    <div class="table_item live">
-                        <a href="">Live</a>
-                    </div>
-                </div>
-                <div class="table_row">
-                    <div class="table_item">
-                        Landesmeisterschaft Mecklenburg-Vorpommern
-                    </div>
-                    <div class="table_item live">
-                        <a href="">Live</a>
-                    </div>
-                </div>
-                <div class="table_row">
-                    <div class="table_item">
-                        Landesmeisterschaft Mecklenburg-Vorpommern
-                    </div>
-                    <div class="table_item live">
-                        <a href="">Live</a>
-                    </div>
-                </div>
-                <div class="table_row">
-                    <div class="table_item">
-                        Landesmeisterschaft Mecklenburg-Vorpommern
-                    </div>
-                    <div class="table_item live">
-                        <a href="">Live</a>
-                    </div>
-                </div>
+
+                    <?php
+                }
+                    ?>
             </div>
         </div>
 
