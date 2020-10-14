@@ -274,7 +274,7 @@
                                             No.
                                         </div>
 
-                                        <div class="table_header_text square">
+                                        <div class=le_row"table_header_text square">
                                             1
                                         </div>
 
@@ -312,8 +312,8 @@
                                     </div>
 
                                     <div class="table_row">
-                                        <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1">NAME</p></div>
-                                        <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="2">NAT</p></div>
+                                        <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1">Name</p></div>
+                                        <div class="table_item">Nat</div>
                                         <div class="table_item square row_title">1</div>
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">a4</div>

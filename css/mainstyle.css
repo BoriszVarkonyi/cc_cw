@@ -3472,6 +3472,14 @@ input.wc_time {
 	padding: 0 15px;
 }
 
+#pool_listing  > .entry > .table_row {
+	cursor: default;
+}
+
+#pool_listing  > .entry > .entry_panel > .pool_table_wrapper > .table_row > .table_item:first-of-type {
+	font-family: ProximaNovaBold;
+}
+
 .drag_fencer {
 	cursor: grab;
 }
