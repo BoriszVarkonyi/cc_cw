@@ -263,15 +263,21 @@ print_r($_POST);
             </div>
         </div>
     </div>
-    <div id="other_apps">
-        <button type="button" class="other_apps_button" onclick="toggleOtherApps()">Other Applications</button>
-        <div id="other_apps_dropdown">
-            <p>For Organisers</p>
-            <a href="">CC Wheelchair</a>
-            <p>For Federations</p>
-            <a href="">CC FC</a>
+    <div id="login_links_wrapper"> 
+        <div id="program_news">
+            <a type="button" class="other_apps_button">News and updates</a>
+        </div>
+        <div id="other_apps">
+            <button type="button" class="other_apps_button" onclick="toggleOtherApps()">Other Applications</button>
+            <div id="other_apps_dropdown">
+                <p>For Organisers</p>
+                <a href="">CC Wheelchair</a>
+                <p>For Federations</p>
+                <a href="">CC FC</a>
+            </div>
         </div>
     </div>
+
     <p id="copyright_text">Competition Control &copy; v1.0</p>
     <script src="/js/login.js"></script>
 </body>

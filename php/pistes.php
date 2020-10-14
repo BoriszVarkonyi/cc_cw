@@ -347,7 +347,7 @@ if(isset($_POST["create_piste"])){
                                     <img src="../assets/icons/settings-black-18dp.svg" alt="">
                                 </button>
                             </div>
-                            <form class="piste_settings_panel collapsed">
+                            <form class="piste_settings_panel">
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">

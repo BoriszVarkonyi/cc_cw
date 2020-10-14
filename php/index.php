@@ -45,7 +45,6 @@ checkComp($connection);
                     </button>
                 </div>
 
-                
                 <!-- dashboard body -->  
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
