@@ -1820,6 +1820,20 @@ input:focus::placeholder {
 	background-color: transparent;
 }
 
+.save_entry {
+	padding: 3px;
+	background-color: var(--c-orange);
+	font-family: ProximaNovaBold;
+	font-size: var(--f-little);
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: 20px;
+}
+
+
 #adding_entry.hidden {
 	display: none;
 }
@@ -1836,16 +1850,6 @@ input:focus::placeholder {
 	padding-left: 0;
 	height: 80%;
 	width: 50%;
-}
-
-/* Invitatinal */
-
-#cw_preview {
-	padding: 50px 0;
-	margin: 75px 0;
-	width: 100%;
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
 }
 
 /* Competitions page*/
@@ -1896,8 +1900,11 @@ input:focus::placeholder {
 }
 
 #cw_preview {
+	padding: 50px 0;
+	margin: 75px 0;
+	background-color: var(--c-white);
+	box-shadow: var(--s-black);
 	align-self: center;
-	width: 60%;
 	flex: 0 1 auto;
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
@@ -3438,7 +3445,7 @@ input.wc_time {
 	width: 80%;
 }
 
-/* ///pools/// */
+/* ///POOLS/// */
 
 #pools_wrapper {
 	margin: 50px 0;

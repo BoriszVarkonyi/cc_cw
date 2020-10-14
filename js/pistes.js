@@ -2,14 +2,43 @@ function togglePisteSettings(x) {
     var clickedPisteButton = x;
     var clickedPiste = clickedPisteButton.parentNode.parentNode;
     var pistes = document.querySelectorAll(".piste");
+    var oldClickedPiste;
 
     for (i = 0; i < pistes.length; i++) {
+
         pistes[i].classList.remove("focused");
+
+        
     }
-    console.log(clickedPiste);
+
+    var found = pistes.indexOf('clickedPiste');
+
+
+
+    console.log(found)
+
+    if (oldClickedPiste == clickedPiste) {
+        clickedPiste.classList.toggle("focused");
+    }
+
+    oldClickedPiste = clickedPiste;
+
     clickedPiste.classList.toggle("focused");
 
+    console.log(clickedPiste);
+    console.log(oldClickedPiste);
+
+    //clickedPiste.classList.toggle("focused");
+
+    //console.log(pistes[clickedPisteButton])
 }
+
+
+
+
+
+
+
 
 function toggleAddPistePanel() {
     var addPistePanel = document.getElementById("add_piste_panel");

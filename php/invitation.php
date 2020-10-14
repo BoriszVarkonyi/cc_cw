@@ -79,10 +79,11 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                         <div class="entry_panel collapsed">
                                             <textarea name="" id=""></textarea>
                                             <input type="text" class="hidden">
+                                            <button class="panel_submit">Save</button>
                                         </div>
                                     </div>
 
-                                    <div id="add_entry">
+                                    <div id="add_entry" onclick="addEntry()">
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
                                                 Add information
@@ -95,9 +96,21 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
                                                 <input type="text" placeholder="Type in the title">
+                                                <button class="save_entry">Create</button>
                                             </div>
                                         </div>
                                     </form>
+
+                                    <div class="entry" id="">
+                                        <div class="table_row" onclick="toggleEntry(this)">
+                                            <div class="table_item invitation">Hungarian Fencing Federation</div>
+                                        </div>
+                                        <div class="entry_panel collapsed">
+                                            <textarea name="" id=""></textarea>
+                                            <input type="text" class="hidden">
+                                            <button class="panel_submit">Save</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -132,117 +145,72 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                 </div>
                             </div>
 
-<!-- basic info panel -->
-<div id="basic_information_panel">
-    <div>
-        <p class="data_label">HOST COUNTRY:</p>
-        <p><?php echo $assoc_array_data['comp_host'] ?></p>
-        <p class="data_label">LOCATION AND ADDRESS:</p>
-        <p><?php echo $assoc_array_data['comp_location'] ?></p>
-        <p class="data_label">ENTRY-FEE:</p>
-        <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>
-    </div>
-    <div>
-        <p class="data_label">STARTING DATE:</p>
-        <p><?php echo $assoc_array_data['comp_start'] ?></p>
-        <p class="data_label">ENDING DATE:</p>
-        <p><?php echo $assoc_array_data['comp_end'] ?></p>
-        <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-        <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>
-    </div>
-</div>
+                                <!-- basic info panel -->
+                                <div id="basic_information_panel">
+                                    <div>
+                                        <p class="data_label">HOST COUNTRY:</p>
+                                        <p><?php echo $assoc_array_data['comp_host'] ?></p>
+                                        <p class="data_label">LOCATION AND ADDRESS:</p>
+                                        <p><?php echo $assoc_array_data['comp_location'] ?></p>
+                                        <p class="data_label">ENTRY-FEE:</p>
+                                        <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>
+                                    </div>
+                                    <div>
+                                        <p class="data_label">STARTING DATE:</p>
+                                        <p><?php echo $assoc_array_data['comp_start'] ?></p>
+                                        <p class="data_label">ENDING DATE:</p>
+                                        <p><?php echo $assoc_array_data['comp_end'] ?></p>
+                                        <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                        <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>
+                                    </div>
+                                </div>
 
+                                <!-- equipment panel -->
+                                <div id="equipment_panel">
+                                    <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
 
-<!-- equipment panel -->
-<div id="equipment_panel">
-    <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
+                                    <!-- weapons check table rows -->
+                                    <div>
+                                        <?php 
+                                            $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
-    <!-- weapons check table rows -->
-    <div>
-        <?php 
-            $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+                                            $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
 
-            $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
+                                            for ($i = 0; $i < count($equipment); $i++) {
+                                                
+                                                if ($array_equipment[$i] != 0) {
+                                                    ?>
+                                                        <div class="table_row">
+                                                            <div class="table_item"><?php echo $equipment[$i] ?></div>
+                                                            <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                                                    
+                                                        </div>
+                                                    <?php
+                                                }
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
 
-            for ($i = 0; $i < count($equipment); $i++) {
-                
-                if ($array_equipment[$i] != 0) {
-                    ?>
-                        <div class="table_row">
-                            <div class="table_item"><?php echo $equipment[$i] ?></div>
-                            <div class="table_item"><?php echo $array_equipment[$i] ?></div>
-                    
-                        </div>
-                    <?php
-                }
-            }
-        ?>
-    </div>
-</div>
+                                <!-- additional info panel -->
+                                <div id="additional_panel">
+                                    <p class="data_label panel_title">ADDITIONAL INFORMATION FOR FENCERS</p>
+                                    <div>
+                                        <p><?php echo $assoc_array_data['comp_info'] ?></p>
+                                    </div>
+                                </div>
 
-<!-- additional info panel -->
-<div id="additional_panel">
-    <p class="data_label panel_title">ADDITIONAL INFORMATION</p>
-    <div>
-        <p><?php echo $assoc_array_data['comp_info'] ?></p>
-    </div>
-</div>
-
-<!-- weapon control panel -->
-<div id="weapon_control_panel">
-    <p class="data_label panel_title">WEAPON CONTROL</p>
-    <div>
-        <div class="weapon_control_day">
-            <p>{Weapon Control Date}</p>
-            <a>Book appointment</a>
-        </div>
-
-                            <!-- equipment panel -->
-                            <div id="equipment_panel">
-                                <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
-
-                                <!-- weapons check table rows -->
-                                <div>
-                                    <div class="table_row">
-                                        <div class="table_item">Epee</div>
-                                        <div class="table_item">max. 5.</div>
+                                <!-- weapon control panel -->
+                                <div id="weapon_control_panel">
+                                    <p class="data_label panel_title">WEAPON CONTROL</p>
+                                    <div>
+                                        <div class="weapon_control_day">
+                                            <p>{Weapon Control Date}</p>
+                                            <a>Book appointment</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- additional info panel -->
-                            <div id="additional_panel">
-                                <p class="data_label panel_title">ADDITIONAL INFORMATION FOR FENCERS</p>
-                                <div>
-                                    <p>Adidtion info heree :)</p>
-                                </div>
-                            </div>
-
-                            <!-- weapon control panel -->
-                            <div id="weapon_control_panel">
-                                <p class="data_label panel_title">WEAPON CONTROL</p>
-                                <div>
-                                    <div class="weapon_control_day">
-                                        <p>{Weapon Control Date}</p>
-                                        <a>Book appointment</a>
-                                    </div>
-
-                                    <div class="weapon_control_day">
-                                        <p>{Weapon Control Date}</p>
-                                        <a>Book appointment</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="plus_information_panel">
-                                <p class="data_label panel_title">PLUS INFORMATION</p>
-                                <div>
-                                    <p>pluss info heree :)</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
         </div>
     </body>
 <script src="../js/main.js"></script>

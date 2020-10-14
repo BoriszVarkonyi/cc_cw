@@ -78,7 +78,7 @@
 
                 <!-- additional info panel -->
                 <div id="additional_panel">
-                    <p class="data_label panel_title">ADDITIONAL INFORMATION</p>
+                    <p class="data_label panel_title">ADDITIONAL INFORMATION FOR FENCERS</p>
                     <div>
                         <p><?php echo $comp_info ?></p>
                     </div>
