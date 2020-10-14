@@ -12,67 +12,33 @@
     define("NORMAL_CLASS", ' class="nav_bar_item" ');
     define("DISABLED_CLASS", ' class="nav_bar_item disabled" ');
 
-    $array_names = [ // creating names of buttons
-        "dt",
-        "competitors",
-        "pools",
-        "table",
-        "overview",
-        "call_room",
-        "registration",
-        "weapon_control",
-        "announcements",
-        "general",
-        "basic_info",
-        "info_for_fencers",
-        "timetable",
-        "invitation",
-        "technical",
-        "technicians",
-        "referees",
-        "pistes",
-        "formula",
-        "ranking",
-        "manage_entries"
-    ];
-
-    $array_functions = // creating href and onclick tags in array
+    $assoc_array_functions = // creating assoc array of button names and onclicks, and hrefs
     [
-        'onclick="toggle_dt_dropdown()"',
-        'href="competitors.php?comp_id=' . $comp_id . '"',
-        'href="pools.php?comp_id=' . $comp_id . '"',
-        'href="table.php?comp_id=' . $comp_id . '"',
-        'href=""',
-        'href="call_room.php?comp_id=' . $comp_id . '"',
-        'href="registration.php?comp_id=' . $comp_id . '"',
-        'href="weapon_control.php?comp_id=' . $comp_id . '"',
-        'href  =""',
-        'onclick="toggle_general_dropdown()"',
-        'href="basic_information.php?comp_id=' . $comp_id . '"',
-        'href="information_for_fencers.php?comp_id=' . $comp_id . '"',
-        'href="timetable.php?comp_id=' . $comp_id . '"',
-        'href="invitation.php?comp_id=' . $comp_id . '"',
-        'onclick="toggle_technical_dropdown()"',
-        'href="technicians.php?comp_id=' . $comp_id . '"',
-        'href="referees.php?comp_id=' . $comp_id . '"',
-        'href="pistes.php?comp_id=' . $comp_id . '"',
-        'href=""',
-        'href="choose_ranking.php?comp_id=' . $comp_id . '"',
-        'href="manage_entries.php?comp_id=' . $comp_id . '"'
+        "dt" =>                 'onclick="toggle_dt_dropdown()"',
+        "competitors" =>        'href="competitors.php?comp_id=' . $comp_id . '"',
+        "pools" =>              'href="pools.php?comp_id=' . $comp_id . '"',
+        "table" =>              'href="table.php?comp_id=' . $comp_id . '"',
+        "overview" =>           'href="overview.php?comp_id=' . $comp_id .'"',
+        "call_room" =>          'href="call_room.php?comp_id=' . $comp_id . '"',
+        "registration" =>       'href="registration.php?comp_id=' . $comp_id . '"',
+        "weapon_control" =>     'href="weapon_control.php?comp_id=' . $comp_id . '"',
+        "announcements" =>      'href="announcements.php?comp_id=' . $comp_id . '"',
+        "general" =>            'onclick="toggle_general_dropdown()"',
+        "basic_info" =>         'href="basic_information.php?comp_id=' . $comp_id . '"',
+        "info_for_fencers" =>   'href="information_for_fencers.php?comp_id=' . $comp_id . '"',
+        "timetable" =>          'href="timetable.php?comp_id=' . $comp_id . '"',
+        "invitation" =>         'href="invitation.php?comp_id=' . $comp_id . '"',
+        "technical" =>          'onclick="toggle_technical_dropdown()"',
+        "technicians" =>        'href="technicians.php?comp_id=' . $comp_id . '"',
+        "referees" =>           'href="referees.php?comp_id=' . $comp_id . '"',
+        "pistes" =>             'href="pistes.php?comp_id=' . $comp_id . '"',
+        "formula" =>            'href="formula.php?comp_id=' . $comp_id . '"',
+        "ranking" =>            'href="choose_ranking.php?comp_id=' . $comp_id . '"',
+        "manage_entries" =>     'href="manage_entries.php?comp_id=' . $comp_id . '"',
     ];
 
-    if (count($array_functions)==count($array_names)) { //error test
-
-        for ($i=0; $i<count($array_functions); $i++) { //creating assoc array with hrefs and onclick tags
-            if ($i === 0) {
-                $assoc_array_functions = [$array_names[$i] => $array_functions[$i] . NORMAL_CLASS];
-            } else {
-                $assoc_array_functions[$array_names[$i]] = $array_functions[$i] . NORMAL_CLASS;
-            }
-        }
-
-    } else { 
-        echo "ERROR: THE 2 ARRAYS DOES NOT HAVE THE SAME COUNT()"; //error code
+    foreach ($assoc_array_functions as $key => $value) {
+        $assoc_array_functions[$key] = $value . NORMAL_CLASS;
     }
     
     switch ($comp_status) {
