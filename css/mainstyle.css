@@ -234,6 +234,7 @@ img[src$=".svg"] {
 }
 
 #languages_wrapper {
+	position: relative;
 	height: 80%;
 	width: 70%;
 	padding: 10px 0 10px 0;
@@ -1243,8 +1244,8 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 .form_column {
-	width: 50%;
-	padding-left: 75px;
+	padding: 25px 25px 25px 75px;
+	min-width: 22.5vw;
 }
 
 /* ///DASHBOARD ELEMENTS/// */
@@ -1641,14 +1642,10 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 #basic_information_form {
-	width: 100%;
+	width: auto;
 	height: 75%;
 	display: flex;
 	padding: 50px;
-}
-
-#basic_information_form > div:first-of-type {
-	padding: 0;
 }
 
 input:focus::placeholder {
