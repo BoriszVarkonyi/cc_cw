@@ -54,6 +54,11 @@ setcookie("today",$test,time()+31556926);
                 <p>Weapon Control</p>
             </a>
 
+            <a <?php echo $assoc_array_functions['announcements'] ?>>
+                <img src="../assets/icons/new_releases-black-18dp.svg" alt="">
+                <p>Announcements</p>
+            </a>
+
             <p id="setup_text" class="nav_bar_title">SETUP</p>
 
             <!-- general -->
