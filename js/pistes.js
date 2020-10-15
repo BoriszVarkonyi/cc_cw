@@ -1,36 +1,31 @@
+var oldclickedPiste;
 function togglePisteSettings(x) {
     var clickedPisteButton = x;
     var clickedPiste = clickedPisteButton.parentNode.parentNode;
     var pistes = document.querySelectorAll(".piste");
-    var oldClickedPiste;
-
+ 
     for (i = 0; i < pistes.length; i++) {
 
         pistes[i].classList.remove("focused");
 
-        
     }
+    if (clickedPiste.id == oldclickedPiste){
 
-    var found = pistes.indexOf('clickedPiste');
+        clickedPiste.classList.add("focused");
 
-
-
-    console.log(found)
-
-    if (oldClickedPiste == clickedPiste) {
-        clickedPiste.classList.toggle("focused");
     }
-
-    oldClickedPiste = clickedPiste;
 
     clickedPiste.classList.toggle("focused");
 
-    console.log(clickedPiste);
-    console.log(oldClickedPiste);
+    if (clickedPiste.classList.contains("focused")){
 
-    //clickedPiste.classList.toggle("focused");
+        oldclickedPiste = clickedPiste.id;
+    }
+    else{
 
-    //console.log(pistes[clickedPisteButton])
+    oldclickedPiste = undefined;
+
+    }    
 }
 
 
