@@ -27,13 +27,40 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Overview</p>
-                <button class="stripe_button orange" type="submit">
-                    <p>Template</p>
-                    <img src="../assets/icons/save-black-18dp.svg"></img>
-                </button>
             </div>
             <div id="page_content_panel_main">
-                
+                <div class="wrapper" id="overview_wrapper">
+                    <div class="table_header">
+                        <div class="table_header_text">POSITION</div>
+                        <div class="table_header_text">NAME</div>
+                        <div class="table_header_text">NATIONALITY</div>
+                    </div>
+                    <div class="table_row">
+                        <div class="table_item">1.</div>
+                        <div class="table_item">Néve</div>
+                        <div class="table_item">Náte</div>
+                    </div>
+                    <div class="table_row">
+                        <div class="table_item">2.</div>
+                        <div class="table_item">Néve</div>
+                        <div class="table_item">Náte</div>
+                    </div>
+                    <div class="table_row">
+                        <div class="table_item">3.</div>
+                        <div class="table_item">Néve</div>
+                        <div class="table_item">Náte</div>
+                    </div>
+                    <div class="table_row">
+                        <div class="table_item">4.</div>
+                        <div class="table_item">Néve</div>
+                        <div class="table_item">Náte</div>
+                    </div>
+                    <div class="table_row">
+                        <div class="table_item">5.</div>
+                        <div class="table_item">Néve</div>
+                        <div class="table_item">Náte</div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
