@@ -1,14 +1,3 @@
-/* ///Universal/// */
-
-body * {
-
-		-webkit-transition: none !important;
-		-moz-transition: none !important;
-		-ms-transition: none !important;
-		-o-transition: none !important;
-		transition: none !important;
-}
-
 /* Footer */
 
 footer {
@@ -282,6 +271,12 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.cw_panel_title > .favourite_button {
+	margin: 0 0 4px 10px;
 }
 
 .cw_panel_title_wrapper {
@@ -481,6 +476,7 @@ input[value="Search"] {
 	flex-direction: column;
 	position: relative;
 	margin: 50px 0;
+	position: relative;
 }
 
 #comp_data > img {
@@ -1058,13 +1054,24 @@ input[value="Search"] {
 /* Saved Competitions */
 
 .favourite_button {
-	width: 80%;
-	height: 80%;
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
 }
 
 .favourite_button > img {
 	width: 100%;
 	height: 100%;
+}
+
+.table_row > .big_status_item > .favourite_button {
+	opacity: 0;
+	transition: opacity var(--t-basic);
+}
+
+.table_row:hover > .big_status_item > .favourite_button {
+	opacity: 1;
+	transition: opacity var(--t-basic);
 }
 
 @media print {
@@ -1090,6 +1097,4 @@ input[value="Search"] {
 		overflow: hidden;
 		visibility: hidden;
 	}
-
-
 }

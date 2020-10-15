@@ -79,6 +79,11 @@
                         <div class="table_item live">
                             <a href="">Live</a>
                         </div>
+                        <div class="big_status_item">
+                            <button class="favourite_button">
+                                <img src="../assets/icons/star_border-black-18dp.svg" alt="">
+                            </button>
+                        </div>
                     </div>
 
                     <?php

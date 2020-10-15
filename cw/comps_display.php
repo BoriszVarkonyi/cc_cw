@@ -27,6 +27,11 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
         <div class="table_item">
             <p><?php echo $comp_host; ?></p>
         </div>
+        <div class="big_status_item">
+            <button class="favourite_button">
+                <img src="../assets/icons/star_border-black-18dp.svg" alt="">
+            </button>
+        </div>
     </div>
 
 <?php } ?>

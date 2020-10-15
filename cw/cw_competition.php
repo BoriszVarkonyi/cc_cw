@@ -15,7 +15,11 @@
         <div id="comp_data">
             <img src="../assets/icons/delete-black-18dp.svg" alt="">
 
-            <p class="cw_panel_title"><?php echo $comp_name ?></p>
+            <p class="cw_panel_title"><?php echo $comp_name ?>
+                <button class="favourite_button">
+                    <img src="../assets/icons/star_border-black-18dp.svg" alt="">
+                </button>
+            </p>
             <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
             <div>
                 <p><?php echo sexConverter($comp_sex) . "'s" ?></p>

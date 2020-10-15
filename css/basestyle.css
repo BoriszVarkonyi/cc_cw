@@ -938,10 +938,11 @@ input[type="time"] {
 	display: flex;
 	flex-direction: column;
 }
-
+/*
 .elimination.first {
-	/* background-color: red; */
+	background-color: red;
 }
+*/
 
 .elimination.first > .table_round {
 	height: 100px;
@@ -1138,5 +1139,3 @@ input[type="time"] {
 .settings_fencers > div:last-of-type > .round_settings_fencer {
 	text-align: end;
 }
-
-
