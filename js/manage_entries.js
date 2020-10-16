@@ -1,15 +1,34 @@
+var oldentry;
 function toggleEntry(x) {
-
     var tableRow = x;
     var entry = tableRow.parentNode;
     var entryPanel = tableRow.nextElementSibling;
+    var entrys =  document.querySelectorAll(".entry");
+    
+    
+    for (i = 0; i < entrys.length; i++) {
+        entrys[i].lastElementChild.classList.add("collapsed")
+        entrys[i].classList.remove("opened")
+
+    } 
+    if(entry.id == oldentry){
+
+        entryPanel.classList.remove("collapsed");
+        entry.classList.add("opened");
+
+    }
 
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
 
+    if(entry.classList.contains("opened")){
+    oldentry = entry.id
+    }
+    else {
+    oldentry = undefined
+    }
 }
 
-//patrik not approved changes onclick to approved
 
 
 
