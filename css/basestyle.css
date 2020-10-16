@@ -259,6 +259,10 @@ form.flex {
 	position: relative;
 }
 
+.table_row.hidden {
+	display: none;
+}
+
 .selected {
 	background-color: var(--c-orange);
 	font-family: ProximaNovaBold;
