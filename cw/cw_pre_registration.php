@@ -68,13 +68,21 @@ $c_phone = $_POST["c_phone"];
                     <div id="selected_fencers_wrapper">
                         <p>Selected fencers:</p>
 
-                        <div>
+
+
+
+                       <!-- <div>
                             <input type="number" name="" id="" class="hidden">
                             <p>Fencer's Name</p>
                             <button onclick="" type="button">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
-                        </div>
+                        </div> -->
+
+
+
+
+
                     </div>
 
                     <input type="search" name="" id="">
@@ -105,81 +113,12 @@ $c_phone = $_POST["c_phone"];
                             $fencer_position = $row["position"];
                             $fencer_name = $row["name"];
                             $fencer_dob = $row["dob"];
+                            $fencer_id = $row["id"];
                             ?>
 
-                            <div class="table_row">
+                            <div class="table_row" id="r_<?php echo $fencer_id ?>" onclick="selectFencer(this)">
                                 <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>                           <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
-                                <div class="table_item"><?php echo $fencer_dob ?></div>
-                            </div>
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $fencer_position ?></div>
-                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item" id="fencername"><?php echo $fencer_name ?></div>
                                 <div class="table_item"><?php echo $fencer_dob ?></div>
                             </div>
 
@@ -199,4 +138,5 @@ $c_phone = $_POST["c_phone"];
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
+<script src="../js/pre_registration.js"></script>
 </html>
