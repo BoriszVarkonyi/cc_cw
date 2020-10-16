@@ -813,7 +813,7 @@ input[value="Search"] {
 	margin-bottom: 5px;
 }
 
-#selected_fencers_wrapper > span {
+#selected_fencers_wrapper > div {
 	display: flex;
 	align-items: center;
 	background-color: var(--c-white);
@@ -822,8 +822,8 @@ input[value="Search"] {
 	margin-left: 15px;
 }
 
-#selected_fencers_wrapper > span > button {
-	margin-left: 5px;
+#selected_fencers_wrapper > div > button {
+	margin-left: 3px;
 	display: flex;
 	align-items: center;
 	justify-content: center;

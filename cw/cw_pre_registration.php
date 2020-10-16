@@ -47,40 +47,13 @@
                     <div id="selected_fencers_wrapper">
                         <p>Selected fencers:</p>
 
-                        <span>
+                        <div>
+                            <input type="number" name="" id="" class="hidden">
                             <p>Fencer's Name</p>
                             <button onclick="" type="button">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
-                        </span>
-
-                        <span>
-                            <p>Fencer's Name</p>
-                            <button onclick="" type="button">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
-                            </button>
-                        </span>
-
-                        <span>
-                            <p>Fencer's Name</p>
-                            <button onclick="" type="button">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
-                            </button>
-                        </span>
-
-                        <span>
-                            <p>Fencer's Name</p>
-                            <button onclick="" type="button">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
-                            </button>
-                        </span>
-
-                        <span>
-                            <p>Fencer's Name</p>
-                            <button onclick="" type="button">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
-                            </button>
-                        </span>
+                        </div>
 
                     </div>
 

@@ -196,40 +196,7 @@
                     <img src="../assets/icons/pages-black-18dp.svg"></img>
                 </button>
 
-                <button class="stripe_button disabled" type="button">
-                    <p>Send Message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"></img>
-                </button>
-
-                <button class="stripe_button red disabled" type="button" onclick="disqualifyToggle()">
-                    <p>Disqualify</p>
-                    <img src="../assets/icons/highlight_off-black-18dp.svg"></img>
-                </button>
-
-
-                <div id="disqualify_panel" class="overlay_panel hidden">
-                    <p class="panel_title">Disqualify {Fencer's name}</p>
-                    <button class="panel_button" onclick="disqualifyToggle()">
-                        <img src="../assets/icons/close-black-18dp.svg" alt="">
-                    </button>
-                    <form action="" method="post" id="" autocomplete="off" class="overlay_panel_form">
-                        <label for="ref_type" class="label_text">REASON OF DISQUALIFICATION</label></br>
-                        <div class="option_container">
-                            <input type="radio" name="ref_type" id="medical" value=""/>
-                            <label for="medical">Medical</label>
-
-                            <input type="radio" name="ref_type" id="surrender" value=""/>
-                            <label for="surrender">Surrender</label>
-
-                            <input type="radio" name="ref_type" id="exclusion" value=""/>
-                            <label for="exclusion">Exclusion</label>
-                        </div>
-
-                        <button type="submit" name="submit" class="submit_button" value="Disqualify">Disqualify</button>
-                    </form>
-                </div>
                 -->
-
 
             </div>
             <div id="page_content_panel_main">
@@ -245,8 +212,6 @@
                 -->
 
                 <div id="pools_wrapper">
-
-                    
 
                     STATE: 1
                     <div id="pool_listing" class="with_drag"> 
@@ -414,8 +379,6 @@
                     </div>
                     <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                     </div>
-
-                    
 
                     <!--
 

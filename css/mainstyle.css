@@ -2815,7 +2815,6 @@ div.icon_box > img {
 	display: none;
 }
 
-
 #ranking_info_panel > div > p {
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
@@ -3293,9 +3292,6 @@ input.wc_time {
 	opacity: 1;
 }
 
-
-
-
 .piste.ghost {
 	visibility: hidden;
 	height: 0;
@@ -3663,3 +3659,196 @@ input.wc_time {
 	background-color: #E58955;
 }
 
+/* Pool results */
+
+.entry_panel.results {
+	height: 60vh;
+}
+
+.entry_panel.gray {
+	background-color: var(--c-lightestgray);
+}
+
+.pool_result_input {
+	margin: 0 !important;;
+	padding: 0 !important;;
+	border: none !important;
+	min-width: 100% !important;;
+	min-height: 100% !important;;
+	width: 100% !important;;
+	height: 100% !important;;
+	font-size: var(--f-small) !important;
+	overflow: visible !important;
+	text-align: center;
+}
+
+/* MATCH RESULT */
+
+#match_result_wrapper {
+	background-color: var(--c-white);
+	padding: 10px;
+}
+
+.match_fencers_wrapper {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.match_fencers_wrapper > div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.match_fencers_wrapper > div:last-of-type {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	text-align: end;
+}
+
+.match_fencers_wrapper > div > p {
+	font-size: var(--f-large);
+	font-family: ProximaNovaBold;
+}
+
+.match_fencers_wrapper > div > button {
+	width: 30px;
+	height: 30px;
+	background-color: var(--c-lightergray);
+	border-radius: 50%;
+}
+
+.match_fencers_wrapper > div > button:hover {
+	background-color: var(--c-lightgray);
+}
+
+.match_referees_wrapper {
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.match_referees_wrapper > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.underlined_button {
+	text-decoration: underline;
+	font-size: var(--f-medium);
+	font-family: ProximaNovaBold;
+	background-color: transparent;
+	padding: 3px 5px;
+}
+
+.underlined_button:hover {
+	background-color: var(--c-lightestgray);
+}
+
+.match_fencers_results {
+	border-top: 1px solid var(--c-gray);
+	max-width: 100%;
+	display: flex;
+	margin: 0 25px 25px 25px;
+	padding: 10px;
+}
+
+.fencer_wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.fencer_wrapper > div:first-of-type {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.fencer_wrapper > div:first-of-type > p {
+	font-size: var(--f-medium);
+}
+
+.match_fencer_points {
+	margin: 0 !important;
+	padding: 5px !important;
+	border: none !important;
+	min-width: 0 !important;
+	min-height: 0 !important;
+	width: 50px !important;
+	height: auto !important;
+	font-size: var(--f-large) !important;
+	overflow: visible !important;
+	text-align: center;
+	border-bottom: 2px solid var(--c-gray) !important;
+}
+
+.winner_text {
+	font-size: var(--f-medium);
+	text-transform: uppercase;
+	color: var(--c-red);
+	font-family: ProximaNovaBold;
+}
+
+.fencers_cards_wrapper {
+	width: 90%;
+	display: flex;
+	margin: 20px auto;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.fencers_cards_wrapper > div {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	font-family: ProximaNovaBold;
+	font-size: var(--f-medium);
+	align-items: center;
+}
+
+.card_wrapper {
+	width: 100%;
+	margin: 3px 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+.card_wrapper > img {
+	height: 40px;
+}
+
+.match_fencer_cards {
+	margin: 0 !important;
+	padding: 5px !important;
+	border: none !important;
+	min-width: 0 !important;
+	min-height: 0 !important;
+	width: 50px !important;
+	height: auto !important;
+	font-size: var(--f-small) !important;
+	overflow: visible !important;
+	text-align: center;
+	border-bottom: 2px solid var(--c-gray) !important;
+}
+
+.disqualify_button {
+	font-size: var(--f-medium);
+	margin: 10px 5px 5px 5px;
+	padding: 5px 10px;
+	color: var(--c-red);
+	background-color: transparent;
+	border-radius: 100px;
+	transition: all var(--t-basic);
+}
+
+.disqualify_button:hover {
+	color: var(--c-white);
+	background-color: var(--c-red);
+}
