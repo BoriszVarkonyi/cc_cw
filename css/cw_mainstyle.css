@@ -783,12 +783,12 @@ input[value="Search"] {
 	flex-direction: column;
 }
 
-#select_fencers_panel > div:last-of-type {
-	width: 70%;
-	max-height: 75vh;
+#select_fencers_wrapper  {
+	width: 80%;
+	max-height: 50vh;
 	margin-bottom: 50px;
-	overflow-x: hidden;
-	overflow-x: auto;
+	overflow-y: auto;
+	margin: 50px 0;
 }
 
 #select_fencers_panel > div > .table_row {

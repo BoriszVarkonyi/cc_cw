@@ -79,79 +79,115 @@ $c_phone = $_POST["c_phone"];
 
                     <input type="search" name="" id="">
 
-                    <div>
+                    <div id="select_fencers_wrapper">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
                             <div class="table_header_text">NAME</div>
                             <div class="table_header_text">DATE OF BIRTH</div>
                         </div>
 
-                    <?php
-                    
-                    $query_actual_ranking = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
-                    $query_actual_ranking_do = mysqli_query($connection, $query_actual_ranking);
-
-                    if($row = mysqli_fetch_assoc($query_actual_ranking_do)){
-
-                        $rk_id = $row["id"];
-
-                    }
-
-                    $query_ranking = "SELECT * FROM rk_$rk_id ORDER BY position";
-                    $query_ranking_do = mysqli_query($connection, $query_ranking);
-
-                    while($row = mysqli_fetch_assoc($query_ranking_do)){
-
-                        $fencer_position = $row["position"];
-                        $fencer_name = $row["name"];
-                        $fencer_dob = $row["dob"];
-                        ?>
-
-                        <div class="table_row">
-                            <div class="table_item"><?php echo $fencer_position ?></div>
-                            <div class="table_item"><?php echo $fencer_name ?></div>
-                            <div class="table_item"><?php echo $fencer_dob ?></div>
-                        </div>
-
-
-                    <?php
-                    }
-                    ?>
-
-                    
+                        <?php
                         
-                        <!--<div class="table_row">
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                            <div class="table_item">Sh</div>
-                        </div>-->
-                    </div>
+                        $query_actual_ranking = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
+                        $query_actual_ranking_do = mysqli_query($connection, $query_actual_ranking);
 
+                        if($row = mysqli_fetch_assoc($query_actual_ranking_do)){
+
+                            $rk_id = $row["id"];
+
+                        }
+
+                        $query_ranking = "SELECT * FROM rk_$rk_id ORDER BY position";
+                        $query_ranking_do = mysqli_query($connection, $query_ranking);
+
+                        while($row = mysqli_fetch_assoc($query_ranking_do)){
+
+                            $fencer_position = $row["position"];
+                            $fencer_name = $row["name"];
+                            $fencer_dob = $row["dob"];
+                            ?>
+
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>                           <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $fencer_position ?></div>
+                                <div class="table_item"><?php echo $fencer_name ?></div>
+                                <div class="table_item"><?php echo $fencer_dob ?></div>
+                            </div>
+
+
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         
