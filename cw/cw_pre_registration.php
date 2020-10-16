@@ -75,8 +75,10 @@ $c_phone = $_POST["c_phone"];
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                         </div>
-
                     </div>
+
+                    <input type="search" name="" id="">
+
                     <div>
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
