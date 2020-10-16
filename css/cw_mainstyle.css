@@ -1098,3 +1098,45 @@ input[value="Search"] {
 		visibility: hidden;
 	}
 }
+
+/* Blog */
+
+.blog_article {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 50px;
+	padding: 20px;
+	cursor: pointer;
+}
+
+.blog_article:hover {
+	background-color: var(--c-lightestgray);
+}
+
+.article_title {
+	width: 100%;
+	font-size: var(--f-large);
+	font-family: ProximaNovaBold;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.blog_article > div {
+	display: flex;
+	flex-wrap: wrap;
+	width: calc(100% - 220px);
+	padding: 0 10px;
+}
+
+.article_image {
+	width: 200px;
+}
+
+.article_brief {
+	
+}
+
+.article_post_date {
+	text-transform: uppercase;
+	color: var(--c-darkgray);
+}
