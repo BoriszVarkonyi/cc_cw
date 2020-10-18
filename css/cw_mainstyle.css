@@ -1132,11 +1132,77 @@ input[value="Search"] {
 	width: 200px;
 }
 
+/*
 .article_brief {
 	
 }
+*/
 
 .article_post_date {
 	text-transform: uppercase;
 	color: var(--c-darkgray);
 }
+
+/* ARTICLE */
+
+#article_wrapper {
+	width: 100%;
+}
+
+#article_wrapper p.paragraph {
+	margin: 10px 0;
+	text-indent: 20px;
+}
+
+#article_wrapper p.h1 {
+	font-size: var(--f-large);
+	font-family: ProximaNovaBold;
+}
+
+#article_wrapper p.h2 {
+	font-size: var(--f-medium);
+	font-family: ProximaNovaBold;
+	text-transform: uppercase;
+}
+
+#article_wrapper img {
+	width: 200px;
+	float: left;
+	margin-right: 10px;
+}
+
+/*Cofirmatio */
+
+#cw_confirmation {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--c-transparent-black);
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#cw_confirmation.hidden {
+	display: none;
+}
+
+#cw_confirmation > div {
+	position: relative;
+	padding: 50px;
+	background-color: var(--c-white);
+	border-radius: 5px;
+	box-shadow: var(--s-black);
+	max-width: 40vw;
+}
+
+#cw_confirmation p {
+	font-family: ProximaNovaBold;
+	font-size: var(--f-medium);
+	margin: 35px 0;
+}
+
+

@@ -24,7 +24,7 @@
 
         <div class="cw_table_wrapper">
 
-            <div class="blog_article">
+            <div class="blog_article" onclick="location.href='cw_article.php'">
                 <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
                 <img src="../assets/img/fencers_bg.svg" alt="" class="article_image">
                 <div>

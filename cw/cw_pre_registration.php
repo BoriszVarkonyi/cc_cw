@@ -32,6 +32,15 @@ $c_phone = $_POST["c_phone"];
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
+    <div id="cw_confirmation">
+        <div>
+            <button class="panel_button" onclick="toggle_add_technician()">
+                <img src="../assets/icons/close-black-18dp.svg" alt="">
+            </button>
+            <p>Are you sure you want to send this Pre-Registration with these informations?</p>
+            <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Send">Send</button>
+        </div>
+    </div>
     <div id="cw_main_full">
         <div class="cw_panel_title_wrapper">
             <?php include "cw_backbtn_choosecomp.php"; ?>
@@ -68,9 +77,6 @@ $c_phone = $_POST["c_phone"];
                     <div id="selected_fencers_wrapper">
                         <p>Selected fencers:</p>
 
-
-
-
                        <!-- <div>
                             <input type="number" name="" id="" class="hidden">
                             <p>Fencer's Name</p>
@@ -78,10 +84,6 @@ $c_phone = $_POST["c_phone"];
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                         </div> -->
-
-
-
-
 
                     </div>
 
@@ -121,7 +123,6 @@ $c_phone = $_POST["c_phone"];
                                 <div class="table_item" id="fencername"><?php echo $fencer_name ?></div>
                                 <div class="table_item"><?php echo $fencer_dob ?></div>
                             </div>
-
 
                         <?php
                         }
