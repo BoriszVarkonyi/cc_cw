@@ -10,7 +10,7 @@ function selectFencer(x){
 
     current.classList.add("hidden");
 
-sfw.innerHTML += '<div><input type="number" name="" id="" class="hidden"><p>'+ currentname +'</p><button id="'+ x.id + '_b' +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close-black-18dp.svg" alt=""></button></div>'
+sfw.innerHTML += '<div><input type="number" name="" id="" class="hidden"><p>'+ currentname +'</p><button id="'+ x.id +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close-black-18dp.svg" alt=""></button></div>'
 
 }
 
@@ -18,9 +18,20 @@ function removeSelection(x) {
 
 var toremove = document.getElementById(x.id);
 
-var toshow = document.getElementById();
+var toshow = document.getElementsByClassName("hidden");
 
-toshow.classList.remove("hidden");
+console.log(toshow);
+
+for (let index = 0; index < toshow.length; index++) {
+    var element = toshow[index];
+
+    if(element.id == x.id){   
+        
+        element.classList.remove("hidden")
+    
+    }
+
+}
 
 toremove.parentElement.remove();
 
