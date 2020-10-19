@@ -38,3 +38,35 @@ toremove.parentElement.remove();
 
 
 }
+var panel = document.getElementById("cw_confirmation");
+var fenceridto = document.getElementById("fencer_ids");
+var finalids = [];
+
+function openConf() {
+
+panel.classList.remove("disabled");
+
+var gethidden = document.getElementsByClassName("hidden");
+
+for (let index = 0 + gethidden.length / 2; index < gethidden.length; index++) {
+    
+    finalids.push(gethidden[index].id);
+    
+    
+}
+
+var tosave = finalids.join(",");
+
+fenceridto.value = tosave;
+
+console.log(fenceridto);
+
+}
+
+function closeConf() {
+
+panel.classList.add("disabled");
+
+finalids = [];
+
+}

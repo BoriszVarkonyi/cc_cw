@@ -4,15 +4,6 @@
 
 if(isset($_POST["send_pre"])){
 
-$f_name = $_POST["f_name"];
-$f_country = $_POST["f_country"];
-$f_email = $_POST["f_email"];
-$f_phone = $_POST["f_phone"];
-
-$c_name = $_POST["c_name"];
-$c_email = $_POST["c_email"];
-$c_phone = $_POST["c_phone"];
-
 
 
 
@@ -34,13 +25,14 @@ $c_phone = $_POST["c_phone"];
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-    <div id="cw_confirmation">
+    <div id="cw_confirmation" class="disabled">
         <div>
+            <input type="text" class="disabled" id="fencer_ids">
             <button class="panel_button" onclick="toggle_add_technician()">
-                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                <img src="../assets/icons/close-black-18dp.svg" alt="" onclick="closeConf()">
             </button>
             <p>Are you sure you want to send this Pre-Registration with these informations?</p>
-            <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Send">Send</button>
+            <button type="submit" name="send_pre" class="panel_submit" form="competition_wrapper" value="Send">Send</button>
         </div>
     </div>
     <div id="cw_main_full">
@@ -49,7 +41,7 @@ $c_phone = $_POST["c_phone"];
             <p>PRE-REGISTER FENCERS FOR <?php echo $comp_name ?></p>
         </div>
 
-        <form id="competition_wrapper" method="POST">
+        <form id="competition_wrapper" method="POST" action="process_pre.php">
             <div>
                 <div id="basic_information_panel">
                     <div>
@@ -120,7 +112,7 @@ $c_phone = $_POST["c_phone"];
                             $fencer_id = $row["id"];
                             ?>
 
-                            <div class="table_row" id="r_<?php echo $fencer_id ?>" onclick="selectFencer(this)">
+                            <div class="table_row" id="<?php echo $fencer_id ?>" onclick="selectFencer(this)">
                                 <div class="table_item"><?php echo $fencer_position ?></div>
                                 <div class="table_item" id="fencername"><?php echo $fencer_name ?></div>
                                 <div class="table_item"><?php echo $fencer_dob ?></div>
@@ -134,7 +126,7 @@ $c_phone = $_POST["c_phone"];
             </div>
         
             <div>
-                <input type="submit" name="send_pre" value="Send Pre-Registration">
+                <input type="button" onclick="openConf()" value="Send pre registration">
             </div>
         </form>
     </div>
