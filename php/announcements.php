@@ -29,7 +29,7 @@
                 <p class="page_title">Announcements</p>
                 <button class="stripe_button orange" type="submit">
                     <p>New Announcement</p>
-                    <img src="../assets/icons/save-black-18dp.svg"></img>
+                    <img src="../assets/icons/add-black-18dp.svg"></img>
                 </button>
             </div>
             <div id="page_content_panel_main">

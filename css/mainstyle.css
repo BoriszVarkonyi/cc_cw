@@ -182,18 +182,22 @@ img[src$=".svg"] {
 	min-width: 40px;
 	width: 2vw;
 	max-width: 80px;
-	border: 0;
 	background-color: var(--c-white);
 	float: right;
-	padding: 0;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#menu_button:hover {
+	background-color: var(--c-lightestgray);
 }
 
 #menu_button > img {
 	width: 65%;
 	height: 65%;
 }
-
 
 #menu_button.closed {
 	min-width: 40px;
@@ -1818,11 +1822,11 @@ input:focus::placeholder {
 }
 
 .save_entry {
-	padding: 3px;
+	padding: 3px 10px;
 	background-color: var(--c-orange);
 	font-family: ProximaNovaBold;
 	font-size: var(--f-little);
-	border-radius: 10px;
+	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

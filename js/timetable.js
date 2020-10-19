@@ -1,21 +1,15 @@
 function toggleWcPanel(x) {
 
     var setWcPanel = document.getElementById("set_wc_panel");
-
     setWcPanel.classList.toggle("hidden");
-
 
     var texttoreplace = document.getElementById("panel_text");
     y = x.id;
-
 
     texttoreplace.innerHTML = y + " weapon control";
 
     hiddeninput = document.getElementById("save_date");
     hiddeninput.value = y;
-
-  //  console.log(hiddeninput);
-    
 }
 
 function closeWcPanel() {
@@ -124,8 +118,6 @@ var removeelement = document.getElementById(toremove);
 periods = remove.id.charAt(remove.id.length-1);
 removeelement.remove();
 
-
-
 if(!document.getElementById("table_row_3") && !document.getElementById("table_row_2")){
 
 periods = 2;
@@ -164,8 +156,6 @@ console.log(datesarray);
     console.log(noonclick);
 }*/
 
-
-
 //Remove WC day
 
 var conf = document.getElementById("confirmation");
@@ -190,8 +180,6 @@ function closeConf() {
 
 }
 
-
-
 //patrik timetable weapon controls / max is 5
 
 var baloldal = document.getElementById("wc_input");
@@ -208,31 +196,32 @@ baloldal.addEventListener("keyup", event => {
         ertek.value = "";//if it smaller than 1, returns to an empty space (won't storage capacity in the database)
 
     }
-  });
-  function isNumberKey(evt)//You can olny write numbers as inputs 
-      {
-         var inp =document.getElementById("wc_input") (evt.which) ? evt.which : event.keyCode
-    
-         if (inp > 0 && (inp <= 5  || inp > 0)) //inupt can't be higher than 5
-    
-         return false;
+});
 
-         return true;
-      };
+function isNumberKey(evt)//You can olny write numbers as inputs 
+    {
+        var inp =document.getElementById("wc_input") (evt.which) ? evt.which : event.keyCode
+    
+        if (inp > 0 && (inp <= 5  || inp > 0)) //inupt can't be higher than 5
+    
+        return false;
+
+        return true;
+    };
 
 var tr1 = document.getElementById("table_row_1");
 
-      tr1.addEventListener("keyup", event => {
+    tr1.addEventListener("keyup", event => {
       
-          var inupt = document.activeElement; // Max value 24 (hours) for table_row_1
-          if (inupt.value >24) {
+        var inupt = document.activeElement; // Max value 24 (hours) for table_row_1
+        if (inupt.value >24) {
       
-          inupt.value = 24; //if it is bigger than 24, returns to 24
+        inupt.value = 24; //if it is bigger than 24, returns to 24
       
-          }
-          if (inupt.value < 1) {
+        }
+        if (inupt.value < 1) {
       
-              inupt.value = ""; //if it smaller than 1, returns to an empty space (won't storage capacity in the database)
+        inupt.value = ""; //if it smaller than 1, returns to an empty space (won't storage capacity in the database)
       
-          }
-        });
+        }
+});

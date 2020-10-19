@@ -362,20 +362,21 @@ div.table_row:nth-child(even).selected {
 
 /* Scroll Bar */
 
-::-webkit-scrollbar { 	/* width */
+::-webkit-scrollbar { /* Width */
     width: 10px;
-    height: 10px;
+	height: 10px;
 }
 
-::-webkit-scrollbar-track {		  /* Track */
+::-webkit-scrollbar-track { /* Track */
     background: var(--c-white); 
 }
 
-::-webkit-scrollbar-thumb {		/* Handle */
-    background: var(--c-darkgray); 
+::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-darkgray); 
+	border-radius: 1px;
 }
   
-::-webkit-scrollbar-thumb:hover {		  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
     background: var(--c-gray); 
 }
 
@@ -826,11 +827,11 @@ input[type="time"] {
 /* CC Panels */
 
 .panel_submit {
-	padding: 5px;
+	padding: 5px 10px;
 	background-color: var(--c-orange);
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
-	border-radius: 10px;
+	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

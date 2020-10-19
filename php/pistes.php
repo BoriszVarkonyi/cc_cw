@@ -152,7 +152,7 @@ if(isset($_POST["create_piste"])){
                     </button>
 
                     <div class="overlay_panel hidden" id="add_piste_panel">
-                        <button class="panel_button" onclick="">
+                        <button class="panel_button" onclick="toggleAddPistePanel()">
                             <img src="../assets/icons/close-black-18dp.svg" alt="">
                         </button>
 
