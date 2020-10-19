@@ -1186,7 +1186,7 @@ input[value="Search"] {
 	align-items: center;
 }
 
-#cw_confirmation.hidden {
+#cw_confirmation.disabled {
 	display: none;
 }
 
