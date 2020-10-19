@@ -125,8 +125,11 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                 <img src="../assets/icons/delete-black-18dp.svg" alt="">
                             </button>
                             <div class="invitation_file_wrapper">  
-                                <input type="file" id="header_img">
-                                <label for="header_img">Upload picture</label> <!--Has to rewritten to file's name after uploading-->
+                                <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="post" enctype="multipart/form-data">
+                                Select image to upload:
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                <input type="submit" value="Upload Image" name="submit">
+                                </form>
                             </div>
                         </div>
                     </div>
