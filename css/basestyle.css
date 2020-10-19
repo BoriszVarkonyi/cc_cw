@@ -2,11 +2,11 @@
 	--c-black: #252525; 
 	--c-transparent-black: rgba(0, 0, 0, 0.3);
 	--c-darkgray: #9B9A9A;
-	--c-gray: #CCCCCC;
-	--c-lightgray: #DDDDDD;
+	--c-gray: #CCC;
+	--c-lightgray: #DDD;
 	--c-lightergray: #ECECEC;
 	--c-lightestgray: #F6F6F6;
-	--c-white: #FFFFFF;
+	--c-white: #FFF;
 	--c-navbar: #252525; 
 	--c-transparent-white: rgba(255, 255, 255, 0.2);
 	--c-yellow: #FFC914;
@@ -37,7 +37,7 @@
 	--c-lightgray: #0F0F0F; 
 	--c-lightergray: #0A0A0A; 
 	--c-lightestgray: #050505;
-	--c-white: #000000;
+	--c-white: #000;
 	--c-navbar: #FFFC00; 
 	--c-transparent-white: rgba(255, 255, 255, 0.2);
 	--c-orange: #1A1A1A;
@@ -69,7 +69,7 @@
 	--c-white: #252525;
 	--c-transparent-white: rgba(255, 255, 255, 0.2);
 	--c-navbar: #F1F1F1; 
-	--c-orange:  #444444;
+	--c-orange:  #444;
 	--c-lightorange: #3C3C3C;
 	--c-input: #252525;
 	--c-disabled: #757575;
