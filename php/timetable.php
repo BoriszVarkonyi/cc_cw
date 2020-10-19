@@ -241,11 +241,10 @@ if($query_do){
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             
-                            <div class="overlay_panel_form">
-                            <form action="" method="POST" id="new_wc_day" autocomplete="off">
-                                <p id="panel_text" class="panel_title"></p></br>
+                            <form class="overlay_panel_form flex" action="" method="POST" id="new_wc_day" autocomplete="off">
+                                <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
-                                <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes: controls done in 10 minutes:</label></br>
+                                <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes: controls done in 10 minutes:</label>
                                 <input type="number" class="number_input small" placeholder="e.g. 8" id="wc_input" name="wc_per_ten_min">
 
                                 <div class="table_header">
@@ -268,7 +267,7 @@ if($query_do){
                                 </div>
                                 <input type="submit" name="add_period" value="Save" class="panel_submit">
                             </form>
-                        </div>
+
                     </div>
                     <input type="text" id="dates_control_on" name="dates_control_on" class="hidden" value="<?php echo $datestoshow ?>">
                     <div id="timetable_wrapper">

@@ -70,7 +70,7 @@ $query_do = mysqli_query($connection, $query);
                         ?>
 
                         <div class="form_column">
-                            <label for="host_country" class="label_text">HOST COUNTRY</label></br>
+                            <label for="host_country" class="label_text">HOST COUNTRY</label>
                             <input type="text" placeholder="Type the name of the country" name="host_country" id="country_input" value="<?php
                             
                             if($host_country_get == ""){
@@ -84,9 +84,9 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"></br>
+                            ?>">
 
-                            <label for="location" class="label_text">LOCATION AND ADDRESS</label></br>
+                            <label for="location" class="label_text">LOCATION AND ADDRESS</label>
                             <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin" id="location_input" value="<?php
                             
                             if($location_get == ""){
@@ -100,7 +100,7 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"></br>
+                            ?>">
                             <input type="number" placeholder="Postal Code" name="postal" class="number_input small" id="postal_input" value="<?php
                             
                             if($postal_get == 0){
@@ -114,9 +114,9 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"></br>
+                            ?>">
 
-                            <label for="entry_fee" class="label_text">ENTRY-FEE</label></br>
+                            <label for="entry_fee" class="label_text">ENTRY-FEE</label>
                             <input type="text" placeholder="Type the amount" name="entry_fee" class="number_input" id="money_input" value="<?php
                             
                             if($entry_fee_get == ''){
@@ -130,11 +130,11 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"></br>
+                            ?>">
                         </div>
                         <div class="form_column">
 
-                            <label for="start_date" class="label_text">STARTING DATE</label></br>
+                            <label for="start_date" class="label_text">STARTING DATE</label>
                             <input type="date" name="start_date" id="start_date_input" value="<?php
                             
                             if($start_date_get == ""){
@@ -148,9 +148,9 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"></br>
+                            ?>">
 
-                            <label for="end_date" class="label_text">ENDING DATE</label></br>
+                            <label for="end_date" class="label_text">ENDING DATE</label>
                             <input type="date" name="end_date" id="end_date_input" value="<?php
                             
                             if($end_date_get == ""){
@@ -164,9 +164,9 @@ $query_do = mysqli_query($connection, $query);
 
                             }
                             
-                            ?>"></br>
+                            ?>">
 
-                            <label for="end_pre_reg" class="label_text">END OF PRE-REGISTRATION</label></br>
+                            <label for="end_pre_reg" class="label_text">END OF PRE-REGISTRATION</label>
                             <input type="date" name="end_pre_reg" id="end_date_input" value="<?php
                             
                             if($end_pre_reg_get == ""){
