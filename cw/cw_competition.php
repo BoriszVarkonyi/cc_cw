@@ -1,4 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
+<?php include "../includes/cw_fav_button.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +15,14 @@
         <!-- cw title panel top  -->
         <div id="comp_data">
             <img src="../assets/icons/delete-black-18dp.svg" alt="">
-
+            <form method="POST" class="big_status_item" id="fav_button"></form>
             <p class="cw_panel_title"><?php echo $comp_name ?>
-                <button class="favourite_button">
-                    <img src="../assets/icons/star_border-black-18dp.svg" alt="">
-                </button>
+                <input name="fav_comp_id" form="fav_button" type="text" class="hidden" value=<?php echo $comp_id ?>>
+                <button name="submit_button" class="favourite_button" form="fav_button" type="submit">
+                    <img src=<?php echo $star ?> alt="">
+                </button> 
             </p>
-            <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
+            <p id="comp_status"><?php echo statusConverter($comp_status). "_______ " ;var_dump($_COOKIE[$cookie_name])?></p>
             <div>
                 <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                 <p><?php echo statusConverter($comp_status) ?></p>
