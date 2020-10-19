@@ -1830,7 +1830,6 @@ input:focus::placeholder {
 	margin-right: 20px;
 }
 
-
 #adding_entry.hidden {
 	display: none;
 }

@@ -131,7 +131,6 @@ var i;
 var disabledNavbarItems = document.querySelectorAll(".nav_bar_item.disabled");
 var disabledStripeButtons = document.querySelectorAll(".stripe_button.disabled");
 
-
 for (i = 0; i < disabledNavbarItems.length; i++) {
     disabledNavbarItems[i].style.filter = "contrast(50%)";
 }

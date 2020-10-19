@@ -49,7 +49,11 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Please confirm your pre registration';
-    $mail->Body    = '<a href="http://localhost/cw/confirmed_pre.php?">Confirm</a>';
+    $mail->Body    = '
+    
+    <a style="color:red;" href="http://localhost/cw/confirmed_pre.php?">Confirm</a>
+    
+    ';
 
     $mail->send();
     echo 'Message has been sent';
