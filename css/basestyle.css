@@ -156,7 +156,7 @@ form {
 	margin: 0;
 }
 
-form.hidden {
+form.hidden, form.disabled {
 	display: none;
 	max-width: 0;
 	max-height: 0;
