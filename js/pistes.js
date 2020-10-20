@@ -3,29 +3,30 @@ function togglePisteSettings(x) {
     var clickedPisteButton = x;
     var clickedPiste = clickedPisteButton.parentNode.parentNode;
     var pistes = document.querySelectorAll(".piste");
- 
+    //Making every piste unfocused.
     for (i = 0; i < pistes.length; i++) {
 
         pistes[i].classList.remove("focused");
 
     }
+    //Checking if the oldclickedpiste equals the clickedpiste id. If yes than it adds "focused".
     if (clickedPiste.id == oldclickedPiste){
 
         clickedPiste.classList.add("focused");
 
     }
-
+    //Toggle the class
     clickedPiste.classList.toggle("focused");
-
+    //Checking if we clicked the same piste. If yes it saves the piste id. If no it sets the oldclickedpiste undifened
     if (clickedPiste.classList.contains("focused")){
 
-        oldclickedPiste = clickedPiste.id;
+        oldclickedPiste = clickedPiste.id
     }
     else{
 
     oldclickedPiste = undefined;
 
-    }    
+    }  
 }
 
 
