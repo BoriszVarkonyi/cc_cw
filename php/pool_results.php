@@ -48,7 +48,7 @@
                         <img src="../assets/icons/close-black-18dp.svg" alt="">
                     </button>
                     <form action="" method="post" id="" autocomplete="off" class="overlay_panel_form">
-                        <label for="ref_type" class="label_text">REASON OF DISQUALIFICATION</label></br>
+                        <label for="ref_type" class="label_text">REASON OF DISQUALIFICATION</label>
                         <div class="option_container">
                             <input type="radio" name="ref_type" id="medical" value=""/>
                             <label for="medical">Medical</label>

@@ -818,8 +818,8 @@ input[type="time"] {
 	background-color: var(--c-orange);
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
-	border-radius: 10px;
-	padding: 5px;
+	border-radius: 5px;
+	padding: 5px 10px;
 	position: relative;
 	cursor: pointer;
 }

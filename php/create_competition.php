@@ -108,8 +108,8 @@ $query = "";
             <form id="create_new_comp" action="" method="POST">
                 <div class="form_column">
 
-                    <label for="comp_name" class="label_text">NAME</label><br>
-                    <input type="text" name="comp_name" id="name_input"><br>
+                    <label for="comp_name" class="label_text">NAME</label>
+                    <input type="text" name="comp_name" id="name_input">
                         <?php
 
                             if(in_array(1, $_GET)) {
@@ -119,7 +119,7 @@ $query = "";
                             ?>
 
 
-                        <label for="wc_type" class="label_text" placeholder="Type in the name of the competition" >TYPE OF WEAPON CONTROL</label><br>
+                        <label for="wc_type" class="label_text" placeholder="Type in the name of the competition" >TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immidiate</label>
@@ -138,7 +138,7 @@ $query = "";
                             </div>
 
                     <div class="form_column">
-                        <label for="sex" class="label_text">SEX</label><br>
+                        <label for="sex" class="label_text">SEX</label>
 
                         <div class="option_container">
                             <input type="radio" name="sex" id="mal" value="1"/>
@@ -154,7 +154,7 @@ $query = "";
                                 }
                             ?>
 
-                        <label for="w_type" class="label_text">WEAPON TYPE</label><br>
+                        <label for="w_type" class="label_text">WEAPON TYPE</label>
 
                         <div class="option_container">
                             <input type="radio" class="option_button" name="w_type" id="epee" value="1"/>

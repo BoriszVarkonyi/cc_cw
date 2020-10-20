@@ -216,12 +216,12 @@ var tr1 = document.getElementById("table_row_1");
         var inupt = document.activeElement; // Max value 24 (hours) for table_row_1
         if (inupt.value >24) {
       
-        inupt.value = 24; //if it is bigger than 24, returns to 24
+            inupt.value = 24; //if it is bigger than 24, returns to 24
       
         }
         if (inupt.value < 1) {
       
-        inupt.value = ""; //if it smaller than 1, returns to an empty space (won't storage capacity in the database)
+            inupt.value = ""; //if it smaller than 1, returns to an empty space (won't storage capacity in the database)
       
         }
 });
