@@ -170,15 +170,9 @@ if(mysqli_num_rows($query_do) == 0){
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             <!-- add fencers drop-down -->
-<<<<<<< HEAD
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" onsubmit="return checkform(this)" >
-                                <label for="fencers_name" class="label_text">NAME</label></br>
-                                <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name"><br>
-=======
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form flex">
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form flex" onsubmit="return checkform(this)" >
                                 <label for="fencers_name" class="label_text">NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name">
->>>>>>> 7942ce78355a76e45c0ed42301946f35e2d98a1b
 
                                 <label for="fencers_nationality" class="label_text">NATIONALITY</label>
                                 <input type="search" name="fencers_nationality" id="username_input" placeholder="Type the fencers's nationality">
@@ -186,15 +180,9 @@ if(mysqli_num_rows($query_do) == 0){
                                 <label for="fencers_points" class="label_text">POINTS</label>
                                 <input type="number" placeholder="-" class="number_input extra_small" name="fencer_points">
 
-<<<<<<< HEAD
-                                <label for="fencers_dob" class="label_text">DATE OF BIRTH</label></br>
-                                <input type="date" name="fencer_dob"><br>
-                                <button type="submit" name="submit" class="panel_submit" value="Save" >Save</button>
-=======
                                 <label for="fencers_dob" class="label_text">DATE OF BIRTH</label>
                                 <input type="date" name="fencer_dob">
-                                <button type="submit" name="submit" class="panel_submit" value="Save">Save</button>
->>>>>>> 7942ce78355a76e45c0ed42301946f35e2d98a1b
+                                <button type="submit" name="submit" class="panel_submit" value="Save" >Save</button>
                             </form>
                     </div>
                     <!-- ranking info button -->
