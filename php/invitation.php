@@ -29,6 +29,13 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
        $feedback = "ERROR: " . mysqli($connection); 
     }
 
+    //get logo image
+    if (file_exists("../uploads/$comp_id.png")) {
+        $logo = "../uploads/$comp_id.png";
+    } else {
+        $logo = "../assets/icons/delete-black-18dp.svg";
+    }
+        
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +144,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                     <div id="cw_preview">
 
                         <div id="comp_data">
-                            <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                            <img src=<?php echo $logo ?> alt="">
 
                             <p class="cw_panel_title"><?php echo $comp_name ?></p>
                             <p id="comp_status">Ongoing</p>

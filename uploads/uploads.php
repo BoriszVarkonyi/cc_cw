@@ -48,7 +48,7 @@
         
         echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
         
-        if (rename($_FILES["fileToUpload"]["name"], $comp_id . "." . $imageFileType)) {
+        if (rename($_FILES["fileToUpload"]["name"], $comp_id . ".png")) {
 
             echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
             
