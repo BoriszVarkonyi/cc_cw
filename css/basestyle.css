@@ -347,7 +347,6 @@ form.flex {
 	background-color: var(--c-purple);
 }
 
-
 div.table_row:nth-child(even) {
 	background-color: var(--c-lightestgray);
 }
