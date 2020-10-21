@@ -19,23 +19,38 @@ function toggleAddFencer() {
     addFencerPanel.classList.toggle("hidden");
 
 }
-
+//FORM VALIDATION
 var saveButton = document.querySelector(".panel_submit");
 var input = document.querySelectorAll('#new_fencer>input');
-console.log(input)
+var points = document.getElementById("ranking_points")
+//Set the "Save" button disabled.
 saveButton.disabled = true;
+//If the document values are changing, it runs the function.
 document.addEventListener("input", function(){
-for(i=0; i<input.length; i++){
-if(input[i].value == ""){
-saveButton.disabled = true;
-break;
-} 
-else {
-console.log("Nyeh")
-saveButton.disabled = false;  
+  //Check the "Points" input value.
+  if(points.value>10 || points.value < 0) {
+    //If its grather than 10 or less than 0, it sets the value "" (0).
+    points.value = "";
+
+  } 
+  //Checking every input.
+  for(i=0; i<input.length; i++){
+    
+    if(input[i].value == ""){
+      //If it finds an empty input, then it disable the "Save" button.
+      saveButton.disabled = true;
+      break;
+
+    }
+    else {
+      //If everything has a value then it enable the "Save" Button. The user can save.
+      saveButton.disabled = false;  
+
+    }
+  }
 }
-}
-})
+)
+//END
 
 
 //igen ez egy változtatás

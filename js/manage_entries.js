@@ -1,3 +1,4 @@
+//ENTRY TOGGLE
 var oldentry;
 function toggleEntry(x) {
     var tableRow = x;
@@ -5,14 +6,15 @@ function toggleEntry(x) {
     var entryPanel = tableRow.nextElementSibling;
     var entrys =  document.querySelectorAll(".entry");
     
-    
+    //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
         entrys[i].lastElementChild.classList.add("collapsed")
         entrys[i].classList.remove("opened")
 
     } 
+     //Checking if the oldentry var. equals the entry id.
     if(entry.id == oldentry){
-
+        //If yes then it adds opened, and remove collapsed.
         entryPanel.classList.remove("collapsed");
         entry.classList.add("opened");
 
@@ -20,15 +22,17 @@ function toggleEntry(x) {
 
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
-
+    //Checking if we clicked the same entry.
     if(entry.classList.contains("opened")){
-    oldentry = entry.id
+        //If yes it saves the entry id.
+        oldentry = entry.id
     }
     else {
-    oldentry = undefined
+        //If no it sets the oldentry var. undifened
+        oldentry = undefined
     }
 }
-
+//END
 
 
 

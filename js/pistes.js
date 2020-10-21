@@ -1,3 +1,4 @@
+//PISTES SETTINGS
 var oldclickedPiste;
 function togglePisteSettings(x) {
     var clickedPisteButton = x;
@@ -9,26 +10,26 @@ function togglePisteSettings(x) {
         pistes[i].classList.remove("focused");
 
     }
-    //Checking if the oldclickedpiste equals the clickedpiste id. If yes than it adds "focused".
+    //Checking if the oldclickedPiste var. equals the clickedPiste id.
     if (clickedPiste.id == oldclickedPiste){
-
+        //If yes than it adds "focused".
         clickedPiste.classList.add("focused");
 
     }
-    //Toggle the class
+    
     clickedPiste.classList.toggle("focused");
-    //Checking if we clicked the same piste. If yes it saves the piste id. If no it sets the oldclickedpiste undifened
+    //Checking if we clicked the same piste.
     if (clickedPiste.classList.contains("focused")){
-
+        //If yes it saves the piste id.
         oldclickedPiste = clickedPiste.id
     }
     else{
-
+    //If no it sets the oldclickedPiste var. undifened
     oldclickedPiste = undefined;
 
     }  
 }
-
+//END
 
 
 
