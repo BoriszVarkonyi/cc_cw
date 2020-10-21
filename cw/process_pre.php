@@ -11,7 +11,6 @@ if(isset($_POST["send_pre"])){
     $c_email = $_POST["c_email"];
     $c_phone = $_POST["c_phone"];
     
-echo $f_name;
 
 }
 
@@ -51,7 +50,7 @@ try {
     $mail->Subject = 'Please confirm your pre registration';
     $mail->Body    = '
     
-    <a style="color:red;" href="http://localhost/cw/confirmed_pre.php?">Confirm</a>
+    <a style="color:red;" href="http://localhost/cw/confirmed_pre.php?f_name='. $f_name .'&f_country='. $f_country  .'&f_email='. $f_email .'&f_phone='. $f_phone .'&c_name='. $c_name .'&c_email='.$c_email.'&c_phone='.$c_phone.'">Confirm</a>
     
     ';
 
