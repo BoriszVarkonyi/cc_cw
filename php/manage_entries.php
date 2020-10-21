@@ -65,30 +65,53 @@
                                     <div class="big_status_item gray"></div>
                                 </div>
                                 <div class="entry_panel collapsed">
-                                    <p>8 / 4</p>
+                                    <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
+                                        <img src="../assets/icons/info-black-18dp.svg" alt="">
+                                    </button>
                                     <form class="approve_fencers_wrapper">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
-                                            <div class="approved_status_header">
-                                                <button type="button" class="approve_all_button" onclick='selectAll()'>
-                                                    <img src="../assets/icons/select_all-black-18dp.svg" alt="">
-                                                    <p>Approve all</p>
-                                                </button>
-                                            </div>
                                         </div>
                                         <div class="table_row">
                                             <div class="table_item">Neve</div>
                                             <div class="table_item">Náció</div>
                                             <div class="table_item">Drum</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_1" id="e1_f1" value="1" class="small_option_label" />
-                                                <label for="e1_f1">Not Approved</label>
-                                            </div>
                                         </div>
-                                        <input type="submit" value="Save" class="panel_submit">
+                                        <input type="submit" value="Approve" class="panel_submit">
                                     </form>
+
+                                    <div class="entry_overlay_info hidden">
+                                        <div>
+                                            <p class="label_text">FEDERATION'S NAME:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">COUNTRY / FENCING CLUB:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">FEDERATION'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text"">CONTACT KEEPER'S FULL NAME:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">CONTACT KEEPER'S EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">CONTACT KEEPER'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -100,50 +123,58 @@
                                     <div class="big_status_item gray"></div>
                                 </div>
                                 <div class="entry_panel collapsed">
-                                    <p>8 / 4</p>
+                                    <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
+                                        <img src="../assets/icons/info-black-18dp.svg" alt="">
+                                    </button>
                                     <form class="approve_fencers_wrapper">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
-                                            <div class="approved_status_header">
-                                                <button type="button" class="approve_all_button" onclick='selectAll()'>
-                                                    <img src="../assets/icons/select_all-black-18dp.svg" alt="">
-                                                    <p>Approve all</p>
-                                                </button>
-                                            </div>
                                         </div>
                                         <div class="table_row">
                                             <div class="table_item">Neve</div>
                                             <div class="table_item">Náció</div>
                                             <div class="table_item">Drum</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_1" id="e2_f1" value="1" class="small_option_label" />
-                                                <label for="e2_f1">Not Approved</label>
-                                            </div>
                                         </div>
-                                        <div class="table_row">
-                                            <div class="table_item">Neve</div>
-                                            <div class="table_item">Náció</div>
-                                            <div class="table_item">Drum</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_1" id="e2_f2" value="1" class="small_option_label" />
-                                                <label for="e2_f2">Not Approved</label>
-                                            </div>
-                                        </div>
-                                        <div class="table_row">
-                                            <div class="table_item">Neve</div>
-                                            <div class="table_item">Náció</div>
-                                            <div class="table_item">Drum</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_1" id="e2_f3" value="1" class="small_option_label" />
-                                                <label for="e2_f3">Not Approved</label>
-                                            </div>
-                                        </div>
-                                        <input type="submit" value="Save" class="panel_submit">
+                                        <input type="submit" value="Approve" class="panel_submit">
                                     </form>
+
+                                    <div class="entry_overlay_info hidden">
+
+                                        <div>
+                                            <p class="label_text">FEDERATION'S NAME:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">COUNTRY / FENCING CLUB:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">FEDERATION'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text"">CONTACT KEEPER'S FULL NAME:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">CONTACT KEEPER'S EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">CONTACT KEEPER'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+
                         </div>
                         <div id="managed_entries_panel">
                             <p>Managed Entries</p>
@@ -151,7 +182,6 @@
                                 <div class="table_header_text">FEDARATION'S NAME</div>
                                 <div class="table_header_text">FEDARATION'S EMAIL ADDRESS</div>
                                 <div class="table_header_text">NATIONALITY</div>
-                                <div class="table_header_text">APPROVED FENCERS</div>
                                 <div class="big_status_header"></div>
                             </div>
                             
@@ -160,109 +190,54 @@
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
                                     <div class="table_item">HUN</div>
-                                    <div class="table_item">4 / 0</div>
-                                    <div class="big_status_item red"></div>
+                                    <div class="big_status_item green"></div>
                                 </div>
                                 <div class="entry_panel collapsed">
+                                    <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
+                                        <img src="../assets/icons/info-black-18dp.svg" alt="">
+                                    </button>
                                     <form class="approve_fencers_wrapper">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
-                                            <div class="approved_status_header">
-                                                <button type="button" class="approve_all_button">
-                                                    <img src="../assets/icons/select_all-black-18dp.svg" alt="">
-                                                    <p>Approve all</p>
-                                                </button>
-                                            </div>
                                         </div>
-
                                         <div class="table_row">
-                                            <div class="table_item">Ném</div>
-                                            <div class="table_item">Federáció mél</div>
-                                            <div class="table_item">Náci</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_f_1" id="ef1_f1" class="small_option_label" />
-                                                <label for="ef1_f1">Approved</label>
-                                            </div>
+                                            <div class="table_item">Neve</div>
+                                            <div class="table_item">Náció</div>
+                                            <div class="table_item">Drum</div>
                                         </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Ném</div>
-                                            <div class="table_item">Federáció mél</div>
-                                            <div class="table_item">Náci</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_f_1" id="ef1_f2" class="small_option_label" />
-                                                <label for="ef1_f2">Approved</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Ném</div>
-                                            <div class="table_item">Federáció mél</div>
-                                            <div class="table_item">Náci</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_f_1" id="ef1_f3" class="small_option_label" />
-                                                <label for="ef1_f3">Approved</label>
-                                            </div>
-                                        </div>
-                                        <input type="submit" value="Save" class="panel_submit">
                                     </form>
-                                </div>
-                            </div>
-                            <div class="entry" id="entry_f_2">
-                                <div class="table_row" onclick="toggleEntry(this)">
-                                    <div class="table_item">Hungarian Fencing Federation</div>
-                                    <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
-                                    <div class="table_item">HUN</div>
-                                    <div class="table_item">4 / 0</div>
-                                    <div class="big_status_item red"></div>
-                                </div>
-                                <div class="entry_panel collapsed">
-                                    <form class="approve_fencers_wrapper">
-                                        <div class="table_header">
-                                            <div class="table_header_text">FENCER'S NAME</div>
-                                            <div class="table_header_text">FENCER'S NATIONALITY</div>
-                                            <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
-                                            <div class="approved_status_header">
-                                                <button type="button" class="approve_all_button">
-                                                    <img src="../assets/icons/select_all-black-18dp.svg" alt="">
-                                                    <p>Approve all</p>
-                                                </button>
-                                            </div>
+                                    <div class="entry_overlay_info hidden">
+                                        <div>
+                                            <p class="label_text">FEDERATION'S NAME:</p>
+                                            <p>FEDERATION'S NAME</p>
                                         </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Ném</div>
-                                            <div class="table_item">Federáció mél</div>
-                                            <div class="table_item">Náci</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_f_1" id="ef1_f1" class="small_option_label" />
-                                                <label for="ef1_f1">Approved</label>
-                                            </div>
+                                        <div>
+                                            <p class="label_text">COUNTRY / FENCING CLUB:</p>
+                                            <p>FEDERATION'S NAME</p>
                                         </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Ném</div>
-                                            <div class="table_item">Federáció mél</div>
-                                            <div class="table_item">Náci</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_f_1" id="ef1_f2" class="small_option_label" />
-                                                <label for="ef1_f2">Approved</label>
-                                            </div>
+                                        <div>
+                                            <p class="label_text">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S NAME</p>
                                         </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Ném</div>
-                                            <div class="table_item">Federáció mél</div>
-                                            <div class="table_item">Náci</div>
-                                            <div class="approved_status_item">
-                                                <input type="checkbox" name="entry_f_1" id="ef1_f3" class="small_option_label" />
-                                                <label for="ef1_f3">Approved</label>
-                                            </div>
+                                        <div>
+                                            <p class="label_text">FEDERATION'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S NAME</p>
                                         </div>
-                                        <input type="submit" value="Save" class="panel_submit">
-                                    </form>
+                                        <div>
+                                            <p class="label_text"">CONTACT KEEPER'S FULL NAME:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">CONTACT KEEPER'S EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                        <div>
+                                            <p class="label_text">CONTACT KEEPER'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S NAME</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

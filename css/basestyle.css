@@ -379,7 +379,6 @@ div.table_row:nth-child(even).selected {
     background: var(--c-gray); 
 }
 
-
 /* Search Input */
 
 input[type="search"] {
@@ -423,11 +422,6 @@ input[value="Create Ranking"].disabled {
 }
 
 /* Extended Search Input */
-
-
-
-
-
 
 
 /* Custom Select Input */
@@ -679,7 +673,6 @@ input[type="number"].wc_time {
 p.wc_time {
 	font-size: var(--f-small);
 }
-
 
 /* Input Time */
 

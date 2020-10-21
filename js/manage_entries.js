@@ -29,6 +29,14 @@ function toggleEntry(x) {
     }
 }
 
+function toggleEntryInfo(x) {
+    var button = x;
+    var entryPanel = button.parentNode;
+    var infoPanel = entryPanel.lastElementChild;
+    
+    infoPanel.classList.toggle("hidden")
+}
+
 
 
 

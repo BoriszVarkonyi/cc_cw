@@ -2339,7 +2339,6 @@ input:focus::placeholder {
 	background-color: var(--c-lightestgray);
 }
 
-
 /* ///CHOOSE RANKING/// */
 
 #choose_ranking_wrapper {
@@ -2672,7 +2671,6 @@ div.icon_box > img {
 	text-decoration: underline;
 }
 
-
 #ranking_search {
 	background-color: var(--c-white);
 	width: 80%;
@@ -2912,6 +2910,57 @@ div.icon_box > img {
 
 .approved_status_item > label {
 	font-size: var(--f-small);
+}
+
+.entry_info_button {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background-color: transparent;
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	z-index: 5;
+}
+
+.entry_info_button:hover {
+	background-color: var(--c-lightergray);
+}
+
+.entry_info_button > img {
+	width: 30px;
+	height: 30px;
+}
+
+.entry_overlay_info {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--c-lightestgray);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 0 50px;
+	opacity: 1;
+	transition: opacity var(--t-basic), max-width var(--t-basic);
+	overflow: visible;
+}
+
+.entry_overlay_info.hidden {
+	overflow: hidden;
+	opacity: 0;
+	max-width: 0;
+}
+
+.entry_overlay_info > div {
+	margin: 5px 0;
+}
+
+.entry_overlay_info > div > p {
+	margin: 1px 0;
 }
 
 input.wc_time {
