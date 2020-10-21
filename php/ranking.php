@@ -170,7 +170,7 @@ if(mysqli_num_rows($query_do) == 0){
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             <!-- add fencers drop-down -->
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form flex" onsubmit="return checkform(this)" >
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form flex">
                                 <label for="fencers_name" class="label_text">NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" id="username_input" name="fencer_name">
 
