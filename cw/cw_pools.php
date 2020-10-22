@@ -22,7 +22,7 @@
             <input type="submit" value="Search">
         </form>
         <div id="pools_wrapper">
-            <div class="entry" id="">
+            <div class="entry table_row_wrapper" id="">
                 <div class="table_row start" onclick="togglePool(this)">
                     <div class="table_item bold">No. 1</div>
                     <div class="table_item">Piste 1</div>
@@ -188,7 +188,7 @@
                 </div>
             </div>
 
-            <div class="entry" id="">
+            <div class="entry table_row_wrapper" id="">
                 <div class="table_row start" onclick="togglePool(this)">
                     <div class="table_item bold">No. 1</div>
                     <div class="table_item">Piste 1</div>
@@ -200,7 +200,7 @@
                 </div>
             </div>
 
-            <div class="entry" id="">
+            <div class="entry table_row_wrapper" id="">
                 <div class="table_row start" onclick="togglePool(this)">
                     <div class="table_item bold">No. 1</div>
                     <div class="table_item">Piste 1</div>

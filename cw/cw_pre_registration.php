@@ -83,7 +83,7 @@ if(isset($_POST["send_pre"])){
 
                     <input type="search" name="" id="">
 
-                    <div id="select_fencers_wrapper">
+                    <div id="select_fencers_wrapper table_row_wrapper">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
                             <div class="table_header_text">NAME</div>

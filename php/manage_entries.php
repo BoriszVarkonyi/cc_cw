@@ -57,7 +57,7 @@
                                 <div class="big_status_header"></div>
                             </div>
 
-                            <div class="entry" id="entry_1">
+                            <div class="entry table_row_wrapper" id="entry_1">
                                 <div class="table_row" onclick="toggleEntry(this)">
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
@@ -68,7 +68,7 @@
                                     <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
                                         <img src="../assets/icons/info-black-18dp.svg" alt="">
                                     </button>
-                                    <form class="approve_fencers_wrapper">
+                                    <form class="approve_fencers_wrapper table_row_wrapper">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
 
-                            <div class="entry" id="entry_2">
+                            <div class="entry table_row_wrapper" id="entry_2">
                                 <div class="table_row" onclick="toggleEntry(this)">
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
@@ -126,7 +126,7 @@
                                     <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
                                         <img src="../assets/icons/info-black-18dp.svg" alt="">
                                     </button>
-                                    <form class="approve_fencers_wrapper">
+                                    <form class="approve_fencers_wrapper table_row_wrapper">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
@@ -185,7 +185,7 @@
                                 <div class="big_status_header"></div>
                             </div>
                             
-                            <div class="entry" id="entry_f_1">
+                            <div class="entry table_row_wrapper" id="entry_f_1">
                                 <div class="table_row" onclick="toggleEntry(this)">
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
@@ -196,7 +196,7 @@
                                     <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
                                         <img src="../assets/icons/info-black-18dp.svg" alt="">
                                     </button>
-                                    <form class="approve_fencers_wrapper">
+                                    <form class="approve_fencers_wrapper table_row_wrapper">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>

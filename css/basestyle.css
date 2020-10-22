@@ -263,6 +263,20 @@ form.flex {
 	display: none;
 }
 
+.table_row_wrapper .table_row {
+	border-top: 2px solid var(--c-lightgray);
+	border-left: 2px solid var(--c-lightgray);
+	border-right: 2px solid var(--c-lightgray);
+}
+
+.table_row_wrapper > .table_row:nth-of-type(2) {
+	border-radius: 5px 5px 0 0;
+}
+.table_row_wrapper > .table_row:last-of-type {
+	border-radius: 0 0 5px 5px;
+	border-bottom: 2px solid var(--c-lightgray);
+}
+
 .selected {
 	background-color: var(--c-orange);
 	font-family: ProximaNovaBold;

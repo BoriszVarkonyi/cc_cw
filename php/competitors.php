@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div id="competitors_wrapper">
+                <div id="competitors_wrapper table_row_wrapper">
                     <div class="table_header">
                         <div class="table_header_text">Name</div>
                         <div class="table_header_text">Nationality</div>

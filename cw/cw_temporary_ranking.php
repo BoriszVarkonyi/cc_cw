@@ -33,7 +33,7 @@
             <p>Passed</p>
         </div>
 
-        <div class="cw_table_wrapper competitiors">
+        <div class="cw_table_wrapper competitiors table_row_wrapper">
             <div class="table_row">
                 <div class="table_item">
                     1.

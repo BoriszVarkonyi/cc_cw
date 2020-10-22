@@ -69,7 +69,7 @@
             <div id="page_content_panel_main">
                 <div class="wrapper width_80" id="pool_results">
 
-                    <div class="entry" id="">
+                    <div class="entry table_row_wrapper" id="">
                         <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>

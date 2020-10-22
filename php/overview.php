@@ -28,7 +28,7 @@
             <div id="title_stripe">
                 <p class="page_title">Overview</p>
             </div>
-            <div id="page_content_panel_main">
+            <div id="page_content_panel_main" class="table_row_wrapper">
                 <div class="wrapper" id="overview_wrapper">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>

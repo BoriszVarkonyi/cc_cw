@@ -282,7 +282,7 @@ if(mysqli_num_rows($query_do) == 0){
                         }
                     ?>
 
-                    <div class="wrapper">
+                    <div class="wrapper table_row_wrapper">
 
                         <?php
                             if ($row_cnt != 0) {

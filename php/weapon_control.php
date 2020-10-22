@@ -37,7 +37,7 @@
                     </button>
                 </div>
                 <div id="page_content_panel_main">
-                    <div id="weapon_control_wrapper" class="wrapper">
+                    <div id="weapon_control_wrapper table_row_wrapper"" class="wrapper">
 
                         <!-- Maybe not needed, but this should be displayed if there the organiser hasn't set up the ranking and opened the weapon control page. Or maybe the couldn't been opened until the ranking has been set up?
                             <div id="no_something_panel">

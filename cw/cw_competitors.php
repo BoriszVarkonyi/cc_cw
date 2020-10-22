@@ -34,7 +34,7 @@
             <input type="submit" value="Search">
         </form>
 
-        <div class="cw_table_wrapper competitiors">
+        <div class="cw_table_wrapper competitiors table_row_wrapper">
             <div class="table_row">
                 <div class="table_item">
                     1.

@@ -34,7 +34,7 @@
             </div>
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
-                    <div class="entry" id="">
+                    <div class="entry table_row_wrapper" id="">
                         <div class="table_row" onclick="toggleEntry(this)">
                             <div class="table_item">Hungarian Fencing Federation</div>
                             <form class="big_status_item">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <form id="adding_entry">
+                    <form id="adding_entry table_row_wrapper">
                         <div class="table_row" onclick="">
                             <div class="table_item">
                                 <input type="text" placeholder="Type in the title">

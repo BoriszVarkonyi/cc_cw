@@ -241,7 +241,7 @@ if($query_do){
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             
-                            <form class="overlay_panel_form flex" action="" method="POST" id="new_wc_day" autocomplete="off">
+                            <form class="overlay_panel_form flex table_row_wrapper"" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
                                 <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes: controls done in 10 minutes:</label>
