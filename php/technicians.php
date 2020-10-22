@@ -219,7 +219,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div class="wrapper width_70">
+                    <div class="wrapper width_70 table_row_wrapper">
 
                     <?php 
                     

@@ -257,27 +257,30 @@ form.flex {
 	cursor: pointer;
 	overflow: hidden;
 	position: relative;
+	transition: border var(--t-basic);
 }
 
 .table_row.hidden {
 	display: none;
 }
 
-.table_row_wrapper .table_row {
-	border-top: 2px solid var(--c-lightgray);
-	border-left: 2px solid var(--c-lightgray);
-	border-right: 2px solid var(--c-lightgray);
+.table_row_wrapper > .table_row {
+	border-left: 2px solid var(--c-darkgray);
+	border-right: 2px solid var(--c-gray);
 }
 
 .table_row_wrapper > .table_row:nth-of-type(2) {
 	border-radius: 5px 5px 0 0;
+	/*border-top: 2px solid var(--c-darkgray);*/
+	border-left: 2px solid var(--c-darkgray);
 }
 .table_row_wrapper > .table_row:last-of-type {
 	border-radius: 0 0 5px 5px;
-	border-bottom: 2px solid var(--c-lightgray);
+	border-right: 2px solid var(--c-gray);
+	/*border-bottom: 2px solid var(--c-gray);*/
 }
 
-.selected {
+.table_row.selected {
 	background-color: var(--c-orange);
 	font-family: ProximaNovaBold;
 }
