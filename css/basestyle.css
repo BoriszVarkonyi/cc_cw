@@ -274,10 +274,16 @@ form.flex {
 	/*border-top: 2px solid var(--c-darkgray);*/
 	border-left: 2px solid var(--c-darkgray);
 }
+
 .table_row_wrapper > .table_row:last-of-type {
 	border-radius: 0 0 5px 5px;
 	border-right: 2px solid var(--c-gray);
 	/*border-bottom: 2px solid var(--c-gray);*/
+}
+
+.table_row_wrapper > .table_row:only-of-type {
+	border-radius: 5px 5px;
+	border-right: 2px solid var(--c-gray);
 }
 
 .table_row.selected {
@@ -865,6 +871,10 @@ input[type="time"] {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
+}
+
+.panel_button:hover {
+	background-color: var(--c-lightestgray);
 }
 
 .panel_button.left {

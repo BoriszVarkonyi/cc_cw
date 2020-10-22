@@ -329,6 +329,10 @@ textarea {
 	background-color: var(--c-gray);
 }
 
+#logout_form > button:hover {
+	background-color: var(--c-darkgray);
+}
+
 /* Wrapper */
 
 .wrapper {
