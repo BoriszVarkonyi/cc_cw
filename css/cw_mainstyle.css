@@ -78,8 +78,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 #cw_header > div:first-of-type {
 	display: flex;
 	align-items: center;
-	margin-left: auto;
-	margin-right: 20px;
+	margin: 0 20px 0 auto;
 }
 
 #cw_header > div:first-of-type > a {
@@ -152,7 +151,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 #competition_dropdown  > a:last-of-type {
-	margin: 0 0 0 15px;
+	margin-left: 15px;
 }
 
 /* ///custom pages/// */
@@ -394,7 +393,7 @@ input[value="Search"] {
 }
 
 #cw_main_full {
-	padding: 100px 75px 75px 75px;
+	padding: 100px 75px 75px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
@@ -402,7 +401,7 @@ input[value="Search"] {
 }
 
 #cw_main_live {
-	padding: 100px 50px 50px 50px;
+	padding: 100px 50px 50px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
@@ -410,7 +409,7 @@ input[value="Search"] {
 }
 
 #cw_main_narrow {
-	padding: 100px 150px 50px 150px;
+	padding: 100px 150px 50px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
@@ -466,8 +465,7 @@ input[value="Search"] {
 	font-family: ProximaNovaThin;
 	font-size: var(--f-large);
 	text-transform: uppercase;
-	margin-top: -20px;
-	margin-left: 100px;
+	margin: -20px 0 0 100px;
 }
 
 #comp_data {
@@ -557,8 +555,7 @@ input[value="Search"] {
 }
 
 #competition_wrapper > div:nth-of-type(2) > a:last-child {
-	margin-top: auto;
-	margin-bottom: 20px;
+	margin: auto 0 20px;
 	background-color: var(--c-red);
 	text-decoration: underline;
 }
@@ -805,8 +802,7 @@ input[value="Search"] {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	margin-bottom: 50px;
-	margin-top: 100px;
+	margin: 50px 0 100px;
 }
 
 #selected_fencers_wrapper > * {

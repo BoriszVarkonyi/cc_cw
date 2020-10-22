@@ -1,4 +1,4 @@
-:root {		/* Used colors ans shadows saved as css variables*/
+:root {		/* Used colors and shadows saved as css variables*/
 	--c-black: #252525; 
 	--c-transparent-black: rgba(0, 0, 0, 0.3);
 	--c-darkgray: #9B9A9A;
@@ -58,7 +58,7 @@
 	--f-smaller: calc(0.7em + 0.7vmin);
 }
 
-[data-theme="dark"]:root {		/* Used colors ans shadows saved as css variables*/
+[data-theme="dark"]:root {
 	--c-black: #F1F1F1; 
 	--c-transparent-black: rgba(0, 0, 0, 0.3);
 	--c-darkgray: #3F3F3F;
@@ -374,9 +374,6 @@ form.flex {
 	background-color: #E58955;
 }
 
-
-
-
 div.table_row:nth-child(even) {
 	background-color: var(--c-lightestgray);
 }
@@ -544,7 +541,7 @@ input[type="text"].hidden {
 input[type="text"], input[type="password"], input[type="date"], input[type="email"] {		/* Sets basic look of text and password inputs*/
 	background-color: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
-	margin: 3px 0 30px 0;
+	margin: 3px 0 30px;
 	width: 100%;
 	min-width: 200px;
 	max-width: 400px;
@@ -569,8 +566,7 @@ input[type="text"].error, input[type="password"].error {
 	text-transform: uppercase;
 	color: var(--c-red);
 	font-size: var(--f-small);
-	margin: 0;
-	margin-bottom: 19px;
+	margin: 0 0 19px;
 	font-family: ProximaNovaBold;
 }
 
@@ -592,10 +588,8 @@ input[type="text"].no_margin {
 	text-transform: uppercase;
 	color: red;
 	font-size: var(--f-small);
-	margin: 0;
+	margin: -29px 0 29px;
 	position: relative;
-	margin-top: -29px;
-	margin-bottom: 29px;
 }
 
 #username_input {
@@ -661,7 +655,7 @@ input[type="number"] {
 input[type="number"].number_input {
 	background-color: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
-	margin: 3px 0 30px 0;
+	margin: 3px 0 30px;
 	width: 100%;
 	max-width: 400px;
 	height: 35px;
@@ -709,7 +703,7 @@ p.wc_time {
 input[type="time"] {
 	background-color: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
-	margin: 3px 0 30px 0;
+	margin: 3px 0 30px;
 	height: 35px;
 	padding-left: 20px;
 	font-size: var(--f-small);
@@ -765,12 +759,11 @@ input[type="time"] {
 	font-size: var(--f--medium);
 	border-radius: 30px;
 	cursor: pointer;
-	margin: 0;
+	margin: 0 15px 0 0;
 	padding: 6px 10px 6px 18px;
 	display: flex;
 	align-items: center;
 	float: right;
-	margin-right: 15px;
 	white-space: nowrap;
 }
 
@@ -783,13 +776,11 @@ input[type="time"] {
 }
 
 .stripe_button:first-of-type {
-	margin-left: auto;
-	margin-right: 15px;
+	margin: 0 15px 0 auto;
 }
 
 .stripe_button:only-of-type, .stripe_button.only {
-	margin-left: auto;
-	margin-right: 40px;
+	margin: 0 40px 0 auto;
 }
 
 .stripe_button:last-of-type {

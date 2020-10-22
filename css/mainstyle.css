@@ -142,14 +142,12 @@ textarea {
 
 .role_big {
 	font-size: var(--f-small);
-	margin-top: -5px;
-	margin-bottom: 15px;
+	margin: -5px 0 15px;
 }
 
 .settings_section {
-	margin: 0;
+	margin: 0 0 0 auto;
 	float: right;
-	margin-left: auto;
 	display: flex;
 	flex-wrap: nowrap;
 	width: 75px;
@@ -163,12 +161,12 @@ textarea {
 
 #username {
 	font-family: ProximaNovaBold;
-	margin: 2px 0 -2px 0;
+	margin: 2px 0 -2px;
 	font-size: var(--f-small);
 }
 
 #role {
-	margin: -2px 0 2px 0;
+	margin: -2px 0 2px;
 	font-size: var(--f-smaller);
 }
 
@@ -236,7 +234,7 @@ textarea {
 	position: relative;
 	height: 80%;
 	width: 70%;
-	padding: 10px 0 10px 0;
+	padding: 10px 0;
 }
 
 .language_button {
@@ -511,10 +509,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	text-align: center;
 }
 
-.nav_bar_title.disabled {
-	display: none;
-}
-
 .nav_bar_item {
 	width: 100%;
     display: flex;
@@ -533,7 +527,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	overflow: visible;
 }
 
-.nav_bar_item:hover:not(.nav_bar_item.disabled) {
+.nav_bar_item:hover {
 	background-color: var(--c-transparent-white);
 }
 
@@ -731,12 +725,10 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 #need_help > img {
-	padding-left: 30px;
 	height: 1.05em;
 	width: 1.05em;
-	padding: 0;
+	padding: 0 5px 0 30px;
 	margin: 0;
-	padding-right: 5px;
 }
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help > img {
@@ -1074,7 +1066,7 @@ input[type=radio]:checked:disabled + label:before {
 .color_select {
 	display: flex;
 	width: 100%;
-	margin: 10px 0 15px 0;
+	margin: 10px 0 15px;
 }
 
 .color_select.hidden {
@@ -1215,17 +1207,6 @@ input[type=radio]:checked:disabled + label:before {
 
 /* ///CHOOSE COMPETITION ELEMENTS/// */
 
-#competitions_wrapper {
-	max-width: 90%;
-	flex: 1 1 0;
-	min-height: 50%;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	align-content: center;
-	flex-direction: column;
-}
-
 #competitions_wrapper > .table_header {
 	background-color: var(--c-lightergray);
 }
@@ -1261,7 +1242,7 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 .form_column {
-	padding: 25px 25px 25px 75px;
+	padding: 25px 25px 75px;
 	min-width: 22.5vw;
 }
 
@@ -1681,8 +1662,7 @@ input:focus::placeholder {
 
 #entry_fee_container > input {
 	flex: 1 1 auto;
-	margin: 0;
-	margin-right: 15px;
+	margin: 0 15px 0 0;
 }
 
 #entry_fee_container > div {
@@ -1848,8 +1828,7 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: auto;
-	margin-right: 20px;
+	margin-left: 0 20px 0 auto;
 }
 
 #adding_entry.hidden {
@@ -1876,16 +1855,14 @@ input:focus::placeholder {
 	font-family: ProximaNovaBold;
 	font-size: var(--f-large);
 	text-transform: uppercase;
-	margin-bottom: 20px;
-	margin-left: 100px;
+	margin: 0 0 20px 100px;
 }
 
 #comp_status {
 	font-family: ProximaNovaThin;
 	font-size: var(--f-large);
 	text-transform: uppercase;
-	margin-top: -20px;
-	margin-left: 100px;
+	margin: -20px 0 0 100px;
 }
 
 #comp_data {
@@ -2728,7 +2705,7 @@ div.icon_box > img {
 }
 
 #ranking_search > div {
-	margin: 50px 0 30px 0 ;
+	margin: 50px 0 30px;
 	max-height: 30vh;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -3242,10 +3219,9 @@ input.wc_time {
 .period.opened > div:nth-child(3) > div:nth-child(2) { /* Period buttons */
 	width: 100%;
 	display: flex;
-	margin-top: 5px;
+	margin: 5px 0 0 10px;
 	align-items: center;
 	height: 40px;
-	margin-left: 10px;
 	padding-bottom: 27vh;
 }
 
