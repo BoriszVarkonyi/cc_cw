@@ -3632,13 +3632,16 @@ input.wc_time {
 
 .guide_option {
 	background-color: var(--c-white);
-	border: 2px solid var(--c-gray);
+	border-top: 2px solid var(--c-darkgray);
+	border-left: 2px solid var(--c-darkgray);
+	border-bottom: 2px solid var(--c-gray);
+	border-right: 2px solid var(--c-gray);
 	box-shadow: var(--s-black);
 	flex-grow: 1;
 	flex-basis: 300px;
 	border-radius: 10px;
 	height: 300px;
-	margin: 0 40px;
+	margin: 0 20px;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -3647,7 +3650,7 @@ input.wc_time {
 }
 
 .guide_option:hover {
-	transform: scale(1.025);
+	transform: scale(1.01);
 }
 
 .guide_option p:first-of-type {
@@ -3703,18 +3706,6 @@ input.wc_time {
 }
 
 /* Overview */
-
-#overview_wrapper > .table_row:nth-of-type(2) {
-	background-color: var(--c-yellow);
-}
-
-#overview_wrapper > .table_row:nth-of-type(3) {
-	background-color: var(--c-gray);
-}
-
-#overview_wrapper > .table_row:nth-of-type(4) {
-	background-color: #E58955;
-}
 
 /* Pool results */
 

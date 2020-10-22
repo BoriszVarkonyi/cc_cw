@@ -354,11 +354,11 @@ form.flex {
 	background-color: var(--c-green);
 }
 
-.gray {
+.gray, .silver {
 	background-color: var(--c-gray);
 }
 
-.yellow {
+.yellow, .gold {
 	background-color: var(--c-yellow);
 }
 
@@ -369,6 +369,13 @@ form.flex {
 .purple {
 	background-color: var(--c-purple);
 }
+
+.bronze {
+	background-color: #E58955;
+}
+
+
+
 
 div.table_row:nth-child(even) {
 	background-color: var(--c-lightestgray);
