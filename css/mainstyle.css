@@ -167,7 +167,7 @@ textarea {
 
 #role {
 	margin: -2px 0 2px;
-	font-size: var(--f-smaller);
+	font-size: var(--f-xsmall);
 }
 
 #menu_button {
@@ -282,7 +282,7 @@ textarea {
 
 .cs_label_section {
 	width: 80%;
-	font-size: var(--f-smaller);
+	font-size: var(--f-xsmall);
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
@@ -512,7 +512,6 @@ input[type="range"]:focus::-ms-fill-upper {
 .nav_bar_item {
 	width: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
 	font-size: var(--f-medium);
@@ -727,8 +726,7 @@ input[type="range"]:focus::-ms-fill-upper {
 #need_help > img {
 	height: 1.05em;
 	width: 1.05em;
-	padding: 0 5px 0 30px;
-	margin: 0;
+	margin-right: 5px;
 }
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help > img {
@@ -752,7 +750,6 @@ input[type="range"]:focus::-ms-fill-upper {
 #page_content_panel_main {
 	background-color: var(--c-lightergray);
 	display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: stretch;
@@ -913,7 +910,6 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .option_container.row {
 	display: flex;
-	flex-direction: row;
 	margin: 20px 0;
 }
 
@@ -923,7 +919,6 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .option_container.grid {
 	display: flex;
-	flex-direction: row;
 	margin: 20px 0;
 	flex-wrap: wrap;
 }
@@ -2013,7 +2008,6 @@ input:focus::placeholder {
 
 #time_stripe {
 	display: flex;
-	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
 	margin-bottom: 25px;
@@ -2844,7 +2838,6 @@ div.icon_box > img {
 .approved_status_item {
 	width: 175px;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
@@ -2854,7 +2847,6 @@ div.icon_box > img {
 	background-color: transparent;
 	font-family: ProximaNovaBold;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }

@@ -110,6 +110,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: background-color var(--t-basic);
 }
 
 #cw_header > div:last-of-type > button:hover, #cw_header > div:last-of-type > a:hover {
@@ -130,12 +131,12 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	justify-content: center;
 	z-index: 2;
 	box-shadow: var(--s-black);
+	overflow: hidden;
 }
 
 #competition_dropdown.closed {
 	min-height: 0;
 	max-height: 0;
-	overflow: hidden;
 }
 
 #competition_dropdown > a {

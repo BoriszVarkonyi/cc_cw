@@ -23,10 +23,13 @@
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
 	--t-basic: ease-in .2s;
+	--f-xxlarge: calc(1.25em + 1vmin);
+	--f-xlarge: calc(1.25em + 1vmin);
 	--f-large: calc(1.25em + 1vmin);
 	--f-medium: calc(0.8em + 0.8vmin);
 	--f-small: calc(0.6em + 0.5vmin);
-	--f-smaller: calc(0.6em + 0.3vmin);
+	--f-xsmall: calc(0.6em + 0.3vmin);
+	--f-xxsmall: calc(0.6em + 0.3vmin);
 }
 
 [data-theme="highcontrast"]:root {
@@ -51,11 +54,14 @@
 	--c-disabled: #757575;
 	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
+	--f-xxlarge: calc(1.25em + 1vmin);
+	--f-xlarge: calc(1.25em + 1vmin);
 	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
 	--f-large: calc(1.3em + 1.3vmin);
 	--f-medium: calc(1em + 0.85vmin);
 	--f-small: calc(0.8em + 0.7vmin);
-	--f-smaller: calc(0.7em + 0.7vmin);
+	--f-xsmall: calc(0.7em + 0.7vmin);
+	--f-xxsmall: calc(0.6em + 0.3vmin);
 }
 
 [data-theme="dark"]:root {
@@ -460,12 +466,6 @@ input[value="Create Ranking"].disabled {
 	position: relative;
 }
 
-.select_input > div.closed {
-	max-height: 0;
-	overflow: hidden;
-	opacity: 0;
-}
-
 .select_input > button {
 	width: 100%;
 	border-radius: 5px;
@@ -474,12 +474,14 @@ input[value="Create Ranking"].disabled {
 	font-family: ProximaNovaBold;
 	font-size: var(--f-medium);
 	color: var(--c-darkgray);
+	background-color: var(--c-lightergray);
 }
 
 .select_input > button > p {
 	width: 100%;
 	padding: 7.5px 0;
 	background-color: var(--c-lightestgray);
+	white-space: nowrap;
 }
 
 .select_input > button > input {
@@ -499,6 +501,12 @@ input[value="Create Ranking"].disabled {
 	justify-content: space-evenly;
 	transition: all var(--t-basic);
 	opacity: 1;
+	overflow: hidden;
+}
+
+.select_input > div.closed {
+	max-height: 0;
+	opacity: 0;
 }
 
 .select_input > div > button {
@@ -756,7 +764,7 @@ input[type="time"] {
 .stripe_button {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
-	font-size: var(--f--medium);
+	font-size: var(--f-medium);
 	border-radius: 30px;
 	cursor: pointer;
 	margin: 0 15px 0 0;
@@ -1098,7 +1106,7 @@ input[type="time"] {
 }
 
 .table_fencer_nat > img {
-	max-height: var(--f-smaller);
+	max-height: var(--f-xsmall);
 }
 
 .table_fencer > div {
