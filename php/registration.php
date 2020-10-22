@@ -24,7 +24,7 @@
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div class="wrapper ">
+                    <div class="wrapper table_row_wrapper">
                     <!--
                             <div id="no_something_panel">
                                 <p>You have no referees set up!</p>

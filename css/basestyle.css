@@ -263,6 +263,10 @@ form.flex {
 	display: none;
 }
 
+title {
+	display: none;
+}
+
 .table_row_wrapper .table_row {
 	border-top: 2px solid var(--c-lightgray);
 	border-left: 2px solid var(--c-lightgray);
