@@ -1211,30 +1211,6 @@ input[type=radio]:checked:disabled + label:before {
 	background-color: var(--c-lightergray);
 }
 
-#no_competition {
-	background-color: var(--c-gray);
-	width: 75%;
-	min-height: 75%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
-	display: flex;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	align-items: center;
-	justify-content: center;
-}
-
-#no_competition_text {
-	font-family: ProximaNovaBold;
-	font-size: 1.5em;
-	padding: 0;
-	margin: 0;
-}
-
 /* ///CREATE COMPETITION ELEMENTS/// */
 
 #create_new_comp {
@@ -1255,11 +1231,8 @@ input[type=radio]:checked:disabled + label:before {
 
 #db_panel_wrapper {
 	display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: stretch;
-	align-items: center;
 	align-self: stretch;
 	flex: 1 1 auto;
 	margin: calc(1.8vw - 10px);
@@ -1305,7 +1278,7 @@ input[type=radio]:checked:disabled + label:before {
 	font-size: var(--f-medium);
 }
 
-.dp_comp_status {
+#db_comp_status {
 	margin-left: auto;
 	padding-right: 10px;
 	font-family: ProximaNovaBold;
@@ -1499,14 +1472,6 @@ input[type=radio]:checked:disabled + label:before {
 
 #add_technician_panel.hidden {
 	display: none;
-}
-
-.form_wrapper_small {
-	min-width: 200px;
-	width: 10vw;
-	max-width: 280px;
-	margin-right: 35px;
-	max-height: 80%;
 }
 
 #import_technician_panel {
@@ -3321,7 +3286,6 @@ input.wc_time {
 
 .piste.focused > .piste_settings_panel {
 	height: 60px;
-
 	opacity: 1;
 }
 

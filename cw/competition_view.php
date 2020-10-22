@@ -140,4 +140,5 @@
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
+<script src="../js/cw_slideshow.js"></script>
 </html>

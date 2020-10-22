@@ -82,8 +82,8 @@ $query_comps = mysqli_query($connection, $query);
                 <?php   ?>
 
                 <div class="table_row" onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>';" style="cursor: pointer;">
-                        <div class="table_item"><?php echo $comp_name; ?></div>
-                        <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
+                    <div class="table_item"><?php echo $comp_name; ?></div>
+                    <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
                 </div>
 
                 <?php
