@@ -872,10 +872,24 @@ input[type="range"]:focus::-ms-fill-upper {
 	align-self: flex-start;
 }
 
-.label_text.hidden {	/* Used in forms, all caps, thin font    NO option buttons*/
+.label_text.hidden {
 	display: none;
-	margin: 0;
-	padding: 0;
+}
+
+.label_text > p {
+	display: none;
+}
+
+.label_text:hover > p {
+	color: var(--c-white);
+	display: block;
+	position: absolute;
+	padding: 5px 10px;
+	font-size: var(--f-small);
+	background-color: rgba(37, 37, 37, 0.9);
+	backdrop-filter: blur(1px);
+	text-transform: none;
+	font-family: ProximaNova;
 }
 
 .label_text_small {
