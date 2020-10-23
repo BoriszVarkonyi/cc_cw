@@ -53,32 +53,21 @@ window.addEventListener('load', (event) => {
 function toggle_language_panel() {
     var lang_panel = document.getElementById("language_panel");
     var color_panel = document.getElementById("colormode_panel");
-
-    if (color_panel.classList.contains("hidden")) {
-        lang_panel.classList.toggle("hidden");
-    } else {
-        color_panel.classList.toggle("hidden");
-        lang_panel.classList.toggle("hidden");
-    }
 }
 
 function toggle_colormode_panel() {
     var lang_panel = document.getElementById("language_panel");
     var color_panel = document.getElementById("colormode_panel");
-
-    if (lang_panel.classList.contains("hidden")) {
-        color_panel.classList.toggle("hidden");
-
-    } else {
-        lang_panel.classList.toggle("hidden");
-        color_panel.classList.toggle("hidden");
-    }
 }
 
 function toggle_profile_panel() {
     var element = document.getElementById("profile_panel");
     element.classList.toggle("hidden");
 }
+
+
+
+
 
 function toggle_dt_dropdown() {
     var dt_drop = document.getElementById("dt_dropdown_menu");
