@@ -49,20 +49,70 @@ window.addEventListener('load', (event) => {
 
 
 /* toggle panels */
+var lang_panel = document.getElementById("language_panel");
+var color_panel = document.getElementById("colormode_panel");
+var profile_panel = document.getElementById("profile_panel");
+var elements = document.querySelectorAll(".overlay_panel");
+var oldClickedelement;
+
 
 function toggle_language_panel() {
-    var lang_panel = document.getElementById("language_panel");
+    
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.add("hidden")
+    }
+
+    if(lang_panel.id == oldClickedelement) {
+        lang_panel.classList.remove("hidden");
+    }
+
     lang_panel.classList.toggle("hidden");
+
+    if(lang_panel.classList.contains("hidden")) {
+        oldClickedelement = undefined;
+    }
+    else {
+        oldClickedelement = lang_panel.id;
+    } 
 }
 
 function toggle_colormode_panel() {
-    var color_panel = document.getElementById("colormode_panel");
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.add("hidden")
+    }
+
+    if(color_panel.id == oldClickedelement) {
+        color_panel.classList.remove("hidden");
+    }
+
     color_panel.classList.toggle("hidden");
+
+    if(color_panel.classList.contains("hidden")) {
+        oldClickedelement = undefined;
+    }
+    else {
+        oldClickedelement = color_panel.id;
+    } 
 }
 
 function toggle_profile_panel() {
-    var profile_panel = document.getElementById("profile_panel");
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.add("hidden")
+    }
+
+    if(profile_panel.id == oldClickedelement) {
+        profile_panel.classList.remove("hidden");
+    }
+
     profile_panel.classList.toggle("hidden");
+
+    if(profile_panel.classList.contains("hidden")) {
+        oldClickedelement = undefined;
+    }
+    else {
+        oldClickedelement = profile_panel.id;
+    } 
+
 }
 
 /* Toggle nav ropdpws  */
@@ -266,10 +316,28 @@ function resizeTableColumn() {
 
 
 }
-
-
-
-
-
 //END
+
+var overlayPanelAll = document.querySelectorAll(".overlay_panel");
+document.addEventListener("click" , function() {
+    var overlayPanelsHidden = [];
+    var overlayPanelsOepened = [];
+for(i=0; i<overlayPanelAll.length; i++) {
+    if(overlayPanelAll[i].classList.contains("hidden")) {
+        overlayPanelsHidden.push(overlayPanelAll[i]);
+    }
+    else {
+        overlayPanelsOepened.push(overlayPanelAll[i])
+    }
+    console.log(overlayPanelsHidden)
+    console.log("hidden")
+    console.log(overlayPanelsOepened.id)
+    console.log("opened")
+}
+if(overlayPanelsOepened.length>1){
+    overlayPanelsOepened[1].classList.add("hidden");
+    overlayPanelsOepened.pop();
+} 
+});
+
 

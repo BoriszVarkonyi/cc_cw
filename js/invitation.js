@@ -11,22 +11,18 @@ function toggleEntry(x) {
 
 function printPage() {
     window.print();
-  }
-
-function addEntry() {
-    var addEntryPanel = document.getElementById("add_entry")
-    var plusInfoWrapper = document.getElementById("plus_info_wrapper");
-    var newPlusInfo = document.createElement("form");
-    newPlusInfo.setAttribute("id", "adding_entry");
-    newPlusInfo.innerHTML = "<form id='adding_entry'><div class='table_row'><div class='table_item'><input type='text' placeholder='Type in the title'> <button class='save_entry'>Create</button> </div></div></form>";
-
-
-
-    plusInfoWrapper.appendChild(newPlusInfo);
-    addEntry.classList.add("hidden");
-
-    console.log(plusInfoWrapper);
-
-
 }
+
+var addEntryPanel = document.getElementById("add_entry")
+var addingEntryPanel = document.getElementById("adding_entry");
+
+function hideNshow () {
+    addEntryPanel.classList.toggle("hidden");
+    addingEntryPanel.classList.toggle("hidden");
+}
+
+
+    console.log();
+
+
   
