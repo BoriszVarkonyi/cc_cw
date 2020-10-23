@@ -52,22 +52,20 @@ window.addEventListener('load', (event) => {
 
 function toggle_language_panel() {
     var lang_panel = document.getElementById("language_panel");
-    var color_panel = document.getElementById("colormode_panel");
+    lang_panel.classList.toggle("hidden");
 }
 
 function toggle_colormode_panel() {
-    var lang_panel = document.getElementById("language_panel");
     var color_panel = document.getElementById("colormode_panel");
+    color_panel.classList.toggle("hidden");
 }
 
 function toggle_profile_panel() {
-    var element = document.getElementById("profile_panel");
-    element.classList.toggle("hidden");
+    var profile_panel = document.getElementById("profile_panel");
+    profile_panel.classList.toggle("hidden");
 }
 
-
-
-
+/* Toggle nav ropdpws  */
 
 function toggle_dt_dropdown() {
     var dt_drop = document.getElementById("dt_dropdown_menu");
