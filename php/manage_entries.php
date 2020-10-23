@@ -47,17 +47,9 @@
                 <div id="page_content_panel_main">
                     <div id="manage_entries_wrapper">
 
-                        <div id="new_entries_panel">
-
+                        <div id="new_entries_panel" class="entry_table_row_wrapper">
                             <p>New Entries</p>
-                            <div class="table_header">
-                                <div class="table_header_text">FEDARATION'S NAME</div>
-                                <div class="table_header_text">FEDARATION'S EMAIL ADDRESS</div>
-                                <div class="table_header_text">NATIONALITY</div>
-                                <div class="big_status_header"></div>
-                            </div>
-
-                            <div class="entry table_row_wrapper" id="entry_1">
+                            <div class="entry" id="entry_1">
                                 <div class="table_row" onclick="toggleEntry(this)">
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
@@ -115,7 +107,7 @@
                                 </div>
                             </div>
 
-                            <div class="entry table_row_wrapper" id="entry_2">
+                            <div class="entry" id="entry_2">
                                 <div class="table_row" onclick="toggleEntry(this)">
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>
@@ -176,16 +168,9 @@
 
 
                         </div>
-                        <div id="managed_entries_panel">
+                        <div id="managed_entries_panel" class="entry_table_row_wrapper">
                             <p>Managed Entries</p>
-                            <div class="table_header">
-                                <div class="table_header_text">FEDARATION'S NAME</div>
-                                <div class="table_header_text">FEDARATION'S EMAIL ADDRESS</div>
-                                <div class="table_header_text">NATIONALITY</div>
-                                <div class="big_status_header"></div>
-                            </div>
-                            
-                            <div class="entry table_row_wrapper" id="entry_f_1">
+                            <div class="entry" id="entry_f_1">
                                 <div class="table_row" onclick="toggleEntry(this)">
                                     <div class="table_item">Hungarian Fencing Federation</div>
                                     <div class="table_item">nemzetkozi.nevezes@hunfencing.hu</div>

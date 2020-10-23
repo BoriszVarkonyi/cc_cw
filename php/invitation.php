@@ -77,9 +77,9 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <p>Plus information</p>
                         </div>
                         <div class="db_panel_main">
-                            <div id="plus_info_wrapper">
+                            <div id="plus_info_wrapper" class="entry_table_row_wrapper">
 
-                                <div class="entry table_row_wrapper" id="">
+                                <div class="entry" id="">
                                     <div class="table_row" onclick="toggleEntry(this)">
                                         <div class="table_item invitation">Hungarian Fencing Federation</div>
                                     </div>
@@ -90,7 +90,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
-                                <div id="add_entry table_row_wrapper" onclick="addEntry()">
+                                <div id="add_entry" onclick="addEntry()">
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             Add information
@@ -99,7 +99,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
-                                <form id="adding_entry table_row_wrapper">
+                                <form id="adding_entry">
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             <input type="text" placeholder="Type in the title">
