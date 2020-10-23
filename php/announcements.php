@@ -27,7 +27,7 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
-                <button class="stripe_button orange" type="submit">
+                <button class="stripe_button orange" id="newAnnouncementsButton" type="button" onclick="hideNshow()">
                     <p>New Announcement</p>
                     <img src="../assets/icons/add-black-18dp.svg"></img>
                 </button>
@@ -50,11 +50,11 @@
                         </div>
                     </div>
 
-                    <form id="adding_entry table_row_wrapper">
-                        <div class="table_row" onclick="">
+                    <form id="adding_entry" class="hidden">
+                        <div class="table_row">
                             <div class="table_item">
                                 <input type="text" placeholder="Type in the title">
-                                <button class="save_entry">Create</button>
+                                <button class="save_entry" onsubmit="hideNshow()">Create</button>
                             </div>
                         </div>
                     </form>

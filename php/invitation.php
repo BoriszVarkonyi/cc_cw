@@ -90,7 +90,11 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
+<<<<<<< HEAD
                                 <div id="add_entry" onclick="addEntry()">
+=======
+                                <div id="add_entry" onclick=" hideNshow()">
+>>>>>>> de8a282f5653844f70920aa854f3281d2193c76c
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             Add information
@@ -99,11 +103,15 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
+<<<<<<< HEAD
                                 <form id="adding_entry">
+=======
+                                <form id="adding_entry" class="hidden">
+>>>>>>> de8a282f5653844f70920aa854f3281d2193c76c
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             <input type="text" placeholder="Type in the title">
-                                            <button class="save_entry">Create</button>
+                                            <button class="save_entry" onsubmit=" hideNshow()">Create</button>
                                         </div>
                                     </div>
                                 </form>

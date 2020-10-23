@@ -48,22 +48,81 @@ window.addEventListener('load', (event) => {
 });
 
 
-/* toggle panels */
+/*Toggle panels. */
+//Getting panels by id.
+var lang_panel = document.getElementById("language_panel");
+var color_panel = document.getElementById("colormode_panel");
+var profile_panel = document.getElementById("profile_panel");
+//Getting every panel.
+var elements = document.querySelectorAll(".overlay_panel");
+var oldClickedelement;
 
+//Toggle language panel.
 function toggle_language_panel() {
-    var lang_panel = document.getElementById("language_panel");
+    //Making every panel hidden.
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.add("hidden")
+    }
+    //Checking if the lang panel id equals the oldClickedelement.
+    if(lang_panel.id == oldClickedelement) {
+        //If yes it removes the class.
+        lang_panel.classList.remove("hidden");
+    }
+    //Toggles the class.
     lang_panel.classList.toggle("hidden");
+    //Checking if the lang panel class contains hidden.
+    if(lang_panel.classList.contains("hidden")) {
+        //If yes it sets the oldClickedelement undifend.
+        oldClickedelement = undefined;
+    }
+    else {
+        //If not it sets the oldClickedelement to the lang panel id.
+        oldClickedelement = lang_panel.id;
+    } 
 }
+//END
 
 function toggle_colormode_panel() {
-    var color_panel = document.getElementById("colormode_panel");
+    //Making every panel hidden
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.add("hidden")
+    }
+
+    if(color_panel.id == oldClickedelement) {
+        color_panel.classList.remove("hidden");
+    }
+
     color_panel.classList.toggle("hidden");
+
+    if(color_panel.classList.contains("hidden")) {
+        oldClickedelement = undefined;
+    }
+    else {
+        oldClickedelement = color_panel.id;
+    } 
 }
 
 function toggle_profile_panel() {
-    var profile_panel = document.getElementById("profile_panel");
+    //Making every panel hidden
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.add("hidden")
+    }
+
+    if(profile_panel.id == oldClickedelement) {
+        profile_panel.classList.remove("hidden");
+    }
+
     profile_panel.classList.toggle("hidden");
+
+    if(profile_panel.classList.contains("hidden")) {
+        oldClickedelement = undefined;
+    }
+    else {
+        oldClickedelement = profile_panel.id;
+    } 
+
 }
+//END
 
 /* Toggle nav ropdpws  */
 
@@ -266,10 +325,30 @@ function resizeTableColumn() {
 
 
 }
-
-
-
-
-
 //END
+/* Overlay_panels */
+//Nem tudom mi a fasz van itt .c
+var overlayPanelAll = document.querySelectorAll(".overlay_panel");
+document.addEventListener("click" , function() {
+    var overlayPanelsHidden = [];
+    var overlayPanelsOepened = [];
+for(i=0; i<overlayPanelAll.length; i++) {
+    if(overlayPanelAll[i].classList.contains("hidden")) {
+        overlayPanelsHidden.push(overlayPanelAll[i]);
+    }
+    else {
+        overlayPanelsOepened.push(overlayPanelAll[i])
+    }
+    console.log(overlayPanelsHidden)
+    console.log("hidden")
+    console.log(overlayPanelsOepened.id)
+    console.log("opened")
+}
+if(overlayPanelsOepened.length>1){
+    overlayPanelsOepened[1].classList.add("hidden");
+    overlayPanelsOepened.pop();
+} 
+});
+//END
+
 
