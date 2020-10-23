@@ -1,0 +1,9 @@
+System Requirements:
+
+For Competition Control:
+
+We advise using Google Chrome, Micrsoft Edge or Mozilla Firefox for maximum compativily.
+
+Some features might not work on different platforms.
+
+We strongly advise using Competition Control on a desktop.

@@ -2,7 +2,7 @@
 
 body, html {	/* Gives placeholder background and default font*/
     background-color: var(--c-white);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	color: var(--c-black);
 	height: 100%;
 	padding: 0;
@@ -21,7 +21,7 @@ a {
 button {
 	cursor: pointer;
 	padding: 0;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 ul {
@@ -52,7 +52,7 @@ textarea {
 	outline: none;
 	border: none;
 	resize: none;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 :hover {
@@ -137,7 +137,7 @@ textarea {
 
 .username_big {
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .role_big {
@@ -160,7 +160,7 @@ textarea {
 }
 
 #username {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	margin: 2px 0 -2px;
 	font-size: var(--f-small);
 }
@@ -260,7 +260,7 @@ textarea {
 
 .language_button.selected {
 	background-color: var(--c-lightergray);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .language_button:hover {
@@ -321,7 +321,7 @@ textarea {
 
 #logout_form > button {
 	font-size: var(--f-small);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	padding: 5px 15px;
 	border-radius: 30px;
 	background-color: var(--c-gray);
@@ -496,7 +496,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .nav_bar_title {
-	font-family: ProximaNovaThin;
+	font-family: var(--thin);
 	text-transform: uppercase;
 	padding: 0;
 	margin: 25px 0 7px 0;
@@ -697,13 +697,13 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .current_page {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	background-color: var(--c-transparent-white);
 }
 
 #need_help {
 	margin: auto 0 10px 0;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -767,7 +767,7 @@ input[type="range"]:focus::-ms-fill-upper {
 /* Title Stripe Elements */
 
 .comp_title {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	max-width: 50vw;
 	overflow: hidden;
@@ -776,7 +776,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .page_title {		/* The page's title fills the login panel and page_content*/
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	max-width: 50vw;
 	margin-left: 40px;
@@ -856,7 +856,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .label_text {	/* Used in forms, all caps, thin font    NO option buttons*/
-	font-family: ProximaNovaThin;
+	font-family: var(--thin);
 	text-transform: uppercase;
 	font-size: var(--f-medium);
 	color: var(--c-black);
@@ -882,17 +882,17 @@ input[type="range"]:focus::-ms-fill-upper {
 	background-color: rgba(37, 37, 37, 0.9);
 	backdrop-filter: blur(1px);
 	text-transform: none;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 .label_text_small {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-transform: initial;
 	font-size: var(--f-small);
 }
 
 .panel_title {
-	font-family: ProximaNovaThin;
+	font-family: var(--thin);
 	text-transform: uppercase;
 	font-size: var(--f-medium);
 	position: absolute;
@@ -956,7 +956,7 @@ input[type=checkbox] + label {
 	align-items: center;
 	justify-content: center;
 	margin: 0;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f-medium);
 	color: var(--c-black);
 }
@@ -1014,7 +1014,7 @@ input[type=radio] + label {
 	display: flex;
 	align-items: center;
 	margin-bottom: 8px;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f-medium);
 	color: var(--c-black);
 }
@@ -1276,7 +1276,7 @@ input[type=radio]:checked:disabled + label:before {
 #db_comp_status {
 	margin-left: auto;
 	padding-right: 10px;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .db_panel_stripe_icon {
@@ -1305,7 +1305,7 @@ input[type=radio]:checked:disabled + label:before {
 	padding: 0;
 	margin: 0;
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -1346,7 +1346,7 @@ input[type=radio]:checked:disabled + label:before {
 
 .sheduled_to_do_sublist {
 	font-size: var(--f-small);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
@@ -1428,7 +1428,7 @@ input[type=radio]:checked:disabled + label:before {
 #other_apps.opened > #other_apps_dropdown > p {
 	font-size: var(--f-small);
 	text-transform: uppercase;
-	font-family: ProximaNovaThin;
+	font-family: var(--thin);
 	margin: 10px 0 5px 5px;
 }
 
@@ -1438,7 +1438,7 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 #other_apps.opened > #other_apps_dropdown > a:hover {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 #program_news {
@@ -1455,7 +1455,7 @@ input[type=radio]:checked:disabled + label:before {
 	justify-content: center;
 	align-items: center;
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	position: absolute;
 }
 
@@ -1666,7 +1666,7 @@ input:focus::placeholder {
 
 .invitation_file_wrapper > p {
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .invitation_switch_wrapper {
@@ -1700,7 +1700,7 @@ input:focus::placeholder {
 
 .invitation_file_wrapper > label {
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	text-decoration: underline;
 }
 
@@ -1744,7 +1744,7 @@ input:focus::placeholder {
 }
 
 #plus_info_wrapper > .entry > .table_row > .table_item {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	justify-content: flex-start;
 	padding: 0 15px;
 }
@@ -1753,7 +1753,7 @@ input:focus::placeholder {
 	padding: 5px;
 	width: 80%;
 	height: 70%;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f--medium);
 	background-color: transparent;
 	border: 2px dashed var(--c-gray);
@@ -1782,7 +1782,7 @@ input:focus::placeholder {
 .save_entry {
 	padding: 3px 10px;
 	background-color: var(--c-orange);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-little);
 	border-radius: 5px;
 	display: flex;
@@ -1812,14 +1812,14 @@ input:focus::placeholder {
 /* Competitions page*/
 
 .cw_panel_title {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin: 0 0 20px 100px;
 }
 
 #comp_status {
-	font-family: ProximaNovaThin;
+	font-family: var(--thin);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin: -20px 0 0 100px;
@@ -1848,7 +1848,7 @@ input:focus::placeholder {
 }
 
 #comp_data > div > p {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin-right: 20px;
@@ -1861,7 +1861,7 @@ input:focus::placeholder {
 	box-shadow: var(--s-black);
 	align-self: center;
 	flex: 0 1 auto;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	display: flex;
 	flex-direction: column;
@@ -1896,13 +1896,13 @@ input:focus::placeholder {
 }
 
 .data_label {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-transform: uppercase;
 	margin-top: 10px;
 }
 
 .data_label:first-child {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-transform: uppercase;
 	margin-top: 0;
 }
@@ -2042,7 +2042,7 @@ input:focus::placeholder {
 }
 
 #time_stripe > div > p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	margin: 0 5px;
 }
@@ -2086,7 +2086,7 @@ input:focus::placeholder {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 }
 
@@ -2121,7 +2121,7 @@ input:focus::placeholder {
 }
 
 #timetable > div > a > p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-small);
 	position: absolute;
 	top: 5px;
@@ -2130,7 +2130,7 @@ input:focus::placeholder {
 
 #timetable > div.disabled > a > p {
 	color: var(--c-darkgray);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 #timetable > div > a > button {
@@ -2253,7 +2253,7 @@ input:focus::placeholder {
 
 #wc_notes::placeholder {
 	font-size: var(--f--small);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 #fencers_weapon_control {
@@ -2339,13 +2339,13 @@ div.desc_box {
 
 div.desc_box > p:nth-child(1) {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	padding: 30px 0 10px 20px;
 }
 
 div.desc_box > p:nth-child(2) {
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	padding-left: 20px;
 }
 
@@ -2396,7 +2396,7 @@ div.title_box {
 
 #upload_excel_form {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	transition: var(--t-basic);
 	text-align: center;
 }
@@ -2412,7 +2412,7 @@ div.title_box {
 #upload_excel_form > input[type="submit"] {
 	background-color: var(--c-orange);
 	padding: 5px 0;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-small);
 	border-radius: 10px;
 	margin-top: 10px;
@@ -2434,7 +2434,7 @@ label[for="ranking_excel"] {
 
 div.title_box > p:first-child {
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	transition: var(--t-basic);
 	opacity: 0;
 	visibility: hidden;
@@ -2442,13 +2442,13 @@ div.title_box > p:first-child {
 
 div.title_box > p {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	transition: var(--t-basic);
 }
 
 div.title_box > p:last-child {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	transition: var(--t-basic);
 }
 
@@ -2458,7 +2458,7 @@ div.title_box > form > p:only-of-type {
 
 div.title_box > form > p {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	transition: var(--t-basic);
 }
 
@@ -2470,7 +2470,7 @@ div.title_box > form {
 
 div.title_box > button {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	transition: var(--t-basic);
 	visibility: visible;
 	background-color: var(--c-transparent);
@@ -2515,7 +2515,7 @@ div.icon_box > img {
 
 #choose_ranking_button {
 	text-decoration: underline;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	background-color: transparent;
 	transition: var(--t-basic);
@@ -2727,7 +2727,7 @@ div.icon_box > img {
 }
 
 .ranking_name {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	margin-bottom: 25px;
 }
@@ -2759,7 +2759,7 @@ div.icon_box > img {
 }
 
 #ranking_info_panel > div > p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 }
 
@@ -2769,7 +2769,7 @@ div.icon_box > img {
 }
 
 #ranking_info_panel > div > div > p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 }
 
@@ -2803,7 +2803,7 @@ div.icon_box > img {
 
 #new_entries_panel > p {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	margin-bottom: 20px;
 }
 
@@ -2813,7 +2813,7 @@ div.icon_box > img {
 
 #managed_entries_panel > p {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	margin-bottom: 20px;
 }
 
@@ -2845,7 +2845,7 @@ div.icon_box > img {
 .approve_all_button {
 	font-size: var(--f-small);
 	background-color: transparent;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -2918,7 +2918,7 @@ div.icon_box > img {
 input.wc_time {
 	background-color: transparent;
 	color: var(--c-input);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f--medium);
 	margin: 0;
 	padding: 0;
@@ -2978,13 +2978,13 @@ input.wc_time {
 
 #confirmation_form > p:nth-of-type(1), #create_ranking_form > p:nth-of-type(1) {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	margin-bottom: 15px;
 }
 
 #confirmation_form > p:nth-of-type(2), #create_ranking_form > p:nth-of-type(2) {
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	margin-bottom: 10px;
 	border-bottom: 2.5px solid var(--c-red);
 }
@@ -3001,13 +3001,13 @@ input.wc_time {
 	margin-right: 15px;
 	padding: 6.5px;
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	border-radius: 5px;
 	background-color: var(--c-lightgray);
 }
 
 #confirmation_button_section > button:last-child {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	background-color: var(--c-orange);
 }
 
@@ -3063,7 +3063,7 @@ input.wc_time {
 
 .period > div:first-child > p:last-child {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	display: none;
 } 
 
@@ -3096,7 +3096,7 @@ input.wc_time {
 
 .period > div:nth-child(2) > p:first-child {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .period > div:nth-child(3) {
@@ -3150,12 +3150,12 @@ input.wc_time {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div.selected > p { /* Period Info Fencers minutes  */
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div > p {
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-align: center;
 	padding: 5px 0;
 	width: 50%;
@@ -3168,7 +3168,7 @@ input.wc_time {
 .period.opened > div:nth-child(3) > div:nth-child(1) > div:last-child > p {
 	width: 100%;
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-align: center;
 	padding: 10px 0;
 }
@@ -3214,7 +3214,7 @@ input.wc_time {
 
 .period.opened > div:nth-child(3) > div:nth-child(3) > p { /* Period buttons */
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;  
+	font-family: var(--bold);  
 	width: 50%;
 	text-align: center;
 }
@@ -3297,7 +3297,7 @@ input.wc_time {
 	align-items: center;
 	justify-content: center;
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .piste.main > div:first-of-type, .piste.main > div:last-of-type {
@@ -3331,7 +3331,7 @@ input.wc_time {
 	justify-content: center;
 	padding: 0 20px;
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	position: relative;
 }
 
@@ -3388,7 +3388,7 @@ input.wc_time {
 }
 
 .piste_settings_panel > div > p:first-of-type {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-small);
 	position: absolute;
 	bottom: 60%;
@@ -3456,7 +3456,7 @@ input.wc_time {
 }
 
 #pool_listing  > .entry > .table_row > .table_item {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	justify-content: flex-start;
 	padding: 0 15px;
 }
@@ -3466,7 +3466,7 @@ input.wc_time {
 }
 
 #pool_listing  > .entry > .entry_panel > .pool_table_wrapper > .table_row > .table_item:first-of-type {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .drag_fencer {
@@ -3505,14 +3505,14 @@ input.wc_time {
 #pools_drag_panel > .drag_fencer {
 	padding: 5px;
 	background-color: var(--c-lightestgray);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 #pools_drag_panel:before {
 	content: "Drag Fencers here";
 	align-self: center;
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	color: var(--c-gray);
 	position: absolute;
 	left: 50%;
@@ -3587,7 +3587,7 @@ input.wc_time {
 
 .guide_option p:first-of-type {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .guide_option > div:first-of-type {
@@ -3601,7 +3601,7 @@ input.wc_time {
 
 .guide_option div img {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	width: 50px;
 	height: 50px;
 }
@@ -3690,7 +3690,7 @@ input.wc_time {
 
 .match_fencers_wrapper > div > p {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .match_fencers_wrapper > div > button {
@@ -3722,7 +3722,7 @@ input.wc_time {
 .underlined_button {
 	text-decoration: underline;
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	background-color: transparent;
 	padding: 3px 5px;
 }
@@ -3773,7 +3773,7 @@ input.wc_time {
 	font-size: var(--f-medium);
 	text-transform: uppercase;
 	color: var(--c-red);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .fencers_cards_wrapper {
@@ -3788,7 +3788,7 @@ input.wc_time {
 	width: 50%;
 	display: flex;
 	flex-direction: column;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	align-items: center;
 }

@@ -24,7 +24,7 @@ footer > div > div {
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f-medium);
 }
 
@@ -38,14 +38,14 @@ footer > div > div:nth-of-type(1) {
 }
 
 footer > div > div:nth-of-type(1) > p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 
 }
 
 footer > div > div:nth-of-type(2) > p:nth-child(1), footer > div > div:nth-of-type(3) > p:nth-child(1) {
 	text-transform: uppercase;
 	margin-bottom: 20px;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 footer > div > div:nth-of-type(2), footer > div > div:nth-of-type(3) {
@@ -71,7 +71,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 #cw_header > a {
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	margin-left: 20px;
 }
 
@@ -105,7 +105,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	height: 100%;
 	width: 25%;
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	background-color: var(--c-white);
 	display: flex;
 	justify-content: center;
@@ -131,7 +131,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	justify-content: center;
 	z-index: 2;
 	box-shadow: var(--s-black);
-	overflow: hidden;
+	overflow: hidden;  
 }
 
 #competition_dropdown.closed {
@@ -142,7 +142,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 #competition_dropdown > a {
 	margin: 0 0 10px 15px;
 	font-size: var(--f-medium);
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	opacity: 1;
 	transition: opacity var(--t-basic);
 }
@@ -227,7 +227,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 .slide > p {
 	font-size: calc( var(--f-large) + 1em + 1vmin) ;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	color: var(--c-white);
 	margin-left: 30px;
 	z-index: 1;
@@ -236,7 +236,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 .slide > button {
 	background-color: var(--c-orange);
 	padding: 5px 10px;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	border-radius: 5px;
 	margin-left: 30px;
@@ -267,7 +267,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .cw_panel_title {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin-bottom: 20px;
@@ -291,13 +291,13 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .cw_panel_title_wrapper > p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 }
 
 .cw_panel_subtitle {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	text-transform: uppercase;
 	position: absolute;
@@ -308,7 +308,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 .cw_table_wrapper > .table_row > .table_item:first-child {
 	justify-content: flex-start;
 	padding-left: 30px;
-    font-family: ProximaNovaBold;
+    font-family: var(--bold);
     overflow: visible;
 }
 
@@ -329,7 +329,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 .table_item.live > a {
 	color: var(--c-red);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	text-decoration: underline;
 	margin-right: 30px;
@@ -360,16 +360,16 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .video_wrapper > div > p:first-child {
-    font-family: ProximaNovaBold;
+    font-family: var(--bold);
     font-size: var(--f-large);
 }
 
 .video_wrapper > div > p:last-child {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 .about_us {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 /* Competitions Pages */
@@ -377,7 +377,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 input[value="Search"] {
 	color: var(--c-black);
 	background-color: var(--c-orange);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	border-radius: 5px;
 	padding: 2px 25px;
@@ -463,7 +463,7 @@ input[value="Search"] {
 }
 
 #comp_status {
-	font-family: ProximaNovaThin;
+	font-family: var(--thin);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin: -20px 0 0 100px;
@@ -493,7 +493,7 @@ input[value="Search"] {
 }
 
 #comp_data > div > p {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin-right: 20px;
@@ -510,7 +510,7 @@ input[value="Search"] {
 #competition_wrapper > div {
 	width: 70%;
 	flex: 0 1 auto;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 }
 
@@ -571,7 +571,7 @@ input[value="Search"] {
 	align-items: center;
 	color: var(--c-black);
 	font-size: var(--f--small);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 #competition_wrapper > div:nth-of-type(2) > a:last-child.disabled {
@@ -597,13 +597,13 @@ input[value="Search"] {
 }
 
 .data_label {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-transform: uppercase;
 	margin-top: 10px;
 }
 
 .data_label:first-child {
-	font-family: ProximaNova;
+	font-family: var(--reg);
 	text-transform: uppercase;
 	margin-top: 0;
 }
@@ -764,12 +764,12 @@ input[value="Search"] {
 }
 
 #top_videos_panel_full > .video_wrapper > div > p:nth-child(1) {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
     font-size: var(--f-medium);
 }
 
 #top_videos_panel_full > .video_wrapper > div > p:nth-child(2) {
-	font-family: ProximaNova;
+	font-family: var(--reg);
     font-size: var(--f-small);
 }
 
@@ -791,7 +791,7 @@ input[value="Search"] {
 
 #select_fencers_panel > div > .table_row {
 	max-height: 20px;
-	font-family: ProximaNova;
+	font-family: var(--reg);
 }
 
 #select_fencers_panel > div > .table_row:nth-child(even) {
@@ -900,7 +900,7 @@ input[value="Search"] {
 
 #no_livestream {
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 #no_livestream.hidden {
@@ -929,7 +929,7 @@ input[value="Search"] {
 	padding: 10px 5px;
 	border-left: var(--c-red) 15px solid;
 	border-right: var(--c-green) 15px solid;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 }
 
@@ -964,7 +964,7 @@ input[value="Search"] {
 
 #round_info > p {
 	padding: 10px 10%;
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 }
 
@@ -1009,7 +1009,7 @@ input[value="Search"] {
 
 #round_time {
 	font-size: calc( var(--f-large) + 20px);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	margin-top: 25px;
 }
 
@@ -1024,7 +1024,7 @@ input[value="Search"] {
 
 .fencer_score_wrapper > p {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 .machine_fencer {
@@ -1045,7 +1045,7 @@ input[value="Search"] {
 
 .machine_fencer > p {
 	font-size: calc( var(--f-large) + 30px);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 /* Saved Competitions */
@@ -1113,7 +1113,7 @@ input[value="Search"] {
 .article_title {
 	width: 100%;
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	text-transform: uppercase;
 	margin-bottom: 5px;
 }
@@ -1153,12 +1153,12 @@ input[value="Search"] {
 
 #article_wrapper p.h1 {
 	font-size: var(--f-large);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 }
 
 #article_wrapper p.h2 {
 	font-size: var(--f-medium);
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	text-transform: uppercase;
 }
 
@@ -1197,7 +1197,7 @@ input[value="Search"] {
 }
 
 #cw_confirmation p {
-	font-family: ProximaNovaBold;
+	font-family: var(--bold);
 	font-size: var(--f-medium);
 	margin: 35px 0;
 }
