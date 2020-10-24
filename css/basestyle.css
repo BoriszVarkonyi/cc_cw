@@ -142,7 +142,7 @@ input {
 	border: none;
 }
 
-input.hidden {
+input.hidden, input.disabled {
 	display: none;
 }
 
