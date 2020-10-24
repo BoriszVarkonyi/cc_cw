@@ -326,12 +326,17 @@ function resizeTableColumn() {
 
 }
 //END
-/* Overlay_panels */
+
+/* Overlay_panels*/
 //Nem tudom mi a fasz van itt .c
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
+var overlayPanelsOepened = [];
 document.addEventListener("click" , function() {
     var overlayPanelsHidden = [];
-    var overlayPanelsOepened = [];
+    if(overlayPanelsOepened.length>=1){
+        overlayPanelsOepened[0].classList.add("hidden");
+        overlayPanelsOepened.pop(overlayPanelsOepened[0]);
+    }
 for(i=0; i<overlayPanelAll.length; i++) {
     if(overlayPanelAll[i].classList.contains("hidden")) {
         overlayPanelsHidden.push(overlayPanelAll[i]);
@@ -341,13 +346,10 @@ for(i=0; i<overlayPanelAll.length; i++) {
     }
     console.log(overlayPanelsHidden)
     console.log("hidden")
-    console.log(overlayPanelsOepened.id)
+    console.log(overlayPanelsOepened)
     console.log("opened")
 }
-if(overlayPanelsOepened.length>1){
-    overlayPanelsOepened[1].classList.add("hidden");
-    overlayPanelsOepened.pop();
-} 
+
 });
 //END
 
