@@ -49,7 +49,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Invitation</title>
+    <title>Invitation of {comp name}</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
@@ -82,7 +82,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <p>Plus information</p>
                         </div>
                         <div class="db_panel_main">
-                            <div id="plus_info_wrapper">
+                            <div id="plus_info_wrapper" class="entry_table_row_wrapper">
 
                                 <div class="entry" id="">
                                     <div class="table_row" onclick="toggleEntry(this)">
@@ -95,7 +95,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
-                                <div id="add_entry" onclick="addEntry()">
+                                <div id="add_entry" onclick=" hideNshow()">
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             Add information
@@ -104,25 +104,14 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
-                                <form id="adding_entry">
+                                <form id="adding_entry" class="hidden">
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             <input type="text" placeholder="Type in the title">
-                                            <button class="save_entry">Create</button>
+                                            <button class="save_entry" onsubmit=" hideNshow()">Create</button>
                                         </div>
                                     </div>
                                 </form>
-
-                                <div class="entry" id="">
-                                    <div class="table_row" onclick="toggleEntry(this)">
-                                        <div class="table_item invitation">Hungarian Fencing Federation</div>
-                                    </div>
-                                    <div class="entry_panel collapsed">
-                                        <textarea name="" id=""></textarea>
-                                        <input type="text" class="hidden">
-                                        <button class="panel_submit">Save</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

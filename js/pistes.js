@@ -1,33 +1,35 @@
+//PISTES SETTINGS
 var oldclickedPiste;
 function togglePisteSettings(x) {
     var clickedPisteButton = x;
     var clickedPiste = clickedPisteButton.parentNode.parentNode;
     var pistes = document.querySelectorAll(".piste");
- 
+    //Making every piste unfocused.
     for (i = 0; i < pistes.length; i++) {
 
         pistes[i].classList.remove("focused");
 
     }
+    //Checking if the oldclickedPiste var. equals the clickedPiste id.
     if (clickedPiste.id == oldclickedPiste){
-
+        //If yes than it adds "focused".
         clickedPiste.classList.add("focused");
 
     }
-
+    
     clickedPiste.classList.toggle("focused");
-
+    //Checking if we clicked the same piste.
     if (clickedPiste.classList.contains("focused")){
-
-        oldclickedPiste = clickedPiste.id;
+        //If yes it saves the piste id.
+        oldclickedPiste = clickedPiste.id
     }
     else{
-
+    //If no it sets the oldclickedPiste var. undifened
     oldclickedPiste = undefined;
 
-    }    
+    }  
 }
-
+//END
 
 
 

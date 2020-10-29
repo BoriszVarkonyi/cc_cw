@@ -70,7 +70,7 @@
                                 
                                 if ($array_equipment[$i] != 0) {
                                     ?>
-                                        <div class="table_row">
+                                        <div class="table_row table_row_wrapper">
                                             <div class="table_item"><?php echo $equipment[$i] ?></div>
                                             <div class="table_item"><?php echo $array_equipment[$i] ?></div>
                                     

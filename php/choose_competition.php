@@ -62,7 +62,7 @@ $query_comps = mysqli_query($connection, $query);
             </button>
         </div>
         <div id="panel_main">
-            <div id="competitions_wrapper">
+            <div id="competitions_wrapper" class="table_row_wrapper wrapper">
                 <div class="table_header">
                     <div class="table_header_text">NAME</div>
                     <div class="table_header_text">STATUS</div>
@@ -82,8 +82,8 @@ $query_comps = mysqli_query($connection, $query);
                 <?php   ?>
 
                 <div class="table_row" onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>';" style="cursor: pointer;">
-                        <div class="table_item"><?php echo $comp_name; ?></div>
-                        <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
+                    <div class="table_item"><?php echo $comp_name; ?></div>
+                    <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
                 </div>
 
                 <?php

@@ -57,7 +57,7 @@
         <!-- ongoing competitions panel (left) (placeholder)  -->
         <div id="ongoing_competitions_panel">
             <p class="cw_panel_title">Ongoing Competitions</p>
-            <div class="cw_table_wrapper">
+            <div class="cw_table_wrapper table_row_wrapper">
             <?php
                 //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)
                 $qry = "SELECT * FROM competitions WHERE comp_status = 3 ORDER BY comp_start DESC";
@@ -140,4 +140,5 @@
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
+<script src="../js/cw_slideshow.js"></script>
 </html>

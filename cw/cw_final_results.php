@@ -24,7 +24,7 @@
             <input type="submit" value="Search">
         </form>
 
-        <div class="cw_table_wrapper final_results_wrapper">
+        <div class="cw_table_wrapper final_results_wrapper table_row_wrapper">
             <div class="table_row">
                 <div class="table_item">
                     1.

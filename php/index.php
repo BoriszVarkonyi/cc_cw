@@ -193,7 +193,7 @@ checkComp($connection);
 
                                 <div class="db_panel_title_stripe">
                                     <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
-                                    <p>Competition's status:</p><p class="dp_comp_status"><?php echo statusConverter($comp_status) ?></p>
+                                    <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                                 </div>
 
                                 <!-- competiton status table -->
@@ -224,12 +224,10 @@ checkComp($connection);
                                         <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" alt=""></a>
 
                                         <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" alt=""></a>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <!-- chat panel -->
                         <div class="half_width_flex">
                             <div class="db_panel">
@@ -239,7 +237,6 @@ checkComp($connection);
                                 </div>
                             </div>
                         </div>
-
                     </div>
             </div>
         </div>

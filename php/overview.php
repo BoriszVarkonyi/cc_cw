@@ -28,37 +28,43 @@
             <div id="title_stripe">
                 <p class="page_title">Overview</p>
             </div>
-            <div id="page_content_panel_main">
-                <div class="wrapper" id="overview_wrapper">
+            <div id="page_content_panel_main" class="table_row_wrapper">
+                <div class="wrapper table_row_wrapper" id="overview_wrapper">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
                         <div class="table_header_text">NAME</div>
                         <div class="table_header_text">NATIONALITY</div>
+                        <div class="big_status_header"></div>
                     </div>
                     <div class="table_row">
                         <div class="table_item">1.</div>
                         <div class="table_item">Néve</div>
                         <div class="table_item">Náte</div>
+                        <div class="big_status_item gold"></div>
                     </div>
                     <div class="table_row">
                         <div class="table_item">2.</div>
                         <div class="table_item">Néve</div>
                         <div class="table_item">Náte</div>
+                        <div class="big_status_item silver"></div>
                     </div>
                     <div class="table_row">
                         <div class="table_item">3.</div>
                         <div class="table_item">Néve</div>
                         <div class="table_item">Náte</div>
+                        <div class="big_status_item bronze"></div>
                     </div>
                     <div class="table_row">
                         <div class="table_item">4.</div>
                         <div class="table_item">Néve</div>
                         <div class="table_item">Náte</div>
+                        <div class="big_status_item"></div>
                     </div>
                     <div class="table_row">
                         <div class="table_item">5.</div>
                         <div class="table_item">Néve</div>
                         <div class="table_item">Náte</div>
+                        <div class="big_status_item"></div>
                     </div>
                 </div>
             </div>

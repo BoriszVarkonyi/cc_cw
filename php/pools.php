@@ -214,7 +214,7 @@
                 <div id="pools_wrapper">
 
                     STATE: 1
-                    <div id="pool_listing" class="with_drag"> 
+                    <div id="pool_listing" class="with_drag entry_table_row_wrapper"> 
                         <div class="entry" id="">
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>

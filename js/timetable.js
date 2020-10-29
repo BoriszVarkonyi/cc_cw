@@ -17,6 +17,7 @@ function closeWcPanel() {
     setWcPanel.classList.add("hidden");
 }
 
+
 //END
 
 //Shows which day the competition starts and ends on

@@ -133,7 +133,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                                 <img src="../assets/icons/close-black-18dp.svg" alt="" class="panel_button">
                             </button>
                             <form action="" id="import_ref" method="POST">
-                                <div class="select_competition_wrapper">
+                                <div class="select_competition_wrapper table_row_wrapper">
                                 <?php
                             
                                 $query_other = "SELECT * FROM competitions WHERE comp_organiser_id = $org_id EXCEPT SELECT * FROM competitions WHERE comp_id = $comp_id";
@@ -185,7 +185,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div class="wrapper">
+                    <div class="wrapper table_row_wrapper">
 
                     <?php 
                     

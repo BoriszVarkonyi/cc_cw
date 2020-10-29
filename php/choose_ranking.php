@@ -155,7 +155,7 @@ if(isset($_POST["submit"]) ){
                                     <input type="search" name="" id="" placeholder="Search by name">
                                     <input type="button" name="" id="" value="Search">
                                 </form>
-                                <div>
+                                <div class="table_row_wrapper">
                                     <?php
 
                                         $select_ranking_rows = "SELECT * FROM ranking WHERE ass_comp_id = 0";

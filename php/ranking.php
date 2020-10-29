@@ -178,11 +178,11 @@ if(mysqli_num_rows($query_do) == 0){
                                 <input type="search" name="fencers_nationality" id="username_input" placeholder="Type the fencers's nationality">
 
                                 <label for="fencers_points" class="label_text">POINTS</label>
-                                <input type="number" placeholder="-" class="number_input extra_small" name="fencer_points">
+                                <input type="number" placeholder="-" id="ranking_points" class="number_input extra_small" name="fencer_points">
 
                                 <label for="fencers_dob" class="label_text">DATE OF BIRTH</label>
                                 <input type="date" name="fencer_dob">
-                                <button type="submit" name="submit" class="panel_submit" value="Save">Save</button>
+                                <button type="submit" name="submit" class="panel_submit" value="Save" >Save</button>
                             </form>
                     </div>
                     <!-- ranking info button -->
@@ -282,7 +282,7 @@ if(mysqli_num_rows($query_do) == 0){
                         }
                     ?>
 
-                    <div class="wrapper">
+                    <div class="wrapper table_row_wrapper">
 
                         <?php
                             if ($row_cnt != 0) {

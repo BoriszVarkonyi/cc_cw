@@ -36,7 +36,7 @@
                         </div>
                         <div>
                             <p>Getting Started</p>
-                            <p>Open Guide for new Organisers!</p>
+                            <p>Guide for new Organisers!</p>
                         </div>
                     </div>
                     <div class="guide_option">
@@ -46,6 +46,15 @@
                         <div>
                             <p>Everything explained</p>
                             <p>User Guide covering all.</p>
+                        </div>
+                    </div>
+                    <div class="guide_option">
+                        <div>
+                            <img src="../assets/icons/healing-black-18dp.svg" alt="">
+                        </div>
+                        <div>
+                            <p>Patch Notes</p>
+                            <p>See what updates we made!</p>
                         </div>
                     </div>
                 </div>

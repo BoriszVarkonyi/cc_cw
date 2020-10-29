@@ -115,11 +115,8 @@ if(isset($_POST["create_piste"])){
     
             header("Location: pistes.php?comp_id=$comp_id");
 
-
         }
-
     }
-
 }
 
 ?>
@@ -192,17 +189,11 @@ if(isset($_POST["create_piste"])){
                                 <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_number">
 
                                 <!--Numbered-->
-
-
-
-
                                 <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE QUANTITY</label>
                                 <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="quantity">
 
                                 <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE START NUMBER</label>
                                 <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="start_num">
-
-
 
                             </form>
                             
@@ -212,8 +203,6 @@ if(isset($_POST["create_piste"])){
                 </div>
                 <div id="page_content_panel_main">
                     <div id="pistes_wrapper">
-
-
 
                     <div id="main_pistes_wrapper" class="piste_wrapper">
 
@@ -227,7 +216,6 @@ if(isset($_POST["create_piste"])){
                             $piste_id = $row["id"];
                             $piste_number = $row["piste_number"];
                             $piste_activity = $row["piste_activity"];
-                            
                             
                             ?>
 
@@ -247,7 +235,6 @@ if(isset($_POST["create_piste"])){
                                     echo "red";
 
                                 }
-                                
                                 
                                 ?>"></div>
                             </div>

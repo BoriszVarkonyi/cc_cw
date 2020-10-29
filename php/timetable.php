@@ -241,10 +241,10 @@ if($query_do){
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             
-                            <form class="overlay_panel_form flex" action="" method="POST" id="new_wc_day" autocomplete="off">
+                            <form class="overlay_panel_form flex table_row_wrapper"" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
-                                <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes: controls done in 10 minutes:</label>
+                                <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes:</label>
                                 <input type="number" class="number_input small" placeholder="e.g. 8" id="wc_input" name="wc_per_ten_min">
 
                                 <div class="table_header">
@@ -254,16 +254,15 @@ if($query_do){
                                 <div class="table_row" id="table_row_1">
                                     <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p class="wc_time">:00</p></div>
                                     <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p class="wc_time">:00</p></div>
-                                  <!-- <button type="button" onclick="" class="close_add_peroid">
+                                    <!-- <button type="button" onclick="" class="close_add_peroid">
                                         <img src="../assets/icons/close-black-18dp.svg" alt="">
                                     </button> -->
                                 </div>
                                         
                                 <div class="add_peroid_container">
-                                    <button type="button" class="panel_button" onclick="addPeriod()">
+                                    <button type="button" onclick="addPeriod()">
                                         <img src="../assets/icons/more_time-black-18dp.svg" alt="">
                                     </button>
-                                    
                                 </div>
                                 <input type="submit" name="add_period" value="Save" class="panel_submit">
                             </form>
@@ -284,7 +283,6 @@ if($query_do){
                         </div>
                         <div id="timetable_container">
                             <div id="timetable_header">
-
                                 <div>Monday</div>
                                 <div>Tuesday</div>
                                 <div>Wednesday</div>
@@ -292,7 +290,6 @@ if($query_do){
                                 <div>Friday</div>
                                 <div>Saturday</div>
                                 <div>Sunday</div>
-                                
                             </div>
                             <div id="timetable">
                                 <?php
@@ -337,14 +334,11 @@ if($query_do){
     
                                     }
 
-
                                     echo "<div id='$year-$monthid-$ione' onclick='$toonclick'><a $href><p>$i</p>$toinneronclick</a></div>";
 
                                 }
                                 
-                                
                                 ?>
-                                
                             </div>
                         </div>
                     </div>

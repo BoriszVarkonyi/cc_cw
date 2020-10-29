@@ -38,7 +38,7 @@
                 </div>
                 <div id="page_content_panel_main">
                     <form action="" id="fencers_weapon_control_wrapper" class="wrapper">
-                        <div id="issues_panel">
+                        <div id="issues_panel table_row_wrapper">
                             <div class="table_header">
                                 <div class="table_header_text">ISSUE</div>
                                 <div class="table_header_text">QUANTITY</div>
