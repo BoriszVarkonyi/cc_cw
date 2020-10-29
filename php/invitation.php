@@ -83,11 +83,11 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     <div class="table_row" onclick="toggleEntry(this)">
                                         <div class="table_item invitation">Hungarian Fencing Federation</div>
                                     </div>
-                                    <div class="entry_panel collapsed">
+                                    <form class="entry_panel collapsed">
                                         <textarea name="" id=""></textarea>
                                         <input type="text" class="hidden">
                                         <button class="panel_submit">Save</button>
-                                    </div>
+                                    </form>
                                 </div>
 
                                 <div id="add_entry" onclick=" hideNshow()">

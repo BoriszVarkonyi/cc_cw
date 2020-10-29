@@ -115,7 +115,6 @@ body, html {	/* Gives placeholder background and default font*/
 a {
 	text-decoration: none;
 	color: var(--c-black);
-	font-size: var(--f--small);
 	white-space: nowrap;
 	cursor: pointer;
 }
@@ -464,7 +463,7 @@ input[type="search"]::placeholder {
 	font-family: var(--bold);
 }
 
-input[value="Search"], input[value="Use Ranking"], input[value="Create Ranking"] {
+input[value="Search"] {
 	padding: 7.5px 30px;
 	background-color: var(--c-orange);
 	border-radius: 5px;
@@ -473,26 +472,7 @@ input[value="Search"], input[value="Use Ranking"], input[value="Create Ranking"]
 	cursor: pointer;
 }
 
-input[value="Use Ranking"] {
-	margin-left: auto;
-}
-
-input[value="Use Ranking"].disabled {
-	color: var(--c-darkgray);
-	background-color: var(--c-gray);
-}
-
-input[value="Create Ranking"] {
-	margin-top: 50px;
-}
-
-input[value="Create Ranking"].disabled {
-	color: var(--c-darkgray);
-	background-color: var(--c-gray);
-}
-
 /* Extended Search Input */
-
 
 /* Custom Select Input */
 

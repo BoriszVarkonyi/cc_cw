@@ -570,7 +570,7 @@ input[value="Search"] {
 	justify-content: center;
 	align-items: center;
 	color: var(--c-black);
-	font-size: var(--f--small);
+	font-size: var(--f-small);
 	font-family: var(--bold);
 }
 

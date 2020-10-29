@@ -129,27 +129,20 @@ if(isset($_POST["submit"]) ){
         <!-- navbar -->
         <div class="page_content_flex">
                 <div id="title_stripe">
-                    <p class="page_title">Choose Ranking creating method</p>
+                    <p class="page_title">Choose Ranking Creating Method</p>
                 </div>
                 <div id="page_content_panel_main">
-
-                
-            
-
-
                     <div id="choose_ranking_wrapper">
-
-
-                        <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()">
-
-                            <button class="close_ranking_button hidden" id="close_upload_ranking_panel">
+                        <div id="upload_ranking_panel">
+                            <button  onclick="toggleUploadRankingPanel()" class="open_panel_button"></button>
+                            <button class="panel_button" onclick="toggleUploadRankingPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             <div class="desc_box">
                                 <p>Use existing Ranking</p>
                                 <p>You can choose a ranking from our database.</p>
                             </div>
-                            <div id="ranking_search" class="closed">
+                            <div id="ranking_search">
                                 <form>
                                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                                     <input type="search" name="" id="" placeholder="Search by name">
@@ -197,30 +190,26 @@ if(isset($_POST["submit"]) ){
                                 <img src="../assets/icons/cloud_download-black-18dp.svg" alt="">
                             </div>
                             <div class="title_box">
-                                <p id="upload_panel_title">
-                                    Use existing Ranking
-                                </p>
                                 <button value="Choose Ranking" id="choose_ranking_button" onclick="chooseRankingSearch()">Choose Ranking</button>
                             </div>
                         </div>
                     
-                        <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
-                            <button class="close_ranking_button hidden" id="close_create_ranking_panel">
+                        <div id="create_ranking_panel">
+                            <button onclick="toggleCreateRankingPanel()" class="open_panel_button"></button>
+                            <button class="panel_button" onclick="toggleCreateRankingPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
                             <div class="desc_box">
                                 <p>Create Ranking</p>
-                                <p>You can create your own ranking that you can download and use later.</p>
+                                <p>You can create your own ranking to use for this competition.</p>
                             </div>
-                            <div id="ranking_create" class="closed">
-                                <form name="submit" method="POST">
-                                    <label for="ranking_name" class="label_text">NAME OF THE RANKING</label>
-                                    <input type="text" name="ranking_name">
-                                    <label for="ranking_name" class="label_text">PASSWORD</label>
-                                    <input type="password" name="ranking_password">
-                                    <input type="submit" name="submit" value="Create Ranking">
-                                </form>
-                            </div>
+                            <form name="submit" method="POST" id="ranking_create" class="closed">
+                                <label for="ranking_name" class="label_text">NAME OF THE RANKING</label>
+                                <input type="text" name="ranking_name">
+                                <label for="ranking_name" class="label_text">PASSWORD</label>
+                                <input type="password" name="ranking_password">
+                                <input type="submit" name="submit" value="Create Ranking" class="ranking_creation_button">
+                            </form>
                             <div class="icon_box">
                                 <svg>
                                     <circle cx="50%" cy="50%" r="47.5%"/>
@@ -228,7 +217,6 @@ if(isset($_POST["submit"]) ){
                                 <img src="../assets/icons/create-black-18dp.svg" alt="">
                             </div>
                             <div class="title_box">
-                                <p>Placeholder text</p>
                                 <button type="button" value="Create Ranking" onclick="chooseRankingCreate()">Create Ranking</button>
                             </div>
                         </div>
