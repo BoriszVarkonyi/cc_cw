@@ -326,17 +326,16 @@ function resizeTableColumn() {
 
 }
 //END
+/*
+/* Overlay_panels
+//Nem tudom mi a fasz van itt :c
 
-/* Overlay_panels*/
-//Nem tudom mi a fasz van itt .c
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
-document.addEventListener("click" , function() {
+function kurva() {
+    //console.log("Futok")
     var overlayPanelsHidden = [];
-    if(overlayPanelsOepened.length>=1){
-        overlayPanelsOepened[0].classList.add("hidden");
-        overlayPanelsOepened.pop(overlayPanelsOepened[0]);
-    }
+    //var overlayPanelsOepened = [];
 for(i=0; i<overlayPanelAll.length; i++) {
     if(overlayPanelAll[i].classList.contains("hidden")) {
         overlayPanelsHidden.push(overlayPanelAll[i]);
@@ -344,13 +343,46 @@ for(i=0; i<overlayPanelAll.length; i++) {
     else {
         overlayPanelsOepened.push(overlayPanelAll[i])
     }
-    console.log(overlayPanelsHidden)
-    console.log("hidden")
-    console.log(overlayPanelsOepened)
-    console.log("opened")
+    if(overlayPanelsOepened.length>1){
+        console.log("A faszert nagyob?")
+        /*if(overlayPanelsOepened.length=2) {
+            overlayPanelsOepened.pop()
+        }*/
+        //else{
+            for(i=0; i<overlayPanelsOepened.length; i++) {
+                if(overlayPanelsOepened[0] == overlayPanelsOepened[i]){
+                    console.log(overlayPanelsOepened[0])
+                    console.log(overlayPanelsOepened[i])
+                    overlayPanelsOepened[0].classList.add("hidden");
+                    overlayPanelsOepened.pop(overlayPanelsOepened[0]);
+                    overlayPanelsOepened[i].classList.add("hidden");
+                    overlayPanelsOepened.pop(overlayPanelsOepened[i]);
+                    
+                }
+
+            }
+        //}    
+    }
+}
+console.log("kurva overlay")
+console.log(overlayPanelsOepened)
 }
 
-});
-//END
 
+function callback(mutationsList, observer) {
+    //console.log("lefutottam")
+    mutationsList.forEach(mutation => {
+        if (mutation.attributeName === 'class') {
+            kurva()
+        }
+    })
+}
+    
+
+const mutationObserver = new MutationObserver(callback)
+for(i=0; i<overlayPanelAll.length; i++){
+mutationObserver.observe(overlayPanelAll[i], { attributes: true })
+}
+*/
+//END
 
