@@ -30,10 +30,15 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
     }
 
     //get logo image
-    if (file_exists("../uploads/$comp_id.png")) {
-        $logo = "../uploads/$comp_id.png";
+    if (file_exists("../uploads/" . $comp_id . ".png")) {
+
+        $logo = "../uploads/" . $comp_id . ".png";
+        $delete_btn_class = "panel_button";
+
     } else {
+
         $logo = "../assets/icons/delete-black-18dp.svg";
+        $delete_btn_class = "panel_button disabled";
     }
         
 ?>
@@ -127,10 +132,15 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <p>Add competition logo</p>
                         </div>
                         <div class="db_panel_main">
-                            <!--Only visible when file is uploaded-->
-                            <button class="panel_button">
-                                <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                            </button>
+
+                            <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delet_logo">
+                                <!--Only visible when file is uploaded-->
+
+                                <button id="delet_logo" class="panel_button" >
+                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                </button>
+                            </form>
+
                             <div class="invitation_file_wrapper">  
                                 <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="post" enctype="multipart/form-data">
                                 Select image to upload:

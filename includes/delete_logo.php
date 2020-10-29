@@ -1,0 +1,17 @@
+<?php include "compid.php"; ?>
+
+<?php
+    //deletes file with comp_id name
+    if (unlink("../uploads/" . $comp_id . ".png")) {
+
+        header("Location: ../php/invitation.php?comp_id=$comp_id");
+
+    } else {
+        //error
+
+        echo "There was a problem deleting your logo picture!";
+    }
+
+    
+?>
+
