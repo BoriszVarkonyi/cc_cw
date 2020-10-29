@@ -182,7 +182,7 @@ if(mysqli_num_rows($query_do) == 0){
 
                                 <label for="fencers_dob" class="label_text">DATE OF BIRTH</label>
                                 <input type="date" name="fencer_dob">
-                                <button type="submit" name="submit" class="panel_submit" value="Save" >Save</button>
+                                <button type="submit" name="submit" class="panel_submit">Save</button>
                             </form>
                     </div>
                     <!-- ranking info button -->

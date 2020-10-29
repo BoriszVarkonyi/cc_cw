@@ -1769,7 +1769,7 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: 0 20px 0 auto;
+	margin: 0 20px 0 auto;
 }
 
 #adding_entry.hidden {
@@ -2303,7 +2303,6 @@ input:focus::placeholder {
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	cursor: pointer;
 	flex-basis: 45%;
 	transition: all var(--t-basic);
 	transition-duration: .2s;
@@ -2313,17 +2312,17 @@ input:focus::placeholder {
 	opacity: 1;
 }
 
+#choose_ranking_wrapper > div.opened {
+	flex-basis: 100%;
+	cursor: default;
+}
+
 #choose_ranking_wrapper > div > .panel_button {
 	display: none;
 }
 
 #choose_ranking_wrapper > div.opened > .panel_button {
 	display: block;
-}
-
-#choose_ranking_wrapper > div.opened {
-	flex-basis: 100%;
-	cursor: default;
 }
 
 #choose_ranking_wrapper > div > div, #choose_ranking_wrapper > div > form  {
@@ -2354,6 +2353,7 @@ input:focus::placeholder {
 	height: 100%;
 	position: absolute;
 	z-index: 10;
+	cursor: pointer;
 }
 
 div.desc_box {
@@ -2430,6 +2430,7 @@ div.title_box > button {
 
 #choose_ranking_wrapper > div.opened > .title_box > button { /* If the panel is opened makes the buttons underlined */
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 /* Hover animations */
@@ -2449,56 +2450,6 @@ div.title_box > button {
 	opacity: 1;
 }
 
-/* Upload Ranking states */
-
-/* State 0 */
-
-#upload_ranking_panel > #ranking_search, #upload_ranking_panel > #use_this_ranking {
-	display: none;
-}
-
-/* State 1 */
-
-#upload_ranking_panel.state_1 > .title_box, #upload_ranking_panel.state_1 > .icon_box, #upload_ranking_panel.state_1 #use_this_ranking {
-	display: none;
-}
-
-#upload_ranking_panel.state_1 > #ranking_search {
-	width: 80%;
-	max-height: 70%;
-	transition: max-height var(--t-basic);
-	align-self: center;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	position: absolute;
-	top: 60%;
-	transform: translateY(-50%);
-}
-
-#upload_ranking_panel.state_2 > #ranking_search {
-	overflow: hidden;
-	max-height: 0;
-}
-
-#ranking_search > form {
-	display: flex;
-	margin: 0;
-	align-items: center;
-	justify-content: space-between;
-}
-
-#ranking_search > div {
-	margin: 50px 0 30px;
-	max-height: 30vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
-#ranking_search > div.closed {
-	display: none;
-}
-
 .ranking_creation_button {
 	padding: 7.5px 30px;
 	background-color: var(--c-orange);
@@ -2509,6 +2460,31 @@ div.title_box > button {
 	width: auto;
 	align-self: center;
 }
+
+/* Upload Ranking specific */
+
+#ranking_search {
+	align-self: center;
+	transition: max-height var(--t-basic);
+	flex-direction: column;
+	overflow: hidden;
+	position: absolute;
+	top: 60%;
+	transform: translateY(-50%);
+	width: auto;
+	min-width: 300px;
+}
+
+#ranking_search.closed {
+	overflow: hidden;
+	max-height: 0;
+}
+
+#ranking_search:not(.closed) + .icon_box, #ranking_search:not(.closed) + .icon_box + .title_box {
+	display: none;
+}
+
+/* Create Ranking specific */
 
 #ranking_create {
 	align-self: center;
@@ -2527,34 +2503,8 @@ div.title_box > button {
 	max-height: 0;
 }
 
-#ranking_create:not(.closed) + .icon_box {
+#ranking_create:not(.closed) + .icon_box, #ranking_create:not(.closed) + .icon_box + .title_box {
 	display: none;
-}
-
-#ranking_create:not(.closed) + .icon_box + .title_box {
-	display: none;
-}
-
-#use_this_ranking_form {
-	width: 300px;
-	display: flex;
-	flex-direction: column;
-	margin: 0;
-	padding: 0;
-	align-items: center;
-	justify-content: space-between;
-}
-
-#use_this_ranking {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-}
-
-.ranking_name {
-	font-family: var(--bold);
-	font-size: var(--f-medium);
-	margin-bottom: 25px;
 }
 
 /* RANKING */

@@ -5,8 +5,6 @@
 
 <?php 
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +26,9 @@
             </button>
             <p>Are you sure you want to {action} {object}?</p>
             <p>You cannot withdraw this action!</p>
-            <button class="panel_button" onclick="">
-                <img src="../assets/icons/close-black-18dp.svg" alt="">
-            </button>
             <div id="confirmation_button_section">
-                <button onclick="" type="submit" value="Cancel">Cancel</button>
-                <button onclick="" type="submit" value="{Action}" class="action">{Action}</button>
+                <button type="submit" value="Cancel">Cancel</button>
+                <button type="submit" value="{Action}" class="action">{Action}</button>
             </div>
         </form>
     </div>
