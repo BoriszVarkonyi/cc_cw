@@ -4,7 +4,11 @@
 
 <?php 
 
-$feedback = "";
+$feedback_update = "";
+$feedback_getnumrows = "";
+$feedback_getdata = "";
+$feedback_insert_info = "";
+
 //array of colums I need from database
 $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment", "comp_info", "comp_host", "comp_location", "comp_postal", "comp_start", "comp_end", "comp_pre_end", "comp_wc_info", "comp_entry");
 
@@ -26,7 +30,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         }
 
     } else { //error branch
-       $feedback = "ERROR: " . mysqli($connection); 
+       $feedback_getdata = "ERROR: " . mysqli_error($connection); 
     }
 
     //get logo image
@@ -40,7 +44,60 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         $logo = "../assets/icons/delete-black-18dp.svg";
         $delete_btn_class = "panel_button disabled";
     }
-        
+    
+    //update plusinfo table with new title from form
+    if (isset($_POST['info_submit']) && 0 < strlen($_POST['info_title'])) {
+
+        $text_title = $_POST['info_title'];
+
+        //test for duplicate rows
+        $dupli_rows_qry = "SELECT * FROM plusinfo WHERE info_title = '$text_title'";
+        if ($dupli_rows_do = mysqli_query($connection, $dupli_rows_qry)) {
+
+        $numrows = mysqli_num_rows($dupli_rows_do);
+        } else {
+            $feedback_getnumrows = "ERROR:" . mysqli_error($connection);
+        }
+
+        if ($numrows == 0) {
+
+            $insert_info_qry = "INSERT INTO `plusinfo` (assoc_comp_id, info_title) VALUE ('$comp_id', '$text_title')";
+            $inser_indo_do = mysqli_query($connection, $insert_info_qry);
+
+            if ($inser_indo_do) {
+                $feedback_insert_info = "minden OK!";
+            } else { //error branch
+                $feedback_insert_info =  "ERROR:" . mysqli_error($connection);
+            }
+
+        } else {
+            $feedback_insert_info = "You already have info with the same title!";
+        }
+
+    }
+
+    //updateing info_body from text areas
+    if (isset($_POST['submit_body'])) {
+
+        $new_info_body = $_POST['text_body'];
+        $change_title = $_POST['text_title_to_change'];
+
+        $update_qry = "UPDATE plusinfo SET info_body = '$new_info_body' WHERE info_title = '$change_title'";
+        if (mysqli_query($connection, $update_qry)) {
+            $feedback_update = "Minden ok!";
+        } else {
+            $feedback_update = "ERROR:" . mysqli_error($connection);
+        }
+
+
+
+
+
+
+
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +116,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
+
             <div id="title_stripe">
                 <p class="page_title">Plus Information</p>
                 <button class="stripe_button" type="button" onclick="printPage()">
@@ -70,30 +128,44 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                     <img src="../assets/icons/save-black-18dp.svg"></img>
                 </button>
             </div>
-
-            <p><?php echo $feedback ?></p>
-
+                <p><?php echo $feedback_update ?></p>
             <div id="page_content_panel_main">
                 <div id="invitation_wrapper" class="wrapper">
 
                     <div id="plus_information">
+
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg" alt="" class="db_panel_stripe_icon">
                             <p>Plus information</p>
                         </div>
+
                         <div class="db_panel_main">
                             <div id="plus_info_wrapper" class="entry_table_row_wrapper">
+                                <?php
+                                    $get_data_plusinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = $comp_id";
+                                    $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
 
-                                <div class="entry" id="">
-                                    <div class="table_row" onclick="toggleEntry(this)">
-                                        <div class="table_item invitation">Hungarian Fencing Federation</div>
+                                    while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
+
+                                        $info_title = $row['info_title'];
+                                        $info_body = $row['info_body'];
+                                ?>
+
+                                    <!-- while ozd majd ki csoro  -->
+                                    <div class="entry" id="">
+                                        <div class="table_row" onclick="toggleEntry(this)">
+                                            <div class="table_item invitation"><?php echo $info_title ?></div>
+                                        </div>
+                                            <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
+                                                <textarea id="update" name="text_body" id=""><?php echo $info_body ?></textarea>
+                                                <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
+                                                <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                            </form>
                                     </div>
-                                    <form class="entry_panel collapsed">
-                                        <textarea name="" id=""></textarea>
-                                        <input type="text" class="hidden">
-                                        <button class="panel_submit">Save</button>
-                                    </form>
-                                </div>
+
+                                <?php        
+                                    }
+                                ?>
 
                                 <div id="add_entry" onclick=" hideNshow()">
                                     <div class="table_row" onclick="">
@@ -104,14 +176,16 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     </div>
                                 </div>
 
-                                <form id="adding_entry" class="hidden">
-                                    <div class="table_row" onclick="">
+                                <form action="../php/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
+                                    <div class="table_row">
                                         <div class="table_item">
-                                            <input type="text" placeholder="Type in the title">
-                                            <button class="save_entry" onsubmit=" hideNshow()">Create</button>
+                                            <input name="info_title" type="text" placeholder="Type in the title">
+                                            <input name="info_submit" type="submit" class="save_entry" value="create">
                                         </div>
                                     </div>
                                 </form>
+
+
                             </div>
                         </div>
                     </div>
