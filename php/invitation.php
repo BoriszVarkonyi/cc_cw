@@ -49,7 +49,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Invitation of {comp name}</title>
+    <title><?php echo $assoc_array_data['comp_name'] ?></title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
