@@ -1,5 +1,6 @@
 <?php include "cw_comp_getdata.php"; ?>
 <?php include "../includes/cw_fav_button.php"; ?>
+<?php include "../includes/db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +110,25 @@
                 <div id="plus_information_panel">
                     <p class="data_label panel_title">PLUS INFORMATION</p>
                     <div>
-                        <p>pluss info heree :)</p>
+                        <?php
+                        
+                            //display plus info from DB
+                            $get_plsuinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = '$comp_id'";
+                            $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
+
+                            while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
+
+                                $info_title = $row['info_title'];
+                                $info_body = $row['info_body'];
+                        ?>
+
+                            <p><?php echo $info_title ?></p>
+                            <p><?php echo $info_body ?></p>
+
+                        <?php
+                            }
+                        ?>
+
                     </div>
                 </div>
             </div>
