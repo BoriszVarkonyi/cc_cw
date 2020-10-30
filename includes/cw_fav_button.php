@@ -29,14 +29,12 @@
 
             $newvalue .= $value . $comp_id . ",";
 
-            setcookie($cookie_name, $newvalue, $expires);
-
         } else {
 
             $newvalue = preg_replace($comp_id . ",", "", $value);
 
-            setcookie($cookie_name, $newvalue, $expires);
-
         }
+
+        setcookie($cookie_name, $newvalue, $expires, "/");
     }
 ?>
