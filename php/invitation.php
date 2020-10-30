@@ -167,7 +167,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     }
                                 ?>
 
-                                <div id="add_entry" onclick=" hideNshow()">
+                                <div id="add_entry" onclick="hideNshow()">
                                     <div class="table_row" onclick="">
                                         <div class="table_item">
                                             Add information
@@ -180,7 +180,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                     <div class="table_row">
                                         <div class="table_item">
                                             <input name="info_title" type="text" placeholder="Type in the title">
-                                            <input name="info_submit" type="submit" class="save_entry" value="create">
+                                            <input name="info_submit" type="submit" class="save_entry" value="Create">
                                         </div>
                                     </div>
                                 </form>
@@ -196,21 +196,19 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                         </div>
                         <div class="db_panel_main">
 
-                            <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delet_logo">
+                            <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
                                 <!--Only visible when file is uploaded-->
 
-                                <button id="delet_logo" class="panel_button" >
+                                <button id="delete_logo" class="panel_button" >
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
                             </form>
 
-                            <div class="invitation_file_wrapper">  
-                                <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="post" enctype="multipart/form-data">
-                                Select image to upload:
+                            <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="post" enctype="multipart/form-data" class="invitation_file_wrapper">
+                                <label for="fileToUpload">Select image to upload:</label>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-                                <input type="submit" value="Upload Image" name="submit">
-                                </form>
-                            </div>
+                                <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
+                            </form>
                         </div>
                     </div>
 

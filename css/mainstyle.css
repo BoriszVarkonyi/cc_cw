@@ -1645,37 +1645,19 @@ input:focus::placeholder {
 	display: none;
 }
 
+.invitation_file_wrapper {
+	width: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .invitation_file_wrapper > p {
 	font-size: var(--f-medium);
 	font-family: var(--bold);
 }
 
-.invitation_switch_wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	max-width: 80%;
-}
-
-.invitation_switch_wrapper > div {
-	margin: 5px 0;
-}
-
-.invitation_file_wrapper {
-	width: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.invitation_file_wrapper {
-	width: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.invitation_file_wrapper > input {
+.invitation_file_wrapper > input[type="file"] {
 	display: none;
 }
 
@@ -1683,6 +1665,7 @@ input:focus::placeholder {
 	font-size: var(--f-medium);
 	font-family: var(--bold);
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 #plus_information {
@@ -1747,17 +1730,36 @@ input:focus::placeholder {
 	transition: background-color var(--t-basic), border var(--t-basic);
 }
 
-#add_entry {
+#add_entry, #adding_entry {
+	display: block;
+	opacity: 1;
+	transition: opacity var(--t-basic);
 	width: 100%;
+	border-left: 2px solid var(--c-darkgray);
+	border-right: 2px solid var(--c-gray);
+	border-bottom: 2px solid var(--c-gray);
+	border-radius: 0 0 5px 5px;
 }
 
-#add_entry.hidden {
-	display: none;
+#add_entry:hover > .table_row {
+	background-color: var(--c-lightgray);
+}
+
+#add_entry.hidden, #adding_entry.hidden  {
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	border: none;
 }
 
 #add_entry > button {
 	width: 100%;
 	background-color: transparent;
+}
+
+#add_entry > .table_row {
+	width: 100%;
+	background-color: var(--c-white);
 }
 
 .save_entry {
@@ -1766,28 +1768,25 @@ input:focus::placeholder {
 	font-family: var(--bold);
 	font-size: var(--f-little);
 	border-radius: 5px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	margin: 0 20px 0 auto;
+	width: auto;
+	cursor: pointer;
 }
 
-#adding_entry.hidden {
-	display: none;
+#adding_entry > .table_row {
+	cursor: default;
 }
+
 
 #adding_entry > .table_row > .table_item {
 	min-width: 100%;
-	background-color: var(--c-lightestgray);
+	background-color: var(--c-white);
 	justify-content: flex-start;
 	padding: 0 15px;
 }
 
-#adding_entry > .table_row > .table_item > input {
+#adding_entry > .table_row > .table_item > input[type="text"] {
 	margin: 0;
-	padding-left: 0;
-	height: 80%;
-	width: 50%;
 }
 
 /* Competitions page*/
