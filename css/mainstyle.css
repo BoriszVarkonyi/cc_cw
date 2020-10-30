@@ -1737,7 +1737,6 @@ input:focus::placeholder {
 	width: 100%;
 	border-left: 2px solid var(--c-darkgray);
 	border-right: 2px solid var(--c-gray);
-	border-bottom: 2px solid var(--c-gray);
 	border-radius: 0 0 5px 5px;
 }
 
