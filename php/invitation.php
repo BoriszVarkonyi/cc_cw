@@ -157,6 +157,9 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                             <div class="table_item invitation"><?php echo $info_title ?></div>
                                         </div>
                                             <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
+                                                <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                    <img src="../assets/icons/delete-black-18dp.svg">
+                                                </button>
                                                 <textarea id="update" name="text_body" id=""><?php echo $info_body ?></textarea>
                                                 <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
                                                 <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
@@ -207,6 +210,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="post" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <label for="fileToUpload">Select image to upload:</label>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
+                                <label></label>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
                             </form>
                         </div>

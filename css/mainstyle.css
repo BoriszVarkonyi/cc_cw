@@ -1650,6 +1650,7 @@ input:focus::placeholder {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .invitation_file_wrapper > p {
@@ -1658,7 +1659,9 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > input[type="file"] {
-	display: none;
+}
+
+.invitation_file_wrapper > input[type="file"] + label {
 }
 
 .invitation_file_wrapper > label {
