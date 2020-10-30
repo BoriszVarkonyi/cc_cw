@@ -48,7 +48,7 @@ window.addEventListener('load', (event) => {
 });
 
 
-/*Toggle panels. */
+/*Toggle panels.*/
 //Getting panels by id.
 var lang_panel = document.getElementById("language_panel");
 var color_panel = document.getElementById("colormode_panel");
@@ -59,7 +59,7 @@ var oldClickedelement;
 
 //Toggle language panel.
 function toggle_language_panel() {
-    //Making every panel hidden.
+   /* //Making every panel hidden.
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
@@ -78,12 +78,13 @@ function toggle_language_panel() {
     else {
         //If not it sets the oldClickedelement to the lang panel id.
         oldClickedelement = lang_panel.id;
-    } 
+    } */
+    lang_panel.classList.toggle("hidden");
 }
 //END
 
 function toggle_colormode_panel() {
-    //Making every panel hidden
+   /* //Making every panel hidden
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
@@ -99,11 +100,12 @@ function toggle_colormode_panel() {
     }
     else {
         oldClickedelement = color_panel.id;
-    } 
+    } */
+    color_panel.classList.toggle("hidden");
 }
 
 function toggle_profile_panel() {
-    //Making every panel hidden
+   /* //Making every panel hidden
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
@@ -119,7 +121,8 @@ function toggle_profile_panel() {
     }
     else {
         oldClickedelement = profile_panel.id;
-    } 
+    } */
+    profile_panel.classList.toggle("hidden");
 
 }
 //END
@@ -327,15 +330,13 @@ function resizeTableColumn() {
 }
 //END
 /*
-/* Overlay_panels
+/* Overlay_panels*/
 //Nem tudom mi a fasz van itt :c
 
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
-function kurva() {
-    //console.log("Futok")
+function overlayPanel() {
     var overlayPanelsHidden = [];
-    //var overlayPanelsOepened = [];
 for(i=0; i<overlayPanelAll.length; i++) {
     if(overlayPanelAll[i].classList.contains("hidden")) {
         overlayPanelsHidden.push(overlayPanelAll[i]);
@@ -343,37 +344,32 @@ for(i=0; i<overlayPanelAll.length; i++) {
     else {
         overlayPanelsOepened.push(overlayPanelAll[i])
     }
-    if(overlayPanelsOepened.length>1){
-        console.log("A faszert nagyob?")
-        /*if(overlayPanelsOepened.length=2) {
-            overlayPanelsOepened.pop()
-        }*/
-        //else{
-            for(i=0; i<overlayPanelsOepened.length; i++) {
-                if(overlayPanelsOepened[0] == overlayPanelsOepened[i]){
-                    console.log(overlayPanelsOepened[0])
-                    console.log(overlayPanelsOepened[i])
-                    overlayPanelsOepened[0].classList.add("hidden");
-                    overlayPanelsOepened.pop(overlayPanelsOepened[0]);
-                    overlayPanelsOepened[i].classList.add("hidden");
-                    overlayPanelsOepened.pop(overlayPanelsOepened[i]);
-                    
-                }
+}
+if(overlayPanelsOepened.length>1){
+    for(i=0; i<overlayPanelsOepened.length; i++) {
 
-            }
-        //}    
+        overlayPanelsOepened.pop()
+
+    }
+    overlayPanelsOepened[0].classList.add("hidden")
+    overlayPanelsOepened.pop()
+}
+else {
+    for(i=0; i<overlayPanelsOepened.length; i++) {
+        if(overlayPanelsOepened[i].classList.contains("hidden")) {
+            overlayPanelsOepened.pop()
+
+        }
     }
 }
-console.log("kurva overlay")
 console.log(overlayPanelsOepened)
 }
 
 
 function callback(mutationsList, observer) {
-    //console.log("lefutottam")
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {
-            kurva()
+            overlayPanel()
         }
     })
 }
@@ -383,6 +379,6 @@ const mutationObserver = new MutationObserver(callback)
 for(i=0; i<overlayPanelAll.length; i++){
 mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 }
-*/
+
 //END
 
