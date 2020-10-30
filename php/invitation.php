@@ -156,6 +156,8 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                         <div class="db_panel_main">
                             <div id="plus_info_wrapper" class="entry_table_row_wrapper">
                                 <?php
+
+                                    //displaying plsu infos from db in table rows
                                     $get_data_plusinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = $comp_id";
                                     $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
 
