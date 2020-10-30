@@ -8,6 +8,7 @@ $feedback_update = "";
 $feedback_getnumrows = "";
 $feedback_getdata = "";
 $feedback_insert_info = "";
+$kuka_disable = "panel_button";
 
 //array of colums I need from database
 $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment", "comp_info", "comp_host", "comp_location", "comp_postal", "comp_start", "comp_end", "comp_pre_end", "comp_wc_info", "comp_entry");
@@ -88,15 +89,14 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         } else {
             $feedback_update = "ERROR:" . mysqli_error($connection);
         }
-
-
-
-
-
-
-
     }
 
+    //does the logo exist needed for the delete button
+    if (file_exists("../uploads/$comp_id.png")) {
+        $kuka_disable = "panel_button"; //ide ird be a classt ha fel van toltve logo
+    } else {
+        $kuka_disable = "panel_button hidden"; //ide ird be a classt ha NINCS fel toltve logo
+    }
 
 ?>
 
@@ -197,17 +197,15 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                         <div class="db_panel_main">
 
                             <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
-                                <!--Only visible when file is uploaded-->
-
-                                <button id="delete_logo" class="panel_button" >
+                                <button id="delete_logo" class="<?php echo $kuka_disable ?>">
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
                             </form>
 
-                            <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="post" enctype="multipart/form-data" class="invitation_file_wrapper">
+                            <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <label for="fileToUpload">Select image to upload:</label>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-                                <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
+                                <input type="submit" value="Upload Image" name="submit" class="panel_submit">
                             </form>
                         </div>
                     </div>
