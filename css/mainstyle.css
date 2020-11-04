@@ -335,6 +335,14 @@ textarea {
 .wrapper {
 	margin: 50px 0;
 	width: 80%;
+	min-height: 50%;
+}
+
+.wrapper.filled {
+	border-top: 2px solid var(--c-darkgray);
+	border-left: 2px solid var(--c-darkgray);
+	border-bottom: 2px solid var(--c-gray);
+	border-right: 2px solid var(--c-gray);
 }
 
 .wrapper.width_70 {
@@ -1659,9 +1667,7 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > input[type="file"] {
-}
-
-.invitation_file_wrapper > input[type="file"] + label {
+	display: none;
 }
 
 .invitation_file_wrapper > label {
@@ -1916,6 +1922,15 @@ input:focus::placeholder {
 
 #additional_panel > div, #weapon_control_panel > div, #plus_information_panel > div {
 	padding: 75px;
+}
+
+#plus_information_panel > div > p:nth-of-type(odd) {
+	font-size: var(--f-medium);
+}
+
+#plus_information_panel > div > p:nth-of-type(even) {
+	font-family: var(--reg);
+	margin-bottom: 20px;
 }
 
 #weapon_control_panel {

@@ -187,8 +187,6 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                         </div>
                                     </div>
                                 </form>
-
-
                             </div>
                         </div>
                     </div>
@@ -198,22 +196,15 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             <p>Add competition logo</p>
                         </div>
                         <div class="db_panel_main">
-
                             <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
                                 <button id="delete_logo" class="<?php echo $kuka_disable ?>">
                                     <img src="../assets/icons/delete-black-18dp.svg" alt="">
                                 </button>
                             </form>
-
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
-                                <label for="fileToUpload">Select image to upload:</label>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-<<<<<<< HEAD
-                                <label></label>
+                                <label for="fileToUpload">Select image to upload:</label>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
-=======
-                                <input type="submit" value="Upload Image" name="submit" class="panel_submit">
->>>>>>> b694af63393e0f8e40c498620236890a672fd56e
                             </form>
                         </div>
                     </div>
