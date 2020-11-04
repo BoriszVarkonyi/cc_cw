@@ -12,8 +12,8 @@ function toggleEntry(x) {
         entrys[i].classList.remove("opened")
 
     } 
-     //Checking if the oldentry var. equals the entry id.
-    if(entry.id == oldentry){
+     //Checking if the oldentry var. equals the entry.
+    if(entry == oldentry){
         //If yes then it adds opened, and remove collapsed.
         entryPanel.classList.remove("collapsed");
         entry.classList.add("opened");
@@ -24,14 +24,15 @@ function toggleEntry(x) {
     entryPanel.classList.toggle("collapsed");
     //Checking if we clicked the same entry.
     if(entry.classList.contains("opened")){
-        //If yes it saves the entry id.
-        oldentry = entry.id
+        //If yes it saves the entry.
+        oldentry = entry
     }
     else {
         //If no it sets the oldentry var. undifened
         oldentry = undefined
     }
 }
+//END
 
 function toggleEntryInfo(x) {
     var button = x;

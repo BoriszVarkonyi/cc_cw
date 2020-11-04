@@ -63,8 +63,8 @@ function toggle_language_panel() {
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
-    //Checking if the lang panel id equals the oldClickedelement.
-    if(lang_panel.id == oldClickedelement) {
+    //Checking if the lang panel equals the oldClickedelement.
+    if(lang_panel == oldClickedelement) {
         //If yes it removes the class.
         lang_panel.classList.remove("hidden");
     }
@@ -76,8 +76,8 @@ function toggle_language_panel() {
         oldClickedelement = undefined;
     }
     else {
-        //If not it sets the oldClickedelement to the lang panel id.
-        oldClickedelement = lang_panel.id;
+        //If not it sets the oldClickedelement to the lang panel.
+        oldClickedelement = lang_panel;
     } */
     lang_panel.classList.toggle("hidden");
 }
@@ -89,7 +89,7 @@ function toggle_colormode_panel() {
         elements[i].classList.add("hidden")
     }
 
-    if(color_panel.id == oldClickedelement) {
+    if(color_panel == oldClickedelement) {
         color_panel.classList.remove("hidden");
     }
 
@@ -99,7 +99,7 @@ function toggle_colormode_panel() {
         oldClickedelement = undefined;
     }
     else {
-        oldClickedelement = color_panel.id;
+        oldClickedelement = color_panel;
     } */
     color_panel.classList.toggle("hidden");
 }
@@ -110,7 +110,7 @@ function toggle_profile_panel() {
         elements[i].classList.add("hidden")
     }
 
-    if(profile_panel.id == oldClickedelement) {
+    if(profile_panel == oldClickedelement) {
         profile_panel.classList.remove("hidden");
     }
 
@@ -120,7 +120,7 @@ function toggle_profile_panel() {
         oldClickedelement = undefined;
     }
     else {
-        oldClickedelement = profile_panel.id;
+        oldClickedelement = profile_panel;
     } */
     profile_panel.classList.toggle("hidden");
 
@@ -362,7 +362,6 @@ else {
         }
     }
 }
-console.log(overlayPanelsOepened)
 }
 
 

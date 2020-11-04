@@ -1,7 +1,23 @@
+var oldClickedDate;
+var setWcPanel = document.getElementById("set_wc_panel");
 function toggleWcPanel(x) {
+    var clickedDate = x;
 
-    var setWcPanel = document.getElementById("set_wc_panel");
+    setWcPanel.classList.add("hidden")
+    
+    if(clickedDate == oldClickedDate) {
+        setWcPanel.classList.remove("hidden");
+        
+    }
     setWcPanel.classList.toggle("hidden");
+
+    if(setWcPanel.classList.contains("hidden")){
+        oldClickedDate = undefined;
+    }
+    else {
+        oldClickedDate = clickedDate;
+    }
+
 
     var texttoreplace = document.getElementById("panel_text");
     y = x.id;
@@ -13,7 +29,6 @@ function toggleWcPanel(x) {
 }
 
 function closeWcPanel() {
-    var setWcPanel = document.getElementById("set_wc_panel");
     setWcPanel.classList.add("hidden");
 }
 
