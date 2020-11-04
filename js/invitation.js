@@ -12,9 +12,11 @@ function toggleEntry(x) {
 function printPage() {
     window.print();
 }
+
 //Add entry button.
 var addEntryPanel = document.getElementById("add_entry")
 var addingEntryPanel = document.getElementById("adding_entry");
+
 //Toggles the classes.
 function hideNshow () {
     addEntryPanel.classList.toggle("hidden");

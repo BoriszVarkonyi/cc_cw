@@ -637,6 +637,15 @@ input[value="Search"] {
 	padding: 75px;
 }
 
+#plus_information_panel > div > p:nth-of-type(odd) {
+	font-size: var(--f-medium);
+}
+
+#plus_information_panel > div > p:nth-of-type(even) {
+	font-family: var(--reg);
+	margin-bottom: 20px;
+}
+
 #weapon_control_panel {
 	display: flex;
 	align-items: center;
