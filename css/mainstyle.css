@@ -339,6 +339,9 @@ textarea {
 }
 
 .wrapper.filled {
+	background-color: var(--c-white);
+	box-shadow: var(--s-black);
+	border-radius: 5px;
 	border-top: 2px solid var(--c-darkgray);
 	border-left: 2px solid var(--c-darkgray);
 	border-bottom: 2px solid var(--c-gray);
@@ -1581,16 +1584,9 @@ input[type=radio]:checked:disabled + label:before {
 /* ///BASIC INFORMATION/// */
 
 #basic_information_wrapper {
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 5px;
-	border-top: 2px solid var(--c-darkgray);
-	border-left: 2px solid var(--c-darkgray);
-	border-bottom: 2px solid var(--c-gray);
-	border-right: 2px solid var(--c-gray);
 }
 
 #basic_information_form {

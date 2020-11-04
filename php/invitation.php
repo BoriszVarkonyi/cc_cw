@@ -219,13 +219,8 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             </form>
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-<<<<<<< HEAD
-                                <label for="fileToUpload">Select image to upload:</label>
-                                <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
-=======
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit">
->>>>>>> e3835aaf38adb39e121ca6269597473ec6db0c1a
                             </form>
                         </div>
                     </div>

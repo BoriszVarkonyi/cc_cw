@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div id="basic_information_wrapper" class="wrapper">
+                <div id="basic_information_wrapper" class="wrapper filled">
                     <form action="" id="basic_information_form" method="POST">
                         <div class="form_column flex">
                             <label for="points_pools" class="label_text">POINTS IN POOLS</label>

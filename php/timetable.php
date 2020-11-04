@@ -194,8 +194,6 @@ if($query_do){
 }
 
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -346,6 +344,5 @@ if($query_do){
         </div>
     </body>
     <script src="../js/main.js"></script>
-    
 <script src="../js/timetable.js"></script>
 </html>
