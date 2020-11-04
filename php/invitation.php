@@ -3,12 +3,15 @@
 <?php checkComp($connection); ?>
 
 <?php 
-
-$feedback_delete = "";
-$feedback_update = "";
-$feedback_getnumrows = "";
-$feedback_getdata = "";
-$feedback_insert_info = "";
+$feedback = array(
+"delete" => "",
+"update" => "",
+"getnumrows" => "",
+"getdata" => "",
+"insert_info" => "",
+"ttest" => "",
+"create" => ""
+);
 
 $kuka_disable = "panel_button";
 
@@ -16,8 +19,8 @@ $kuka_disable = "panel_button";
 $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment", "comp_info", "comp_host", "comp_location", "comp_postal", "comp_start", "comp_end", "comp_pre_end", "comp_wc_info", "comp_entry");
 
 //connecting to database
-$qry_getdata = "SELECT * FROM competitions WHERE comp_id = $comp_id";
-$getdata_do = mysqli_query($connection, $qry_getdata);
+    $qry_getdata = "SELECT * FROM competitions WHERE comp_id = $comp_id";
+    $getdata_do = mysqli_query($connection, $qry_getdata);
 
     if($row = mysqli_fetch_assoc($getdata_do)) {
 
@@ -33,7 +36,7 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         }
 
     } else { //error branch
-       $feedback_getdata = "ERROR: " . mysqli_error($connection); 
+       $feedback['getdata'] = "ERROR: " . mysqli_error($connection); 
     }
 
     //get logo image
@@ -48,36 +51,57 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         $delete_btn_class = "panel_button disabled";
     }
     
+
+
+
     //update plusinfo table with new title from form
     if (isset($_POST['info_submit']) && 0 < strlen($_POST['info_title'])) {
+
+        $check_d_table_qry = "SHOW TABLES LIKE 'info_$comp_id'";
+        $check_d_table_do = mysqli_query($connection, $check_d_table_qry);
+        $row = mysqli_num_rows($check_d_table_do);
+
+        if ($row == 0) {
+
+            $create_table_qry = "CREATE TABLE `info_$comp_id` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `info_title` TEXT NOT NULL , `info_body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
+
+            
+            if (mysqli_query($connection, $create_table_qry)){
+                $feedback['create'] = "Minden fasza!";
+            } else {
+                $feedback['create'] = "ERROR " . mysqli_error($connection);
+            }
+
+        } else;
 
         $text_title = $_POST['info_title'];
 
         //test for duplicate rows
-        $dupli_rows_qry = "SELECT * FROM plusinfo WHERE info_title = '$text_title'";
+        $dupli_rows_qry = "SELECT * FROM info_$comp_id WHERE info_title = '$text_title'";
         if ($dupli_rows_do = mysqli_query($connection, $dupli_rows_qry)) {
 
-        $numrows = mysqli_num_rows($dupli_rows_do);
+            $numrows = mysqli_num_rows($dupli_rows_do);
+
         } else {
-            $feedback_getnumrows = "ERROR:" . mysqli_error($connection);
+            $feedback['getnumrows'] = "ERROR: " . mysqli_error($connection);
         }
 
         if ($numrows == 0) {
 
-            $insert_info_qry = "INSERT INTO `plusinfo` (assoc_comp_id, info_title) VALUE ('$comp_id', '$text_title')";
+            $insert_info_qry = "INSERT INTO info_$comp_id (info_title) VALUE ('$text_title')";
             $inser_indo_do = mysqli_query($connection, $insert_info_qry);
 
             if ($inser_indo_do) {
-                $feedback_insert_info = "minden OK!";
+                $feedback['insert_info'] = "minden OK!";
             } else { //error branch
-                $feedback_insert_info =  "ERROR:" . mysqli_error($connection);
+                $feedback['insert_info'] =  "ERROR:" . mysqli_error($connection);
             }
 
         } else {
-            $feedback_insert_info = "You already have info with the same title!";
+            $feedback['insert_info'] = "You already have info with the same title!";
         }
-
     }
+    
 
     //updateing info_body from text areas
     if (isset($_POST['submit_body'])) {
@@ -85,26 +109,30 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         $new_info_body = $_POST['text_body'];
         $change_title = $_POST['text_title_to_change'];
 
-        $update_qry = "UPDATE plusinfo SET info_body = '$new_info_body' WHERE info_title = '$change_title'";
+        $update_qry = "UPDATE info_$comp_id SET info_body = '$new_info_body' WHERE info_title = '$change_title'";
         if (mysqli_query($connection, $update_qry)) {
-            $feedback_update = "Minden ok!";
+            $feedback['update'] = "Minden ok!";
         } else {
-            $feedback_update = "ERROR:" . mysqli_error($connection);
+            $feedback['update'] = "ERROR:" . mysqli_error($connection);
         }
     }
 
-    //deleteing plusinfo row
+    //deleteing info_$comp_id row
     if (isset($_POST['submit_delete'])) {
 
         $change_title = $_POST['text_title_to_change'];
 
-        $delete_qry = "DELETE FROM plusinfo WHERE info_title = '$change_title'";
+        $delete_qry = "DELETE FROM info_$comp_id WHERE info_title = '$change_title'";
         if (mysqli_query($connection, $delete_qry)) {
-            $feedback_delete = "Minden ok delete!";
+            $feedback['delete'] = "Minden ok delete!";
         } else {
-            $feedback_delete = "ERROR:" . mysqli_error($connection);
+            $feedback['delete'] = "ERROR:" . mysqli_error($connection);
         }
     }
+
+
+
+
 
     //does the logo exist needed for the delete button
     if (file_exists("../uploads/$comp_id.png")) {
@@ -143,6 +171,8 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                     <img src="../assets/icons/save-black-18dp.svg"></img>
                 </button>
             </div>
+
+            <p> <?php //print_r($feedback) ?> </p>
             <div id="page_content_panel_main">
                 <div id="invitation_wrapper" class="wrapper">
 
@@ -158,31 +188,32 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                                 <?php
 
                                     //displaying plsu infos from db in table rows
-                                    $get_data_plusinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = $comp_id";
+                                    $get_data_plusinfo_qry = "SELECT * FROM info_$comp_id";
                                     $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
+                                    if ($get_data_plusinfo_do !== FALSE) {
+                                        while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
 
-                                    while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
-
-                                        $info_title = $row['info_title'];
-                                        $info_body = $row['info_body'];
+                                            $info_title = $row['info_title'];
+                                            $info_body = $row['info_body'];
                                 ?>
 
-                                    <!-- while ozd majd ki csoro  -->
-                                    <div class="entry" id="">
-                                        <div class="table_row" onclick="toggleEntry(this)">
-                                            <div class="table_item invitation"><?php echo $info_title ?></div>
+                                        <!-- while ozd majd ki csoro  -->
+                                        <div class="entry" id="">
+                                            <div class="table_row" onclick="toggleEntry(this)">
+                                                <div class="table_item invitation"><?php echo $info_title ?></div>
+                                            </div>
+                                                <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
+                                                    <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                        <img src="../assets/icons/delete-black-18dp.svg">
+                                                    </button>
+                                                    <textarea id="update" name="text_body" id=""><?php echo $info_body ?></textarea>
+                                                    <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
+                                                    <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                                </form>
                                         </div>
-                                            <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
-                                                <button class="panel_button" type="submit" name="submit_delete" id="update" >
-                                                    <img src="../assets/icons/delete-black-18dp.svg">
-                                                </button>
-                                                <textarea id="update" name="text_body" id=""><?php echo $info_body ?></textarea>
-                                                <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
-                                                <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                            </form>
-                                    </div>
 
                                 <?php        
+                                        } 
                                     }
                                 ?>
 
