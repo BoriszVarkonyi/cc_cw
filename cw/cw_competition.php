@@ -1,6 +1,24 @@
 <?php include "cw_comp_getdata.php"; ?>
 <?php include "../includes/cw_fav_button.php"; ?>
 <?php include "../includes/db.php"; ?>
+<?php
+
+    $logo_path = "../assets/icons/delete-black-18dp.svg";
+
+    if (file_exists("../uploads/$comp_id.png")) {
+        $logo_path = "../uploads/$comp_id.png";
+    } else {
+        $logo_path = "../assets/icons/delete-black-18dp.svg";
+    }
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +33,7 @@
     <div id="cw_main_full">
         <!-- cw title panel top  -->
         <div id="comp_data">
-            <img src="../assets/icons/delete-black-18dp.svg" alt="">
+            <img src="<?php echo $logo_path ?>" alt="">
             <form method="POST" class="big_status_item" id="fav_button"></form>
             <p class="cw_panel_title"><?php echo $comp_name ?>
                 <input name="fav_comp_id" form="fav_button" type="text" class="hidden" value=<?php echo $comp_id ?>>

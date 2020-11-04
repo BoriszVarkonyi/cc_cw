@@ -4,10 +4,12 @@
 
 <?php 
 
+$feedback_delete = "";
 $feedback_update = "";
 $feedback_getnumrows = "";
 $feedback_getdata = "";
 $feedback_insert_info = "";
+
 $kuka_disable = "panel_button";
 
 //array of colums I need from database
@@ -91,6 +93,19 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
         }
     }
 
+    //deleteing plusinfo row
+    if (isset($_POST['submit_delete'])) {
+
+        $change_title = $_POST['text_title_to_change'];
+
+        $delete_qry = "DELETE FROM plusinfo WHERE info_title = '$change_title'";
+        if (mysqli_query($connection, $delete_qry)) {
+            $feedback_delete = "Minden ok delete!";
+        } else {
+            $feedback_delete = "ERROR:" . mysqli_error($connection);
+        }
+    }
+
     //does the logo exist needed for the delete button
     if (file_exists("../uploads/$comp_id.png")) {
         $kuka_disable = "panel_button"; //ide ird be a classt ha fel van toltve logo
@@ -128,7 +143,6 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                     <img src="../assets/icons/save-black-18dp.svg"></img>
                 </button>
             </div>
-                <p><?php echo $feedback_update ?></p>
             <div id="page_content_panel_main">
                 <div id="invitation_wrapper" class="wrapper">
 
@@ -142,6 +156,8 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                         <div class="db_panel_main">
                             <div id="plus_info_wrapper" class="entry_table_row_wrapper">
                                 <?php
+
+                                    //displaying plsu infos from db in table rows
                                     $get_data_plusinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = $comp_id";
                                     $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
 
@@ -203,8 +219,13 @@ $getdata_do = mysqli_query($connection, $qry_getdata);
                             </form>
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
+<<<<<<< HEAD
                                 <label for="fileToUpload">Select image to upload:</label>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
+=======
+                                <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
+                                <input type="submit" value="Upload Image" name="submit" class="panel_submit">
+>>>>>>> e3835aaf38adb39e121ca6269597473ec6db0c1a
                             </form>
                         </div>
                     </div>
