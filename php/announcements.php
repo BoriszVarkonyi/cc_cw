@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div id="announcements_wrapper" class="wrapper entry_table_row_wrapper">
+                <div id="announcements_wrapper" class="wrapper entry_table_row_wrapper filled">
                     <div class="entry" id="">
                         <div class="table_row" onclick="toggleEntry(this)">
                             <div class="table_item">Hungarian Fencing Federation</div>

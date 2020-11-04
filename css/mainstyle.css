@@ -335,10 +335,17 @@ textarea {
 .wrapper {
 	margin: 50px 0;
 	width: 80%;
+	min-height: 50%;
 }
 
-.wrapper.width_70 {
-	width: 70%;
+.wrapper.filled {
+	background-color: var(--c-white);
+	box-shadow: var(--s-black);
+	border-radius: 5px;
+	border-top: 2px solid var(--c-darkgray);
+	border-left: 2px solid var(--c-darkgray);
+	border-bottom: 2px solid var(--c-gray);
+	border-right: 2px solid var(--c-gray);
 }
 
 .wrapper.full {
@@ -938,6 +945,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .option_container.grid.piste_select.disabled {
 	cursor: default;
 	opacity: 0.2;
+	pointer-events: none;
 	
 }
 
@@ -1573,16 +1581,9 @@ input[type=radio]:checked:disabled + label:before {
 /* ///BASIC INFORMATION/// */
 
 #basic_information_wrapper {
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 5px;
-	border-top: 2px solid var(--c-darkgray);
-	border-left: 2px solid var(--c-darkgray);
-	border-bottom: 2px solid var(--c-gray);
-	border-right: 2px solid var(--c-gray);
 }
 
 #basic_information_form {
@@ -1659,9 +1660,7 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > input[type="file"] {
-}
-
-.invitation_file_wrapper > input[type="file"] + label {
+	display: none;
 }
 
 .invitation_file_wrapper > label {
@@ -1916,6 +1915,15 @@ input:focus::placeholder {
 
 #additional_panel > div, #weapon_control_panel > div, #plus_information_panel > div {
 	padding: 75px;
+}
+
+#plus_information_panel > div > p:nth-of-type(odd) {
+	font-size: var(--f-medium);
+}
+
+#plus_information_panel > div > p:nth-of-type(even) {
+	font-family: var(--reg);
+	margin-bottom: 20px;
 }
 
 #weapon_control_panel {
@@ -2474,6 +2482,23 @@ div.title_box > button {
 	transform: translateY(-50%);
 	width: auto;
 	min-width: 300px;
+	width: 80%;
+}
+
+#ranking_search.hidden > div:first-of-type {
+	display: none;
+}
+
+#ranking_search > div:first-of-type {
+	margin: 25px 0;
+}
+
+#ranking_search > div:last-of-type {
+	margin: 25px auto;
+}
+
+#ranking_search > div > .table_row_wrapper {
+	margin: 25px 0;
 }
 
 #ranking_search.closed {
@@ -2483,6 +2508,36 @@ div.title_box > button {
 
 #ranking_search:not(.closed) + .icon_box, #ranking_search:not(.closed) + .icon_box + .title_box {
 	display: none;
+}
+
+#browse_ranking > *:last-of-type {
+	margin-left: 30px;
+}
+
+#ranking_name {
+	text-align: center;
+	font-size: var(--f-large);
+	font-family: var(--bold);
+	margin-bottom: 20px;
+}
+
+#use_this_ranking.hidden {
+	display: none;
+}
+
+#use_this_ranking {
+	max-width: 600px;
+}
+
+#use_this_ranking, #use_this_ranking_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#use_this_ranking_form {
+	min-width: 300px;
 }
 
 /* Create Ranking specific */

@@ -144,10 +144,10 @@ if(isset($_POST["submit"]) ){
                             </div>
                             <div id="ranking_search" class="closed">
                                 <div>
-                                    <form>
+                                    <form id="browse_ranking">
                                         <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                                        <input type="search" name="" id="" placeholder="Search by name">
-                                        <input type="button" name="" id="" value="Search">
+                                        <input type="search" name="" placeholder="Search by name">
+                                        <input type="button" name=""  value="Search">
                                     </form>
                                     <div class="table_row_wrapper">
                                         <?php
@@ -175,8 +175,11 @@ if(isset($_POST["submit"]) ){
                                         <input type="button" value="Use Ranking" onclick="getName()">
                                     </form>
                                 </div>
-                                <div id="use_this_ranking">
-                                    <p class="ranking_name">Ranking name</p>
+                                <div id="use_this_ranking" class="hidden">
+                                    <button class="panel_button" onclick="cancelName()">
+                                        <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                    </button>
+                                    <p id="ranking_name">Ranking name</p>
                                     <form name="ranking_password" method="POST" action="" id="use_this_ranking_form" autocomplete="off">
                                     <input id="ranking_id_hidden" type="text" class="hidden" name="ranking_id">
                                         <label for="ranking_name" class="label_text">PASSWORD</label>
