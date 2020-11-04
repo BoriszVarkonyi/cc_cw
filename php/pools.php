@@ -94,7 +94,7 @@
                             <label for="manual_select">Select manually</label>
                         </div>
 
-                        <div class="option_container grid piste_select">
+                        <div class="option_container grid piste_select disabled" id="select_pistes_panel" >
                                 <div class="piste_select">
                                     <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                                     <label for="piste_1">Piste 1</label>
@@ -239,7 +239,7 @@
                                             No.
                                         </div>
 
-                                        <div class=le_row"table_header_text square">
+                                        <div class="table_header_text square">
                                             1
                                         </div>
 

@@ -3,6 +3,7 @@ const createPanel = document.getElementById("create_ranking_panel");
 const chooseRankingWrapper = document.getElementById("choose_ranking_wrapper");
 var rankingSearch = document.getElementById("ranking_search");
 var rankingCreate = document.getElementById("ranking_create");
+var useThisRanking = document.getElementById("use_this_ranking");
 
 // expands and minimizes the Upload Panel
 function toggleUploadRankingPanel() {
@@ -48,56 +49,18 @@ function selectRanking(x) {
     }
 }
 
-function getName(){
-
-    console.log("WORKING");
-    
+function getName() {
     var name = document.getElementsByClassName("selected");
-    var nameto = document.getElementById("ranking_name_p");
-    
+    var nameto = document.getElementById("ranking_name");
+
     console.log(name[0].children[0].innerHTML);
     nameto.innerHTML = name[0].children[0].innerHTML;
+
+    useThisRanking.classList.remove("hidden");
+    rankingSearch.classList.add("hidden");
 } 
 
-/*
-
-closeUploadPanelButton.addEventListener("mousedown", closeUploadRankingPanel);
-closeCreatePanelButton.addEventListener("mousedown", closeCreateRankingPanel);
-
-function selectRanking(x) {
-
-var toselect = document.getElementsByClassName("selected");
-var input = document.getElementById("ranking_id_hidden");
-
-if(toselect.length > 0){
-
-    for (let index = 0; index < toselect.length; index++) {
-        toselect[index].classList.remove("selected");
-    }
-
-    input.value = "";
-    console.log(input.value)
-
+function cancelName() {
+    useThisRanking.classList.add("hidden");
+    rankingSearch.classList.remove("hidden");
 }
-else{
-    x.classList.add("selected");
-
-    input.value = x.id;
-
-    console.log(input.value)
-}
-}
-
-function getName(){
-
-console.log("WORKING");
-
-var name = document.getElementsByClassName("selected");
-var nameto = document.getElementById("ranking_name_p");
-
-console.log(name[0].children[0].innerHTML);
-nameto.innerHTML = name[0].children[0].innerHTML;
-
-} 
-
-*/

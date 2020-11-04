@@ -348,10 +348,6 @@ textarea {
 	border-right: 2px solid var(--c-gray);
 }
 
-.wrapper.width_70 {
-	width: 70%;
-}
-
 .wrapper.full {
 	height: 100%;
 	width: 100%;
@@ -949,6 +945,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .option_container.grid.piste_select.disabled {
 	cursor: default;
 	opacity: 0.2;
+	pointer-events: none;
 	
 }
 
@@ -2485,6 +2482,23 @@ div.title_box > button {
 	transform: translateY(-50%);
 	width: auto;
 	min-width: 300px;
+	width: 80%;
+}
+
+#ranking_search.hidden > div:first-of-type {
+	display: none;
+}
+
+#ranking_search > div:first-of-type {
+	margin: 25px 0;
+}
+
+#ranking_search > div:last-of-type {
+	margin: 25px auto;
+}
+
+#ranking_search > div > .table_row_wrapper {
+	margin: 25px 0;
 }
 
 #ranking_search.closed {
@@ -2494,6 +2508,36 @@ div.title_box > button {
 
 #ranking_search:not(.closed) + .icon_box, #ranking_search:not(.closed) + .icon_box + .title_box {
 	display: none;
+}
+
+#browse_ranking > *:last-of-type {
+	margin-left: 30px;
+}
+
+#ranking_name {
+	text-align: center;
+	font-size: var(--f-large);
+	font-family: var(--bold);
+	margin-bottom: 20px;
+}
+
+#use_this_ranking.hidden {
+	display: none;
+}
+
+#use_this_ranking {
+	max-width: 600px;
+}
+
+#use_this_ranking, #use_this_ranking_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#use_this_ranking_form {
+	min-width: 300px;
 }
 
 /* Create Ranking specific */
