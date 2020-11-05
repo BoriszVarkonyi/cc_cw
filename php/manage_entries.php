@@ -87,7 +87,7 @@
                                             <p>FEDERATION'S NAME</p>
                                         </div>
                                         <div>
-                                            <p class="label_text"">CONTACT KEEPER'S FULL NAME:</p>
+                                            <p class="label_text">CONTACT KEEPER'S FULL NAME:</p>
                                             <p>FEDERATION'S NAME</p>
                                         </div>
                                         <div>
