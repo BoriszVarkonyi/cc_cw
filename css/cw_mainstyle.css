@@ -1215,3 +1215,77 @@ input[value="Search"] {
 	font-size: var(--f-medium);
 	margin: 35px 0;
 }
+
+/* Please confirm */
+
+#basic_body {
+	display: flex;
+	background-color: var(--c-lightestgray);
+	justify-content: center;
+	align-items: center;
+}
+
+#basic_body::before, #basic_body::after {
+	content: '';
+	position: absolute;
+	height: 10px;
+	width: 100vw;
+	top: 0;
+	background: rgb(255,188,92);
+	background: linear-gradient(190deg, rgba(255,188,92,1) 0%, rgba(255,151,0,1) 100%);	
+}
+
+#basic_body::before {
+	top: 0;
+}
+
+#basic_body::after {
+	top: auto;
+	bottom: 0;
+}
+
+.basic_panel {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 50px;
+	font-size: var(--f-medium);
+	background-color: var(--c-white);
+	border-radius: 5px;
+	border-top: 2px solid var(--c-darkgray);
+	border-left: 2px solid var(--c-darkgray);
+	border-bottom: 2px solid var(--c-gray);
+	border-right: 2px solid var(--c-gray);
+	box-shadow: var(--s-black);
+}
+
+.basic_panel > * {
+	margin: 10px 0;
+}
+
+.bold, b {
+	font-family: var(--bold);
+	background-color: transparent;
+}
+
+.go_back {
+	font-family: var(--bold);
+	text-decoration: underline;
+	color: var(--c-orange);
+	padding: 5px;
+	margin: 5px 0;
+}
+
+.go_back:hover {
+	background-color: var(--c-lightestgray);
+}
+
+b.red {
+	color: var(--c-red);
+	background-color: transparent;
+}
+
+b.green {
+	color: var(--c-green);
+	background-color: transparent;
+}
