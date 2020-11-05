@@ -836,6 +836,11 @@ input[value="Search"] {
 	background-color: transparent;
 }
 
+#select_fencers_list_wrapper {
+	width: 80%;
+	margin: 25px 0 100px;
+}
+
 /* Pools */
 
 #pools_wrapper {
