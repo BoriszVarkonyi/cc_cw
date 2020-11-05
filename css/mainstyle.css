@@ -1632,7 +1632,7 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > input[type="file"] {
-	/* display: none; */
+	display: none;
 }
 
 .invitation_file_wrapper > label {
