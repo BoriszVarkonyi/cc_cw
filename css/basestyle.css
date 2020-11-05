@@ -866,6 +866,19 @@ input[type="time"] {
 	right: 10px;
 }
 
+.panel_submit.secondary {
+	background-color: var(--c-gray);
+	right: calc(5em + 3vmin);
+}
+
+.panel_submit.red {
+	background-color: var(--c-red);
+}
+
+.panel_submit.green {
+	background-color: var(--c-green);
+}
+
 .panel_submit:disabled {
 	background-color: var(--c-gray);
 	color: var(--c-darkgray);

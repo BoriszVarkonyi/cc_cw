@@ -26,7 +26,6 @@ function hideNshow () {
 
 var input = document.getElementById("fileToUpload");
 var uploadButton = document.querySelector(".panel_submit");
-uploadButton.disabled = true;
 document.getElementById("fileText").textContent = " ";
 
 input.addEventListener("input", function() {
