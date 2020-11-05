@@ -250,8 +250,8 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             </form>
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
+                                <label for="fileToUpload">Upload Image</label>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
-                                <input type="submit" value="Upload Image" name="submit" class="panel_submit">
                             </form>
                         </div>
                     </div>

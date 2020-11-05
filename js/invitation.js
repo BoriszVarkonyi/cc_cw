@@ -10,7 +10,7 @@ function toggleEntry(x) {
 }
 
 function printPage() {
-    window.print();
+  window.print();
 }
 
 //Add entry button.

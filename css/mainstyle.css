@@ -58,14 +58,15 @@ textarea {
 	transition: var(--t-basic);
 }
 
-/* Disbled transitions on page load*/
-.preload * {
+/* Disbled transitions on page load */ /*
+body * {
 	-webkit-transition: none !important;
 	-moz-transition: none !important;
 	-ms-transition: none !important;
 	-o-transition: none !important;
 	transition: none !important;
 }
+*/
 
 /* ///PAGE LAYOUT/// */
 
@@ -225,10 +226,6 @@ textarea {
 	box-shadow: var(--s-black);
 } 
 
-#language_panel.hidden {
-	display: none;
-}
-
 #languages_wrapper {
 	position: relative;
 	height: 80%;
@@ -292,10 +289,6 @@ textarea {
 	margin: 0;
 }
 
-#colormode_panel.hidden {
-	display: none;
-}
-
 #profile_panel {
 	position: absolute;
 	right: 10px;
@@ -307,10 +300,6 @@ textarea {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	flex-direction: column;
-}
-
-#profile_panel.hidden {
-	display: none;
 }
 
 #logout_form {
@@ -1146,10 +1135,14 @@ input[type=radio]:checked:disabled + label:before {
 	justify-content: center;
 	align-items: center;
 	z-index: 5;
+	opacity: 1;
+	transition: opacity var(--t-basic);
 }
 
 .overlay_panel.hidden {
-	display: none;
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
 }
 
 .overlay_panel.small {
@@ -1444,23 +1437,14 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 #add_technician_panel {
-	position: absolute;
 	right: 40px;
 	top: calc(50px + 3vh);
-}
-
-#add_technician_panel.hidden {
-	display: none;
 }
 
 #import_technician_panel {
 	position: absolute;
 	right: 200px;
 	top: calc(50px + 3vh);
-}
-
-#import_technician_panel.hidden {
-	display: none;
 }
 
 .select_competition_wrapper {
@@ -1660,7 +1644,7 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > input[type="file"] {
-	display: none;
+	/* display: none; */
 }
 
 .invitation_file_wrapper > label {
@@ -2572,10 +2556,6 @@ div.title_box > button {
 	z-index: 2;
 }
 
-#add_fencer_panel.hidden {
-	display: none;
-}
-
 #ranking_info_panel {
 	right: 530px;
 	top: calc(50px + 3vh);
@@ -2583,10 +2563,6 @@ div.title_box > button {
 	flex-direction: column;
 	align-items: flex-start;
 	position: absolute;
-}
-
-#ranking_info_panel.hidden {
-	display: none;
 }
 
 #ranking_info_panel > div > p {
