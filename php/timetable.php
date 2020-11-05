@@ -234,7 +234,7 @@ if($query_do){
                 </div>
                 <div id="page_content_panel_main" class="no_scroll">
 
-                    <div id="set_wc_panel" class="overlay_panel_példa hidden">
+                    <div id="set_wc_panel" class="overlay_panel_timetable hidden">
                             <button class="panel_button"onclick="closeWcPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" alt="">
                             </button>
