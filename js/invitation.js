@@ -22,9 +22,34 @@ function hideNshow () {
     addEntryPanel.classList.toggle("hidden");
     addingEntryPanel.classList.toggle("hidden");
 }
+//END
 
-var inputs = document.querySelectorAll('fileToUpload');
+var input = document.getElementById("fileToUpload");
+var uploadButton = document.querySelector(".panel_submit");
+uploadButton.disabled = true;
+document.getElementById("fileText").textContent = " ";
 
+input.addEventListener("input", function() {
+  if(input.value == "") {
+    uploadButton.disabled = true;
+
+  }
+  else {
+    uploadButton.disabled = false;
+    document.getElementById("fileText").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
+  }
+})
+
+
+
+
+
+
+
+
+
+
+/*
 Array.prototype.forEach.call( inputs, function( input ) {
   var label = input.nextElementSibling,
               labelVal = label.innerHTML;
@@ -45,6 +70,7 @@ Array.prototype.forEach.call( inputs, function( input ) {
     }
   });
 });
+*/
 //END
 
 var oldentry;

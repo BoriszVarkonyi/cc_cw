@@ -58,16 +58,6 @@ textarea {
 	transition: var(--t-basic);
 }
 
-/* Disbled transitions on page load */ /*
-body * {
-	-webkit-transition: none !important;
-	-moz-transition: none !important;
-	-ms-transition: none !important;
-	-o-transition: none !important;
-	transition: none !important;
-}
-*/
-
 /* ///PAGE LAYOUT/// */
 
 #flexbox_container {
@@ -267,12 +257,7 @@ body * {
 	position: absolute;
 	right: 130px;
 	top: 40px;
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
-	display: flex;
 	justify-content: flex-start;
-	align-items: center;
-	flex-wrap: nowrap;
 	flex-direction: column;
 }
 
@@ -905,6 +890,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .option_container.row {
 	display: flex;
 	margin: 20px 0;
+	flex-direction: row;
 }
 
 .option_container.row > label {
@@ -918,7 +904,6 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .option_container.grid.piste_select {
-	max-width: 330px;
 	padding: 10px;
 	background-color: var(--c-lightergray);
 	box-shadow: none;
@@ -1126,7 +1111,7 @@ input[type=radio]:checked:disabled + label:before {
 	margin: 10px 0;
 }
 
-.overlay_panel {
+.overlay_panel, .overlay_panel_single {
 	position: absolute;
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
@@ -1141,8 +1126,11 @@ input[type=radio]:checked:disabled + label:before {
 
 .overlay_panel.hidden {
 	opacity: 0;
-	max-height: 0;
+	max-height: 0 !important;
 	overflow: hidden;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 .overlay_panel.small {
@@ -1644,7 +1632,7 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > input[type="file"] {
-	/* display: none; */
+	display: none;
 }
 
 .invitation_file_wrapper > label {
