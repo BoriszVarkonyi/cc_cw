@@ -13,10 +13,6 @@
 
 
 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +42,9 @@
                 <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                 <p><?php echo statusConverter($comp_status) ?></p>
                 <p><?php echo date('Y', strtotime($comp_start)) ?></p>
+                <p><?php echo "value: " . $value ?></p>
+                <p><?php echo "new value: " . $newvalue ?></p>
+                <p><?php echo "array: "; print_r($array_value) ?></p>
             </div>
         </div>
         <div id="competition_wrapper">
