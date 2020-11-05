@@ -13,10 +13,6 @@
 
 
 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +42,9 @@
                 <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                 <p><?php echo statusConverter($comp_status) ?></p>
                 <p><?php echo date('Y', strtotime($comp_start)) ?></p>
+                <p><?php echo "value: " . $value ?></p>
+                <p><?php echo "new value: " . $newvalue ?></p>
+                <p><?php echo "array: "; print_r($array_value) ?></p>
             </div>
         </div>
         <div id="competition_wrapper">
@@ -131,17 +130,28 @@
                         <?php
                         
                             //display plus info from DB
-                            $get_plsuinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = '$comp_id'";
-                            $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
+                            
+                            $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
+                            if (!$get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry)) {
+                                $feedback = "ERROR: " . mysqli_error($connection);
+                            }
 
-                            while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
+                            if ($get_plsuinfo_do !== FALSE) {//checks whether table exists
+                                while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
 
-                                $info_title = $row['info_title'];
-                                $info_body = $row['info_body'];
+                                    $info_title = $row['info_title'];
+                                    $info_body = $row['info_body'];
                         ?>
 
-                            <p><?php echo $info_title ?></p>
-                            <p><?php echo $info_body ?></p>
+                                <p><?php echo $info_title ?></p>
+                                <p><?php echo $info_body ?></p>
+
+                        <?php
+                                }
+                            } else  { // displayed when there are no plus infos for comp_id
+                        ?>
+                            
+                            <p>You have not added any plus information yet!</p>
 
                         <?php
                             }
