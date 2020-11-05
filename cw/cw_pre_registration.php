@@ -2,6 +2,8 @@
 
 <?php
 
+$comp_id = $_GET["comp_id"];
+
 if(isset($_POST["send_pre"])){
 
 
@@ -27,7 +29,7 @@ if(isset($_POST["send_pre"])){
 <body>
     <div id="cw_confirmation" class="disabled">
         <div>
-            <input type="text" class="disabled" id="fencer_ids">
+           
             <button class="panel_button" onclick="toggle_add_technician()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="" onclick="closeConf()">
             </button>
@@ -61,6 +63,9 @@ if(isset($_POST["send_pre"])){
                         <input type="email" name="c_email" id="">
                         <p class="data_label">CONTACT KEEPER'S PHONE NUMBER:</p>
                         <input type="number" name="c_phone" id="" class="number_input no_web">
+
+                        <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
+                        <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
                     </div>
                 </div>
 
