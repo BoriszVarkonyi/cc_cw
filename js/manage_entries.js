@@ -31,6 +31,13 @@ function toggleEntry(x) {
         //If no it sets the oldentry var. undifened
         oldentry = undefined
     }
+
+    var hiddentext = document.getElementById("hidden_id_" + x.id);
+    hiddentext.form = "appdisapp" + x.id;
+    hiddentext.value = x.id;
+
+
+
 }
 //END
 
