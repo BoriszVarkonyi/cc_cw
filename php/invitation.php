@@ -63,7 +63,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
 
         if ($row == 0) {
 
-            $create_table_qry = "CREATE TABLE `info_$comp_id` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `info_title` TEXT NOT NULL , `info_body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
+            $create_table_qry = "CREATE TABLE `info_$comp_id` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `info_title` VARCHAR(255) NOT NULL , `info_body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
 
             
             if (mysqli_query($connection, $create_table_qry)){
@@ -251,7 +251,6 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload Image</label>
-                                <p>Fájl neve ide</p>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
                             </form>
                         </div>
@@ -343,7 +342,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                     <?php
                                     
                                         //display plus info from DB
-                                        $get_plsuinfo_qry = "SELECT * FROM plusinfo WHERE assoc_comp_id = '$comp_id'";
+                                        $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
                                         $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
 
                                         while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
