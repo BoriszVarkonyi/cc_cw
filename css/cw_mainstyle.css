@@ -204,6 +204,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 .slide.hidden, .slide.hidden * {
 	opacity: 0;
+	visibility: hidden;
 }
 
 @keyframes slide_anim {
