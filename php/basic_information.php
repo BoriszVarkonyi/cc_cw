@@ -47,7 +47,7 @@ $query_do = mysqli_query($connection, $query);
 
                 <div id="page_content_panel_main">
                     <div id="basic_information_wrapper" class="wrapper filled">
-                        <form action="" id="basic_information_form" method="POST">
+                        <form action="" id="basic_information_form" class="column_form_wrapper" method="POST">
 
                         <?php
                         
@@ -69,7 +69,7 @@ $query_do = mysqli_query($connection, $query);
                         
                         ?>
 
-                        <div class="form_column flex">
+                        <div class="form_column">
                             <label for="host_country" class="label_text">
                                 HOST COUNTRY
                                 <p>Ez jó</p>
@@ -135,7 +135,7 @@ $query_do = mysqli_query($connection, $query);
                             
                             ?>">
                         </div>
-                        <div class="form_column flex">
+                        <div class="form_column">
 
                             <label for="start_date" class="label_text">STARTING DATE</label>
                             <input type="date" name="start_date" id="start_date_input"<?php

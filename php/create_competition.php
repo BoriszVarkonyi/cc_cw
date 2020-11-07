@@ -92,7 +92,7 @@ $query = "";
 <body id="illustration_bg">
 <?php include "../includes/headernoburger.php";?>
 <!-- header -->
-    <div id="create_competition" class="panel small_panel">
+    <div id="create_competition_panel" class="panel">
         <div id="title_stripe">
             <p class="page_title">Create new competition</p>
             <button class="stripe_button" onclick="location.href='choose_competition.php'">
@@ -105,7 +105,7 @@ $query = "";
             </button>
         </div>
         <div id="panel_main">
-            <form id="create_new_comp" action="" method="POST">
+            <form id="create_new_comp" class="column_form_wrapper" action="" method="POST">
                 <div class="form_column">
 
                     <label for="comp_name" class="label_text">NAME</label>

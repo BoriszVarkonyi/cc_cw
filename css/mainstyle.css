@@ -767,8 +767,6 @@ input[type="range"]:focus::-ms-fill-upper {
 #illustration_bg {		/* Background used on login page and choose competition*/
 	background-image: url(../assets/img/fencers_bg.svg);
 	width: 100vw;
-	-o-background-size: 100% 100%;
-	-webkit-background-size: 100% 100%;
 	background-size: cover;
 	position: absolute;
 	top: 0;
@@ -779,24 +777,24 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #copyright_text {		/* Name and version text used on login page*/
 	font-size: var(--f-small);
+	font-family: var(--bold);
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
 	margin: 0;
 }
 
-.panel {		/* Sets basic atributes of a panel */
+.panel {		/* Sets basic attributes of a panel */
 	display: flex;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	flex-flow: column;
 	background-color: var(--c-lightergray);
 	box-shadow: var(--s-black);
 	position: fixed;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
-.small_panel {
+#your_competitions_panel, #create_competition_panel {		/* Sets size and position of name panels */
 	min-width: 650px;
 	min-height: 450px;
 	max-width: 1300px;
@@ -805,14 +803,12 @@ input[type="range"]:focus::-ms-fill-upper {
 	height: 50vh;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%); 
+	-webkit-transform: translate(-50%, -50%);
 }
 
 #panel_main {		/* The main part of the panel it is under the title_stripe*/
-	background-color: var(--c-lightergray);
 	flex: 1 1 auto;
-	width: 100%;
 	position: relative;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -820,19 +816,11 @@ input[type="range"]:focus::-ms-fill-upper {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-}
-
-#panel_footer {
-	flex: 0 1 10px;
-}
-
-/* ///FORMS AND INPUTS/// */
-
-.form_wrapper {		/* centers the form inside the panel_main */
-	padding: 50px 75px;
 	width: 100%;
 	height: 100%;
 }
+
+/* ///FORMS AND INPUTS/// */
 
 .label_text {	/* Used in forms, all caps, thin font    NO option buttons*/
 	font-family: var(--thin);
@@ -1171,20 +1159,20 @@ input[type=radio]:checked:disabled + label:before {
 	background-color: var(--c-lightergray);
 }
 
-/* ///CREATE COMPETITION ELEMENTS/// */
-
-#create_new_comp {
-	display: flex;
-}
+/* ///FORMS WRAPPER ELEMENTS/// */
 
 .form_column {
 	padding: 25px;
-	min-width: 22.5vw;
-}
-
-.form_column.flex {
+	width: 437px;
 	display: flex;
 	flex-direction: column;
+	align-content: center;
+}
+
+.column_form_wrapper {
+	width: auto;
+	display: flex;
+	padding: 50px;
 }
 
 /* ///DASHBOARD ELEMENTS/// */
@@ -1558,13 +1546,6 @@ input[type=radio]:checked:disabled + label:before {
 	align-items: center;
 }
 
-#basic_information_form {
-	width: auto;
-	height: 75%;
-	display: flex;
-	padding: 50px;
-}
-
 input:focus::placeholder {
 	color: transparent;
 }
@@ -1631,11 +1612,11 @@ input:focus::placeholder {
 	font-family: var(--bold);
 }
 
-.invitation_file_wrapper > input[type="file"] {
+input[type="file"] {
 	display: none;
 }
 
-.invitation_file_wrapper > label {
+.invitation_file_wrapper > label, .file_label {
 	font-size: var(--f-medium);
 	font-family: var(--bold);
 	text-decoration: underline;

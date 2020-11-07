@@ -149,7 +149,7 @@ header("Location: ../index.php");
             <button class="panel_button" onclick="toggle_profile_panel()">
                 <img src="../assets/icons/close-black-18dp.svg" alt="">
             </button>
-            <button class="panel_button left">
+            <button class="panel_button left" onclick="">
                 <img src="../assets/icons/edit-black-18dp.svg" alt="">
             </button>
             <img src="https://thispersondoesnotexist.com/image" class="profile_picture_big">

@@ -174,13 +174,6 @@ form.hidden, form.disabled {
 	padding: 0;
 }
 
-form.flex {
-	display: flex;
-	flex-direction: column;
-	align-content: flex-start;
-	align-items: flex-start;
-}
-
 :hover {
 	transition: var(--t-basic);
 }

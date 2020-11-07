@@ -194,9 +194,11 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	flex-direction: column;
 	background-color: var(--c-lightergray);
 	position: absolute;
+	/*
 	animation-name: slide_anim;
 	animation-duration: 1.5s;
 	opacity: 1;
+	*/
 	transition: opacity ease-in 1.5s;
 }
 

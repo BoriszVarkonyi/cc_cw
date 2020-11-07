@@ -34,8 +34,8 @@
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="wrapper filled">
-                    <form action="" id="basic_information_form" method="POST">
-                        <div class="form_column flex">
+                    <form action="" class="column_form_wrapper" method="POST">
+                        <div class="form_column">
                             <label for="points_pools" class="label_text">POINTS IN POOLS</label>
                             <input type="number" name="points_pools" id="" class="number_input extra_small" value="5">
 
@@ -55,7 +55,7 @@
                             </div>
 
                         </div>
-                        <div class="form_column flex">
+                        <div class="form_column">
                             <label for="exempted_fencers_pools" class="label_text">NUMBER OF EXEMPTED FENCERS IN POOLS</label>
                             <input type="number" name="exempted_fencers_pools" id="" class="number_input extra_small" value="0">
 

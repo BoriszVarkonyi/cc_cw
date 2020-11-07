@@ -194,10 +194,8 @@ print_r($_POST);
                     ?>
 
 
-            <div class="form_wrapper">
-
             <!-- login form -->
-               <form action="index.php" method="POST">
+               <form action="index.php" method="POST" class="overlay_panel_form flex">
                     <label for="username" class="label_text">LOGIN ID</label>
                     <input type="text" placeholder="Type in your username" id="username_input" name="username"<?php 
                     
@@ -258,9 +256,6 @@ print_r($_POST);
                     <input type="submit" name="submit" value="Login" class="login_button">
                 </form>
                 <!-- login form end -->
-
-
-            </div>
         </div>
     </div>
     <div id="login_links_wrapper"> 
@@ -278,7 +273,7 @@ print_r($_POST);
         </div>
     </div>
 
-    <p id="copyright_text">Competition Control &copy; v1.0</p>
+    <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
     <script src="/js/login.js"></script>
 </body>
 </html>

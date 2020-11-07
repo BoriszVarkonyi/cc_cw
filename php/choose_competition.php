@@ -53,7 +53,7 @@ $query_comps = mysqli_query($connection, $query);
 
     <?php include "../includes/headernoburger.php" ?>
 
-    <div id="your_competitions_panel" class="panel small_panel">
+    <div id="your_competitions_panel" class="panel">
         <div id="title_stripe">
             <p class="page_title">Your competitions</p>
             <button class="stripe_button orange" onclick="location.href='create_competition.php'">
