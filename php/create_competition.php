@@ -109,7 +109,7 @@ $query = "";
                 <div class="form_column">
 
                     <label for="comp_name" class="label_text">NAME</label>
-                    <input type="text" name="comp_name" id="name_input">
+                    <input type="text" name="comp_name" class="name_input">
                         <?php
 
                             if(in_array(1, $_GET)) {

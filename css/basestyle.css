@@ -149,10 +149,6 @@ input[type="text"].hidden {
 	display: none;
 }
 
-input[type="password"].no_margin_input {
-	margin-bottom: 0;
-}
-
 textarea {
 	outline: none;
 	border: none;
@@ -598,54 +594,44 @@ input[type="text"].no_margin {
 	position: relative;
 }
 
-#username_input {
+.username_input {
 	background: url(../assets/icons/person_outline-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#password_input {
+.password_input {
 	background: url(../assets/icons/lock-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#name_input {
+.name_input {
 	background: url(../assets/icons/label-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#country_input {
+.country_input {
 	background: url(../assets/icons/language-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#location_input {
+.location_input {
 	background: url(../assets/icons/location_city-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#postal_input {
+.postal_input {
 	background: url(../assets/icons/location_city-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#money_input {
+.money_input {
 	background: url(../assets/icons/money-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#start_date_input {
+.start_date_input {
 	background: url(../assets/icons/outlined_flag-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#end_date_input {
+.end_date_input {
 	background: url(../assets/icons/flag-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
-#wc_input {
+.wc_input {
 	background: url(../assets/icons/check-black-18dp.svg) no-repeat scroll 10px;
-	background-size: 20px;
 }
 
 input[type="number"] {

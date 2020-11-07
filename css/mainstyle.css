@@ -43,10 +43,6 @@ input[type="text"].hidden {
 	display: none;
 }
 
-input[type="password"].no_margin_input {
-	margin-bottom: 0;
-}
-
 textarea {
 	outline: none;
 	border: none;
@@ -595,7 +591,6 @@ input[type="range"]:focus::-ms-fill-upper {
 
 }
 
-
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_item > p {
 	animation: hideNavTitles var(--t-basic);
 	animation-fill-mode: forwards; 
@@ -1081,6 +1076,8 @@ input[type=radio]:checked:disabled + label:before {
 
 .overlay_panel_form {
 	padding: 50px;
+	flex-direction: column;
+	width: 400px;
 }
 
 .overlay_panel_form > * {
@@ -1445,9 +1442,17 @@ input[type=radio]:checked:disabled + label:before {
 	height: 35px;
 	width: 35px;
 	background-color: transparent;
-	position: relative;
-	top: -35px;
-	right: -200px;
+	position: absolute;
+	margin-top: 3px;
+}
+
+#random_password_button:hover {
+	background-color: var(--c-lightestgray);
+}
+
+#random_password_button > img {
+	height: 25px;
+	width: 25px;
 }
 
 #visibility_button {
