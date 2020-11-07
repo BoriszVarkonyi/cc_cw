@@ -74,7 +74,7 @@ $query_do = mysqli_query($connection, $query);
                                 HOST COUNTRY
                                 <p>Ez jó</p>
                             </label>
-                            <input type="text" placeholder="Type the name of the country" name="host_country" id="country_input"<?php
+                            <input type="text" placeholder="Type the name of the country" name="host_country" class="country_input" id="country_input" value="<?php
                             
                             if($host_country_get == ""){
 
@@ -90,7 +90,7 @@ $query_do = mysqli_query($connection, $query);
                             ?>">
 
                             <label for="location" class="label_text">LOCATION AND ADDRESS</label>
-                            <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin" id="location_input"<?php
+                            <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin location_input" id="location_input" value="<?php
                             
                             if($location_get == ""){
 
@@ -104,7 +104,7 @@ $query_do = mysqli_query($connection, $query);
                             }
                             
                             ?>">
-                            <input type="number" placeholder="Postal Code" name="postal" class="number_input small" id="postal_input"<?php
+                            <input type="number" placeholder="Postal Code" name="postal" class="number_input small postal_input" id="postal_input" value="<?php
                             
                             if($postal_get == 0){
 
@@ -120,7 +120,7 @@ $query_do = mysqli_query($connection, $query);
                             ?>">
 
                             <label for="entry_fee" class="label_text">ENTRY-FEE</label>
-                            <input type="text" placeholder="Type in the amount" name="entry_fee" class="number_input" id="money_input"<?php
+                            <input type="text" placeholder="Type in the amount" name="entry_fee" class="number_input money_input" value="<?php
                             
                             if($entry_fee_get == ''){
 
@@ -138,7 +138,7 @@ $query_do = mysqli_query($connection, $query);
                         <div class="form_column">
 
                             <label for="start_date" class="label_text">STARTING DATE</label>
-                            <input type="date" name="start_date" id="start_date_input"<?php
+                            <input type="date" name="start_date" class="start_date_input" id="start_date_input" value="<?php
                             
                             if($start_date_get == ""){
 
@@ -154,7 +154,7 @@ $query_do = mysqli_query($connection, $query);
                             ?>">
 
                             <label for="end_date" class="label_text">ENDING DATE</label>
-                            <input type="date" name="end_date" id="end_date_input" value="<?php
+                            <input type="date" name="end_date" class="end_date_input" value="<?php
                             
                             if($end_date_get == ""){
 
@@ -170,7 +170,7 @@ $query_do = mysqli_query($connection, $query);
                             ?>">
 
                             <label for="end_pre_reg" class="label_text">END OF PRE-REGISTRATION</label>
-                            <input type="date" name="end_pre_reg" id="end_date_input" value="<?php
+                            <input type="date" name="end_pre_reg" class="end_date_pre_reg" value="<?php
                             
                             if($end_pre_reg_get == ""){
 

@@ -178,7 +178,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                                 <button type="button" id="random_password_button" onclick="randomPassword()" ><img src="../assets/icons/shuffle-black-18dp.svg"></button>
                                 </div>
                                 <label for="full_name" class="label_text">FULL NAME</label>
-                                <input type="text" placeholder="Type the referees's full name" id="full_name_input" name="full_name">
+                                <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
                             <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
                     </div>

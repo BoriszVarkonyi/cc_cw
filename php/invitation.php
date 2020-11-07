@@ -229,7 +229,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 <form action="../php/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
                                     <div class="table_row">
                                         <div class="table_item">
-                                            <input name="info_title" type="text" placeholder="Type in the title">
+                                            <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
                                             <input name="info_submit" type="submit" class="save_entry" value="Create">
                                         </div>
                                     </div>
@@ -237,7 +237,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             </div>
                         </div>
                     </div>
-                    <div class="inv_panel" id="">
+                    <div class="inv_panel">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg" alt="" class="db_panel_stripe_icon">
                             <p>Add competition logo</p>
@@ -251,6 +251,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload Image</label>
+                                <p id="fileText">Fájl neve ide</p>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
                             </form>
                         </div>

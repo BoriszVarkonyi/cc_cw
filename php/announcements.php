@@ -53,7 +53,7 @@
                     <form id="adding_entry" class="hidden">
                         <div class="table_row">
                             <div class="table_item">
-                                <input type="text" placeholder="Type in the title">
+                                <input type="text" placeholder="Type in the title" class="title_input">
                                 <button class="save_entry" onsubmit="hideNshow()">Create</button>
                             </div>
                         </div>

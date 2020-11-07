@@ -39,15 +39,6 @@ input.addEventListener("input", function() {
   }
 })
 
-
-
-
-
-
-
-
-
-
 /*
 Array.prototype.forEach.call( inputs, function( input ) {
   var label = input.nextElementSibling,

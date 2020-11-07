@@ -216,8 +216,8 @@ if($query_do){
             <p>You cannot withdraw this action!</p>
             <div id="confirmation_button_section">
             <input class="hidden" type="text" id="remove_date" name="remove_date">
-                <button onclick="closeConf()" type="button" value="Cancel">Cancel</button>
-                <button onclick="" name="sure_delete" type="submit" value="{Action}" class="action">Remove</button>
+            <button onclick="closeConf()" type="button" value="Cancel">Cancel</button>
+            <button onclick="" name="sure_delete" type="submit" value="{Action}" class="action">Remove</button>
             </div>
         </form>
     </div>
@@ -243,7 +243,7 @@ if($query_do){
                                 <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
                                 <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes:</label>
-                                <input type="number" class="number_input small" placeholder="e.g. 8" id="wc_input" name="wc_per_ten_min">
+                                <input type="number" class="number_input small" placeholder="e.g. 8" id="wc_input" class="wc_input" name="wc_per_ten_min">
 
                                 <div class="table_header">
                                     <div class="table_header_text">STARTING TIME</div>

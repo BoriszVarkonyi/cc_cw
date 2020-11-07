@@ -1451,8 +1451,8 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 #random_password_button > img {
-	height: 25px;
-	width: 25px;
+	height: 22px;
+	width: 22px;
 }
 
 #visibility_button {
@@ -1746,6 +1746,11 @@ input[type="file"] {
 
 #adding_entry > .table_row > .table_item > input[type="text"] {
 	margin: 0;
+}
+
+#fileText {
+	font-size: var(--f-small);
+	font-family: var(--reg);
 }
 
 /* Competitions page*/

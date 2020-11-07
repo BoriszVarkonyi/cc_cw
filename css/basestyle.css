@@ -595,7 +595,7 @@ input[type="text"].no_margin {
 }
 
 .username_input {
-	background: url(../assets/icons/person_outline-black-18dp.svg) no-repeat scroll 10px;
+	background: url(../assets/icons/person-black-18dp.svg) no-repeat scroll 10px;
 }
 
 .password_input {
@@ -630,8 +630,20 @@ input[type="text"].no_margin {
 	background: url(../assets/icons/flag-black-18dp.svg) no-repeat scroll 10px;
 }
 
+.end_date_pre_reg {
+	background: url(../assets/icons/person_add_disabled-black-18dp.svg) no-repeat scroll 10px;
+}
+
 .wc_input {
 	background: url(../assets/icons/check-black-18dp.svg) no-repeat scroll 10px;
+}
+
+.title_input {
+	background: url(../assets/icons/title-black-18dp.svg) no-repeat scroll 10px;
+}
+
+.full_name_input {
+	background: url(../assets/icons/perm_identity-black-18dp.svg) no-repeat scroll 10px;
 }
 
 input[type="number"] {

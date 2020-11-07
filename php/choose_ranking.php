@@ -171,7 +171,6 @@ if(isset($_POST["submit"]) ){
 
                                     </div> <!--From * SELECT table name LIKE sadsadas -->
                                     <form>
-                                        <input type="text" class="hidden"> <!-- IF storing the seleted ranking in text form-->
                                         <input type="button" value="Use Ranking" onclick="getName()">
                                     </form>
                                 </div>
