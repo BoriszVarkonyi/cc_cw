@@ -93,7 +93,7 @@ function toggleEntry(x) {
   }
   else {
       //If no it sets the oldentry var. undifened
-      oldentry = undefined
+      oldentry = undefined;
   }
 }
 
