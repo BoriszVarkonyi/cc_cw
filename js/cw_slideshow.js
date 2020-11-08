@@ -9,25 +9,18 @@ function slideShow() {
     var slides = document.getElementsByClassName("slide");*/
 
 //SLIDESHOW
-//var slides = document.querySelectorAll(".slide");
-function showSlides() {
-  var i;
-  var slides = document.querySelectorAll(".slide");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].classList.add("hidden");  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); 
-function slideAnimation () {
-  slides.classlist.remove("hidden");
+var slides = document.querySelectorAll(".slide");
+var slidesNumber;
+for (i=0; i<slides.length; i++) {
+  slides[i].classList.add("hidden") 
 }
+
+function showSlides() {
+  slidesNumber++;
+
+  slides[slidesNumber].classList.remove("hidden")
+
+  setTimeout(showSlides, 2000); 
 }
 
 
