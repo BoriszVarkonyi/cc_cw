@@ -505,8 +505,9 @@ input[type="range"]:focus::-ms-fill-upper {
 	background-color: var(--c-transparent-white);
 }
 
-.nav_bar_item.disabled {
+.nav_bar_item.disabled  {
 	cursor: default;
+	pointer-events: none;
 }
 
 .nav_bar_item > p {
@@ -662,6 +663,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .dropdown_menu > a.disabled {
 	color: var(--c-disabled);
 	cursor: default;
+	pointer-events: none;
 }
 
 .dropdown_menu.hidden {
@@ -891,19 +893,19 @@ input[type="range"]:focus::-ms-fill-upper {
 	background-color: var(--c-lightergray);
 	box-shadow: none;
 	max-height: 150px;
-	overflow-y: auto;
-	overflow-x: hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
 	justify-content: space-around;
 	margin-bottom: 35px;
 	opacity: 1;
 	transition: opacity var(--t-basic);
+	width: 380px;
 }
 
 .option_container.grid.piste_select.disabled {
 	cursor: default;
 	opacity: 0.2;
 	pointer-events: none;
-	
 }
 
 .option_container.grid.piste_select.disabled * {
@@ -1011,6 +1013,10 @@ input[type=radio]:checked + label:before {
 input[type=radio]:disabled + label:before {
 	transform: scale(1);
 	border-color:var(--c-darkgray);
+}
+
+input[type=radio]:disabled + label {
+	color:var(--c-darkgray);
 }
   
 input[type=radio]:checked:disabled + label:before {
@@ -1209,6 +1215,8 @@ input[type=radio]:checked:disabled + label:before {
 	margin: 10px;
 	display: flex;
 	flex-direction: column;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 .db_panel_title_stripe {
@@ -1477,6 +1485,8 @@ input[type=radio]:checked:disabled + label:before {
 	box-shadow: var(--s-black);
 	height: 85%;
 	flex: 1 1 auto;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 #needed_equipment_panel {
@@ -1590,6 +1600,8 @@ input:focus::placeholder {
 	height: 300px;
 	margin-bottom: 30px;
 	flex-grow: 1;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 .inv_panel.disabled {
@@ -1632,7 +1644,6 @@ input[type="file"] {
 	min-height: 30vh;
 	max-height: 80vh;
 	flex-basis: 100%;
-	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
@@ -1643,6 +1654,7 @@ input[type="file"] {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 30px;
+	border-radius: 5px;
 }
 
 #plus_info_wrapper {
@@ -1811,6 +1823,8 @@ input[type="file"] {
 	flex-direction: column;
 	align-items: center;
 	align-content: flex-start;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 #cw_preview > div:not(#comp_data) {
@@ -1892,6 +1906,10 @@ input[type="file"] {
 #weapon_control_panel {
 	display: flex;
 	align-items: center;
+}
+
+#weapon_control_panel a {
+	cursor: default;
 }
 
 .weapon_control_day {
