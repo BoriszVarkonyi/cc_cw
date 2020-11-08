@@ -236,7 +236,7 @@ if($query_do){
 
                     <div id="set_wc_panel" class="overlay_panel_single hidden">
                             <button class="panel_button"onclick="closeWcPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
@@ -253,13 +253,13 @@ if($query_do){
                                     <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p class="wc_time">:00</p></div>
                                     <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p class="wc_time">:00</p></div>
                                     <!-- <button type="button" onclick="" class="close_add_peroid">
-                                        <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/close-black-18dp.svg" >
                                     </button> -->
                                 </div>
                                         
                                 <div class="add_peroid_container">
                                     <button type="button" onclick="addPeriod()">
-                                        <img src="../assets/icons/more_time-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/more_time-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <input type="submit" name="add_period" value="Save" class="panel_submit">
@@ -272,11 +272,11 @@ if($query_do){
                         <form action="" method="POST" id="calendar">
                         </form>
                             <button name="back" type="submit" form="calendar">
-                                <img src="../assets/icons/arrow_back_ios-black-18dp.svg" alt="">
+                                <img src="../assets/icons/arrow_back_ios-black-18dp.svg" >
                             </button>
                             <div> <p><?php echo $monthname . " " . $year?></p> </div>
                             <button name="next" type="submit" form="calendar">
-                                <img src="../assets/icons/arrow_forward_ios-black-18dp.svg" alt="">
+                                <img src="../assets/icons/arrow_forward_ios-black-18dp.svg" >
                             </button>
                         </div>
                         <div id="timetable_container">

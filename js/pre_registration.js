@@ -10,7 +10,7 @@ function selectFencer(x){
 
     current.classList.add("hidden");
 
-sfw.innerHTML += '<div><input type="number" name="" id="" class="hidden"><p>'+ currentname +'</p><button id="'+ x.id +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close-black-18dp.svg" alt=""></button></div>'
+sfw.innerHTML += '<div><input type="number" name=""  class="hidden"><p>'+ currentname +'</p><button id="'+ x.id +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close-black-18dp.svg" ></button></div>'
 
 }
 

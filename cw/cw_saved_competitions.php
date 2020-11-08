@@ -29,7 +29,7 @@
                 </div>
                 <div class="big_status_item">
                     <button class="favourite_button">
-                        <img src="../assets/icons/star_border-black-18dp.svg" alt="">
+                        <img src="../assets/icons/star_border-black-18dp.svg" >
                     </button>
                 </div>
             </div>

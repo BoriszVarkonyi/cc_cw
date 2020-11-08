@@ -22,7 +22,7 @@
                 
                 <!-- latest video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -31,7 +31,7 @@
 
                 <!-- latest video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -40,7 +40,7 @@
 
                 <!-- latest video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -49,7 +49,7 @@
 
                 <!-- latest video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -58,7 +58,7 @@
 
                 <!-- latest video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -71,7 +71,7 @@
 
                 <!-- top video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -80,7 +80,7 @@
 
                 <!-- top video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -89,7 +89,7 @@
 
                 <!-- top video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -98,7 +98,7 @@
 
                 <!-- top video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -107,7 +107,7 @@
 
                 <!-- top video placeholder -->
                 <div class="video_wrapper">
-                    <img src="../assets/img/fencers_bg.svg" alt="">
+                    <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
                         <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>

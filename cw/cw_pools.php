@@ -18,11 +18,11 @@
 
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <input type="search" name="" id="" placeholder="Search for Fencer">
+            <input type="search" name=""  placeholder="Search for Fencer">
             <input type="submit" value="Search">
         </form>
         <div id="pools_wrapper" class="entry_table_row_wrapper">
-            <div class="entry" id="">
+            <div class="entry" >
                 <div class="table_row start" onclick="togglePool(this)">
                     <div class="table_item bold">No. 1</div>
                     <div class="table_item">Piste 1</div>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            <div class="entry" id="">
+            <div class="entry" >
                 <div class="table_row start" onclick="togglePool(this)">
                     <div class="table_item bold">No. 1</div>
                     <div class="table_item">Piste 1</div>
@@ -326,7 +326,7 @@
                     </div>
                 </div>
             </div>
-            <div class="entry" id="">
+            <div class="entry" >
                 <div class="table_row start" onclick="togglePool(this)">
                     <div class="table_item bold">No. 1</div>
                     <div class="table_item">Piste 1</div>
