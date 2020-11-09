@@ -47,7 +47,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
 
     } else {
 
-        $logo = "../assets/icons/delete-black-18dp.svg";
+        $logo = "../assets/icons/no_image-black-18dp.svg";
         $delete_btn_class = "panel_button disabled";
     }
     
