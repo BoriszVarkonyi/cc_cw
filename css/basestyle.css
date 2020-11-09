@@ -23,8 +23,8 @@
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
 	--t-basic: ease-in .2s;
-	--f-xxlarge: calc(1.25em + 1vmin);
-	--f-xlarge: calc(1.25em + 1vmin);
+	--f-xxlarge: calc(2em + 2vmin);
+	--f-xlarge: calc(1.5em + 2vmin);
 	--f-large: calc(1.25em + 1vmin);
 	--f-medium: calc(0.8em + 0.7vmin);
 	--f-small: calc(0.6em + 0.5vmin);

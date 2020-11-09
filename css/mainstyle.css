@@ -747,8 +747,13 @@ input[type="range"]:focus::-ms-fill-upper {
 	font-size: var(--f-large);
 	max-width: 50vw;
 	overflow: hidden;
-	margin-left: 10px;
 	float: left;
+}
+
+.comp_logo {
+	width: var(--f-xxlarge);
+	height: var(--f-xxlarge);
+	margin: 0 10;
 }
 
 .page_title {		/* The page's title fills the login panel and page_content*/
