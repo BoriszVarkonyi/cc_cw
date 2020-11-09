@@ -16,10 +16,10 @@
     <!-- slideshow top -->
     <div id="slideshow">
         <div id="slide_nav">
-            <button class="active" id="first_button" onclick="toggleFirst()"></button>
-            <button id="second_button" onclick="toggleSecond()"></button>
-            <button id="third_button" onclick="toggleThird()"></button>
-            <button id="fourth_button" onclick="toggleForth()"></button>
+            <button class="slideButtons active" onclick="toggleButton(this)"></button>
+            <button class="slideButtons" onclick="toggleButton(this)"></button>
+            <button class="slideButtons" onclick="toggleButton(this)"></button>
+            <button class="slideButtons" onclick="toggleButton(this)"></button>
         </div>
         <!-- slide1 -->
         <div class="slide">
