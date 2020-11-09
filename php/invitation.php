@@ -252,7 +252,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload Image</label>
                                 <p id="fileText">Fájl neve ide</p>
-                                <input type="submit" value="Upload Image" name="submit" class="panel_submit" disabled>
+                                <input type="submit" value="Upload Image" name="submit" class="panel_submit" id="uploadButton" disabled>
                             </form>
                         </div>
                     </div>
