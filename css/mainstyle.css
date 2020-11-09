@@ -10,13 +10,6 @@ body, html {	/* Gives placeholder background and default font*/
 	overflow: hidden;
 }
 
-a {
-	text-decoration: none;
-	color: var(--c-black);
-	white-space: nowrap;
-	cursor: pointer;
-}
-
 button {
 	cursor: pointer;
 	padding: 0;
@@ -753,7 +746,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .comp_logo {
 	width: var(--f-xxlarge);
 	height: var(--f-xxlarge);
-	margin: 0 10;
+	margin: 0 10px;
 }
 
 .page_title {		/* The page's title fills the login panel and page_content*/
