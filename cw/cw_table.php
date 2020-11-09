@@ -17,12 +17,12 @@
         </div>
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <input type="search" name="" id="" placeholder="Search by Fencer">
+            <input type="search" name=""  placeholder="Search by Fencer">
 
             <input type="button" value="Search" onclick="giveClassToFirst()">
         </form>
 
-        <div id="call_room" class="">
+        <div id="call_room" >
             
             <div id="e_1" class="elimination first visible">
                 <div class="elimination_label">Table of __</div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -55,7 +55,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -81,7 +81,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -96,7 +96,7 @@
                         </div>
                         <div class="table_fencer_nat"> <!-- Not visible if dna-->
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -108,34 +108,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="table_round">
-                    <div class="table_fencer">
-                        <div class="table_fencer_number">
-                        25
-                        </div>
-                        <div class="table_fencer_name">
-                            Szia Enber
-                        </div>
-                        <div class="table_fencer_nat">
-                            NAT
-                            <img src="../assets/icons/english.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="table_fencer">
-                        <div class="table_fencer_number">
-                        25
-                        </div>
-                        <div class="table_fencer_name">
-                            Szia Enber
-                        </div>
-                        <div class="table_fencer_nat">
-                            NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -150,7 +123,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -162,34 +135,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="table_round">
-                    <div class="table_fencer">
-                        <div class="table_fencer_number">
-                        25
-                        </div>
-                        <div class="table_fencer_name">
-                            Szia Enber
-                        </div>
-                        <div class="table_fencer_nat">
-                            NAT
-                            <img src="../assets/icons/english.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="table_fencer">
-                        <div class="table_fencer_number">
-                        25
-                        </div>
-                        <div class="table_fencer_name">
-                            Szia Enber
-                        </div>
-                        <div class="table_fencer_nat">
-                            NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -204,7 +150,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -216,7 +162,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -231,7 +177,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -243,7 +189,61 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="table_round">
+                    <div class="table_fencer">
+                        <div class="table_fencer_number">
+                        25
+                        </div>
+                        <div class="table_fencer_name">
+                            Szia Enber
+                        </div>
+                        <div class="table_fencer_nat">
+                            NAT
+                            <img src="../assets/icons/english.svg" >
+                        </div>
+                    </div>
+                    <div class="table_fencer">
+                        <div class="table_fencer_number">
+                        25
+                        </div>
+                        <div class="table_fencer_name">
+                            Szia Enber
+                        </div>
+                        <div class="table_fencer_nat">
+                            NAT
+                            <img src="../assets/icons/english.svg" >
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="table_round">
+                    <div class="table_fencer">
+                        <div class="table_fencer_number">
+                        25
+                        </div>
+                        <div class="table_fencer_name">
+                            Szia Enber
+                        </div>
+                        <div class="table_fencer_nat">
+                            NAT
+                            <img src="../assets/icons/english.svg" >
+                        </div>
+                    </div>
+                    <div class="table_fencer">
+                        <div class="table_fencer_number">
+                        25
+                        </div>
+                        <div class="table_fencer_name">
+                            Szia Enber
+                        </div>
+                        <div class="table_fencer_nat">
+                            NAT
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -262,7 +262,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -274,34 +274,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="table_round">
-                    <div class="table_fencer">
-                        <div class="table_fencer_number">
-                        25
-                        </div>
-                        <div class="table_fencer_name">
-                            Szia Enber
-                        </div>
-                        <div class="table_fencer_nat">
-                            NAT
-                            <img src="../assets/icons/english.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="table_fencer">
-                        <div class="table_fencer_number">
-                        25
-                        </div>
-                        <div class="table_fencer_name">
-                            Szia Enber
-                        </div>
-                        <div class="table_fencer_nat">
-                            NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -316,7 +289,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -328,7 +301,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -343,7 +316,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -355,7 +328,34 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="table_round">
+                    <div class="table_fencer">
+                        <div class="table_fencer_number">
+                        25
+                        </div>
+                        <div class="table_fencer_name">
+                            Szia Enber
+                        </div>
+                        <div class="table_fencer_nat">
+                            NAT
+                            <img src="../assets/icons/english.svg" >
+                        </div>
+                    </div>
+                    <div class="table_fencer">
+                        <div class="table_fencer_number">
+                        25
+                        </div>
+                        <div class="table_fencer_name">
+                            Szia Enber
+                        </div>
+                        <div class="table_fencer_nat">
+                            NAT
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -374,7 +374,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -386,7 +386,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -401,7 +401,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -413,7 +413,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     
@@ -439,7 +439,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     <div class="table_fencer">
@@ -451,7 +451,7 @@
                         </div>
                         <div class="table_fencer_nat">
                             NAT
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                         </div>
                     </div>
                     

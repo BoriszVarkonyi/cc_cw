@@ -34,17 +34,17 @@
             </div>
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper entry_table_row_wrapper filled">
-                    <div class="entry" id="">
+                    <div class="entry" >
                         <div class="table_row" onclick="toggleEntry(this)">
                             <div class="table_item">Hungarian Fencing Federation</div>
                             <form class="big_status_item">
-                                <button class="">
-                                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                <button >
+                                    <img src="../assets/icons/delete-black-18dp.svg" >
                                 </button>
                             </form>
                         </div>
                         <div class="entry_panel collapsed">
-                            <textarea name="" id=""></textarea>
+                            <textarea name="" ></textarea>
                             <input type="text" class="hidden">
                             <button class="panel_submit">Save</button>
                         </div>

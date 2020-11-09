@@ -18,7 +18,7 @@
 
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <input type="search" name="" id="" placeholder="Search by Title">
+            <input type="search" name=""  placeholder="Search by Title">
             <input type="submit" value="Search">
         </form>
 
@@ -26,7 +26,7 @@
 
             <div class="blog_article" onclick="location.href='cw_article.php'">
                 <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg" alt="" class="article_image">
+                <img src="../assets/img/fencers_bg.svg"  class="article_image">
                 <div>
                     <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
                     <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
@@ -35,7 +35,7 @@
 
             <div class="blog_article">
                 <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg" alt="" class="article_image">
+                <img src="../assets/img/fencers_bg.svg"  class="article_image">
                 <div>
                     <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
                     <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
@@ -44,7 +44,7 @@
 
             <div class="blog_article">
                 <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg" alt="" class="article_image">
+                <img src="../assets/img/fencers_bg.svg"  class="article_image">
                 <div>
                     <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
                     <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
@@ -53,7 +53,7 @@
 
             <div class="blog_article">
                 <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg" alt="" class="article_image">
+                <img src="../assets/img/fencers_bg.svg"  class="article_image">
                 <div>
                     <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
                     <p class="article_post_date">POSTED: 12 / 20 / 2020</p>

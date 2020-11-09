@@ -37,13 +37,13 @@
                     <form action="" class="column_form_wrapper" method="POST">
                         <div class="form_column">
                             <label for="points_pools" class="label_text">POINTS IN POOLS</label>
-                            <input type="number" name="points_pools" id="" class="number_input extra_small" value="5">
+                            <input type="number" name="points_pools"  class="number_input extra_small" value="5">
 
                             <label for="points_table" class="label_text">POINTS IN TABLE</label>
-                            <input type="number" name="points_table" id="" class="number_input extra_small" value="15">
+                            <input type="number" name="points_table"  class="number_input extra_small" value="15">
                         
                             <label for="round_number_ranking" class="label_text">NUMBER OF ROUND FOR RANKING</label>
-                            <input type="number" name="round_number_ranking" id="" class="number_input extra_small" value="1">
+                            <input type="number" name="round_number_ranking"  class="number_input extra_small" value="1">
 
                             <label for="elimnation_type" class="label_text">ELIMINATION TYPE</label>
                             <div class="option_container">
@@ -57,10 +57,10 @@
                         </div>
                         <div class="form_column">
                             <label for="exempted_fencers_pools" class="label_text">NUMBER OF EXEMPTED FENCERS IN POOLS</label>
-                            <input type="number" name="exempted_fencers_pools" id="" class="number_input extra_small" value="0">
+                            <input type="number" name="exempted_fencers_pools"  class="number_input extra_small" value="0">
 
                             <label for="exempted_fencers_table" class="label_text">NUMBER OF EXEMPTED FENCERS IN TABLE</label>
-                            <input type="number" name="exempted_fencers_table" id="" class="number_input extra_small" value="0">
+                            <input type="number" name="exempted_fencers_table"  class="number_input extra_small" value="0">
 
                             <label for="third_place" class="label_text">FENCING FOR 3RD PLACE</label>
                             <div class="option_container">

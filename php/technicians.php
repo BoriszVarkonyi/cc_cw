@@ -149,16 +149,16 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </form>
                         <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
                             <p>Remove Technician</p>
-                            <img class="" src="../assets/icons/delete-black-18dp.svg"></img>
+                            <img  src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>
                         <button class="stripe_button" onclick="toggle_import_technician()">
-                            <p class="">Import Technicians</p>
-                            <img class="" src="../assets/icons/save_alt-black-18dp.svg"></img>
+                            <p >Import Technicians</p>
+                            <img  src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
 
                         <div id="import_technician_panel" class="thin overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <form action="" id="import_technician" method="POST">
                                 <div class="select_competition_wrapper table_row_wrapper"">
@@ -190,7 +190,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </button>
                     <div id="add_technician_panel" class="overlay_panel hidden" >
                         <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="">
+                            <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
 
                         <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
@@ -242,7 +242,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <div class="table_header_text">NAME</div>
                             <div class="table_header_text">PASSWORD
                                 <button onclick="hidePasswords(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/visibility-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="table_header_text">ROLE</div>

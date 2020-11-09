@@ -3,7 +3,7 @@
     <div>
         <a href="cw_saved_competitions.php">Saved Competitions</a>
         <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
-            <img src="../assets/icons/language-black-18dp.svg" alt="">
+            <img src="../assets/icons/language-black-18dp.svg" >
         </button>
     </div>
     <div>

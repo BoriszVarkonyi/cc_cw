@@ -150,7 +150,7 @@ if(isset($_POST["create_piste"])){
 
                     <div class="overlay_panel hidden" id="add_piste_panel">
                         <button class="panel_button" onclick="toggleAddPistePanel()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="">
+                            <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
 
                         <div class="overlay_panel_form">
@@ -240,29 +240,29 @@ if(isset($_POST["create_piste"])){
                             </div>
                             <div>
                                 <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <form class="piste_settings_panel">
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/smartphone-black-18dp.svg" >
                                     </button>
                                     <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/laptop-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <div>
                                     <p>Live</p>
                                     <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/live_tv-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <div>
                                     <p>Delete</p>
                                     <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/delete-black-18dp.svg" >
                                     </button>
                                 </div>
                             </form>
@@ -331,29 +331,29 @@ if(isset($_POST["create_piste"])){
                             </div>
                             <div>
                                 <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <form class="piste_settings_panel">
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/smartphone-black-18dp.svg" >
                                     </button>
                                     <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/laptop-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <div>
                                     <p>Live</p>
                                     <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/live_tv-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <div>
                                     <p>Delete</p>
                                     <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/delete-black-18dp.svg" >
                                     </button>
                                 </div>
                             </form>
@@ -408,29 +408,29 @@ if(isset($_POST["create_piste"])){
                             </div>
                             <div>
                                 <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <form class="piste_settings_panel">
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/smartphone-black-18dp.svg" >
                                     </button>
                                     <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/laptop-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <div>
                                     <p>Live</p>
                                     <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/live_tv-black-18dp.svg" >
                                     </button>
                                 </div>
                                 <div>
                                     <p>Delete</p>
                                     <button>
-                                        <img src="../assets/icons/delete-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/delete-black-18dp.svg" >
                                     </button>
                                 </div>
                             </form>
