@@ -6,9 +6,12 @@ function toggleEntry(x) {
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
 }
+
 //NewAnnouncementsButton and addingEntryPanel.
 var addingEntryPanel = document.getElementById("adding_entry");
-var newAnnouncementsButton = document.getElementById("newAnnouncementsButton");
+var newAnnouncementsButton = document.getElementById("new_announcement_top");
+console.log(addingEntryPanel)
+//console.log(newAnnouncementsButton)
 
 //Toggles the class.
 function hideNshow() {   
@@ -24,6 +27,7 @@ function hideNshow() {
     }
 }
 //END
+
 
 
 
