@@ -153,6 +153,13 @@ form {
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+	color: var(--c-black);
+	white-space: nowrap;
+	cursor: pointer;
+}
+
 form.hidden, form.disabled {
 	display: none;
 	max-width: 0;

@@ -150,7 +150,7 @@ checkComp($connection);
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
                     </button>
-                    <img src="../assets/icons/favicon.svg" class="comp_logo"></img>
+                    <img src="../assets/icons/no_image-black-18dp.svg" class="comp_logo"></img>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
                     <form id="publishcomp" class="hidden"></form>

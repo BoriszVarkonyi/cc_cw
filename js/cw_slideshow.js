@@ -7,6 +7,7 @@ var OldSlides;
 for (i=0; i<slides.length; i++) {
   slides[i].classList.add("hidden") 
 }
+slides[slidesNumber].classList.remove("hidden");
 function showSlides() {
   oldSlides = slides[slidesNumber]
   oldSlides.classList.add("hidden")
