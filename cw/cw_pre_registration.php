@@ -31,7 +31,7 @@ if(isset($_POST["send_pre"])){
         <div>
            
             <button class="panel_button" onclick="toggle_add_technician()">
-                <img src="../assets/icons/close-black-18dp.svg" alt="" onclick="closeConf()">
+                <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
             </button>
             <p>Are you sure you want to send this Pre-Registration with these informations?</p>
             <button type="submit" name="send_pre" class="panel_submit" form="competition_wrapper" value="Send">Send</button>
@@ -48,21 +48,21 @@ if(isset($_POST["send_pre"])){
                 <div id="basic_information_panel">
                     <div>
                         <p class="data_label">FEDERATION'S NAME:</p>
-                        <input type="text" name="f_name" id="">
+                        <input type="text" name="f_name" >
                         <p class="data_label">COUNTRY / FENCING CLUB:</p>
-                        <input type="text" name="f_country" id="">
+                        <input type="text" name="f_country" >
                         <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
-                        <input type="email" name="f_email" id="">
+                        <input type="email" name="f_email" >
                         <p class="data_label">FEDERATION'S PHONE NUMBER:</p>
-                        <input type="number" name="f_phone" id="" class="number_input no_web">
+                        <input type="number" name="f_phone"  class="number_input no_web">
                     </div>
                     <div>
                         <p class="data_label">CONTACT KEEPER'S FULL NAME:</p>
-                        <input type="text" name="c_name" id="">
+                        <input type="text" name="c_name" >
                         <p class="data_label">CONTACT KEEPER'S EMAIL ADDRESS:</p>
-                        <input type="email" name="c_email" id="">
+                        <input type="email" name="c_email" >
                         <p class="data_label">CONTACT KEEPER'S PHONE NUMBER:</p>
-                        <input type="number" name="c_phone" id="" class="number_input no_web">
+                        <input type="number" name="c_phone"  class="number_input no_web">
 
                         <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
                         <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
@@ -77,16 +77,16 @@ if(isset($_POST["send_pre"])){
                         <p>Selected fencers:</p>
 
                        <!-- <div>
-                            <input type="number" name="" id="" class="hidden">
+                            <input type="number" name=""  class="hidden">
                             <p>Fencer's Name</p>
                             <button onclick="" type="button">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                         </div> -->
 
                     </div>
 
-                    <input type="search" name="" id="">
+                    <input type="search" name="" >
 
                     <div id="select_fencers_list_wrapper" class="table_row_wrapper">
                         <div class="table_header">

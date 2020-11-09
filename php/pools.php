@@ -65,9 +65,9 @@
 
                 <div id="ref_pis_time_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="refPisTimePanel()">
-                        <img src="../assets/icons/close-black-18dp.svg" alt="">
+                        <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
-                    <form action="" method="post" id="" autocomplete="off" class="overlay_panel_form dense flex">
+                    <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="ref_type" class="label_text">REFEREES</label>
                         <div class="option_container row">
                             <input type="radio" name="ref_type" id="auto" checked value=""/>
@@ -215,14 +215,14 @@
 
                     STATE: 1
                     <div id="pool_listing" class="with_drag entry_table_row_wrapper"> 
-                        <div class="entry" id="">
+                        <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="entry_panel gray">
@@ -384,14 +384,14 @@
 
                     STATE: 2 
                     <div id="pool_listing"> 
-                        <div class="entry" id="">
+                        <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="entry_panel">
@@ -545,14 +545,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="entry" id="">
+                        <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="entry_panel gray">
@@ -706,14 +706,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="entry" id="">
+                        <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="entry_panel gray">
@@ -867,14 +867,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="entry" id="">
+                        <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="entry_panel gray">

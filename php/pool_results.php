@@ -45,9 +45,9 @@
                 <div id="disqualify_panel" class="overlay_panel hidden">
                     <p class="panel_title">Disqualify {Fencer's name}</p>
                     <button class="panel_button" onclick="disqualifyToggle()">
-                        <img src="../assets/icons/close-black-18dp.svg" alt="">
+                        <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
-                    <form action="" method="post" id="" autocomplete="off" class="overlay_panel_form">
+                    <form action="" method="post"  autocomplete="off" class="overlay_panel_form">
                         <label for="ref_type" class="label_text">REASON OF DISQUALIFICATION</label>
                         <div class="option_container">
                             <input type="radio" name="ref_type" id="medical" value=""/>
@@ -69,7 +69,7 @@
             <div id="page_content_panel_main">
                 <div class="wrapper width_80 entry_table_row_wrapper" id="pool_results">
 
-                    <div class="entry" id="">
+                    <div class="entry" >
                         <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>

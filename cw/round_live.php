@@ -14,7 +14,7 @@
     <div id="cw_main_live">
         <div class="cw_panel_title_wrapper">
             <button type="button" class="back_button" onclick="location.href='cw_table.php'">
-                <img class="" src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
+                <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
             </button>
             <p>LIVE RESULTS OF {COMP NAME}, {PISTE NUMBER}, {FENCERNAME} VS. {FENCERNAME}</p>
         </div>
@@ -30,12 +30,12 @@
                     <div>
                         <div class="fencer_live_info">
                             <p>József</p>
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                             <p>NAT</p>
                         </div>
                         <div class="fencer_live_info">
                             <p>József</p>
-                            <img src="../assets/icons/english.svg" alt="">
+                            <img src="../assets/icons/english.svg" >
                             <p>NAT</p>
                         </div>
                     </div>
@@ -47,9 +47,9 @@
                         <div class="fencer_score_wrapper">
                             <div id="machine_fencer_1" class="machine_fencer">
                                 <div>
-                                    <img src="../assets/icons/priority-black-18dp.svg" alt="">
-                                    <img src="../assets/icons/card-gray-18dp.svg" alt="">
-                                    <img src="../assets/icons/card-yellow-18dp.svg" alt="">
+                                    <img src="../assets/icons/priority-black-18dp.svg" >
+                                    <img src="../assets/icons/card-gray-18dp.svg" >
+                                    <img src="../assets/icons/card-yellow-18dp.svg" >
                                 </div>
                                 <p id="machine_fencer_1_score">5</p>
                             </div>
@@ -58,9 +58,9 @@
 
                             <div id="machine_fencer_2" class="machine_fencer">
                                 <div>
-                                    <img src="../assets/icons/priority-gray-18dp.svg" alt="">
-                                    <img src="../assets/icons/card-red-18dp.svg" alt="">
-                                    <img src="../assets/icons/card-yellow-18dp.svg" alt="">
+                                    <img src="../assets/icons/priority-gray-18dp.svg" >
+                                    <img src="../assets/icons/card-red-18dp.svg" >
+                                    <img src="../assets/icons/card-yellow-18dp.svg" >
                                 </div>
                                 <p id="machine_fencer_2_score">5</p>
                             </div>

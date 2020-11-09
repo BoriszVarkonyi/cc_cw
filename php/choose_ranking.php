@@ -136,7 +136,7 @@ if(isset($_POST["submit"]) ){
                         <div id="upload_ranking_panel">
                             <button  onclick="toggleUploadRankingPanel()" class="open_panel_button"></button>
                             <button class="panel_button" onclick="toggleUploadRankingPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <div class="desc_box">
                                 <p>Use existing Ranking</p>
@@ -176,7 +176,7 @@ if(isset($_POST["submit"]) ){
                                 </div>
                                 <div id="use_this_ranking" class="hidden">
                                     <button class="panel_button" onclick="cancelName()">
-                                        <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                        <img src="../assets/icons/close-black-18dp.svg" >
                                     </button>
                                     <p id="ranking_name">Ranking name</p>
                                     <form name="ranking_password" method="POST" action="" id="use_this_ranking_form" autocomplete="off">
@@ -191,7 +191,7 @@ if(isset($_POST["submit"]) ){
                                 <svg>
                                     <circle cx="50%" cy="50%" r="47.5%"/>   
                                 </svg>
-                                <img src="../assets/icons/cloud_download-black-18dp.svg" alt="">
+                                <img src="../assets/icons/cloud_download-black-18dp.svg" >
                             </div>
                             <div class="title_box">
                                 <button value="Choose Ranking" id="choose_ranking_button" onclick="chooseRankingSearch()">Choose Ranking</button>
@@ -201,7 +201,7 @@ if(isset($_POST["submit"]) ){
                         <div id="create_ranking_panel">
                             <button onclick="toggleCreateRankingPanel()" class="open_panel_button"></button>
                             <button class="panel_button" onclick="toggleCreateRankingPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <div class="desc_box">
                                 <p>Create Ranking</p>
@@ -218,7 +218,7 @@ if(isset($_POST["submit"]) ){
                                 <svg>
                                     <circle cx="50%" cy="50%" r="47.5%"/>
                                 </svg>
-                                <img src="../assets/icons/create-black-18dp.svg" alt="">
+                                <img src="../assets/icons/create-black-18dp.svg" >
                             </div>
                             <div class="title_box">
                                 <button type="button" value="Create Ranking" onclick="chooseRankingCreate()">Create Ranking</button>
