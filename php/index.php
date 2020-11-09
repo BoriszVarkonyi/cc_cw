@@ -150,9 +150,10 @@ checkComp($connection);
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
                     </button>
+                    <img src="../assets/icons/favicon.svg" class="comp_logo"></img>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
-                    <form id="publishcomp" class="hidden" ></form>
+                    <form id="publishcomp" class="hidden"></form>
                     <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
                         <p>Publish Competition</p>
                         <img src="../assets/icons/send-black-18dp.svg"></img>
@@ -223,7 +224,7 @@ checkComp($connection);
 
                                         <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
 
-                                        <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" ></a>
+                                        <a>Pre-Entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" ></a>
                                     </div>
                                 </div>
                             </div>
