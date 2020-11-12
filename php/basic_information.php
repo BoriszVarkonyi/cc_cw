@@ -46,7 +46,12 @@ $query_do = mysqli_query($connection, $query);
                 </div>
 
                 <div id="page_content_panel_main">
-                    <div id="basic_information_wrapper" class="wrapper filled">
+
+                    <div id="basic_information_wrapper" class="db_panel form_page_flex">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
+                            <p>Set basic information</p>
+                        </div>
                         <form action="" id="basic_information_form" class="column_form_wrapper" method="POST">
 
                         <?php
@@ -68,7 +73,7 @@ $query_do = mysqli_query($connection, $query);
                         
                         
                         ?>
-
+                    <div class="db_panel_main">
                         <div class="form_column">
                             <label for="host_country" class="label_text">
                                 HOST COUNTRY
@@ -187,6 +192,7 @@ $query_do = mysqli_query($connection, $query);
                         </div>
                         </form>
                     </div>
+                </div>
             </div>
         </div>
     </body>

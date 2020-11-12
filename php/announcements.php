@@ -93,8 +93,30 @@
 
             </div>
             <div id="page_content_panel_main">
-                <div id="announcements_wrapper" class="wrapper entry_table_row_wrapper filled">
-                    
+                <div id="announcements_wrapper" class="wrapper">
+                    <div class="db_panel">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
+                            <p>Manage Announcements</p>
+                        </div>
+                        <div class="db_panel_main ">
+                            <div id="plus_info_wrapper" class="entry_table_row_wrapper">
+                                <div class="entry" >
+                                    <div class="table_row" onclick="toggleEntry(this)">
+                                        <div class="table_item invitation">gg</div>
+                                    </div>
+                                    <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
+                                        <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                            <img src="../assets/icons/delete-black-18dp.svg">
+                                        </button>
+                                        <textarea id="update" name="text_body" ></textarea>
+                                        <input id="update" name="text_title_to_change" type="text" value="" class="hidden">
+                                        <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
                     <?php
