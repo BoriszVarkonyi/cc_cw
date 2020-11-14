@@ -250,18 +250,32 @@ if($query_do){
                                     <div class="table_header_text">ENDING TIME</div>
                                 </div>
                                 <div class="table_row" id="table_row_1">
-                                    <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p class="wc_time">:00</p></div>
-                                    <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p class="wc_time">:00</p></div>
-                                    <!-- <button type="button" onclick="" class="close_add_peroid">
-                                        <img src="../assets/icons/close-black-18dp.svg" >
-                                    </button> -->
+                                    <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p>:00</p></div>
+                                    <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p>:00</p></div>
                                 </div>
+                                <!--
+                                <div class="table_row hidden" id="table_row_2">
+                                    <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p>:00</p></div>
+                                    <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p>:00</p></div>
+                                     <button type="button" onclick="removePeriod()" class="close_add_peroid">
+                                        <img src="../assets/icons/close-black-18dp.svg" >
+                                    </button>
+                                </div>
+                                <div class="table_row hidden" id="table_row_3">
+                                    <div class="table_item" id="start_1"> <input type="number" class="wc_time" name="wc_period_start_1"> <p>:00</p></div>
+                                    <div class="table_item" id="end_1"> <input type="number" class="wc_time" name="wc_period_end_1"> <p>:00</p></div>
+                                     <button type="button" onclick="removePeriod()" class="close_add_peroid">
+                                        <img src="../assets/icons/close-black-18dp.svg" >
+                                    </button>
+                                </div>
+
                                         
                                 <div class="add_peroid_container">
-                                    <button type="button" onclick="addPeriod()">
+                                    <button type="button" id="add_period" onclick="addPeriod()">
                                         <img src="../assets/icons/more_time-black-18dp.svg" >
                                     </button>
                                 </div>
+                                -->
                                 <input type="submit" name="add_period" value="Save" class="panel_submit">
                             </form>
 

@@ -20,7 +20,6 @@ function toggleButton(x) {
   }
   slidesNumber = activeButtonNumber;
   slides[slidesNumber].classList.remove("hidden");
-  clearInterval(showSlides);
 }
 
 //Buttons
@@ -44,7 +43,7 @@ function showSlides() {
   slidesButtons[slidesNumber].classList.add("active")
   slides[slidesNumber].classList.remove("hidden");
 }
-setInterval(showSlides, 5000); 
+setInterval(showSlides, 3000); 
 //END
 
 
