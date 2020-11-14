@@ -101,10 +101,17 @@
                         </div>
                         <div class="db_panel_main ">
                             <div id="plus_info_wrapper" class="entry_table_row_wrapper">
+
+
+
                                 <div class="entry" >
+
+
                                     <div class="table_row" onclick="toggleEntry(this)">
-                                        <div class="table_item invitation">gg</div>
+                                        <div class="table_item invitation">announcement nece te gibbon</div>
                                     </div>
+
+
                                     <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
                                         <button class="panel_button" type="submit" name="submit_delete" id="update" >
                                             <img src="../assets/icons/delete-black-18dp.svg">
@@ -113,63 +120,11 @@
                                         <input id="update" name="text_title_to_change" type="text" value="" class="hidden">
                                         <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
                                     </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-                    <?php
-
-                        //displaying plsu infos from db in table rows
-                        $get_data_plusinfo_qry = "SELECT * FROM announcement_$comp_id";
-                        $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
-                        if ($get_data_plusinfo_do !== FALSE) {
-                            while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
-
-                                $ann_title = $row['ann_title'];
-                                $ann_body = $row['ann_body'];
-                    ?>         
-                            
-                                <div class="entry" id="">
-
-
-                                    <div class="table_row" onclick="toggleEntry(this)">
-                                        <div class="table_item"><?php echo $ann_title ?></div>
-
-                                        <!-- delete button -->
-                                        <form class="big_status_item">
-                                            <button class="">
-                                                <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                                            </button>
-                                        </form>
-                                    </div>
-                    
-                                    <!-- body edit -->
-                                    <form id="body_edit" action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" method="POST"></form>
-                                    <div class="entry_panel collapsed">
-                                        <textarea  name="body_ann" id=""></textarea>
-                                        <input value="<?php echo $ann_body ?>" type="text" class="hidden">
-                                        <button name="" class="panel_submit">Save</button>
-                                    </div>
-
-                                    <!-- new announcement box type in your title -->
-                                    <form action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" method="POST" class="hidden">
-                                        <div class="table_row">
-                                            <div class="table_item">
-                                                <input name="input_title" type="text" placeholder="Type in the title" class="title_input">
-                                                <button name="adding_entry_submit" class="save_entry" onsubmit="hideNshow()">Create</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
 
                                 </div>
-                            
-                    <?php        
-                            } 
-                        }
-                    ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
