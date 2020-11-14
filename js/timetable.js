@@ -1,20 +1,22 @@
 var oldClickedDate;
 var setWcPanel = document.getElementById("set_wc_panel");
+//wcPanel toggle
 function toggleWcPanel(x) {
     var clickedDate = x;
-
+    //hide the wcPanwel
     setWcPanel.classList.add("hidden")
-    
     if(clickedDate == oldClickedDate) {
         setWcPanel.classList.remove("hidden");
         
     }
     setWcPanel.classList.toggle("hidden");
-
+    //If setwcPanel contains hidden
     if(setWcPanel.classList.contains("hidden")){
+        //it sets oldclickedDate undefined
         oldClickedDate = undefined;
     }
     else {
+        //It stets oldClickeddate to clickeddate
         oldClickedDate = clickedDate;
     }
 
@@ -136,12 +138,10 @@ function closeConf() {
 
 }
 
-
+//
 var wcInput = document.getElementById("wc_input");
 var input = document.querySelectorAll('#new_wc_day input');
 var saveButton = document.querySelector(".panel_submit");
-//var wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
-
 
 
 //Set the "Save" button disabled.

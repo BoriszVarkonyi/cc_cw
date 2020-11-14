@@ -1,3 +1,4 @@
+//Invitation form
 function toggleEntry(x) {
 
   var tableRow = x;
@@ -12,7 +13,7 @@ function toggleEntry(x) {
 function printPage() {
 window.print();
 }
-
+//END
 //Add entry button.
 var addEntryPanel = document.getElementById("add_entry")
 var addingEntryPanel = document.getElementById("adding_entry");
@@ -24,23 +25,27 @@ function hideNshow () {
 }
 //END
 
+//Image upload
 var input = document.getElementById("fileToUpload");
 var uploadButton = document.getElementById("uploadButton");
 document.getElementById("fileText").textContent = " ";
-
+//Input change event listener
 input.addEventListener("input", function() {
+//Checks if an input is empty
 if(input.value == "") {
+  //If yes it disables the uploadButton
   uploadButton.disabled = true;
 
 }
 else {
+  //If yes it enables the uploadButton
   uploadButton.disabled = false;
+  //Deletes file parth. 
   document.getElementById("fileText").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
 }
 })
-
 //END
-
+//Entry opener
 var oldentry;
 function toggleEntry(x) {
   var tableRow = x;
@@ -74,5 +79,5 @@ function toggleEntry(x) {
       oldentry = undefined;
   }
 }
-
+//END
 
