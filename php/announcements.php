@@ -122,6 +122,15 @@
                                     </form>
 
                                 </div>
+
+                                <form action="" id="adding_entry" class="hidden" method="POST">
+                                    <div class="table_row">
+                                        <div class="table_item">
+                                            <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
+                                            <input name="info_submit" type="submit" class="save_entry" value="Create">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
