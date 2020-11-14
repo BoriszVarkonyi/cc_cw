@@ -125,6 +125,16 @@ checkComp($connection);
     if (array_search(CROSS, $assoc_comp_table_elements, FALSE) !== FALSE) {
         $publish_comp_disabled = " disabled";
     }
+
+    //get logo image
+    if (file_exists("../uploads/" . $comp_id . ".png")) {
+
+        $logo = "../uploads/" . $comp_id . ".png";
+
+    } else {
+
+        $logo = "../assets/icons/no_image-black-18dp.svg";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,6 +160,7 @@ checkComp($connection);
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
                     </button>
+                    <img src="<?php echo $logo ?>" class="comp_logo"></img>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
                     <form id="publishcomp" class="hidden" ></form>
@@ -192,7 +203,7 @@ checkComp($connection);
                                 ?>  
 
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/beenhere-black-18dp.svg" alt="" class="db_panel_stripe_icon">
+                                    <img src="../assets/icons/beenhere-black-18dp.svg"  class="db_panel_stripe_icon">
                                     <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                                 </div>
 
@@ -201,29 +212,29 @@ checkComp($connection);
 
                                     <div id="sheduled_to_do_list">
 
-                                        <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" alt=""></a>
+                                        <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
                                             
                                             <ul id="general_to_do" class="sheduled_to_do_sublist">
 
-                                                <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" alt=""></li>
-                                                <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" alt=""></li>
-                                                <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" alt=""></li>
-                                                <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" alt=""></li>
+                                                <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
+                                                <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" ></li>
+                                                <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" ></li>
+                                                <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" ></li>
 
                                             </ul>
 
-                                        <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" alt=""></a>
+                                        <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
                                         
                                             <ul id="technical_to_do" class="sheduled_to_do_sublist">
                                                 
-                                                <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" alt=""></li>
-                                                <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" alt=""></li>
+                                                <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
+                                                <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
                                             
                                             </ul>
 
-                                        <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" alt=""></a>
+                                        <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
 
-                                        <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" alt=""></a>
+                                        <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" ></a>
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +243,7 @@ checkComp($connection);
                         <div class="half_width_flex">
                             <div class="db_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/chat-black-18dp.svg" alt="" class="db_panel_stripe_icon">
+                                    <img src="../assets/icons/chat-black-18dp.svg"  class="db_panel_stripe_icon">
                                     <p>Chat</p>
                                 </div>
                             </div>

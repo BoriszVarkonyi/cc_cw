@@ -65,86 +65,26 @@ if(todayday){
 //END
 
 //Adds new time period for specific day's weapon control
-var periods = 2;
-var forafter = 1;
+/*
+var indexNumber = 2;
+var addPeriodButton = document.querySelector(".add_peroid_container")
+addPeriodButton.classList.add("hidden")
 
 function addPeriod(){
-if(periods < 4){
-
-afterwhich = document.getElementById("table_row_" + forafter);
-
-var x = document.createElement("DIV");
-x.setAttribute("class", "table_row");
-x.setAttribute("id", "table_row_" + periods);
-//document.getElementById("new_wc_day").appendChild(x);
-afterwhich.after(x);
-
-var newstart = document.createElement("DIV");
-newstart.setAttribute("class", "table_item");
-newstart.setAttribute("id", "start_" + periods);
-document.getElementById("table_row_" + periods).appendChild(newstart);
-
-var startinput = document.createElement("INPUT");
-startinput.setAttribute("type", "number");
-startinput.setAttribute("class", "wc_time");
-startinput.setAttribute("name", "wc_period_start_" + periods);
-document.getElementById("start_" + periods).appendChild(startinput);
-
-var starttext = document.createElement("P");
-starttext.setAttribute("class", "cw_time");
-starttext.innerHTML(":00");
-
-
-
-var newend = document.createElement("DIV");
-newend.setAttribute("class", "table_item");
-newend.setAttribute("id", "end_" + periods);
-document.getElementById("table_row_" + periods).appendChild(newend);
-
-var endinput = document.createElement("INPUT");
-endinput.setAttribute("type", "number");
-endinput.setAttribute("class", "wc_time");
-endinput.setAttribute("name", "wc_period_end_" + periods);
-document.getElementById("end_" + periods).appendChild(endinput);
-
-var removeperiod = document.createElement("BUTTON");
-removeperiod.setAttribute("type", "button");
-removeperiod.setAttribute("onclick", "removePeriod(this)");
-removeperiod.setAttribute("class", "close_add_peroid");
-removeperiod.setAttribute("id", "removebutton_" + periods);
-document.getElementById("table_row_" + periods).appendChild(removeperiod);
-
-var removeicon = document.createElement("IMG");
-removeicon.setAttribute("src","../assets/icons/close-black-18dp.svg");
-document.getElementById("removebutton_" + periods).appendChild(removeicon);
-
-
-console.log(periods);
-periods++;
+document.getElementById("table_row_" + indexNumber).classList.remove("hidden")
+indexNumber++;
+checkInput();
+if(indexNumber == 4) {
+    addPeriodButton.classList.add("hidden")
+}
 }
 
-}
 
-function removePeriod(x){
-
-var remove = document.getElementById(x.id);
-let toremove = remove.parentNode.id;
-
-var removeelement = document.getElementById(toremove);
-periods = remove.id.charAt(remove.id.length-1);
-removeelement.remove();
-
-if(!document.getElementById("table_row_3") && !document.getElementById("table_row_2")){
-
-periods = 2;
-
-}
-
-console.log(periods);
+function removePeriod(){
 
 }
 //END
-
+*/
 //Adds has_wc class for the days that has weapon control on.
 
 var dates = document.getElementById("dates_control_on");
@@ -153,9 +93,9 @@ var datesarray = dates.value.split(",");
 for (let index = 0; index < datesarray.length; index++) {
 
     var addwc = document.getElementById(datesarray[index]);
-    addwc.classList.add("has_wc");
+    //addwc.classList.add("has_wc");
 
-    addwc.removeAttribute("onclick");
+    //addwc.removeAttribute("onclick");
     
 }
 
@@ -196,48 +136,47 @@ function closeConf() {
 
 }
 
-//patrik timetable weapon controls / max is 5
 
-var baloldal = document.getElementById("wc_input");
-baloldal.addEventListener("keyup", event => {
+var wcInput = document.getElementById("wc_input");
+var input = document.querySelectorAll('#new_wc_day input');
+var saveButton = document.querySelector(".panel_submit");
+//var wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
 
-    var ertek = document.activeElement; //Max value five for wc_input
-    if (ertek.value >5) {
 
-    ertek.value = 5;//if it is bigger than 5, returns to 5
+
+//Set the "Save" button disabled.
+saveButton.disabled = true;
+//If the document values are changing, it runs the function.
+document.addEventListener("input", function checkInput(){
+    var wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
+  //Check the "wcInput" input value.
+  if(wcInput.value>20 || wcInput.value < 0) {
+    //If its grather than 20 or less than 0, it sets the value "" (0).
+    wcInput.value = "";
+
+}
+for(i=0; i<wcTime.length; i++){
+    if(wcTime[i].value>24 || wcTime[i].value< 0) {
+        //If its grather than 24 or less than 0, it sets the value "" (0).
+        wcTime[i].value = "";
 
     }
-    if (ertek.value < 1) {
-
-        ertek.value = "";//if it smaller than 1, returns to an empty space (won't storage capacity in the database)
+}   
+  //Checking every input.
+  for(i=0; i<wcTime.length; i++){
+    
+    if(wcInput.value == "" || wcTime[i].value == ""){
+      //If it finds an empty input, then it disable the "Save" button.
+      saveButton.disabled = true;
+      //addPeriodButton.classList.add("hidden")
+      break;
 
     }
-});
-
-function isNumberKey(evt)//You can olny write numbers as inputs 
-    {
-        var inp =document.getElementById("wc_input") (evt.which) ? evt.which : event.keyCode
-    
-        if (inp > 0 && (inp <= 5  || inp > 0)) //inupt can't be higher than 5
-    
-        return false;
-
-        return true;
-    };
-
-var tr1 = document.getElementById("table_row_1");
-
-    tr1.addEventListener("keyup", event => {
-      
-        var inupt = document.activeElement; // Max value 24 (hours) for table_row_1
-        if (inupt.value >24) {
-      
-            inupt.value = 24; //if it is bigger than 24, returns to 24
-      
-        }
-        if (inupt.value < 1) {
-      
-            inupt.value = ""; //if it smaller than 1, returns to an empty space (won't storage capacity in the database)
-      
-        }
-});
+    else {
+      //If everything has a value then it enable the "Save" Button. The user can save.
+      saveButton.disabled = false;
+      //addPeriodButton.classList.remove("hidden")
+    }
+  }
+}
+)

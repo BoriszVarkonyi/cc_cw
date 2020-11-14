@@ -23,8 +23,8 @@
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
 	--t-basic: ease-in .2s;
-	--f-xxlarge: calc(1.25em + 1vmin);
-	--f-xlarge: calc(1.25em + 1vmin);
+	--f-xxlarge: calc(2em + 2vmin);
+	--f-xlarge: calc(1.5em + 2vmin);
 	--f-large: calc(1.25em + 1vmin);
 	--f-medium: calc(0.8em + 0.7vmin);
 	--f-small: calc(0.6em + 0.5vmin);
@@ -112,13 +112,6 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
-a {
-	text-decoration: none;
-	color: var(--c-black);
-	white-space: nowrap;
-	cursor: pointer;
-}
-
 button {
 	cursor: pointer;
 	padding: 0;
@@ -158,6 +151,13 @@ textarea {
 
 form {
 	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--c-black);
+	white-space: nowrap;
+	cursor: pointer;
 }
 
 form.hidden, form.disabled {
@@ -270,6 +270,8 @@ form.hidden, form.disabled {
 }
 
 .entry_table_row_wrapper > .entry > .table_row, .entry_table_row_wrapper > .entry > .entry_panel {
+	border-left: 2px solid var(--c-darkgray);
+	border-right: 2px solid var(--c-gray);
 }
 
 .entry_table_row_wrapper > .entry:last-of-type > .table_row {
@@ -280,11 +282,12 @@ form.hidden, form.disabled {
 	border-radius: 5px;
 }
 
-.entry_table_row_wrapper > .entry.opened > .entry_panel {
+.entry_table_row_wrapper > .entry.opened > .table_row {
+	border-radius: 5px 5px 0 0 !important;
 }
 
 .entry_table_row_wrapper > .entry:only-of-type > .table_row {
-	border-radius: 5px 5px 0 0;
+	border-radius: 5px;
 }
 
 .entry_table_row_wrapper > .entry:only-of-type > .entry_panel {
@@ -436,6 +439,10 @@ input[type="search"] {
 	font-family: var(--reg);
 }
 
+.overlay_panel_form input[type="search"] {
+	margin: 3px 0 30px;
+}
+
 input[type="search"]::placeholder {
 	font-family: var(--bold);
 }
@@ -544,9 +551,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	background-color: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
-	width: 100%;
-	min-width: 200px;
-	max-width: 400px;
+	width: 350px;
 	height: 35px;
 	padding-left: 35px;
 	font-size: var(--f-small);
@@ -555,8 +560,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 input[type="text"]:focus, input[type="password"]:focus {	/* Sets basic look of text and password inputs when focused*/
 	border-bottom: 2px solid var(--c-orange);
 	margin-bottom: 29px;
-	transition: var(--t-basic);
-	width: 100%;
+	width: 350px;
 }
 
 input[type="text"].error, input[type="password"].error {
@@ -855,6 +859,7 @@ input[type="time"] {
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
+	cursor: pointer;
 }
 
 .panel_submit.secondary {

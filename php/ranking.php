@@ -167,7 +167,7 @@ if(mysqli_num_rows($query_do) == 0){
 
                     <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencer()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <!-- add fencers drop-down -->
                             <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
@@ -188,7 +188,7 @@ if(mysqli_num_rows($query_do) == 0){
                     <!-- ranking info button -->
                     <div id="ranking_info_panel" class="overlay_panel hidden">
                         <button class="panel_button" onclick="toggleRankingInfo()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="">
+                            <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
 
                         <?php
@@ -211,7 +211,7 @@ if(mysqli_num_rows($query_do) == 0){
                             <div>
                                 <p><?php echo $pass ?></p>
                                 <button onclick="hidePasswords(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/visibility-black-18dp.svg" >
                                 </button>
                             </div>
                         </div>

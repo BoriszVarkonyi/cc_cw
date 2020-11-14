@@ -119,13 +119,21 @@ $query = "";
                             ?>
 
 
-                        <label for="wc_type" class="label_text" placeholder="Type in the name of the competition" >TYPE OF WEAPON CONTROL</label>
+                        <label for="wc_type" class="label_text" >TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immidiate</label>
 
                             <input type="radio" name="wc_type" id="adm" value="2"/>
                             <label for="adm">Administrated</label>
+                        </div>
+                        
+                        <label for="competition_type" class="label_text">TYPE OF COMPETITIORS</label>
+                        <div class="option_container">
+                            <input type="radio" name="comp_type" id="individual" value="" checked/>
+                            <label for="individual">Individual</label>
+                            <input type="radio" name="comp_type" id="team" value="" disabled/>
+                            <label for="team">Team</label>
                         </div>
                         <?php
 

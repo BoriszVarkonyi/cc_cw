@@ -194,38 +194,19 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	flex-direction: column;
 	background-color: var(--c-lightergray);
 	position: absolute;
-	/*
-	animation-name: slide_anim;
-	animation-duration: 1.5s;
 	opacity: 1;
-	
-	transition: opacity ease-in 1.5s; */
+	left: 0;
+	transition: opacity ease-in .25s, left ease-in .5s;
+	z-index: 1;
+
 }
 
-.slide.hidden, .slide.hidden * {
+.slide.hidden {
+	left: 100vw;
 	opacity: 0;
-	visibility: hidden;
-}
-
-@keyframes slide_anim {
-	from {left: 100vw;} 
-	to {left: 0; }
-}
-
-#competitions.slide {
-	background-image: url(../assets/img/fencers_bg.svg);
-}
-
-#results.slide {
-	background-image: url(../assets/img/call_room_bg.svg);
-}
-
-#lives.slide {
-	background-image: url(../assets/img/fencers_bg.svg);
-}
-
-#videos.slide {
-	background-image: url(../assets/img/call_room_bg.svg);
+	transition: opacity ease-in .5s .55s, left ease-in 1s .5s;
+	z-index: 0;
+	
 }
 
 .slide > p {

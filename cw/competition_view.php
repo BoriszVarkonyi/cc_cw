@@ -16,37 +16,37 @@
     <!-- slideshow top -->
     <div id="slideshow">
         <div id="slide_nav">
-            <button class="active" id="first_button" onclick="toggleFirst()"></button>
-            <button id="second_button" onclick="toggleSecond()"></button>
-            <button id="third_button" onclick="toggleThird()"></button>
-            <button id="fourth_button" onclick="toggleForth()"></button>
+            <button class="slideButtons active" onclick="toggleButton(this)"></button>
+            <button class="slideButtons" onclick="toggleButton(this)"></button>
+            <button class="slideButtons" onclick="toggleButton(this)"></button>
+            <button class="slideButtons" onclick="toggleButton(this)"></button>
         </div>
         <!-- slide1 -->
         <div class="slide">
             <p>Check Competitions</p>
             <button>Competitions</button>
-            <img src="../assets/img/fencers_bg.svg" alt="">
+            <img src="../assets/img/fencers_bg.svg" >
         </div>
 
         <!-- slide2 -->
         <div class="slide">
             <p>Check Results</p>
             <button>Finished Competitions</button>
-            <img src="../assets/img/fencers_bg.svg" alt="">
+            <img src="../assets/img/fencers_bg.svg" >
         </div>
 
         <!-- slide3 -->
         <div class="slide">
             <p>Watch Competitions Live</p>
             <button>Ongoing Competitions</button>
-            <img src="../assets/img/fencers_bg.svg" alt="">
+            <img src="../assets/img/fencers_bg.svg" >
         </div>
         
         <!-- slide4 -->
         <div class="slide">
             <p>Watch Videos</p>
             <button>Videos</button>
-            <img src="../assets/img/fencers_bg.svg" alt="">
+            <img src="../assets/img/fencers_bg.svg" >
         </div>
     </div>
 
@@ -81,7 +81,7 @@
                         </div>
                         <div class="big_status_item">
                             <button class="favourite_button">
-                                <img src="../assets/icons/star_border-black-18dp.svg" alt="">
+                                <img src="../assets/icons/star_border-black-18dp.svg" >
                             </button>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
             <p class="cw_panel_title">Latest Videos</p>
 
             <div class="video_wrapper">
-                <img src="../assets/img/fencers_bg.svg" alt="">
+                <img src="../assets/img/fencers_bg.svg" >
                 <div>
                     <p>Title</p>
                     <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="video_wrapper">
-                <img src="../assets/img/fencers_bg.svg" alt="">
+                <img src="../assets/img/fencers_bg.svg" >
                 <div>
                     <p>Title</p>
                     <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -113,7 +113,7 @@
             </div>
 
             <div class="video_wrapper">
-                <img src="../assets/img/fencers_bg.svg" alt="">
+                <img src="../assets/img/fencers_bg.svg" >
                 <div>
                     <p>Title</p>
                     <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -121,7 +121,7 @@
             </div>
 
             <div class="video_wrapper">
-                <img src="../assets/img/fencers_bg.svg" alt="">
+                <img src="../assets/img/fencers_bg.svg" >
                 <div>
                     <p>Title</p>
                     <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="video_wrapper">
-                <img src="../assets/img/fencers_bg.svg" alt="">
+                <img src="../assets/img/fencers_bg.svg" >
                 <div>
                     <p>Title</p>
                     <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>

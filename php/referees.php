@@ -130,7 +130,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
 
                         <div id="import_technician_panel" class="thin overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg" alt="" class="panel_button">
+                                <img src="../assets/icons/close-black-18dp.svg"  class="panel_button">
                             </button>
                             <form action="" id="import_ref" method="POST">
                                 <div class="select_competition_wrapper table_row_wrapper">
@@ -163,7 +163,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         </button>
                     <div id="add_technician_panel" class="overlay_panel hidden">
                         <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg" alt="">
+                            <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
 
                             <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
@@ -207,7 +207,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             <div class="table_header_text">USERNAME</div>
                             <div class="table_header_text">PASSWORD
                                 <button onclick="hidePasswords(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility-black-18dp.svg" alt="">
+                                    <img src="../assets/icons/visibility-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="table_header_text">STATUS</div>

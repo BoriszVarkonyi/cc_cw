@@ -1,62 +1,52 @@
-/*
-var slideIndex = 0;
-
-slideShow();
-
-function slideShow() {
-    
-    var i = 0;
-    var slides = document.getElementsByClassName("slide");*/
-
 //SLIDESHOW
-//var slides = document.querySelectorAll(".slide");
-function showSlides() {
-  var i;
-  var slides = document.querySelectorAll(".slide");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].classList.add("hidden");  
+var slides = document.querySelectorAll(".slide");
+var slidesNumber = 0;
+var slidesButtons = document.querySelectorAll(".slideButtons");
+
+function toggleButton(x) {
+  var activeButton = x;
+  var activeButtonNumber;
+  for (i=0; i<slides.length; i++) {
+    slides[i].classList.add("hidden") 
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+  for(i=0; i<slidesButtons.length; i++) {
+    slidesButtons[i].classList.remove("active");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); 
-function slideAnimation () {
-  slides.classlist.remove("hidden");
-}
-}
-
-
-
-
-
-/*
-const slides = document.querySelectorAll(".slide")
-var slideNumber = 0;
-var slideZ = 1;
-var i;
-
-const interval = setInterval(function() {
-
-    slideZ++;
-    slides[slideNumber].classList.remove("hidden");
-    slides[slideNumber].style.zIndex = slideZ;
-
-    slideNumber++;
-    
-    if (slideNumber == 4) {
-
-      for (i = 0; i < slides.length; i++) {
-        slides[i].classList.add("hidden");
-      }
-
-      slideNumber = 1;
+  activeButton.classList.add("active");
+  for(i=0; i<slidesButtons.length; i++) {
+    if(slidesButtons[i].classList.contains("active")) {
+      activeButtonNumber = i;
     }
+  }
+  slidesNumber = activeButtonNumber;
+  slides[slidesNumber].classList.remove("hidden");
+}
 
- }, 2000); 
-*/
-//SLIDESHOW END
+//Buttons
+for (i=0; i<slides.length; i++) {
+  slides[i].classList.add("hidden") 
+}
+slides[slidesNumber].classList.remove("hidden");
+function showSlides() {
+  for (i=0; i<slides.length; i++) {
+    slides[i].classList.add("hidden") 
+  }
+
+  slidesNumber++;
+  if(slidesNumber == slides.length) {
+    slidesNumber = 0;
+  }
+  slides[slidesNumber].classList.remove("hidden");
+  for(i=0; i<slidesButtons.length; i++) {
+    slidesButtons[i].classList.remove("active");
+  }
+  slidesButtons[slidesNumber].classList.add("active")
+  slides[slidesNumber].classList.remove("hidden");
+}
+setInterval(showSlides, 3000); 
+//END
+
+
+
+
+
