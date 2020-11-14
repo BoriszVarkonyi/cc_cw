@@ -331,12 +331,13 @@ function resizeTableColumn() {
 //END
 /*
 /* Overlay_panels*/
-//Nem tudom mi a fasz van itt :c
 
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
+
 function overlayPanel() {
     var overlayPanelsHidden = [];
+//Push to appropriate array by class.
 for(i=0; i<overlayPanelAll.length; i++) {
     if(overlayPanelAll[i].classList.contains("hidden")) {
         overlayPanelsHidden.push(overlayPanelAll[i]);
@@ -345,6 +346,7 @@ for(i=0; i<overlayPanelAll.length; i++) {
         overlayPanelsOepened.push(overlayPanelAll[i])
     }
 }
+//It upgrades the overlayPanelsOepened array.
 if(overlayPanelsOepened.length>1){
     for(i=0; i<overlayPanelsOepened.length; i++) {
 
@@ -354,8 +356,10 @@ if(overlayPanelsOepened.length>1){
     overlayPanelsOepened[0].classList.add("hidden")
     overlayPanelsOepened.pop()
 }
+//Check if the first array element contains hidden.
 else {
     for(i=0; i<overlayPanelsOepened.length; i++) {
+        //If yes it pops.
         if(overlayPanelsOepened[i].classList.contains("hidden")) {
             overlayPanelsOepened.pop()
 
@@ -364,7 +368,7 @@ else {
 }
 }
 
-
+//Event listener to class change (overlay panels)
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {
