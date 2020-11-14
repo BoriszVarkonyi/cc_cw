@@ -40,7 +40,7 @@
                 -->
 
                 
-
+<!--
                 STATE: 1 
 
                 <button class="stripe_button" type="button">
@@ -187,7 +187,7 @@
                 </div>
 
                 -->
-                <!--
+                
 
                 STATE: 2
                 
@@ -196,7 +196,7 @@
                     <img src="../assets/icons/pages-black-18dp.svg"></img>
                 </button>
 
-                -->
+                
 
             </div>
             <div id="page_content_panel_main">
@@ -210,7 +210,7 @@
                 </div>
 
                 -->
-
+<!--
                 <div id="pools_wrapper">
 
                     STATE: 1
@@ -379,8 +379,8 @@
                     </div>
                     <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                     </div>
-
-                    <!--
+-->
+                    
 
                     STATE: 2 
                     <div id="pool_listing"> 
@@ -1030,7 +1030,7 @@
                         </div>
                     </div>
 
-                    -->
+                    
                 </div>
 
             </div>
