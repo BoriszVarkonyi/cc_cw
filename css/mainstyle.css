@@ -1166,7 +1166,6 @@ input[type=radio]:checked:disabled + label:before {
 .column_form_wrapper {
 	width: auto;
 	display: flex;
-	padding: 50px;
 }
 
 /* ///DASHBOARD ELEMENTS/// */

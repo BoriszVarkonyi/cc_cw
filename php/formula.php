@@ -33,7 +33,13 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div id="basic_information_wrapper" class="wrapper filled">
+                <div id="basic_information_wrapper" class="db_panel form_page_flex">
+                    <div class="db_panel_title_stripe">
+                        <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
+                        <p>Set basic information</p>
+                    </div>
+                    <div class="db_panel_main">
+
                     <form action="" class="column_form_wrapper" method="POST">
                         <div class="form_column">
                             <label for="points_pools" class="label_text">POINTS IN POOLS</label>
