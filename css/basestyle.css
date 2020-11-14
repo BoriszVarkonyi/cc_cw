@@ -551,7 +551,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	background-color: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
-	width: 350px;
+	width: 313px;
 	height: 35px;
 	padding-left: 35px;
 	font-size: var(--f-small);
