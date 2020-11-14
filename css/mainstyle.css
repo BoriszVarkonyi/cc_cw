@@ -1073,8 +1073,8 @@ input[type=radio]:checked:disabled + label:before {
 	display: flex;
 	padding: 50px;
 	flex-direction: column;
-	width: 400px;
-	max-width: 25vw;
+	width: 350px;
+	align-items: flex-start;
 }
 
 .overlay_panel_form > * {
