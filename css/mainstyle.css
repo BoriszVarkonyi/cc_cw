@@ -1156,18 +1156,16 @@ input[type=radio]:checked:disabled + label:before {
 /* ///FORMS WRAPPER ELEMENTS/// */
 
 .form_column {
-	padding: 25px;
-	width: 400px;
-	max-width: 25vw;
+	padding: 50px;
 	display: flex;
 	flex-direction: column;
 	align-content: center;
+	max-width: 350px;
 }
 
 .column_form_wrapper {
 	width: auto;
 	display: flex;
-	padding: 50px;
 }
 
 /* ///DASHBOARD ELEMENTS/// */
