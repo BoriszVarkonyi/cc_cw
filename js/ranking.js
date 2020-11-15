@@ -50,7 +50,7 @@ document.addEventListener("input", function(){
   }
 }
 )
-//END
+
 
 
 //igen ez egy változtatás

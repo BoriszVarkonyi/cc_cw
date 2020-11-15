@@ -155,7 +155,7 @@ if(isset($_POST["create_piste"])){
 
                         <div class="overlay_panel_form">
                             <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" class="flex" method="POST">
-                                <label for="username" class="label_text">TYPE</label>
+                                <label for="username" >TYPE</label>
                                 <div class="option_container row">
                                     <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main"/>
                                     <label for="main">Main</label>

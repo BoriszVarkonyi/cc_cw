@@ -808,7 +808,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 /* ///FORMS AND INPUTS/// */
 
-.label_text {	/* Used in forms, all caps, thin font    NO option buttons*/
+label {	/* Used in forms, all caps, thin font    NO option buttons*/
 	font-family: var(--thin);
 	text-transform: uppercase;
 	font-size: var(--f-medium);
@@ -818,15 +818,15 @@ input[type="range"]:focus::-ms-fill-upper {
 	align-self: flex-start;
 }
 
-.label_text.hidden {
+label.hidden {
 	display: none;
 }
 
-.label_text > p {
+label > p {
 	display: none;
 }
 
-.label_text:hover > p {
+label:hover > p {
 	color: var(--c-white);
 	display: block;
 	position: absolute;
@@ -838,7 +838,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	font-family: var(--reg);
 }
 
-.label_text_small {
+label.small {
 	font-family: var(--reg);
 	text-transform: initial;
 	font-size: var(--f-small);
@@ -969,8 +969,8 @@ input[type=radio] + label {
 	align-items: center;
 	margin-bottom: 8px;
 	font-family: var(--reg);
-	font-size: var(--f-medium);
 	color: var(--c-black);
+	text-transform: none;
 }
   
 input[type=radio] {
@@ -1156,18 +1156,16 @@ input[type=radio]:checked:disabled + label:before {
 /* ///FORMS WRAPPER ELEMENTS/// */
 
 .form_column {
-	padding: 25px;
-	width: 400px;
-	max-width: 25vw;
+	padding: 50px;
 	display: flex;
 	flex-direction: column;
 	align-content: center;
+	max-width: 350px;
 }
 
 .column_form_wrapper {
 	width: auto;
 	display: flex;
-	padding: 50px;
 }
 
 /* ///DASHBOARD ELEMENTS/// */
@@ -2130,6 +2128,7 @@ input[type="file"] {
 
 #timetable > div.has_wc {
 	box-shadow: inset  0 -10px 0 0 var(--c-orange);
+	pointer-events: none;
 }
 
 #timetable > div.start.end {

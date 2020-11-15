@@ -29,10 +29,10 @@
         </div>
 
         <!-- slide2 -->
-        <div class="slide">
+        <div class="slide blurred">
             <p>Check Results</p>
             <button>Finished Competitions</button>
-            <img src="../assets/img/fencers_bg.svg" >
+            <img src="../assets/img/call_room_bg.svg" >
         </div>
 
         <!-- slide3 -->

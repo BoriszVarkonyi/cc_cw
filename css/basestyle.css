@@ -551,7 +551,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	background-color: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
-	width: 350px;
+	width: 313px;
 	height: 35px;
 	padding-left: 35px;
 	font-size: var(--f-small);
@@ -560,7 +560,6 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 input[type="text"]:focus, input[type="password"]:focus {	/* Sets basic look of text and password inputs when focused*/
 	border-bottom: 2px solid var(--c-orange);
 	margin-bottom: 29px;
-	width: 350px;
 }
 
 input[type="text"].error, input[type="password"].error {

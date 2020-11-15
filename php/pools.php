@@ -68,7 +68,7 @@
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
-                        <label for="ref_type" class="label_text">REFEREES</label>
+                        <label for="ref_type" >REFEREES</label>
                         <div class="option_container row">
                             <input type="radio" name="ref_type" id="auto" checked value=""/>
                             <label for="auto">Automatic</label>
@@ -76,16 +76,16 @@
                             <input type="radio" name="ref_type" id="manual" value=""/>
                             <label for="manual">Manual</label>
                         </div>
-                        <label for="starting_time" class="label_text">STARTING TIME</label>
+                        <label for="starting_time" >STARTING TIME</label>
                         <input type="time">
 
-                        <label for="interval_of_match" class="label_text">INTERVAL OF MATCH:</label>
+                        <label for="interval_of_match" >INTERVAL OF MATCH:</label>
                         <div id="interval_of_match_wrapper">
                             <input type="number" class="number_input small">
                             <p>Min.</p>
                         </div>
 
-                        <label for="pistes_type" class="label_text">PISTES</label>
+                        <label for="pistes_type" >PISTES</label>
                         <div class="option_container row">
                             <input type="radio" name="pistes_type" checked id="all" onclick="useAll()" value=""/>
                             <label for="all">Use all</label>

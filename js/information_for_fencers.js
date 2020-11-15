@@ -8,7 +8,7 @@ function removeEquipmentValues(){
     
     }
 }
-//END
+
 
 //Copies the content of an editable div and pastes to an input
 
@@ -22,7 +22,7 @@ function copyContent(){
 
     console.log(to.value);
 }
-//END
+
 
 //Takes the focus to the clicked line's number input field
 
@@ -37,7 +37,7 @@ console.log(tofocus);
 tofocus.focus();
 
 }
-//END 
+ 
 
 //PATRIK INNENTŐL
 //Maximum 0-5 numbers, max 1 lenght number input

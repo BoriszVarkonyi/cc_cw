@@ -39,7 +39,7 @@ function toggleEntry(x) {
 
 
 }
-//END
+
 
 function toggleEntryInfo(x) {
     var button = x;
