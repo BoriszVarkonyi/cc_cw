@@ -89,30 +89,38 @@ input.value = id;
 button.classList.remove("disabled");
 
 }
-
-
 }
 
+//Counts the characters of ranking information's passwords and replaces with as many stars as many characters the password had
+var buttonIcon = document.querySelector("#visibility_button > img")
+var passwordText = document.getElementById("password")
+//Saves the password
+var password = passwordText.innerHTML
+var stars ="";
+var visible = false;
+//Hides the password
+for(i=0; i<passwordText.innerHTML.length; i++) {
+  stars += "*"
+}
+passwordText.innerHTML = stars
+buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
-//patrik can't be added empty
-/*
-function validateForm(){
-    var isValid = true;
-  
-    var elements = document.getElementById("rk").getElementsByTagName('input');
-    console.log(elemets)
-  
-    for(var i=0; i < elements.length; i++){
-      if(elements[i].value.length < 1){
-        isValid = false;
-      }
+function hidePasswords(x) {
+  if(visible){
+    //Hides the password changes the image
+    buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
+    var stars ="";
+    for(i=0; i<passwordText.innerHTML.length; i++) {
+      stars += "*"
     }
-  
-    if(isValid){
-      document.getElementById('rk').submit();
-    }
-    else {
-      alert('Please fill all required fields');
-    }
+    passwordText.innerHTML = stars
+    visible = false;
   }
-  */
+  else {
+    //Show the password, changes the image
+    passwordText.innerHTML = password
+    buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
+    visible = true;
+  }
+}
+
