@@ -541,6 +541,8 @@ input[type="date"] {
 input, input:focus {	/* Removes borders on all inputs*/
 	outline: none;
 	border: 0;
+	background-repeat: no-repeat;
+	background-position: 10px;
 }
 
 input[type="text"].hidden {
@@ -598,55 +600,51 @@ input[type="text"].no_margin {
 }
 
 .username_input {
-	background: url(../assets/icons/person-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/person-black-18dp.svg);
 }
 
 .password_input {
-	background: url(../assets/icons/lock-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/lock-black-18dp.svg);
 }
 
 .name_input {
-	background: url(../assets/icons/label-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/label-black-18dp.svg);
 }
 
 .country_input {
-	background: url(../assets/icons/language-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/language-black-18dp.svg);
 }
 
-.location_input {
-	background: url(../assets/icons/location_city-black-18dp.svg) no-repeat scroll 10px;
-}
-
-.postal_input {
-	background: url(../assets/icons/location_city-black-18dp.svg) no-repeat scroll 10px;
+.location_input, .postal_input {
+	background-image: url(../assets/icons/location_city-black-18dp.svg);
 }
 
 .money_input {
-	background: url(../assets/icons/money-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/money-black-18dp.svg);
 }
 
 .start_date_input {
-	background: url(../assets/icons/outlined_flag-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/outlined_flag-black-18dp.svg);
 }
 
 .end_date_input {
-	background: url(../assets/icons/flag-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/flag-black-18dp.svg);
 }
 
 .end_date_pre_reg {
-	background: url(../assets/icons/person_add_disabled-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/person_add_disabled-black-18dp.svg);
 }
 
 .wc_input {
-	background: url(../assets/icons/check-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/check-black-18dp.svg);
 }
 
 .title_input {
-	background: url(../assets/icons/title-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/title-black-18dp.svg);
 }
 
 .full_name_input {
-	background: url(../assets/icons/perm_identity-black-18dp.svg) no-repeat scroll 10px;
+	background-image: url(../assets/icons/perm_identity-black-18dp.svg);
 }
 
 input[type="number"] {
