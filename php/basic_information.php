@@ -75,9 +75,9 @@ $query_do = mysqli_query($connection, $query);
                         ?>
                     <div class="db_panel_main">
                         <div class="form_column">
-                            <label for="host_country" class="label_text">
+                            <label for="host_country" >
                                 HOST COUNTRY
-                                <p>Ez jó</p>
+                                
                             </label>
                             <input type="text" placeholder="Type the name of the country" name="host_country" class="country_input" id="country_input" value="<?php
                             
@@ -94,7 +94,7 @@ $query_do = mysqli_query($connection, $query);
                             
                             ?>">
 
-                            <label for="location" class="label_text">LOCATION AND ADDRESS</label>
+                            <label for="location" >LOCATION AND ADDRESS</label>
                             <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin location_input" id="location_input" value="<?php
                             
                             if($location_get == ""){
@@ -124,7 +124,7 @@ $query_do = mysqli_query($connection, $query);
                             
                             ?>">
 
-                            <label for="entry_fee" class="label_text">ENTRY-FEE</label>
+                            <label for="entry_fee" >ENTRY-FEE</label>
                             <input type="text" placeholder="Type in the amount" name="entry_fee" class="number_input money_input" value="<?php
                             
                             if($entry_fee_get == ''){
@@ -142,7 +142,7 @@ $query_do = mysqli_query($connection, $query);
                         </div>
                         <div class="form_column">
 
-                            <label for="start_date" class="label_text">STARTING DATE</label>
+                            <label for="start_date" >STARTING DATE</label>
                             <input type="date" name="start_date" class="start_date_input" id="start_date_input" value="<?php
                             
                             if($start_date_get == ""){
@@ -158,7 +158,7 @@ $query_do = mysqli_query($connection, $query);
                             
                             ?>">
 
-                            <label for="end_date" class="label_text">ENDING DATE</label>
+                            <label for="end_date" >ENDING DATE</label>
                             <input type="date" name="end_date" class="end_date_input" value="<?php
                             
                             if($end_date_get == ""){
@@ -174,7 +174,7 @@ $query_do = mysqli_query($connection, $query);
                             
                             ?>">
 
-                            <label for="end_pre_reg" class="label_text">END OF PRE-REGISTRATION</label>
+                            <label for="end_pre_reg" >END OF PRE-REGISTRATION</label>
                             <input type="date" name="end_pre_reg" class="end_date_pre_reg" value="<?php
                             
                             if($end_pre_reg_get == ""){

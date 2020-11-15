@@ -171,16 +171,16 @@ if(mysqli_num_rows($query_do) == 0){
                             </button>
                             <!-- add fencers drop-down -->
                             <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
-                                <label for="fencers_name" class="label_text">NAME</label>
+                                <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
 
-                                <label for="fencers_nationality" class="label_text">NATIONALITY</label>
+                                <label for="fencers_nationality" >NATIONALITY</label>
                                 <input type="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
 
-                                <label for="fencers_points" class="label_text">POINTS</label>
+                                <label for="fencers_points" >POINTS</label>
                                 <input type="number" placeholder="-" id="ranking_points" class="number_input extra_small" name="fencer_points">
 
-                                <label for="fencers_dob" class="label_text">DATE OF BIRTH</label>
+                                <label for="fencers_dob" >DATE OF BIRTH</label>
                                 <input type="date" name="fencer_dob">
                                 <button type="submit" name="submit" class="panel_submit">Save</button>
                             </form>
@@ -205,9 +205,9 @@ if(mysqli_num_rows($query_do) == 0){
 
                         ?>
                         <div class="overlay_panel_form list">
-                            <label class="label_text">NAME</label>
+                            <label >NAME</label>
                             <p><?php echo $name ?></p>
-                            <label class="label_text">PASSWORD</label>
+                            <label >PASSWORD</label>
                             <div>
                                 <p><?php echo $pass ?></p>
                                 <button onclick="hidePasswords(this)" id="visibility_button">

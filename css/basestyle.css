@@ -560,7 +560,6 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 input[type="text"]:focus, input[type="password"]:focus {	/* Sets basic look of text and password inputs when focused*/
 	border-bottom: 2px solid var(--c-orange);
 	margin-bottom: 29px;
-	width: 350px;
 }
 
 input[type="text"].error, input[type="password"].error {

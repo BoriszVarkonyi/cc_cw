@@ -54,7 +54,7 @@ function showSlides() {
   slides[slidesNumber].classList.remove("hidden");
 }
 setInterval(showSlides, 3000); 
-//END
+
 
 
 

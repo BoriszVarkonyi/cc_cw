@@ -42,16 +42,16 @@
 
                     <form action="" class="column_form_wrapper" method="POST">
                         <div class="form_column">
-                            <label for="points_pools" class="label_text">POINTS IN POOLS</label>
+                            <label for="points_pools" >POINTS IN POOLS</label>
                             <input type="number" name="points_pools"  class="number_input extra_small" value="5">
 
-                            <label for="points_table" class="label_text">POINTS IN TABLE</label>
+                            <label for="points_table" >POINTS IN TABLE</label>
                             <input type="number" name="points_table"  class="number_input extra_small" value="15">
                         
-                            <label for="round_number_ranking" class="label_text">NUMBER OF ROUND FOR RANKING</label>
+                            <label for="round_number_ranking" >NUMBER OF ROUND FOR RANKING</label>
                             <input type="number" name="round_number_ranking"  class="number_input extra_small" value="1">
 
-                            <label for="elimnation_type" class="label_text">ELIMINATION TYPE</label>
+                            <label for="elimnation_type" >ELIMINATION TYPE</label>
                             <div class="option_container">
                                 <input type="radio" name="elimnation_type" id="direct_et" value="" checked/>
                                 <label for="direct_et">Direct-Elimination Tournament</label>
@@ -62,13 +62,13 @@
 
                         </div>
                         <div class="form_column">
-                            <label for="exempted_fencers_pools" class="label_text">NUMBER OF EXEMPTED FENCERS IN POOLS</label>
+                            <label for="exempted_fencers_pools" >NUMBER OF EXEMPTED FENCERS IN POOLS</label>
                             <input type="number" name="exempted_fencers_pools"  class="number_input extra_small" value="0">
 
-                            <label for="exempted_fencers_table" class="label_text">NUMBER OF EXEMPTED FENCERS IN TABLE</label>
+                            <label for="exempted_fencers_table" >NUMBER OF EXEMPTED FENCERS IN TABLE</label>
                             <input type="number" name="exempted_fencers_table"  class="number_input extra_small" value="0">
 
-                            <label for="third_place" class="label_text">FENCING FOR 3RD PLACE</label>
+                            <label for="third_place" >FENCING FOR 3RD PLACE</label>
                             <div class="option_container">
                                 <input type="radio" name="third_place" id="third_place_yes" value="" checked/>
                                 <label for="third_place_no">Yes</label>

@@ -8,7 +8,7 @@ function toggle_import_technician() {
     var element = document.getElementById("import_technician_panel");
     element.classList.toggle("hidden");
 }
-//END
+
 
 //Generates a random password with 10 character to the password field of new technician
 
@@ -29,7 +29,7 @@ function randomPassword(){
     var passfield = document.getElementById("password_input");
     passfield.value = randompassword;
     }
-//END
+
 
 //Counts the characters of technician's passwords and replaces with as many stars as many characters the password had
 
@@ -53,7 +53,7 @@ var star = "*";
         change_id.item(i).innerHTML = star.repeat(test[i]);
  
      }
-//END
+
 
 //Changes between the shown end the hidden password.
 
@@ -90,7 +90,7 @@ function hidePasswords(x) {
          visib = 1;
     }
 }
-//END
+
 
 //Toggles the selection on clicked technician
 
@@ -131,7 +131,7 @@ function selectTechnicians(x) {
 
     }
 }
-//END
+
 
 //Selects the competition that the technicians will be imported from
 
@@ -153,6 +153,6 @@ function importTechnicians(x) {
  
     document.cookie="selected=" + y;
  }
- //END
+ 
 
  //document.cookie="techtoremove=" + null;

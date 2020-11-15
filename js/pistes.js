@@ -29,7 +29,7 @@ function togglePisteSettings(x) {
 
     }  
 }
-//END
+
 
 
 

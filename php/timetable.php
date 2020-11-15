@@ -242,7 +242,7 @@ if($query_do){
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
-                                <label for="wc_per_ten_min" class="label_text_small">Estimated number of weapon controls done in 10 minutes:</label>
+                                <label for="wc_per_ten_min" class="small">Estimated number of weapon controls done in 10 minutes:</label>
                                 <input type="number" class="number_input small" placeholder="e.g. 8" id="wc_input" class="wc_input" name="wc_per_ten_min">
 
                                 <div class="table_header">

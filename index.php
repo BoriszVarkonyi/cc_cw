@@ -196,7 +196,7 @@ print_r($_POST);
 
             <!-- login form -->
                <form action="index.php" method="POST" class="overlay_panel_form">
-                    <label for="username" class="label_text">LOGIN ID</label>
+                    <label for="username" >LOGIN ID</label>
                     <input type="text" placeholder="Type in your username" class="username_input" name="username"<?php 
                     
                     if(in_array(1, $_GET)) {
@@ -218,7 +218,7 @@ print_r($_POST);
                      <!-- appear when problem with error class on the affected input-->
                 <!--    <p class="error_text">Problem desc 2</p>
                     <p class="error_text">Problem desc 3</p> -->
-                    <label for="password"class="label_text">PASSWORD</label>
+                    <label for="password">PASSWORD</label>
                     <input type="password" placeholder="Type in your password" class="password_input" name="password"<?php 
                     
                     if(in_array(2, $_GET)) {

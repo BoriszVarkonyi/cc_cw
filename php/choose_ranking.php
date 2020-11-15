@@ -181,7 +181,7 @@ if(isset($_POST["submit"]) ){
                                     <p id="ranking_name">Ranking name</p>
                                     <form name="ranking_password" method="POST" action="" id="use_this_ranking_form" autocomplete="off">
                                     <input id="ranking_id_hidden" type="text" class="hidden" name="ranking_id">
-                                        <label for="ranking_name" class="label_text">PASSWORD</label>
+                                        <label for="ranking_name" >PASSWORD</label>
                                         <input id="ranking_password_input" type="password" name="ranking_password">
                                         <input type="submit" name="valid_ranking" value="Use this Ranking">
                                     </form>
@@ -208,9 +208,9 @@ if(isset($_POST["submit"]) ){
                                 <p>You can create your own ranking to use for this competition.</p>
                             </div>
                             <form name="submit" method="POST" id="ranking_create" class="closed" autocomplete="off">
-                                <label for="ranking_name" class="label_text">NAME OF THE RANKING</label>
+                                <label for="ranking_name" >NAME OF THE RANKING</label>
                                 <input type="text" name="ranking_name">
-                                <label for="ranking_name" class="label_text">PASSWORD</label>
+                                <label for="ranking_name" >PASSWORD</label>
                                 <input type="password" name="ranking_password">
                                 <input type="submit" name="submit" value="Create Ranking" class="ranking_creation_button">
                             </form>
