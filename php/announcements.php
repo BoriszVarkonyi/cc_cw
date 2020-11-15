@@ -12,34 +12,49 @@
         "getdata" => "",
         "insert_info" => "",
         "ttest" => "",
-        "create" => ""
+        "create" => "",
+        "update" => ""
     );
 
+    $table_name = "announcement_" . $comp_id;
 
-
+    
     //update announcement_$comp_id table with new title from form
-    if (isset($_POST['adding_entry_submit'])) {
+    if (isset($_POST['input_submit']) && strlen($_POST['input_title']) > 0) {
 
-        $check_d_table_qry = "SHOW TABLES LIKE 'announcement_$comp_id'";
-        $check_d_table_do = mysqli_query($connection, $check_d_table_qry);
-        $row = mysqli_num_rows($check_d_table_do);
 
-        if ($row == 0) {
+        //creating table
+        $check_d_table_qry = "SELECT COUNT(*)
+                                FROM information_schema.tables 
+                                WHERE table_schema = 'ccdatabase' 
+                                AND table_name = '$table_name';";
 
-            $create_table_qry = "CREATE TABLE `announcement_$comp_id` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `ann_title` VARCHAR(255) NOT NULL , `ann_body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
+        if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
+            if ($check_d_table_do) {
 
-            
-            if (mysqli_query($connection, $create_table_qry)){
-                $feedback['create'] = "Minden fasza!";
-            } else {
-                $feedback['create'] = "ERROR " . mysqli_error($connection);
+                $create_table_qry = "CREATE TABLE $table_name ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
+    
+                
+                if (mysqli_query($connection, $create_table_qry)){
+                    $feedback['create'] = "Minden ok!";
+                } else {
+                    $feedback['create'] = "ERROR " . mysqli_error($connection);
+                }
+    
             }
-
+        } else {
+            $feedback['ttest'] = "ERROR " . mysqli_error($connection);
         }
 
-        $ann_title = $_POST['input_title'];
+        
+        
 
-        $dupli_rows_qry = "SELECT * FROM announcement_$comp_id WHERE ann_title = '$ann_title'";
+        //get title from post
+        $title = $_POST['input_title'];
+
+
+        //check for row with same title
+        $dupli_rows_qry = "SELECT * FROM $table_name WHERE title = '$title'";
         if ($dupli_rows_do = mysqli_query($connection, $dupli_rows_qry)) {
 
             $numrows = mysqli_num_rows($dupli_rows_do);
@@ -48,9 +63,11 @@
             $feedback['getnumrows'] = "ERROR: " . mysqli_error($connection);
         }
 
+
+        //create new ann row with name
         if ($numrows == 0) {
 
-            $insert_info_qry = "INSERT INTO announcement_$comp_id (ann_title) VALUE ('$ann_title')";
+            $insert_info_qry = "INSERT INTO $table_name (title) VALUE ('$title')";
             $inser_indo_do = mysqli_query($connection, $insert_info_qry);
 
             if ($inser_indo_do) {
@@ -64,6 +81,33 @@
         }
     }
 
+    //updateing announcement from text areas
+    if (isset($_POST['submit_body'])) {
+
+        $new_body = $_POST['text_body'];
+        $change_title = $_POST['text_title_to_change'];
+
+        $update_qry = "UPDATE $table_name SET body = '$new_body' WHERE title = '$change_title'";
+        if (mysqli_query($connection, $update_qry)) {
+            $feedback['update'] = "Minden ok!";
+        } else {
+            $feedback['update'] = "ERROR:" . mysqli_error($connection);
+        }
+    }
+
+
+    //deleteing info_$comp_id row
+    if (isset($_POST['submit_delete'])) {
+
+        $change_title = $_POST['text_title_to_change'];
+
+        $delete_qry = "DELETE FROM $table_name WHERE title = '$change_title'";
+        if (mysqli_query($connection, $delete_qry)) {
+            $feedback['delete'] = "Minden ok delete!";
+        } else {
+            $feedback['delete'] = "ERROR:" . mysqli_error($connection);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +136,7 @@
                 </button>
 
             </div>
+            <?php print_r($feedback); echo $numrows ?>
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
                     <div class="db_panel">
@@ -102,35 +147,54 @@
                         <div class="db_panel_main ">
                             <div id="plus_info_wrapper" class="entry_table_row_wrapper">
 
+                                <?php
+                                    //displaying plsu infos from db in table rows
+                                    $get_data_plusinfo_qry = "SELECT * FROM $table_name";
+                                    $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
+                                    if ($get_data_plusinfo_do !== FALSE) {
+                                        while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
 
+                                            $title = $row['title'];
+                                            $body = $row['body'];
 
-                                <div class="entry" >
+                                ?>
 
+                                        <!-- ezt kell whileozni csorom -->
+                                        <div class="entry" >
 
-                                    <div class="table_row" onclick="toggleEntry(this)">
-                                        <div class="table_item invitation">announcement nece te gibbon</div>
-                                    </div>
+                                            <!-- csak a cim kell -->
+                                            <div class="table_row" onclick="toggleEntry(this)">
+                                                <div class="table_item invitation"><?php echo $title ?></div>
+                                            </div>
 
+                                            <!-- updateing entry -->
+                                            <form class="entry_panel collapsed" id="update" method="POST" action="../php/announcements.php?comp_id=<?php echo $comp_id ?>">
+                                                <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                    <img src="../assets/icons/delete-black-18dp.svg">
+                                                </button>
+                                                <textarea id="update" name="text_body" ><?php echo $body ?></textarea>
+                                                <input id="update" name="text_title_to_change" type="text" value="<?php echo $title ?>" class="hidden">
+                                                <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                            </form>
 
-                                    <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
-                                        <button class="panel_button" type="submit" name="submit_delete" id="update" >
-                                            <img src="../assets/icons/delete-black-18dp.svg">
-                                        </button>
-                                        <textarea id="update" name="text_body" ></textarea>
-                                        <input id="update" name="text_title_to_change" type="text" value="" class="hidden">
-                                        <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                    </form>
+                                        </div>
+                                        <!-- eddig mondjuk -->
+                            <?php 
+                                        }    
+                                    }                             
+                            ?>
 
-                                </div>
-
-                                <form action="" id="adding_entry" class="hidden" method="POST">
+                                <!-- adding entry by title -->
+                                <form action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
                                     <div class="table_row">
                                         <div class="table_item">
-                                            <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
-                                            <input name="info_submit" type="submit" class="save_entry" value="Create">
+                                            <input name="input_title" type="text" class="title_input" placeholder="Type in the title">
+                                            <input name="input_submit" type="submit" class="save_entry" value="Create">
                                         </div>
                                     </div>
                                 </form>
+
+
                             </div>
                         </div>
                     </div>
