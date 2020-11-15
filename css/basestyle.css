@@ -175,18 +175,14 @@ form.hidden, form.disabled {
 }
 
 .table_header {
+	position: sticky !important;
+	z-index: 5;
+	padding: 0 2px;
 	width: 100%;
 	font-family: var(--thin);
-	background-color: var(--c-transparent);
+	background-color: var(--c-lightergray);
 	font-size: var(--f-medium);
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
 	display: flex;
-}
-
-.table_header.gray {
-	background-color: var(--c-lightgray);
 }
 
 .table_header_text {
@@ -598,6 +594,8 @@ input[type="text"].no_margin {
 	margin: -29px 0 29px;
 	position: relative;
 }
+
+/* Input Background Directory */
 
 .username_input {
 	background-image: url(../assets/icons/person-black-18dp.svg);

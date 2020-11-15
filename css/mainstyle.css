@@ -1149,10 +1149,6 @@ input[type=radio]:checked:disabled + label:before {
 
 /* ///CHOOSE COMPETITION ELEMENTS/// */
 
-#competitions_wrapper > .table_header {
-	background-color: var(--c-lightergray);
-}
-
 /* ///FORMS WRAPPER ELEMENTS/// */
 
 .form_column {
