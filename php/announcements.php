@@ -136,7 +136,7 @@
                 </button>
 
             </div>
-            <?php print_r($feedback); echo $numrows ?>
+            
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
                     <div class="db_panel">
