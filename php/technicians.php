@@ -215,17 +215,23 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                     <div class="search_wrapper">
                         <input type="search" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="cc">
                         <div class="search_results">
-                            <a href="#90">Geci</a>
-                            <a href="#90">Szi</a>
-                            <a href="#90">Asd</a>
-                            <a href="#90">Ló</a>
-                            <a href="#90">Lópaci</a>
-                            <a href="#90">Asd</a>
-                            <a href="#90">Segg</a>
-                            <a href="#90">Seg</a>
-                            <a href="#90">1</a>
-                            <a href="#90">11</a>
-                            <a href="#90">22</a>
+                            <?php
+                            $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
+                            $query_do = mysqli_query($connection, $query);
+
+                            while($row = mysqli_fetch_assoc($query_do)){
+
+                                $idke = $row["id"];
+                                $nevecske = $row["username"];
+                                ?>
+
+
+                                <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectTechniciansWithSearch(this)"><?php echo $nevecske ?></a>
+
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
