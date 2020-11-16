@@ -37,6 +37,12 @@ function toggleEntry(x) {
     hiddentext.value = x.id;
 
 
+    var secretinput = document.getElementById("hidden_approve_" + x.id);
+    secretinput.form = "appdisapp" + x.id;
+    secretinput.value = x.parentNode.id;
+    
+    
+    
 
 }
 
