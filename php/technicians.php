@@ -198,7 +198,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                 <img src="../assets/icons/shuffle-black-18dp.svg">
                             </button>
                             </div>
-                            <label for="" >ROLE</label>
+                            <label for="">ROLE</label>
                            <div class="option_container">
                                 <input type="radio" class="option_button" name="role" id="a" value="1"/>
                                 <label for="a" class="option_label">Semi</label>
@@ -215,39 +215,17 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                     <div class="search_wrapper">
                         <input type="search" name="" id="" placeholder="Search by Name" class="cc">
                         <div class="search_results">
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
-                            <a href="#90">Szia</a>
+                            <a href="#90">Geci</a>
+                            <a href="#90">Szi</a>
+                            <a href="#90">Asd</a>
+                            <a href="#90">Ló</a>
+                            <a href="#90">Lópaci</a>
+                            <a href="#90">Asd</a>
+                            <a href="#90">Segg</a>
+                            <a href="#90">Seg</a>
+                            <a href="#90">1</a>
+                            <a href="#90">11</a>
+                            <a href="#90">22</a>
                         </div>
                     </div>
                 </div>

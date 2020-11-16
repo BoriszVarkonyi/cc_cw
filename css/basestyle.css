@@ -507,7 +507,7 @@ input[type="search"].cc:focus + div {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
-	top: calc( var(--f-medium) + 40px);
+	top: calc( var(--f-medium) + 35px);
 	z-index: 1;
 	max-height: 0;
 	opacity: 0;
