@@ -93,7 +93,7 @@ var datesarray = dates.value.split(",");
 for (let index = 0; index < datesarray.length; index++) {
 
     var addwc = document.getElementById(datesarray[index]);
-    //addwc.classList.add("has_wc");
+    addwc.classList.add("has_wc");
 
     //addwc.removeAttribute("onclick");
     
@@ -117,6 +117,7 @@ console.log(datesarray);
 var conf = document.getElementById("confirmation");
 
 function removeWcDay(x) {
+
     console.log(x);
     conf.classList.remove("hidden");
 

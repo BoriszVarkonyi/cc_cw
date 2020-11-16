@@ -5,18 +5,54 @@
 
 <?php 
 
+$get_assigned_ranking_id = "SELECT * FROM competitions WHERE comp_id = $comp_id";
+$get_assigned_ranking_id_do = mysqli_query($connection, $get_assigned_ranking_id);
+
+if($row = mysqli_fetch_assoc($get_assigned_ranking_id_do)){
+
+    $rkid = $row["comp_ranking_id"];
+
+}
+
+$idtoremove = $_POST["hidden_id"];
+
+
 print_r($_POST);
 
 
 if(isset($_POST["approve"])){
 
+$ids_to_cp = $_POST["hidden_apporove"];
 
+$query = "SELECT * 
+FROM `information_schema`.`tables`
+WHERE table_schema = 'ccdatabase' 
+    AND table_name = 'cptrs_$comp_id'
+LIMIT 1;";
+$query_do = mysqli_query($connection, $query);
 
+if(mysqli_num_rows($query_do) == 0){
+
+$query = "CREATE TABLE cptrs_$comp_id ( `id` INT NOT NULL , `name` VARCHAR(255) NOT NULL , `nationality` VARCHAR(255) NOT NULL , `reg` INT NOT NULL , `wc` INT NOT NULL , `rank` INT NOT NULL , `comp_rank` INT NOT NULL, `temporary_rank` INT NOT NULL, `final_rank` INT NOT NULL, `ass_match` INT NOT NULL ) ENGINE = InnoDB;";
+$query_do = mysqli_query($connection, $query);
 
 }
-if(isset($_POST["disapprove"])){
 
-$idtoremove = $_POST["hidden_id"];
+$query_cp = "INSERT INTO cptrs_$comp_id(id,name,nationality,rank) SELECT id,name,nationality,position FROM rk_$rkid WHERE id IN ($ids_to_cp)";
+$query_cp_do = mysqli_query($connection, $query_cp);
+
+$query_set_stat = "UPDATE pre_$comp_id SET stat = 1 WHERE id = $idtoremove";
+$query_set_stat_do = mysqli_query($connection, $query_set_stat);
+
+header("Location: manage_entries.php?comp_id=$comp_id");
+
+}
+
+
+
+
+
+if(isset($_POST["disapprove"])){
 
 $query = "UPDATE pre_$comp_id SET stat = 2 WHERE id = $idtoremove";
 $query_do = mysqli_query($connection, $query);
@@ -91,18 +127,16 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 
                             $entry_id = $row["id"];
                             
-                            
-                            $get_assigned_ranking_id = "SELECT * FROM competitions WHERE comp_id = $comp_id";
-                            $get_assigned_ranking_id_do = mysqli_query($connection, $get_assigned_ranking_id);
 
-                            if($row = mysqli_fetch_assoc($get_assigned_ranking_id_do)){
 
-                                $rkid = $row["comp_ranking_id"];
-
-                            }
+                            //$ids = substr($ids, 0, -1);
 
                             $get_fencers_query = "SELECT * FROM rk_$rkid WHERE id IN ($ids)";
                             $get_fencers_query_do = mysqli_query($connection, $get_fencers_query);
+
+                            if(!$get_fencers_query_do){
+                                echo mysqli_error($connection);
+                            }
 
                             
                             
@@ -110,7 +144,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                             ?>
 
                         
-                            <div class="entry" id="entry_1">
+                            <div class="entry" id="<?php echo $ids ?>">
                                 <div class="table_row" id="<?php echo $entry_id ?>" onclick="toggleEntry(this)">
                                     <div class="table_item"><?php echo $f_name ?></div>
                                     <div class="table_item"><?php echo $f_mail ?></div>
@@ -148,7 +182,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                             }
                                             ?>
 
-                                        <input type="text" class="hidden" name="hidden_id" id="hidden_id_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
+                                        <input type="text" class="" name="hidden_id" id="hidden_id_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
+                                        <input type="text" class="" name="hidden_apporove" id="hidden_approve_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
 
 
                                         <input type="submit" name="disapprove" value="Disapprove" class="panel_submit secondary red">

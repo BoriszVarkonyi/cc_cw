@@ -120,8 +120,8 @@ if(isset($_POST["add_period"])){
 $save_date = $_POST["save_date"];
 $ten_min = $_POST["wc_per_ten_min"];
 
-$start_1 = $_POST["wc_period_start_1"];
-$end_1 = $_POST["wc_period_end_1"];
+$start_1 = $_POST["wc_period_start_1"] . ":00";
+$end_1 = $_POST["wc_period_end_1"] . ":00";
 
 if(isset($_POST["wc_period_start_2"])){
 
@@ -209,7 +209,7 @@ if($query_do){
 <!-- header -->
     <div id="confirmation" class="hidden">
         <form id="confirmation_form" action="timetable.php?comp_id=<?php echo $comp_id ?>" method="POST">
-            <button class="panel_button" type="button" onclick="closeConf()">
+            <button class="panel_button" type="button" onclick="removeWcDay(this)">
                 <img src="../assets/icons/close-black-18dp.svg">
             </button>
             <p id="remove_warning"></p>
