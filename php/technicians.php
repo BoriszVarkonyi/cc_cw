@@ -213,7 +213,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </form>
                     </div>
                     <div class="search_wrapper">
-                        <input type="search" name="" id="" placeholder="Search by Name" class="cc" onkyeup="myFunction()">
+                        <input type="search" name="" id="" placeholder="Search by Name" class="cc">
                         <div class="search_results">
                             <a href="#90">Geci</a>
                             <a href="#90">Szi</a>
