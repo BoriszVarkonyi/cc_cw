@@ -17,10 +17,34 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
-                        <button class="stripe_button orange">
+                        <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
+                        <button class="stripe_button orange" onclick="">
+                            <p>Register in</p>
+                            <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                        </button>
+                        <div id="add_fencer_panel" class="overlay_panel hidden">
+                            <button class="panel_button" onclick="toggleAddFencerPanel()">
+                                <img src="../assets/icons/close-black-18dp.svg" >
+                            </button>
+                            <!-- add fencers drop-down -->
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
+                                <label for="fencers_name" >NAME</label>
+                                <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
+
+                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
+                                <input type="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
+
+                                <label for="fencers_points" >POSITION</label>
+                                <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
+
+                                <label for="fencers_dob" >DATE OF BIRTH</label>
+                                <input type="date" name="fencer_dob">
+                                <button type="submit" name="submit" class="panel_submit">Save</button>
+                            </form>
+                        </div>
                 </div>
                 <div id="page_content_panel_main">
 
