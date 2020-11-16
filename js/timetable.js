@@ -95,6 +95,8 @@ for (let index = 0; index < datesarray.length; index++) {
     var addwc = document.getElementById(datesarray[index]);
     addwc.classList.add("has_wc");
 
+    addwc.onclick = "removeWcDay(this)";
+
     //addwc.removeAttribute("onclick");
     
 }
@@ -122,10 +124,10 @@ function removeWcDay(x) {
     conf.classList.remove("hidden");
 
     var removewcinput = document.getElementById("remove_date");
-    removewcinput.value = x.parentNode.id;
+    removewcinput.value = x.parentNode.parentNode.id;
 
     var warning = document.getElementById("remove_warning");
-    warning.innerHTML = "Are you sure you want to remove weapon control of " + x.parentNode.id + "?";
+    warning.innerHTML = "Are you sure you want to remove weapon control of " + x.parentNode.parentNode.id + "?";
 }
 
 function closeConf() {
