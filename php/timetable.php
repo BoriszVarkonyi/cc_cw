@@ -233,11 +233,13 @@ if($query_do){
                     </button>
                 </div>
                 <div id="page_content_panel_main" class="no_scroll">
-
                     <div id="set_wc_panel" class="overlay_panel_single hidden">
-                            <button class="panel_button"onclick="closeWcPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" >
-                            </button>
+                        <button class="panel_button drag" onclick="closeWcPanel()">
+                            <img src="../assets/icons/drag_indicator-black-18dp.svg" >
+                        </button>
+                        <button class="panel_button" onclick="closeWcPanel()">
+                            <img src="../assets/icons/close-black-18dp.svg" >
+                        </button>
                             
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>

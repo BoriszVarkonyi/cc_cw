@@ -35,16 +35,8 @@
                 <div class="table_item">
                     HUN
                 </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
+                <div class="big_status_item gold">
+                    <img src="../assets/icons/emoji_events-black-18dp.svg" alt="">
                 </div>
             </div>
             <div class="table_row">
@@ -57,16 +49,7 @@
                 <div class="table_item">
                     HUN
                 </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
+                <div class="big_status_item silver">
                 </div>
             </div>
             <div class="table_row">
@@ -78,6 +61,34 @@
                 </div>
                 <div class="table_item">
                     HUN
+                </div>
+                <div class="big_status_item bronze">
+                </div>
+            </div>
+            <div class="table_row">
+                <div class="table_item">
+                    1.
+                </div>
+                <div class="table_item">
+                    Náv
+                </div>
+                <div class="table_item">
+                    HUN
+                </div>
+                <div class="big_status_item bronze">
+                </div>
+            </div>
+            <div class="table_row">
+                <div class="table_item">
+                    1.
+                </div>
+                <div class="table_item">
+                    Náv
+                </div>
+                <div class="table_item">
+                    HUN
+                </div>
+                <div class="big_status_item">
                 </div>
             </div>
         </div>

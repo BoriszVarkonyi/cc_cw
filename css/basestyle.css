@@ -175,16 +175,16 @@ form.hidden, form.disabled {
 }
 
 .table_header {
-	position: -webkit-sticky !important;
-	position: sticky !important;
-	z-index: 5;
 	padding: 0 2px;
 	width: 100%;
 	font-family: var(--thin);
 	background-color: var(--c-lightergray);
 	font-size: var(--f-medium);
-	top: 0;
 	display: flex;
+}
+
+.entry .table-header {
+	position: relative !important;
 }
 
 .table_header_text {
@@ -358,12 +358,18 @@ form.hidden, form.disabled {
 	min-width: 35px;
 	width: 4vh;
 	max-width: 50px;
-	background-position: center;
-	background-size: 80% 80%;
-	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.big_status_item > label {
+	align-self: center;
+}
+
+.big_status_item > img {
+	height: 65%;
+	width: 65%;
 }
 
 .red {
@@ -413,13 +419,9 @@ div.table_row:nth-child(even).selected {
 	height: 10px;
 }
 
-::-webkit-scrollbar-track { /* Track */
-    background: var(--c-white); 
-}
-
 ::-webkit-scrollbar-thumb { /* Handle */
 	background: var(--c-darkgray); 
-	border-radius: 1px;
+	border-radius: 10px;
 }
   
 ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
@@ -615,12 +617,16 @@ input[type="text"].no_margin {
 	background-image: url(../assets/icons/language-black-18dp.svg);
 }
 
-.location_input, .postal_input {
+.location_input {
 	background-image: url(../assets/icons/location_city-black-18dp.svg);
 }
 
+.postal_input {
+	background-image: url(../assets/icons/room-black-18dp.svg);
+}
+
 .money_input {
-	background-image: url(../assets/icons/money-black-18dp.svg);
+	background-image: url(../assets/icons/payments-black-18dp.svg);
 }
 
 .start_date_input {
@@ -724,9 +730,6 @@ input[type="time"] {
 	width: 35px;
 	border: 0;
 	border-radius: 50%;
-	background-size: 60% 60%;
-	background-position: center;
-	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -736,8 +739,8 @@ input[type="time"] {
 
 .back_button {
 	margin-left: 40px;
-	height: 35px;
-	width: 35px;
+	min-height: 35px;
+	min-width: 35px;
 	border: 0;
 	border-radius: 50%;
 	background-color: var(--c-lightergray);
@@ -897,6 +900,15 @@ input[type="time"] {
 .panel_button.left {
 	top: 10px;
 	left: 10px;
+}
+
+.panel_button.drag {
+	top: 0px;
+	left: 0px;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	cursor: grab;
 }
 
 .panel_button.fixed {
