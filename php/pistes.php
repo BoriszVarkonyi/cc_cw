@@ -39,7 +39,7 @@ if(isset($_POST["create_piste"])){
 
         $pistenum = $_POST["piste_number_main"];
 
-    $query = "SELECT * FROM pistes_$comp_id WHERE piste_type = 1";
+    $query = "SELECT * FROM pistes_$comp_id WHERE piste_number = $pistenum OR piste_type = 1";
     $query_do = mysqli_query($connection,$query);
 
     if(mysqli_num_rows($query_do) == 0){
