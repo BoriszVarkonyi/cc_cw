@@ -30,21 +30,19 @@
         <!-- cw title panel top  -->
         <div id="comp_data">
             <img src="<?php echo $logo_path ?>" >
-            <form method="POST" class="big_status_item" id="fav_button"></form>
+            <form action="../cw/cw_competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
             <p class="cw_panel_title"><?php echo $comp_name ?>
-                <input name="fav_comp_id" form="fav_button" type="text" class="hidden" value=<?php echo $comp_id ?>>
-                <button name="submit_button" class="favourite_button" form="fav_button" type="submit">
+
+                <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
                     <img src=<?php echo $star ?> >
                 </button> 
+
             </p>
-            <p id="comp_status"><?php echo statusConverter($comp_status). "_______ " ;var_dump($_COOKIE[$cookie_name])?></p>
+            <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>
             <div>
                 <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                 <p><?php echo statusConverter($comp_status) ?></p>
                 <p><?php echo date('Y', strtotime($comp_start)) ?></p>
-                <p><?php echo "value: " . $value ?></p>
-                <p><?php echo "new value: " . $newvalue ?></p>
-                <p><?php echo "array: "; print_r($array_value) ?></p>
             </div>
         </div>
         <div id="competition_wrapper">

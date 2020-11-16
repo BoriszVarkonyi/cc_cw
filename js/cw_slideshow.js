@@ -25,6 +25,7 @@ function toggleButton(x) {
   slidesNumber = activeButtonNumber;
   //Shows the current slide.
   slides[slidesNumber].classList.remove("hidden");
+  clearInterval(showSlides)
 }
 
 //Showslide automatic
@@ -53,7 +54,7 @@ function showSlides() {
   //Shows the current slide.
   slides[slidesNumber].classList.remove("hidden");
 }
-setInterval(showSlides, 3000); 
+
 
 
 
