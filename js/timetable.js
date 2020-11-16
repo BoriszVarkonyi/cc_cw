@@ -108,10 +108,6 @@ if(datesarray[0] != ""){
 }
 
 
-
-console.log(datesarray);
-
-
 //Removes onclick attribute from dates which has already weapon control
 
 /*for (let index = 0; index < datesarray; index++) {
