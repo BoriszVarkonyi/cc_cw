@@ -33,7 +33,7 @@
 
                <?php
                
-               $query = "SELECT * FROM cptrs_$comp_id";
+               $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
                $query_do = mysqli_query($connection, $query);
                
                
@@ -58,7 +58,7 @@
 
                         ?>
                         
-                        <div class="table_row">
+                        <div class="table_row" onclick="selectRow(this)">
                             <div class="table_item"><?php echo $name ?></div>
                             <div class="table_item"><?php echo $nat ?></div>
                             <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
@@ -78,5 +78,6 @@
         </div>
     </div>
 <script src="../js/main.js"></script>
+<script src="../js/registration.js"></script>
 </body>
 </html>
