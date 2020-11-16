@@ -89,7 +89,6 @@
                         $stat = $row["reg"];
                         $id = $row["id"];
                         
-
                         ?>
                         
                         <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">

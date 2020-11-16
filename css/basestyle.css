@@ -248,14 +248,8 @@ form.hidden, form.disabled {
 	display: none;
 }
 
-.table_row_wrapper > .table_row {
-	border-left: 2px solid var(--c-darkgray);
-	border-right: 2px solid var(--c-gray);
-}
-
 .table_row_wrapper > .table_header + .table_row, .table_row_wrapper > .table_row:first-of-type {
 	border-radius: 5px 5px 0 0;
-	/*border-top: 2px solid var(--c-darkgray);*/
 	border-left: 2px solid var(--c-darkgray);
 }
 
@@ -271,7 +265,7 @@ form.hidden, form.disabled {
 	border-radius: 5px 5px 0 0;
 }
 
-.entry_table_row_wrapper > .entry > .table_row, .entry_table_row_wrapper > .entry > .entry_panel {
+.entry_table_row_wrapper > .entry > .table_row, .entry_table_row_wrapper > .entry > .entry_panel, .table_row_wrapper > .table_row {
 	border-left: 2px solid var(--c-darkgray);
 	border-right: 2px solid var(--c-gray);
 }
