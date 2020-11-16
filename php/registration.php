@@ -30,22 +30,49 @@
                                 <p>You have no referees set up!</p>
                             </div>
                -->     
+
+               <?php
+               
+               $query = "SELECT * FROM cptrs_$comp_id";
+               $query_do = mysqli_query($connection, $query);
+               
+               
+               
+               ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">SEX</div>
                             <div class="table_header_text">NATIONALITY</div>
-                            <div class="table_header_text">WEAPON TYPE</div>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>
+
+                        <?php
+                        
+                        while($row = mysqli_fetch_assoc($query_do)){
+
+                        $name = $row["name"];
+                        $nat = $row["nationality"];
+                        $stat = $row["wc"];
+                        
+
+
+                        ?>
+                        
                         <div class="table_row">
-                            <div class="table_item">Hello</div>
-                            <div class="table_item">jelszo</div>
-                            <div class="table_item">róló</div>
-                            <div class="table_item">onlino</div>
-                            <div class="table_item">onlino</div>
-                            <div class="big_status_item green"></div> <!-- red or green style added to small_status item to inidcate status -->
+                            <div class="table_item"><?php echo $name ?></div>
+                            <div class="table_item"><?php echo $nat ?></div>
+                            <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
+                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
+                        <?php
+                        }
+                        ?>
+
+
+                        
+
+
+
                     </div>
                 </div>
         </div>
