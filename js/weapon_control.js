@@ -1,10 +1,15 @@
 function selectRow(x){
 
+    var placeids = document.getElementById("fencer_id_input");
+
     if(x.classList.contains("selected")){
     
     x.classList.remove("selected");
-    
-    }else{
+
+    placeids.value = "";
+    }
+    else
+    {
     
         var removeall = document.getElementsByClassName("selected");
     
@@ -18,11 +23,11 @@ function selectRow(x){
         }
         }
         x.classList.add("selected");
+
+
+        placeids.value = x.id;
         }
+
+
     }
     
-    var addFencerPanel = document.getElementById("add_fencer_panel");
-    
-    function toggleAddFencerPanel() {
-        addFencerPanel.classList.remove("hidden");
-    }

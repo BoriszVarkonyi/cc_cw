@@ -54,6 +54,9 @@
                     </button>
 
 
+                    <input type="text" class="" name="fencer_id" id="fencer_id_input" value="">
+
+
                 </div>
                 <div id="page_content_panel_main">
                     <div id="weapon_control_wrapper" class="wrapper table_row_wrapper">
@@ -106,7 +109,7 @@
                         ?>
 
                         <!-- while -->
-                        <div class="table_row">
+                        <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
                             <div class="table_item"><?php echo $fencer_name ?></div>
                             <div class="table_item"><?php echo $comp_sex ?></div>
                             <div class="table_item"><?php echo $fencer_nat ?></div>
@@ -125,4 +128,5 @@
         </div>
     </body>
 <script src="../js/main.js"></script>
+<script src="../js/weapon_control.js"></script>
 </html>
