@@ -248,7 +248,6 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <a href="#90">Szia</a>
                             <a href="#90">Szia</a>
                             <a href="#90">Szia</a>
-
                         </div>
                     </div>
                 </div>
