@@ -1,3 +1,13 @@
+<?php 
+
+//if(isset[$_POST["reg_in"]]){}
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +27,31 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
+
                         <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
-                        <button class="stripe_button orange" onclick="">
+
+
+                        <form method="POST" action="">
+
+                        <button class="stripe_button orange" onclick="" name="reg_in" type="submit">
                             <p>Register in</p>
                             <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
                         </button>
+
+
+                        <button class="stripe_button orange" onclick="" name="reg_out" type="submit">
+                            <p>Register out</p>
+                            <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                        </button>
+
+                        <input type="text" class="" name="fencer_ids" id="fencer_ids">
+
+                        </form>
+
+
                         <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencerPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" >
