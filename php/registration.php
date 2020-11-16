@@ -16,7 +16,6 @@
             <!-- navbar -->
         <div class="page_content_flex">
 
-
         <?php 
 
             if(isset($_POST["reg_in"])){
@@ -43,36 +42,65 @@
 
         ?>
 
+                <form id="title_stripe" method="POST" action="">
+                    <p class="page_title">Registration</p>
+                    <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
+                        <p>Add Fencer</p>
+                        <img src="../assets/icons/add-black-18dp.svg"></img>
+                    </button>
+                    <button class="stripe_button orange" onclick="" name="reg_in" type="submit">
+                        <p>Register in</p>
+                        <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                     </button>
+                    <button class="stripe_button orange" onclick="" name="reg_out" type="submit">
+                        <p>Register out</p>
+                        <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                    </button>
+                    <input type="text" class="hidden" name="fencer_ids" id="fencer_ids" value="">
+                </form>
+                <div id="page_content_panel_main">
 
+                    <div class="wrapper table_row_wrapper">
+                    <!--
+                        <div id="no_something_panel">
+                            <p>You have no referees set up!</p>
+                        </div>
+                    -->     
+               <?php
+               
+               $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
+               $query_do = mysqli_query($connection, $query);
+               
+               
+               ?>
+                        <div class="table_header">
+                            <div class="table_header_text">NAME</div>
+                            <div class="table_header_text">NATIONALITY</div>
+                            <div class="table_header_text">STATUS</div>
+                            <div class="big_status_header"></div>
+                        </div>
 
+                        <?php
+                        
+                        while($row = mysqli_fetch_assoc($query_do)){
 
+                        $name = $row["name"];
+                        $nat = $row["nationality"];
+                        $stat = $row["reg"];
+                        $id = $row["id"];
+                        
 
-                <div id="title_stripe">
-                        <p class="page_title">Registration</p>
-
-                        <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
-                            <p>Add Fencer</p>
-                            <img src="../assets/icons/add-black-18dp.svg"></img>
-                        </button>
-
-
-                        <form method="POST" action="">
-
-                        <button class="stripe_button orange" onclick="" name="reg_in" type="submit">
-                            <p>Register in</p>
-                            <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
-                        </button>
-
-
-                        <button class="stripe_button orange" onclick="" name="reg_out" type="submit">
-                            <p>Register out</p>
-                            <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
-                        </button>
-
-                        <input type="text" class="hidden" name="fencer_ids" id="fencer_ids" value="">
-
-                        </form>
-
+                        ?>
+                        
+                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">
+                            <div class="table_item"><?php echo $name ?></div>
+                            <div class="table_item"><?php echo $nat ?></div>
+                            <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
+                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
+                        </div>
+                        <?php
+                        }
+                        ?>
 
                         <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencerPanel()">
@@ -94,64 +122,12 @@
                                 <button type="submit" name="submit" class="panel_submit">Save</button>
                             </form>
                         </div>
-                </div>
-                <div id="page_content_panel_main">
-
-                    <div class="wrapper table_row_wrapper">
-                    <!--
-                            <div id="no_something_panel">
-                                <p>You have no referees set up!</p>
-                            </div>
-               -->     
-
-               <?php
-               
-               $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
-               $query_do = mysqli_query($connection, $query);
-               
-               
-               
-               ?>
-                        <div class="table_header">
-                            <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">NATIONALITY</div>
-                            <div class="table_header_text">STATUS</div>
-                            <div class="big_status_header"></div>
-                        </div>
-
-                        <?php
-                        
-                        while($row = mysqli_fetch_assoc($query_do)){
-
-                        $name = $row["name"];
-                        $nat = $row["nationality"];
-                        $stat = $row["reg"];
-                        $id = $row["id"];
-                        
-
-
-                        ?>
-                        
-                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">
-                            <div class="table_item"><?php echo $name ?></div>
-                            <div class="table_item"><?php echo $nat ?></div>
-                            <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
-                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
-                        </div>
-                        <?php
-                        }
-                        ?>
-
-
-                        
-
-
-
                     </div>
                 </div>
+            </div>
         </div>
     </div>
-<script src="../js/main.js"></script>
-<script src="../js/registration.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/registration.js"></script>
 </body>
 </html>
