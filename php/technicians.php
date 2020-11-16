@@ -182,6 +182,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <p>Add Technicians</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
+                        
                     <div id="add_technician_panel" class="overlay_panel hidden" >
                         <button class="panel_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" >
@@ -210,7 +211,45 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             </div>
                             <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
+                    </div>
+                    <div class="search_wrapper">
+                        <input type="search" name="" id="" placeholder="Search by Name" class="cc">
+                        <div class="search_results">
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
+                            <a href="#90">Szia</a>
 
+                        </div>
                     </div>
                 </div>
                 <div id="page_content_panel_main">

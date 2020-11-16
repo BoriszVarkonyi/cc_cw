@@ -112,6 +112,10 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
+body * {
+	scroll-behavior: smooth !important;
+}
+
 button {
 	cursor: pointer;
 	padding: 0;
@@ -464,6 +468,57 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 }
 
 /* Extended Search Input */
+
+input[type="search"].cc {
+	background-color: var(--c-white);
+	font-size: var(--f-medium);
+	border-radius: 5px;
+	box-shadow: var(--s-black);
+	padding: 6px 30px;
+	font-family: var(--reg) !important;
+	margin-right: 40px;
+	width: 250px;
+	z-index: 2 !important;
+	position: relative;
+}
+
+input[type="search"].cc::placeholder {
+	font-family: var(--reg);
+}
+
+.search_wrapper {
+	margin-right: 40px;
+	margin-left: -25px;
+	width: 250px;
+}
+
+.search_results {
+	width: 250px;
+	background-color: var(--c-white);
+	box-shadow: var(--s-black);
+	position: absolute;
+	top: calc( var(--f-medium) + 40px);
+	z-index: 1 !important;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	overflow-y: auto;
+	max-height: 40vh;
+}
+
+.search_results > a {
+	font-size: var(--f-medium);
+	padding: 5px;
+	text-align: center;
+}
+
+.search_results > a:hover {
+	background-color: var(--c-lightergray);
+}
+
+.search_results > a:first-of-type {
+	margin-top: 5px;
+}
 
 /* Custom Select Input */
 

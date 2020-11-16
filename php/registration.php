@@ -17,11 +17,14 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
-                        <button class="stripe_button orange" onclick="toggleAddFencerPanel()">
+                        <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
-
+                        <button class="stripe_button orange" onclick="">
+                            <p>Register in</p>
+                            <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                        </button>
                         <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencerPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg" >
@@ -51,22 +54,49 @@
                                 <p>You have no referees set up!</p>
                             </div>
                -->     
+
+               <?php
+               
+               $query = "SELECT * FROM cptrs_$comp_id";
+               $query_do = mysqli_query($connection, $query);
+               
+               
+               
+               ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">SEX</div>
-                            <div class="table_header_text">NATIONALITY / CLUB</div>
-                            <div class="table_header_text">WEAPON TYPE</div>
+                            <div class="table_header_text">NATIONALITY</div>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>
+
+                        <?php
+                        
+                        while($row = mysqli_fetch_assoc($query_do)){
+
+                        $name = $row["name"];
+                        $nat = $row["nationality"];
+                        $stat = $row["wc"];
+                        
+
+
+                        ?>
+                        
                         <div class="table_row">
-                            <div class="table_item">Hello</div>
-                            <div class="table_item">jelszo</div>
-                            <div class="table_item">róló</div>
-                            <div class="table_item">onlino</div>
-                            <div class="table_item">onlino</div>
-                            <div class="big_status_item green"></div> <!-- red or green style added to small_status item to inidcate status -->
+                            <div class="table_item"><?php echo $name ?></div>
+                            <div class="table_item"><?php echo $nat ?></div>
+                            <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
+                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
+                        <?php
+                        }
+                        ?>
+
+
+                        
+
+
+
                     </div>
                 </div>
         </div>
