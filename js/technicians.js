@@ -153,6 +153,5 @@ function importTechnicians(x) {
  
     document.cookie="selected=" + y;
  }
- 
 
  //document.cookie="techtoremove=" + null;

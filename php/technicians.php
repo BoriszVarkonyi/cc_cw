@@ -198,7 +198,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                 <img src="../assets/icons/shuffle-black-18dp.svg">
                             </button>
                             </div>
-                            <label for="" >ROLE</label>
+                            <label for="">ROLE</label>
                            <div class="option_container">
                                 <input type="radio" class="option_button" name="role" id="a" value="1"/>
                                 <label for="a" class="option_label">Semi</label>
@@ -213,7 +213,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </form>
                     </div>
                     <div class="search_wrapper">
-                        <input type="search" name="" id="" placeholder="Search by Name" class="cc">
+                        <input type="search" name="" id="" placeholder="Search by Name" class="cc" onkyeup="myFunction()">
                         <div class="search_results">
                             <a href="#90">Szia</a>
                             <a href="#90">Szia</a>
