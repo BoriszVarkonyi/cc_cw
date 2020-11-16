@@ -27,6 +27,7 @@
 	--f-xlarge: calc(1.5em + 2vmin);
 	--f-large: calc(1.25em + 1vmin);
 	--f-medium: calc(0.8em + 0.7vmin);
+	--f-middle: calc(0.65em + 0.65vmin);
 	--f-small: calc(0.6em + 0.5vmin);
 	--f-xsmall: calc(0.6em + 0.3vmin);
 	--f-xxsmall: calc(0.6em + 0.3vmin);
@@ -448,6 +449,9 @@ input[type="search"] {
 	box-shadow: var(--s-black);
 	padding: 7.5px 30px;
 	font-family: var(--reg);
+	background-image: url(../assets/icons/search-black-18dp.svg);
+	background-repeat: no-repeat;
+	background-position: 10px;
 }
 
 .overlay_panel_form input[type="search"] {
@@ -471,14 +475,14 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 input[type="search"].cc {
 	background-color: var(--c-white);
-	font-size: var(--f-medium);
+	font-size:  var(--f-middle);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
-	font-family: var(--reg) !important;
+	font-family: var(--bold);
 	margin-right: 40px;
-	width: 250px;
-	z-index: 2 !important;
+	width: 225px;
+	z-index: 2;
 	position: relative;
 }
 
@@ -489,25 +493,34 @@ input[type="search"].cc::placeholder {
 .search_wrapper {
 	margin-right: 40px;
 	margin-left: -25px;
-	width: 250px;
+	width: 225px;
+}
+
+input[type="search"].cc:focus + div {
+	max-height: 40vh;
+	opacity: 1;
+	overflow-y: auto;
 }
 
 .search_results {
-	width: 250px;
+	width: 225px;
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
 	top: calc( var(--f-medium) + 40px);
-	z-index: 1 !important;
+	z-index: 1;
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	overflow-y: auto;
-	max-height: 40vh;
+	padding-top: 5px;
+	font-size: var(--f-middle);
+	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
 .search_results > a {
-	font-size: var(--f-medium);
 	padding: 5px;
 	text-align: center;
 }
@@ -516,8 +529,8 @@ input[type="search"].cc::placeholder {
 	background-color: var(--c-lightergray);
 }
 
-.search_results > a:first-of-type {
-	margin-top: 5px;
+.search_results > a:last-of-type {
+	margin-bottom: 10px;
 }
 
 /* Custom Select Input */
@@ -715,6 +728,7 @@ input[type="text"].no_margin {
 	background-image: url(../assets/icons/perm_identity-black-18dp.svg);
 }
 
+
 input[type="number"] {
 	width: 40px;
 	background-color: transparent;
@@ -826,7 +840,7 @@ input[type="time"] {
 .stripe_button {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
-	font-size: var(--f-medium);
+	font-size: var(--f-middle);
 	border-radius: 30px;
 	cursor: pointer;
 	margin: 0 15px 0 0;
