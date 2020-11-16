@@ -168,16 +168,16 @@ $ref_list_query = mysqli_query($connection, $query_ref);
 
                             <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
 
-                                <label for="username" class="label_text">NAME</label>
+                                <label for="username" >NAME</label>
                                 <input type="text" placeholder="Type the referees's name" class="username_input" name="username">
 
-                                <label for="password"class="label_text">PASSWORD</label>
+                                <label for="password">PASSWORD</label>
                                 <div>
                                 <input type="password" placeholder="Type the referees's password" id="password_input" class="password_input" name="password">
 
                                 <button type="button" id="random_password_button" onclick="randomPassword()" ><img src="../assets/icons/shuffle-black-18dp.svg"></button>
                                 </div>
-                                <label for="full_name" class="label_text">FULL NAME</label>
+                                <label for="full_name" >FULL NAME</label>
                                 <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
                             <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>

@@ -29,7 +29,7 @@ function togglePisteSettings(x) {
 
     }  
 }
-//END
+
 
 
 
@@ -74,7 +74,6 @@ for (let index = 0; index < numbered_group.length; index++) {
     
 }
 
-console.log("lefutottam");
 
 }
 

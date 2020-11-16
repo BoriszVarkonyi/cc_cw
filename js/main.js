@@ -17,7 +17,6 @@ function toggle_nav_bar() {
     element.classList.toggle("closed");
     var i;
 
-
     if (status == "closed") {
             ovtext.innerHTML = "OVERVIEW";
             cotext.innerHTML = "CONTROLS";
@@ -40,13 +39,11 @@ function toggle_nav_bar() {
     element.classList.toggle("closed")
 
 }
-//END
+
 
 window.addEventListener('load', (event) => {
     document.body.classList.remove("preload");
-
 });
-
 
 /*Toggle panels.*/
 //Getting panels by id.
@@ -81,7 +78,7 @@ function toggle_language_panel() {
     } */
     lang_panel.classList.toggle("hidden");
 }
-//END
+
 
 function toggle_colormode_panel() {
    /* //Making every panel hidden
@@ -125,7 +122,7 @@ function toggle_profile_panel() {
     profile_panel.classList.toggle("hidden");
 
 }
-//END
+
 
 /* Toggle nav ropdpws  */
 
@@ -150,7 +147,7 @@ function toggle_technical_dropdown() {
     dt_drop_icon.classList.toggle("close");
 }
 
-//END
+
 
 /*  Color changer    */
 
@@ -258,15 +255,6 @@ function setToDark() {
 
 
 
-
-
-
-
-
-
-
-//END
-
 //If technician, disable setup section
 
 var suti = document.cookie;
@@ -298,10 +286,7 @@ setuptext.classList.add("disabled");
 
 }
 
-
-
-
-/* table column resizer */
+/* Table Column resizer */
 
 document.addEventListener("click", resizeTableColumn());
 
@@ -314,57 +299,52 @@ function resizeTableColumn() {
     var singeColumn = 1;
     var i;
 
-    console.log(amountOfColumns);
+    //console.log(amountOfColumns);
 
     for(i = 1; i <= amountOfColumns; i++){
 
         console.log("");
     }
-
-    
-
-
-
-
-
 }
-//END
-/*
+
+
+
 /* Overlay_panels*/
-//Nem tudom mi a fasz van itt :c
 
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
+
 function overlayPanel() {
     var overlayPanelsHidden = [];
-for(i=0; i<overlayPanelAll.length; i++) {
-    if(overlayPanelAll[i].classList.contains("hidden")) {
-        overlayPanelsHidden.push(overlayPanelAll[i]);
+    //Push to appropriate array by class.
+    for(i=0; i<overlayPanelAll.length; i++) {
+        if(overlayPanelAll[i].classList.contains("hidden")) {
+            overlayPanelsHidden.push(overlayPanelAll[i]);
+        }
+        else {
+            overlayPanelsOepened.push(overlayPanelAll[i])
+        }
     }
-    else {
-        overlayPanelsOepened.push(overlayPanelAll[i])
-    }
-}
-if(overlayPanelsOepened.length>1){
-    for(i=0; i<overlayPanelsOepened.length; i++) {
-
-        overlayPanelsOepened.pop()
-
-    }
-    overlayPanelsOepened[0].classList.add("hidden")
-    overlayPanelsOepened.pop()
-}
-else {
-    for(i=0; i<overlayPanelsOepened.length; i++) {
-        if(overlayPanelsOepened[i].classList.contains("hidden")) {
+    //It updates the overlayPanelsOepened array.
+    if(overlayPanelsOepened.length>1){
+        for(i=0; i<overlayPanelsOepened.length; i++) {
             overlayPanelsOepened.pop()
-
+        }
+        overlayPanelsOepened[0].classList.add("hidden")
+        overlayPanelsOepened.pop()
+    }
+    //Check if the first array element contains hidden.
+    else {
+        for(i=0; i<overlayPanelsOepened.length; i++) {
+            //If yes it pops.
+            if(overlayPanelsOepened[i].classList.contains("hidden")) {
+                overlayPanelsOepened.pop()
+            }
         }
     }
 }
-}
 
-
+//Event listener to class change (overlay panels)
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {
@@ -373,11 +353,10 @@ function callback(mutationsList, observer) {
     })
 }
     
-
 const mutationObserver = new MutationObserver(callback)
 for(i=0; i<overlayPanelAll.length; i++){
 mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 }
 
-//END
+
 

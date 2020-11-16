@@ -108,7 +108,7 @@ $query = "";
             <form id="create_new_comp" class="column_form_wrapper" action="" method="POST">
                 <div class="form_column">
 
-                    <label for="comp_name" class="label_text">NAME</label>
+                    <label for="comp_name" >NAME</label>
                     <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input">
                         <?php
 
@@ -119,7 +119,7 @@ $query = "";
                             ?>
 
 
-                        <label for="wc_type" class="label_text" >TYPE OF WEAPON CONTROL</label>
+                        <label for="wc_type"  >TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immidiate</label>
@@ -128,7 +128,7 @@ $query = "";
                             <label for="adm">Administrated</label>
                         </div>
                         
-                        <label for="competition_type" class="label_text">TYPE OF COMPETITIORS</label>
+                        <label for="competition_type" >TYPE OF COMPETITIORS</label>
                         <div class="option_container">
                             <input type="radio" name="comp_type" id="individual" value="" checked/>
                             <label for="individual">Individual</label>
@@ -146,7 +146,7 @@ $query = "";
                             </div>
 
                     <div class="form_column">
-                        <label for="sex" class="label_text">SEX</label>
+                        <label for="sex" >SEX</label>
 
                         <div class="option_container">
                             <input type="radio" name="sex" id="mal" value="1"/>
@@ -162,7 +162,7 @@ $query = "";
                                 }
                             ?>
 
-                        <label for="w_type" class="label_text">WEAPON TYPE</label>
+                        <label for="w_type" >WEAPON TYPE</label>
 
                         <div class="option_container">
                             <input type="radio" class="option_button" name="w_type" id="epee" value="1"/>

@@ -194,16 +194,16 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </button>
 
                         <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
-                            <label for="username" class="label_text">NAME</label>
+                            <label for="username" >NAME</label>
                             <input type="text" placeholder="Type the technician's name" class="username_input" name="username">
-                            <label for="password"class="label_text">PASSWORD</label>
+                            <label for="password">PASSWORD</label>
                             <div>
                             <input type="password" placeholder="Type the technician's password" class="password_input" id="password_input" name="password">
                             <button type="button" id="random_password_button" onclick="randomPassword()">
                                 <img src="../assets/icons/shuffle-black-18dp.svg">
                             </button>
                             </div>
-                            <label for="" class="label_text">ROLE</label>
+                            <label for="" >ROLE</label>
                            <div class="option_container">
                                 <input type="radio" class="option_button" name="role" id="a" value="1"/>
                                 <label for="a" class="option_label">Semi</label>

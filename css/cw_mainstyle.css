@@ -206,7 +206,10 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	opacity: 0;
 	transition: opacity ease-in .5s .55s, left ease-in 1s .5s;
 	z-index: 0;
-	
+}
+
+.slide.blurred > img {
+	filter: blur(5px) brightness(75%);
 }
 
 .slide > p {
