@@ -89,16 +89,25 @@ function removePeriod(){
 var dates = document.getElementById("dates_control_on");
 var datesarray = dates.value.split(",");
 
-for (let index = 0; index < datesarray.length; index++) {
+console.log(datesarray);
 
-    var addwc = document.getElementById(datesarray[index]);
-   addwc.classList.add("has_wc");
+if(datesarray[0] != ""){
 
-   addwc.onclick = "removeWcDay(this)";
+    for (let index = 0; index < datesarray.length; index++) {
 
-    //addwc.removeAttribute("onclick");
+        var addwc = document.getElementById(datesarray[index]);
+        addwc.classList.add("has_wc");
     
+        addwc.onclick = "removeWcDay(this)";
+    
+        //addwc.removeAttribute("onclick");
+        
+    }
+
+
 }
+
+
 
 console.log(datesarray);
 
