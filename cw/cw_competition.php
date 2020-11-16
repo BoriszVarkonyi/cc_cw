@@ -162,15 +162,14 @@
             </div>
         
             <div id="competition_controls">
-                <a href="cw_pre_registration.php?comp_id=<?php echo $comp_id ?>" class="disabled">Pre-Register</a>
-                <a href="cw_competitors.php?comp_id=<?php echo $comp_id ?>">Competitors</a>
-                <a href="cw_pools.php?comp_id=<?php echo $comp_id ?>">Pools</a>
-                <a href="cw_temporary_ranking.php?comp_id=<?php echo $comp_id ?>">Temporary Ranking</a>
-                <a href="cw_table.php?comp_id=<?php echo $comp_id ?>">Table</a>
-                <a href="cw_final_results.php?comp_id=<?php echo $comp_id ?>">Final Results</a>
-                <a onclick="printPage()">Print</a>
-
-                <a href="">Watch Video / Watch Live</a>
+                <button onclick="location.href='cw_pre_registration.php?comp_id=<?php echo $comp_id ?>'" disabled>Pre-Register</button>
+                <button onclick="location.href='cw_competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
+                <button onclick="location.href='cw_pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                <button onclick="location.href='cw_temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
+                <button onclick="location.href='cw_table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                <button onclick="location.href='cw_final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                <button onclick="printPage()">Print</a>
+                <button onclick="location.href=''">Watch Video / Watch Live</a>
             </div>
         </div>
     </div>

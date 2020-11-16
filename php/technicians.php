@@ -155,7 +155,29 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <p >Import Technicians</p>
                             <img  src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
+                        <div id="import_technician_panel" class="thin overlay_panel hidden">
+                            <button class="panel_button" onclick="toggle_import_technician()">
+                                <img src="../assets/icons/close-black-18dp.svg" >
+                            </button>
+                            <form action="" id="import_technician" method="POST">
+                                <div class="select_competition_wrapper table_row_wrapper">
+                                    <?php  
+                                    $query_other = "SELECT * FROM competitions WHERE comp_organiser_id = $org_id EXCEPT SELECT * FROM competitions WHERE comp_id = $comp_id";
+                                    $query_other_competitions = mysqli_query($connection, $query_other);
+                                            
+                                    while($row = mysqli_fetch_assoc($query_other_competitions)) {
 
+                                    $select_comp_id = $row["comp_id"];
+                                    $select_comp_name = $row["comp_name"]; 
+                                    ?>        
+                                    <div class="table_row" id="<?php echo $select_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $select_comp_id; ?>"><?php echo $select_comp_name; ?></div></div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </form>
+                        <button type="submit" name="import_tech" class="panel_submit" form="import_technician" value="Import">Import</button>
+                        </div>                        
                         <button class="stripe_button bold" onclick="toggle_add_technician()">
                             <p>Add Technicians</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
@@ -279,31 +301,8 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                 </div>
             </div>
         </div>
-        <div id="import_technician_panel" class="thin overlay_panel hidden">
-            <button class="panel_button" onclick="toggle_import_technician()">
-                <img src="../assets/icons/close-black-18dp.svg" >
-            </button>
-            <form action="" id="import_technician" method="POST">
-                <div class="select_competition_wrapper table_row_wrapper">
-                    <?php  
-                    $query_other = "SELECT * FROM competitions WHERE comp_organiser_id = $org_id EXCEPT SELECT * FROM competitions WHERE comp_id = $comp_id";
-                    $query_other_competitions = mysqli_query($connection, $query_other);
-                            
-                    while($row = mysqli_fetch_assoc($query_other_competitions)) {
-
-                    $select_comp_id = $row["comp_id"];
-                    $select_comp_name = $row["comp_name"]; 
-                    ?>        
-                    <div class="table_row" id="<?php echo $select_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $select_comp_id; ?>"><?php echo $select_comp_name; ?></div></div>
-                    <?php
-                }
-                ?>
-            </div>
-        </form>
-        <button type="submit" name="import_tech" class="panel_submit" form="import_technician" value="Import">Import</button>
-        </div>
     </div>
-<script src="../js/main.js"></script>
-<script src="../js/technicians.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/technicians.js"></script>
 </body>
 </html>

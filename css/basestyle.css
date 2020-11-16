@@ -175,14 +175,11 @@ form.hidden, form.disabled {
 }
 
 .table_header {
-	position: sticky;
-	z-index: 1;
 	padding: 0 2px;
 	width: 100%;
 	font-family: var(--thin);
 	background-color: var(--c-lightergray);
 	font-size: var(--f-medium);
-	top: 0;
 	display: flex;
 }
 
@@ -361,12 +358,18 @@ form.hidden, form.disabled {
 	min-width: 35px;
 	width: 4vh;
 	max-width: 50px;
-	background-position: center;
-	background-size: 80% 80%;
-	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.big_status_item > label {
+	align-self: center;
+}
+
+.big_status_item > img {
+	height: 65%;
+	width: 65%;
 }
 
 .red {
@@ -614,8 +617,12 @@ input[type="text"].no_margin {
 	background-image: url(../assets/icons/language-black-18dp.svg);
 }
 
-.location_input, .postal_input {
+.location_input {
 	background-image: url(../assets/icons/location_city-black-18dp.svg);
+}
+
+.postal_input {
+	background-image: url(../assets/icons/room-black-18dp.svg);
 }
 
 .money_input {
@@ -723,9 +730,6 @@ input[type="time"] {
 	width: 35px;
 	border: 0;
 	border-radius: 50%;
-	background-size: 60% 60%;
-	background-position: center;
-	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -735,8 +739,8 @@ input[type="time"] {
 
 .back_button {
 	margin-left: 40px;
-	height: 35px;
-	width: 35px;
+	min-height: 35px;
+	min-width: 35px;
 	border: 0;
 	border-radius: 50%;
 	background-color: var(--c-lightergray);

@@ -519,7 +519,7 @@ input[value="Search"] {
 	align-items: center;
 }
 
-#competition_wrapper > div:nth-of-type(2) > a {
+#competition_wrapper > div:nth-of-type(2) > button, #competition_wrapper > div:nth-of-type(2) > input {
 	background-color: var(--c-orange);
 	width: 75%;
 	padding: 5px 0;
@@ -527,41 +527,32 @@ input[value="Search"] {
 	justify-content: center;
 	align-items: center;
 	margin: 5px 0;
+	border-radius: 5px;
+	font-size: var(--f-medium);
 }
 
-#competition_wrapper > div:nth-of-type(2) > a.hidden {
+#competition_wrapper > div:nth-of-type(2) > button.hidden {
 	display: none;
 }
 
-#competition_wrapper > div:nth-of-type(2) > a.disabled {
+#competition_wrapper > div:nth-of-type(2) > button:disabled {
 	background-color: var(--c-lightgray);
 	color: var(--c-darkgray);
+	pointer-events: none;
+	cursor: default;
 }
 
-#competition_wrapper > div:nth-of-type(2) > a:first-child {
+#competition_wrapper > div:nth-of-type(2) > button:first-child, #competition_wrapper > div:nth-of-type(2) > input:first-child {
 	margin-top: 20px;
 }
 
-#competition_wrapper > div:nth-of-type(2) > a:last-child {
+#competition_wrapper > div:nth-of-type(2) > button:last-child {
 	margin: auto 0 20px;
 	background-color: var(--c-red);
 	text-decoration: underline;
 }
 
-#competition_wrapper > div:nth-of-type(2) > input {
-	margin-top: 20px;
-	background-color: var(--c-orange);
-	width: 75%;
-	padding: 5px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: var(--c-black);
-	font-size: var(--f-small);
-	font-family: var(--bold);
-}
-
-#competition_wrapper > div:nth-of-type(2) > a:last-child.disabled {
+#competition_wrapper > div:nth-of-type(2) > button:last-child.disabled {
 	background-color: var(--c-lightgray);
 	color: var(--c-darkgray);
 }
@@ -863,18 +854,6 @@ input[value="Search"] {
 }
 
 /* Final result */
-
-.final_results_wrapper > .table_row:nth-of-type(1) {
-	background-color: var(--c-yellow);
-}
-
-.final_results_wrapper > .table_row:nth-of-type(2) {
-	background-color: var(--c-gray);
-}
-
-.final_results_wrapper > .table_row:nth-of-type(3) {
-	background-color: #E58955;
-}
 
 /* Round Live */
 

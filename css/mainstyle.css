@@ -86,9 +86,6 @@ textarea {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	display: flex;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	align-items: center;
 	flex-wrap: nowrap;
 	position: fixed;
@@ -1604,7 +1601,6 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper {
-	width: 90%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1625,6 +1621,8 @@ input[type="file"] {
 	font-family: var(--bold);
 	text-decoration: underline;
 	cursor: pointer;
+	align-self: center;
+	text-transform: none;
 }
 
 #plus_information {
@@ -2121,7 +2119,6 @@ input[type="file"] {
 
 #timetable > div.has_wc {
 	box-shadow: inset  0 -10px 0 0 var(--c-orange);
-	pointer-events: none;
 }
 
 #timetable > div.start.end {
@@ -2248,9 +2245,6 @@ input[type="file"] {
 
 #issues_panel > .table_row > .big_status_item {
 	background-color: var(--c-lightestgray);
-	min-width: 30px;
-	width: 3.5vh;
-	max-width: 45px;
 }
 
 #issues_panel > .table_row:nth-child(even) > .big_status_item {
