@@ -120,8 +120,8 @@ if(isset($_POST["add_period"])){
 $save_date = $_POST["save_date"];
 $ten_min = $_POST["wc_per_ten_min"];
 
-$start_1 = $_POST["wc_period_start_1"];
-$end_1 = $_POST["wc_period_end_1"];
+$start_1 = $_POST["wc_period_start_1"] . ":00";
+$end_1 = $_POST["wc_period_end_1"] . ":00";
 
 if(isset($_POST["wc_period_start_2"])){
 
@@ -209,7 +209,7 @@ if($query_do){
 <!-- header -->
     <div id="confirmation" class="hidden">
         <form id="confirmation_form" action="timetable.php?comp_id=<?php echo $comp_id ?>" method="POST">
-            <button class="panel_button" type="button" onclick="closeConf()">
+            <button class="panel_button" type="button" onclick="removeWcDay(this)">
                 <img src="../assets/icons/close-black-18dp.svg">
             </button>
             <p id="remove_warning"></p>
@@ -233,11 +233,13 @@ if($query_do){
                     </button>
                 </div>
                 <div id="page_content_panel_main" class="no_scroll">
-
                     <div id="set_wc_panel" class="overlay_panel_single hidden">
-                            <button class="panel_button"onclick="closeWcPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" >
-                            </button>
+                        <button class="panel_button drag" onclick="closeWcPanel()">
+                            <img src="../assets/icons/drag_indicator-black-18dp.svg" >
+                        </button>
+                        <button class="panel_button" onclick="closeWcPanel()">
+                            <img src="../assets/icons/close-black-18dp.svg" >
+                        </button>
                             
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>

@@ -106,7 +106,7 @@ if(isset($_POST["send_pre"])){
 
                         }
 
-                        $query_ranking = "SELECT * FROM rk_$rk_id ORDER BY position";
+                        $query_ranking = "SELECT id,position,name,dob FROM rk_$rk_id WHERE id NOT IN (SELECT id FROM cptrs_$comp_id)";
                         $query_ranking_do = mysqli_query($connection, $query_ranking);
 
                         while($row = mysqli_fetch_assoc($query_ranking_do)){

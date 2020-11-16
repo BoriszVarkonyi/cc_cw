@@ -30,7 +30,6 @@
                     <input type="date">
                 </div>
             </div>
-
             <input type="submit" value="Search">
         </form>
 
@@ -48,8 +47,7 @@
                 <div class="table_item">
                     04 / 12 / 2000
                 </div>
-            </div>
-            
+            </div>  
         </div>
     </div>
 <?php include "cw_footer.php"; ?>

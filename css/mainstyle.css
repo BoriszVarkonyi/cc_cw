@@ -86,9 +86,6 @@ textarea {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	display: flex;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	align-items: center;
 	flex-wrap: nowrap;
 	position: fixed;
@@ -1101,7 +1098,7 @@ input[type=radio]:checked:disabled + label:before {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 5;
+	z-index: 2;
 	opacity: 1;
 	transition: opacity var(--t-basic);
 }
@@ -1148,10 +1145,6 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 /* ///CHOOSE COMPETITION ELEMENTS/// */
-
-#competitions_wrapper > .table_header {
-	background-color: var(--c-lightergray);
-}
 
 /* ///FORMS WRAPPER ELEMENTS/// */
 
@@ -1422,12 +1415,6 @@ input[type=radio]:checked:disabled + label:before {
 	top: calc(50px + 3vh);
 }
 
-.select_competition_wrapper {
-	width: 80%;
-	height: 60%;
-	overflow: scroll;
-}
-
 .select_competition_wrapper > .table_row {
 	min-height: 27.5px;
 	height: 3.5vh;
@@ -1435,9 +1422,12 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 #import_technician, #import_ref {
-	width: 100%;
+	width: 90%;
+	height: 70%;
 	display: flex;
 	justify-content: center;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #random_password_button {
@@ -1611,7 +1601,6 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper {
-	width: 90%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1632,6 +1621,8 @@ input[type="file"] {
 	font-family: var(--bold);
 	text-decoration: underline;
 	cursor: pointer;
+	align-self: center;
+	text-transform: none;
 }
 
 #plus_information {
@@ -2128,7 +2119,6 @@ input[type="file"] {
 
 #timetable > div.has_wc {
 	box-shadow: inset  0 -10px 0 0 var(--c-orange);
-	pointer-events: none;
 }
 
 #timetable > div.start.end {
@@ -2144,21 +2134,16 @@ input[type="file"] {
 }
 
 #set_wc_panel {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%);
-	transform: translateY(-50%);
 	z-index: 2;
 	transition: opacity var(--t-basic);
 	opacity: 1;
 }
 
 #set_wc_panel.hidden {
-	top: 500%;
-	left: 500%;
 	position: absolute;
 	opacity: 0;
+	top: 5000px;
+	left: 5000px;
 }
 
 #new_wc_day > .table_row:first-child {
@@ -2262,9 +2247,6 @@ input[type="file"] {
 
 #issues_panel > .table_row > .big_status_item {
 	background-color: var(--c-lightestgray);
-	min-width: 30px;
-	width: 3.5vh;
-	max-width: 45px;
 }
 
 #issues_panel > .table_row:nth-child(even) > .big_status_item {
@@ -2697,16 +2679,17 @@ div.title_box > button {
 	flex-direction: column;
 	justify-content: center;
 	flex-wrap: wrap;
-	padding: 0 50px;
 	opacity: 1;
-	transition: opacity var(--t-basic), max-width var(--t-basic);
+	transition: opacity var(--t-basic), width var(--t-basic);
 	overflow: visible;
+	z-index: 2;
+	overflow-x: auto;
 }
 
 .entry_overlay_info.hidden {
 	overflow: hidden;
 	opacity: 0;
-	max-width: 0;
+	width: 0;
 }
 
 .entry_overlay_info > div {
@@ -2715,6 +2698,8 @@ div.title_box > button {
 
 .entry_overlay_info > div > p {
 	margin: 1px 0;
+	padding: 0 50px;
+	white-space: nowrap;
 }
 
 input.wc_time {

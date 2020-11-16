@@ -209,7 +209,7 @@ if(mysqli_num_rows($query_do) == 0){
                             <p><?php echo $name ?></p>
                             <label >PASSWORD</label>
                             <div>
-                                <p><?php echo $pass ?></p>
+                                <p id="password"><?php echo $pass ?></p>
                                 <button onclick="hidePasswords(this)" id="visibility_button">
                                     <img src="../assets/icons/visibility-black-18dp.svg" >
                                 </button>
