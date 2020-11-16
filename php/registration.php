@@ -17,10 +17,34 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
-                        <button class="stripe_button orange">
+                        <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
+                        <button class="stripe_button orange" onclick="">
+                            <p>Register in</p>
+                            <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                        </button>
+                        <div id="add_fencer_panel" class="overlay_panel hidden">
+                            <button class="panel_button" onclick="toggleAddFencerPanel()">
+                                <img src="../assets/icons/close-black-18dp.svg" >
+                            </button>
+                            <!-- add fencers drop-down -->
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
+                                <label for="fencers_name" >NAME</label>
+                                <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
+
+                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
+                                <input type="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
+
+                                <label for="fencers_points" >POSITION</label>
+                                <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
+
+                                <label for="fencers_dob" >DATE OF BIRTH</label>
+                                <input type="date" name="fencer_dob">
+                                <button type="submit" name="submit" class="panel_submit">Save</button>
+                            </form>
+                        </div>
                 </div>
                 <div id="page_content_panel_main">
 
@@ -30,26 +54,54 @@
                                 <p>You have no referees set up!</p>
                             </div>
                -->     
+
+               <?php
+               
+               $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
+               $query_do = mysqli_query($connection, $query);
+               
+               
+               
+               ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">SEX</div>
                             <div class="table_header_text">NATIONALITY</div>
-                            <div class="table_header_text">WEAPON TYPE</div>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>
-                        <div class="table_row">
-                            <div class="table_item">Hello</div>
-                            <div class="table_item">jelszo</div>
-                            <div class="table_item">róló</div>
-                            <div class="table_item">onlino</div>
-                            <div class="table_item">onlino</div>
-                            <div class="big_status_item green"></div> <!-- red or green style added to small_status item to inidcate status -->
+
+                        <?php
+                        
+                        while($row = mysqli_fetch_assoc($query_do)){
+
+                        $name = $row["name"];
+                        $nat = $row["nationality"];
+                        $stat = $row["wc"];
+                        
+
+
+                        ?>
+                        
+                        <div class="table_row" onclick="selectRow(this)">
+                            <div class="table_item"><?php echo $name ?></div>
+                            <div class="table_item"><?php echo $nat ?></div>
+                            <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
+                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
+                        <?php
+                        }
+                        ?>
+
+
+                        
+
+
+
                     </div>
                 </div>
         </div>
     </div>
 <script src="../js/main.js"></script>
+<script src="../js/registration.js"></script>
 </body>
 </html>

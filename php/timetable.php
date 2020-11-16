@@ -234,7 +234,7 @@ if($query_do){
                 </div>
                 <div id="page_content_panel_main" class="no_scroll">
                     <div id="set_wc_panel" class="overlay_panel_single hidden">
-                        <button class="panel_button drag" onclick="closeWcPanel()">
+                        <button class="panel_button drag">
                             <img src="../assets/icons/drag_indicator-black-18dp.svg" >
                         </button>
                         <button class="panel_button" onclick="closeWcPanel()">
