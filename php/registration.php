@@ -1,13 +1,3 @@
-<?php 
-
-//if(isset[$_POST["reg_in"]]){}
-
-
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +15,38 @@
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
         <div class="page_content_flex">
+
+
+        <?php 
+
+            if(isset($_POST["reg_in"])){
+
+            $idtoregin = $_POST["fencer_ids"];
+
+            $query = "UPDATE cptrs_$comp_id SET reg = 1 WHERE id = $idtoregin";
+            $query_do = mysqli_query($connection, $query);
+
+            header("Location: registration.php?comp_id=$comp_id");
+
+            }
+
+            if(isset($_POST["reg_out"])){
+
+                $idtoregin = $_POST["fencer_ids"];
+    
+                $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = $idtoregin";
+                $query_do = mysqli_query($connection, $query);
+    
+                header("Location: registration.php?comp_id=$comp_id");
+    
+                }
+
+        ?>
+
+
+
+
+
                 <div id="title_stripe">
                         <p class="page_title">Registration</p>
 
@@ -47,7 +69,7 @@
                             <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
                         </button>
 
-                        <input type="text" class="" name="fencer_ids" id="fencer_ids">
+                        <input type="text" class="hidden" name="fencer_ids" id="fencer_ids" value="">
 
                         </form>
 
@@ -103,13 +125,14 @@
 
                         $name = $row["name"];
                         $nat = $row["nationality"];
-                        $stat = $row["wc"];
+                        $stat = $row["reg"];
+                        $id = $row["id"];
                         
 
 
                         ?>
                         
-                        <div class="table_row" onclick="selectRow(this)">
+                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">
                             <div class="table_item"><?php echo $name ?></div>
                             <div class="table_item"><?php echo $nat ?></div>
                             <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>

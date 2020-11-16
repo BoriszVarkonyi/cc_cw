@@ -1,10 +1,15 @@
 function selectRow(x){
 
+var hiddenin = document.getElementById("fencer_ids");
+
 if(x.classList.contains("selected")){
 
 x.classList.remove("selected");
 
-}else{
+hiddenin.value = "";
+
+}
+else{
 
     var removeall = document.getElementsByClassName("selected");
 
@@ -18,6 +23,8 @@ x.classList.remove("selected");
     }
     }
     x.classList.add("selected");
+
+    hiddenin.value = x.id;
     }
 }
 
