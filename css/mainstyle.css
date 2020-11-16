@@ -2137,13 +2137,13 @@ input[type="file"] {
 	z-index: 2;
 	transition: opacity var(--t-basic);
 	opacity: 1;
+	top: 50%;
 }
 
 #set_wc_panel.hidden {
 	position: absolute;
-	opacity: 0;
-	top: 5000px;
-	left: 5000px;
+	opacity: 2;
+	top: 100vh;
 }
 
 #new_wc_day > .table_row:first-child {

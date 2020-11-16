@@ -33,13 +33,15 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table_row_wrapper">
+                <div class="wrapper table_row_wrapper width_80">
                     <div class="table_header">
-                        <div class="table_header_text">Name</div>
-                        <div class="table_header_text">Nationality</div>
-                        <div class="table_header_text">Weapon Control</div>
+                        <div class="table_header_text small">POSITION</div>
+                        <div class="table_header_text">NAME</div>
+                        <div class="table_header_text">NATIONALITY / CLUB</div>
+                        <div class="table_header_text">WEAPON CONTROL</div>
                     </div>
                     <div class="table_row">
+                    <div class="table_item small">15</div>
                         <div class="table_item">A neve ez 152</div>
                         <div class="table_item">A neve ez 152</div>
                         <div class="table_item">

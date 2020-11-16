@@ -174,7 +174,7 @@ if(mysqli_num_rows($query_do) == 0){
                                 <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
 
-                                <label for="fencers_nationality" >NATIONALITY</label>
+                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
                                 <input type="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
 
                                 <label for="fencers_points" >POINTS</label>
@@ -291,7 +291,7 @@ if(mysqli_num_rows($query_do) == 0){
                                     <div class="table_header_text">POSITION</div>
                                     <div class="table_header_text">POINTS</div>
                                     <div class="table_header_text">NAME</div>
-                                    <div class="table_header_text">NATIONALITY</div>
+                                    <div class="table_header_text">NATIONALITY / CLUB</div>
                                     <div class="table_header_text">DATE OF BIRTH</div>
                                 </div>
                         <?php

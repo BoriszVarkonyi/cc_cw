@@ -328,6 +328,14 @@ form.hidden, form.disabled {
 	font-family: var(--bold);
 }
 
+.table_header_text.small {
+	max-width: 150px;
+}
+
+.table_item.small {
+	max-width: 150px;
+}
+
 .small_status_header {
 	height: 100%;
 	width: 20px;
