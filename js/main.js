@@ -299,7 +299,7 @@ function resizeTableColumn() {
     var singeColumn = 1;
     var i;
 
-    console.log(amountOfColumns);
+    //console.log(amountOfColumns);
 
     for(i = 1; i <= amountOfColumns; i++){
 
