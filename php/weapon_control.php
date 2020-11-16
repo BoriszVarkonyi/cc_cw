@@ -54,7 +54,7 @@
                     </button>
 
 
-                    <input type="text" class="" name="fencer_id" id="fencer_id_input" value="">
+                    <input type="text" class="hidden" name="fencer_id" id="fencer_id_input" value="">
 
 
                 </div>
