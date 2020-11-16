@@ -175,8 +175,8 @@ form.hidden, form.disabled {
 }
 
 .table_header {
-	position: sticky !important;
-	z-index: 1 !important;
+	position: sticky;
+	z-index: 1;
 	padding: 0 2px;
 	width: 100%;
 	font-family: var(--thin);
@@ -184,6 +184,10 @@ form.hidden, form.disabled {
 	font-size: var(--f-medium);
 	top: 0;
 	display: flex;
+}
+
+.entry .table-header {
+	position: relative !important;
 }
 
 .table_header_text {
@@ -412,13 +416,9 @@ div.table_row:nth-child(even).selected {
 	height: 10px;
 }
 
-::-webkit-scrollbar-track { /* Track */
-    background: var(--c-white); 
-}
-
 ::-webkit-scrollbar-thumb { /* Handle */
 	background: var(--c-darkgray); 
-	border-radius: 1px;
+	border-radius: 10px;
 }
   
 ::-webkit-scrollbar-thumb:hover { /* Handle on hover */

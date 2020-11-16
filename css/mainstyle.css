@@ -2683,16 +2683,17 @@ div.title_box > button {
 	flex-direction: column;
 	justify-content: center;
 	flex-wrap: wrap;
-	padding: 0 50px;
 	opacity: 1;
-	transition: opacity var(--t-basic), max-width var(--t-basic);
+	transition: opacity var(--t-basic), width var(--t-basic);
 	overflow: visible;
+	z-index: 2;
+	overflow-x: auto;
 }
 
 .entry_overlay_info.hidden {
 	overflow: hidden;
 	opacity: 0;
-	max-width: 0;
+	width: 0;
 }
 
 .entry_overlay_info > div {
@@ -2701,6 +2702,8 @@ div.title_box > button {
 
 .entry_overlay_info > div > p {
 	margin: 1px 0;
+	padding: 0 50px;
+	white-space: nowrap;
 }
 
 input.wc_time {
