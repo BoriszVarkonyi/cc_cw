@@ -15,6 +15,7 @@
     <div id="cw_main_full">
         <p class="cw_panel_title">FINISHED COMPETITIONS</p>
         <form id="browsing_bar">
+            <input type="text" name="" placeholder="Search by Fencer" class="search">
             <input type="submit" value="Search">
         </form>
 

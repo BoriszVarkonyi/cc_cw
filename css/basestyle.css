@@ -436,24 +436,34 @@ div.table_row:nth-child(even).selected {
 
 /* Search Input */
 
-input[type="search"] {
+input[type="text"].search {
 	background-color: var(--c-lightestgray);
 	font-size: var(--f-medium);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 7.5px 30px;
-	font-family: var(--reg);
+	font-family: var(--bold);
 	background-image: url(../assets/icons/search-black-18dp.svg);
 	background-repeat: no-repeat;
 	background-position: 10px;
+	color: var(--c-black);
+	margin: 0;
+	height: 100%;
+	border: none;
+}
+
+input[type="text"].search:focus {
+	margin: 0;
+	border: none;
+}
+
+input[type="text"].search::placeholder {
+	color: var(--c-darkgray);
+	font-family: var(--bold);
 }
 
 .overlay_panel_form input[type="search"] {
 	margin: 3px 0 30px;
-}
-
-input[type="search"]::placeholder {
-	font-family: var(--bold);
 }
 
 input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking"] {
@@ -467,9 +477,9 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 /* Extended Search Input */
 
-input[type="search"].cc {
+input[type="text"].search.cc {
 	background-color: var(--c-white);
-	font-size:  var(--f-middle);
+	font-size: var(--f-middle);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
@@ -478,9 +488,10 @@ input[type="search"].cc {
 	width: 225px;
 	z-index: 2;
 	position: relative;
+	height: auto;
 }
 
-input[type="search"].cc::placeholder {
+input[type="text"].search.cc::placeholder {
 	font-family: var(--reg);
 }
 
@@ -490,7 +501,7 @@ input[type="search"].cc::placeholder {
 	width: 225px;
 }
 
-input[type="search"].cc:focus + div {
+input[type="text"].search.cc:focus + div {
 	max-height: 40vh;
 	opacity: 1;
 	overflow-y: auto;
@@ -501,7 +512,7 @@ input[type="search"].cc:focus + div {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
-	top: calc( var(--f-medium) + 35px);
+	top: calc( var(--f-middle) + 40px );
 	z-index: 1;
 	max-height: 0;
 	opacity: 0;

@@ -19,7 +19,7 @@
         <p>g</p>
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <input type="search" name=""  placeholder="Search by Fencer">
+            <input type="text" name="" placeholder="Search by Fencer" class="search">
 
             <input type="submit" value="Search">
         </form>

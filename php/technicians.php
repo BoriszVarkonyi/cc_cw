@@ -213,7 +213,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </form>
                     </div>
                     <div class="search_wrapper">
-                        <input type="search" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="cc">
+                        <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="cc search">
                         <div class="search_results">
                             <?php
                             $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
