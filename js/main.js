@@ -357,6 +357,16 @@ const mutationObserver = new MutationObserver(callback)
 for(i=0; i<overlayPanelAll.length; i++){
 mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 }
-
-
+//Prevents typing invalid chars. to the number input
+var invalidChars = ["-", "+", "e", "E"];
+var numberInput = document.querySelectorAll("input[type='number']")
+function inputChecker() {
+    addEventListener("keydown", function(e) {
+        if (invalidChars.includes(e.key)) {
+            e.preventDefault();
+        }
+        }
+    );
+    }
+numberInput.forEach(inputChecker)
 

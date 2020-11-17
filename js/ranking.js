@@ -24,15 +24,8 @@ var form = document.getElementById("new_fencer")
 var saveButton = document.querySelector(".panel_submit");
 var input = document.querySelectorAll('#new_fencer>input');
 var points = document.getElementById("ranking_points");
-var invalidChars = ["-", "+", "e", "E"];
 //Set the "Save" button disabled.
 saveButton.disabled = true;
-//Prevents typing invalid chars. to the points input
-points.addEventListener("keydown", function(e) {
-  if (invalidChars.includes(e.key)) {
-    e.preventDefault();
-  }
-});
 //If the document values are changing, it runs the function.
 form.addEventListener("input", function(){
   //Check the "Points" input value.
