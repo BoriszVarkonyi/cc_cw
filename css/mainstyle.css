@@ -1103,7 +1103,7 @@ input[type=radio]:checked:disabled + label:before {
 	transition: opacity var(--t-basic);
 }
 
-.overlay_panel.hidden {
+.overlay_panel.hidden, .overlay_panel_single.hidden {
 	opacity: 0;
 	max-height: 0 !important;
 	overflow: hidden;
