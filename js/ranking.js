@@ -24,7 +24,7 @@ var form = document.getElementById("new_fencer")
 var saveButton = document.querySelector(".panel_submit");
 var input = document.querySelectorAll('#new_fencer>input');
 var points = document.getElementById("ranking_points");
-var invalidChars = ["-", "+", "e",];
+var invalidChars = ["-", "+", "e", "E"];
 //Set the "Save" button disabled.
 saveButton.disabled = true;
 //Prevents typing invalid chars. to the points input

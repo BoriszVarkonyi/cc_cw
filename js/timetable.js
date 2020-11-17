@@ -142,7 +142,7 @@ var wcInput = document.getElementById("wc_input");
 var input = document.querySelectorAll('#new_wc_day input');
 var saveButton = document.querySelector(".panel_submit");
 var wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
-var invalidChars = ["-", "+", "e",];
+var invalidChars = ["-", "+", "e", "E"];
 //Set the "Save" button disabled.
 saveButton.disabled = true;
 console.log(wcTime)
