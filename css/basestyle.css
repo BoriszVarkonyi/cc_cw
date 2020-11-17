@@ -499,6 +499,7 @@ input[type="text"].search.cc::placeholder {
 	margin-right: 40px;
 	margin-left: -25px;
 	width: 225px;
+	position: relative;
 }
 
 input[type="text"].search.cc:focus + div {
@@ -537,6 +538,26 @@ input[type="text"].search.cc:focus + div {
 .search_results > a:last-of-type {
 	margin-bottom: 10px;
 }
+
+.clear_search_button {
+	position: absolute;
+	height: var(--f-middle);
+	width: var(--f-middle);
+	background-color: transparent;
+	right: 10px;
+	top: 6px;
+	z-index: 3;
+}
+
+input:focus ~ .clear_search_button {
+	display: none;
+}
+
+.clear_search_button > img {
+	width: 100%;
+	height: 100%;
+}
+
 
 /* Custom Select Input */
 

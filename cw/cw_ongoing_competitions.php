@@ -15,7 +15,10 @@
     <div id="cw_main_full">
         <p class="cw_panel_title">ONGOING COMPETITIONS</p>
         <form id="browsing_bar">
-            <input type="submit" value="Search">
+            <div>
+                <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                <input type="text" name="" placeholder="Search by Fencer" class="search">
+            </div>
         </form>
         
         <!-- buttons menu -->

@@ -212,7 +212,9 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
                     </div>
+
                     <div class="search_wrapper">
+                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                         <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="cc search">
                         <div class="search_results">
                             <?php
@@ -231,7 +233,6 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <?php
                             }
                             ?>
-
                         </div>
                     </div>
                 </div>
