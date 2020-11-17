@@ -20,18 +20,25 @@ function toggleAddFencer() {
 
 }
 //FORM VALIDATION
+var form = document.getElementById("new_fencer")
 var saveButton = document.querySelector(".panel_submit");
 var input = document.querySelectorAll('#new_fencer>input');
-var points = document.getElementById("ranking_points")
+var points = document.getElementById("ranking_points");
+var invalidChars = ["-", "+", "e",];
 //Set the "Save" button disabled.
 saveButton.disabled = true;
+//Prevents typing invalid chars. to the points input
+points.addEventListener("keydown", function(e) {
+  if (invalidChars.includes(e.key)) {
+    e.preventDefault();
+  }
+});
 //If the document values are changing, it runs the function.
-document.addEventListener("input", function(){
+form.addEventListener("input", function(){
   //Check the "Points" input value.
-  if(points.value>10 || points.value < 0) {
+  if(points.value < 0) {
     //If its grather than 10 or less than 0, it sets the value "" (0).
     points.value = "";
-
   } 
   //Checking every input.
   for(i=0; i<input.length; i++){
