@@ -2194,19 +2194,19 @@ input[type="file"] {
 /* ///FENCERS WEAPON CONTROL/// */
 
 #fencers_weapon_control_wrapper {
-	max-width: 80%;
+	min-width: 90%;
 	display: flex;
 	justify-content: space-between;
 }
 
 #issues_panel {
 	height: 100%;
-	width: 55%;
+	width: 65%;
 }
 
 #notes_panel {
 	height: 100%;
-	width: 35%;
+	width: 30%;
 	position: sticky;
 }
 
@@ -2243,6 +2243,7 @@ input[type="file"] {
 	padding-left: 10px;
 	background-color: var(--c-white);
 	font-size: var(--f-small);
+	text-transform: capitalize;
 }
 
 #issues_panel > .table_row > .big_status_item {

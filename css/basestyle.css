@@ -68,7 +68,7 @@
 	--f-xxsmall: calc(0.6em + 0.3vmin);
 }
 
-[data-theme="dark"]:root {
+[data-theme="dark"]:root {	/* Dark Mode */
 	--c-black: #F1F1F1; 
 	--c-transparent-black: rgba(0, 0, 0, 0.3);
 	--c-darkgray: #3F3F3F;
@@ -560,7 +560,7 @@ input[type="text"].search.cc:focus + div {
 	width: var(--f-middle);
 	background-color: transparent;
 	right: 10px;
-	top: 6px;
+	top: 8.1px;
 	z-index: 3;
 }
 

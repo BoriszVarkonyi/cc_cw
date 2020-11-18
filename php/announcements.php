@@ -23,7 +23,7 @@
     if (isset($_POST['input_submit']) && strlen($_POST['input_title']) > 0) {
 
 
-        //creating table
+        //testing for dupli tables
         $check_d_table_qry = "SELECT COUNT(*)
                                 FROM information_schema.tables 
                                 WHERE table_schema = 'ccdatabase' 
