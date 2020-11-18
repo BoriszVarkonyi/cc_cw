@@ -320,6 +320,7 @@ form.hidden, form.disabled {
 	align-items: center;
 	background-color: var(--c-transparent);
 	height: 100%;
+	max-width: 30vw;
 }
 
 .table_item.bold {
@@ -915,6 +916,7 @@ input[type="time"] {
 	box-shadow: var(--s-black);
 	cursor: default;
 	pointer-events: none;
+	filter: contrast(50%);
 }
 
 .stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {

@@ -33,12 +33,14 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table_row_wrapper width_80">
+                <div class="wrapper table_row_wrapper w90">
                     <div class="table_header">
                         <div class="table_header_text small">POSITION</div>
                         <div class="table_header_text">NAME</div>
                         <div class="table_header_text">NATIONALITY / CLUB</div>
+                        <div class="small_status_header"></div>
                         <div class="table_header_text">REGISTRATION</div>
+                        <div class="small_status_header"></div>
                         <div class="table_header_text">WEAPON CONTROL</div>
                     </div>
 
@@ -61,12 +63,10 @@
                         <div class="table_item small">15</div>
                         <div class="table_item">A neve ez 152</div>
                         <div class="table_item">A neve ez 152</div>
-                        <div class="table_item">
-                            <div class="small_status_item green"></div>
-                            <div class="table_item">READY</div>
-                            <div class="small_status_item red"></div>
-                            <div class="table_item">READY</div>
-                        </div>
+                        <div class="small_status_item green"></div>
+                        <div class="table_item">READY</div>
+                        <div class="small_status_item red"></div>
+                        <div class="table_item">READY</div>
                     </div>
 
                     <?php

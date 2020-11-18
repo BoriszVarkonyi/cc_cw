@@ -174,16 +174,6 @@ var hasBackgroundIcon = document.querySelectorAll("input");
 
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon), input.backgroundImage');
 var i;
-var disabledNavbarItems = document.querySelectorAll('.nav_bar_item.disabled');
-var disabledStripeButtons = document.querySelectorAll(".stripe_button.disabled");
-
-for (i = 0; i < disabledNavbarItems.length; i++) {
-    disabledNavbarItems[i].style.filter = "contrast(50%)";
-}
-
-for (i = 0; i < disabledStripeButtons.length; i++) {
-    disabledStripeButtons[i].style.filter = "contrast(30%)";
-}
 
 function csChanger() {
     
