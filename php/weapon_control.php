@@ -22,6 +22,11 @@
     } else {
         $feedback['getrankid'] = "ERROR " . mysqli_error($connection);
     }
+
+    if (isset($_POST['add_wc'])) {
+        $fencer_id = $_POST['fencer_id'];
+        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&rankid=$ranking_id");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -47,15 +52,15 @@
                         <img src="../assets/icons/chat-black-18dp.svg"></img>
                     </button>
 
-                    <form id="add_weapon_control" class="hidden" method="POST" action="" ></form>
-                    <button class="stripe_button" type="submit" onclick="location.href='fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>'">
+                    <form id="add_weapon_control" method="POST" action="" >
+                    <button from="add_weapon_control" name="add_wc" class="stripe_button" type="submit">
                         <p>Add weapon control</p>
                         <img src="../assets/icons/add-black-18dp.svg"></img> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
 
 
                     <input type="text" class="hidden" name="fencer_id" id="fencer_id_input" value="">
-
+                    </form>
 
                 </div>
                 <div id="page_content_panel_main">
