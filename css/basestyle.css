@@ -560,7 +560,7 @@ input[type="text"].search.cc:focus + div {
 	width: var(--f-middle);
 	background-color: transparent;
 	right: 10px;
-	top: 6px;
+	top: 8.1px;
 	z-index: 3;
 }
 
