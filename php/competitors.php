@@ -47,7 +47,7 @@
                     <?php
                     
                     
-                    $query = "SELECT * FROM cptrs_$comp_id";
+                    $query = "SELECT * FROM cptrs_$comp_id ORDER BY rank";
                     $query_do = mysqli_query($connection, $query);
                     
                     while($row = mysqli_fetch_assoc($query_do)){
@@ -56,17 +56,65 @@
                         $name = $row["name"];
                         $nat = $row["nationality"];
                         $reg = $row["reg"];
-                        $wc = $row["wc"];?>     
+                        $wc = $row["wc"];?>
 
 
                     <div class="table_row">
-                        <div class="table_item small">15</div>
-                        <div class="table_item">A neve ez 152</div>
-                        <div class="table_item">A neve ez 152</div>
-                        <div class="small_status_item green"></div>
-                        <div class="table_item">READY</div>
-                        <div class="small_status_item red"></div>
-                        <div class="table_item">READY</div>
+                        <div class="table_item small"><?php echo $pos ?></div>
+                        <div class="table_item"><?php echo $name ?></div>
+                        <div class="table_item"><?php echo $nat ?></div>
+                        <div class="small_status_item <?php
+                        
+                        if($reg == 0){
+
+                            echo "red";
+                        }else{
+
+                            echo "green";
+                        }
+                        
+                        
+                        
+                        ?>"></div>
+                        <div class="table_item"><?php
+                        
+                        if($reg == 0){
+
+                            echo "Not ready";
+                        }else{
+
+                            echo "Ready";
+                        }
+                        
+                        
+                        
+                        ?></div>
+                        <div class="small_status_item <?php
+                        
+                        if($wc == 0){
+
+                            echo "red";
+                        }else{
+
+                            echo "green";
+                        }
+                        
+                        
+                        
+                        ?>"></div>
+                        <div class="table_item"><?php
+                        
+                        if($wc == 0){
+
+                            echo "Not ready";
+                        }else{
+
+                            echo "Ready";
+                        }
+                        
+                        
+                        
+                        ?></div>
                     </div>
 
                     <?php

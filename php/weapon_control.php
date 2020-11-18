@@ -95,8 +95,8 @@
                                 $feedback['getcompdata'] = "ERROR " . mysqli_error($connection);
                             }
                             
-                            //get fencers from ranking by ranking id
-                            $qry_get_fencers = "SELECT * FROM rk_$ranking_id";
+                            //get fencers from competitors by comp id :D
+                            $qry_get_fencers = "SELECT * FROM cptrs_$comp_id";
 
                             $qry_get_fencers_do = mysqli_query($connection, $qry_get_fencers);
 
