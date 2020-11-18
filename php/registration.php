@@ -44,7 +44,7 @@
 
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
-                    <button class="stripe_button bold" onclick="toggleAddFencerPanel()">
+                    <button class="stripe_button bold" type="button" onclick="toggleAddFencerPanel()">
                         <p>Add Fencer</p>
                         <img src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
