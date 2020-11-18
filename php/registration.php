@@ -66,13 +66,31 @@
                             <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
                                 <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
-
                                 <label for="fencers_nationality">NATIONALITY / CLUB</label>
-                                <input type="text" class="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
+                                <div class="search_wrapper">
+                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <div class="search_results">
+                                        <?php
+                                        $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
+                                        $query_do = mysqli_query($connection, $query);
 
+                                        while($row = mysqli_fetch_assoc($query_do)){
+
+                                            $idke = $row["id"];
+                                            $nevecske = $row["username"];
+                                            ?>
+
+
+                                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectTechniciansWithSearch(this)"><?php echo $nevecske ?></a>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
                                 <label for="fencers_points" >POSITION</label>
                                 <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
-
                                 <label for="fencers_dob" >DATE OF BIRTH</label>
                                 <input type="date" name="fencer_dob">
                                 <button type="submit" name="submit" class="panel_submit">Save</button>
@@ -120,28 +138,7 @@
                         <?php
                         }
                         ?>
-
-                        <div id="add_fencer_panel" class="overlay_panel hidden">
-                            <button class="panel_button" onclick="toggleAddFencerPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" >
-                            </button>
-                            <!-- add fencers drop-down -->
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
-                                <label for="fencers_name" >NAME</label>
-                                <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
-
-                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
-                                <input type="text" class="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
-
-                                <label for="fencers_points" >POSITION</label>
-                                <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
-
-                                <label for="fencers_dob" >DATE OF BIRTH</label>
-                                <input type="date" name="fencer_dob">
-                                <button type="submit" name="submit" class="panel_submit">Save</button>
-                            </form>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

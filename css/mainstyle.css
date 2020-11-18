@@ -2569,8 +2569,30 @@ div.title_box > button {
 	flex-direction: column;
 }
 
+#manage_entries_wrapper .entry {
+	z-index: 1;
+}
+
 #new_entries_panel {
 	width: 100%;
+	position: relative;
+}
+
+#new_entries_panel:after, #managed_entries_panel:after {
+	content: "There are no new entries";
+	font-size: var(--f-medium);
+	font-family: var(--bold);
+	color: var(--c-gray);
+	white-space: nowrap;
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 0;
+}
+
+#new_entries_panel:after {
+	content: "There are no new entries";
 }
 
 #new_entries_panel > div:nth-child(even) > .table_row, #managed_entries_panel > div:nth-child(even) > .table_row {
@@ -2593,6 +2615,11 @@ div.title_box > button {
 
 #managed_entries_panel {
 	margin-top: 50px;
+	position: relative;
+}
+
+#managed_entries_panel:after {
+	content: "There are no managed entries yet";
 }
 
 #managed_entries_panel > p {

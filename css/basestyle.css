@@ -508,6 +508,21 @@ input[type="text"].search.cc:focus + div {
 	overflow-y: auto;
 }
 
+.overlay_panel_form .search_wrapper {
+	margin: 3px 0 30px;
+	width: 350px;
+}
+
+.overlay_panel_form .search_results {
+	width: 350px;
+	top: calc( var(--f-middle) + 15px );
+}
+
+.overlay_panel_form .search_wrapper .search.cc {
+	width: 290px;
+	margin: 0;
+}
+
 .search_results {
 	width: 225px;
 	background-color: var(--c-white);
