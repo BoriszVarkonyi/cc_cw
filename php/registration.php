@@ -22,7 +22,7 @@
 
             $idtoregin = $_POST["fencer_ids"];
 
-            $query = "UPDATE cptrs_$comp_id SET reg = 1 WHERE id = $idtoregin";
+            $query = "UPDATE cptrs_$comp_id SET reg = 1 WHERE id = '$idtoregin'";
             $query_do = mysqli_query($connection, $query);
 
             header("Location: registration.php?comp_id=$comp_id");
@@ -33,7 +33,7 @@
 
                 $idtoregin = $_POST["fencer_ids"];
     
-                $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = $idtoregin";
+                $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = '$idtoregin'";
                 $query_do = mysqli_query($connection, $query);
     
                 header("Location: registration.php?comp_id=$comp_id");
@@ -60,16 +60,24 @@
 
                     if($idmatch != $add_id){
 
-                    $checkarray.push("0");
+                    array_push($checkarray, "0");
 
+                    }
+                    else{
+
+                        $row = mysqli_fetch_assoc($query_get_max_do);
+                        $add_id = "l" . rand(1, 500);
+                        continue;
                     }
 
                 }
 
-                if($checkarray.count() == $row.count()){
+                if(count($checkarray) == mysqli_num_rows($query_get_max_do)){
 
-                    $query = "INSERT INTO `cptrs_52`(`id`, `name`, `nationality`,`rank`) VALUES ($add_id,$n_fname,$f_nat,$f_pos)";
+                    $query = "INSERT INTO `cptrs_$comp_id`(`id`, `name`, `nationality`,`rank`) VALUES ('$add_id','$n_fname','$f_nat',$f_pos)";
                     $query_do = mysqli_query($connection, $query);
+
+                    echo mysqli_error($connection);
 
                 }
 
@@ -100,7 +108,7 @@
                                 <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <!-- add fencers drop-down -->
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
+                            <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
                                 <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
                                 <label for="fencers_nationality">NATIONALITY / CLUB</label>
