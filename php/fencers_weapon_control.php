@@ -208,7 +208,6 @@
                     </button>
 
                 </div>
-                <p><?php print_r($array_real_issues); echo "<br>"; print_r($feedback) ?></p>
                 <div id="page_content_panel_main">
                     <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
                         <div id="issues_panel" class="table_row_wrapper">
