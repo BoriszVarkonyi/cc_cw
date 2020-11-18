@@ -701,7 +701,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	z-index: 1;
 	display: flex;
 	align-items: center;
-	overflow: hidden;
 }
 
 #page_content_panel_main {
@@ -2194,7 +2193,7 @@ input[type="file"] {
 /* ///FENCERS WEAPON CONTROL/// */
 
 #fencers_weapon_control_wrapper {
-	min-width: 90%;
+	min-width: 85%;
 	display: flex;
 	justify-content: space-between;
 }

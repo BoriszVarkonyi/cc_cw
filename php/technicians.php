@@ -209,7 +209,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                 <input type="radio" class="option_button" name="role" id="d" value="4"/>
                                 <label for="d" class="option_label">Registration</label>
                             </div>
-                            <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Save">Save</button>
+                            <button type="submit" name="submit" class="panel_submit" form="new_technician">Save</button>
                         </form>
                     </div>
 
