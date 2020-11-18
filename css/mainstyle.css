@@ -2243,6 +2243,7 @@ input[type="file"] {
 	padding-left: 10px;
 	background-color: var(--c-white);
 	font-size: var(--f-small);
+	text-transform: capitalize;
 }
 
 #issues_panel > .table_row > .big_status_item {
