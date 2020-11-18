@@ -38,19 +38,40 @@
                         <div class="table_header_text small">POSITION</div>
                         <div class="table_header_text">NAME</div>
                         <div class="table_header_text">NATIONALITY / CLUB</div>
+                        <div class="table_header_text">REGISTRATION</div>
                         <div class="table_header_text">WEAPON CONTROL</div>
                     </div>
+
+                    <?php
+                    
+                    
+                    $query = "SELECT * FROM cptrs_$comp_id";
+                    $query_do = mysqli_query($connection, $query);
+                    
+                    while($row = mysqli_fetch_assoc($query_do)){
+
+                        $pos = $row["rank"];
+                        $name = $row["name"];
+                        $nat = $row["nationality"];
+                        $reg = $row["reg"];
+                        $wc = $row["wc"];?>     
+
+
                     <div class="table_row">
-                    <div class="table_item small">15</div>
+                        <div class="table_item small">15</div>
                         <div class="table_item">A neve ez 152</div>
                         <div class="table_item">A neve ez 152</div>
                         <div class="table_item">
                             <div class="small_status_item green"></div>
-                            <div class="table_item">A neve ez 152</div>
+                            <div class="table_item">READY</div>
                             <div class="small_status_item red"></div>
-                            <div class="table_item">A neve ez 152</div>
+                            <div class="table_item">READY</div>
                         </div>
                     </div>
+
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
