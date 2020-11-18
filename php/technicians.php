@@ -147,7 +147,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         <p class="page_title">Technicians</p>
                         <form action="" method="POST" id="remove_technician">
                         </form>
-                        <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
+                        <button class="stripe_button disabled red" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
                             <p>Remove Technician</p>
                             <img  src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>

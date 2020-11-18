@@ -914,6 +914,7 @@ input[type="time"] {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
 	cursor: default;
+	pointer-events: none;
 }
 
 .stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
@@ -934,7 +935,6 @@ input[type="time"] {
 	background-color: var(--c-lightorange);
 	box-shadow: var(--s-orange);
 }
-
 
 .stripe_button.red {
 	background-color: var(--c-red);
