@@ -370,11 +370,11 @@ numberInputs.forEach(item => {
 })
 //Search engine
 
-function searchEngine() {
+function searchEngine(x) {
     // Declare variables
-    var input = document.getElementById('inputs');
+    var input = x
     var filter = input.value.toUpperCase();
-    var ul = document.querySelector(".search_results");
+    var ul = input.nextElementSibling;
     var li = ul.getElementsByTagName('a');
     
     // Loop through all list items, and hide those who don't match the search query
