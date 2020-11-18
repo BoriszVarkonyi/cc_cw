@@ -81,7 +81,7 @@
 
                 }
 
-               
+                header("Location: registration.php?comp_id=$comp_id");
 
             }
 
