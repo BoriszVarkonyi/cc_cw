@@ -214,8 +214,8 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                     </div>
 
                     <div class="search_wrapper">
-                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="search cc">
+                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                             <?php
                             $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";

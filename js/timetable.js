@@ -29,6 +29,8 @@ function toggleWcPanel(x) {
 
     hiddeninput = document.getElementById("save_date");
     hiddeninput.value = y;
+    //Timetable form placer
+    // :c
 }
 
 function closeWcPanel() {
@@ -182,7 +184,9 @@ document.addEventListener("input", function checkInput(){
 // Make the DIV element draggable:
 var dragButton = document.querySelector(".panel_button.drag");
 var formDiv = document.getElementById("set_wc_panel");
-var pageContent = document.getElementById("page_content_panel_main")
+var pageContent = document.getElementById("page_content_panel_main");
+var pRect;
+var tgtRect
 dragElement(dragButton);
 
 
@@ -219,8 +223,8 @@ function dragElement(elmnt) {
     elmnt.parentNode.style.top = (elmnt.parentNode.offsetTop - pos2) + "px";
     elmnt.parentNode.style.left = (elmnt.parentNode.offsetLeft - pos1) + "px";
     //Drag borders
-    var pRect = pageContent.getBoundingClientRect();
-    var tgtRect = formDiv.getBoundingClientRect();
+    pRect = pageContent.getBoundingClientRect();
+    tgtRect = formDiv.getBoundingClientRect();
     //
     if (tgtRect.left < pRect.left) formDiv.style.left = 0;
     if (tgtRect.top < pRect.top) formDiv.style.top = 0;
