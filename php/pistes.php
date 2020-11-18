@@ -153,8 +153,7 @@ if(isset($_POST["create_piste"])){
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
 
-                        <div class="overlay_panel_form">
-                            <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" class="flex" method="POST">
+                            <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" class="overlay_panel_form flex" method="POST">
                                 <label for="username" >TYPE</label>
                                 <div class="option_container row">
                                     <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main"/>
@@ -196,8 +195,6 @@ if(isset($_POST["create_piste"])){
                                 <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="start_num">
 
                             </form>
-                            
-                        </div>
                         <button type="submit" name="create_piste" class="panel_submit" form="create_piste" value="Import">Create</button>
                     </div>
                 </div>
@@ -274,22 +271,11 @@ if(isset($_POST["create_piste"])){
                         }  
                         ?>
 
-                    
-                        
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
                         <div class="piste ghost"></div>
 
-                        
-                    
                     </div>
-
-
-
-
-
-
-
 
                     <div id="colored_pistes_wrapper" class="piste_wrapper">
 

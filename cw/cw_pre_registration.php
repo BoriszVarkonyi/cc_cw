@@ -86,7 +86,7 @@ if(isset($_POST["send_pre"])){
 
                     </div>
 
-                    <input type="search" name="" >
+                    <input type="text" name="" placeholder="Search by Title" class="search">
 
                     <div id="select_fencers_list_wrapper" class="table_row_wrapper">
                         <div class="table_header">

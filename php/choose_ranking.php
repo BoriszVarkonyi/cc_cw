@@ -146,8 +146,8 @@ if(isset($_POST["submit"]) ){
                                 <div>
                                     <form id="browse_ranking">
                                         <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                                        <input type="search" name="" placeholder="Search by name">
-                                        <input type="button" name=""  value="Search">
+                                        <input type="text" name="" placeholder="Search by Title" class="search">
+                                        <input type="button" name="" value="Search">
                                     </form>
                                     <div class="table_row_wrapper">
                                         <?php

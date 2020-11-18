@@ -18,7 +18,10 @@
 
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <input type="search" name=""  placeholder="Search by Title">
+            <div>
+                <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                <input type="text" name="" placeholder="Search by Fencer" class="search">
+            </div>
             <input type="submit" value="Search">
         </form>
 

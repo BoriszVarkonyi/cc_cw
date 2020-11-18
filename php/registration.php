@@ -40,11 +40,48 @@
     
                 }
 
+            if(isset($_POST["add_fencer"])){
+
+                $n_fname = $_POST["fencer_name"];
+                $f_nat = $_POST["f_nat"];
+                $f_pos = $_POST["fencer_position"];
+
+
+                $query_get_max = "SELECT * FROM cptrs_$comp_id";
+                $query_get_max_do = mysqli_query($connection, $query_get_max);
+
+                $add_id = "l" . rand(1, 500);
+
+                $checkarray = [];
+
+                while($row = mysqli_fetch_assoc($query_get_max_do)){
+
+                    $idmatch = $row["id"];
+
+                    if($idmatch != $add_id){
+
+                    $checkarray.push("0");
+
+                    }
+
+                }
+
+                if($checkarray.count() == $row.count()){
+
+                    $query = "INSERT INTO `cptrs_52`(`id`, `name`, `nationality`,`rank`) VALUES ($add_id,$n_fname,$f_nat,$f_pos)";
+                    $query_do = mysqli_query($connection, $query);
+
+                }
+
+               
+
+            }
+
         ?>
 
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
-                    <button class="stripe_button bold" type="button" onclick="toggleAddFencerPanel()">
+                    <button type="button" class="stripe_button bold" onclick="toggleAddFencerPanel()">
                         <p>Add Fencer</p>
                         <img src="../assets/icons/add-black-18dp.svg"></img>
                     </button>
@@ -58,6 +95,27 @@
                     </button>
                     <input type="text" class="hidden" name="fencer_ids" id="fencer_ids" value="">
                 </form>
+                <div id="add_fencer_panel" class="overlay_panel hidden">
+                            <button class="panel_button" onclick="toggleAddFencerPanel()">
+                                <img src="../assets/icons/close-black-18dp.svg" >
+                            </button>
+                            <!-- add fencers drop-down -->
+                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
+                                <label for="fencers_name" >NAME</label>
+                                <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
+                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
+                                <div class="search_wrapper">
+                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <input type="text" name="f_nat" onkeyup="searchEngine()" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <div class="search_results">
+                                    <?php include "../includes/nations.php"; ?>
+                                    </div>
+                                </div>
+                                <label for="fencers_points" >POSITION</label>
+                                <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
+                                <button type="submit" name="add_fencer" class="panel_submit">Save</button>
+                            </form>
+                        </div>
                 <div id="page_content_panel_main">
 
                     <div class="wrapper table_row_wrapper">
@@ -89,7 +147,6 @@
                         $stat = $row["reg"];
                         $id = $row["id"];
                         
-
                         ?>
                         
                         <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">
@@ -101,28 +158,7 @@
                         <?php
                         }
                         ?>
-
-                        <div id="add_fencer_panel" class="overlay_panel hidden">
-                            <button class="panel_button" onclick="toggleAddFencerPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" >
-                            </button>
-                            <!-- add fencers drop-down -->
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
-                                <label for="fencers_name" >NAME</label>
-                                <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
-
-                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
-                                <input type="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
-
-                                <label for="fencers_points" >POSITION</label>
-                                <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
-
-                                <label for="fencers_dob" >DATE OF BIRTH</label>
-                                <input type="date" name="fencer_dob">
-                                <button type="submit" name="submit" class="panel_submit">Save</button>
-                            </form>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

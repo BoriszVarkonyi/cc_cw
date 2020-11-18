@@ -18,7 +18,7 @@
 
             <!-- search by name box -->
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <input type="search" name=""  placeholder="Search by name">
+            <input type="text" name="" placeholder="Search by Name" class="search">
 
             <!-- year drop-down -->
             <div class="select_input">

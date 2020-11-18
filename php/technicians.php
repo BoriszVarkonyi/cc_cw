@@ -212,8 +212,10 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
                     </div>
+
                     <div class="search_wrapper">
-                        <input type="search" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="cc">
+                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                             <?php
                             $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
@@ -231,7 +233,6 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             <?php
                             }
                             ?>
-
                         </div>
                     </div>
                 </div>

@@ -137,18 +137,16 @@ function removeWcDay(x) {
 function closeConf() {
     conf.classList.add("hidden");
 }
-
+//Timetable form validation
 var wcInput = document.getElementById("wc_input");
 var input = document.querySelectorAll('#new_wc_day input');
 var saveButton = document.querySelector(".panel_submit");
-
-
+var wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
 //Set the "Save" button disabled.
 saveButton.disabled = true;
-
 //If the document values are changing, it runs the function.
 document.addEventListener("input", function checkInput(){
-    var wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
+    wcTime = document.querySelectorAll(".table_row:not(.hidden) .wc_time");
     //Check the "wcInput" input value.
     if(wcInput.value>20 || wcInput.value < 0) {
     //If its grather than 20 or less than 0, it sets the value "" (0).

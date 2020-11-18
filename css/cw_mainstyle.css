@@ -380,6 +380,16 @@ input[value="Search"] {
 	margin-right: 30px;
 }
 
+#browsing_bar > div {
+	position: relative;
+}
+
+#browsing_bar > div .clear_search_button {
+	top: 10px;
+	height: var(--f-medium);
+	width: var(--f-medium);
+}
+
 #cw_main_full {
 	padding: 100px 75px 75px;
 	display: flex;
