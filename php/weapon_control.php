@@ -74,7 +74,7 @@
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
                             <div class="table_header_text">SEX</div>
-                            <div class="table_header_text">NATIONALITY / CLUB</div>
+                            <div class="table_header_text">NATION / CLUB</div>
                             <div class="table_header_text">WEAPON TYPE</div>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
