@@ -60,7 +60,7 @@
 
 
                     <div class="table_row">
-                        <div class="table_item small"><?php echo $pos ?></div>
+                        <div class="table_item"><?php echo $pos ?></div>
                         <div class="table_item"><?php echo $name ?></div>
                         <div class="table_item"><?php echo $nat ?></div>
                         <div class="small_status_item <?php
