@@ -1,3 +1,5 @@
+var hiddenin = document.getElementById("fencer_ids");
+
 document.onkeydown = (keyDownEvent) => {
 
     if(keyDownEvent.key == "ArrowUp"){
@@ -9,13 +11,11 @@ document.onkeydown = (keyDownEvent) => {
         var elem = kijelolt[0];
         var kovielem = elem.previousElementSibling;
 
-        //console.log(tabla.children[2]);
-        //console.log(elem);
-
         if(elem != tabla.children[1]){
 
             elem.classList.remove("selected");
             kovielem.classList.add("selected");
+            hiddenin.value = kovielem.id;
 
         }else
         {
@@ -38,6 +38,7 @@ document.onkeydown = (keyDownEvent) => {
 
             elem.classList.remove("selected");
             kovielem.classList.add("selected");
+            hiddenin.value = kovielem.id;
 
         }else
         {
@@ -48,8 +49,6 @@ document.onkeydown = (keyDownEvent) => {
 }
 
 function selectRow(x){
-
-var hiddenin = document.getElementById("fencer_ids");
 
 if(x.classList.contains("selected")){
 

@@ -5,6 +5,10 @@
 
 <?php 
 
+$query_get_fencers = "SELECT * FROM cptrs_$comp_id";
+$query_get_fencers_do = mysqli_query($connection, $comp_id);
+
+$fencers = mysqli_num_rows($query_get_fencers_do);
 
 
 ?>
@@ -67,7 +71,7 @@
                             </thead>
                             <tr>
                                 <td>All</td>
-                                <td>10</td>
+                                <td><?php echo $fencers ?></td>
                             <tr>
                             <tr>
                                 <td>80%</td>
