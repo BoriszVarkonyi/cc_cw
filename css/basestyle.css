@@ -320,6 +320,7 @@ form.hidden, form.disabled {
 	align-items: center;
 	background-color: var(--c-transparent);
 	height: 100%;
+	max-width: 30vw;
 }
 
 .table_item.bold {
@@ -528,7 +529,6 @@ input[type="text"].search.cc:focus + div {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
-	top: calc( var(--f-middle) + 40px );
 	z-index: 1;
 	max-height: 0;
 	opacity: 0;
@@ -572,7 +572,6 @@ input:focus ~ .clear_search_button {
 	width: 100%;
 	height: 100%;
 }
-
 
 /* Custom Select Input */
 
@@ -916,6 +915,8 @@ input[type="time"] {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
 	cursor: default;
+	pointer-events: none;
+	filter: contrast(50%);
 }
 
 .stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
@@ -936,7 +937,6 @@ input[type="time"] {
 	background-color: var(--c-lightorange);
 	box-shadow: var(--s-orange);
 }
-
 
 .stripe_button.red {
 	background-color: var(--c-red);

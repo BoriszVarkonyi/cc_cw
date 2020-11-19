@@ -74,7 +74,7 @@
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
                             <div class="table_header_text">SEX</div>
-                            <div class="table_header_text">NATIONALITY / CLUB</div>
+                            <div class="table_header_text">NATION / CLUB</div>
                             <div class="table_header_text">WEAPON TYPE</div>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
@@ -95,8 +95,8 @@
                                 $feedback['getcompdata'] = "ERROR " . mysqli_error($connection);
                             }
                             
-                            //get fencers from ranking by ranking id
-                            $qry_get_fencers = "SELECT * FROM rk_$ranking_id";
+                            //get fencers from competitors by comp id :D
+                            $qry_get_fencers = "SELECT * FROM cptrs_$comp_id";
 
                             $qry_get_fencers_do = mysqli_query($connection, $qry_get_fencers);
 

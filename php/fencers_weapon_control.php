@@ -8,16 +8,43 @@
     // array of all issues
     $array_issues = array( 
         "FIE mark on blade",
-        "arm gap and weight",
-        "arm lenght",
-        "blade lenght",
+        "Arm gap and weight",
+        "Arm lenght",
+        "Blade lenght",
         "Grip lenght",
         "Form and depthof the guard",
         "Guard oxydation/ deformation",
-        "excentricity of the blade",
-        "blade flexibility",
-        "curve on the blade",
+        "Excentricity of the blade",
+        "Blade flexibility",
+        "Curve on the blade",
         "Foucault current device",
+<<<<<<< HEAD
+        "Point and arm size",
+        "Spring of the point",
+        "Total travel of the point",
+        "Residual travel of the point",
+        "Isolation of the point",
+        "Resistance of the arm",
+        "Length / condition of body / mask wire",
+        "Resistance of body/ mask wire",
+        "Mask: FIE mark",
+        "Mask: condition and insulation",
+        "Mask: resistance (sabre, foil)",
+        "Metallic jacket condition",
+        "Metallic jacket resistance",
+        "Sabre glove/ overlay condition",
+        "Sabre glove/ overlay resistance",
+        "Glove condition",
+        "Jacket condition",
+        "Breeches condition",
+        "Under-plastron condition",
+        "Foil chest protector",
+        "Socks",
+        "Incorrect name printing",
+        "Incorrect national logo",
+        "Commercial",
+        "Other items"
+=======
         "point and arm size",
         "spring of the point",
         "total travel of the point",
@@ -43,6 +70,7 @@
         "incorrect national logo",
         "commercial",
         "other items",
+>>>>>>> 4590f7a748383acd04d039c5d551194478765454
     );
 
     //feedback array

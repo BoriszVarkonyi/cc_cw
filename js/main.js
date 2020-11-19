@@ -174,16 +174,6 @@ var hasBackgroundIcon = document.querySelectorAll("input");
 
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon), input.backgroundImage');
 var i;
-var disabledNavbarItems = document.querySelectorAll('.nav_bar_item.disabled');
-var disabledStripeButtons = document.querySelectorAll(".stripe_button.disabled");
-
-for (i = 0; i < disabledNavbarItems.length; i++) {
-    disabledNavbarItems[i].style.filter = "contrast(50%)";
-}
-
-for (i = 0; i < disabledStripeButtons.length; i++) {
-    disabledStripeButtons[i].style.filter = "contrast(30%)";
-}
 
 function csChanger() {
     
@@ -303,7 +293,7 @@ function resizeTableColumn() {
 
     for(i = 1; i <= amountOfColumns; i++){
 
-        console.log("");
+        //console.log("");
     }
 }
 
@@ -359,14 +349,47 @@ mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 }
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E"];
-var numberInput = document.querySelectorAll("input[type='number']")
-function inputChecker() {
-    addEventListener("keydown", function(e) {
+var numberInputs = document.querySelectorAll("input[type='number']")
+numberInputs.forEach(item => { 
+    item.addEventListener("keydown", function(e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
         }
         }
     );
+})
+//Search engine
+
+function searchEngine(x) {
+    // Declare variables
+    var input = x
+    var filter = input.value.toUpperCase();
+    var ul = input.nextElementSibling;
+    var li = ul.getElementsByTagName('a');
+    
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
     }
-numberInput.forEach(inputChecker)
+}
+
+//Clears the search 
+var clearButton = document.querySelectorAll(".clear_search_button")
+clearButton.forEach(item => {
+    item.addEventListener("click", function(event){
+        var targetElement = event.target || event.srcElement;
+        var searchBar = targetElement.parentNode.nextElementSibling;
+        searchBar.value = ""
+
+    });
+})
+
+
+
 

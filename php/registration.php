@@ -22,7 +22,7 @@
 
             $idtoregin = $_POST["fencer_ids"];
 
-            $query = "UPDATE cptrs_$comp_id SET reg = 1 WHERE id = $idtoregin";
+            $query = "UPDATE cptrs_$comp_id SET reg = 1 WHERE id = '$idtoregin'";
             $query_do = mysqli_query($connection, $query);
 
             header("Location: registration.php?comp_id=$comp_id");
@@ -33,12 +33,57 @@
 
                 $idtoregin = $_POST["fencer_ids"];
     
-                $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = $idtoregin";
+                $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = '$idtoregin'";
                 $query_do = mysqli_query($connection, $query);
     
                 header("Location: registration.php?comp_id=$comp_id");
     
                 }
+
+            if(isset($_POST["add_fencer"])){
+
+                $n_fname = $_POST["fencer_name"];
+                $f_nat = $_POST["f_nat"];
+                $f_pos = $_POST["fencer_position"];
+
+
+                $query_get_max = "SELECT * FROM cptrs_$comp_id";
+                $query_get_max_do = mysqli_query($connection, $query_get_max);
+
+                $add_id = "l" . rand(1, 500);
+
+                $checkarray = [];
+
+                while($row = mysqli_fetch_assoc($query_get_max_do)){
+
+                    $idmatch = $row["id"];
+
+                    if($idmatch != $add_id){
+
+                    array_push($checkarray, "0");
+
+                    }
+                    else{
+
+                        $row = mysqli_fetch_assoc($query_get_max_do);
+                        $add_id = "l" . rand(1, 500);
+                        continue;
+                    }
+
+                }
+
+                if(count($checkarray) == mysqli_num_rows($query_get_max_do)){
+
+                    $query = "INSERT INTO `cptrs_$comp_id`(`id`, `name`, `nationality`,`rank`) VALUES ('$add_id','$n_fname','$f_nat',$f_pos)";
+                    $query_do = mysqli_query($connection, $query);
+
+                    echo mysqli_error($connection);
+
+                }
+
+                header("Location: registration.php?comp_id=$comp_id");
+
+            }
 
         ?>
 
@@ -63,37 +108,20 @@
                                 <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <!-- add fencers drop-down -->
-                            <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
+                            <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
                                 <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
-                                <label for="fencers_nationality">NATIONALITY / CLUB</label>
+                                <label for="fencers_nationality">NATION / CLUB</label>
                                 <div class="search_wrapper">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <input type="text" name="f_nat" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
-                                        <?php
-                                        $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
-                                        $query_do = mysqli_query($connection, $query);
-
-                                        while($row = mysqli_fetch_assoc($query_do)){
-
-                                            $idke = $row["id"];
-                                            $nevecske = $row["username"];
-                                            ?>
-
-
-                                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectTechniciansWithSearch(this)"><?php echo $nevecske ?></a>
-
-                                        <?php
-                                        }
-                                        ?>
+                                    <?php include "../includes/nations.php"; ?>
                                     </div>
                                 </div>
                                 <label for="fencers_points" >POSITION</label>
                                 <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
-                                <label for="fencers_dob" >DATE OF BIRTH</label>
-                                <input type="date" name="fencer_dob">
-                                <button type="submit" name="submit" class="panel_submit">Save</button>
+                                <button type="submit" name="add_fencer" class="panel_submit">Save</button>
                             </form>
                         </div>
                 <div id="page_content_panel_main">

@@ -305,6 +305,10 @@ textarea {
 	margin: 0;
 }
 
+.wrapper.w90 {
+	min-width: 90%;
+}
+
 /* Range Inputs */
 
 input::placeholder {
@@ -489,6 +493,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .nav_bar_item.disabled  {
 	cursor: default;
 	pointer-events: none;
+	filter: contrast(50%);
 }
 
 .nav_bar_item > p {
@@ -701,7 +706,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	z-index: 1;
 	display: flex;
 	align-items: center;
-	overflow: hidden;
 }
 
 #page_content_panel_main {
@@ -2194,7 +2198,7 @@ input[type="file"] {
 /* ///FENCERS WEAPON CONTROL/// */
 
 #fencers_weapon_control_wrapper {
-	min-width: 90%;
+	min-width: 85%;
 	display: flex;
 	justify-content: space-between;
 }

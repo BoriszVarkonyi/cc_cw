@@ -147,7 +147,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         <p class="page_title">Technicians</p>
                         <form action="" method="POST" id="remove_technician">
                         </form>
-                        <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_technician" id="remove_technician_button">
+                        <button class="stripe_button disabled red" form="remove_technician" name="remove_technician" id="remove_technician_button">
                             <p>Remove Technician</p>
                             <img  src="../assets/icons/delete-black-18dp.svg"></img>
                         </button>
@@ -209,13 +209,13 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                 <input type="radio" class="option_button" name="role" id="d" value="4"/>
                                 <label for="d" class="option_label">Registration</label>
                             </div>
-                            <button type="submit" name="submit" class="panel_submit" form="new_technician" value="Save">Save</button>
+                            <button type="submit" name="submit" class="panel_submit" form="new_technician">Save</button>
                         </form>
                     </div>
 
                     <div class="search_wrapper">
-                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onkeyup="searchEngine()" id="inputs" placeholder="Search by Name" class="search cc">
+                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                             <?php
                             $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";

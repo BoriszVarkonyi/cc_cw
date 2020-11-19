@@ -33,7 +33,7 @@
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
                         <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">NATIONALITY / CLUB</div>
+                        <div class="table_header_text">NATION / CLUB</div>
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row">
