@@ -16,7 +16,6 @@
             <p>FINAL RESULTS OF <?php echo $comp_name ?></p>
         </div>
 
-        <p>g</p>
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
             <div>
