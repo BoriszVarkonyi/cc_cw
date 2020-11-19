@@ -22,7 +22,7 @@
             <input type="submit" value="Search">
         </form>
 
-        <div class="cw_table_wrapper competitions">
+        <div class="cw_table_wrapper competitions table_row_wrapper">
             <!-- comps display scheduled -->
             <?php include "../cw/comps_display.php" ?>
         </div>

@@ -296,7 +296,6 @@ textarea {
 	margin: 50px 0;
 	width: 80%;
 	max-width: 80%;
-	min-height: 50%;
 }
 
 .wrapper.full {
@@ -3247,6 +3246,13 @@ input.wc_time {
 }
 
 /* ///POOLS/// */
+
+.pools_stat_table {
+	width: 350px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: var(--f-middle);
+}
 
 #pools_wrapper {
 	margin: 50px 0;

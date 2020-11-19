@@ -178,7 +178,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </form>
                         <button type="submit" name="import_tech" class="panel_submit" form="import_technician" value="Import">Import</button>
                         </div>                        
-                        <button class="stripe_button bold" onclick="toggle_add_technician()">
+                        <button class="stripe_button orange" onclick="toggle_add_technician()">
                             <p>Add Technicians</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
@@ -238,7 +238,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div class="wrapper table_row_wrapper">
+                    <div class="wrapper table">
 
                     <?php 
                     
@@ -284,7 +284,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             $tech_online = $row["online"];
                             
                             ?>
-
+                        <div class="table_row_wrapper">
                         <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectTechnicians(this)">
                             <div class="table_item"><?php echo $tech_name; ?></div>
                             <div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>
@@ -314,12 +314,14 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             
                             ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
+                        </div>
                         <?php
                         }
                     }
                     //Check,read,display technicians END
                         ?>
                         
+
                     </div>
                 </div>
             </div>

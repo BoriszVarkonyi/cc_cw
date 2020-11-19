@@ -28,7 +28,7 @@
             <div id="title_stripe">
                 <p class="page_title">Pools</p>
 
-                <!--
+                
 
                 STATE: 0
 
@@ -37,7 +37,49 @@
                     <img src="../assets/icons/add_box-black-18dp.svg"></img>
                 </button>
 
-                -->
+                <div id="ref_pis_time_panel" class="overlay_panel">
+                    <button class="panel_button" onclick="refPisTimePanel()">
+                        <img src="../assets/icons/close-black-18dp.svg" >
+                    </button>
+                    <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
+                        <label for="starting_time" >STRIVE FOR</label>
+                        <div class="option_container">
+                            <input type="radio" class="option_button" name="pools_of" id="7" value=""/>
+                            <label for="7" class="option_label">Pools of 7</label>
+                            <input type="radio" class="option_button" name="pools_of" id="6" value=""/>
+                            <label for="6" class="option_label">Pools of 6</label>
+                            <input type="radio" class="option_button" name="pools_of" id="5" value=""/>
+                            <label for="5" class="option_label">Pools of 5</label>
+                            <input type="radio" class="option_button" name="pools_of" id="4" value=""/>
+                            <label for="4" class="option_label">Pools of 4</label>
+                        </div>
+
+                        <label for="interval_of_match">NUMBER OF QUALIFIERS</label>
+                        <input type="number" placeholder="#" class="number_input extra_small">
+
+                        <label for="pistes_type" >STATISTICS</label>
+
+                        <table class="pools_stat_table">
+                            <thead>
+                                <th>Percent</th>
+                                <th>Number of Fencers</th>
+                            </thead>
+                            <tr>
+                                <td>All</td>
+                                <td>10</td>
+                            <tr>
+                            <tr>
+                                <td>80%</td>
+                                <td>8</td>
+                            <tr>
+                            <tr>
+                                <td>70%</td>
+                                <td>7</td>
+                            <tr>
+                        </table>
+                        <button type="submit" name="submit" value="Save" class="panel_submit">Create</button>
+                    </form>
+                </div>
 
                 
 <!--
@@ -186,7 +228,7 @@
                     </form>
                 </div>
 
-                -->
+                
                 
 
                 STATE: 2
@@ -195,13 +237,13 @@
                     <p>Open CC Match Control</p>
                     <img src="../assets/icons/pages-black-18dp.svg"></img>
                 </button>
-
+-->
                 
 
             </div>
             <div id="page_content_panel_main">
 
-                <!--
+             
 
                 STATE: 0
 
@@ -379,7 +421,7 @@
                     </div>
                     <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                     </div>
--->
+
                     
 
                     STATE: 2 
@@ -1027,6 +1069,7 @@
                                     </div>
                                 </div>
                             </div>
+-->
                         </div>
                     </div>
 

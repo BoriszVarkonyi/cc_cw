@@ -179,12 +179,26 @@ form.hidden, form.disabled {
 	transition: var(--t-basic);
 }
 
+.table {
+	display: table;
+	border-collapse: collapse;
+	font-size: var(--f-medium);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.table_row_wrapper {
+	display: table-row-group;
+	border-radius: 5px;
+	border-collapse: collapse;
+	overflow: hidden;
+}
+
 .table_header {
 	padding: 0 2px;
 	width: 100%;
 	font-family: var(--thin);
-	font-size: var(--f-medium);
-	display: flex;
+	display: table-row;
 }
 
 .entry .table-header {
@@ -193,11 +207,12 @@ form.hidden, form.disabled {
 
 .table_header_text {
 	flex: 1 1 0;
-	display: flex;
+	display: table-cell;
 	justify-content: center;
 	align-items: center;
 	text-transform: uppercase;
 	text-align: center;
+	vertical-align: middle;
 }
 
 .table_header_text.square, .table_item.square {
@@ -225,20 +240,19 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.title {
-	display: flex;
+	display: table-cell;
 	align-items: center;
 	justify-content: flex-start;
 }
 
 .table_row {
-	display: flex;
+	display: table-row;
 	align-items: center;
 	width: 100%;
 	background-color: var(--c-white);
 	min-height: 35px;
 	height: 4vh;
 	max-height: 50px;
-	font-size: var(--f-medium);
 	cursor: pointer;
 	overflow: hidden;
 	position: relative;
@@ -310,12 +324,12 @@ form.hidden, form.disabled {
 }
 
 .table_item {
-	flex: 1 1 0;
 	text-align: center;
+	vertical-align: middle;
 	padding: 0;
 	overflow: hidden;
 	white-space: nowrap;
-	display: flex;
+	display: table-cell;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--c-transparent);
@@ -338,7 +352,7 @@ form.hidden, form.disabled {
 .small_status_header {
 	height: 100%;
 	width: 20px;
-	display: flex;
+	display: table-cell;
 	justify-content: center;
 	align-items: center;
 	font-size: var(--f-small);
@@ -350,12 +364,14 @@ form.hidden, form.disabled {
 	height: 4vh;
 	max-height: 50px;
 	width: 20px;
+	display: table-cell;
 }
 
 .big_status_header {
 	min-width: 35px;
 	width: 4vh;
 	max-width: 50px;
+	display: table-cell;
 }
 
 .big_status_item {
@@ -365,7 +381,7 @@ form.hidden, form.disabled {
 	min-width: 35px;
 	width: 4vh;
 	max-width: 50px;
-	display: flex;
+	display: table-cell;
 	justify-content: center;
 	align-items: center;
 }
