@@ -849,8 +849,16 @@ label.small {
 	text-transform: uppercase;
 	font-size: var(--f-medium);
 	position: absolute;
-	left: 15px;
-	top: 15px;
+	left: 0px;
+	top: 0px;
+}
+
+.panel_title.red {
+	color: var(--c-red);
+}
+
+.panel_title.green {
+	color: var(--c-green);
 }
 
 /* Option Input */
@@ -1451,10 +1459,6 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 #visibility_button {
-	display: flex;
-	padding-left: 7.5px;
-	justify-content: center;
-	align-items: center;
 	width: var(--f-medium);
 	height: var(--f-medium);
 	background-color: transparent;

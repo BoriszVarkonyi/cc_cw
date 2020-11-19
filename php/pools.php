@@ -41,6 +41,7 @@
                     <button class="panel_button" onclick="refPisTimePanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
+                    <p class="panel_title red">add class red and class green for coloring</p>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time" >STRIVE FOR</label>
                         <div class="option_container">

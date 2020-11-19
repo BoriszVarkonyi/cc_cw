@@ -273,7 +273,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             
                             ?></div>
                         </div>
-
+                        <div class="table_row_wrapper">
                         <?php  
                         while($row = mysqli_fetch_assoc($tech_list_query)){ 
                             
@@ -284,7 +284,6 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             $tech_online = $row["online"];
                             
                             ?>
-                        <div class="table_row_wrapper">
                         <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectTechnicians(this)">
                             <div class="table_item"><?php echo $tech_name; ?></div>
                             <div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>
@@ -314,14 +313,14 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                             
                             ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
-                        </div>
                         <?php
                         }
                     }
                     //Check,read,display technicians END
                         ?>
                         
-
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>
