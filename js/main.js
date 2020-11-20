@@ -393,3 +393,36 @@ clearButton.forEach(item => {
 
 
 
+var table = document.querySelector(".table");
+
+window.onresize = fo;
+
+
+var tableRow = table.getElementsByClassName("table_row");
+var tableColumnCount = tableRow[1].childElementCount;
+
+var firstColumn = table.querySelectorAll(".table_row > .table_item:first-of-type");
+var firstColumnWidth = firstColumn.r
+
+var width = firstColumn[0].offsetWidth;
+
+firstColumn[1].style.minWidth = width -20;
+
+console.log(width)
+console.log(firstColumn[1].offsetWidth)
+
+function fo() {
+    console.log("fefe")
+    
+var firstColumn = table.querySelectorAll(".table_row > .table_item:first-of-type");
+var firstColumnWidth = firstColumn.r
+
+var width = firstColumn[0].offsetWidth;
+
+firstColumn[1].style.minWidth = width -20;
+
+console.log(width)
+console.log(firstColumn[1].offsetWidth)
+}
+
+

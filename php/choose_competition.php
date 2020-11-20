@@ -62,11 +62,12 @@ $query_comps = mysqli_query($connection, $query);
             </button>
         </div>
         <div id="panel_main">
-            <div id="competitions_wrapper" class="table_row_wrapper wrapper">
+            <div class="table wrapper">
                 <div class="table_header">
                     <div class="table_header_text">NAME</div>
                     <div class="table_header_text">STATUS</div>
                 </div>
+                <div class="table_row_wrapper">
                 <?php
                 while($row = mysqli_fetch_assoc($query_comps)) {
                     
@@ -103,5 +104,6 @@ $query_comps = mysqli_query($connection, $query);
                 <?php
                 }
                 ?>
+                </div>
             </div>
             <script src="../js/main.js"></script>

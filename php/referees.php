@@ -128,11 +128,11 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             <img src="../assets/icons/save_alt-black-18dp.svg"></img>
                         </button>
 
-                        <div id="import_technician_panel" class="thin overlay_panel hidden">
+                        <div id="import_technician_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg"  class="panel_button">
+                                <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
-                            <form action="" id="import_ref" method="POST">
+                            <form action="" id="import_ref" method="POST" class="overlay_panel_form">
                                 <div class="select_competition_wrapper table_row_wrapper">
                                 <?php
                             
@@ -157,7 +157,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             
                         </div>
 
-                        <button class="stripe_button bold" onclick="toggle_add_technician()">
+                        <button class="stripe_button orange" onclick="toggle_add_technician()">
                             <p>Add Referees</p>
                             <img src="../assets/icons/add-black-18dp.svg"></img>
                         </button>
@@ -185,7 +185,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                 </div>
                 <div id="page_content_panel_main">
 
-                    <div class="wrapper table_row_wrapper">
+                    <div class="wrapper table">
 
                     <?php 
                     
@@ -220,7 +220,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             
                             ?></div>
                         </div>
-
+                        <div class="table_row_wrapper">
                         <?php  
                         while($row = mysqli_fetch_assoc($ref_list_query)){ 
                             
@@ -269,6 +269,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 <script src="../js/main.js"></script>
