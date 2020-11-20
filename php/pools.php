@@ -6,10 +6,33 @@
 <?php 
 
 $query_get_fencers = "SELECT * FROM cptrs_$comp_id";
-$query_get_fencers_do = mysqli_query($connection, $comp_id);
+$query_get_fencers_do = mysqli_query($connection, $query_get_fencers);
+
 
 $fencers = mysqli_num_rows($query_get_fencers_do);
 
+
+$checkreg = 0;
+$checkwc = 0;
+
+
+while($row = mysqli_fetch_assoc($query_get_fencers_do)){
+
+$reg = $row["reg"];
+$wc = $row["wc"];
+
+if($reg == 0){
+
+$checkreg++;
+
+}
+if($wc == 0){
+
+$checkwc ++;
+
+}
+
+}
 
 ?>
 
@@ -36,7 +59,7 @@ $fencers = mysqli_num_rows($query_get_fencers_do);
 
                 STATE: 0
 
-                <button class="stripe_button orange" type="submit">
+                <button class="stripe_button orange" onclick="generatePanel()" type="submit">
                     <p>Generate Pools</p>
                     <img src="../assets/icons/add_box-black-18dp.svg"></img>
                 </button>
@@ -45,18 +68,23 @@ $fencers = mysqli_num_rows($query_get_fencers_do);
                     <button class="panel_button" onclick="refPisTimePanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
-                    <p class="panel_title red">add class red and class green for coloring</p>
+                    <p class="panel_title <?php if($checkwc == 0 && $checkreg == 0){echo "green";}else{echo "red";} ?>"><?php if($checkwc == 0 && $checkreg == 0){echo "Everyone is ready to fence";}else{echo "Not everyone is ready to fence";} ?></p>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time" >STRIVE FOR</label>
                         <div class="option_container">
-                            <input type="radio" class="option_button" name="pools_of" id="7" value=""/>
+                            <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $fencers ?>">
+                            <input type="radio" class="option_button" name="pools_of" id="7" value="" onclick=""/>
                             <label for="7" class="option_label">Pools of 7</label>
-                            <input type="radio" class="option_button" name="pools_of" id="6" value=""/>
+                            <p id="p_7"></p>
+                            <input type="radio" class="option_button" name="pools_of" id="6" value="" onclick=""/>
                             <label for="6" class="option_label">Pools of 6</label>
-                            <input type="radio" class="option_button" name="pools_of" id="5" value=""/>
+                            <p id="p_6"></p>
+                            <input type="radio" class="option_button" name="pools_of" id="5" value="" onclick=""/>
                             <label for="5" class="option_label">Pools of 5</label>
-                            <input type="radio" class="option_button" name="pools_of" id="4" value=""/>
+                            <p id="p_5"></p>
+                            <input type="radio" class="option_button" name="pools_of" id="4" value="" onclick=""/>
                             <label for="4" class="option_label">Pools of 4</label>
+                            <p id="p_4"></p>
                         </div>
 
                         <label for="interval_of_match">NUMBER OF QUALIFIERS</label>
@@ -75,11 +103,11 @@ $fencers = mysqli_num_rows($query_get_fencers_do);
                             <tr>
                             <tr>
                                 <td>80%</td>
-                                <td>8</td>
+                                <td><?php echo round($fencers * 0.8) ?></td>
                             <tr>
                             <tr>
                                 <td>70%</td>
-                                <td>7</td>
+                                <td><?php echo round($fencers * 0.7) ?></td>
                             <tr>
                         </table>
                         <button type="submit" name="submit" value="Save" class="panel_submit">Create</button>
