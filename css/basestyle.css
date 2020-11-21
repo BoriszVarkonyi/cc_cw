@@ -525,6 +525,10 @@ input[type="text"].search.cc:focus + div {
 	background-color: var(--c-white);
 }
 
+.search_results > a.selected {
+	background-color: var(--c-lightergray);
+}
+
 .search_results > a:hover {
 	background-color: var(--c-lightergray);
 }

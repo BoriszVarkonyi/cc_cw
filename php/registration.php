@@ -91,7 +91,7 @@
                     <p class="page_title">Registration</p>
                     <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()">
                         <p>Add Fencer</p>
-                        <img src="../assets/icons/add-black-18dp.svg" />
+                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg" />
                     </button>
                     <button class="stripe_button red" onclick="" name="reg_out" type="submit">
                         <p>Register out</p>
@@ -173,6 +173,7 @@
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
     <script src="../js/registration.js"></script>
 </body>
 </html>
