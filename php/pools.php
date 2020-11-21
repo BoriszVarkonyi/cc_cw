@@ -34,6 +34,163 @@ $checkwc ++;
 
 }
 
+if(isset($_POST["create_pools"])){
+
+//$query_create_table = "CREATE TABLE `pools_$comp_id` ( id INT NOT NULL , pool_number INT NOT NULL , pool_of INT NOT NULL , f1 VARCHAR(255) NOT NULL , f2 VARCHAR(255) NOT NULL , f3 VARCHAR(255) NOT NULL , f4 VARCHAR(255) NOT NULL , f5 VARCHAR(255) NOT NULL , f6 VARCHAR(255) NOT NULL , f7 VARCHAR(255) NOT NULL , ref INT NOT NULL , piste INT NOT NULL , time VARCHAR(255) NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
+//$query_create_table_do = mysqli_query($connection,$query_create_table);
+
+/*if(!$query_create_table_do){
+
+echo mysqli_error($connection);
+
+}*/
+
+$poolsnum = $_POST["pools_of"];
+
+for ($i = 0; $i < $poolsnum; $i++) {
+    ${$i . "_group_f"} = array();
+    ${$i . "_group_n"} = array();
+}
+
+$all_fencers_f = [];
+$all_fencers_n = [];
+
+$query_get_fencers = "SELECT * FROM cptrs_$comp_id";
+$query_get_fencers_do = mysqli_query($connection, $query_get_fencers);
+
+while($row = mysqli_fetch_assoc($query_get_fencers_do)){
+    
+$fname = $row["name"];
+$fnat = $row["nationality"];
+
+array_push($all_fencers_f, $fname);
+array_push($all_fencers_n, $fnat);
+}
+
+$y = 0;
+$change = 0;
+$savegrouparray = array();
+$savefencerarray = array();
+for($x=0;$x < count($all_fencers_f); $x++){
+
+if(!in_array($all_fencers_n[$x], ${$y . "_group_n"})){
+
+
+    array_push(${$y . "_group_f"}, $all_fencers_f[$x]);
+    array_push(${$y . "_group_n"}, $all_fencers_n[$x]);
+
+
+}else {
+    
+    array_push($savefencerarray, $x);
+    array_push($savegrouparray, $y);
+
+}
+
+
+
+if($y < $poolsnum -1 && $change == 0){
+
+$y++;
+
+}
+elseif($y == $poolsnum-1 && $change == 0){
+
+    $y = $poolsnum-1;
+    $change = 1;
+
+}
+elseif($y == $poolsnum-1 && $change == 1){
+
+$y --;
+
+}
+elseif($y > 0) {
+
+$y --;
+
+}
+elseif($y == 0){
+
+$change = 0;
+
+}
+
+}
+
+for ($l=0; $l < count($savegrouparray); $l++) {
+    
+$doit = 0;
+
+    for ($k=0; $k < count($savefencerarray); $k++) { 
+        
+        if(!in_array($all_fencers_n[$savefencerarray[$k]], ${$savegrouparray[$l] . "_group_n"}) && $doit == 0 && $savefencerarray[$k] != "OFF"){
+
+            array_push(${$savegrouparray[$l] . "_group_f"}, $all_fencers_f[$savefencerarray[$k]]);
+            array_push(${$savegrouparray[$l] . "_group_n"}, $all_fencers_n[$savefencerarray[$k]]);
+            $savefencerarray[$k] = "OFF";
+        
+            $doit = 1;
+        }
+
+    }
+}
+//$szamolo = 0;
+for ($s=0; $s < count($savefencerarray) + 1 ; $s++) { 
+    
+    if($savefencerarray[$s] == "OFF"){
+        unset($savefencerarray[$s]);
+        //$szamolo++;
+    }
+
+}
+$xd = 0;
+if(count($savefencerarray) > 0){
+
+for ($h=0; $h < count($savefencerarray); $h++) { 
+
+
+
+    $annalkisebb = count(${$xd . "_group_n"});
+
+for ($c=0; $c < $poolsnum; $c++) { 
+    
+if($annalkisebb > count(${$c . "_group_n"})){
+
+    $annalkisebb = count(${$c . "_group_n"});
+
+    $toplace = $c;
+
+}
+
+
+}
+
+array_push(${$toplace . "_group_f"}, $all_fencers_f[$savefencerarray[$h /*+ $szamolo]*/]]);
+array_push(${$toplace . "_group_n"}, $all_fencers_n[$savefencerarray[$h /*+ $szamolo]*/]]);
+}
+}
+
+
+print_r($all_fencers_f);
+print_r($all_fencers_n);
+
+for ($i=0; $i < $poolsnum; $i++) { 
+  print_r(${$i . "_group_n"});
+  print_r(${$i . "_group_f"});
+}
+
+print_r($savegrouparray);
+print_r($savefencerarray);
+}
+
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +267,7 @@ $checkwc ++;
                                 <td><?php echo round($fencers * 0.7) ?></td>
                             <tr>
                         </table>
-                        <button type="submit" name="submit" value="Save" class="panel_submit">Create</button>
+                        <button type="submit" name="create_pools" value="Save" class="panel_submit">Create</button>
                     </form>
                 </div>
 
