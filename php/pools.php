@@ -218,7 +218,7 @@ print_r($savefencerarray);
 
                 <button class="stripe_button orange" onclick="generatePanel()" type="submit">
                     <p>Generate Pools</p>
-                    <img src="../assets/icons/add_box-black-18dp.svg"></img>
+                    <img src="../assets/icons/add_box-black-18dp.svg" />
                 </button>
 
                 <div id="ref_pis_time_panel" class="overlay_panel">
@@ -277,22 +277,22 @@ print_r($savefencerarray);
 
                 <button class="stripe_button" type="button">
                     <p>Open CC Match Control</p>
-                    <img src="../assets/icons/pages-black-18dp.svg"></img>
+                    <img src="../assets/icons/pages-black-18dp.svg" />
                 </button>
 
                 <button class="stripe_button disabled" type="button">
                     <p>Send Message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"></img>
+                    <img src="../assets/icons/message-black-18dp.svg" />
                 </button>
 
                 <button class="stripe_button bold" type="button" onclick="refPisTimePanel()">
                     <p>Referees & Pistes & Time</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg"></img>
+                    <img src="../assets/icons/ballot-black-18dp.svg" />
                 </button>
                 
                 <button class="stripe_button orange" type="submit">
                     <p>Start Pools</p>
-                    <img src="../assets/icons/outlined_flag-black-18dp.svg"></img>
+                    <img src="../assets/icons/outlined_flag-black-18dp.svg" />
                 </button>
 
                 <div id="ref_pis_time_panel" class="overlay_panel hidden">
@@ -425,7 +425,7 @@ print_r($savefencerarray);
                 
                 <button class="stripe_button" type="button">
                     <p>Open CC Match Control</p>
-                    <img src="../assets/icons/pages-black-18dp.svg"></img>
+                    <img src="../assets/icons/pages-black-18dp.svg" />
                 </button>
 -->
                 

@@ -22,6 +22,7 @@
 	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
+	--s-green: 0 3px 6px rgba(141, 255, 183, 0.1);
 	--t-basic: ease-in .2s;
 	--f-xxlarge: calc(2em + 2vmin);
 	--f-xlarge: calc(1.5em + 2vmin);
@@ -186,25 +187,30 @@ form.hidden, form.disabled {
 /* CUSTOM TABLE ELEMENTS */
 
 .table {		/* Whole table */
-	display: table;
+	display: flex;
+	flex-direction: column;
 	border-collapse: collapse;
-	font-size: var(--f-medium) !important;
 }
 
 .table_row_wrapper {	/* Wraps table_row elements */
-	display: table-row-group;
+	display: flex;
+	flex-direction: column;
 	border-left: 2px solid var(--c-darkgray);
 	border-right: 2px solid var(--c-gray);
+	border-radius: 5px;
 }
 
 /* Header */
 
 .table_header {		/* Wraps table_header text elements */
 	font-family: var(--thin);
+	display: flex;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
 }
 
 .table_header_text {
-	text-transform: uppercase;
+	box-sizing: border-box;
 }
 
 .table_header_text.title {
@@ -213,7 +219,6 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.square, .table_item.square {
-	flex: 0 1 4vh;
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
@@ -230,21 +235,27 @@ form.hidden, form.disabled {
 
 .small_status_header {
 	width: 20px;
-	vertical-align: middle;
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	font-size: var(--f-small);
 	font-family: var(--bold);
 }
 
 .big_status_header {
+	display: flex;
+	align-items: center;
+	width: calc(1.4em + 1.25vmin);
+	justify-content: center;
 }
 
 /* Table row */
 
 .table_row {
+	display: flex;
 	background-color: var(--c-white);
 	cursor: pointer;
-	transition: background-color var(--t-basic), transform var(--t-basic);
+	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);;
 }
 
 .table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
@@ -260,15 +271,15 @@ form.hidden, form.disabled {
 	box-shadow: var(--s-black);
 	z-index: 2;
 	transform: scale(1.01);
+	font-family: var(--bold);
+	border-radius: 2.5px;
+	overflow: hidden;
 }
 
 .table_row.start {
-	justify-content: flex-start;
 }
 
 .table_row.start > .table_item {
-	justify-content: flex-start;
-	flex: 0 1 auto;
 	padding-right: 20px;
 }
 
@@ -279,9 +290,6 @@ form.hidden, form.disabled {
 /* Table Items */
 
 .table_item {
-	overflow: hidden;
-	white-space: nowrap;
-	max-width: 30vw;
 }
 
 .table_item.filled {
@@ -302,6 +310,7 @@ form.hidden, form.disabled {
 }
 
 .big_status_item {
+	width: calc(1.4em + 1.25vmin);
 }
 
 .big_status_item > label {
@@ -343,18 +352,39 @@ form.hidden, form.disabled {
 
 /* Universal Table */
 
-.table * {
-	text-align: center;
-	vertical-align: middle;
-}
-
 .table_header, .table_row {
-	display: table-row;
 	height: calc(1.4em + 1.25vmin);
+	font-size: var(--f-medium) !important;
 }
 
-.table_header_text, .table_item, .small_status_header, .small_status_item, .big_status_header, .big_status_item {
-	display: table-cell;
+.table_header_text, .table_item {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	border-left: 1px solid red;
+	border-right: 1px solid green;
+	max-width: 50%;
+}
+
+/* Resizer */
+
+.resizer {
+	position: absolute;
+	width: 5px;
+	height: 50px;
+	cursor: col-resize;
+	user-select: none;
+	border-right: 2px solid var(--c-blue);
+	z-index: 5;
+}
+
+.resizer:hover, .resizing {
+	border-right: 2px solid var(--c-blue);
 }
 
 /* ///SCROLL BAR// */
@@ -886,6 +916,16 @@ input[type="time"] {
 	background-color: var(--c-red);
 }
 
+.stripe_button.green {
+	background-color: var(--c-green);
+	box-shadow: var(--s-green);
+	font-family: var(--bold);
+}
+
+.stripe_button.green:hover {
+	background-color: var(--c-green);
+}
+
 /* Panel Button Used in CC Panels */
 
 /* Used on login page */
@@ -946,6 +986,11 @@ input[type="time"] {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
+}
+
+.panel_button > img{
+	width: 25px;
+	height: 25px;
 }
 
 .panel_button:hover {

@@ -29,7 +29,7 @@
                 <p class="page_title">Competitors</p>
                 <button class="stripe_button" type="button">
                     <p>Send message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"></img>
+                    <img src="../assets/icons/message-black-18dp.svg" />
                 </button>
             </div>
             <div id="page_content_panel_main">

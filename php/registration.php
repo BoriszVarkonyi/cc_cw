@@ -89,18 +89,18 @@
 
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
-                    <button type="button" class="stripe_button bold" onclick="toggleAddFencerPanel()">
+                    <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()">
                         <p>Add Fencer</p>
-                        <img src="../assets/icons/add-black-18dp.svg"></img>
+                        <img src="../assets/icons/add-black-18dp.svg" />
                     </button>
-                    <button class="stripe_button orange" onclick="" name="reg_in" type="submit">
-                        <p>Register in</p>
-                        <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
-                     </button>
-                    <button class="stripe_button orange" onclick="" name="reg_out" type="submit">
+                    <button class="stripe_button red" onclick="" name="reg_out" type="submit">
                         <p>Register out</p>
-                        <img src="../assets/icons/how_to_reg-black-18dp.svg"></img>
+                        <img src="../assets/icons/how_to_reg-black-18dp.svg" />
                     </button>
+                    <button class="stripe_button green" onclick="" name="reg_in" type="submit">
+                        <p>Register in</p>
+                        <img src="../assets/icons/how_to_reg-black-18dp.svg" />
+                     </button>
                     <input type="text" class="hidden" name="fencer_ids" id="fencer_ids" value="">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
@@ -126,7 +126,7 @@
                         </div>
                 <div id="page_content_panel_main">
 
-                    <div class="wrapper table_row_wrapper" id="table">
+                    <div id="table"  class="table wrapper">
                     <!--
                         <div id="no_something_panel">
                             <p>You have no referees set up!</p>
@@ -145,7 +145,7 @@
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>
-
+                        <div class="table_row_wrapper">
                         <?php
                         
                         while($row = mysqli_fetch_assoc($query_do)){
@@ -161,12 +161,13 @@
                             <div class="table_item"><?php echo $name ?></div>
                             <div class="table_item"><?php echo $nat ?></div>
                             <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
-                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
+                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div>
                         </div>
                         <?php
                         }
                         ?>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

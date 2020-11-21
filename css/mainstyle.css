@@ -802,7 +802,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
 	width: 100%;
 	height: 100%;
 }
@@ -1137,15 +1136,6 @@ input[type=radio]:checked:disabled + label:before {
 	border-radius: 0;
 }
 
-.overlay_panel.thin {
-	min-width: 250px;
-	width: 12vw;
-	max-width: 300px;
-	min-height: 300px;
-	height: 10vh;
-	max-height: 350px;
-}
-
 /* ///LOGIN PAGE ELEMENTS/// */
 
 #login_panel {		/* Login panel used on login page */
@@ -1428,19 +1418,25 @@ input[type=radio]:checked:disabled + label:before {
 	top: calc(50px + 3vh);
 }
 
-.select_competition_wrapper > .table_row {
-	min-height: 27.5px;
-	height: 3.5vh;
-	max-height: 45px;
+.select_competition_wrapper  {
+	border: none  !important;
+	width: 350px;
+	overflow: auto;
+}
+
+.select_competition_wrapper .table_row {
+	height: calc(1.2em + 1.0vmin);
+}
+
+.select_competition_wrapper .table_item {
+	vertical-align: middle;
+	padding: 0 20px;
 }
 
 #import_technician, #import_ref {
-	width: 90%;
-	height: 70%;
 	display: flex;
 	justify-content: center;
-	overflow-y: auto;
-	overflow-x: hidden;
+	width: 350px;
 }
 
 #random_password_button {

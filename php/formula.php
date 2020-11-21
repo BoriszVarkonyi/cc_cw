@@ -29,7 +29,7 @@
                 <p class="page_title">Formula</p>
                 <button class="stripe_button orange" type="submit">
                     <p>Save Formula</p>
-                    <img src="../assets/icons/save-black-18dp.svg"></img>
+                    <img src="../assets/icons/save-black-18dp.svg" />
                 </button>
             </div>
             <div id="page_content_panel_main">
@@ -56,7 +56,7 @@
                                 <input type="radio" name="elimnation_type" id="direct_et" value="" checked/>
                                 <label for="direct_et">Direct-Elimination Tournament</label>
 
-                                <input type="radio" name="elimnation_type" id="double_et" value=""/>
+                                <input type="radio" name="elimnation_type" id="double_et" value="" disabled/>
                                 <label for="double_et">Double-Elimination Tournament</label>
                             </div>
 
@@ -70,10 +70,10 @@
 
                             <label for="third_place" >FENCING FOR 3RD PLACE</label>
                             <div class="option_container">
-                                <input type="radio" name="third_place" id="third_place_yes" value="" checked/>
+                                <input type="radio" name="third_place" id="third_place_yes" value="" disabled/>
                                 <label for="third_place_no">Yes</label>
 
-                                <input type="radio" name="third_place" id="third_place_no" value=""/>
+                                <input type="radio" name="third_place" id="third_place_no" value="" checked/>
                                 <label for="third_place_no">No</label>
                             </div>
                         </div>

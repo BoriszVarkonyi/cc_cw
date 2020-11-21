@@ -30,10 +30,16 @@
             <button id="table_lengend" value="Ongoing Table"></button>
             <p>Ongoing Table</p>
         </div>
-
-        <div class="cw_table_wrapper competitions table_row_wrapper">
-            <!-- comps display scheduled -->
-            <?php include "../cw/comps_display.php" ?>
+        <div class="table">
+            <div class="table_header">
+                <div class="table_header_text">COMPETITION'S NAME</div>
+                <div class="table_header_text">STARTING AND ENDING DATE</div>
+                <div class="table_header_text">HOSTING COUNTRY</div>
+            </div>
+            <div class="cw_table_wrapper competitions table_row_wrapper">
+                <!-- comps display scheduled -->
+                <?php include "../cw/comps_display.php" ?>
+            </div>
         </div>
     </div>
 <?php include "cw_footer.php"; ?>
