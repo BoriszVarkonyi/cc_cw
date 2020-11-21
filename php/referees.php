@@ -162,7 +162,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         <button class="panel_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
-                            <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
+                            <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
                                 <label for="username" >NAME</label>
                                 <input type="text" placeholder="Type the referees's name" class="username_input" name="username">
                                 <label for="password">PASSWORD</label>
@@ -172,6 +172,13 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                                 </div>
                                 <label for="full_name" >FULL NAME</label>
                                 <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
+                                <div class="search_wrapper">
+                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <input type="text" name="f_nat" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <div class="search_results">
+                                    <?php include "../includes/nations.php"; ?>
+                                    </div>
+                                </div>
                             <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
                     </div>
