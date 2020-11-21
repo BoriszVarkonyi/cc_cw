@@ -29,11 +29,11 @@
                     <p class="page_title">Call Room</p>
                     <button class="stripe_button" type="submit">
                         <p>Send Message to Fencer</p>
-                        <img src="../assets/icons/message-black-18dp.svg"></img>
+                        <img src="../assets/icons/message-black-18dp.svg" />
                     </button>
                     <button class="stripe_button orange" type="submit">
                         <p>Pass Fencer</p>
-                        <img src="../assets/icons/send-black-18dp.svg"></img>
+                        <img src="../assets/icons/send-black-18dp.svg" />
                     </button>
                 </div>
                 <div id="page_content_panel_main">

@@ -5,6 +5,190 @@
 
 <?php 
 
+$query_get_fencers = "SELECT * FROM cptrs_$comp_id";
+$query_get_fencers_do = mysqli_query($connection, $query_get_fencers);
+
+
+$fencers = mysqli_num_rows($query_get_fencers_do);
+
+
+$checkreg = 0;
+$checkwc = 0;
+
+
+while($row = mysqli_fetch_assoc($query_get_fencers_do)){
+
+$reg = $row["reg"];
+$wc = $row["wc"];
+
+if($reg == 0){
+
+$checkreg++;
+
+}
+if($wc == 0){
+
+$checkwc ++;
+
+}
+
+}
+
+if(isset($_POST["create_pools"])){
+
+//$query_create_table = "CREATE TABLE `pools_$comp_id` ( id INT NOT NULL , pool_number INT NOT NULL , pool_of INT NOT NULL , f1 VARCHAR(255) NOT NULL , f2 VARCHAR(255) NOT NULL , f3 VARCHAR(255) NOT NULL , f4 VARCHAR(255) NOT NULL , f5 VARCHAR(255) NOT NULL , f6 VARCHAR(255) NOT NULL , f7 VARCHAR(255) NOT NULL , ref INT NOT NULL , piste INT NOT NULL , time VARCHAR(255) NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
+//$query_create_table_do = mysqli_query($connection,$query_create_table);
+
+/*if(!$query_create_table_do){
+
+echo mysqli_error($connection);
+
+}*/
+
+$poolsnum = $_POST["pools_of"];
+
+for ($i = 0; $i < $poolsnum; $i++) {
+    ${$i . "_group_f"} = array();
+    ${$i . "_group_n"} = array();
+}
+
+$all_fencers_f = [];
+$all_fencers_n = [];
+
+$query_get_fencers = "SELECT * FROM cptrs_$comp_id";
+$query_get_fencers_do = mysqli_query($connection, $query_get_fencers);
+
+while($row = mysqli_fetch_assoc($query_get_fencers_do)){
+    
+$fname = $row["name"];
+$fnat = $row["nationality"];
+
+array_push($all_fencers_f, $fname);
+array_push($all_fencers_n, $fnat);
+}
+
+$y = 0;
+$change = 0;
+$savegrouparray = array();
+$savefencerarray = array();
+for($x=0;$x < count($all_fencers_f); $x++){
+
+if(!in_array($all_fencers_n[$x], ${$y . "_group_n"})){
+
+
+    array_push(${$y . "_group_f"}, $all_fencers_f[$x]);
+    array_push(${$y . "_group_n"}, $all_fencers_n[$x]);
+
+
+}else {
+    
+    array_push($savefencerarray, $x);
+    array_push($savegrouparray, $y);
+
+}
+
+
+
+if($y < $poolsnum -1 && $change == 0){
+
+$y++;
+
+}
+elseif($y == $poolsnum-1 && $change == 0){
+
+    $y = $poolsnum-1;
+    $change = 1;
+
+}
+elseif($y == $poolsnum-1 && $change == 1){
+
+$y --;
+
+}
+elseif($y > 0) {
+
+$y --;
+
+}
+elseif($y == 0){
+
+$change = 0;
+
+}
+
+}
+
+for ($l=0; $l < count($savegrouparray); $l++) {
+    
+$doit = 0;
+
+    for ($k=0; $k < count($savefencerarray); $k++) { 
+        
+        if(!in_array($all_fencers_n[$savefencerarray[$k]], ${$savegrouparray[$l] . "_group_n"}) && $doit == 0 && $savefencerarray[$k] != "OFF"){
+
+            array_push(${$savegrouparray[$l] . "_group_f"}, $all_fencers_f[$savefencerarray[$k]]);
+            array_push(${$savegrouparray[$l] . "_group_n"}, $all_fencers_n[$savefencerarray[$k]]);
+            $savefencerarray[$k] = "OFF";
+        
+            $doit = 1;
+        }
+
+    }
+}
+//$szamolo = 0;
+for ($s=0; $s < count($savefencerarray) + 1 ; $s++) { 
+    
+    if($savefencerarray[$s] == "OFF"){
+        unset($savefencerarray[$s]);
+        //$szamolo++;
+    }
+
+}
+$xd = 0;
+if(count($savefencerarray) > 0){
+
+for ($h=0; $h < count($savefencerarray); $h++) { 
+
+
+
+    $annalkisebb = count(${$xd . "_group_n"});
+
+for ($c=0; $c < $poolsnum; $c++) { 
+    
+if($annalkisebb > count(${$c . "_group_n"})){
+
+    $annalkisebb = count(${$c . "_group_n"});
+
+    $toplace = $c;
+
+}
+
+
+}
+
+array_push(${$toplace . "_group_f"}, $all_fencers_f[$savefencerarray[$h /*+ $szamolo]*/]]);
+array_push(${$toplace . "_group_n"}, $all_fencers_n[$savefencerarray[$h /*+ $szamolo]*/]]);
+}
+}
+
+
+print_r($all_fencers_f);
+print_r($all_fencers_n);
+
+for ($i=0; $i < $poolsnum; $i++) { 
+  print_r(${$i . "_group_n"});
+  print_r(${$i . "_group_f"});
+}
+
+print_r($savegrouparray);
+print_r($savefencerarray);
+}
+
+
+
+
+
+
 
 
 ?>
@@ -28,16 +212,64 @@
             <div id="title_stripe">
                 <p class="page_title">Pools</p>
 
-                <!--
+                
 
                 STATE: 0
 
-                <button class="stripe_button orange" type="submit">
+                <button class="stripe_button orange" onclick="generatePanel()" type="submit">
                     <p>Generate Pools</p>
-                    <img src="../assets/icons/add_box-black-18dp.svg"></img>
+                    <img src="../assets/icons/add_box-black-18dp.svg" />
                 </button>
 
-                -->
+                <div id="ref_pis_time_panel" class="overlay_panel">
+                    <button class="panel_button" onclick="refPisTimePanel()">
+                        <img src="../assets/icons/close-black-18dp.svg" >
+                    </button>
+                    <p class="panel_title <?php if($checkwc == 0 && $checkreg == 0){echo "green";}else{echo "red";} ?>"><?php if($checkwc == 0 && $checkreg == 0){echo "Everyone is ready to fence";}else{echo "Not everyone is ready to fence";} ?></p>
+                    <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
+                        <label for="starting_time" >STRIVE FOR</label>
+                        <div class="option_container">
+                            <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $fencers ?>">
+                            <input type="radio" class="option_button" name="pools_of" id="7" value="" onclick=""/>
+                            <label for="7" class="option_label">Pools of 7</label>
+                            <p id="p_7"></p>
+                            <input type="radio" class="option_button" name="pools_of" id="6" value="" onclick=""/>
+                            <label for="6" class="option_label">Pools of 6</label>
+                            <p id="p_6"></p>
+                            <input type="radio" class="option_button" name="pools_of" id="5" value="" onclick=""/>
+                            <label for="5" class="option_label">Pools of 5</label>
+                            <p id="p_5"></p>
+                            <input type="radio" class="option_button" name="pools_of" id="4" value="" onclick=""/>
+                            <label for="4" class="option_label">Pools of 4</label>
+                            <p id="p_4"></p>
+                        </div>
+
+                        <label for="interval_of_match">NUMBER OF QUALIFIERS</label>
+                        <input type="number" placeholder="#" class="number_input extra_small">
+
+                        <label for="pistes_type" >STATISTICS</label>
+
+                        <table class="pools_stat_table">
+                            <thead>
+                                <th>Percent</th>
+                                <th>Number of Fencers</th>
+                            </thead>
+                            <tr>
+                                <td>All</td>
+                                <td><?php echo $fencers ?></td>
+                            <tr>
+                            <tr>
+                                <td>80%</td>
+                                <td><?php echo round($fencers * 0.8) ?></td>
+                            <tr>
+                            <tr>
+                                <td>70%</td>
+                                <td><?php echo round($fencers * 0.7) ?></td>
+                            <tr>
+                        </table>
+                        <button type="submit" name="create_pools" value="Save" class="panel_submit">Create</button>
+                    </form>
+                </div>
 
                 
 <!--
@@ -45,22 +277,22 @@
 
                 <button class="stripe_button" type="button">
                     <p>Open CC Match Control</p>
-                    <img src="../assets/icons/pages-black-18dp.svg"></img>
+                    <img src="../assets/icons/pages-black-18dp.svg" />
                 </button>
 
                 <button class="stripe_button disabled" type="button">
                     <p>Send Message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"></img>
+                    <img src="../assets/icons/message-black-18dp.svg" />
                 </button>
 
                 <button class="stripe_button bold" type="button" onclick="refPisTimePanel()">
                     <p>Referees & Pistes & Time</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg"></img>
+                    <img src="../assets/icons/ballot-black-18dp.svg" />
                 </button>
                 
                 <button class="stripe_button orange" type="submit">
                     <p>Start Pools</p>
-                    <img src="../assets/icons/outlined_flag-black-18dp.svg"></img>
+                    <img src="../assets/icons/outlined_flag-black-18dp.svg" />
                 </button>
 
                 <div id="ref_pis_time_panel" class="overlay_panel hidden">
@@ -186,22 +418,22 @@
                     </form>
                 </div>
 
-                -->
+                
                 
 
                 STATE: 2
                 
                 <button class="stripe_button" type="button">
                     <p>Open CC Match Control</p>
-                    <img src="../assets/icons/pages-black-18dp.svg"></img>
+                    <img src="../assets/icons/pages-black-18dp.svg" />
                 </button>
-
+-->
                 
 
             </div>
             <div id="page_content_panel_main">
 
-                <!--
+             
 
                 STATE: 0
 
@@ -379,7 +611,7 @@
                     </div>
                     <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                     </div>
--->
+
                     
 
                     STATE: 2 
@@ -1027,6 +1259,7 @@
                                     </div>
                                 </div>
                             </div>
+-->
                         </div>
                     </div>
 

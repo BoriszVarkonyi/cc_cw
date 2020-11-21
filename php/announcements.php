@@ -132,7 +132,7 @@
                 <!-- new announcement button top -->
                 <button class="stripe_button orange" id="new_announcement_top" type="button" onclick="hideNshow()">
                     <p>New Announcement</p>
-                    <img src="../assets/icons/add-black-18dp.svg"></img>
+                    <img src="../assets/icons/add-black-18dp.svg" />
                 </button>
 
             </div>
@@ -203,5 +203,6 @@
         </div>
     </body>
 <script src="../js/main.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/announcements.js"></script>
 </html>

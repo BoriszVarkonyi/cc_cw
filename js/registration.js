@@ -1,6 +1,54 @@
-function selectRow(x){
-
 var hiddenin = document.getElementById("fencer_ids");
+
+document.onkeydown = (keyDownEvent) => {
+
+    if(keyDownEvent.key == "ArrowUp"){
+
+
+        var tabla = document.getElementById("table");
+        var kijelolt = document.getElementsByClassName("selected");
+
+        var elem = kijelolt[0];
+        var kovielem = elem.previousElementSibling;
+
+        if(elem != tabla.children[1]){
+
+            elem.classList.remove("selected");
+            kovielem.classList.add("selected");
+            hiddenin.value = kovielem.id;
+
+        }else
+        {
+
+            console.log("First");
+        }
+    }
+
+
+    if(keyDownEvent.key == "ArrowDown"){
+
+
+        var tabla = document.getElementById("table");
+        var kijelolt = document.getElementsByClassName("selected");
+
+        var elem = kijelolt[0];
+        var kovielem = elem.nextElementSibling;
+
+        if(elem != tabla.lastElementChild){
+
+            elem.classList.remove("selected");
+            kovielem.classList.add("selected");
+            hiddenin.value = kovielem.id;
+
+        }else
+        {
+
+            console.log("LAST");
+        }
+    }
+}
+
+function selectRow(x){
 
 if(x.classList.contains("selected")){
 

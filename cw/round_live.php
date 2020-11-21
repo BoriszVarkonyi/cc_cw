@@ -14,7 +14,7 @@
     <div id="cw_main_live">
         <div class="cw_panel_title_wrapper">
             <button type="button" class="back_button" onclick="location.href='cw_table.php'">
-                <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
+                <img  src="../assets/icons/arrow_back_ios-black-18dp.svg" />
             </button>
             <p>LIVE RESULTS OF {COMP NAME}, {PISTE NUMBER}, {FENCERNAME} VS. {FENCERNAME}</p>
         </div>

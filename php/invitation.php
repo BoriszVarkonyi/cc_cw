@@ -164,11 +164,11 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                 <p class="page_title">Plus Information</p>
                 <button class="stripe_button" type="button" onclick="printPage()">
                     <p>Print Invitation</p>
-                    <img src="../assets/icons/print-black-18dp.svg"></img>
+                    <img src="../assets/icons/print-black-18dp.svg" />
                 </button>
                 <button class="stripe_button orange" type="button">
                     <p>Save Invitation</p>
-                    <img src="../assets/icons/save-black-18dp.svg"></img>
+                    <img src="../assets/icons/save-black-18dp.svg" />
                 </button>
             </div>
 

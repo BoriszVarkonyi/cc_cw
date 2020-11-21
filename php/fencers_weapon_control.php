@@ -199,12 +199,12 @@
 
                     <button name="submit_cancel" id="buttonstop" class="stripe_button" type="submit" onclick="location.href='weapon_control.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Cancel</p>
-                        <img src="../assets/icons/close-black-18dp.svg"></img>
+                        <img src="../assets/icons/close-black-18dp.svg" />
                     </button>
 
                     <button name="submit_wc" class="stripe_button orange" type="submit" form="fencers_weapon_control_wrapper">
                         <p>Save weapon control</p>
-                        <img src="../assets/icons/save-black-18dp.svg"></img>
+                        <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
 
                 </div>
