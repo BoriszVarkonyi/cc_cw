@@ -99,5 +99,6 @@ $query_comps = mysqli_query($connection, $query);
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
 </body>
 </html>

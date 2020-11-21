@@ -203,5 +203,6 @@
         </div>
     </body>
 <script src="../js/main.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/announcements.js"></script>
 </html>

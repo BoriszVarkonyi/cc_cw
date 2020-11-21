@@ -301,5 +301,6 @@ $tech_list_query = mysqli_query($connection, $query_tech);
     </div>
     <script src="../js/main.js"></script>
     <script src="../js/technicians.js"></script>
+    <script src="../js/list.js"></script>
 </body>
 </html>
