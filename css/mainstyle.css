@@ -1461,7 +1461,7 @@ input[type=radio]:checked:disabled + label:before {
 	max-height: var(--f-medium);
 	background-color: transparent;
 	vertical-align: middle;
-	margin-bottom: 2.2px;
+	margin-left: 3px;
 }
 
 #visibility_button > img{
@@ -3083,12 +3083,12 @@ input.wc_time {
 
 .piste.focused {
 	transform: scale(1.025);
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 	z-index: 5;
 }
 
 .piste.focused > form {
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .piste > .piste_settings_panel {

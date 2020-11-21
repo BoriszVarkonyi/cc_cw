@@ -62,12 +62,6 @@
                 </div>
                 <div id="page_content_panel_main">
                     <div class="wrapper table">
-
-                        <!-- Maybe not needed, but this should be displayed if there the organiser hasn't set up the ranking and opened the weapon control page. Or maybe the couldn't been opened until the ranking has been set up?
-                            <div id="no_something_panel">
-                                <p>You have no fencers set up!</p>
-                            </div>
-                        -->
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
                             <div class="table_header_text">SEX</div>
@@ -76,7 +70,6 @@
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>
-
                         <div class="table_row_wrapper">
                         <?php
                             //get weapon type, comp sex from competitions
@@ -106,10 +99,7 @@
 
                                 //get fencer status wc létezik e
                                 $qry_fencer_wc_data = "";
-
-
                         ?>
-
                         <!-- while -->
                         <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
                             <div class="table_item"><?php echo $fencer_name ?></div>

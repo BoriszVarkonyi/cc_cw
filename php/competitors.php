@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table_row_wrapper w90">
+                <div class="wrapper table w90">
                     <div class="table_header">
                         <div class="table_header_text small">POSITION</div>
                         <div class="table_header_text">NAME</div>
@@ -43,83 +43,70 @@
                         <div class="small_status_header"></div>
                         <div class="table_header_text">WEAPON CONTROL</div>
                     </div>
-
-                    <?php
-                    
-                    
-                    $query = "SELECT * FROM cptrs_$comp_id ORDER BY rank";
-                    $query_do = mysqli_query($connection, $query);
-                    
-                    while($row = mysqli_fetch_assoc($query_do)){
-
-                        $pos = $row["rank"];
-                        $name = $row["name"];
-                        $nat = $row["nationality"];
-                        $reg = $row["reg"];
-                        $wc = $row["wc"];?>
-
-
-                    <div class="table_row">
-                        <div class="table_item"><?php echo $pos ?></div>
-                        <div class="table_item"><?php echo $name ?></div>
-                        <div class="table_item"><?php echo $nat ?></div>
-                        <div class="small_status_item <?php
+                    <div class="table_row_wrapper">
+                        <?php
+                        $query = "SELECT * FROM cptrs_$comp_id ORDER BY rank";
+                        $query_do = mysqli_query($connection, $query);
                         
-                        if($reg == 0){
+                        while($row = mysqli_fetch_assoc($query_do)){
 
-                            echo "red";
-                        }else{
+                            $pos = $row["rank"];
+                            $name = $row["name"];
+                            $nat = $row["nationality"];
+                            $reg = $row["reg"];
+                            $wc = $row["wc"];?>
 
-                            echo "green";
+                            <div class="table_row">
+                                <div class="table_item"><?php echo $pos ?></div>
+                                <div class="table_item"><?php echo $name ?></div>
+                                <div class="table_item"><?php echo $nat ?></div>
+                                <div class="small_status_item <?php
+
+                                if($reg == 0){
+
+                                    echo "red";
+                                }else{
+
+                                    echo "green";
+                                }
+                                ?>">
+                                </div>
+                                <div class="table_item"><?php
+                                
+                                if($reg == 0){
+
+                                    echo "Not ready";
+                                }else{
+
+                                    echo "Ready";
+                                }
+                                ?>
+                                </div>
+                                <div class="small_status_item <?php
+                                if($wc == 0){
+
+                                    echo "red";
+                                }else{
+
+                                    echo "green";
+                                }
+                                ?>">
+                                </div>
+                                <div class="table_item"><?php
+                                if($wc == 0){
+
+                                    echo "Not ready";
+                                }else{
+
+                                    echo "Ready";
+                                }
+                                ?>
+                                </div>
+                            </div>
+                        <?php
                         }
-                        
-                        
-                        
-                        ?>"></div>
-                        <div class="table_item"><?php
-                        
-                        if($reg == 0){
-
-                            echo "Not ready";
-                        }else{
-
-                            echo "Ready";
-                        }
-                        
-                        
-                        
-                        ?></div>
-                        <div class="small_status_item <?php
-                        
-                        if($wc == 0){
-
-                            echo "red";
-                        }else{
-
-                            echo "green";
-                        }
-                        
-                        
-                        
-                        ?>"></div>
-                        <div class="table_item"><?php
-                        
-                        if($wc == 0){
-
-                            echo "Not ready";
-                        }else{
-
-                            echo "Ready";
-                        }
-                        
-                        
-                        
-                        ?></div>
+                        ?>
                     </div>
-
-                    <?php
-                    }
-                    ?>
                 </div>
             </div>
         </div>

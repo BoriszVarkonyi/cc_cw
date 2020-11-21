@@ -118,16 +118,10 @@ $ref_list_query = mysqli_query($connection, $query_ref);
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
-                        <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
-                        <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
-                            <p>Remove Referee</p>
-                            <img src="../assets/icons/delete-black-18dp.svg" />
-                        </button>
                         <button class="stripe_button" onclick="toggle_import_technician()">
                             <p>Import Referees</p>
                             <img src="../assets/icons/save_alt-black-18dp.svg" />
                         </button>
-
                         <div id="import_technician_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
                                 <img src="../assets/icons/close-black-18dp.svg" >
@@ -154,9 +148,12 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                                 </div>
                                 <button type="submit" name="import_ref" class="panel_submit" value="Import">Import</span></button>
                             </form>
-                            
                         </div>
-
+                        <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
+                        <button class="stripe_button disabled red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                            <p>Remove Referee</p>
+                            <img src="../assets/icons/delete-black-18dp.svg" />
+                        </button>
                         <button class="stripe_button orange" onclick="toggle_add_technician()">
                             <p>Add Referees</p>
                             <img src="../assets/icons/add-black-18dp.svg" />
@@ -165,22 +162,25 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         <button class="panel_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
-
                             <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
-
                                 <label for="username" >NAME</label>
                                 <input type="text" placeholder="Type the referees's name" class="username_input" name="username">
-
                                 <label for="password">PASSWORD</label>
                                 <div>
                                 <input type="password" placeholder="Type the referees's password" id="password_input" class="password_input" name="password">
-
                                 <button type="button" id="random_password_button" onclick="randomPassword()" ><img src="../assets/icons/shuffle-black-18dp.svg"></button>
                                 </div>
                                 <label for="full_name" >FULL NAME</label>
                                 <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
                             <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
+                    </div>
+                    <div class="search_wrapper">
+                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                        <div class="search_results">
+                            <a id="" href="#" onclick="selectTechniciansWithSearch(this)"></a>
+                        </div>
                     </div>
                 </div>
                 <div id="page_content_panel_main">
@@ -204,6 +204,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                     
                         <div class="table_header">
                             <div class="table_header_text">FULL NAME</div>
+                            <div class="table_header_text">NATION / CLUB</div>
                             <div class="table_header_text">USERNAME</div>
                             <div class="table_header_text">PASSWORD
                                 <button onclick="hidePasswords(this)" id="visibility_button">
@@ -234,6 +235,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
 
                         <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectTechnicians(this)">
                             <div class="table_item"><?php echo $ref_full_name; ?></div>
+                            <div class="table_item">IDE KELL BE ÍRNI HOGY MI VAN</div>
                             <div class="table_item"><?php echo $ref_name; ?></div>
                             <div class="table_item"><p class="password_table_item"><?php echo $ref_pass; ?></p></div>
                             <div class="table_item"><?php
