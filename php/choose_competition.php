@@ -58,7 +58,7 @@ $query_comps = mysqli_query($connection, $query);
             <p class="page_title">Your competitions</p>
             <button class="stripe_button orange" onclick="location.href='create_competition.php'">
                 <p>Create Competition</p>
-                <img src="../assets/icons/add-black-18dp.svg"></img>
+                <img src="../assets/icons/add-black-18dp.svg" />
             </button>
         </div>
         <div id="panel_main">
@@ -70,40 +70,34 @@ $query_comps = mysqli_query($connection, $query);
                 <div class="table_row_wrapper">
                 <?php
                 while($row = mysqli_fetch_assoc($query_comps)) {
-                    
                     $comp_id = $row["comp_id"];
                     $comp_name = $row["comp_name"];
                     $comp_status = $row["comp_status"];
-
                     //Fetches the data into the row array
                     //Saves the data separately to variables from the row array
-
                 ?>
-
                 <?php   ?>
-
                 <div class="table_row" onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>'">
                     <div class="table_item"><?php echo $comp_name; ?></div>
                     <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
                 </div>
-
                 <?php
                 }
                 ?>
                 <?php
-
                 if(mysqli_num_rows($query_comps) == 0){
-
                 //If there is no row in competitions table, shows the message below.
                 ?>
-
                 <div id="no_something_panel">
                     <p>You have no competitions yet!</p>
                 </div>
-
                 <?php
                 }
                 ?>
                 </div>
             </div>
-            <script src="../js/main.js"></script>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>

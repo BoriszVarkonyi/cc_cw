@@ -148,11 +148,11 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                 </form>
                 <button class="stripe_button disabled red" form="remove_technician" name="remove_technician" id="remove_technician_button">
                     <p>Remove Technician</p>
-                    <img src="../assets/icons/delete-black-18dp.svg"></img>
+                    <img src="../assets/icons/delete-black-18dp.svg" />
                 </button>
                 <button class="stripe_button" onclick="toggle_import_technician()">
                     <p>Import Technicians</p>
-                    <img src="../assets/icons/save_alt-black-18dp.svg"></img>
+                    <img src="../assets/icons/save_alt-black-18dp.svg" />
                 </button>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
@@ -179,7 +179,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
 
                 <button class="stripe_button orange" onclick="toggle_add_technician()">
                     <p>Add Technicians</p>
-                    <img src="../assets/icons/add-black-18dp.svg"></img>
+                    <img src="../assets/icons/add-black-18dp.svg" />
                 </button>
                      
                 <div id="add_technician_panel" class="overlay_panel hidden" >
@@ -242,57 +242,57 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                     <?php
                     }
                     else{
-                    ?>       
-                    <div class="table_header">
-                        <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">PASSWORD
-                            <button onclick="hidePasswords(this)" id="visibility_button">
-                                <img src="../assets/icons/visibility-black-18dp.svg" >
-                            </button>
-                        </div>
-                        <div class="table_header_text">ROLE</div>
-                        <div class="table_header_text">STATUS</div>
-                        <div class="small_status_header">
-                            <?php
-                            $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)' AND online = 1 ";
-                            $query_do = mysqli_query($connection, $query);
-                            echo mysqli_num_rows($query_do);?>
-                        </div>
-                    </div>
-                    <div class="table_row_wrapper">
-                        <?php  
-                        while($row = mysqli_fetch_assoc($tech_list_query)){ 
-                            $tech_id = $row["id"];
-                            $tech_name = $row["username"];
-                            $tech_pass = $row["password"];
-                            $tech_role = $row["role"];
-                            $tech_online = $row["online"];
-                            ?>
-                            <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectTechnicians(this)">
-                                <div class="table_item"><?php echo $tech_name; ?></div>
-                                <div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>
-                                <div class="table_item"><?php echo roleConverter($tech_role); ?></div>
-                                <div class="table_item"><?php
-                                        if($tech_online == 0){
-                                            echo "Offline";
-                                        }
-                                        else{
-                                            echo "Online";
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="small_status_item <?php
-                                        if($tech_online == 0){
-                                            echo "red";
-                                        }
-                                        else{
-                                            echo "green";
-                                        }
-                                    ?>">
-                                    </div> <!-- red or green style added to small_status item to inidcate status -->
-                                </div>
+                        ?>       
+                        <div class="table_header">
+                            <div class="table_header_text">NAME</div>
+                            <div class="table_header_text">PASSWORD
+                                <button onclick="hidePasswords(this)" id="visibility_button">
+                                    <img src="../assets/icons/visibility-black-18dp.svg" >
+                                </button>
+                            </div>
+                            <div class="table_header_text">ROLE</div>
+                            <div class="table_header_text">STATUS</div>
+                            <div class="small_status_header">
                                 <?php
-                            }
+                                $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)' AND online = 1 ";
+                                $query_do = mysqli_query($connection, $query);
+                                echo mysqli_num_rows($query_do);?>
+                            </div>
+                        </div>
+                        <div class="table_row_wrapper">
+                            <?php  
+                            while($row = mysqli_fetch_assoc($tech_list_query)){ 
+                                $tech_id = $row["id"];
+                                $tech_name = $row["username"];
+                                $tech_pass = $row["password"];
+                                $tech_role = $row["role"];
+                                $tech_online = $row["online"];
+                                ?>
+                                <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectTechnicians(this)">
+                                    <div class="table_item"><?php echo $tech_name; ?></div>
+                                    <div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>
+                                    <div class="table_item"><?php echo roleConverter($tech_role); ?></div>
+                                    <div class="table_item"><?php
+                                            if($tech_online == 0){
+                                                echo "Offline";
+                                            }
+                                            else{
+                                                echo "Online";
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="small_status_item <?php
+                                            if($tech_online == 0){
+                                                echo "red";
+                                            }
+                                            else{
+                                                echo "green";
+                                            }
+                                        ?>">
+                                        </div> <!-- red or green style added to small_status item to inidcate status -->
+                                    </div>
+                                    <?php
+                                }
                             }
                             //Check,read,display technicians END
                             ?>

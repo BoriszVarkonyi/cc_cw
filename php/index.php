@@ -158,15 +158,15 @@ checkComp($connection);
                 <!-- dashboard header -->  
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg"></img>
+                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg" />
                     </button>
-                    <img src="<?php echo $logo ?>" class="comp_logo"></img>
+                    <img src="<?php echo $logo ?>" class="comp_logo" />
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
                     <form id="publishcomp" class="hidden" ></form>
                     <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
                         <p>Publish Competition</p>
-                        <img src="../assets/icons/send-black-18dp.svg"></img>
+                        <img src="../assets/icons/send-black-18dp.svg" />
                     </button>
 
                 </div>

@@ -49,22 +49,19 @@
                     <p class="page_title">Weapon Control</p>
                     <button class="stripe_button" type="submit">
                         <p>Send message to fencer</p>
-                        <img src="../assets/icons/chat-black-18dp.svg"></img>
+                        <img src="../assets/icons/chat-black-18dp.svg" />
                     </button>
-
                     <form id="add_weapon_control" method="POST" action="" >
-                    <button from="add_weapon_control" name="add_wc" class="stripe_button" type="submit">
+                    <button from="add_weapon_control" name="add_wc" class="stripe_button orange" type="submit">
                         <p>Add weapon control</p>
-                        <img src="../assets/icons/add-black-18dp.svg"></img> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
+                        <img src="../assets/icons/add-black-18dp.svg" /> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
-
 
                     <input type="text" class="hidden" name="fencer_id" id="fencer_id_input" value="">
                     </form>
-
                 </div>
                 <div id="page_content_panel_main">
-                    <div id="weapon_control_wrapper" class="wrapper table_row_wrapper">
+                    <div class="wrapper table">
 
                         <!-- Maybe not needed, but this should be displayed if there the organiser hasn't set up the ranking and opened the weapon control page. Or maybe the couldn't been opened until the ranking has been set up?
                             <div id="no_something_panel">
@@ -80,7 +77,7 @@
                             <div class="big_status_header"></div>
                         </div>
 
-
+                        <div class="table_row_wrapper">
                         <?php
                             //get weapon type, comp sex from competitions
                             $qry_get_comp_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
@@ -126,7 +123,7 @@
                         <?php
                             }
                         ?>
-
+                        </div>
                     </div>
                 </div>
             </div>

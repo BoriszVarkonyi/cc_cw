@@ -394,9 +394,11 @@ clearButton.forEach(item => {
 
 
 var table = document.querySelector(".table");
-window.addEventListener("resize", automaticWidth)
-window.addEventListener("DOMContentLoaded", automaticWidth)
-var columnCounter = table.querySelectorAll(".table_row:last-of-type .table_item").length
+window.addEventListener("resize", automaticWidth);
+window.addEventListener("DOMContentLoaded", automaticWidth);
+var columnCounter = table.querySelectorAll(".table_row:last-of-type .table_item").length;
+
+console.log(columnCounter)
 
 function automaticWidth(){
     for(columnNumber = 1; columnNumber<columnCounter; columnNumber++) {
@@ -405,7 +407,7 @@ function automaticWidth(){
         var biggestWidth;
         //Push all widths to widthArray
         for(i = 0; i<column.length; i++) {
-            widthArray.push(column[i].offsetWidth)
+            widthArray.push(column[i].offsetWidth);
         }
         //Gets the biggest array
         biggestWidth = widthArray.reduce(function(a, b) {
@@ -414,7 +416,7 @@ function automaticWidth(){
         //Sets the width to all array element.
         for(i = 0; i<column.length; i++) {
             column[i].style.width = biggestWidth;
-            widthArray.pop()
+            widthArray.pop();
         }
     }
 }

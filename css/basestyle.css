@@ -22,6 +22,7 @@
 	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
+	--s-green: 0 3px 6px rgba(141, 255, 183, 0.1);
 	--t-basic: ease-in .2s;
 	--f-xxlarge: calc(2em + 2vmin);
 	--f-xlarge: calc(1.5em + 2vmin);
@@ -196,6 +197,7 @@ form.hidden, form.disabled {
 	flex-direction: column;
 	border-left: 2px solid var(--c-darkgray);
 	border-right: 2px solid var(--c-gray);
+	border-radius: 5px;
 }
 
 /* Header */
@@ -203,14 +205,12 @@ form.hidden, form.disabled {
 .table_header {		/* Wraps table_header text elements */
 	font-family: var(--thin);
 	display: flex;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
 }
 
 .table_header_text {
-	text-transform: uppercase;
-	flex-grow: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	box-sizing: border-box;
 }
 
 .table_header_text.title {
@@ -245,6 +245,7 @@ form.hidden, form.disabled {
 .big_status_header {
 	display: flex;
 	align-items: center;
+	width: calc(1.4em + 1.25vmin);
 	justify-content: center;
 }
 
@@ -254,7 +255,7 @@ form.hidden, form.disabled {
 	display: flex;
 	background-color: var(--c-white);
 	cursor: pointer;
-	transition: background-color var(--t-basic), transform var(--t-basic);
+	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);;
 }
 
 .table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
@@ -270,6 +271,9 @@ form.hidden, form.disabled {
 	box-shadow: var(--s-black);
 	z-index: 2;
 	transform: scale(1.01);
+	font-family: var(--bold);
+	border-radius: 2.5px;
+	overflow: hidden;
 }
 
 .table_row.start {
@@ -286,14 +290,6 @@ form.hidden, form.disabled {
 /* Table Items */
 
 .table_item {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	flex-grow: 1;
-	max-width: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .table_item.filled {
@@ -361,12 +357,34 @@ form.hidden, form.disabled {
 	font-size: var(--f-medium) !important;
 }
 
-.table_row div:first-of-type, .table_header div:first-of-type  {
-	padding-left: 20px;
+.table_header_text, .table_item {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	border-left: 1px solid red;
+	border-right: 1px solid green;
+	max-width: 50%;
 }
 
-.table_row div:last-of-type:not(div.small_status_item, div.big_status_item), .table_header div:last-of-type:not(div.small_status_header, div.big_status_header) {
-	padding-right: 20px;
+/* Resizer */
+
+.resizer {
+	position: absolute;
+	width: 5px;
+	height: 50px;
+	cursor: col-resize;
+	user-select: none;
+	border-right: 2px solid var(--c-blue);
+	z-index: 5;
+}
+
+.resizer:hover, .resizing {
+	border-right: 2px solid var(--c-blue);
 }
 
 /* ///SCROLL BAR// */
@@ -896,6 +914,16 @@ input[type="time"] {
 
 .stripe_button.red:hover {
 	background-color: var(--c-red);
+}
+
+.stripe_button.green {
+	background-color: var(--c-green);
+	box-shadow: var(--s-green);
+	font-family: var(--bold);
+}
+
+.stripe_button.green:hover {
+	background-color: var(--c-green);
 }
 
 /* Panel Button Used in CC Panels */

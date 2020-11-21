@@ -121,11 +121,11 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                         <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
                         <button class="stripe_button disabled" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                             <p>Remove Referee</p>
-                            <img src="../assets/icons/delete-black-18dp.svg"></img>
+                            <img src="../assets/icons/delete-black-18dp.svg" />
                         </button>
                         <button class="stripe_button" onclick="toggle_import_technician()">
                             <p>Import Referees</p>
-                            <img src="../assets/icons/save_alt-black-18dp.svg"></img>
+                            <img src="../assets/icons/save_alt-black-18dp.svg" />
                         </button>
 
                         <div id="import_technician_panel" class="overlay_panel hidden">
@@ -159,7 +159,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
 
                         <button class="stripe_button orange" onclick="toggle_add_technician()">
                             <p>Add Referees</p>
-                            <img src="../assets/icons/add-black-18dp.svg"></img>
+                            <img src="../assets/icons/add-black-18dp.svg" />
                         </button>
                     <div id="add_technician_panel" class="overlay_panel hidden">
                         <button class="panel_button" onclick="toggle_add_technician()">
