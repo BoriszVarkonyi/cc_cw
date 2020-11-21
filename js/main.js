@@ -4,57 +4,61 @@ status = "opened";
 var cotext = document.getElementById("controls_text");
 var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
+var navBar = document.getElementById("nav_bar");
+var appName = document.getElementById("app_name");
+var menuSection = document.getElementById("menu_button_section");
+var menuButton = document.getElementById("menu_button");
+var dtDrop = document.getElementById("dt_dropdown_icon");
+var genDrop = document.getElementById("general_dropdown_icon");
+var techDrop = document.getElementById("technical_dropdown_icon");
 
 function toggle_nav_bar() {
-
-    var element = document.getElementById("nav_bar");
-    element.classList.toggle("closed");
-    var element = document.getElementById("app_name");
-    element.classList.toggle("closed");
-    var element = document.getElementById("menu_button_section");
-    element.classList.toggle("closed");
-    var element = document.getElementById("menu_button");
-    element.classList.toggle("closed");
-    var i;
+    navBar.classList.toggle("closed");
+    appName.classList.toggle("closed");
+    menuSection.classList.toggle("closed");
+    menuButton.classList.toggle("closed");
+    dtDrop.classList.toggle("closed");
+    genDrop.classList.toggle("closed");
+    techDrop.classList.toggle("closed");
 
     if (status == "closed") {
-            ovtext.innerHTML = "OVERVIEW";
-            cotext.innerHTML = "CONTROLS";
-            setext.innerHTML = "SETUP";
+        ovtext.innerHTML = "OVERVIEW";
+        cotext.innerHTML = "CONTROLS";
+        setext.innerHTML = "SETUP";
         status = "opened";
-
-    } 
-    else if (status == "opened"){
-            ovtext.innerHTML = "O";
-            cotext.innerHTML = "C";
-            setext.innerHTML = "S";
-        status = "closed";
     }
 
-    var element = document.getElementById("dt_dropdown_icon");
-    element.classList.toggle("closed");
-    var element = document.getElementById("general_dropdown_icon");
-    element.classList.toggle("closed")
-    var element = document.getElementById("technical_dropdown_icon");
-    element.classList.toggle("closed")
-
+    else if (status == "opened"){
+        ovtext.innerHTML = "O";
+        cotext.innerHTML = "C";
+        setext.innerHTML = "S";
+        status = "closed";
+    }
 }
 
+// Disables transition on Pageload
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.body.classList.add("preload");
+});
 
 window.addEventListener('load', (event) => {
     document.body.classList.remove("preload");
 });
 
-/*Toggle panels.*/
-//Getting panels by id.
+// Toggle panels
+// Getting panels by id
+
 var lang_panel = document.getElementById("language_panel");
 var color_panel = document.getElementById("colormode_panel");
 var profile_panel = document.getElementById("profile_panel");
-//Getting every panel.
+
+//Getting every panel
 var elements = document.querySelectorAll(".overlay_panel");
 var oldClickedelement;
 
-//Toggle language panel.
+//Toggle language panel
+
 function toggle_language_panel() {
    /* //Making every panel hidden.
     for(i=0; i<elements.length; i++){
@@ -120,11 +124,9 @@ function toggle_profile_panel() {
         oldClickedelement = profile_panel;
     } */
     profile_panel.classList.toggle("hidden");
-
 }
 
-
-/* Toggle nav ropdpws  */
+/* Toggle Nav Dropdow  */
 
 function toggle_dt_dropdown() {
     var dt_drop = document.getElementById("dt_dropdown_menu");
@@ -147,22 +149,17 @@ function toggle_technical_dropdown() {
     dt_drop_icon.classList.toggle("close");
 }
 
-
-
 /*  Color changer    */
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const current_cs = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', current_cs);
-
     if (current_cs == "") {
         setToLight();
     }
-
     if (current_cs == "highcontrast") {
         setToHighContrast();
     }
-
     if (current_cs == "dark") {
         setToDark();
     }
@@ -218,34 +215,27 @@ function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
     cs_range.value = "2";
-
     for (i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
     }
-
     for (i = 1; i < hasBackgroundIcon.length; i++) {
         hasBackgroundIcon[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
     }
-
 }
 
 function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
     cs_range.value = "3";
-
     for (i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%)";
     }
-
     for (i = 1; i < hasBackgroundIcon.length; i++) {
         hasBackgroundIcon[i].style.filter = "invert(100%)";
     }
 }
 
-
-
-//If technician, disable setup section
+//If technician, Disable setup section
 
 var suti = document.cookie;
 var suti_list = suti.split("; ");

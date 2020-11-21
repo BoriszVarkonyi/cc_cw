@@ -91,6 +91,9 @@ header("Location: ../index.php");
                 <img src="../assets/icons/close-black-18dp.svg" >
             </button>  
             <div id="languages_wrapper">  
+                <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
+                    <img src="../assets/icons/close-black-18dp.svg" >
+                </button>
                 <button id="language_english" class="language_button selected">
                     <img src="../assets/icons/english.svg"  class="not_icon">
                     <p class="language_label">English</p>  
@@ -107,18 +110,17 @@ header("Location: ../index.php");
                     <img src="../assets/icons/japanese.svg"  class="not_icon">
                     <p class="language_label">Japanese</p>  
                 </button> 
-                <button id="language_english" class="language_button" class="not_icon">
-                    <img src="../assets/icons/korean.svg" >
+                <button id="language_english" class="language_button">
+                    <img src="../assets/icons/korean.svg" class="not_icon">
                     <p class="language_label">Korean</p>  
                 </button>  
-                <button id="language_english" class="language_button" class="not_icon">
-                    <img src="../assets/icons/hungarian.svg" >
+                <button id="language_english" class="language_button">
+                    <img src="../assets/icons/hungarian.svg" class="not_icon">
                     <p class="language_label">Hungarian</p>  
                 </button>  
-                <button id="language_english" class="language_button" class="not_icon">
-                    <img src="../assets/icons/romanian.svg" >
-                    <p class="language_label">Romanian</p>  
-                </button>
+                <button id="language_english" class="language_button">
+                    <img src="../assets/icons/romanian.svg" class="not_icon">
+                    <p cla
             </div>
         </div>
 

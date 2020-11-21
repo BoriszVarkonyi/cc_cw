@@ -111,16 +111,16 @@ header("Location: ../index.php");
                     <img src="../assets/icons/japanese.svg"  class="not_icon">
                     <p class="language_label">Japanese</p>  
                 </button> 
-                <button id="language_english" class="language_button" class="not_icon">
-                    <img src="../assets/icons/korean.svg" >
+                <button id="language_english" class="language_button">
+                    <img src="../assets/icons/korean.svg" class="not_icon">
                     <p class="language_label">Korean</p>  
                 </button>  
-                <button id="language_english" class="language_button" class="not_icon">
-                    <img src="../assets/icons/hungarian.svg" >
+                <button id="language_english" class="language_button">
+                    <img src="../assets/icons/hungarian.svg" class="not_icon">
                     <p class="language_label">Hungarian</p>  
                 </button>  
-                <button id="language_english" class="language_button" class="not_icon">
-                    <img src="../assets/icons/romanian.svg" >
+                <button id="language_english" class="language_button">
+                    <img src="../assets/icons/romanian.svg" class="not_icon">
                     <p class="language_label">Romanian</p>  
                 </button>
             </div>

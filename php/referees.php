@@ -275,6 +275,7 @@ $ref_list_query = mysqli_query($connection, $query_ref);
         </div>
     </div>
 <script src="../js/main.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/referees.js"></script>
 </body>
 </html>

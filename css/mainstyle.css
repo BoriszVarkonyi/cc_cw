@@ -25,7 +25,7 @@ p {
 }
 
 input {
-	color: var(--c-input);
+	color: var(--cs-black);
 }
 
 input.hidden {
@@ -65,6 +65,18 @@ textarea {
 .nav_bar_flex {
 	flex: 0 0 0;
 	display: flex;
+	position: relative;
+}
+
+.nav_bar_flex::after {
+	content: "";
+	position: absolute;
+	width: 5px;
+	height: 100%;
+	background: linear-gradient(190deg, var(--csd-lightorange) 0%, var(--csd-orange) 100%);
+	z-index: 2;
+	top: 0;
+	right: -5px;
 }
 
 .page_content_flex {
@@ -221,6 +233,7 @@ textarea {
 	margin-bottom: 5px;
 	padding: 5px;
 	background-color: transparent;
+	color: var(--c-black)
 }
 
 .language_button > img { /* 3:2 aspect ratio */
@@ -284,6 +297,7 @@ textarea {
 	padding: 5px 15px;
 	border-radius: 30px;
 	background-color: var(--c-gray);
+	color: var(--c-black);
 }
 
 #logout_form > button:hover {
@@ -311,7 +325,7 @@ textarea {
 /* Range Inputs */
 
 input::placeholder {
-	color: var(--c-input);
+	color: var(--cs-black);
 }
 
 input[type="range"] {
@@ -342,6 +356,7 @@ input[type="range"]::-webkit-slider-thumb {
 	height: 20px;
 	width: 20px;
 	border-radius: 10px;
+	margin-top: 2.25px;
 	background: var(--c-white);
 	cursor: pointer;
 	-webkit-appearance: none;
@@ -413,10 +428,11 @@ input[type="range"]:focus::-ms-fill-upper {
 	display: flex;
 	justify-content: center;
 	font-size: var(--f-medium);
-	color: var(--c-navbar);
+	color: var(--c-black);
 	flex: 1 1 100%;
 	overflow: visible;
 	transition: all var(--t-basic);
+	position: relative;
 }
 
 #nav_bar.closed {
@@ -475,9 +491,9 @@ input[type="range"]:focus::-ms-fill-upper {
     align-items: center;
 	font-size: var(--f-medium);
 	padding: 0;
-	color: var(--c-navbar);
 	transition: var(--t-basic);
 	background-color: transparent;
+	color: var(--c-black);
 	margin: 3px 0;
 	max-height: 39px;
 	height: 3vh;
@@ -636,7 +652,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .dropdown_menu > .nav_bar_item {
 	font-size: var(--f-small);
 	padding: 0;
-	color: var(--c-navbar);
+
 	transition: var(--t-basic);
 	background-color: transparent;
 	overflow: visible;
@@ -646,7 +662,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .dropdown_menu > a.disabled {
-	color: var(--c-disabled);
+	color: var(--c-gray);
 	cursor: default;
 	pointer-events: none;
 }
@@ -2228,11 +2244,13 @@ input[type="file"] {
 	height: 25vh;
 	max-height: 300px;
 	padding: 7.5px;
+	background-color: var(--c-white);
 }
 
 #wc_notes::placeholder {
 	font-size: var(--f--small);
 	font-family: var(--reg);
+	color: var(--c-black);
 }
 
 #fencers_weapon_control {
@@ -2409,6 +2427,7 @@ div.title_box > button {
 	transition: var(--t-basic);
 	visibility: visible;
 	background-color: var(--c-transparent);
+	color: var(--c-black);
 }
 
 #choose_ranking_wrapper > div.opened > .title_box > button { /* If the panel is opened makes the buttons underlined */
@@ -2423,7 +2442,7 @@ div.title_box > button {
 }
 
 #upload_ranking_panel:hover > .icon_box > svg > circle, #create_ranking_panel:hover > .icon_box > svg > circle, #upload_ranking_panel.opened:hover > .icon_box > svg > circle, #create_ranking_panel.opened:hover > .icon_box > svg > circle {
-	stroke: var(--c-orange);
+	stroke: var(--cs-orange);
 }
 
 /* if any panel opened */
@@ -2744,7 +2763,7 @@ div.title_box > button {
 
 input.wc_time {
 	background-color: transparent;
-	color: var(--c-input);
+	color: var(--cs-black);
 	font-family: var(--reg);
 	font-size: var(--f-medium);
 	margin: 0;
