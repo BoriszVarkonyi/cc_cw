@@ -54,6 +54,7 @@
         "rtest" => "no",
         "insert" => "no",
         "get_wc_data" => "no",
+        "misc" => "no"
     );
 
     $table_name = "wc_$comp_id";
@@ -63,22 +64,11 @@
     $issue = "did not set yet";
     $old_notes = "";
 
-    //get fencer data with fencer_id from $table_name
-    $qry_get_wc_data = "SELECT * FROM $table_name WHERE id = '$fencer_id'";
-    $do_qry_get_wc_data = mysqli_query($connection, $qry_get_wc_data);
-
-    if ($row = mysqli_fetch_assoc($do_qry_get_wc_data)) {
-        $string_weapon_errors = $row['weapon_errors'];
-        $array_weapon_errors = explode(",", $string_weapon_errors);
-        $old_notes = $row['notes'];
-        $feedback['get_cw_data'] = "ok!";
-    } else {
-        $feedback['get_cw_data'] = "ERROR " . mysqli_error($connection);
-    }
+ 
 
 
-    //get fencer data from wc_comp_id
-    $qry_get_fencer_data = "SELECT * FROM rk_$ranking_id WHERE id = $fencer_id";
+    //get fencer data from cptrs_$comp_id
+    $qry_get_fencer_data = "SELECT * FROM `cptrs_$comp_id` WHERE id = '$fencer_id'";
     $qry_get_fencer_data_do = mysqli_query($connection, $qry_get_fencer_data);
 
     if ($row = mysqli_fetch_assoc($qry_get_fencer_data_do)) {
@@ -100,12 +90,12 @@
                                 AND table_name = '$table_name';";
 
         if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-
+            $num_rows = mysqli_num_rows($check_d_table_do);
             $feedback['ttest'] = "ok!";
 
-            if ($check_d_table_do == 0) {
+            if ($num_rows != 0) {
                 //creating weapon control  table
-                $qry_creating_wc_table = "CREATE TABLE `ccdatabase`.$table_name (`id` INT(11) NOT NULL , 
+                $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL , 
                                                                                 `name` VARCHAR(255) NOT NULL , 
                                                                                 `nat` VARCHAR(255) NOT NULL , 
                                                                                 `weapon_errors` VARCHAR(255) NOT NULL , 
@@ -118,6 +108,8 @@
                     $feedback['create_table'] = "ERROR " . mysqli_error($connection);
                 }
               
+            } else {
+                $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
             }
 
         } else {
@@ -144,7 +136,7 @@
 
 
         //test for existing row
-        $qry_rtest = "SELECT * FROM $table_name WHERE id = $fencer_id";
+        $qry_rtest = "SELECT * FROM $table_name WHERE id = '$fencer_id'";
         $do_qry_rtest = mysqli_query($connection, $qry_rtest);
         $row_cnt = mysqli_num_rows($do_qry_rtest);
 
@@ -168,10 +160,25 @@
             }
         }
 
-        header("Location: ../php/weapon_control.php?comp_id=$comp_id");
+        //header("Location: ../php/weapon_control.php?comp_id=$comp_id");
     }
 
+    //check for wc for fencer
+    $qry_chck_f_row = "SELECT * FROM `$table_name` WHERE id = '$fencer_id'";
+    $do_chck_f_row = mysqli_query();
 
+    //get fencer data with fencer_id from $table_name
+    $qry_get_wc_data = "SELECT * FROM $table_name WHERE id = '$fencer_id'";
+    $do_qry_get_wc_data = mysqli_query($connection, $qry_get_wc_data);
+
+    if ($row = mysqli_fetch_assoc($do_qry_get_wc_data)) {
+        $string_weapon_errors = $row['weapon_errors'];
+        $array_weapon_errors = explode(",", $string_weapon_errors);
+        $old_notes = $row['notes'];
+        $feedback['get_cw_data'] = "ok!";
+    } else {
+        $feedback['get_cw_data'] = "ERROR " . mysqli_error($connection);
+    }
     
 
 
@@ -208,6 +215,7 @@
                     </button>
 
                 </div>
+                <p><?php print_r($feedback) ?></p>
                 <div id="page_content_panel_main">
                     <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
                         <div id="issues_panel" class="table_row_wrapper">

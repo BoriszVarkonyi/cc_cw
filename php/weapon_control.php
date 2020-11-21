@@ -72,6 +72,9 @@
                         </div>
                         <div class="table_row_wrapper">
                         <?php
+                            
+
+
                             //get weapon type, comp sex from competitions
                             $qry_get_comp_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
 
@@ -97,8 +100,19 @@
                                 $fencer_id = $row['id'];
                                 $fencer_nat = $row['nationality'];
 
-                                //get fencer status wc létezik e
-                                $qry_fencer_wc_data = "";
+                                //test for wc
+                                $qry_get_wc_data = "SELECT * FROM `wc_$comp_id` WHERE id = '$fencer_id'";
+                                $do_get_wc_data = mysqli_query($connection, $qry_get_wc_data);
+                                $num_rows = mysqli_num_rows($do_get_wc_data);
+
+                                if ($num_rows == 1) {
+                                    $wc_test_style = "green";
+                                    $wc_test = "control ready";
+                                } else {
+                                    $wc_test_style = "red";
+                                    $wc_test = "control not ready";
+                                }
+                                
                         ?>
                         <!-- while -->
                         <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
@@ -106,8 +120,8 @@
                             <div class="table_item"><?php echo $comp_sex ?></div>
                             <div class="table_item"><?php echo $fencer_nat ?></div>
                             <div class="table_item"><?php echo $comp_weapon ?></div>
-                            <div class="table_item">státusza</div>
-                            <div class="big_status_item red"></div> <!-- red or green style added to small_status item to inidcate status -->
+                            <div class="table_item"><?php echo $wc_test ?></div>
+                            <div class="big_status_item <?php echo $wc_test_style ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
                         <!-- ----- -->
                         <?php
