@@ -1,8 +1,3 @@
-function refPisTimePanel() {
-    var panel = document.getElementById("ref_pis_time_panel");
-    panel.classList.toggle("hidden");
-}
-
 function useAll() {
     var selectPistes = document.getElementById("select_pistes_panel");
     selectPistes.classList.add("disabled")
@@ -13,6 +8,13 @@ function selectPistes() {
     selectPistes.classList.remove("disabled")
 }
 
-function tableRoundConfig(x) {
-    var
+var refPanel = document.getElementById("ref_panel");
+var timePistPanel = document.getElementById("pist_time_panel");
+
+function toggleRefPanel() {
+    refPanel.classList.toggle("hidden");
+}
+
+function togglePistTimePanel() {
+    timePistPanel.classList.toggle("hidden");
 }

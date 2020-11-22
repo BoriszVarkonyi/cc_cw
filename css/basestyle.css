@@ -291,10 +291,6 @@ form.hidden, form.disabled {
 	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 }
 
-.table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
-	background-color: var(--c-lightestgray);
-}
-
 .table_row.hidden {
 	display: none;
 }
