@@ -141,7 +141,7 @@
                 <p><?php print_r($feedback) ?></p>
                 <button name="submit_form" form="save_form" class="stripe_button orange" type="submit">
                     <p>Save Formula</p>
-                    <img src="../assets/icons/save-black-18dp.svg" />
+                    <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
             </div>
             <div id="page_content_panel_main">

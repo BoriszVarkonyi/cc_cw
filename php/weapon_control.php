@@ -49,12 +49,12 @@
                     <p class="page_title">Weapon Control</p>
                     <button class="stripe_button" type="submit">
                         <p>Send message to fencer</p>
-                        <img src="../assets/icons/chat-black-18dp.svg" />
+                        <img src="../assets/icons/chat-black-18dp.svg"/>
                     </button>
                     <form id="add_weapon_control" method="POST" action="" >
                     <button from="add_weapon_control" name="add_wc" class="stripe_button orange" type="submit">
                         <p>Add weapon control</p>
-                        <img src="../assets/icons/add-black-18dp.svg" /> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
+                        <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
 
                     <input type="text" class="hidden" name="fencer_id" id="fencer_id_input" value="">
@@ -64,16 +64,18 @@
                     <div class="wrapper table">
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">SEX</div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">NATION / CLUB</div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">WEAPON TYPE</div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
-                        <?php
-                            
-
+                        <?php+
 
                             //get weapon type, comp sex from competitions
                             $qry_get_comp_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
@@ -112,7 +114,6 @@
                                     $wc_test_style = "red";
                                     $wc_test = "control not ready";
                                 }
-                                
                         ?>
                         <!-- while -->
                         <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
@@ -123,7 +124,6 @@
                             <div class="table_item"><?php echo $wc_test ?></div>
                             <div class="big_status_item <?php echo $wc_test_style ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
-                        <!-- ----- -->
                         <?php
                             }
                         ?>

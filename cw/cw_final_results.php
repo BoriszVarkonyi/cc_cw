@@ -38,7 +38,7 @@
                     HUN
                 </div>
                 <div class="big_status_item gold">
-                    <img src="../assets/icons/emoji_events-black-18dp.svg" alt="">
+                    <img src="../assets/icons/emoji_events-black-18dp.svg">
                 </div>
             </div>
             <div class="table_row">

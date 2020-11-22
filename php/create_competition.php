@@ -97,11 +97,11 @@ $query = "";
             <p class="page_title">Create new competition</p>
             <button class="stripe_button" onclick="location.href='choose_competition.php'">
                 <p>Cancel</p>
-                <img src="../assets/icons/close-black-18dp.svg" />
+                <img src="../assets/icons/close-black-18dp.svg"/>
             </button>
             <button type="submit" name="submit" form="create_new_comp" class="stripe_button orange">
                 <p>Create</p>
-                <img src="../assets/icons/add-black-18dp.svg" />
+                <img src="../assets/icons/add-black-18dp.svg"/>
             </button>
         </div>
         <div id="panel_main">
