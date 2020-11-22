@@ -141,11 +141,11 @@ if(isset($_POST["create_piste"])){
                     <p class="page_title">Pistes</p>
                     <button class="stripe_button" type="submit">
                         <p>Configure match control</p>
-                        <img src="../assets/icons/settings_applications-black-18dp.svg" />
+                        <img src="../assets/icons/settings_applications-black-18dp.svg"/>
                     </button>
                     <button class="stripe_button orange" onclick="toggleAddPistePanel()">
                         <p>Add Piste</p>
-                        <img src="../assets/icons/add-black-18dp.svg" />
+                        <img src="../assets/icons/add-black-18dp.svg"/>
                     </button>
 
                     <div class="overlay_panel hidden" id="add_piste_panel">

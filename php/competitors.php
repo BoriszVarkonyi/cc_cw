@@ -29,17 +29,21 @@
                 <p class="page_title">Competitors</p>
                 <button class="stripe_button" type="button">
                     <p>Send message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg" />
+                    <img src="../assets/icons/message-black-18dp.svg"/>
                 </button>
             </div>
             <div id="page_content_panel_main">
                 <div class="wrapper table w90">
                     <div class="table_header">
-                        <div class="table_header_text small">POSITION</div>
+                        <div class="table_header_text">POSITION</div>
+                        <button class="resizer"></button>
                         <div class="table_header_text">NAME</div>
+                        <button class="resizer"></button>
                         <div class="table_header_text">NATION / CLUB</div>
+                        <button class="resizer"></button>
                         <div class="small_status_header"></div>
                         <div class="table_header_text">REGISTRATION</div>
+                        <button class="resizer"></button>
                         <div class="small_status_header"></div>
                         <div class="table_header_text">WEAPON CONTROL</div>
                     </div>

@@ -146,7 +146,7 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                 <p class="page_title">Technicians</p>
                 <button class="stripe_button" onclick="toggle_import_technician()">
                     <p>Import Technicians</p>
-                    <img src="../assets/icons/save_alt-black-18dp.svg" />
+                    <img src="../assets/icons/save_alt-black-18dp.svg"/>
                 </button>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
@@ -173,11 +173,11 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                 <form action="" method="POST" id="remove_technician"></form>
                 <button class="stripe_button disabled red" form="remove_technician" name="remove_technician" id="remove_technician_button">
                     <p>Remove Technician</p>
-                    <img src="../assets/icons/delete-black-18dp.svg" />
+                    <img src="../assets/icons/delete-black-18dp.svg"/>
                 </button>
                 <button class="stripe_button orange" onclick="toggle_add_technician()">
                     <p>Add Technicians</p>
-                    <img src="../assets/icons/add-black-18dp.svg" />
+                    <img src="../assets/icons/add-black-18dp.svg"/>
                 </button>
                      
                 <div id="add_technician_panel" class="overlay_panel hidden" >
@@ -243,12 +243,15 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         ?>       
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">PASSWORD
                                 <button onclick="hidePasswords(this)" id="visibility_button">
                                     <img src="../assets/icons/visibility-black-18dp.svg" >
                                 </button>
                             </div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">ROLE</div>
+                            <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="small_status_header">
                                 <?php

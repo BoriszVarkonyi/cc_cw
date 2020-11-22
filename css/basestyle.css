@@ -145,10 +145,6 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
-body *, html * {
-	transition: font-size none !important;
-}
-
 .preload * {
 	-webkit-transition: none !important;
 	-moz-transition: none !important;
@@ -228,7 +224,6 @@ form.hidden, form.disabled {
 .table {		/* Whole table */
 	display: flex;
 	flex-direction: column;
-	border-collapse: collapse;
 	color: var(--c-black)
 }
 
@@ -250,7 +245,7 @@ form.hidden, form.disabled {
 }
 
 .table_header_text {
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 }
 
 .table_header_text.title {
@@ -267,10 +262,6 @@ form.hidden, form.disabled {
 
 .table_header_text.square:nth-last-of-type(3), .table_item.square:nth-last-of-type(3) {
 	margin-left: 40px;
-}
-
-.table_header_text.small {
-	max-width: 150px;
 }
 
 .small_status_header {
@@ -311,7 +302,7 @@ form.hidden, form.disabled {
 .table_row.selected {
 	background-color: var(--c-orange) !important;
 	box-shadow: var(--s-black);
-	z-index: 2;
+	z-index: 2; /* Has to above resizer */
 	transform: scale(1.01);
 	font-family: var(--bold);
 	border-radius: 2.5px;
@@ -348,7 +339,7 @@ form.hidden, form.disabled {
 }
 
 .small_status_item {
-	width: 26px;
+	width: 20px;
 }
 
 .big_status_item {
@@ -416,7 +407,6 @@ form.hidden, form.disabled {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 5px;
 	/*
 	border-left: 1px solid red;
 	border-right: 1px solid green;
@@ -428,17 +418,21 @@ form.hidden, form.disabled {
 /* Resizer */
 
 .resizer {
-	position: absolute;
-	width: 5px;
-	height: 50px;
+	position: relative;
+	width: 3px;
+	height: 100%;
 	cursor: col-resize;
 	user-select: none;
-	border-right: 2px solid var(--c-blue);
-	z-index: 5;
+	background-color: var(--c-gray);
+	z-index: 1;
 }
 
-.resizer:hover, .resizing {
-	border-right: 2px solid var(--c-blue);
+.resizer:hover {
+	background-color: var(--c-darkgray);
+}
+
+.resizer:active {
+	background-color: var(--cs-blue);
 }
 
 /* ///SCROLL BAR// */

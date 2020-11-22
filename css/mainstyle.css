@@ -716,7 +716,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	min-height: 80px;
 	height: 10vh;
 	max-height: 120px;
-	z-index: 1;
 	display: flex;
 	align-items: center;
 }
