@@ -361,9 +361,9 @@ form.hidden, form.disabled {
 	width: 65%;
 }
 
-.table .filled {
+.filled {
 	background-color: var(--c-gray);
-	border: 3px solid var(--cs-gray);
+	border: 3px solid var(--cs-red);
 }
 
 .table .red {
