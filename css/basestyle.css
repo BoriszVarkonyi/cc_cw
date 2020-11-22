@@ -363,7 +363,7 @@ form.hidden, form.disabled {
 
 .filled {
 	background-color: var(--c-gray);
-	border: 3px solid var(--cs-red);
+	border: 3px solid var(--cs-gray);
 }
 
 .table .red {
