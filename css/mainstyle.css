@@ -431,7 +431,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	color: var(--c-black);
 	flex: 1 1 100%;
 	overflow: visible;
-	transition: all var(--t-basic);
+	transition: all var(--t-basic), font-size none;
 	position: relative;
 }
 
@@ -491,7 +491,6 @@ input[type="range"]:focus::-ms-fill-upper {
     align-items: center;
 	font-size: var(--f-medium);
 	padding: 0;
-	transition: var(--t-basic);
 	background-color: transparent;
 	color: var(--c-black);
 	margin: 3px 0;
@@ -608,7 +607,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	padding-left: 30px;
 	height: 1.05em;
 	width: 1.05em;
-	transition: var(--t-basic);
 }
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_item > img {
@@ -812,14 +810,15 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #panel_main {		/* The main part of the panel it is under the title_stripe*/
 	flex: 1 1 auto;
-	position: relative;
-	overflow-y: auto;
-	overflow-x: hidden;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* ///FORMS AND INPUTS/// */

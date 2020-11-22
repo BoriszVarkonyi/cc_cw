@@ -271,30 +271,31 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                                     <div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>
                                     <div class="table_item"><?php echo roleConverter($tech_role); ?></div>
                                     <div class="table_item"><?php
-                                            if($tech_online == 0){
-                                                echo "Offline";
-                                            }
-                                            else{
-                                                echo "Online";
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="small_status_item <?php
-                                            if($tech_online == 0){
-                                                echo "red";
-                                            }
-                                            else{
-                                                echo "green";
-                                            }
-                                        ?>">
-                                        </div> <!-- red or green style added to small_status item to inidcate status -->
+                                        if($tech_online == 0){
+                                            echo "Offline";
+                                        }
+                                        else{
+                                            echo "Online";
+                                        }
+                                        ?>
                                     </div>
-                                    <?php
+                                    <div class="small_status_item <?php
+                                        if($tech_online == 0){
+                                            echo "red";
+                                        }
+                                        else{
+                                             echo "green";
+                                        }
+                                    ?>">
+                                    </div> <!-- red or green style added to small_status item to inidcate status -->
+                                </div>
+                                <?php
                                 }
                             }
                             //Check,read,display technicians END
                             ?>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

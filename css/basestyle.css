@@ -145,6 +145,10 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
+body *, html * {
+	transition: font-size none !important;
+}
+
 .preload * {
 	-webkit-transition: none !important;
 	-moz-transition: none !important;
@@ -344,7 +348,7 @@ form.hidden, form.disabled {
 }
 
 .small_status_item {
-	width: 20px;
+	width: 26px;
 }
 
 .big_status_item {
@@ -418,6 +422,7 @@ form.hidden, form.disabled {
 	border-right: 1px solid green;
 	*/
 	max-width: 50%;
+	flex-basis: auto;
 }
 
 /* Resizer */
@@ -916,7 +921,7 @@ input[type="time"] {
 	border-radius: 30px;
 	cursor: pointer;
 	margin: 0 15px 0 0;
-	padding: 4.5px 10px 4.5px 18px;
+	padding: 3px 10px 3px 18px;
 	display: flex;
 	align-items: center;
 	float: right;
