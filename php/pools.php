@@ -279,6 +279,8 @@ if(!$query_do){
 
 }
 
+header("Location: pools.php?comp_id=$comp_id");
+
 }
 
 
@@ -309,7 +311,22 @@ if(!$query_do){
             <div id="title_stripe">
                 <p class="page_title">Pools</p>
 
-                
+
+<?php
+
+
+$query_ex = "SELECT * 
+FROM `information_schema`.`tables`
+WHERE table_schema = 'ccdatabase' 
+    AND table_name = 'pools_$comp_id'
+LIMIT 1;";
+$query_ex_do = mysqli_query($connection, $query_ex);
+
+$exist = mysqli_num_rows($query_ex_do);
+
+if($exist == 0){
+
+?>
 
                 STATE: 0
 
@@ -368,8 +385,13 @@ if(!$query_do){
                     </form>
                 </div>
 
-                
-<!--
+<?php
+}
+else
+{
+
+?>
+
                 STATE: 1 
 
                 <button class="stripe_button" type="button">
@@ -515,9 +537,9 @@ if(!$query_do){
                     </form>
                 </div>
 
+<?php } ?>
                 
-                
-
+<!--
                 STATE: 2
                 
                 <button class="stripe_button" type="button">
@@ -530,23 +552,73 @@ if(!$query_do){
             </div>
             <div id="page_content_panel_main">
 
+             <?php
              
+             if($exist == 0){
+             ?>
 
                 STATE: 0
 
                 <div id="no_something_panel">
                     <p>You have no pools generated!</p>
                 </div>
+<?php
+}
+else{
+    ?>
 
-                -->
-<!--
                 <div id="pools_wrapper">
 
                     STATE: 1
                     <div id="pool_listing" class="with_drag entry_table_row_wrapper"> 
+
+
+                        <?php
+                        
+                        $query_get_group_number = "SELECT * FROM pools_$comp_id";
+                        $query_get_group_number_do = mysqli_query($connection, $query_get_group_number);
+                        
+                        $szor = mysqli_num_rows($query_get_group_number_do);
+
+                        for ($i=1; $i <= $szor; $i++) { 
+                            
+                        $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
+                        $inside_query_do = mysqli_query($connection,$inside_query);
+
+                        if($row = mysqli_fetch_assoc($inside_query_do)){
+
+                        $pool_f_in = $row["pool_of"];
+                        $f1 = $row["f1"];
+                        $f2 = $row["f2"];
+                        $f3 = $row["f3"];
+                        $f4 = $row["f4"];
+                        $f5 = $row["f5"];
+                        $f6 = $row["f6"];
+                        $f7 = $row["f7"];
+                        $ref = $row["ref"];
+                        $piste = $row["piste"];
+                        $time = $row["time"];
+
+                        }
+
+                        $get_group_fencers_query = "SELECT * FROM cptrs_$comp_id WHERE id IN ('$f1','$f2','$f3','$f4','$f5','$f6','$f7')";
+                        $get_group_fencers_query_do = mysqli_query($connection, $get_group_fencers_query);
+
+                        $cla = 0;
+                        while($row = mysqli_fetch_assoc($get_group_fencers_query_do)){
+
+                        ${$cla . "_f_n"} = $row["name"];
+                        ${$cla . "_f_na"} = $row["nationality"];
+                        $cla++;
+
+                        }
+                        
+                        ?>
+
+
                         <div class="entry" >
                             <div class="table_row start">
-                                <div class="table_item bold">No. 1</div>
+                                <div class="table_item bold">No. <?php echo $i ?></div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
@@ -568,29 +640,19 @@ if(!$query_do){
                                             No.
                                         </div>
 
-                                        <div class="table_header_text square">
-                                            1
-                                        </div>
+                                        <?php 
+                                        
+                                        for ($e=1; $e <= $pool_f_in; $e++) {
+
+                                        ?>
 
                                         <div class="table_header_text square">
-                                            2
+                                            <?php echo $e ?>
                                         </div>
 
-                                        <div class="table_header_text square">
-                                            3
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            4
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            5
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            6
-                                        </div>
+                                        <?php
+                                        }
+                                        ?>
 
                                         <div class="table_header_text square">
                                             W
@@ -605,22 +667,31 @@ if(!$query_do){
                                         </div>
                                     </div>
 
+                                    <?php
+                                    for ($n=0; $n < $pool_f_in; $n++) { 
+
+                                    ?>
+
                                     <div class="table_row">
-                                        <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1">Name</p></div>
-                                        <div class="table_item">Nat</div>
-                                        <div class="table_item square row_title">1</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
+                                        <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
+                                        <div class="table_item"><?php echo ${$n . "_f_na"} ?></div>
+                                        <div class="table_item square row_title"><?php echo $n + 1 ?></div>
                                         
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
+                                        <?php
+                                    for ($g=0; $g < $pool_f_in; $g++) { 
+                                    ?>
+
+                                        <div class="table_item square <?php if($g == $n){echo "filled";} ?>"></div>
+                                        
+                                    <?php } ?>
+
+                                        <div class="table_item square"></div>
+                                        <div class="table_item square"></div>
+                                        <div class="table_item square"></div>
                                     </div>
 
+                                    <?php } ?>
+                                    <!--
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -702,15 +773,24 @@ if(!$query_do){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
+                                    -->
                                 </div>
                             </div>
                         </div>
+
+
+<?php
+}
+?>
+
+
+
                     </div>
                     <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                     </div>
 
-                    
-
+                    <?php } ?>
+<!--
                     STATE: 2 
                     <div id="pool_listing"> 
                         <div class="entry" >
