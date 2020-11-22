@@ -37,23 +37,23 @@
     AND table_name = '$table_name';";
 
     if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-    $num_rows = mysqli_num_rows($check_d_table_do);
-    $feedback['ttest'] = "ok!";
+        $num_rows = mysqli_num_rows($check_d_table_do);
+        $feedback['ttest'] = "ok!";
 
-    if ($num_rows != 0) {
-        //creating weapon control  table
-        $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL , 
-                                                            `name` VARCHAR(255) NOT NULL , 
-                                                            `nat` VARCHAR(255) NOT NULL , 
-                                                            `weapon_errors` VARCHAR(255) NOT NULL , 
-                                                            `notes` TEXT NOT NULL ) 
-                                                            ENGINE = InnoDB;";
+        if ($num_rows != 0) {
+            //creating weapon control  table
+            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL , 
+                                                                `name` VARCHAR(255) NOT NULL , 
+                                                                `nat` VARCHAR(255) NOT NULL , 
+                                                                `weapon_errors` VARCHAR(255) NOT NULL , 
+                                                                `notes` TEXT NOT NULL ) 
+                                                                ENGINE = InnoDB;";
 
-        if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
-            $feedback['create_table'] = "ok!";
-        } else {
-            $feedback['create_table'] = "ERROR " . mysqli_error($connection);
-        }
+            if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
+                $feedback['create_table'] = "ok!";
+            } else {
+                $feedback['create_table'] = "ERROR " . mysqli_error($connection);
+            }
 
         } else {
             $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
@@ -110,7 +110,7 @@
                             <div class="big_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
-                        <?php+
+                        <?php
 
                             //get weapon type, comp sex from competitions
                             $qry_get_comp_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
