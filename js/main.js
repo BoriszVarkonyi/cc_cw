@@ -365,6 +365,7 @@ function searchEngine(x) {
         li[i].style.display = "none";
       }
     }
+    console.log(li[1].display == "none")
     if(li.length == 0) {
         ul.classList.add("empty")
     }
