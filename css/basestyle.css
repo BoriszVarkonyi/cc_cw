@@ -254,6 +254,8 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.square, .table_item.square {
+	width: calc(1.4em + 1.25vmin - 6px);
+	max-width: calc(1.4em + 1.25vmin - 6px);
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
