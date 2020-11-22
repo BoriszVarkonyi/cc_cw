@@ -3,89 +3,92 @@
 <?php ob_start(); ?>
 <?php
 
-if(isset($_POST["import_ref"])) {
+    //feedback array
+    $feedback = array(
+        "fencer_data" => "no",
+        "create_table" => "no",
+        "ttest" => "no",
+        "update" => "no",
+        "rtest" => "no",
+        "insert" => "no",
+        "get_wc_data" => "no",
+        "misc" => "no"
+    );
+    $table_name = "ref_" . $comp_id;
 
-    echo $comp_ref_from = $_COOKIE["selected"];
-    
-    $query_add_comp = "SELECT * FROM referees WHERE ass_comp_id regexp '(^|[[:space:]])$comp_ref_from([[:space:]]|$)' EXCEPT SELECT * FROM referees WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
-    $query_add_comp_to_ref = mysqli_query($connection, $query_add_comp);
-    
-    $ref_id_array = [];
-    
-    while($row = mysqli_fetch_assoc($query_add_comp_to_ref)) {
-    
-        $ref_id_string = $row["id"];
-        array_push($ref_id_array, $ref_id_string);
-    }
-    
-    $ref_id_array_upload = implode(",",$ref_id_array);
-    
-    $query_select_to_add = "UPDATE referees SET ass_comp_id = CONCAT(ass_comp_id, ' $comp_id') WHERE id IN($ref_id_array_upload);";
-    $do = mysqli_query($connection, $query_select_to_add);
-    
-    header("Location: referees.php?comp_id=$comp_id");
-    }
-    //Import END
+    //checking for dupli tables
+    $check_d_table_qry = "SELECT COUNT(*)
+    FROM information_schema.tables 
+    WHERE table_schema = 'ccdatabase' 
+    AND table_name = '$table_name';";
 
-    //Adds the selected id to a variable
+    if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
+        $num_rows = mysqli_num_rows($check_d_table_do);
+        $feedback['ttest'] = "ok!";
 
+        if ($num_rows != 0) {
+            //creating weapon control  table
+            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`.`$table_name` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `pass` VARCHAR(255) NOT NULL , `full_name` VARCHAR(255) NOT NULL , `nat` VARCHAR(255) NOT NULL , `online` INT(11) NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8;";
 
+            if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
+                $feedback['create_table'] = "ok!";
+            } else {
+                $feedback['create_table'] = "ERROR " . mysqli_error($connection);
+            }
 
-//Removes referee from current competition
-//Remove START
-if(isset($_POST["remove_referee"])) {
+        } else {
+            $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
+        }
 
-    $ref_to_remove = $_COOKIE["reftoremove"];
-
-    $query_select_ref_to_remove = "SELECT * FROM referees WHERE id = $ref_to_remove";
-    $query_select_ref_to_remove_do = mysqli_query($connection, $query_select_ref_to_remove);
-
-    if($row = mysqli_fetch_assoc($query_select_ref_to_remove_do)){
-
-    $ass_comp_id_all_string = $row["ass_comp_id"];
-    }
-
-    $ass_comp_id_all_array = explode(" ",$ass_comp_id_all_string);
-
-    if(count($ass_comp_id_all_array) == 1) {
-
-    $if_only_one_comp_query = "DELETE FROM referees WHERE id = $ref_to_remove";
-    $if_only_one_comp_query_do = mysqli_query($connection, $if_only_one_comp_query);
-
-    header("Location: referees.php?comp_id=$comp_id");
-    }
-    else{
-
-        $key = array_search($comp_id,$ass_comp_id_all_array);
-        unset($ass_comp_id_all_array[$key]);
-
-        $ass_comp_id_all_array_upload = implode(" ",$ass_comp_id_all_array);
-
-        $update_comps_query = "UPDATE referees SET ass_comp_id = '$ass_comp_id_all_array_upload' WHERE id = $ref_to_remove";
-        $update_comps_query_do = mysqli_query($connection, $update_comps_query);
-
-        header("Location: referees.php?comp_id=$comp_id");
+    } else {
+        $feedback['ttest'] = "ERROR " . mysqli_error($connection);
     }
 
-    print_r($ass_comp_id_all_array);
-
-}
-//Remove END
-
-if(isset($_POST["new_technician"])){
-
-$new_ref_user = $_POST["username"];
-$new_ref_pass = $_POST["password"];
-$new_ref_full = $_POST["full_name"];
-
-$query_add_new_ref = "INSERT INTO `referees`(`username`, `password`, `full_name`, `ass_comp_id`) VALUES ('$new_ref_user','$new_ref_pass','$new_ref_full','$comp_id')";
-$query_add_new_ref_do = mysqli_query($connection, $query_add_new_ref);
-
-header("Location: referees.php?comp_id=$comp_id");
-
-}
 
 
+    if(isset($_POST["import_ref"])) {
+    }
+
+    if(isset($_POST["remove_referee"])) {
+        $qry_remove = "DELETE FROM $table_name WHERE ";
+    }
+
+    if(isset($_POST["new_technician"])){
+
+        //get data from form
+        $ref_name = $_POST['username'];
+        $ref_full_name = $_POST['full_name'];
+        if (!$ref_pass = password_hash($_POST['password'], PASSWORD_DEFAULT)) {
+            echo "szar a password hashes cucc";
+        }
+
+        $_POST['password'] = "";
+
+        $ref_nat = $_POST['f_nat'];
+
+        if ($ref_name != "" && $ref_full_name != "" && $ref_nat != "" && $ref_pass != "") {
+            
+            //test for existing row
+            $qry_row_test = "SELECT * FROM $table_name WHERE name = '$ref_name'";
+            $do_row_test = mysqli_query($connection, $qry_row_test);
+
+            $row_num = mysqli_num_rows($do_row_test);
+            $feedback['rtest'] = "ok!";
+
+            if ($row_num == FALSE) {
+                $qry_insert = "INSERT INTO $table_name (name, full_name, pass, nat) VALUES ('$ref_name', '$ref_full_name', '$ref_pass', '$ref_nat')";
+                if (mysqli_query($connection, $qry_insert)) {
+                    $feedback['insert'] = "ok!";
+                } else {
+                    $feedback['insert'] = "ERROR " . mysqli_error($connection);
+                }
+
+            } else {
+                $feedback['rtest'] = "aaaa" . mysqli_error($connection);
+            }
+        }
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -98,18 +101,6 @@ header("Location: referees.php?comp_id=$comp_id");
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-
-<?php
-
-
-
-$query_ref = "SELECT * FROM referees WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)' ORDER BY online DESC,username";
-$ref_list_query = mysqli_query($connection, $query_ref);
-
-
-
-?>
-
 <body>
 <!-- header -->
     <div id="flexbox_container">
@@ -197,17 +188,16 @@ $ref_list_query = mysqli_query($connection, $query_ref);
 
                     <?php 
                     
-                    //Checks if there is any technician assigned to current competition
-                    //IF there is any, displays it ELSE shows a panel which says no technician set up
-                    //Check,read,display technicians START
-                    if(mysqli_num_rows($ref_list_query) == 0){?>
+                    $ref_list_query = "SELECT * FROM $table_name";
+                    $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+
+                    if(0 == mysqli_num_rows($ref_list_query_do)){?>
 
                             <div id="no_something_panel">
                                 <p>You have no referees set up!</p>
                             </div>
                     <?php
-                    }
-                    else{
+                    } else {
                     ?>       
                     
                         <div class="table_header">
@@ -217,39 +207,25 @@ $ref_list_query = mysqli_query($connection, $query_ref);
                             <button class="resizer"></button>
                             <div class="table_header_text">USERNAME</div>
                             <button class="resizer"></button>
-                            <div class="table_header_text">PASSWORD
-                                <button onclick="hidePasswords(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility-black-18dp.svg" >
-                                </button>
-                            </div>
-                            <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>
-                            <div class="small_status_header"><?php
-                            
-                            $query = "SELECT * FROM referees WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)' AND online = 1 ";
-                            $query_do = mysqli_query($connection, $query);
-
-                            echo mysqli_num_rows($query_do);
-                            
-                            ?></div>
+                            <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
                         <?php  
-                        while($row = mysqli_fetch_assoc($ref_list_query)){ 
+                        while($row = mysqli_fetch_assoc($ref_list_query_do)){ 
                             
                             $ref_id = $row["id"];
-                            $ref_name = $row["username"];
-                            $ref_pass = $row["password"];
+                            $ref_name = $row["name"];
                             $ref_online = $row["online"];
                             $ref_full_name = $row["full_name"];
+                            $ref_nat = $row['nat'];
                             
                             ?>
 
                         <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectTechnicians(this)">
                             <div class="table_item"><?php echo $ref_full_name; ?></div>
-                            <div class="table_item">IDE KELL BE ÍRNI HOGY MI VAN</div>
+                            <div class="table_item"><?php echo $ref_nat ?></div>
                             <div class="table_item"><?php echo $ref_name; ?></div>
-                            <div class="table_item"><p class="password_table_item"><?php echo $ref_pass; ?></p></div>
                             <div class="table_item"><?php
                             
                             if($ref_online == 0){
