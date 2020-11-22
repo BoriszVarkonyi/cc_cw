@@ -254,6 +254,7 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.square, .table_item.square {
+	min-width: calc(1.4em + 1.25vmin - 6px);
 	width: calc(1.4em + 1.25vmin - 6px);
 	max-width: calc(1.4em + 1.25vmin - 6px);
 }
@@ -329,10 +330,6 @@ form.hidden, form.disabled {
 .table_item {
 }
 
-.table_item.filled {
-	background-color: var(--c-gray);
-}
-
 .table_item.row_title {
 	font-family: var(--thin);
 	text-transform: uppercase;
@@ -364,6 +361,11 @@ form.hidden, form.disabled {
 	width: 65%;
 }
 
+.table .filled {
+	background-color: var(--c-gray);
+	border: 3px solid var(--cs-gray);
+}
+
 .table .red {
 	background-color: var(--c-red);
 	border: 3px solid var(--cs-red);
@@ -374,12 +376,12 @@ form.hidden, form.disabled {
 	border: 3px solid var(--cs-green);
 }
 
-.table .gray, .silver {
+.table .gray, .table .silver {
 	background-color: var(--c-gray);
 	border: 3px solid var(--cs-gray);
 }
 
-.table .yellow, .gold {
+.table .yellow, .table .gold {
 	background-color: var(--c-yellow);
 	border: 3px solid var(--cs-yellow);
 }
