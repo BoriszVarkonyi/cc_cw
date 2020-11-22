@@ -1,12 +1,13 @@
 //Auto width
+
 var table = document.querySelector(".table");
 window.addEventListener("resize", automaticWidth);
 window.addEventListener("DOMContentLoaded", automaticWidth);
-var columnCounter = table.querySelectorAll(".table_row:last-of-type .table_item").length;
-
+var columnCounter = table.querySelectorAll(".table_row:last-of-type > div").length;
+var notElementNumbers;
 function automaticWidth(){
-    for(columnNumber = 1; columnNumber<columnCounter; columnNumber++) {
-        var column= table.querySelectorAll('.table_row .table_item:nth-of-type(' + columnNumber +'), .table_header .table_header_text:nth-of-type(' + columnNumber +')');
+    for(columnNumber = 1; columnNumber<=columnCounter; columnNumber++) {
+        var column= table.querySelectorAll('.table_row > div:nth-of-type(' + columnNumber +'), .table_header > div:nth-of-type(' + columnNumber +')');
         var widthArray = [];
         var biggestWidth;
         //Push all widths to widthArray
@@ -17,10 +18,9 @@ function automaticWidth(){
         biggestWidth = widthArray.reduce(function(a, b) {
             return Math.max(a, b);
         });
-
         //Sets the width to all array element.
         for(i = 0; i<column.length; i++) {
-            column[i].style.width = biggestWidth;
+            column[i].style.width = biggestWidth + "px";
             widthArray.pop();
         }
     }
@@ -30,7 +30,6 @@ function automaticWidth(){
 
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
 var table = document.querySelector(".table");
-console.log(table)
 
 document.onkeydown = (keyDownEvent) => {
 

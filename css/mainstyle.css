@@ -828,7 +828,6 @@ label {	/* Used in forms, all caps, thin font    NO option buttons*/
 	font-size: var(--f-medium);
 	color: var(--c-black);
 	padding: 0;
-	white-space: nowrap;
 	align-self: flex-start;
 }
 
@@ -904,14 +903,16 @@ label.small {
 	padding: 10px;
 	background-color: var(--c-lightergray);
 	box-shadow: none;
-	max-height: 150px;
+	max-height: 125px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	justify-content: space-around;
 	margin-bottom: 35px;
 	opacity: 1;
 	transition: opacity var(--t-basic);
-	width: 380px;
+	width: 350px;
+	max-width: 330px;
+	font-size: var(--f-middle);
 }
 
 .option_container.grid.piste_select.disabled {
@@ -931,11 +932,10 @@ input[type=checkbox] + label {
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	margin: 0;
+	margin-bottom: 8px;
 	font-family: var(--reg);
-	font-size: var(--f-medium);
 	color: var(--c-black);
+	text-transform: none;
 }
 
 .approved_status_item > input[type=checkbox] + label {
@@ -1100,10 +1100,6 @@ input[type=radio]:checked:disabled + label:before {
 	align-items: flex-start;
 }
 
-.overlay_panel_form > * {
-	white-space: nowrap;
-}
-
 .overlay_panel_form.dense {
 	padding: 30px 50px;
 }
@@ -1124,7 +1120,7 @@ input[type=radio]:checked:disabled + label:before {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
+	z-index: 5;
 	opacity: 1;
 	transition: opacity var(--t-basic);
 }
@@ -1290,7 +1286,6 @@ input[type=radio]:checked:disabled + label:before {
 
 .sublist_title {
 	transition: var(--t-basic);
-	display: table-cell;
 	padding: 0;
 	margin: 0;
 	border-bottom: 1px solid var(--c-black);
@@ -2589,6 +2584,18 @@ div.title_box > button {
 
 /* ///REFEREES/// */
 
+/* ///TABLE// */
+
+#ref_panel {
+	top: calc(50px + 3vh);
+	right: 400px;
+}
+
+#pist_time_panel {
+	top: calc(50px + 3vh);
+	right: 40px;
+}
+
 /* ///MANAGE ENTRIES/// */
 
 #manage_entries_wrapper {
@@ -3386,6 +3393,10 @@ input.wc_time {
 	display: flex;
 	margin: 5px;
 	padding: 2px 6px;
+}
+
+.piste_select > label {
+	margin: 0 !important;
 }
 
 .piste_select.ghost {

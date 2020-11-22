@@ -254,6 +254,9 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.square, .table_item.square {
+	min-width: calc(1.4em + 1.25vmin - 6px);
+	width: calc(1.4em + 1.25vmin - 6px);
+	max-width: calc(1.4em + 1.25vmin - 6px);
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
@@ -272,12 +275,14 @@ form.hidden, form.disabled {
 	font-size: var(--f-small);
 	font-family: var(--bold);
 	border: 3px solid transparent;
+	max-width: 20px;
 }
 
 .big_status_header {
 	display: flex;
 	align-items: center;
-	width: calc(1.4em + 1.25vmin);
+	width: calc(1.4em + 1.25vmin - 6px);
+	max-width: calc(1.4em + 1.25vmin - 6px);
 	justify-content: center;
 	border: 3px solid transparent;
 }
@@ -325,10 +330,6 @@ form.hidden, form.disabled {
 .table_item {
 }
 
-.table_item.filled {
-	background-color: var(--c-gray);
-}
-
 .table_item.row_title {
 	font-family: var(--thin);
 	text-transform: uppercase;
@@ -340,21 +341,29 @@ form.hidden, form.disabled {
 
 .small_status_item {
 	width: 20px;
+	max-width: 20px;
 }
 
 .big_status_item {
 	width: calc(1.4em + 1.25vmin - 6px);
+	max-width: calc(1.4em + 1.25vmin - 6px);
 	display: flex;
 	justify-content: center;
 }
 
 .big_status_item > label {
 	align-self: center;
+	margin: 0 !important;
 }
 
 .big_status_item > img {
 	height: 65%;
 	width: 65%;
+}
+
+.filled {
+	background-color: var(--c-gray);
+	border: 3px solid var(--cs-gray);
 }
 
 .table .red {
@@ -367,12 +376,12 @@ form.hidden, form.disabled {
 	border: 3px solid var(--cs-green);
 }
 
-.table .gray, .silver {
+.table .gray, .table .silver {
 	background-color: var(--c-gray);
 	border: 3px solid var(--cs-gray);
 }
 
-.table .yellow, .gold {
+.table .yellow, .table .gold {
 	background-color: var(--c-yellow);
 	border: 3px solid var(--cs-yellow);
 }
@@ -407,12 +416,15 @@ form.hidden, form.disabled {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/*
-	border-left: 1px solid red;
-	border-right: 1px solid green;
-	*/
 	max-width: 50%;
 	flex-basis: auto;
+	box-sizing: border-box;
+}
+
+/* When only 2 culomn */
+
+.t_c_2 .table_header_text, .t_c_2 .table_item {
+	max-width: 75% !important;
 }
 
 /* Resizer */
@@ -571,6 +583,7 @@ input[type="text"].search.cc:focus + div {
 	text-align: center;
 	z-index: 0;
 	background-color: var(--c-white);
+	display: block;
 }
 
 .search_results > a.selected {

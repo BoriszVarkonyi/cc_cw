@@ -28,11 +28,13 @@
             <div id="title_stripe">
                 <p class="page_title">Overview</p>
             </div>
-            <div id="page_content_panel_main" class="table_row_wrapper">
+            <div id="page_content_panel_main">
                 <div class="wrapper table" id="overview_wrapper">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
+                        <button class="resizer"></button>
                         <div class="table_header_text">NAME</div>
+                        <button class="resizer"></button>
                         <div class="table_header_text">NATION / CLUB</div>
                         <div class="big_status_header"></div>
                     </div>

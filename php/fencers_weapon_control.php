@@ -184,33 +184,34 @@
                 </div>
                 <div id="page_content_panel_main">
                     <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
-                        <div id="issues_panel" class="table_row_wrapper">
+                        <div id="issues_panel" class="table">
                             <div class="table_header">
                                 <div class="table_header_text">ISSUE</div>
                                 <div class="table_header_text">QUANTITY</div>
                                 <div class="big_status_header"></div>
                             </div>
+                            <div class="table_row_wrapper">
 
-                            <?php 
-                                foreach ($array_issues as $issue) {
+                                <?php 
+                                    foreach ($array_issues as $issue) {
 
-                                $issue_id = array_search($issue, $array_issues);
+                                    $issue_id = array_search($issue, $array_issues);
 
-                            ?>
+                                ?>
 
-                            <div class="table_row">
-                                <div class="table_item"><?php echo $issue ?></div>
-                                <div class="table_item"><input value="<?php echo $array_weapon_errors[$issue_id] ?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="-"></div>
-                                <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
-                                    <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
-                                    <label for="<?php echo $issue_id ?>"></label>
+                                <div class="table_row">
+                                    <div class="table_item"><?php echo $issue ?></div>
+                                    <div class="table_item"><input value="<?php echo $array_weapon_errors[$issue_id] ?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="-"></div>
+                                    <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
+                                        <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
+                                        <label for="<?php echo $issue_id ?>"></label>
+                                    </div>
                                 </div>
+
+                                <?php 
+                                    }
+                                ?>
                             </div>
-
-                            <?php 
-                                }
-                            ?>
-
                         </div>
                         <div id="notes_panel">
                             <div class="table_header">
@@ -222,5 +223,6 @@
                 </div>
         </div>
     </body>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
 </html>

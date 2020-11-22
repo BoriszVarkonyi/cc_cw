@@ -62,7 +62,7 @@ $query_comps = mysqli_query($connection, $query);
             </button>
         </div>
         <div id="panel_main">
-            <div class="table wrapper">
+            <div class="table wrapper t_c_2">
                 <div class="table_header">
                     <div class="table_header_text">NAME</div>
                     <div class="table_header_text">STATUS</div>
