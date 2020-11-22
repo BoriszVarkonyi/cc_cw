@@ -50,14 +50,39 @@
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
-
-                        <label for="ref_type" >REFEREES</label>
                         <div class="option_container row">
-                            <input type="radio" name="ref_type" id="auto" checked value=""/>
-                            <label for="auto">Automatic</label>
+                            <input type="checkbox" name="pistes_type" checked id="true" value=""/>
+                            <label for="true">True</label>
+                        </div>
+                        <label for="pistes_type">SELECT REFEREES</label>
+                        <div class="option_container row">
+                            <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value=""/>
+                            <label for="all_ref">Use all</label>
 
-                            <input type="radio" name="ref_type" id="manual" value=""/>
-                            <label for="manual">Manual</label>
+                            <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value=""/>
+                            <label for="manual_select_ref">Select manually</label>
+                        </div>
+
+                        <div class="option_container grid piste_select disabled" id="select_referees_panel" >
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
                         </div>
                         <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
                     </form>
@@ -78,7 +103,7 @@
 
                         <label for="pistes_type" >PISTES</label>
                         <div class="option_container row">
-                            <input type="radio" name="pistes_type" checked id="all" onclick="useAll()" value=""/>
+                            <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value=""/>
                             <label for="all">Use all</label>
 
                             <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>

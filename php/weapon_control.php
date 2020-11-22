@@ -80,21 +80,19 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-                <div id="title_stripe">
+                <form id="title_stripe" method="POST" action="" >
                     <p class="page_title">Weapon Control</p>
                     <button class="stripe_button" type="submit">
                         <p>Send message to fencer</p>
                         <img src="../assets/icons/chat-black-18dp.svg"/>
                     </button>
-                    <form id="add_weapon_control" method="POST" action="" >
-                    <button from="add_weapon_control" name="add_wc" class="stripe_button orange" type="submit">
+                    <button name="add_wc" class="stripe_button orange" type="submit">
                         <p>Add weapon control</p>
                         <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
 
                     <input type="text" class="hidden" name="fencer_id" id="fencer_id_input" value="">
-                    </form>
-                </div>
+                </form>
                 <div id="page_content_panel_main">
                     <div class="wrapper table">
                         <div class="table_header">
@@ -144,10 +142,10 @@
 
                                 if ($num_rows == 1) {
                                     $wc_test_style = "green";
-                                    $wc_test = "control ready";
+                                    $wc_test = "Ready";
                                 } else {
                                     $wc_test_style = "red";
-                                    $wc_test = "control not ready";
+                                    $wc_test = "Not ready";
                                 }
                         ?>
                         <!-- while -->

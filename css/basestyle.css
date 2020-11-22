@@ -272,6 +272,7 @@ form.hidden, form.disabled {
 	font-size: var(--f-small);
 	font-family: var(--bold);
 	border: 3px solid transparent;
+	max-width: 20px;
 }
 
 .big_status_header {
@@ -341,6 +342,7 @@ form.hidden, form.disabled {
 
 .small_status_item {
 	width: 20px;
+	max-width: 20px;
 }
 
 .big_status_item {
@@ -352,6 +354,7 @@ form.hidden, form.disabled {
 
 .big_status_item > label {
 	align-self: center;
+	margin: 0 !important;
 }
 
 .big_status_item > img {
@@ -409,12 +412,15 @@ form.hidden, form.disabled {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/*
-	border-left: 1px solid red;
-	border-right: 1px solid green;
-	*/
 	max-width: 50%;
 	flex-basis: auto;
+	box-sizing: border-box;
+}
+
+/* When only 2 culomn */
+
+.t_c_2 .table_header_text, .t_c_2 .table_item {
+	max-width: 75% !important;
 }
 
 /* Resizer */
