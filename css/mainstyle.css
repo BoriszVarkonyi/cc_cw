@@ -828,7 +828,6 @@ label {	/* Used in forms, all caps, thin font    NO option buttons*/
 	font-size: var(--f-medium);
 	color: var(--c-black);
 	padding: 0;
-	white-space: nowrap;
 	align-self: flex-start;
 }
 
@@ -904,7 +903,7 @@ label.small {
 	padding: 10px;
 	background-color: var(--c-lightergray);
 	box-shadow: none;
-	max-height: 150px;
+	max-height: 125px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	justify-content: space-around;
@@ -913,6 +912,7 @@ label.small {
 	transition: opacity var(--t-basic);
 	width: 350px;
 	max-width: 330px;
+	font-size: var(--f-middle);
 }
 
 .option_container.grid.piste_select.disabled {

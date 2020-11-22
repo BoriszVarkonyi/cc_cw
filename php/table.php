@@ -49,6 +49,8 @@
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
+                        <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
+
                         <label for="ref_type" >REFEREES</label>
                         <div class="option_container row">
                             <input type="radio" name="ref_type" id="auto" checked value=""/>
@@ -57,112 +59,6 @@
                             <input type="radio" name="ref_type" id="manual" value=""/>
                             <label for="manual">Manual</label>
                         </div>
-                        <label for="starting_time" >STARTING TIME</label>
-                        <input type="time">
-
-                        <label for="interval_of_match" >INTERVAL OF MATCH:</label>
-                        <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input small">
-                            <p>Min.</p>
-                        </div>
-
-                        <label for="pistes_type" >PISTES</label>
-                        <div class="option_container row">
-                            <input type="radio" name="pistes_type" checked id="all" onclick="useAll()" value=""/>
-                            <label for="all">Use all</label>
-
-                            <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>
-                            <label for="manual_select">Select manually</label>
-                        </div>
-
-                        <div class="option_container grid piste_select disabled" id="select_pistes_panel" >
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-                                
-                                <div class="piste_select ghost">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select ghost">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select ghost">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                        </div>
-
                         <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
                     </form>
                 </div>
@@ -171,14 +67,6 @@
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
-                        <label for="ref_type" >REFEREES</label>
-                        <div class="option_container row">
-                            <input type="radio" name="ref_type" id="auto" checked value=""/>
-                            <label for="auto">Automatic</label>
-
-                            <input type="radio" name="ref_type" id="manual" value=""/>
-                            <label for="manual">Manual</label>
-                        </div>
                         <label for="starting_time" >STARTING TIME</label>
                         <input type="time">
 
