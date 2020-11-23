@@ -69,7 +69,7 @@ header("Location: ../index.php");
 
 ?>
 
-<header>
+<div>
     <div id="header_bar">
         
         <!-- header title left -->
@@ -161,4 +161,4 @@ header("Location: ../index.php");
             </form>
         </div>
     </div>
-</header>
+</div>

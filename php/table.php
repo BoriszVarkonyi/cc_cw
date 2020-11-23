@@ -45,7 +45,7 @@
                 </button>
             </div>
                 <div id="ref_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="">
+                    <button class="panel_button" onclick="toggleRefPanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
@@ -88,7 +88,7 @@
                     </form>
                 </div>
                 <div id="pist_time_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="">
+                    <button class="panel_button" onclick="togglePistTimePanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">

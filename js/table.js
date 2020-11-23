@@ -18,7 +18,6 @@ function selectPistes() {
     selectPistes.classList.remove("disabled");
 }
 
-
 var refPanel = document.getElementById("ref_panel");
 var timePistPanel = document.getElementById("pist_time_panel");
 

@@ -245,7 +245,7 @@ form.hidden, form.disabled {
 }
 
 .table_header_text {
-	/*box-sizing: border-box;*/
+	text-transform: uppercase;
 }
 
 .table_header_text.title {
@@ -254,9 +254,8 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.square, .table_item.square {
-	min-width: calc(1.4em + 1.25vmin - 6px);
-	width: calc(1.4em + 1.25vmin - 6px);
-	max-width: calc(1.4em + 1.25vmin - 6px);
+	min-width: calc(1.4em + 1.25vmin);
+	max-width: calc(1.4em + 1.25vmin);
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
@@ -349,6 +348,7 @@ form.hidden, form.disabled {
 	max-width: calc(1.4em + 1.25vmin - 6px);
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .big_status_item > label {
@@ -361,9 +361,8 @@ form.hidden, form.disabled {
 	width: 65%;
 }
 
-.filled {
+.table .filled {
 	background-color: var(--c-gray);
-	border: 3px solid var(--cs-gray);
 }
 
 .table .red {
@@ -418,7 +417,6 @@ form.hidden, form.disabled {
 	align-items: center;
 	max-width: 50%;
 	flex-basis: auto;
-	box-sizing: border-box;
 }
 
 /* When only 2 culomn */
@@ -569,7 +567,7 @@ input[type="text"].search.cc:focus + div {
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
-.search_results.empty::after {
+.search_results.empty::after  {
 	content: "No results";
 	position: relative;
 	text-align: center;

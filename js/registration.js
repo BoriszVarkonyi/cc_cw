@@ -34,11 +34,6 @@ function toggleAddFencerPanel() {
 
 
 function setNation(x){
-
     var field = document.getElementById("inputs");
-    
     field.value = x.innerHTML;
-
-
-
 }

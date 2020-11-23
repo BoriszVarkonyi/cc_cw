@@ -390,11 +390,14 @@ input[value="Search"] {
 }
 
 #cw_main_full {
-	padding: 100px 75px 75px;
+	padding: 100px 0;
+	width: 1500px;
+	max-width: 80vw;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
 	min-height: 80vh;
+	margin: auto;
 }
 
 #cw_main_live {

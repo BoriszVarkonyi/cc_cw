@@ -67,7 +67,7 @@ header("Location: ../index.php");
 
 ?>
 
-<header>
+<div>
     <div id="header_bar">
         <p id="app_name">Competition Control Alpha</p>
 
@@ -164,4 +164,4 @@ header("Location: ../index.php");
             </form>
         </div>
     </div>
-</header>
+</div>

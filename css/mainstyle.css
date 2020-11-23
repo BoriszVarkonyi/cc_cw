@@ -1405,7 +1405,6 @@ input[type=radio]:checked:disabled + label:before {
 /* ///TECHNICIANS ELEMENTS/// */
 
 #no_something_panel {
-	width: 80%;
 	height: 50vh;
 	background-color: var(--c-gray);
 	display: flex;
@@ -1413,7 +1412,6 @@ input[type=radio]:checked:disabled + label:before {
 	align-items: center;
 	font-size: var(--f-large);
 	font-family: var(--bold);
-	position: absolute;
 }
 
 #add_technician_panel {
@@ -3279,6 +3277,10 @@ input.wc_time {
 }
 
 /* ///POOLS/// */
+
+.pool_table_wrapper {
+	width: 90%;
+}
 
 .pools_stat_table {
 	width: 350px;

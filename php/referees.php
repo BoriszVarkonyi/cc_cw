@@ -166,7 +166,7 @@
                                 <label>NATION / CLUB</label>
                                 <div class="search_wrapper">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="f_nat" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <input type="text" name="f_nat" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -176,14 +176,13 @@
                     </div>
                     <div class="search_wrapper">
                         <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                        <input type="text" name="" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                             <a id="" href="#" onclick="selectTechniciansWithSearch(this)"></a>
                         </div>
                     </div>
                 </div>
                 <div id="page_content_panel_main">
-
                     <div class="wrapper table">
 
                     <?php 
@@ -192,7 +191,6 @@
                     $ref_list_query_do = mysqli_query($connection, $ref_list_query);
 
                     if(0 == mysqli_num_rows($ref_list_query_do)){?>
-
                             <div id="no_something_panel">
                                 <p>You have no referees set up!</p>
                             </div>

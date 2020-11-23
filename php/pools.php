@@ -394,39 +394,73 @@ else
 
                 STATE: 1 
 
-                <button class="stripe_button" type="button">
-                    <p>Open CC Match Control</p>
-                    <img src="../assets/icons/pages-black-18dp.svg" />
-                </button>
-
                 <button class="stripe_button disabled" type="button">
                     <p>Send Message to Fencer</p>
                     <img src="../assets/icons/message-black-18dp.svg" />
                 </button>
 
-                <button class="stripe_button bold" type="button" onclick="refPisTimePanel()">
-                    <p>Referees & Pistes & Time</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg" />
+                <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
+                    <p>Referees</p>
+                    <img src="../assets/icons/ballot-black-18dp.svg"/>
+                </button>
+
+                <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
+                    <p>Pistes & Time</p>
+                    <img src="../assets/icons/ballot-black-18dp.svg"/>
                 </button>
                 
                 <button class="stripe_button orange" type="submit">
                     <p>Start Pools</p>
                     <img src="../assets/icons/outlined_flag-black-18dp.svg" />
                 </button>
-
-                <div id="ref_pis_time_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="refPisTimePanel()">
+                <div id="ref_panel" class="overlay_panel hidden">
+                    <button class="panel_button" onclick="toggleRefPanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
-                        <label for="ref_type" >REFEREES</label>
+                        <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
                         <div class="option_container row">
-                            <input type="radio" name="ref_type" id="auto" checked value=""/>
-                            <label for="auto">Automatic</label>
-
-                            <input type="radio" name="ref_type" id="manual" value=""/>
-                            <label for="manual">Manual</label>
+                            <input type="checkbox" name="pistes_type" checked id="true" value=""/>
+                            <label for="true">True</label>
                         </div>
+                        <label for="pistes_type">SELECT REFEREES</label>
+                        <div class="option_container row">
+                            <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value=""/>
+                            <label for="all_ref">Use all</label>
+
+                            <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value=""/>
+                            <label for="manual_select_ref">Select manually</label>
+                        </div>
+
+                        <div class="option_container grid piste_select disabled" id="select_referees_panel" >
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
+                                    <label for="piste_1">Piste 1</label>
+                                </div>
+                        </div>
+                        <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
+                    </form>
+                </div>
+                <div id="pist_time_panel" class="overlay_panel hidden">
+                    <button class="panel_button" onclick="togglePistTimePanel()">
+                        <img src="../assets/icons/close-black-18dp.svg" >
+                    </button>
+                    <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time" >STARTING TIME</label>
                         <input type="time">
 
@@ -438,7 +472,7 @@ else
 
                         <label for="pistes_type" >PISTES</label>
                         <div class="option_container row">
-                            <input type="radio" name="pistes_type" checked id="all" onclick="useAll()" value=""/>
+                            <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value=""/>
                             <label for="all">Use all</label>
 
                             <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>
@@ -622,12 +656,14 @@ else{
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
-                                <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" >
-                                </button>
+                                <div class="big_status_item">
+                                    <button type="button" onclick="" class="pool_config">
+                                        <img src="../assets/icons/settings-black-18dp.svg" >
+                                    </button>
+                                </div>
                             </div>
                             <div class="entry_panel gray">
-                                <div class="pool_table_wrapper">
+                                <div class="pool_table_wrapper table">
                                     <div class="table_header">
                                         <div class="table_header_text">
                                             Fencers name
@@ -666,114 +702,115 @@ else{
                                             TR
                                         </div>
                                     </div>
-
+                                    <div class="table_row_wrapper">
                                     <?php
                                     for ($n=0; $n < $pool_f_in; $n++) { 
 
                                     ?>
-
-                                    <div class="table_row">
-                                        <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
-                                        <div class="table_item"><?php echo ${$n . "_f_na"} ?></div>
-                                        <div class="table_item square row_title"><?php echo $n + 1 ?></div>
-                                        
-                                        <?php
-                                    for ($g=0; $g < $pool_f_in; $g++) { 
-                                    ?>
-
-                                        <div class="table_item square <?php if($g == $n){echo "filled";} ?>"></div>
-                                        
-                                    <?php } ?>
-
-                                        <div class="table_item square"></div>
-                                        <div class="table_item square"></div>
-                                        <div class="table_item square"></div>
-                                    </div>
-
-                                    <?php } ?>
-                                    <!--
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">2</div>
-                                        <div class="table_item square">a</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">3</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">as</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-
-
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">gr</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">5</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">gr</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-
                                     
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">6</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">ge</div>
-                                        <div class="table_item square  filled"></div>
+                                        <div class="table_row">
+                                            <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
+                                            <div class="table_item"><?php echo ${$n . "_f_na"} ?></div>
+                                            <div class="table_item square row_title"><?php echo $n + 1 ?></div>
+                                            
+                                            <?php
+                                        for ($g=0; $g < $pool_f_in; $g++) { 
+                                        ?>
+
+                                            <div class="table_item square <?php if($g == $n){echo "filled";} ?>"></div>
+                                            
+                                        <?php } ?>
+
+                                            <div class="table_item square"></div>
+                                            <div class="table_item square"></div>
+                                            <div class="table_item square"></div>
+                                        </div>
+
+                                        <?php } ?>
+                                        <!--
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">2</div>
+                                            <div class="table_item square">a</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                        </div>
+
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">3</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">as</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                        </div>
+
+
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">4</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">a4</div>
+                                            <div class="table_item square">gr</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                        </div>
+
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">5</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">a4</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">gr</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square">5a</div>
+
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                        </div>
+
                                         
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">6</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">a4</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">ge</div>
+                                            <div class="table_item square  filled"></div>
+                                            
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                            <div class="table_item square">5a</div>
+                                        </div>
+                                        -->
                                     </div>
-                                    -->
                                 </div>
                             </div>
                         </div>
@@ -1447,5 +1484,6 @@ else{
         </div>
     </body>
 <script src="../js/main.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/pools.js"></script>
 </html>

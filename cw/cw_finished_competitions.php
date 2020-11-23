@@ -26,8 +26,9 @@
                 <div class="table_header_text">COMPETITION'S NAME</div>
                 <div class="table_header_text">STARTING AND ENDING DATE</div>
                 <div class="table_header_text">HOSTING COUNTRY</div>
+                <div class="big_status_header"></div>
             </div>
-            <div class="cw_table_wrapper competitions table_row_wrapper">
+            <div class="table_row_wrapper">
                 <!-- comps display scheduled -->
                 <?php include "../cw/comps_display.php" ?>
             </div>
@@ -36,4 +37,5 @@
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
+<script src="../js/list.js"></script>
 </html>
