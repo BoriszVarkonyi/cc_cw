@@ -114,7 +114,7 @@
                                 <label for="fencers_nationality">NATION / CLUB</label>
                                 <div class="search_wrapper">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="f_nat" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -137,7 +137,7 @@
                ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <button class="resizer"></button>
+                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)" ></button>
                             <div class="table_header_text">NATIONALITY</div>
                             <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>

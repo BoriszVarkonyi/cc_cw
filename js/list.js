@@ -27,7 +27,7 @@ function automaticWidth(){
 }
 
 //Arrow system
-
+/*
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
 var table = document.querySelector(".table");
 
@@ -76,3 +76,5 @@ document.onkeydown = (keyDownEvent) => {
         }
     }
 }
+*/
+//Dragging system 

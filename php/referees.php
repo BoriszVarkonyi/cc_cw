@@ -166,7 +166,7 @@
                                 <label>NATION / CLUB</label>
                                 <div class="search_wrapper">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="f_nat" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
+                                    <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="search_wrapper">
                         <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search cc">
+                        <input type="text" name="" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                             <a id="" href="#" onclick="selectTechniciansWithSearch(this)"></a>
                         </div>
