@@ -52,7 +52,7 @@ function selectRow(x){
 
 
 //Arrow system
-
+/*
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
 var table = document.querySelector(".table");
 
@@ -101,4 +101,9 @@ document.onkeydown = (keyDownEvent) => {
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+*/
+//Dragging system 
+>>>>>>> 6a8cea467e0e9c29820e265f784a4f8348600b61

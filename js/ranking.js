@@ -22,7 +22,7 @@ function toggleAddFencer() {
 //FORM VALIDATION
 var form = document.getElementById("new_fencer")
 var saveButton = document.querySelector(".panel_submit");
-var input = document.querySelectorAll('#new_fencer>input');
+var inputs = document.querySelectorAll('#new_fencer>input');
 var points = document.getElementById("ranking_points");
 //Set the "Save" button disabled.
 saveButton.disabled = true;
@@ -34,9 +34,9 @@ form.addEventListener("input", function(){
     points.value = "";
   } 
   //Checking every input.
-  for(i=0; i<input.length; i++){
+  for(i=0; i<inputs.length; i++){
     
-    if(input[i].value == ""){
+    if(inputs[i].value == ""){
       //If it finds an empty input, then it disable the "Save" button.
       saveButton.disabled = true;
       break;
