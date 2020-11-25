@@ -184,7 +184,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                         </div>
 
                         <div class="db_panel_main">
-                            <div id="plus_info_wrapper" class="entry_table_row_wrapper">
+                            <div id="plus_info_wrapper" class="table_row_wrapper">
                                 <?php
 
                                     //displaying plsu infos from db in table rows

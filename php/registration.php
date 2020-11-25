@@ -101,7 +101,7 @@
                         <p>Register in</p>
                         <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
                      </button>
-                    <input type="text" class="hidden" name="fencer_ids" id="fencer_ids" class="selected_list_item_input" value="">
+                    <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencerPanel()">

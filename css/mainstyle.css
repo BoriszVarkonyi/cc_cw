@@ -32,10 +32,6 @@ input.hidden {
 	display: none;
 }
 
-input[type="text"].hidden {
-	display: none;
-}
-
 textarea {
 	outline: none;
 	border: none;
@@ -762,6 +758,46 @@ input[type="range"]:focus::-ms-fill-upper {
 	user-select: none;
 }
 
+/* Legends */
+
+.color_legend {
+	background-color: var(--c-transparent-white);
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	padding: 25px;
+	font-size: var(--f-middle);
+	border-radius: 5px;
+	z-index: 0;
+}
+
+.color_legend > div {
+	width: 100%;
+	text-align: end;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.color_legend > div::after {
+	margin-left: 10px;
+	content: "";
+	height: 15px;
+	width: 15px;
+}
+
+.color_legend > div.cl_red::after {
+	background-color: var(--cs-red);
+}
+
+.color_legend > div.cl_yellow::after {
+	background-color: var(--cs-yellow);
+}
+
+.color_legend > div.cl_green::after {
+	background-color: var(--cs-green);
+}
+
 /* Background */
 
 #illustration_bg {		/* Background used on login page and choose competition*/
@@ -1414,7 +1450,7 @@ input[type=radio]:checked:disabled + label:before {
 	font-family: var(--bold);
 }
 
-#add_technician_panel {
+#new_technician {
 	right: 40px;
 	top: calc(50px + 3vh);
 }

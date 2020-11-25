@@ -27,7 +27,8 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Competitors</p>
-                <button class="stripe_button" type="button">
+                <input type="text" class="selected_list_item_input">
+                <button class="stripe_button disabled" type="button">
                     <p>Send message to Fencer</p>
                     <img src="../assets/icons/message-black-18dp.svg"/>
                 </button>
@@ -60,7 +61,7 @@
                             $reg = $row["reg"];
                             $wc = $row["wc"];?>
 
-                            <div class="table_row">
+                            <div class="table_row" onclick="selectRow(this)">
                                 <div class="table_item"><?php echo $pos ?></div>
                                 <div class="table_item"><?php echo $name ?></div>
                                 <div class="table_item"><?php echo $nat ?></div>

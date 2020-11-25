@@ -82,7 +82,7 @@
         <div class="page_content_flex">
                 <form id="title_stripe" method="POST" action="" >
                     <p class="page_title">Weapon Control</p>
-                    <button class="stripe_button" type="submit">
+                    <button class="stripe_button disabled" type="submit">
                         <p>Send message to fencer</p>
                         <img src="../assets/icons/chat-black-18dp.svg"/>
                     </button>
@@ -90,19 +90,14 @@
                         <p>Add weapon control</p>
                         <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
-
-                    <input type="text" class="hidden" name="fencer_id" id="fencer_id_input" value="">
+                    <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                 </form>
                 <div id="page_content_panel_main">
                     <div class="wrapper table">
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
                             <button class="resizer"></button>
-                            <div class="table_header_text">SEX</div>
-                            <button class="resizer"></button>
                             <div class="table_header_text">NATION / CLUB</div>
-                            <button class="resizer"></button>
-                            <div class="table_header_text">WEAPON TYPE</div>
                             <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
@@ -151,9 +146,7 @@
                         <!-- while -->
                         <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
                             <div class="table_item"><?php echo $fencer_name ?></div>
-                            <div class="table_item"><?php echo $comp_sex ?></div>
                             <div class="table_item"><?php echo $fencer_nat ?></div>
-                            <div class="table_item"><?php echo $comp_weapon ?></div>
                             <div class="table_item"><?php echo $wc_test ?></div>
                             <div class="big_status_item <?php echo $wc_test_style ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>

@@ -604,7 +604,7 @@ else{
                 <div id="pools_wrapper">
 
                     STATE: 1
-                    <div id="pool_listing" class="with_drag entry_table_row_wrapper"> 
+                    <div id="pool_listing" class="with_drag table_row_wrapper"> 
 
 
                         <?php
@@ -650,9 +650,9 @@ else{
                         ?>
 
 
-                        <div class="entry" >
+                        <div class="entry">
                             <div class="table_row start">
-                                <div class="table_item bold">No. <?php echo $i ?></div>
+                                <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>

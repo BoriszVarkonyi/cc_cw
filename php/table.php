@@ -202,7 +202,7 @@
                     </form>
                 </div>
             <div id="page_content_panel_main">
-                <div id="call_room" class="cc">
+                <div id="call_room" class="cc full">
                     <div id="e_1" class="elimination first visible">
                         <div class="elimination_label">Table of __</div>
                         <div class="table_round red" onclick="tableRoundConfig(this)">
@@ -633,6 +633,11 @@
                             
                         </div>
                     </div>
+                </div>
+                <div class="color_legend">
+                    <div class="cl_green">Finished</div>
+                    <div class="cl_yellow">Ongoing</div>
+                    <div class="cl_red">Haven't started</div>
                 </div>
             </div>
         </div>
