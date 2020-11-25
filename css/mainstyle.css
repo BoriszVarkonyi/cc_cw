@@ -1450,7 +1450,7 @@ input[type=radio]:checked:disabled + label:before {
 	font-family: var(--bold);
 }
 
-#new_technician {
+#add_technician_panel {
 	right: 40px;
 	top: calc(50px + 3vh);
 }
