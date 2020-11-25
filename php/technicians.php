@@ -180,10 +180,11 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                     <img src="../assets/icons/add-black-18dp.svg"/>
                 </button>
                      
-                    <form class="overlay_panel_form overlay_panel" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
-                        <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg" >
-                        </button>
+                <div id="add_technician_panel" class="overlay_panel hidden" >
+                    <button class="panel_button" onclick="toggle_add_technician()">
+                        <img src="../assets/icons/close-black-18dp.svg" >
+                    </button>
+                    <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
                         <label for="username" >NAME</label>
                         <input type="text" placeholder="Type the technician's name" class="username_input" name="username">
                         <label for="password">PASSWORD</label>
@@ -206,10 +207,11 @@ $tech_list_query = mysqli_query($connection, $query_tech);
                         </div>
                         <button type="submit" name="submit" class="panel_submit" form="new_technician">Save</button>
                     </form>
+                </div>
 
                 <div class="search_wrapper">
                     <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                    <input type="text" name="" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                    <input type="text" name="" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                     <div class="search_results">
                         <?php
                         $query = "SELECT * FROM technicians WHERE ass_comp_id regexp '(^|[[:space:]])$comp_id([[:space:]]|$)'";
