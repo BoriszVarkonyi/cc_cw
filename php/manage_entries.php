@@ -101,8 +101,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                 <div id="page_content_panel_main">
                     <div id="manage_entries_wrapper">
                     
-                    <div id="new_entries_panel" class="table_row_wrapper">
-
+                    <div id="new_entries_panel">
 
                     <p>New Entries</p>
 
@@ -227,7 +226,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                         ?>
                         </div>
 
-                        <div id="managed_entries_panel" class="table_row_wrapper">
+                        <div id="managed_entries_panel">
                             <p>Managed Entries</p>
                             <?php
                         

@@ -51,7 +51,7 @@
 	--t-basic: ease-in .2s;
 	/* Font Sizes */
 	--f-xxlarge: calc(2em + 2vmin);
-	--f-xlarge: calc(1.5em + 2vmin);
+	--f-xlarge: calc(1.5em + 1.5vmin);
 	--f-large: calc(1.25em + 1vmin);
 	--f-medium: calc(0.8em + 0.7vmin);
 	--f-middle: calc(0.65em + 0.65vmin);
@@ -285,7 +285,7 @@ form.hidden, form.disabled {
 }
 
 .loading_text {
-	font-size: var(--f-large);
+	font-size: var(--f-xlarge);
 	font-family: var(--bold);
 	position: absolute;
 }
@@ -301,8 +301,6 @@ form.hidden, form.disabled {
 	left: 75%;
 	transform: translateX(-50%);
 }
-
-
 
 /* CUSTOM TABLE ELEMENTS */
 
@@ -345,10 +343,6 @@ form.hidden, form.disabled {
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
 	margin-right: 40px;
-}
-
-.table_header_text.square:nth-last-of-type(3), .table_item.square:nth-last-of-type(3) {
-	margin-left: 40px;
 }
 
 .small_status_header {
