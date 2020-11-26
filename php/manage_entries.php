@@ -312,10 +312,10 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                                 ?>  
                                             
                                             <div class="table_row">
-                                            <div class="table_item"><?php echo $fen_name ?></div>
-                                            <div class="table_item"><?php echo $fen_nat ?></div>
-                                            <div class="table_item"><?php echo $fen_dob ?></div>
-                                        </div>
+                                                <div class="table_item"><?php echo $fen_name ?></div>
+                                                <div class="table_item"><?php echo $fen_nat ?></div>
+                                                <div class="table_item"><?php echo $fen_dob ?></div>
+                                            </div>
                                             <?php
                                             }
                                             ?>

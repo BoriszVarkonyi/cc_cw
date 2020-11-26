@@ -838,14 +838,6 @@ input[value="Search"] {
 	background-color: transparent;
 }
 
-.pool_table_wrapper .table_header_text:nth-of-type(-n+2), .pool_table_wrapper .table_item:nth-of-type(-n+2) {
-	max-width: 20%;
-}
-
-.pool_table_wrapper .table_header_text:nth-of-type(2), .pool_table_wrapper .table_item:nth-of-type(2) {
-	margin-right: auto;
-}
-
 /* Final result */
 
 /* Round Live */

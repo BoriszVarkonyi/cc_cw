@@ -460,6 +460,13 @@ form.hidden, form.disabled {
 	flex-basis: auto;
 }
 
+.table_item p {
+	padding: 0 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
 /* When only 2 culomn */
 
 .t_c_2 .table_header_text, .t_c_2 .table_item {
