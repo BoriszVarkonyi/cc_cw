@@ -51,7 +51,7 @@
 
             if ($row_num == FALSE) {
                 $feedback['rtest'] = "ok!";
-                $qry_insert = "INSERT INTO $table_name (name, pass, role) VALUES ('$tech_name', '', '$tech_role')";
+                $qry_insert = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$tech_name', '', '$tech_role', '0')";
                 if ($do_insert = mysqli_query($connection, $qry_insert)) {
                     $feedback['insert'] = "ok!";
                 } else {
@@ -154,6 +154,9 @@
             <div id="page_content_panel_main">
                 <div class="table wrapper">
                     <?php
+
+                        $query = "SELECT * FROM $table_name";
+                        $query_do = mysqli_query($connection, $query);
 
                     if(mysqli_num_rows($query_do) == 0){
                     ?>
