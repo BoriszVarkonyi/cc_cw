@@ -38,12 +38,10 @@
     if (isset($_POST['submit_tech'])) {
         //get data from form
         $tech_name = $_POST['username'];
-        if (!$tech_pass = password_hash($_POST['password'], PASSWORD_DEFAULT)) {
-            echo "szar a password hashes cucc";
-        }
+       
         $tech_role = $_POST['role'];
 
-        if ($tech_name != "" && $tech_pass != "" && $tech_role != "") {
+        if ($tech_name != "" && $tech_role != "") {
             
         $feedback['misc'] = "okokokok";
             $_POST['password'] = "";
@@ -53,7 +51,7 @@
 
             if ($row_num == FALSE) {
                 $feedback['rtest'] = "ok!";
-                $qry_insert = "INSERT INTO $table_name (name, pass, role) VALUES ('$tech_name', '$tech_pass', '$tech_role')";
+                $qry_insert = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$tech_name', '', '$tech_role', '0')";
                 if ($do_insert = mysqli_query($connection, $qry_insert)) {
                     $feedback['insert'] = "ok!";
                 } else {
@@ -117,13 +115,7 @@
                     <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
                         <label for="username" >NAME</label>
                         <input type="text" placeholder="Type the technician's name" class="username_input" name="username">
-                        <label for="password">PASSWORD</label>
-                        <div>
-                            <input type="password" placeholder="Type the technician's password" class="password_input" id="password_input" name="password">
-                            <button type="button" id="random_password_button" onclick="randomPassword()">
-                                <img src="../assets/icons/shuffle-black-18dp.svg">
-                            </button>
-                        </div>
+
                         <label for="">ROLE</label>
                         <div class="option_container">
                             <input type="radio" class="option_button" name="role" id="a" value="1"/>
@@ -162,6 +154,9 @@
             <div id="page_content_panel_main">
                 <div class="table wrapper">
                     <?php
+
+                        $query = "SELECT * FROM $table_name";
+                        $query_do = mysqli_query($connection, $query);
 
                     if(mysqli_num_rows($query_do) == 0){
                     ?>
