@@ -156,9 +156,9 @@
                         ?>
                         
                         <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">
-                            <div class="table_item"><?php echo $name ?></div>
-                            <div class="table_item"><?php echo $nat ?></div>
-                            <div class="table_item"><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></div>
+                            <div class="table_item"><p><?php echo $name ?></p></div>
+                            <div class="table_item"><p><?php echo $nat ?></p></div>
+                            <div class="table_item"><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></div>
                             <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div>
                         </div>
                         <?php

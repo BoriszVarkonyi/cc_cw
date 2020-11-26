@@ -191,10 +191,12 @@
                                 $tech_online = 0;
                                 ?>
                                 <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectTechnicians(this)">
-                                    <div class="table_item"><?php echo $tech_name; ?></div>
-                                    <div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>
-                                    <div class="table_item"><?php echo roleConverter($tech_role); ?></div>
-                                    <div class="table_item"><?php
+                                    <div class="table_item"><p><?php echo $tech_name; ?></p></div>
+                                    <!--<div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>-->
+                                    <div class="table_item"><p><?php echo roleConverter($tech_role); ?></p></div>
+                                    <div class="table_item">
+                                        <p>
+                                        <?php
                                         if($tech_online == 0){
                                             echo "Offline";
                                         }
@@ -202,6 +204,7 @@
                                             echo "Online";
                                         }
                                         ?>
+                                        </p>
                                     </div>
                                     <div class="small_status_item <?php
                                         if($tech_online == 0){

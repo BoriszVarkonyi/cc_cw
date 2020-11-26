@@ -145,9 +145,9 @@
                         ?>
                         <!-- while -->
                         <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
-                            <div class="table_item"><?php echo $fencer_name ?></div>
-                            <div class="table_item"><?php echo $fencer_nat ?></div>
-                            <div class="table_item"><?php echo $wc_test ?></div>
+                            <div class="table_item"><p><?php echo $fencer_name ?></p></div>
+                            <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
+                            <div class="table_item"><p><?php echo $wc_test ?></p></div>
                             <div class="big_status_item <?php echo $wc_test_style ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
                         <?php
