@@ -178,7 +178,25 @@
                         <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <input type="text" name="" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
-                            <a id="" href="#" onclick="selectTechniciansWithSearch(this)"></a>
+                            <?php
+                                $ref_list_query = "SELECT * FROM $table_name";
+                                $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+                                while($row = mysqli_fetch_assoc($ref_list_query_do)){ 
+
+                                    $ref_id = $row['id'];
+                                    $ref_name = $row['name'];
+                                
+                                
+        
+                            
+                            ?>
+
+                            <a id="<?php echo $ref_id ?>" href="#" onclick="selectTechniciansWithSearch(this)"><?php echo $ref_name ?></a>
+
+                            <?php 
+                            
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
