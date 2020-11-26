@@ -32,10 +32,6 @@ input.hidden {
 	display: none;
 }
 
-input[type="text"].hidden {
-	display: none;
-}
-
 textarea {
 	outline: none;
 	border: none;
@@ -760,6 +756,46 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin-left: 40px;
 	float: left;
 	user-select: none;
+}
+
+/* Legends */
+
+.color_legend {
+	background-color: var(--c-transparent-white);
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	padding: 25px;
+	font-size: var(--f-middle);
+	border-radius: 5px;
+	z-index: 0;
+}
+
+.color_legend > div {
+	width: 100%;
+	text-align: end;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.color_legend > div::after {
+	margin-left: 10px;
+	content: "";
+	height: 15px;
+	width: 15px;
+}
+
+.color_legend > div.cl_red::after {
+	background-color: var(--cs-red);
+}
+
+.color_legend > div.cl_yellow::after {
+	background-color: var(--cs-yellow);
+}
+
+.color_legend > div.cl_green::after {
+	background-color: var(--cs-green);
 }
 
 /* Background */
@@ -1662,9 +1698,25 @@ input[type="file"] {
 }
 
 #plus_info_wrapper {
+	min-width: 80%;
 	width: 80%;
 	max-height: 80%;
 	padding: 50px 0;
+}
+
+#plus_info_wrapper > * {
+	z-index: 2;
+}
+
+#plus_info_wrapper::after {
+	content: "You have no announcements yet!";
+	color: var(--c-darkgray);
+	position: absolute;
+	z-index: 1;
+	font-size: var(--f-medium);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 #plus_info_wrapper > .entry > .table_row {
@@ -1711,9 +1763,6 @@ input[type="file"] {
 	opacity: 1;
 	transition: opacity var(--t-basic);
 	width: 100%;
-	border-left: 2px solid var(--c-darkgray);
-	border-right: 2px solid var(--c-gray);
-	border-radius: 0 0 5px 5px;
 }
 
 #add_entry:hover > .table_row {
@@ -1752,9 +1801,7 @@ input[type="file"] {
 	cursor: default;
 }
 
-
 #adding_entry > .table_row > .table_item {
-	min-width: 100%;
 	background-color: var(--c-white);
 	justify-content: flex-start;
 	padding: 0 15px;

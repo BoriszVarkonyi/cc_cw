@@ -16,7 +16,6 @@
             <p>TEMPORARY RANKING OF <?php echo $comp_name ?></p>
         </div>
 
-
         <form id="browsing_bar">
             <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
             <input type="text" name="" placeholder="Search by Title" class="search">
@@ -33,24 +32,33 @@
             <p>Passed</p>
         </div>
 
-        <div class="cw_table_wrapper competitiors table_row_wrapper">
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
-                </div>
-                <div class="small_status_item red"></div>
+
+        <div class="table">
+            <div class="table_header">
+                <div class="table_header_text">POSITION</div>
+                <div class="table_header_text">NAME</div>
+                <div class="table_header_text">NATION / CLUB</div>
+                <div class="small_status_header"></div>
             </div>
-            
+            <div class="table_row_wrapper alt">
+                <div class="table_row">
+                    <div class="table_item">
+                        1.
+                    </div>
+                    <div class="table_item">
+                        Náv
+                    </div>
+                    <div class="table_item">
+                        HUN
+                    </div>
+                    <div class="small_status_item red"></div>
+                </div>
+            </div>
         </div>
     </div>
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/competitions.js"></script>
 </html>

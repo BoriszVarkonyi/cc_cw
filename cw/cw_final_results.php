@@ -26,71 +26,79 @@
             <input type="submit" value="Search">
         </form>
 
-        <div class="cw_table_wrapper final_results_wrapper table_row_wrapper">
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
-                </div>
-                <div class="big_status_item gold">
-                    <img src="../assets/icons/emoji_events-black-18dp.svg">
-                </div>
+        <div class="table">
+            <div class="table_header">
+                <div class="table_header_text">POSITION</div>
+                <div class="table_header_text">NAME</div>
+                <div class="table_header_text">NATION / CLUB</div>
+                <div class="big_status_header"></div>
             </div>
-            <div class="table_row">
-                <div class="table_item">
-                    1.
+            <div class="final_results_wrapper table_row_wrapper">
+                <div class="table_row">
+                    <div class="table_item">
+                        1.
+                    </div>
+                    <div class="table_item">
+                        Náv
+                    </div>
+                    <div class="table_item">
+                        HUN
+                    </div>
+                    <div class="big_status_item gold">
+                        <img src="../assets/icons/emoji_events-black-18dp.svg">
+                    </div>
                 </div>
-                <div class="table_item">
-                    Náv
+                <div class="table_row">
+                    <div class="table_item">
+                        1.
+                    </div>
+                    <div class="table_item">
+                        Náv
+                    </div>
+                    <div class="table_item">
+                        HUN
+                    </div>
+                    <div class="big_status_item silver">
+                    </div>
                 </div>
-                <div class="table_item">
-                    HUN
+                <div class="table_row">
+                    <div class="table_item">
+                        1.
+                    </div>
+                    <div class="table_item">
+                        Náv
+                    </div>
+                    <div class="table_item">
+                        HUN
+                    </div>
+                    <div class="big_status_item bronze">
+                    </div>
                 </div>
-                <div class="big_status_item silver">
+                <div class="table_row">
+                    <div class="table_item">
+                        1.
+                    </div>
+                    <div class="table_item">
+                        Náv
+                    </div>
+                    <div class="table_item">
+                        HUN
+                    </div>
+                    <div class="big_status_item bronze">
+                    </div>
                 </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
-                </div>
-                <div class="big_status_item bronze">
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
-                </div>
-                <div class="big_status_item bronze">
-                </div>
-            </div>
-            <div class="table_row">
-                <div class="table_item">
-                    1.
-                </div>
-                <div class="table_item">
-                    Náv
-                </div>
-                <div class="table_item">
-                    HUN
-                </div>
-                <div class="big_status_item">
+                <div class="table_row">
+                    <div class="table_item">
+                        1.
+                    </div>
+                    <div class="table_item">
+                        Náv
+                    </div>
+                    <div class="table_item">
+                        HUN
+                    </div>
+                    <div class="big_status_item">
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,5 +106,6 @@
 <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/competitions.js"></script>
 </html>

@@ -1,10 +1,7 @@
-function giveClassToFirst() {
-    var x = document.getElementById("e_1");
-    var y = document.getElementById("e_2");
-    var z = document.getElementById("e_3");
-    var a = document.getElementById("e_4");
-    x.classList.toggle("first");
-    x.classList.toggle("visible")
+function test() {
+    var e1 = document.getElementById("e_1")
+    var e4 = document.getElementById("e_4")
 
-    y.classList.toggle("first")
+    e1.classList.add("hidden")
+    e4.classList.remove("hidden")
 }

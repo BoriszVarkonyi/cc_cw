@@ -219,6 +219,33 @@ form.hidden, form.disabled {
 	font-family: var(--reg);
 }
 
+/* Loading Screen */
+
+#loading_screen {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--c-lightergray);
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading_panel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.app_name {
+	font-size: var(--f-large);
+	font-family: var(--bold);
+}
+
 /* CUSTOM TABLE ELEMENTS */
 
 .table {		/* Whole table */
@@ -288,15 +315,28 @@ form.hidden, form.disabled {
 
 /* Table row */
 
-.table_row {
-	display: flex;
+/* Basic Coloring of row, Mostly CC */
+.table_row_wrapper .table_row {
 	background-color: var(--c-white);
-	cursor: pointer;
-	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 }
 
-.table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
+.table_row_wrapper .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightestgray);
+}
+
+/* Alternative Coloring of row, Mostly CW */
+.table_row_wrapper.alt .table_row {
+	background-color: var(--c-lightestgray);
+}
+
+.table_row_wrapper.alt .table_row:nth-child(even) {	/* Coloring of rows */
+	background-color: var(--c-lightergray);
+}
+
+.table_row {
+	display: flex;
+	cursor: pointer;
+	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 }
 
 .table_row.hidden {
@@ -349,6 +389,7 @@ form.hidden, form.disabled {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border: 3px solid transparent;
 }
 
 .big_status_item > label {
@@ -361,41 +402,41 @@ form.hidden, form.disabled {
 	width: 65%;
 }
 
-.table .filled {
+.table_row .filled {
 	background-color: var(--c-gray);
 }
 
-.table .red {
+.table_row .red {
 	background-color: var(--c-red);
 	border: 3px solid var(--cs-red);
 }
 
-.table .green {
+.table_row .green {
 	background-color: var(--c-green);
 	border: 3px solid var(--cs-green);
 }
 
-.table .gray, .table .silver {
+.table_row .gray, .table_row .silver {
 	background-color: var(--c-gray);
 	border: 3px solid var(--cs-gray);
 }
 
-.table .yellow, .table .gold {
+.table_row .yellow, .table_row .gold {
 	background-color: var(--c-yellow);
 	border: 3px solid var(--cs-yellow);
 }
 
-.table .blue {
+.table_row .blue {
 	background-color: var(--c-blue);
 	border: 3px solid var(--cs-blue);
 }
 
-.table .purple {
+.table_row .purple {
 	background-color: var(--c-purple);
 	border: 3px solid var(--cs-purple);
 }
 
-.table .bronze {
+.table_row .bronze {
 	background-color: var(--c-bronze);
 	border: 3px solid var(--cs-bronze);
 }
@@ -423,6 +464,14 @@ form.hidden, form.disabled {
 
 .t_c_2 .table_header_text, .t_c_2 .table_item {
 	max-width: 75% !important;
+}
+
+.t_c_1 .table_header_text, .t_c_1 .table_item {
+	max-width: 90% !important;
+}
+
+.t_c_0 .table_header_text, .t_c_0 .table_item {
+	max-width: 100% !important;
 }
 
 /* Resizer */
@@ -585,7 +634,7 @@ input[type="text"].search.cc:focus + div {
 }
 
 .search_results > a.selected {
-	background-color: var(--c-lightergray);
+	background-color: var(--c-lightgray);
 }
 
 .search_results > a:hover {
@@ -700,10 +749,6 @@ input, input:focus {	/* Removes borders on all inputs*/
 	border: 0;
 	background-repeat: no-repeat;
 	background-position: 10px;
-}
-
-input[type="text"].hidden {
-	display: none;
 }
 
 input[type="text"], input[type="password"], input[type="date"], input[type="email"] {		/* Sets basic look of text and password inputs*/
@@ -1166,11 +1211,38 @@ input[type="time"] {
 	width: 90%;
 }
 
+.elimination_slider_button {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: var(--c-gray);
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+}
+
+.elimination_slider_button > img {
+	width: 25px;
+	height: 25px;
+}
+
+.elimination_slider_button.left {
+	right: 100%;
+	
+}
+.elimination_slider_button.right {
+	left: 100%;
+}
+
 .elimination {
 	flex-basis: 300px;
 	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
 	background-color: var(--c-lightestgray);
-	display: none;
+	transition: flex-basis var(--t-basic);
 }
 
 .elimination:nth-child(even) {
@@ -1181,23 +1253,15 @@ input[type="time"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: var(--f-large);
+	font-size: var(--f-medium);
 	font-family: var(--bold);
-	margin: 10px 0;
+	margin-bottom: 10px;
+	height: 30px;
 }
 
-.elimination.visible {
-	display: flex;
-	flex-direction: column;
-}
-/*
-.elimination.first {
-	background-color: red;
-}
-*/
-
-.elimination.first > .table_round {
-	height: 100px;
+.elimination.hidden {
+	flex-basis: 0;
+	overflow: hidden;
 }
 
 .table_round {

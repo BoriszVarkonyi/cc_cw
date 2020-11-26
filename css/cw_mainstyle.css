@@ -249,10 +249,6 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	margin: 0 50px;
 }
 
-.cw_table_wrapper.competitiors {
-	margin: 0 200px;
-}
-
 .cw_panel_title {
 	font-family: var(--bold);
 	font-size: var(--f-large);
@@ -290,21 +286,6 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	position: absolute;
 	top: 30px;
 	left: 30px;
-}
-
-.cw_table_wrapper > .table_row > .table_item:first-child {
-	justify-content: flex-start;
-	padding-left: 30px;
-    font-family: var(--bold);
-}
-
-.cw_table_wrapper.competitiors > .table_row > .table_item:first-child {
-	max-width: 100px;
-	justify-content: center;
-}
-
-.cw_table_wrapper > .table_row {
-	background-color: var(--c-lightergray);
 }
 
 .table_item.live {
@@ -540,7 +521,8 @@ input[value="Search"] {
 	align-items: center;
 	margin: 5px 0;
 	border-radius: 5px;
-	font-size: var(--f-medium);
+	font-size: var(--f-middle);
+	font-family: var(--bold);
 }
 
 #competition_wrapper > div:nth-of-type(2) > button.hidden {
@@ -834,7 +816,6 @@ input[value="Search"] {
 /* Pools */
 
 #pools_wrapper {
-	margin: 0 100px;
 }
 
 #pools_wrapper > .entry > .table_row {

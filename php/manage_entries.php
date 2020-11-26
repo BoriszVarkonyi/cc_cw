@@ -101,7 +101,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                 <div id="page_content_panel_main">
                     <div id="manage_entries_wrapper">
                     
-                    <div id="new_entries_panel" class="entry_table_row_wrapper">
+                    <div id="new_entries_panel" class="table_row_wrapper">
 
 
                     <p>New Entries</p>
@@ -155,13 +155,13 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
                                         <img src="../assets/icons/info-black-18dp.svg" >
                                     </button>
-                                    <form id="appdisapp_<?php  echo $entry_id  ?>" class="approve_fencers_wrapper table_row_wrapper" action="" method="POST">
+                                    <form id="appdisapp_<?php  echo $entry_id  ?>" class="approve_fencers_wrapper table" action="" method="POST">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
                                         </div>
-
+                                        <div class="table_row_wrapper">
                                             <?php
                                             
                                             while($rowtwo = mysqli_fetch_assoc($get_fencers_query_do)){
@@ -173,17 +173,17 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 
                                                 ?>  
                                             
-                                            <div class="table_row">
-                                            <div class="table_item"><?php echo $fen_name ?></div>
-                                            <div class="table_item"><?php echo $fen_nat ?></div>
-                                            <div class="table_item"><?php echo $fen_dob ?></div>
+                                                <div class="table_row">
+                                                    <div class="table_item"><?php echo $fen_name ?></div>
+                                                    <div class="table_item"><?php echo $fen_nat ?></div>
+                                                    <div class="table_item"><?php echo $fen_dob ?></div>
+                                                </div>
+                                                <?php
+                                                }
+                                                ?>
                                         </div>
-                                            <?php
-                                            }
-                                            ?>
-
-                                        <input type="text" class="" name="hidden_id" id="hidden_id_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
-                                        <input type="text" class="" name="hidden_apporove" id="hidden_approve_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
+                                        <input type="text" class="hidden" name="hidden_id" id="hidden_id_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
+                                        <input type="text" class="hidden" name="hidden_apporove" id="hidden_approve_<?php echo $entry_id ?>" form="appdisapp_<?php echo $entry_id ?>">
 
 
                                         <input type="submit" name="disapprove" value="Disapprove" class="panel_submit secondary red">
@@ -227,7 +227,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                         ?>
                         </div>
 
-                        <div id="managed_entries_panel" class="entry_table_row_wrapper">
+                        <div id="managed_entries_panel" class="table_row_wrapper">
                             <p>Managed Entries</p>
                             <?php
                         
@@ -293,13 +293,13 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
                                         <img src="../assets/icons/info-black-18dp.svg" >
                                     </button>
-                                    <form class="approve_fencers_wrapper table_row_wrapper">
+                                    <form class="approve_fencers_wrapper table">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
                                             <div class="table_header_text">FENCER'S NATIONALITY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
                                         </div>
-
+                                        <div class="table_row_wrapper">
                                             <?php
                                             
                                             while($rowtwo = mysqli_fetch_assoc($get_fencers_query_do)){
@@ -319,6 +319,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                             <?php
                                             }
                                             ?>
+                                        </div>
                                     </form>
 
                                     <div class="entry_overlay_info hidden">
@@ -362,6 +363,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
             </div>
         </div>
     </body>
-<script src="../js/main.js"></script>
-<script src="../js/manage_entries.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/manage_entries.js"></script>
 </html>

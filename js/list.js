@@ -26,8 +26,33 @@ function automaticWidth(){
     }
 }
 
-//Arrow system
+// Select System
 
+var selectedRowInput = document.querySelector(".selected_list_item_input");
+console.log(selectedRowInput);
+
+function selectRow(x){
+    if(x.classList.contains("selected")){
+        x.classList.remove("selected");
+        selectedRowInpu.value = "";
+    }
+    else{
+        var removeall = document.getElementsByClassName("selected");
+        console.log(removeall);
+        if(removeall.length != 0) {
+            for (let index = 0; index < removeall.length; index++) {
+                removeall[index].classList.remove("selected");
+            }
+        }
+    }
+    x.classList.add("selected");
+    selectedRowInput.value = x.id;
+}
+
+
+
+//Arrow system
+/*
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
 var table = document.querySelector(".table");
 
@@ -76,3 +101,5 @@ document.onkeydown = (keyDownEvent) => {
         }
     }
 }
+*/
+//Dragging system 

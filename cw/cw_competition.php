@@ -32,11 +32,9 @@
             <img src="<?php echo $logo_path ?>" >
             <form action="../cw/cw_competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
             <p class="cw_panel_title"><?php echo $comp_name ?>
-
                 <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
                     <img src=<?php echo $star ?> >
                 </button> 
-
             </p>
             <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>
             <div>
@@ -76,7 +74,8 @@
                     <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
 
                     <!-- weapons check table rows -->
-                    <div>
+                    <div class="table">
+                        <div class="table_row_wrapper">
                         <?php 
                             $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
@@ -86,7 +85,7 @@
                                 
                                 if ($array_equipment[$i] != 0) {
                                     ?>
-                                        <div class="table_row table_row_wrapper">
+                                        <div class="table_row">
                                             <div class="table_item"><?php echo $equipment[$i] ?></div>
                                             <div class="table_item"><?php echo $array_equipment[$i] ?></div>
                                     
@@ -95,6 +94,7 @@
                                 }
                             }
                         ?>
+                        </div>
                     </div>
                 </div>
 

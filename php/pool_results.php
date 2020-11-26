@@ -67,7 +67,7 @@
             </div>
 
             <div id="page_content_panel_main">
-                <div class="wrapper width_80 entry_table_row_wrapper" id="pool_results">
+                <div class="wrapper width_80 table_row_wrapper" id="pool_results">
 
                     <div class="entry" >
                         <div class="table_row start">

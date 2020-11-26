@@ -329,6 +329,7 @@ function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {
             overlayPanel()
+            //formvariableDeclaration()
         }
     })
 }
@@ -349,6 +350,7 @@ numberInputs.forEach(item => {
     );
 })
 //Search engine
+var selectedElementIndex = 0;
 function searchEngine(x) {
     // Declare variables
     var input = x
@@ -378,10 +380,44 @@ function searchEngine(x) {
         ul.classList.add("empty")
 
     }
+    //Search engine array system
+    var liCounter = 0;
+    for(i=0; i<li.length; i++){
+        if(li[i].style.display === "") {
+            liCounter++
+        }
+    }
+
+    input.onkeydown = (keyDownEvent) => {
+        if(keyDownEvent.key == "ArrowUp"){
+            if(selectedElementIndex == 0) {
+                selectedElementIndex++
+            }
+            selectedElementIndex--
+            li[selectedElementIndex + 1].classList.remove("selected")
+            li[selectedElementIndex].classList.add("selected")
+        }
+        if(keyDownEvent.key == "ArrowDown"){
+            if(selectedElementIndex == liCounter -1) {
+                selectedElementIndex--
+            }
+            selectedElementIndex++
+            li[selectedElementIndex - 1].classList.remove("selected")
+            li[selectedElementIndex].classList.add("selected")
+        }
+    }
+
+}
+function resultChecker(x){
+    var input = x
+    var ul = input.nextElementSibling;
+    var li = ul.getElementsByTagName('a');
     if(li.length == 0) {
         ul.classList.add("empty")
     }
-    
+    else {
+        li[selectedElementIndex].classList.add("selected")
+    }
 }
 
 //Clears the search 
@@ -395,4 +431,37 @@ clearButton.forEach(item => {
     });
 })
 
-
+//FORM VALIDATION
+/*
+var overlayForm;
+var inputs;
+var saveButton;
+function formvariableDeclaration() {
+var overlayForm = document.querySelector(".overlay_panel_form:not( .hidden)");
+var inputs = document.querySelector(".overlay_panel_form:not( .hidden) input");
+var saveButton = document.querySelector(".overlay_panel_form:not( .hidden) .panel_submit");
+saveButton.disabled = true;
+console.log(overlayForm)
+console.log(inputs)
+console.log(saveButton)
+//If the document values are changing, it runs the function.
+overlayForm.addEventListener("input", function(){
+    //Checking every input.
+    for(i=0; i<inputs.length; i++){
+      
+      if(inputs[i].value == ""){
+        //If it finds an empty input, then it disable the "Save" button.
+        saveButton.disabled = true;
+        break;
+  
+      }
+      else {
+        //If everything has a value then it enable the "Save" Button. The user can save.
+        saveButton.disabled = false;  
+  
+      }
+    }
+  }
+  )
+}
+*/
