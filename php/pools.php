@@ -233,6 +233,8 @@ $comma = 0;
 
 for ($n=0; $n < $poolsnum; $n++) {
     
+    print_r(${$n . "_group_id"});
+
     $poolof = count(${$n . "_group_id"});
 
     for ($z=0; $z < $poolof; $z++) { 
@@ -248,6 +250,19 @@ for ($n=0; $n < $poolsnum; $n++) {
             //echo $cunterka;
     
             ${"id_" . $cunterka} = "";
+
+    }
+    for ($u=0; $u < $poolsnum; $u++) { 
+        
+        for ($q=0; $q < count(${$n . "_group_id"}); $q++) { 
+
+            if (${$u . "_group_id"}[$q] == "") {
+                
+                unset(${$u . "_group_id"}[$q]);
+
+            }
+
+        }
 
     }
 
@@ -690,17 +705,7 @@ else{
                                         }
                                         ?>
 
-                                        <div class="table_header_text square">
-                                            W
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            L
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            TR
-                                        </div>
+                                        
                                     </div>
                                     <div class="table_row_wrapper">
                                     <?php
@@ -721,9 +726,6 @@ else{
                                             
                                         <?php } ?>
 
-                                            <div class="table_item square"></div>
-                                            <div class="table_item square"></div>
-                                            <div class="table_item square"></div>
                                         </div>
 
                                         <?php } ?>
