@@ -3404,6 +3404,8 @@ input.wc_time {
 	bottom: 50px;
 	display: flex;
 	align-items: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
 	border-radius: 10px;
 	padding: 10px;
 	border: 5px dashed var(--c-gray)
@@ -3411,6 +3413,7 @@ input.wc_time {
 
 #pools_drag_panel > .drag_fencer {
 	padding: 5px;
+	margin: 5px;
 	background-color: var(--c-lightestgray);
 	font-family: var(--bold);
 }
