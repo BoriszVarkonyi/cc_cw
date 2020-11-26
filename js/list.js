@@ -101,9 +101,5 @@ document.onkeydown = (keyDownEvent) => {
         }
     }
 }
-<<<<<<< HEAD
-
-=======
 */
 //Dragging system 
->>>>>>> 6a8cea467e0e9c29820e265f784a4f8348600b61

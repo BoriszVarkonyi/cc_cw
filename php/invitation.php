@@ -184,56 +184,58 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                         </div>
 
                         <div class="db_panel_main">
-                            <div id="plus_info_wrapper" class="table_row_wrapper">
-                                <?php
+                            <div class="table t_c_0" id="plus_info_wrapper">
+                                <div class="table_row_wrapper">
+                                    <?php
 
-                                    //displaying plsu infos from db in table rows
-                                    $get_data_plusinfo_qry = "SELECT * FROM info_$comp_id";
-                                    $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
-                                    if ($get_data_plusinfo_do !== FALSE) {
-                                        while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
+                                        //displaying plsu infos from db in table rows
+                                        $get_data_plusinfo_qry = "SELECT * FROM info_$comp_id";
+                                        $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
+                                        if ($get_data_plusinfo_do !== FALSE) {
+                                            while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
 
-                                            $info_title = $row['info_title'];
-                                            $info_body = $row['info_body'];
-                                ?>
+                                                $info_title = $row['info_title'];
+                                                $info_body = $row['info_body'];
+                                    ?>
 
-                                        <!-- while ozd majd ki csoro  -->
-                                        <div class="entry" >
-                                            <div class="table_row" onclick="toggleEntry(this)">
-                                                <div class="table_item invitation"><?php echo $info_title ?></div>
+                                            <!-- while ozd majd ki csoro  -->
+                                            <div class="entry" >
+                                                <div class="table_row" onclick="toggleEntry(this)">
+                                                    <div class="table_item invitation"><?php echo $info_title ?></div>
+                                                </div>
+                                                    <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
+                                                        <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                            <img src="../assets/icons/delete-black-18dp.svg">
+                                                        </button>
+                                                        <textarea id="update" name="text_body" ><?php echo $info_body ?></textarea>
+                                                        <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
+                                                        <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                                    </form>
                                             </div>
-                                                <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
-                                                    <button class="panel_button" type="submit" name="submit_delete" id="update" >
-                                                        <img src="../assets/icons/delete-black-18dp.svg">
-                                                    </button>
-                                                    <textarea id="update" name="text_body" ><?php echo $info_body ?></textarea>
-                                                    <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
-                                                    <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                                </form>
-                                        </div>
 
-                                <?php        
-                                        } 
-                                    }
-                                ?>
+                                    <?php        
+                                            } 
+                                        }
+                                    ?>
 
-                                <div id="add_entry" onclick="hideNshow()">
-                                    <div class="table_row" onclick="">
-                                        <div class="table_item">
-                                            Add information
-                                            <img src="../assets/icons/add-black-18dp.svg" >
+                                    <div id="add_entry" onclick="hideNshow()">
+                                        <div class="table_row" onclick="">
+                                            <div class="table_item">
+                                                Add information
+                                                <img src="../assets/icons/add-black-18dp.svg" >
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <form action="../php/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
+                                        <div class="table_row">
+                                            <div class="table_item">
+                                                <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
+                                                <input name="info_submit" type="submit" class="save_entry" value="Create">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-
-                                <form action="../php/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
-                                    <div class="table_row">
-                                        <div class="table_item">
-                                            <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
-                                            <input name="info_submit" type="submit" class="save_entry" value="Create">
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -297,7 +299,8 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
 
                             <!-- weapons check table rows -->
-                            <div>
+                            <div class="table">
+                                <div class="table_row_wrapper">
                                 <?php 
                                     $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
@@ -315,6 +318,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                             }
                                         }
                                     ?>
+                                    </div>
                                 </div>
                             </div>
 

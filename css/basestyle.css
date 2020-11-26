@@ -470,6 +470,10 @@ form.hidden, form.disabled {
 	max-width: 90% !important;
 }
 
+.t_c_0 .table_header_text, .t_c_0 .table_item {
+	max-width: 100% !important;
+}
+
 /* Resizer */
 
 .resizer {
