@@ -344,5 +344,6 @@ if(mysqli_num_rows($query_do) == 0){
         </div>
     </body>
 <script src="../js/ranking.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/main.js"></script>
 </html>

@@ -89,15 +89,16 @@
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggle_import_technician()">
-                        <img src="../assets/icons/close-black-18dp.svg" >
+                        <img src="../assets/icons/close-black-18dp.svg">
                     </button>
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form">
                         <div class="select_competition_wrapper table_row_wrapper">     
-                                <div class="table_row" id="<?php echo $select_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $select_comp_id; ?>"><?php echo $select_comp_name; ?></div></div>
+                            <div class="table_row" id="<?php echo $select_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $select_comp_id; ?>"><?php echo $select_comp_name; ?></div></div>
                         </div>
+                        <button type="submit" name="import_tech" class="panel_submit" form="import_technician" value="Import">Import</button>
                     </form>
-                    <button type="submit" name="import_tech" class="panel_submit" form="import_technician" value="Import">Import</button>
                 </div>
+
                 <form action="" method="POST" id="remove_technician"></form>
                 <button class="stripe_button disabled red" form="remove_technician" name="remove_technician" id="remove_technician_button">
                     <p>Remove Technician</p>
