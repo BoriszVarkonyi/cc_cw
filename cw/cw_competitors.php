@@ -46,16 +46,24 @@
             <div class="table_row_wrapper alt">
                 <div class="table_row">
                     <div class="table_item bold">
-                        1.
+                        <p>
+                            1.
+                        </p>
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Náv
+                        </p>
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p>
                     </div>
                     <div class="table_item">
-                        04 / 12 / 2000
+                        <p>
+                            04 / 12 / 2000
+                        </p>
                     </div>
                 </div>
             </div>

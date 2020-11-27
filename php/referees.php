@@ -58,15 +58,13 @@
         //get data from form
         $ref_name = $_POST['username'];
         $ref_full_name = $_POST['full_name'];
-        if (!$ref_pass = password_hash($_POST['password'], PASSWORD_DEFAULT)) {
-            echo "szar a password hashes cucc";
-        }
 
-        $_POST['password'] = "";
+
+        
 
         $ref_nat = $_POST['f_nat'];
 
-        if ($ref_name != "" && $ref_full_name != "" && $ref_nat != "" && $ref_pass != "") {
+        if ($ref_name != "" && $ref_full_name != "" && $ref_nat != "") {
             
             //test for existing row
             $qry_row_test = "SELECT * FROM $table_name WHERE name = '$ref_name'";
@@ -76,7 +74,7 @@
             $feedback['rtest'] = "ok!";
 
             if ($row_num == FALSE) {
-                $qry_insert = "INSERT INTO $table_name (name, full_name, pass, nat) VALUES ('$ref_name', '$ref_full_name', '$ref_pass', '$ref_nat')";
+                $qry_insert = "INSERT INTO $table_name (name, full_name, pass, nat) VALUES ('$ref_name', '$ref_full_name', '', '$ref_nat')";
                 if (mysqli_query($connection, $qry_insert)) {
                     $feedback['insert'] = "ok!";
                 } else {
@@ -156,11 +154,7 @@
                             <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
                                 <label for="username" >NAME</label>
                                 <input type="text" placeholder="Type the referees's name" class="username_input" name="username">
-                                <label for="password">PASSWORD</label>
-                                <div>
-                                <input type="password" placeholder="Type the referees's password" id="password_input" class="password_input" name="password">
-                                <button type="button" id="random_password_button" onclick="randomPassword()" ><img src="../assets/icons/shuffle-black-18dp.svg"></button>
-                                </div>
+                                
                                 <label for="full_name" >FULL NAME</label>
                                 <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
                                 <label>NATION / CLUB</label>
@@ -178,7 +172,25 @@
                         <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <input type="text" name="" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
-                            <a id="" href="#" onclick="selectTechniciansWithSearch(this)"></a>
+                            <?php
+                                $ref_list_query = "SELECT * FROM $table_name";
+                                $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+                                while($row = mysqli_fetch_assoc($ref_list_query_do)){ 
+
+                                    $ref_id = $row['id'];
+                                    $ref_name = $row['name'];
+                                
+                                
+        
+                            
+                            ?>
+
+                            <a id="<?php echo $ref_id ?>" href="#" onclick="selectTechniciansWithSearch(this)"><?php echo $ref_name ?></a>
+
+                            <?php 
+                            
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -189,6 +201,12 @@
                     
                     $ref_list_query = "SELECT * FROM $table_name";
                     $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+
+                    if ($ref_list_query_do) {
+                        $feedback['fencer_data'] = 'ok!';
+                    } else {
+                        $feedback['fencer_data'] = 'ERROR ' . mysqli_error($connection);
+                    }
 
                     if(0 == mysqli_num_rows($ref_list_query_do)){?>
                             <div id="no_something_panel">
@@ -220,22 +238,24 @@
                             
                             ?>
 
-                        <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectTechnicians(this)">
-                            <div class="table_item"><?php echo $ref_full_name; ?></div>
-                            <div class="table_item"><?php echo $ref_nat ?></div>
-                            <div class="table_item"><?php echo $ref_name; ?></div>
-                            <div class="table_item"><?php
-                            
-                            if($ref_online == 0){
+                            <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectTechnicians(this)">
+                                <div class="table_item"><p><?php echo $ref_full_name; ?></p></div>
+                                <div class="table_item"><p><?php echo $ref_nat ?></p></div>
+                                <div class="table_item"><p><?php echo $ref_name; ?></p></div>
+                                <div class="table_item"><p><?php
+                                
+                                if($ref_online == 0){
 
-                                echo "Offline";
+                                    echo "Offline";
 
-                            }
-                            else{
-                                echo "Online";
-                            }
-                            
-                            ?></div>
+                                }
+                                else{
+                                    echo "Online";
+                                }
+                                
+                                ?>
+                                </p>
+                            </div>
                             <div class="small_status_item <?php
                             
                             if($ref_online == 0){

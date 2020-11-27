@@ -42,14 +42,20 @@
             </div>
             <div class="table_row_wrapper alt">
                 <div class="table_row">
-                    <div class="table_item">
-                        1.
+                <div class="table_item">
+                        <p>
+                            1.
+                        </p> 
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Néve
+                        </p> 
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p> 
                     </div>
                     <div class="small_status_item red"></div>
                 </div>

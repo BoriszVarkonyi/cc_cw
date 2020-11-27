@@ -19,13 +19,19 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     <!-- outputting the table -->    
     <div class="table_row" onclick="window.location.href='cw_competition.php?comp_id=<?php echo $comp_id ?>'">
         <div class="table_item">
-            <?php echo $comp_name; ?>
+            <p>
+                <?php echo $comp_name; ?>
+            </p>
         </div>
         <div class="table_item">
-            <?php echo $comp_start . "&nbsp;&nbsp;-&nbsp;&nbsp;" . $comp_end; ?>
+            <p>
+                <?php echo $comp_start . "&nbsp;&nbsp;-&nbsp;&nbsp;" . $comp_end; ?>
+            </p>
         </div>
         <div class="table_item">
-            <?php echo $comp_host; ?>
+            <p>
+                <?php echo $comp_host; ?>
+            </p>
         </div>
         <div class="big_status_item">
             <button class="favourite_button">

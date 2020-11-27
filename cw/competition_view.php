@@ -74,7 +74,9 @@
                     <div class="table_row">
                         <!-- comp_name displayed -->
                         <div class="table_item">
-                            <?php echo $comp_name ?>
+                            <p>
+                                <?php echo $comp_name ?>
+                            </p>
                         </div>
                         <!-- live button href -->
                         <div class="table_item live">

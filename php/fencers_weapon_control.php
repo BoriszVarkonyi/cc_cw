@@ -200,7 +200,7 @@
                                 ?>
 
                                 <div class="table_row">
-                                    <div class="table_item"><?php echo $issue ?></div>
+                                    <div class="table_item"><p><?php echo $issue ?></p></div>
                                     <div class="table_item"><input value="<?php echo $array_weapon_errors[$issue_id] ?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="-"></div>
                                     <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
                                         <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>

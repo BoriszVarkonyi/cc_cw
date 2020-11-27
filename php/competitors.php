@@ -62,9 +62,9 @@
                             $wc = $row["wc"];?>
 
                             <div class="table_row" onclick="selectRow(this)">
-                                <div class="table_item"><?php echo $pos ?></div>
-                                <div class="table_item"><?php echo $name ?></div>
-                                <div class="table_item"><?php echo $nat ?></div>
+                                <div class="table_item"><p><?php echo $pos ?></p></div>
+                                <div class="table_item"><p><?php echo $name ?></p></div>
+                                <div class="table_item"><p><?php echo $nat ?></p></div>
                                 <div class="small_status_item <?php
 
                                 if($reg == 0){
@@ -76,16 +76,19 @@
                                 }
                                 ?>">
                                 </div>
-                                <div class="table_item"><?php
-                                
-                                if($reg == 0){
+                                <div class="table_item">
+                                    <p>
+                                    <?php
+                                        
+                                        if($reg == 0){
 
-                                    echo "Not ready";
-                                }else{
+                                            echo "Not ready";
+                                        }else{
 
-                                    echo "Ready";
-                                }
-                                ?>
+                                            echo "Ready";
+                                        }
+                                    ?>
+                                    </p>
                                 </div>
                                 <div class="small_status_item <?php
                                 if($wc == 0){

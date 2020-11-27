@@ -145,56 +145,57 @@
                             <p>Manage Announcements</p>
                         </div>
                         <div class="db_panel_main ">
-                            <div id="plus_info_wrapper" class="table_row_wrapper">
+                            <div class="table t_c_0" id="plus_info_wrapper" >
+                                <div class="table_row_wrapper">
 
-                                <?php
-                                    //displaying plsu infos from db in table rows
-                                    $get_data_plusinfo_qry = "SELECT * FROM $table_name";
-                                    $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
-                                    if ($get_data_plusinfo_do !== FALSE) {
-                                        while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
+                                    <?php
+                                        //displaying plsu infos from db in table rows
+                                        $get_data_plusinfo_qry = "SELECT * FROM $table_name";
+                                        $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
+                                        if ($get_data_plusinfo_do !== FALSE) {
+                                            while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
 
-                                            $title = $row['title'];
-                                            $body = $row['body'];
+                                                $title = $row['title'];
+                                                $body = $row['body'];
 
-                                ?>
+                                    ?>
 
-                                        <!-- ezt kell whileozni csorom -->
-                                        <div class="entry" >
+                                            <!-- ezt kell whileozni csorom -->
+                                            <div class="entry">
 
-                                            <!-- csak a cim kell -->
-                                            <div class="table_row" onclick="toggleEntry(this)">
-                                                <div class="table_item invitation"><?php echo $title ?></div>
+                                                <!-- csak a cim kell -->
+                                                <div class="table_row" onclick="toggleEntry(this)">
+                                                    <div class="table_item invitation"><p><?php echo $title ?></p></div>
+                                                </div>
+
+                                                <!-- updateing entry -->
+                                                <form class="entry_panel collapsed" id="update" method="POST" action="../php/announcements.php?comp_id=<?php echo $comp_id ?>">
+                                                    <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                        <img src="../assets/icons/delete-black-18dp.svg">
+                                                    </button>
+                                                    <textarea id="update" name="text_body" ><?php echo $body ?></textarea>
+                                                    <input id="update" name="text_title_to_change" type="text" value="<?php echo $title ?>" class="hidden">
+                                                    <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                                </form>
+
                                             </div>
-
-                                            <!-- updateing entry -->
-                                            <form class="entry_panel collapsed" id="update" method="POST" action="../php/announcements.php?comp_id=<?php echo $comp_id ?>">
-                                                <button class="panel_button" type="submit" name="submit_delete" id="update" >
-                                                    <img src="../assets/icons/delete-black-18dp.svg">
-                                                </button>
-                                                <textarea id="update" name="text_body" ><?php echo $body ?></textarea>
-                                                <input id="update" name="text_title_to_change" type="text" value="<?php echo $title ?>" class="hidden">
-                                                <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                            </form>
-
+                                            <!-- eddig mondjuk -->
+                                <?php 
+                                            }    
+                                        }                             
+                                ?>
+    
+                                    <!-- adding entry by title -->
+                                    <form action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
+                                        <div class="table_row">
+                                            <div class="table_item">
+                                                <input name="input_title" type="text" class="title_input" placeholder="Type in the title">
+                                                <input name="input_submit" type="submit" class="save_entry" value="Create">
+                                            </div>
                                         </div>
-                                        <!-- eddig mondjuk -->
-                            <?php 
-                                        }    
-                                    }                             
-                            ?>
+                                    </form>
 
-                                <!-- adding entry by title -->
-                                <form action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
-                                    <div class="table_row">
-                                        <div class="table_item">
-                                            <input name="input_title" type="text" class="title_input" placeholder="Type in the title">
-                                            <input name="input_submit" type="submit" class="save_entry" value="Create">
-                                        </div>
-                                    </div>
-                                </form>
-
-
+                                </div>
                             </div>
                         </div>
                     </div>

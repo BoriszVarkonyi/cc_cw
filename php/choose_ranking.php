@@ -164,7 +164,7 @@ if(isset($_POST["submit"]) ){
 
 
                                                 <div class="table_row" id="<?php echo $ranking_id ?>" onclick="selectRanking(this)">
-                                                    <div class="table_item"><?php echo $ranking_name ?></div>
+                                                    <div class="table_item"><p><?php echo $ranking_name ?></p></div>
                                                 </div>
 
                                         <?php } ?>
