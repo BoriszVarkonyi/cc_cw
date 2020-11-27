@@ -228,11 +228,11 @@ form.hidden, form.disabled {
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	transition: max-height var(--t-basic);
+	transition: opacity var(--t-basic);
 }
 
 #loading_screen.done {
-	max-height: 0;
+	opacity: 0;
 	overflow: hidden;
 }
 

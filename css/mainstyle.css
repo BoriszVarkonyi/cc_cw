@@ -2373,6 +2373,25 @@ input[type="file"] {
 	display: flex;
 }
 
+#ranking_search .table {
+	min-height: 100px;
+	background-color: var(--c-lightestgray);
+	margin: 25px 0;
+}
+
+#ranking_search .table::before {
+	content: "No Rankings found";
+	font-size: var(--f-medium);
+	font-family: var(--bold);
+	color: var(--c-gray);
+	white-space: nowrap;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 0;
+}
+
 #choose_ranking_wrapper.first >  #create_ranking_panel {
 	flex-basis: 0;
 	overflow: hidden;

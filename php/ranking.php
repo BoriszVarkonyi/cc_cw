@@ -160,7 +160,7 @@ if(mysqli_num_rows($query_do) == 0){
                         <img src="../assets/icons/delete-black-18dp.svg"/>
                     </button>
 
-                    <button class="stripe_button bold" type="submit" onclick="toggleAddFencer()">
+                    <button class="stripe_button orange" type="submit" onclick="toggleAddFencer()">
                         <p>Add fencer</p>
                         <img src="../assets/icons/add-black-18dp.svg"/>
                     </button>
@@ -221,21 +221,6 @@ if(mysqli_num_rows($query_do) == 0){
                 </div>
                 <div id="page_content_panel_main">
 
-
-
-
-                <?php 
-                    if ($row_cnt == 0) {
-                ?>
-
-                        <!-- you have no fenceers set up div -->
-                        <div id="no_something_panel">
-                            <p>You have no fencers set up!</p>
-                        </div>
-
-                <?php 
-                    }
-                ?>
                     <?php
 
                         echo $drop_row_feedback . $drop_table_feedback;
@@ -282,7 +267,20 @@ if(mysqli_num_rows($query_do) == 0){
                         }
                     ?>
 
-                    <div class="wrapper table_row_wrapper">
+                    <div class="wrapper w90 table">
+
+                        <?php 
+                            if ($row_cnt == 0) {
+                        ?>
+
+                                <!-- you have no fenceers set up div -->
+                                <div id="no_something_panel">
+                                    <p>You have no fencers set up!</p>
+                                </div>
+
+                        <?php 
+                            }
+                        ?>
 
                         <?php
                             if ($row_cnt != 0) {
@@ -294,6 +292,7 @@ if(mysqli_num_rows($query_do) == 0){
                                     <div class="table_header_text">NATION / CLUB</div>
                                     <div class="table_header_text">DATE OF BIRTH</div>
                                 </div>
+                                <div class="table_row_wrapper">
                         <?php
 
                             } 
@@ -310,8 +309,7 @@ if(mysqli_num_rows($query_do) == 0){
                     $nat = $row["nationality"];
                     $points = $row["points"];
                     $dob = $row["dob"];
-
-
+                              
                     //postion changing in database and dinamic table
                     $query_pos = "UPDATE $table_name SET position = $pos WHERE id = $id";
 
@@ -326,11 +324,11 @@ if(mysqli_num_rows($query_do) == 0){
 
                         <div class="table_row" id="<?php echo $id ?>" onclick="toDelete(this)">
 
-                            <div class="table_item"><?php echo $pos ?></div>
-                            <div class="table_item"><?php echo $points ?></div>
-                            <div class="table_item"><?php echo $name ?></div>
-                            <div class="table_item"><?php echo $nat ?></div>
-                            <div class="table_item"><?php echo $dob ?></div>
+                            <div class="table_item bold"><p><?php echo $pos ?></p></div>
+                            <div class="table_item"><p><?php echo $points ?></p></div>
+                            <div class="table_item"><p><?php echo $name ?></p></div>
+                            <div class="table_item"><p><?php echo $nat ?></p></div>
+                            <div class="table_item"><p><?php echo $dob ?></p></div>
 
                         </div>
                                             
@@ -339,6 +337,7 @@ if(mysqli_num_rows($query_do) == 0){
                    $pos += 1;
                 }
                    ?> 
+                    </div>
                     </div>
                 </div>
         </div>

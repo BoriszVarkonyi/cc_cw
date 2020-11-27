@@ -11,5 +11,6 @@ loadingScreen.innerHTML = '<div class="loading_panel"> <div class="loading_bar">
 if (document.readyState === "complete" || document.readyState === "loaded"  || document.readyState === "interactive"){
         loadingScreen.classList.add("done")
         setTimeout(function(){ loadingScreen.innerHTML = ""  }, 750);
+        console.log("fgg")
     }
 })
