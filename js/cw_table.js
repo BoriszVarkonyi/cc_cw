@@ -1,7 +1,55 @@
-function test() {
-    var e1 = document.getElementById("e_1")
-    var e4 = document.getElementById("e_4")
+var eleminitaions = document.querySelectorAll(".elimination")
+var btLeft = document.getElementById("buttonLeft")
+var btRight = document.getElementById("buttonRight")
+console.log(btLeft)
+//Hides all the eliminations
+for(i=0; i<eleminitaions.length; i++){
+    eleminitaions[i].classList.add("hidden")
+}
+//Shows eleminiations by index
+var firstIndex = 0;
+var secondIndex = 4;
+for(i=firstIndex; i<secondIndex; i++){
+    eleminitaions[i].classList.remove("hidden")
 
-    e1.classList.add("hidden")
-    e4.classList.remove("hidden")
+}
+function buttonLeft(){
+    btLeft.classList.remove("disabled")
+    btRight.classList.remove("disabled")
+    if(firstIndex == 0) {
+        btLeft.classList.add("disabled")
+    }
+    else{
+        firstIndex--
+        secondIndex--
+        //Hides all the eliminations
+        for(i=0; i<eleminitaions.length; i++){
+            eleminitaions[i].classList.add("hidden")
+        }
+        //Shows eleminiations by index
+        for(i=firstIndex; i<secondIndex; i++){
+            eleminitaions[i].classList.remove("hidden")
+        
+        }
+    }
+}
+function buttonRight(){
+    btLeft.classList.remove("disabled")
+    btRight.classList.remove("disabled")
+    if(secondIndex == eleminitaions.length) {
+        btRight.classList.add("disabled")
+    }
+    else{
+        firstIndex++
+        secondIndex++
+        //Hides all the eliminations
+        for(i=0; i<eleminitaions.length; i++){
+            eleminitaions[i].classList.add("hidden")
+        }
+        //Shows eleminiations by index
+        for(i=firstIndex; i<secondIndex; i++){
+            eleminitaions[i].classList.remove("hidden")
+        
+        }
+    }
 }
