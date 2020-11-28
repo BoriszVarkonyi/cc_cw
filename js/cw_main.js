@@ -6,4 +6,4 @@ function openCompetitionsDropdown() {
 
 function printPage() {
     window.print();
-  }
+}

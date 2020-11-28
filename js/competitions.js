@@ -14,4 +14,13 @@ function toggleSexSelect() {
 function toggleWTSelect() {
     wtSelectDropdown.classList.toggle("closed")
 }
+function selectSystem(x) {
+    var clickedOption = x
+    var inputClass = x.parentNode.parentNode
+    var dropDown = inputClass.firstElementChild.nextElementSibling
+    var selectInput = x.parentNode.previousElementSibling.firstElementChild
+    selectInput.innerHTML = clickedOption.innerHTML
+    inputClass.classList.add("checked")
+    dropDown.classList.add("closed")
+}
 
