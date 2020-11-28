@@ -734,6 +734,10 @@ input:focus ~ .clear_search_button {
 	background-color: var(--c-lightergray);
 }
 
+.select_input.checked > button {
+	color: var(--c-black);
+}
+
 .select_input > button > p {
 	width: 100%;
 	padding: 7.5px 0;
@@ -1274,7 +1278,7 @@ input[type="time"] {
 }
 
 .elimination_slider_button.disabled {
-	filter: contrast(-50%);
+	filter: contrast(50%);
 	pointer-events: none;
 }
 

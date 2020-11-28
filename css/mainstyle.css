@@ -2514,7 +2514,8 @@ div.title_box > button {
 }
 
 .ranking_creation_button {
-	padding: 7.5px 30px;
+	padding: 1.5px 30px;
+	border: 3px solid var(--cs-orange);
 	background-color: var(--c-orange);
 	border-radius: 5px;
 	font-size: var(--f-medium);
@@ -2524,8 +2525,14 @@ div.title_box > button {
 	align-self: center;
 }
 
-.ranking_creation_button:disabled {
-	background-color: var(--gray);
+.ranking_creation_button.disabled {
+	background-color: var(--c-gray);
+	box-shadow: var(--s-black);
+	cursor: default;
+	pointer-events: none;
+	filter: contrast(50%);
+	border: 3px solid var(--cs-gray);
+	display: block;
 }
 
 /* Upload Ranking specific */
