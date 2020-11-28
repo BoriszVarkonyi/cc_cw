@@ -789,6 +789,10 @@ input:focus ~ .clear_search_button {
 	background-color: var(--c-lightestgray);
 }
 
+.select_input > div > button.selected {
+	background-color: var(--c-lightestgray);
+}
+
 /* Date input */
 
 input[type="date"] {
