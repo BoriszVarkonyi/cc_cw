@@ -13,7 +13,7 @@
             <a href="cw_finished_competitions.php">Finished</a>
         </div>
         <button value="Competitions" class="opened" onclick="openCompetitionsDropdown()">Competitions</button>
-        <a href="">Blog</a>
+        <a href="cw_blog.php">Blog</a>
         <a href="cw_videos.php">Videos</a>
         <a href="">Rankings</a>
     </div>
