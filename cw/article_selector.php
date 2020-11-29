@@ -2,7 +2,6 @@
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
 <?php 
-    session_destroy()
 
 
 ?>
