@@ -11,6 +11,7 @@
         "update" => "no",
         "rtest" => "no",
         "insert" => "no",
+        "delete" => "no",
         "get_wc_data" => "no",
         "misc" => "no"
     );
@@ -50,7 +51,17 @@
     }
 
     if(isset($_POST["remove_referee"])) {
-        $qry_remove = "DELETE FROM $table_name WHERE ";
+        $id = $_POST['id'];
+
+        $qry_delete = "DELETE FROM $table_name WHERE id = '$id'";
+        if ($do_delete = mysqli_query($connection, $qry_delete)) {
+            $feedback['delete'] = 'ok!';
+        
+        } else {
+            $feedback['delete'] = 'ERROR ' . mysqli_error($connection);
+        
+        }
+
     }
 
     if(isset($_POST["new_technician"])){
@@ -107,7 +118,7 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
-                        <input type="text" name="" id="" class="selected_list_item_input">
+                        <input class="hidden" type="text" name="id" form="remove_technician" class="selected_list_item_input">
                         <button class="stripe_button" onclick="toggle_import_technician()">
                             <p>Import Referees</p>
                             <img src="../assets/icons/save_alt-black-18dp.svg"/>
@@ -140,7 +151,7 @@
                             </form>
                         </div>
                         <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
-                        <button class="stripe_button disabled red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                        <button class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                             <p>Remove Referee</p>
                             <img src="../assets/icons/delete-black-18dp.svg"/>
                         </button>
