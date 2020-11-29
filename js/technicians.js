@@ -94,44 +94,6 @@ function hidePasswords(x) {
 
 //Toggles the selection on clicked technician
 
-function selectTechnicians(x) {
-    var y = x.id;
-
-    var cookies = document.cookie;
-    var cookies_list = cookies.split("; ");
-
-    if(!cookies_list.includes("techtoremove=" + y)){
-    
-        var asd = document.getElementById("remove_technician_button");
-        asd.classList.remove("disabled");
-    
-        var remclass = document.getElementsByClassName("selected");
-        var i;
-     
-        for(i = 0; i < remclass.length; i++){
-     
-         remclass[i].classList.remove("selected");
-     
-        }
-    
-        var z = document.getElementById(y);
-        z.classList.add("selected");
-     
-        document.cookie="techtoremove=" + y;
-    }
-    else{
-        
-        var asd = document.getElementById("remove_technician_button");
-        asd.classList.add("disabled");
-    
-        var remselected = document.getElementsByClassName("selected");
-        remselected[0].classList.remove("selected");
-    
-        document.cookie="techtoremove=" + null;
-
-    }
-}
-
 function selectTechniciansWithSearch(x) {
     var y = x.id.slice(0, -1);
     

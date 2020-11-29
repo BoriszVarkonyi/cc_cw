@@ -107,6 +107,7 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
+                        <input type="text" name="" id="" class="selected_list_item_input">
                         <button class="stripe_button" onclick="toggle_import_technician()">
                             <p>Import Referees</p>
                             <img src="../assets/icons/save_alt-black-18dp.svg"/>
@@ -238,7 +239,7 @@
                             
                             ?>
 
-                            <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectTechnicians(this)">
+                            <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectRow(this)">
                                 <div class="table_item"><p><?php echo $ref_full_name; ?></p></div>
                                 <div class="table_item"><p><?php echo $ref_nat ?></p></div>
                                 <div class="table_item"><p><?php echo $ref_name; ?></p></div>

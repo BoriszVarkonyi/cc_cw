@@ -82,6 +82,9 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
+
+                <input type="text" class="selected_list_item_input">
+
                 <button class="stripe_button" onclick="toggle_import_technician()">
                     <p>Import Technicians</p>
                     <img src="../assets/icons/save_alt-black-18dp.svg"/>
@@ -191,7 +194,7 @@
 
                                 $tech_online = 0;
                                 ?>
-                                <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectTechnicians(this)">
+                                <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectRow(this)">
                                     <div class="table_item"><p><?php echo $tech_name; ?></p></div>
                                     <!--<div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>-->
                                     <div class="table_item"><p><?php echo roleConverter($tech_role); ?></p></div>
