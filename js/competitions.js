@@ -1,19 +1,21 @@
-const yearSelectDropdown = document.getElementById("year_select_dropdown");
-const sexSelectDropdown = document.getElementById("sex_select_dropdown");
-const wtSelectDropdown = document.getElementById("wt_select_dropdown");
-
-
-function toggleYearSelect() {
-    yearSelectDropdown.classList.toggle("closed")
+function toggleDropdown(x) {
+    var input = x.parentNode
+    var dropDown = x.nextElementSibling
+    var inputText = x.firstElementChild
+    var basicinputText = inputText.innerHTML
+    dropDown.classList.toggle("closed")
+    if(dropDown.id == "year_select_dropdown"){
+        inputText.innerHTML = "-Year-"
+    }
+    if(dropDown.id == "sex_select_dropdown"){
+        inputText.innerHTML = "-Sex-"
+    }
+    if(dropDown.id == "wt_select_dropdown"){
+        inputText.innerHTML = "-Weapon Type-"
+    }
+    input.classList.remove("checked")
 }
 
-function toggleSexSelect() {
-    sexSelectDropdown.classList.toggle("closed")
-}
-
-function toggleWTSelect() {
-    wtSelectDropdown.classList.toggle("closed")
-}
 function selectSystem(x) {
     var clickedOption = x
     var inputClass = x.parentNode.parentNode

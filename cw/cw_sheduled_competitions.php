@@ -22,7 +22,7 @@
 
             <!-- year drop-down -->
             <div class="select_input">
-                <button type="button" onclick="toggleYearSelect()">
+                <button type="button" onclick="toggleDropdown(this)">
                     <p>-Year-</p>
                     <input type="text" value="">
                 </button>
@@ -38,7 +38,7 @@
 
             <!-- sex drop-down -->
             <div class="select_input">
-                <button type="button" onclick="toggleSexSelect()">
+                <button type="button" onclick="toggleDropdown(this)">
                     <p>-Sex-</p>
                     <input type="text" value="">
                 </button>
@@ -51,7 +51,7 @@
             
             <!-- weapon type drop-down -->
             <div class="select_input">
-                <button type="button" onclick="toggleWTSelect()">
+                <button type="button" onclick="toggleDropdown(this)">
                     <p>-Weapon Type-</p>
                     <input type="text" value="">
                 </button>
