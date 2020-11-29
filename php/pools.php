@@ -668,7 +668,7 @@ else{
                         <div class="entry">
                             <div class="table_row start">
                                 <div class="table_item bold">No.<?php echo $i ?></div>
-                                <div class="table_item">Piste 1</div>
+                                <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <div class="big_status_item">
