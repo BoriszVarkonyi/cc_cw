@@ -101,8 +101,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                 <div id="page_content_panel_main">
                     <div id="manage_entries_wrapper">
                     
-                    <div id="new_entries_panel" class="table_row_wrapper">
-
+                    <div id="new_entries_panel">
 
                     <p>New Entries</p>
 
@@ -227,7 +226,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                         ?>
                         </div>
 
-                        <div id="managed_entries_panel" class="table_row_wrapper">
+                        <div id="managed_entries_panel">
                             <p>Managed Entries</p>
                             <?php
                         
@@ -312,10 +311,10 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                                 ?>  
                                             
                                             <div class="table_row">
-                                            <div class="table_item"><?php echo $fen_name ?></div>
-                                            <div class="table_item"><?php echo $fen_nat ?></div>
-                                            <div class="table_item"><?php echo $fen_dob ?></div>
-                                        </div>
+                                                <div class="table_item"><p><?php echo $fen_name ?></p></div>
+                                                <div class="table_item"><p><?php echo $fen_nat ?></p></div>
+                                                <div class="table_item"><p><?php echo $fen_dob ?></p></div>
+                                            </div>
                                             <?php
                                             }
                                             ?>
@@ -324,31 +323,31 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 
                                     <div class="entry_overlay_info hidden">
                                         <div>
-                                            <p >FEDERATION'S NAME:</p>
+                                            <p>FEDERATION'S NAME:</p>
                                             <p><?php echo $f_name ?></p>
                                         </div>
                                         <div>
-                                            <p >COUNTRY / FENCING CLUB:</p>
+                                            <p>COUNTRY / FENCING CLUB:</p>
                                             <p><?php echo $f_country ?></p>
                                         </div>
                                         <div>
-                                            <p >FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
+                                            <p>FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
                                             <p><?php echo $f_mail ?></p>
                                         </div>
                                         <div>
-                                            <p >FEDERATION'S PHONE NUMBER:</p>
+                                            <p>FEDERATION'S PHONE NUMBER:</p>
                                             <p><?php echo $f_phone ?></p>
                                         </div>
                                         <div>
-                                            <p >CONTACT KEEPER'S FULL NAME:</p>
+                                            <p>CONTACT KEEPER'S FULL NAME:</p>
                                             <p><?php echo $c_name ?></p>
                                         </div>
                                         <div>
-                                            <p >CONTACT KEEPER'S EMAIL ADDRESS:</p>
+                                            <p>CONTACT KEEPER'S EMAIL ADDRESS:</p>
                                             <p><?php echo $c_mail ?></p>
                                         </div>
                                         <div>
-                                            <p >CONTACT KEEPER'S PHONE NUMBER:</p>
+                                            <p>CONTACT KEEPER'S PHONE NUMBER:</p>
                                             <p><?php echo $c_phone ?></p>
                                         </div>
                                     </div>

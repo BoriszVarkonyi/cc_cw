@@ -165,7 +165,7 @@
 
                                                 <!-- csak a cim kell -->
                                                 <div class="table_row" onclick="toggleEntry(this)">
-                                                    <div class="table_item invitation"><?php echo $title ?></div>
+                                                    <div class="table_item invitation"><p><?php echo $title ?></p></div>
                                                 </div>
 
                                                 <!-- updateing entry -->

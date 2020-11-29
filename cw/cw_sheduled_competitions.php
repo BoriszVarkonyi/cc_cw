@@ -27,12 +27,12 @@
                     <input type="text" value="">
                 </button>
                 <div id="year_select_dropdown" class="closed">
-                    <button type="button">2020</button>
-                    <button type="button">2019</button>
-                    <button type="button">2018</button>
-                    <button type="button">2017</button>
-                    <button type="button">2016</button>
-                    <button type="button">2015</button>
+                    <button type="button" onclick="selectSystem(this)">2020</button>
+                    <button type="button" onclick="selectSystem(this)">2019</button>
+                    <button type="button" onclick="selectSystem(this)">2018</button>
+                    <button type="button" onclick="selectSystem(this)">2017</button>
+                    <button type="button" onclick="selectSystem(this)">2016</button>
+                    <button type="button" onclick="selectSystem(this)">2015</button>
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
                     <input type="text" value="">
                 </button>
                 <div id="sex_select_dropdown" class="closed">
-                    <button type="button">Male</button>
-                    <button type="button">Female</button>
+                    <button type="button" onclick="selectSystem(this)">Male</button>
+                    <button type="button" onclick="selectSystem(this)">Female</button>
                 </div>
             </div>
 
@@ -56,9 +56,9 @@
                     <input type="text" value="">
                 </button>
                 <div id="wt_select_dropdown" class="closed">
-                    <button type="button">Epee</button>
-                    <button type="button">Foil</button>
-                    <button type="button">Sabre</button>
+                    <button type="button" onclick="selectSystem(this)">Epee</button>
+                    <button type="button" onclick="selectSystem(this)">Foil</button>
+                    <button type="button" onclick="selectSystem(this)">Sabre</button>
                 </div>
             </div>
 

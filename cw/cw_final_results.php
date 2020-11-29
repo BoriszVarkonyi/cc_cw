@@ -36,13 +36,19 @@
             <div class="final_results_wrapper table_row_wrapper">
                 <div class="table_row">
                     <div class="table_item">
-                        1.
+                        <p>
+                            1.
+                        </p> 
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Néve
+                        </p> 
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p> 
                     </div>
                     <div class="big_status_item gold">
                         <img src="../assets/icons/emoji_events-black-18dp.svg">
@@ -50,52 +56,76 @@
                 </div>
                 <div class="table_row">
                     <div class="table_item">
-                        1.
+                        <p>
+                            1.
+                        </p> 
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Néve
+                        </p> 
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p> 
                     </div>
                     <div class="big_status_item silver">
                     </div>
                 </div>
                 <div class="table_row">
                     <div class="table_item">
-                        1.
+                        <p>
+                            1.
+                        </p> 
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Néve
+                        </p> 
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p> 
                     </div>
                     <div class="big_status_item bronze">
                     </div>
                 </div>
                 <div class="table_row">
                     <div class="table_item">
-                        1.
+                        <p>
+                            1.
+                        </p> 
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Néve
+                        </p> 
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p> 
                     </div>
                     <div class="big_status_item bronze">
                     </div>
                 </div>
                 <div class="table_row">
                     <div class="table_item">
-                        1.
+                        <p>
+                            1.
+                        </p> 
                     </div>
                     <div class="table_item">
-                        Náv
+                        <p>
+                            Néve
+                        </p> 
                     </div>
                     <div class="table_item">
-                        HUN
+                        <p>
+                            HUN
+                        </p> 
                     </div>
                     <div class="big_status_item">
                     </div>

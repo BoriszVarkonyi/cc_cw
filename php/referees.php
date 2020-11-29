@@ -239,21 +239,23 @@
                             ?>
 
                             <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectTechnicians(this)">
-                            <div class="table_item"><?php echo $ref_full_name; ?>a</div>
-                            <div class="table_item"><?php echo $ref_nat ?>a</div>
-                            <div class="table_item"><?php echo $ref_name; ?>a</div>
-                            <div class="table_item">a<?php
-                            
-                            if($ref_online == 0){
+                                <div class="table_item"><p><?php echo $ref_full_name; ?></p></div>
+                                <div class="table_item"><p><?php echo $ref_nat ?></p></div>
+                                <div class="table_item"><p><?php echo $ref_name; ?></p></div>
+                                <div class="table_item"><p><?php
+                                
+                                if($ref_online == 0){
 
-                                echo "Offline";
+                                    echo "Offline";
 
-                            }
-                            else{
-                                echo "Online";
-                            }
-                            
-                            ?></div>
+                                }
+                                else{
+                                    echo "Online";
+                                }
+                                
+                                ?>
+                                </p>
+                            </div>
                             <div class="small_status_item <?php
                             
                             if($ref_online == 0){

@@ -329,7 +329,7 @@ function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {
             overlayPanel()
-            //formvariableDeclaration()
+            formvariableDeclaration()
         }
     })
 }
@@ -338,6 +338,7 @@ const mutationObserver = new MutationObserver(callback)
 for(i=0; i<overlayPanelAll.length; i++){
 mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 }
+
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
@@ -380,7 +381,7 @@ function searchEngine(x) {
         ul.classList.add("empty")
 
     }
-    //Search engine array system
+    //Search engine arrow system
     var liCounter = 0;
     for(i=0; i<li.length; i++){
         if(li[i].style.display === "") {
@@ -432,36 +433,38 @@ clearButton.forEach(item => {
 })
 
 //FORM VALIDATION
-/*
-var overlayForm;
-var inputs;
-var saveButton;
-function formvariableDeclaration() {
-var overlayForm = document.querySelector(".overlay_panel_form:not( .hidden)");
-var inputs = document.querySelector(".overlay_panel_form:not( .hidden) input");
-var saveButton = document.querySelector(".overlay_panel_form:not( .hidden) .panel_submit");
-saveButton.disabled = true;
-console.log(overlayForm)
-console.log(inputs)
-console.log(saveButton)
-//If the document values are changing, it runs the function.
-overlayForm.addEventListener("input", function(){
-    //Checking every input.
-    for(i=0; i<inputs.length; i++){
-      
-      if(inputs[i].value == ""){
-        //If it finds an empty input, then it disable the "Save" button.
-        saveButton.disabled = true;
-        break;
-  
-      }
-      else {
-        //If everything has a value then it enable the "Save" Button. The user can save.
-        saveButton.disabled = false;  
-  
-      }
+
+function formvariableDeclaration(overlayForm, inputs, saveButton) {
+    if(overlayPanelsOepened.length == 1) {
+     var formelement = overlayPanelsOepened[0].firstChild.nextElementSibling.nextElementSibling;
+        if(formelement.classList.contains("overlay_panel_form")){
+            return overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form"), 
+            inputs = document.querySelectorAll(".overlay_panel:not( .hidden) .overlay_panel_form input"), 
+            saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit"),
+            formValidation(overlayForm, inputs, saveButton);
+        }
     }
-  }
-  )
 }
-*/
+
+function formValidation(overlayForm, inputs, saveButton){
+    saveButton.disabled = true;
+    //If the document values are changing, it runs the function.
+    overlayForm.addEventListener("input", function(){
+        //Checking every input.
+        for(i=0; i<inputs.length; i++){
+            if(inputs[i].value == "" && inputs[i].checked == false){
+                //If it finds an empty input, then it disable the "Save" button.
+                saveButton.disabled = true;
+                break;
+        
+            }
+            else {
+                //If everything has a value then it enable the "Save" Button. The user can save.
+                saveButton.disabled = false;  
+        
+            }
+        }
+    }
+    )
+}
+

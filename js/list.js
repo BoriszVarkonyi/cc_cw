@@ -1,27 +1,28 @@
 //Auto width
 
-var table = document.querySelector(".table");
 window.addEventListener("resize", automaticWidth);
 window.addEventListener("DOMContentLoaded", automaticWidth);
-var columnCounter = table.querySelectorAll(".table_row:last-of-type > div").length;
-var notElementNumbers;
 function automaticWidth(){
-    for(columnNumber = 1; columnNumber<=columnCounter; columnNumber++) {
-        var column= table.querySelectorAll('.table_row > div:nth-of-type(' + columnNumber +'), .table_header > div:nth-of-type(' + columnNumber +')');
-        var widthArray = [];
-        var biggestWidth;
-        //Push all widths to widthArray
-        for(i = 0; i<column.length; i++) {
-            widthArray.push(column[i].offsetWidth);
-        }
-        //Gets the biggest array
-        biggestWidth = widthArray.reduce(function(a, b) {
-            return Math.max(a, b);
-        });
-        //Sets the width to all array element.
-        for(i = 0; i<column.length; i++) {
-            column[i].style.width = biggestWidth + "px";
-            widthArray.pop();
+    var table = document.querySelector(".table");
+    if(table != null) {
+        var columnCounter = table.querySelectorAll(".table_row:last-of-type > div").length;
+        for(columnNumber = 1; columnNumber<=columnCounter; columnNumber++) {
+            var column= table.querySelectorAll('.table_row > div:nth-of-type(' + columnNumber +'), .table_header > div:nth-of-type(' + columnNumber +')');
+            var widthArray = [];
+            var biggestWidth;
+            //Push all widths to widthArray
+            for(i = 0; i<column.length; i++) {
+                widthArray.push(column[i].offsetWidth);
+            }
+            //Gets the biggest array
+            biggestWidth = widthArray.reduce(function(a, b) {
+                return Math.max(a, b);
+            });
+            //Sets the width to all array element.
+            for(i = 0; i<column.length; i++) {
+                column[i].style.width = biggestWidth + "px";
+                widthArray.pop();
+            }
         }
     }
 }
@@ -29,7 +30,6 @@ function automaticWidth(){
 // Select System
 
 var selectedRowInput = document.querySelector(".selected_list_item_input");
-console.log(selectedRowInput);
 
 function selectRow(x){
     if(x.classList.contains("selected")){

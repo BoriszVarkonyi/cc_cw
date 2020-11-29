@@ -40,33 +40,33 @@
                     </div>
                     <div class="table_row_wrapper">
                         <div class="table_row">
-                            <div class="table_item">1.</div>
-                            <div class="table_item">Néve</div>
-                            <div class="table_item">Náte</div>
+                            <div class="table_item"><p>1.</p></div>
+                            <div class="table_item"><p>Néve</p></div>
+                            <div class="table_item"><p>Náté</p></div>
                             <div class="big_status_item gold"></div>
                         </div>
                         <div class="table_row">
-                            <div class="table_item">2.</div>
-                            <div class="table_item">Néve</div>
-                            <div class="table_item">Náte</div>
+                            <div class="table_item"><p>1.</p></div>
+                            <div class="table_item"><p>Néve</p></div>
+                            <div class="table_item"><p>Náté</p></div>
                             <div class="big_status_item silver"></div>
                         </div>
                         <div class="table_row">
-                            <div class="table_item">3.</div>
-                            <div class="table_item">Néve</div>
-                            <div class="table_item">Náte</div>
+                            <div class="table_item"><p>1.</p></div>
+                            <div class="table_item"><p>Néve</p></div>
+                            <div class="table_item"><p>Náté</p></div>
                             <div class="big_status_item bronze"></div>
                         </div>
                         <div class="table_row">
-                            <div class="table_item">4.</div>
-                            <div class="table_item">Néve</div>
-                            <div class="table_item">Náte</div>
+                            <div class="table_item"><p>1.</p></div>
+                            <div class="table_item"><p>Néve</p></div>
+                            <div class="table_item"><p>Náté</p></div>
                             <div class="big_status_item"></div>
                         </div>
                         <div class="table_row">
-                            <div class="table_item">5.</div>
-                            <div class="table_item">Néve</div>
-                            <div class="table_item">Náte</div>
+                            <div class="table_item"><p>1.</p></div>
+                            <div class="table_item"><p>Néve</p></div>
+                            <div class="table_item"><p>Náté</p></div>
                             <div class="big_status_item"></div>
                         </div>
                     </div>

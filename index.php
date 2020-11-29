@@ -196,7 +196,7 @@ print_r($_POST);
 
             <!-- login form -->
                <form action="index.php" method="POST" class="overlay_panel_form">
-                    <label for="username" >LOGIN ID</label>
+                    <label for="username">LOGIN ID</label>
                     <input type="text" placeholder="Type in your username" class="username_input" name="username"<?php 
                     
                     if(in_array(1, $_GET)) {

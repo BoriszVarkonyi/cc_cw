@@ -233,6 +233,8 @@ $comma = 0;
 
 for ($n=0; $n < $poolsnum; $n++) {
     
+    print_r(${$n . "_group_id"});
+
     $poolof = count(${$n . "_group_id"});
 
     for ($z=0; $z < $poolof; $z++) { 
@@ -248,6 +250,19 @@ for ($n=0; $n < $poolsnum; $n++) {
             //echo $cunterka;
     
             ${"id_" . $cunterka} = "";
+
+    }
+    for ($u=0; $u < $poolsnum; $u++) { 
+        
+        for ($q=0; $q < count(${$n . "_group_id"}); $q++) { 
+
+            if (${$u . "_group_id"}[$q] == "") {
+                
+                unset(${$u . "_group_id"}[$q]);
+
+            }
+
+        }
 
     }
 
@@ -464,7 +479,7 @@ else
                         <label for="starting_time" >STARTING TIME</label>
                         <input type="time">
 
-                        <label for="interval_of_match" >INTERVAL OF MATCH:</label>
+                        <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
                             <input type="number" class="number_input small">
                             <p>Min.</p>
@@ -653,7 +668,7 @@ else{
                         <div class="entry">
                             <div class="table_row start">
                                 <div class="table_item bold">No.<?php echo $i ?></div>
-                                <div class="table_item">Piste 1</div>
+                                <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <div class="big_status_item">
@@ -690,17 +705,7 @@ else{
                                         }
                                         ?>
 
-                                        <div class="table_header_text square">
-                                            W
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            L
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            TR
-                                        </div>
+                                        
                                     </div>
                                     <div class="table_row_wrapper">
                                     <?php
@@ -710,8 +715,8 @@ else{
                                     
                                         <div class="table_row">
                                             <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
-                                            <div class="table_item"><?php echo ${$n . "_f_na"} ?></div>
-                                            <div class="table_item square row_title"><?php echo $n + 1 ?></div>
+                                            <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
+                                            <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
                                             
                                             <?php
                                         for ($g=0; $g < $pool_f_in; $g++) { 
@@ -721,9 +726,6 @@ else{
                                             
                                         <?php } ?>
 
-                                            <div class="table_item square"></div>
-                                            <div class="table_item square"></div>
-                                            <div class="table_item square"></div>
                                         </div>
 
                                         <?php } ?>

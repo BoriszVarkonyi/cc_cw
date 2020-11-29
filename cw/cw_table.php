@@ -22,10 +22,10 @@
             <input type="button" value="Search" onclick="giveClassToFirst()">
         </form>
         <div id="call_room" class="display_4">
-            <div class="elimination_slider_button left" onclick="test()">
+            <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
                 <img src="../assets/icons/arrow_back_ios-black-18dp.svg" >
             </div>
-            <div class="elimination_slider_button right">
+            <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                 <img src="../assets/icons/arrow_forward_ios-black-18dp.svg" >
             </div>
 
