@@ -167,11 +167,7 @@
                                 <input type="radio" name="elimnation_type" id="direct_et" value="1" checked/>
                                 <label for="direct_et">Direct-Elimination Tournament</label>
 
-<<<<<<< HEAD
-                                <input type="radio" name="elimnation_type" id="double_et" value="2"/>
-=======
                                 <input type="radio" name="elimnation_type" id="double_et" value="" disabled/>
->>>>>>> 0b90869f39413d4701b916cd5d47acb611903e47
                                 <label for="double_et">Double-Elimination Tournament</label>
                             </div>
 
@@ -185,17 +181,10 @@
 
                             <label for="third_place" >FENCING FOR 3RD PLACE</label>
                             <div class="option_container">
-<<<<<<< HEAD
-                                <input type="radio" name="third_place" id="third_place_yes" value="1" checked/>
-                                <label for="third_place_no">Yes</label>
-
-                                <input type="radio" name="third_place" id="third_place_no" value="0"/>
-=======
                                 <input type="radio" name="third_place" id="third_place_yes" value="" disabled/>
                                 <label for="third_place_no">Yes</label>
 
                                 <input type="radio" name="third_place" id="third_place_no" value="" checked/>
->>>>>>> 0b90869f39413d4701b916cd5d47acb611903e47
                                 <label for="third_place_no">No</label>
                             </div>
                         </div>
