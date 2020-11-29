@@ -117,6 +117,9 @@ if (isset($_POST['submit'])) {
 <br>
 <input type="submit" value="SAVE" name="submit">
 <input type="submit" value="CANCEL" name="cancel">
-<form>
+
+<br>
+<img src="image_while_dev\asdasdasd.gif">
+
 </body>
 </html>
