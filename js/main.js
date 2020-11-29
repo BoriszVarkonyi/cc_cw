@@ -446,7 +446,7 @@ function formvariableDeclaration(overlayForm, inputs, saveButton) {
     }
 }
 
-function formValidation(overlayForm, inputs, saveButton){
+/*function formValidation(overlayForm, inputs, saveButton){
     saveButton.disabled = true;
     //If the document values are changing, it runs the function.
     overlayForm.addEventListener("input", function(){
@@ -466,5 +466,5 @@ function formValidation(overlayForm, inputs, saveButton){
         }
     }
     )
-}
+}*/
 

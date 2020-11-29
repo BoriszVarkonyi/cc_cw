@@ -301,10 +301,68 @@ header("Location: pools.php?comp_id=$comp_id");
 
 if(isset($_POST["piste_time"])){
 
-$start = $_POST["starting_time"];
+$start =  $_POST["starting_time"];
 $interval = $_POST["interval_of_match"];
+$usage = $_POST["pistes_usage_type"];
+
+if($usage == 1){
+
+$pistes_query = "SELECT * FROM pistes_$comp_id";
+$pistes_query_do = mysqli_query($connection, $pistes_query);
+
+$p_number = mysqli_num_rows($pistes_query_do);
+
+$pistes_available = [];
+
+while($row = mysqli_fetch_assoc($pistes_query_do)){
+
+$pistenum = $row["piste_number"];
+
+array_push($pistes_available, $pistenum);
+
+}
 
 
+$pools_get_query = "SELECT * FROM pools_$comp_id";
+$pools_get_query_do = mysqli_query($connection, $pools_get_query);
+
+$pools_count = mysqli_num_rows($pools_get_query_do);
+
+$cou = 0;
+$rec = 0;
+
+while($row = mysqli_fetch_assoc($pools_get_query_do)){
+
+$id = $row["id"];
+
+if(isset($pistes_available[$cou])){
+
+$timevar = strtotime($start) + $rec * 60 * $interval;
+$timevarend = date('H:i', $timevar);
+
+$update_piste_query = "UPDATE pools_$comp_id SET piste = $pistes_available[$cou], time = '$timevarend' WHERE id = $id";
+$update_piste_query_do = mysqli_query($connection, $update_piste_query);
+
+    $cou++;
+
+}
+else {
+
+    $cou = 0;
+    $rec++;
+
+    
+$timevar = strtotime($start) + $rec * 60 * $interval;
+$timevarend = date('H:i', $timevar);
+
+$update_piste_query = "UPDATE pools_$comp_id SET piste = $pistes_available[$cou], time = '$timevarend' WHERE id = $id";
+$update_piste_query_do = mysqli_query($connection, $update_piste_query);
+
+$cou++;
+}
+}
+}
+header("Location: pools.php?comp_id=$comp_id");
 }
 
 
@@ -502,10 +560,10 @@ else
 
                         <label for="pistes_type" >PISTES</label>
                         <div class="option_container row">
-                            <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value=""/>
+                            <input type="radio" name="pistes_usage_type" checked id="all" onclick="useAllPistes()" value="1"/>
                             <label for="all">Use all</label>
 
-                            <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>
+                            <input type="radio" name="pistes_usage_type" id="manual_select" onclick="selectPistes()" value="2"/>
                             <label for="manual_select">Select manually</label>
                         </div>
 
@@ -649,7 +707,7 @@ else{
                                 <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: Név</div>
-                                <div class="table_item">11:50</div>
+                                <div class="table_item"><?php echo $time ?></div>
                                 <div class="big_status_item">
                                     <button type="button" onclick="" class="pool_config">
                                         <img src="../assets/icons/settings-black-18dp.svg" >
