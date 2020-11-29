@@ -138,7 +138,6 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Formula</p>
-                <p><?php print_r($feedback) ?></p>
                 <button name="submit_form" form="save_form" class="stripe_button orange" type="submit">
                     <p>Save Formula</p>
                     <img src="../assets/icons/save-black-18dp.svg"/>

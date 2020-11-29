@@ -37,28 +37,48 @@
         </form>
 
         <div class="cw_table_wrapper table">
-            <div class="table_header">
-                <div class="table_header_text">POSITION</div>
-                <div class="table_header_text">NAME</div>
-                <div class="table_header_text">NATION / CLUB</div>
-                <div class="table_header_text">DATE OF BIRTH</div>
-            </div>
-            <div class="table_row_wrapper alt">
-                <div class="table_row">
-                    <div class="table_item bold">
-                        1.
-                    </div>
-                    <div class="table_item">
-                        Náv
-                    </div>
-                    <div class="table_item">
-                        HUN
-                    </div>
-                    <div class="table_item">
-                        04 / 12 / 2000
-                    </div>
-                </div>
-            </div>
+
+            <?php 
+                $qry = "SELECT * FROM `cptrs_$comp_id` ORDER BY `rank` ASC";
+                $do = mysqli_query($connection, $qry);
+
+                if ($do == FALSE) {
+                    ?>
+                        <p>You have no competitors set up!</p>
+                    <?php
+                } else {
+                ?>
+                    <div class="table_header">
+                            <div class="table_header_text">POSITION</div>
+                            <div class="table_header_text">NAME</div>
+                            <div class="table_header_text">NATION / CLUB</div>
+                        </div>
+                <?php
+                    while ($row = mysqli_fetch_assoc($do)) {
+
+                        $id = $row['id'];
+                        $pos = $row['rank'];
+                        $name = $row['name'];
+                        $nat = $row['nationality'];
+                ?>
+                        
+                        <div class="table_row_wrapper alt">
+                            <div class="table_row">
+                                <div class="table_item bold">
+                                    <?php echo $pos ?>
+                                </div>
+                                <div class="table_item">
+                                    <?php echo $name ?>
+                                </div>
+                                <div class="table_item">
+                                    <?php echo $nat ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    } 
+                }
+            ?>
         </div>
     </div>
 <?php include "cw_footer.php"; ?>
