@@ -1,3 +1,11 @@
+<?php include "../includes/db.php" ?>
+<?php include "../includes/functions.php" ?>
+<?php include "../includes/cw_username_checker.php" ?>
+<?php 
+    session_destroy()
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +16,7 @@
 <body>
     
 <ul>
-<li><a href="">ARTICLE CÍM 1</a></li>
-<li><a href="">ARTICLE CÍM 1</a></li>
-<li><a href="">ARTICLE CÍM 1</a></li>
-<li><a href="">ARTICLE CÍM 1</a></li>
-<li><a href="">ARTICLE CÍM 1</a></li>
+<li><a href="article.php?id=<?php echo $id ?>">ARTICLE CÍM 1</a></li>
 </ul>
 
 
