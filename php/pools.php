@@ -299,7 +299,13 @@ header("Location: pools.php?comp_id=$comp_id");
 }
 
 
+if(isset($_POST["piste_time"])){
 
+$start = $_POST["starting_time"];
+$interval = $_POST["interval_of_match"];
+
+
+}
 
 
 
@@ -435,7 +441,7 @@ else
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
                         <div class="option_container row">
-                            <input type="checkbox" name="pistes_type" checked id="true" value=""/>
+                            <input type="checkbox" name="pistes_type" id="true" value=""/>
                             <label for="true">True</label>
                         </div>
                         <label for="pistes_type">SELECT REFEREES</label>
@@ -448,40 +454,49 @@ else
                         </div>
 
                         <div class="option_container grid piste_select disabled" id="select_referees_panel" >
+                                
+                        <?php
+                                
+                                $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE online = 1";
+                                $ref_query_do = mysqli_query($connection, $ref_query);
+                            
+                                while($row =  mysqli_fetch_assoc($ref_query_do)){
+
+                                $refid = $row["id"];
+                                $fullname = $row["full_name"];
+
+                                
+                                ?>
+                                
                                 <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
-                                    <label for="piste_1">Piste 1</label>
+                                    <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="ref_<?php echo $refid ?>"/>
+                                    <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
                                 </div>
 
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value="" checked/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
+                                <?php
+                                
+                                }
+                                
+                                ?>
                         </div>
                         <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
                     </form>
                 </div>
+
+
+
+
                 <div id="pist_time_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="togglePistTimePanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time" >STARTING TIME</label>
-                        <input type="time">
+                        <input type="time" name="starting_time">
 
                         <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input small">
+                            <input type="number" class="number_input small" name="interval_of_match">
                             <p>Min.</p>
                         </div>
 
@@ -495,96 +510,60 @@ else
                         </div>
 
                         <div class="option_container grid piste_select disabled" id="select_pistes_panel" >
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
                                 
-                                <div class="piste_select ghost">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
+                                <?php
+                                
+                                $pistes_query = "SELECT * FROM pistes_$comp_id EXCEPT SELECT * FROM pistes_$comp_id WHERE piste_activity = 1";
+                                $pistes_query_do = mysqli_query($connection, $pistes_query);
+                                
+                                $r = 0;
+                                while($row =  mysqli_fetch_assoc($pistes_query_do)){
+
+                                $pistenum = $row["piste_number"];
+                                $pistetype = $row["piste_type"];
+                                $pistecolor = $row["piste_color"];
+
+                                
+                                ?>
+                                
+
+                                <div class="piste_select">
+                                    <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value=""/>
+                                    <label for="piste_<?php echo $r ?>">Piste <?php 
+                                    
+                                    if($pistetype == 1){
+
+                                        echo "main";
+
+                                    }elseif($pistetype == 2){
+
+                                    echo  $pistenum . " (" . pisteColor($pistecolor) . ")";
+
+                                    }
+                                    else {
+                                        echo $pistenum;
+                                    }
+                                    
+                                    
+                                     ?></label>
                                 </div>
 
-                                <div class="piste_select ghost">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
-                                <div class="piste_select ghost">
-                                    <input type="checkbox" name="piste_1" id="piste_1" value=""/>
-                                    <label for="piste_1">Piste 1</label>
-                                </div>
-
+                                <?php
+                                $r++;
+                                }
+                                ?>
+                            
+                                
                         </div>
 
-                        <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
+                        <button type="submit" name="piste_time" value="Save" class="panel_submit">Save</button>
                     </form>
                 </div>
+
+
+
+
+
 
 <?php } ?>
                 
@@ -729,89 +708,7 @@ else{
                                         </div>
 
                                         <?php } ?>
-                                        <!--
-                                        <div class="table_row">
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item square row_title">2</div>
-                                            <div class="table_item square">a</div>
-                                            <div class="table_item square filled"></div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                        </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item square row_title">3</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">as</div>
-                                            <div class="table_item square filled"></div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                        </div>
-
-
-                                        <div class="table_row">
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item square row_title">4</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">a4</div>
-                                            <div class="table_item square">gr</div>
-                                            <div class="table_item square filled"></div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                        </div>
-
-                                        <div class="table_row">
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item square row_title">5</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">a4</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">gr</div>
-                                            <div class="table_item square filled"></div>
-                                            <div class="table_item square">5a</div>
-
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                        </div>
-
                                         
-                                        <div class="table_row">
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item">Name</div>
-                                            <div class="table_item square row_title">6</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">a4</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">ge</div>
-                                            <div class="table_item square  filled"></div>
-                                            
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                            <div class="table_item square">5a</div>
-                                        </div>
-                                        -->
                                     </div>
                                 </div>
                             </div>
