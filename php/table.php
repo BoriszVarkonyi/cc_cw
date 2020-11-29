@@ -95,7 +95,7 @@
                         <label for="starting_time" >STARTING TIME</label>
                         <input type="time">
 
-                        <label for="interval_of_match" >INTERVAL OF MATCH:</label>
+                        <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
                             <input type="number" class="number_input small">
                             <p>Min.</p>

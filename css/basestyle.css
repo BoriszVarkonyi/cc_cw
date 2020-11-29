@@ -183,13 +183,6 @@ input[type="text"].hidden {
 	display: none;
 }
 
-textarea {
-	outline: none;
-	border: none;
-	resize: none;
-	font-family: var(--reg);
-}
-
 form {
 	margin: 0;
 }
@@ -235,11 +228,11 @@ form.hidden, form.disabled {
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	transition: max-height var(--t-basic);
+	transition: opacity var(--t-basic);
 }
 
 #loading_screen.done {
-	max-height: 0;
+	opacity: 0;
 	overflow: hidden;
 }
 
@@ -304,14 +297,18 @@ form.hidden, form.disabled {
 
 /* CUSTOM TABLE ELEMENTS */
 
-.table {		/* Whole table */
+/* These have flex display propety */
+
+.table, .table_row_wrapper, .table_header, .small_status_header, .big_status_header, .table_row, .big_status_item, .table_header_text, .table_item   {
 	display: flex;
+}
+
+.table {		/* Whole table */
 	flex-direction: column;
 	color: var(--c-black)
 }
 
 .table_row_wrapper {	/* Wraps table_row elements */
-	display: flex;
 	flex-direction: column;
 	border-left: 2px solid var(--c-darkgray);
 	border-right: 2px solid var(--c-gray);
@@ -322,17 +319,12 @@ form.hidden, form.disabled {
 
 .table_header {		/* Wraps table_header text elements */
 	font-family: var(--thin);
-	display: flex;
 	border-left: 2px solid transparent;
 	border-right: 2px solid transparent;
-}
-
-.table_header_text {
 	text-transform: uppercase;
 }
 
 .table_header_text.title {
-	align-items: center;
 	justify-content: flex-start;
 }
 
@@ -347,7 +339,6 @@ form.hidden, form.disabled {
 
 .small_status_header {
 	width: 20px;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: var(--f-small);
@@ -357,7 +348,6 @@ form.hidden, form.disabled {
 }
 
 .big_status_header {
-	display: flex;
 	align-items: center;
 	width: calc(1.4em + 1.25vmin - 6px);
 	max-width: calc(1.4em + 1.25vmin - 6px);
@@ -386,7 +376,6 @@ form.hidden, form.disabled {
 }
 
 .table_row {
-	display: flex;
 	cursor: pointer;
 	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 }
@@ -418,9 +407,6 @@ form.hidden, form.disabled {
 
 /* Table Items */
 
-.table_item {
-}
-
 .table_item.row_title {
 	font-family: var(--thin);
 	text-transform: uppercase;
@@ -438,7 +424,6 @@ form.hidden, form.disabled {
 .big_status_item {
 	width: calc(1.4em + 1.25vmin - 6px);
 	max-width: calc(1.4em + 1.25vmin - 6px);
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	border: 3px solid transparent;
@@ -505,7 +490,6 @@ form.hidden, form.disabled {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	flex-grow: 1;
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	max-width: 50%;
@@ -519,15 +503,19 @@ form.hidden, form.disabled {
 	text-overflow: ellipsis;
 }
 
-/* When only 2 culomn */
+/* When only 2 column */
 
 .t_c_2 .table_header_text, .t_c_2 .table_item {
 	max-width: 75% !important;
 }
 
+/* When only 1 column and big or small status item*/
+
 .t_c_1 .table_header_text, .t_c_1 .table_item {
 	max-width: 90% !important;
 }
+
+/* True 1 column */
 
 .t_c_0 .table_header_text, .t_c_0 .table_item {
 	max-width: 100% !important;
@@ -536,13 +524,16 @@ form.hidden, form.disabled {
 /* Resizer */
 
 .resizer {
+	border-radius: 7px;
 	position: relative;
-	width: 3px;
+	width: 13px;
 	height: 100%;
 	cursor: col-resize;
 	user-select: none;
 	background-color: var(--c-gray);
 	z-index: 1;
+	border-left: 5px solid var(--c-lightergray);
+	border-right: 5px solid var(--c-lightergray);
 }
 
 .resizer:hover {
@@ -743,6 +734,10 @@ input:focus ~ .clear_search_button {
 	background-color: var(--c-lightergray);
 }
 
+.select_input.checked > button {
+	color: var(--c-black);
+}
+
 .select_input > button > p {
 	width: 100%;
 	padding: 7.5px 0;
@@ -791,6 +786,10 @@ input:focus ~ .clear_search_button {
 }
 
 .select_input > div > button:hover {
+	background-color: var(--c-lightestgray);
+}
+
+.select_input > div > button.selected {
 	background-color: var(--c-lightestgray);
 }
 
@@ -1280,6 +1279,11 @@ input[type="time"] {
 	justify-content: center;
 	align-items: center;
 	top: 0;
+}
+
+.elimination_slider_button.disabled {
+	filter: contrast(50%);
+	pointer-events: none;
 }
 
 .elimination_slider_button > img {

@@ -69,19 +69,19 @@ function cancelName() {
 var createRankingForm = document.getElementById("ranking_create")
 var inputs = document.querySelectorAll("#ranking_create input")
 var createButton = document.querySelector(".ranking_creation_button")
-createButton.disabled = true;
+createButton.classList.add("disabled");
 createRankingForm.addEventListener("input", function(){
 for(i=0; i<inputs.length; i++){
     //Checking every input.
     if(inputs[i].value == ""){
       //If it finds an empty input, then it disable the "Save" button.
-      createButton.disabled = true;
+      createButton.classList.add("disabled");
       break;
 
     }
     else {
       //If everything has a value then it enable the "Save" Button. The user can save.
-      createButton.disabled = false;  
+      createButton.classList.remove("disabled");
 
     }
   }

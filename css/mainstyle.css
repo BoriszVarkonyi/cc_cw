@@ -10,6 +10,10 @@ body, html {	/* Gives placeholder background and default font*/
 	overflow: hidden;
 }
 
+html {
+	scroll-behavior: smooth !important;
+}
+
 button {
 	cursor: pointer;
 	padding: 0;
@@ -2369,6 +2373,25 @@ input[type="file"] {
 	display: flex;
 }
 
+#ranking_search .table {
+	min-height: 100px;
+	background-color: var(--c-lightestgray);
+	margin: 25px 0;
+}
+
+#ranking_search .table::before {
+	content: "No Rankings found";
+	font-size: var(--f-medium);
+	font-family: var(--bold);
+	color: var(--c-gray);
+	white-space: nowrap;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 0;
+}
+
 #choose_ranking_wrapper.first >  #create_ranking_panel {
 	flex-basis: 0;
 	overflow: hidden;
@@ -2491,7 +2514,8 @@ div.title_box > button {
 }
 
 .ranking_creation_button {
-	padding: 7.5px 30px;
+	padding: 1.5px 30px;
+	border: 3px solid var(--cs-orange);
 	background-color: var(--c-orange);
 	border-radius: 5px;
 	font-size: var(--f-medium);
@@ -2499,6 +2523,16 @@ div.title_box > button {
 	cursor: pointer;
 	width: auto;
 	align-self: center;
+}
+
+.ranking_creation_button.disabled {
+	background-color: var(--c-gray);
+	box-shadow: var(--s-black);
+	cursor: default;
+	pointer-events: none;
+	filter: contrast(50%);
+	border: 3px solid var(--cs-gray);
+	display: block;
 }
 
 /* Upload Ranking specific */
@@ -3404,6 +3438,8 @@ input.wc_time {
 	bottom: 50px;
 	display: flex;
 	align-items: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
 	border-radius: 10px;
 	padding: 10px;
 	border: 5px dashed var(--c-gray)
@@ -3411,6 +3447,7 @@ input.wc_time {
 
 #pools_drag_panel > .drag_fencer {
 	padding: 5px;
+	margin: 5px;
 	background-color: var(--c-lightestgray);
 	font-family: var(--bold);
 }
