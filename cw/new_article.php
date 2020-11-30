@@ -29,6 +29,18 @@ if (isset($_POST['submit'])) {
             }
         }
 
+        //check for dupli articles
+        $qry_test = "SELECT * FROM `cw_articles` WHERE `body` = '$body' AND `title` = '$title'";
+        $do_test = mysqli_query($connection, $qry_test);
+        
+
+        $row_num = mysqli_num_rows($do_test);
+
+        if ($row_num != FALSE) {
+            echo "Sorry, this is and existing article";
+            $uploadOk = 0;
+        }
+
         // Check if file already exists
         if (file_exists($target_file)) {
 
@@ -60,11 +72,19 @@ if (isset($_POST['submit'])) {
         } else {
 
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-
+                $qry_create_article = "INSERT INTO `cw_articles` (`id`, `title`, `body`, `author`) VALUES (NULL, '$title', '$body', '$username')";
+                $do_create_articel = mysqli_query($connection, $qry_create_article);
             
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+
+                $qry_get_id = "SELECT `id` FROM `cw_articles` WHERE `title` = '$title'";
+                $do_get_id = mysqli_query($connection, $qry_get_id);
+                if ($row = mysqli_fetch_assoc($do_get_id)) {
+                    $id = $row['id'];
+                }
+                
             
-                if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $title . ".png")) {
+                if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
 
                     echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
                     
@@ -74,8 +94,7 @@ if (isset($_POST['submit'])) {
 
                 }
             
-                $qry_create_article = "INSERT INTO `cw_articles` (`id`, `title`, `body`, `author`) VALUES (NULL, '$title', '$body', '$username')";
-                $do_create_articel = mysqli_query($connection, $qry_create_article);
+               
 
                 //header("Location: ../cw/admin.php");
             } else {
@@ -86,8 +105,12 @@ if (isset($_POST['submit'])) {
 
         }
     }
+
 }
     
+if (isset($_POST['cancel'])) {
+    header("Location: ../cw/admin.php");
+}
 
 
 

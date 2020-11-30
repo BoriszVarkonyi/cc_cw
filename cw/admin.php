@@ -2,7 +2,7 @@
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
 <?php
-    $qry_create_articels = "CREATE TABLE `ccdatabase`.`cw_articles` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `body` TEXT NOT NULL , `author` VARCHAR(255) NOT NULL , `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $qry_create_articels = "CREATE TABLE `ccdatabase`.`cw_articles` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `body` TEXT NOT NULL , `author` VARCHAR(255) NOT NULL , `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `last_edit` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_create_articles = mysqli_query($connection, $qry_create_articels);
 
 
