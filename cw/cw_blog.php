@@ -1,4 +1,3 @@
-<?php include "cw_comp_getdata.php"; ?>
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
@@ -30,42 +29,38 @@
 
         <div class="cw_table_wrapper">
 
-            <div class="blog_article" onclick="location.href='cw_article.php'">
-                <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg"  class="article_image">
-                <div>
-                    <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
-                    <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
-                </div>
-            </div>
+            <?php 
+            $qry_get_data = "SELECT * FROM `cw_articles`";
+            $do_get_data = mysqli_query($connection, $qry_get_data);
 
-            <div class="blog_article">
-                <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg"  class="article_image">
-                <div>
-                    <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
-                    <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
-                </div>
-            </div>
-
-            <div class="blog_article">
-                <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg"  class="article_image">
-                <div>
-                    <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
-                    <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
-                </div>
-            </div>
-
-            <div class="blog_article">
-                <p class="article_title">BLOG ARTICLE TITLE EPIC TITLE BLOG TITLE FOR CW 2020 READY COMPETITION ONLY &Ł$kXvvSEXUALS CAN TAKE PART</p>
-                <img src="../assets/img/fencers_bg.svg"  class="article_image">
-                <div>
-                    <p class="article_brief">Wow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZWow cringe reported to r/incels by libtards die i hell. eddit Will eat ypu alive loser. incel life please follow me i need SEXSZ</p>
-                    <p class="article_post_date">POSTED: 12 / 20 / 2020</p>
-                </div>
-            </div>
+            while ($row = mysqli_fetch_assoc($do_get_data)) {
+                $title = $row['title'];
+                $body = $row['body'];
+                $author = $row['author'];
+                $date = $row['date'];
+                $id = $row['id'];
+                $pic = "../article_pics/" . $id . ".png";
             
+                $brief = substr($body, 0, 400);
+            
+            
+            ?>
+
+
+            <div class="blog_article" onclick="location.href='cw_article.php?id=<?php echo $id ?>'">
+                <p class="article_title"><?php echo $title ?></p>
+                <img src="<?php echo $pic ?>"  class="article_image">
+                <div>
+                    <p class="article_brief"><?php echo $brief ?></p>
+                    <p class="article_post_date">POSTED: <?php echo $date ?></p>
+                    <p class="article_post_date">BY: <?php echo $author ?></p> <!-- ennek nem biztos date nek kene lennie de csak ez volt na -->
+                </div>
+            </div>
+            <?php 
+                }
+            ?>
+
+
         </div>
     </div>
 <?php include "cw_footer.php"; ?>

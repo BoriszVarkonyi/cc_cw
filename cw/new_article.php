@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
         } else {
 
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $qry_create_article = "INSERT INTO `cw_articles` (`id`, `title`, `body`, `author`) VALUES (NULL, '$title', '$body', '$username')";
+                $qry_create_article = "INSERT INTO `cw_articles` (`id`, `title`, `body`, `author`, `last_edit_by`) VALUES (NULL, '$title', '$body', '$username', '$username')";
                 $do_create_articel = mysqli_query($connection, $qry_create_article);
             
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
             
                
 
-                //header("Location: ../cw/admin.php");
+                header("Location: ../cw/admin.php");
             } else {
 
             echo "Sorry, there was an error uploading your file.";

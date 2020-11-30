@@ -92,17 +92,15 @@
             
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 
-                $qry_get_id = "SELECT `id` FROM `cw_articles` WHERE `title` = '$title'";
-                $do_get_id = mysqli_query($connection, $qry_get_id);
-                if ($row = mysqli_fetch_assoc($do_get_id)) {
-                    $id = $row['id'];
-                }
                 
             
                 if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
 
                     echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
-                    
+
+                    $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', `last_edit_by` = '$username'";
+                    $do_update = mysqli_query($connection, $qry_update);
+
                 } else {
 
                     echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
@@ -111,7 +109,7 @@
             
                
 
-                //header("Location: ../cw/admin.php");
+                header("Location: ../cw/admin.php");
             } else {
 
             echo "Sorry, there was an error uploading your file.";
@@ -145,7 +143,7 @@
 <p>image:</p>
 <img src="<?php echo $picture_path ?>"><img>
 <br></br>
-<input type="file" placeholder="title">
+<input type="file" name="fileToUpload" placeholder="title">
 <br>
 <br>
 <input type="submit" value="Save" name="update">
