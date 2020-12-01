@@ -94,7 +94,7 @@
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
 
-                <input class="hidden" form="remove_technician" name='id' type="text" class="selected_list_item_input">
+                <input class="selected_list_item_input hidden" form="remove_technician" name='id' type="text" class="selected_list_item_input">
 
                 <button class="stripe_button" onclick="toggle_import_technician()">
                     <p>Import Technicians</p>
@@ -148,7 +148,7 @@
 
                 <div class="search_wrapper">
                     <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                    <input type="text" name="" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                     <div class="search_results">
                         <?php
                         $query = "SELECT * FROM $table_name";
@@ -158,7 +158,7 @@
                             $idke = $row["id"];
                             $nevecske = $row["name"];
                             ?>
-                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectTechniciansWithSearch(this)"><?php echo $nevecske ?></a>
+                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)"><?php echo $nevecske ?></a>
                             <?php
                         }
                             ?>
@@ -245,5 +245,6 @@
     <script src="../js/main.js"></script>
     <script src="../js/technicians.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/controls.js"></script>
 </body>
 </html>

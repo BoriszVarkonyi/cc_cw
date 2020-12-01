@@ -172,7 +172,7 @@
                                 <label>NATION / CLUB</label>
                                 <div class="search_wrapper">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
+                                    <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="search_wrapper">
                         <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search cc">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                             <?php
                                 $ref_list_query = "SELECT * FROM $table_name";
@@ -197,7 +197,7 @@
                             
                             ?>
 
-                            <a id="<?php echo $ref_id ?>" href="#" onclick="selectTechniciansWithSearch(this)"><?php echo $ref_name ?></a>
+                            <a id="<?php echo $ref_id ?>A" href="#" onclick="selectSearch(this)"><?php echo $ref_name ?></a>
 
                             <?php 
                             
@@ -230,11 +230,11 @@
                     
                         <div class="table_header">
                             <div class="table_header_text">FULL NAME</div>
-                            <button class="resizer"></button>
+                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">NATION / CLUB</div>
-                            <button class="resizer"></button>
+                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">USERNAME</div>
-                            <button class="resizer"></button>
+                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="small_status_header"></div>
                         </div>
@@ -295,5 +295,6 @@
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/referees.js"></script>
+<script src="../js/controls.js"></script>
 </body>
 </html>

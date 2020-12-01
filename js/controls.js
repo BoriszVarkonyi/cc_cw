@@ -1,0 +1,60 @@
+//Arrow system
+var hiddenin = document.getElementsByClassName("selected_list_item_input");
+var selectedElementIndexAr = 0;
+document.onkeydown = (keyDownEvent) => {
+    //Arrow system
+    if(searchBarClosed) {
+        if(keyDownEvent.key == "ArrowUp"){
+            var table = document.querySelector(".table");
+            var tableRows = document.querySelectorAll(".table .table_row")
+            if(selectedElementIndexAr == 0) {
+                selectedElementIndexAr++
+            }
+            selectedElementIndexAr--
+            console.log(selectedElementIndexAr)
+            tableRows[selectedElementIndexAr + 1].classList.remove("selected")
+            tableRows[selectedElementIndexAr].classList.add("selected")
+            hiddenin.value = tableRows[selectedElementIndexAr].id
+        }
+
+
+        if(keyDownEvent.key == "ArrowDown"){
+            var table = document.querySelector(".table");
+            var tableRows = document.querySelectorAll(".table .table_row")
+            if(selectedElementIndexAr == tableRows.length -1) {
+                selectedElementIndexAr--
+            }
+            selectedElementIndexAr++
+            console.log(selectedElementIndexAr)
+            tableRows[selectedElementIndexAr - 1].classList.remove("selected")
+            tableRows[selectedElementIndexAr].classList.add("selected")
+            hiddenin.value = tableRows[selectedElementIndexAr].id
+        }
+    } 
+    //Selects to enter
+    if(!searchBarClosed) {
+        if(keyDownEvent.key == "Enter"){
+            var selectedElementId = document.querySelector(".search_results .selected").id.slice(0, -1);
+            var selectedElements = document.querySelectorAll(".page_content_flex .selected")
+            var selectedTableElement = document.getElementById(selectedElementId)
+            //Works only if theres a table. Select the table element
+            if(selectedTableElement !== null) {
+                for(i=0; i<selectedElements.length; i++){
+                    selectedElements[i].classList.remove("selected")
+                }
+                selectedTableElement.classList.add("selected")
+            }
+            var field = document.getElementById("inputs");
+            field.value = document.querySelector(".search_results .selected").innerHTML;
+        }
+    }     
+}
+var searchBarClosed = true;
+function isOpen() {
+    console.log("hello")
+    searchBarClosed = false;
+
+}
+function isClosed() {
+    searchBarClosed = true;
+}

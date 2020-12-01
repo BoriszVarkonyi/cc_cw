@@ -39,67 +39,48 @@ function selectRow(x){
     else{
         var removeall = document.getElementsByClassName("selected");
         console.log(removeall);
-        if(removeall.length != 0) {
+        if(removeall.length !== 0) {
             for (let index = 0; index < removeall.length; index++) {
                 removeall[index].classList.remove("selected");
             }
         }
     }
     x.classList.add("selected");
+    console.log(selectedRowInput)
     selectedRowInput.value = x.id;
 }
-
-
-
-//Arrow system
-/*
-var hiddenin = document.getElementsByClassName("selected_list_item_input");
-var table = document.querySelector(".table");
-
-document.onkeydown = (keyDownEvent) => {
-
-    if(keyDownEvent.key == "ArrowUp"){
-
-
-        var kijelolt = document.getElementsByClassName("selected");
-
-        var elem = kijelolt[0];
-        var kovielem = elem.previousElementSibling;
-
-        if(elem != tabla.children[1]){
-
-            elem.classList.remove("selected");
-            kovielem.classList.add("selected");
-            hiddenin.value = kovielem.id;
-
-        }else
-        {
-
-            console.log("First");
-        }
+//Toggles the selection on clicked searchresult
+function selectSearch(x) {
+    console.log(x)
+    var selectedElementId = x.id.slice(0, -1);
+    var selectedElements = document.querySelectorAll(".page_content_flex .selected")
+    for(i=0; i<selectedElements.length; i++){
+        selectedElements[i].classList.remove("selected")
     }
-
-
-    if(keyDownEvent.key == "ArrowDown"){
-
-
-        var kijelolt = document.getElementsByClassName("selected");
-
-        var elem = kijelolt[0];
-        var kovielem = elem.nextElementSibling;
-
-        if(elem != tabla.lastElementChild){
-
-            elem.classList.remove("selected");
-            kovielem.classList.add("selected");
-            hiddenin.value = kovielem.id;
-
-        }else
-        {
-
-            console.log("LAST");
-        }
-    }
+    var selectedTableElement = document.getElementById(selectedElementId)
+    selectedTableElement.classList.add("selected") 
 }
-*/
+//Auto fills the searchresult
+function autoFill(x){
+    var field = document.getElementById("inputs");
+    field.value = x.innerHTML;
+}
 //Dragging system 
+/*
+function drag(e){
+    document.selection ? document.selection.empty() : window.getSelection().removeAllRanges();
+    left.style.width = (e.pageX - bar.offsetWidth / 2) + 'px';
+}
+var bar
+var left
+var right
+function mouseDown(x) {
+    document.addEventListener('mousemove', drag);
+    return bar = x,
+    left = bar.previousElementSibling,
+    right = bar.nextElementSibling
+    
+}
+function mouseUp() {
+    document.removeEventListener('mousemove', drag);
+}*/

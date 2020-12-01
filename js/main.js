@@ -289,7 +289,7 @@ function resizeTableColumn() {
 
 
 
-/* Overlay_panels*/
+// Overlay_panels
 
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
@@ -395,6 +395,7 @@ function searchEngine(x) {
                 selectedElementIndex++
             }
             selectedElementIndex--
+            console.log(selectedElementIndex)
             li[selectedElementIndex + 1].classList.remove("selected")
             li[selectedElementIndex].classList.add("selected")
         }
@@ -403,16 +404,19 @@ function searchEngine(x) {
                 selectedElementIndex--
             }
             selectedElementIndex++
+            console.log(selectedElementIndex)
             li[selectedElementIndex - 1].classList.remove("selected")
             li[selectedElementIndex].classList.add("selected")
         }
     }
-
+    
 }
 function resultChecker(x){
     var input = x
     var ul = input.nextElementSibling;
     var li = ul.getElementsByTagName('a');
+    var field = document.getElementById("inputs");
+    field.value = ""
     if(li.length == 0) {
         ul.classList.add("empty")
     }
@@ -446,7 +450,7 @@ function formvariableDeclaration(overlayForm, inputs, saveButton) {
     }
 }
 
-/*function formValidation(overlayForm, inputs, saveButton){
+function formValidation(overlayForm, inputs, saveButton){
     saveButton.disabled = true;
     //If the document values are changing, it runs the function.
     overlayForm.addEventListener("input", function(){
@@ -466,5 +470,5 @@ function formvariableDeclaration(overlayForm, inputs, saveButton) {
         }
     }
     )
-}*/
+}
 
