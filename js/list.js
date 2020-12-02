@@ -62,8 +62,8 @@ function selectSearch(x) {
 }
 //Auto fills the searchresult
 function autoFill(x){
-    var field = document.getElementById("inputs");
-    field.value = x.innerHTML;
+    var input = x.parentNode.previousElementSibling
+    input.value = x.innerHTML;
 }
 //Dragging system 
 /*

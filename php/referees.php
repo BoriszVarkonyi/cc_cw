@@ -197,7 +197,7 @@
                             
                             ?>
 
-                            <a id="<?php echo $ref_id ?>A" href="#" onclick="selectSearch(this)"><?php echo $ref_name ?></a>
+                            <a id="<?php echo $ref_id ?>A" href="#"  onclick="selectSearch(this), autoFill(this)"><?php echo $ref_name ?></a>
 
                             <?php 
                             

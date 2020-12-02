@@ -34,6 +34,7 @@ document.onkeydown = (keyDownEvent) => {
     //Selects to enter
     if(!searchBarClosed) {
         if(keyDownEvent.key == "Enter"){
+            var selected = document.querySelector(".search_results .selected")
             var selectedElementId = document.querySelector(".search_results .selected").id.slice(0, -1);
             var selectedElements = document.querySelectorAll(".page_content_flex .selected")
             var selectedTableElement = document.getElementById(selectedElementId)
@@ -44,17 +45,20 @@ document.onkeydown = (keyDownEvent) => {
                 }
                 selectedTableElement.classList.add("selected")
             }
-            var field = document.getElementById("inputs");
-            field.value = document.querySelector(".search_results .selected").innerHTML;
+            selected.classList.add("selected")
+            keyDownEvent.target.value = selected.innerHTML;
         }
     }     
 }
 var searchBarClosed = true;
 function isOpen() {
-    console.log("hello")
     searchBarClosed = false;
 
 }
 function isClosed() {
+    var removeElemClass = document.querySelectorAll(".search_results .selected")
+    for(i=0; i<removeElemClass.length; i++){
+        removeElemClass[i].classList.remove("selected")
+    }
     searchBarClosed = true;
 }

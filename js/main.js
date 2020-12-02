@@ -352,6 +352,7 @@ numberInputs.forEach(item => {
 })
 //Search engine
 var selectedElementIndex = 0;
+var liCounter;
 function searchEngine(x) {
     // Declare variables
     var input = x
@@ -382,20 +383,18 @@ function searchEngine(x) {
 
     }
     //Search engine arrow system
-    var liCounter = 0;
+    liCounter = 0;
     for(i=0; i<li.length; i++){
         if(li[i].style.display === "") {
             liCounter++
         }
     }
-
     input.onkeydown = (keyDownEvent) => {
         if(keyDownEvent.key == "ArrowUp"){
             if(selectedElementIndex == 0) {
                 selectedElementIndex++
             }
             selectedElementIndex--
-            console.log(selectedElementIndex)
             li[selectedElementIndex + 1].classList.remove("selected")
             li[selectedElementIndex].classList.add("selected")
         }
@@ -404,7 +403,6 @@ function searchEngine(x) {
                 selectedElementIndex--
             }
             selectedElementIndex++
-            console.log(selectedElementIndex)
             li[selectedElementIndex - 1].classList.remove("selected")
             li[selectedElementIndex].classList.add("selected")
         }
@@ -416,11 +414,17 @@ function resultChecker(x){
     var ul = input.nextElementSibling;
     var li = ul.getElementsByTagName('a');
     var field = document.getElementById("inputs");
-    field.value = ""
+    x.value = ""
+    liCounter = 0;
+    for (i = 0; i < li.length; i++) {
+        liCounter++
+        li[i].style.display = "";
+    }
     if(li.length == 0) {
         ul.classList.add("empty")
     }
     else {
+        selectedElementIndex = 0;
         li[selectedElementIndex].classList.add("selected")
     }
 }
@@ -432,7 +436,6 @@ clearButton.forEach(item => {
         var targetElement = event.target || event.srcElement;
         var searchBar = targetElement.parentNode.nextElementSibling;
         searchBar.value = ""
-
     });
 })
 
