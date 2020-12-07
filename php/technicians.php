@@ -158,7 +158,7 @@
                             $idke = $row["id"];
                             $nevecske = $row["name"];
                             ?>
-                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)"><?php echo $nevecske ?></a>
+                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $nevecske ?></a>
                             <?php
                         }
                             ?>
@@ -205,7 +205,7 @@
 
                                 $tech_online = 0;
                                 ?>
-                                <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectRow(this)">
+                                <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectRow(this)" tabindex="0">
                                     <div class="table_item"><p><?php echo $tech_name; ?></p></div>
                                     <!--<div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>-->
                                     <div class="table_item"><p><?php echo roleConverter($tech_role); ?></p></div>

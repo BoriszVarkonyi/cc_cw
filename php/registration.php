@@ -155,7 +155,7 @@
                         
                         ?>
                         
-                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)">
+                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
                             <div class="table_item"><p><?php echo $name ?></p></div>
                             <div class="table_item"><p><?php echo $nat ?></p></div>
                             <div class="table_item"><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></div>
