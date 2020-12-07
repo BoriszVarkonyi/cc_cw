@@ -24,9 +24,10 @@ document.onkeydown = (keyDownEvent) => {
             var hasSelected = false;
             var table = document.querySelector(".table");
             var tableRows = document.querySelectorAll(".table .table_row")
-            for(i=0; i<tableRows; i++) {
+            for(i=0; i<tableRows.length; i++) {
                 if(tableRows[i].classList.contains("selected")){
                     hasSelected = true
+                    break;
                 }
             }
             if(hasSelected){
