@@ -21,19 +21,30 @@ document.onkeydown = (keyDownEvent) => {
 
 
         if(keyDownEvent.key == "ArrowDown"||keyDownEvent.key == "Tab" ){
+            var hasSelected = false;
             var table = document.querySelector(".table");
             var tableRows = document.querySelectorAll(".table .table_row")
-            if(selectedElementIndexAr == tableRows.length -1) {
-                selectedElementIndexAr--
+            for(i=0; i<tableRows; i++) {
+                if(tableRows[i].classList.contains("selected")){
+                    hasSelected = true
+                }
             }
-            selectedElementIndexAr++
-            console.log(selectedElementIndexAr)
-            tableRows[selectedElementIndexAr - 1].classList.remove("selected")
-            tableRows[selectedElementIndexAr - 1].blur()
-            tableRows[selectedElementIndexAr].classList.add("selected")
-            tableRows[selectedElementIndexAr].focus()
-            hiddenin.value = tableRows[selectedElementIndexAr].id
-            keyDownEvent.preventDefault();
+            if(hasSelected){
+                if(selectedElementIndexAr == tableRows.length -1) {
+                    selectedElementIndexAr--
+                }
+                selectedElementIndexAr++
+                tableRows[selectedElementIndexAr - 1].classList.remove("selected")
+                tableRows[selectedElementIndexAr - 1].blur()
+                tableRows[selectedElementIndexAr].classList.add("selected")
+                tableRows[selectedElementIndexAr].focus()
+                hiddenin.value = tableRows[selectedElementIndexAr].id
+                keyDownEvent.preventDefault();
+            }
+            else{
+                tableRows[selectedElementIndexAr].classList.add("selected")
+                tableRows[selectedElementIndexAr].focus()
+            }
         }
     } 
     //Selects to enter
