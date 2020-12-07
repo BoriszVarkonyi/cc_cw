@@ -11,9 +11,10 @@ document.onkeydown = (keyDownEvent) => {
                 selectedElementIndexAr++
             }
             selectedElementIndexAr--
-            console.log(selectedElementIndexAr)
             tableRows[selectedElementIndexAr + 1].classList.remove("selected")
+            tableRows[selectedElementIndexAr + 1].blur()
             tableRows[selectedElementIndexAr].classList.add("selected")
+            tableRows[selectedElementIndexAr].focus()
             hiddenin.value = tableRows[selectedElementIndexAr].id
             keyDownEvent.preventDefault();
         }
@@ -28,7 +29,9 @@ document.onkeydown = (keyDownEvent) => {
             selectedElementIndexAr++
             console.log(selectedElementIndexAr)
             tableRows[selectedElementIndexAr - 1].classList.remove("selected")
+            tableRows[selectedElementIndexAr - 1].blur()
             tableRows[selectedElementIndexAr].classList.add("selected")
+            tableRows[selectedElementIndexAr].focus()
             hiddenin.value = tableRows[selectedElementIndexAr].id
             keyDownEvent.preventDefault();
         }
