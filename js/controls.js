@@ -15,6 +15,7 @@ document.onkeydown = (keyDownEvent) => {
             tableRows[selectedElementIndexAr + 1].classList.remove("selected")
             tableRows[selectedElementIndexAr].classList.add("selected")
             hiddenin.value = tableRows[selectedElementIndexAr].id
+            keyDownEvent.preventDefault();
         }
 
 
@@ -29,6 +30,7 @@ document.onkeydown = (keyDownEvent) => {
             tableRows[selectedElementIndexAr - 1].classList.remove("selected")
             tableRows[selectedElementIndexAr].classList.add("selected")
             hiddenin.value = tableRows[selectedElementIndexAr].id
+            keyDownEvent.preventDefault();
         }
     } 
     //Selects to enter
