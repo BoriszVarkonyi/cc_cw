@@ -20,7 +20,7 @@ document.onkeydown = (keyDownEvent) => {
         }
 
 
-        if(keyDownEvent.key == "ArrowDown"){
+        if(keyDownEvent.key == "ArrowDown"||keyDownEvent.key == "Tab" ){
             var table = document.querySelector(".table");
             var tableRows = document.querySelectorAll(".table .table_row")
             if(selectedElementIndexAr == tableRows.length -1) {
