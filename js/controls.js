@@ -20,7 +20,7 @@ document.onkeydown = (keyDownEvent) => {
         }
 
 
-        if(keyDownEvent.key == "ArrowDown"||keyDownEvent.key == "Tab" ){
+        if(keyDownEvent.key == "ArrowDown"){
             var hasSelected = false;
             var table = document.querySelector(".table");
             var tableRows = document.querySelectorAll(".table .table_row")
@@ -60,12 +60,23 @@ document.onkeydown = (keyDownEvent) => {
                 for(i=0; i<selectedElements.length; i++){
                     selectedElements[i].classList.remove("selected")
                 }
+                selectedTableElement.focus();
                 selectedTableElement.classList.add("selected")
+                var rows = document.querySelectorAll(".table .table_row");
+                for(i=0; i<rows.length; i++){
+                    if(rows[i].classList.contains("selected")){
+                        selectedElementIndexAr = i;
+                        break;
+                    }
+                }
             }
             selected.classList.add("selected")
             keyDownEvent.target.value = selected.innerHTML;
         }
-    }     
+    } 
+    if(keyDownEvent.key == "Tab"){
+        keyDownEvent.preventDefault(); 
+    }    
 }
 var searchBarClosed = true;
 function isOpen() {

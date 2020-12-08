@@ -1,5 +1,4 @@
 //Auto width
-
 window.addEventListener("resize", automaticWidth);
 window.addEventListener("DOMContentLoaded", automaticWidth);
 function automaticWidth(){
@@ -32,26 +31,37 @@ function automaticWidth(){
 var selectedRowInput = document.querySelector(".selected_list_item_input");
 
 function selectRow(x){
+    //If we clicked the same it removes the selected class
     if(x.classList.contains("selected")){
         x.classList.remove("selected");
-        selectedRowInpu.value = "";
+        x.blur()
+        selectedRowInput.value = "";
+        //It is a var. from control.js 
+        selectedElementIndexAr = 0;
     }
+    //Select the clicked table row
     else{
-        var removeall = document.getElementsByClassName("selected");
-        console.log(removeall);
-        if(removeall.length !== 0) {
-            for (let index = 0; index < removeall.length; index++) {
-                removeall[index].classList.remove("selected");
+        var rows = document.querySelectorAll(".table .table_row");
+        //Removes selected from all row
+        for(i=0; i<rows.length; i++){
+            rows[i].classList.remove("selected")
+        }
+        //Select the clicked table row
+        x.classList.add("selected");
+        //Counts the selected table row index
+        for(i=0; i<rows.length; i++){
+            if(rows[i].classList.contains("selected")){
+                //It is a var. from control.js 
+                selectedElementIndexAr = i;
+                break;
             }
         }
+        //Saves the selected row id.
+        selectedRowInput.value = x.id;
     }
-    x.classList.add("selected");
-    console.log(selectedRowInput)
-    selectedRowInput.value = x.id;
 }
 //Toggles the selection on clicked searchresult
 function selectSearch(x) {
-    console.log(x)
     var selectedElementId = x.id.slice(0, -1);
     var selectedElements = document.querySelectorAll(".page_content_flex .selected")
     for(i=0; i<selectedElements.length; i++){
@@ -59,6 +69,13 @@ function selectSearch(x) {
     }
     var selectedTableElement = document.getElementById(selectedElementId)
     selectedTableElement.classList.add("selected") 
+    var rows = document.querySelectorAll(".table .table_row");
+    for(i=0; i<rows.length; i++){
+        if(rows[i].classList.contains("selected")){
+            selectedElementIndexAr = i;
+            break;
+        }
+    }
 }
 //Auto fills the searchresult
 function autoFill(x){
