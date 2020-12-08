@@ -1,7 +1,9 @@
 <?php ob_start(); ?>
 <?php include "db.php"; ?>
 <?php include "functions.php"; ?>
+<?php include "username_checker.php"; ?>
 <?php
+
 
 $lastlogin = $_COOKIE["lastlogin"];
 $comp_id = $_GET["comp_id"];
@@ -10,44 +12,32 @@ $comp_id = $_GET["comp_id"];
 $query_comp = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
 $check_comp_name_query = mysqli_query($connection, $query_comp);
 
-if($row = mysqli_fetch_assoc($check_comp_name_query)){
+if ($row = mysqli_fetch_assoc($check_comp_name_query)){
 
     $comp_name = $row["comp_name"];
     
 }
 
+if ($lastlogin == 1){
 
-
-if($lastlogin == 1){
-    $org_id = $_COOKIE["org_id"];
-}
-else{
-    $tech_id = $_COOKIE["tech_id"];
-}
-
-
-if($lastlogin == 1){
-
-    $query_org = "SELECT * FROM organisers WHERE id = '$org_id'";
+    $query_org = "SELECT * FROM organisers WHERE username = '$username'";
     $check_org_query = mysqli_query($connection, $query_org);
 
     if($row = mysqli_fetch_assoc($check_org_query)){
 
-        $name = $row["username"];
-        
+        $id = $row['id'];
     }
 
     $role = "Organiser";
 
-}
-else{
+} else {
 
-    $query_tech = "SELECT * FROM technicians WHERE id = '$tech_id'";
+    $query_tech = "SELECT * FROM technicians WHERE username = '$username'";
     $check_comp_tech_query = mysqli_query($connection, $query_tech);
     
     if($row = mysqli_fetch_assoc($check_comp_tech_query)){
     
-        $name = $row["username"];
+        $id = $row['id'];
         $tech_role = $row["role"];
         
     }
@@ -56,12 +46,11 @@ else{
 
 }
 
-if(isset($_POST["logout"])) {
+if (isset($_POST["logout"])) {
 
-$_COOKIE["org_id"] = NULL;
-$_COOKIE["tech_id"] = NULL;
+    session_destroy();
 
-header("Location: ../index.php");
+    header("Location: ../index.php");
 
 }
 
@@ -144,7 +133,7 @@ header("Location: ../index.php");
         
         <!-- profile data -->
         <div class="identity_section">
-            <p id="username"><?php echo $name; ?></p>
+            <p id="username"><?php echo $username; ?></p>
             <p id="role"><?php echo $role; ?></p>
         </div>
 
@@ -157,7 +146,7 @@ header("Location: ../index.php");
                 <img src="../assets/icons/edit-black-18dp.svg"/>
             </button>
             <img src="https://thispersondoesnotexist.com/image" class="profile_picture_big">
-            <p class="username_big"><?php echo $name; ?></p>
+            <p class="username_big"><?php echo $username; ?></p>
             <p class="role_big"><?php echo $role; ?></p>
             <form action="" method="POST" id="logout_form">
                 <button type="submit" name="logout" class="logout_button">Log out</button>

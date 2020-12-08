@@ -24,14 +24,14 @@ if(strlen($test, 1) == 0){
 
     $choose = $_POST["role"];
 
-    if(!$choose) {
+    if (!$choose) {
 
         header("Location: index.php?roleerror=3");
 
     }
 
 
-    if($choose == 1){
+    if ($choose == 1){ // organiser
 
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -40,11 +40,6 @@ if(strlen($test, 1) == 0){
         $username = mysqli_real_escape_string($connection, $username);
         $password = mysqli_real_escape_string($connection, $password);
 
-
-        /*$hashFormat = "$2y$10$";
-        $salt = "passwordencryptionform";
-        $hashF_and_salt = $hashFormat . $salt;
-        $password = crypt($password, $hashF_and_salt);*/
 
         $query = "SELECT * FROM organisers WHERE username = '$username'";
         $select_organisers_query = mysqli_query($connection, $query);
@@ -55,18 +50,20 @@ if(strlen($test, 1) == 0){
         $db_user = $row["username"];
         $db_pass = $row["password"];
 
-        }
+    }
 
 
-    if($username != "" && $password != ""){
+    if ($username != "" && $password != ""){
 
-        if($username == $db_user && $password == $db_pass) {
+        if($username == $db_user && password_verify($password, $db_pass)) {
 
             setcookie("org_id", $db_id, time() + 31536000);
             setcookie("lastlogin", 1, time() + 31536000);
             setcookie("year",$test1,time()+31556926);
             setcookie("month",$test,time()+31556926);
 
+            session_start();
+            $_SESSION['username'] = $db_user;
             header("Location: php/choose_competition.php");
 
         }
@@ -98,7 +95,7 @@ if(strlen($test, 1) == 0){
     }
 
 }
-elseif ($choose == 2) {
+elseif ($choose == 2) { //technician
 
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -129,6 +126,8 @@ elseif ($choose == 2) {
             setcookie("year",$test1,time()+31556926);
             setcookie("month",$test,time()+31556926);
 
+            session_start();
+            $_SESSION['username'] = $db_user;
             header("Location: php/choose_competition.php");
 
         }
@@ -163,7 +162,7 @@ elseif ($choose == 2) {
 
 }
 }
-print_r($_POST);
+
 ?>
 
 <!DOCTYPE html>
