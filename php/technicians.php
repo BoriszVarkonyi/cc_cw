@@ -46,33 +46,33 @@
 
     }
 
-    if (isset($_POST['submit_tech'])) {
-        //get data from form
-        $tech_name = $_POST['username'];
-       
-        $tech_role = $_POST['role'];
+        if (isset($_POST['submit_tech'])) {
+            //get data from form
+            $tech_name = $_POST['username'];
 
-        if ($tech_name != "" && $tech_role != "") {
+            $tech_role = $_POST['role'];
+
+            if ($tech_name != "" && $tech_role != "") {
             
-        $feedback['misc'] = "okokokok";
-            $_POST['password'] = "";
-            $qry_scheck_row = "SELECT * FROM $table_name WHERE name = '$tech_name'";
-            $do_check_row = mysqli_query($connection, $qry_scheck_row);
-            $row_num = mysqli_num_rows($do_check_row);
+                $feedback['misc'] = "okokokok";
+                $_POST['password'] = "";
+                $qry_scheck_row = "SELECT * FROM $table_name WHERE name = '$tech_name'";
+                $do_check_row = mysqli_query($connection, $qry_scheck_row);
+                $row_num = mysqli_num_rows($do_check_row);
 
-            if ($row_num == FALSE) {
-                $feedback['rtest'] = "ok!";
-                $qry_insert = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$tech_name', '', '$tech_role', '0')";
-                if ($do_insert = mysqli_query($connection, $qry_insert)) {
-                    $feedback['insert'] = "ok!";
+                if ($row_num == FALSE) {
+                    $feedback['rtest'] = "ok!";
+                    $qry_insert = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$tech_name', '', '$tech_role', '0')";
+                    if ($do_insert = mysqli_query($connection, $qry_insert)) {
+                        $feedback['insert'] = "ok!";
+                    } else {
+                        $feedback['insert'] = "ERROR " . mysqli_error($connection);
+                    }
                 } else {
-                    $feedback['insert'] = "ERROR " . mysqli_error($connection);
+                    $feedback['rtest'] = "ERROR " . mysqli_error($connection);
                 }
-            } else {
-                $feedback['rtest'] = "ERROR " . mysqli_error($connection);
             }
         }
-    }
 ?>
 
 <!DOCTYPE html>

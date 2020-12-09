@@ -3,6 +3,7 @@
 
 <?php
 
+session_destroy();
 if (isset($_POST["submit"])) {
 
     $user_error = "";
@@ -33,134 +34,162 @@ if(strlen($test, 1) == 0){
 
     if ($choose == 1){ // organiser
 
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+
+    
+            $username = mysqli_real_escape_string($connection, $username);
+            $password = mysqli_real_escape_string($connection, $password);
+
+
+            $query = "SELECT * FROM organisers WHERE username = '$username'";
+            $select_organisers_query = mysqli_query($connection, $query);
+
+            while($row = mysqli_fetch_assoc($select_organisers_query)) {
+
+            $db_id = $row["id"];
+            $db_user = $row["username"];
+            $db_pass = $row["password"];
+
+        }
+
+
+        if ($username != "" && $password != ""){
+
+            if($username == $db_user && password_verify($password, $db_pass)) {
+
+                setcookie("org_id", $db_id, time() + 31536000);
+                setcookie("lastlogin", 1, time() + 31536000);
+                setcookie("year",$test1,time()+31556926);
+                setcookie("month",$test,time()+31556926);
+
+                session_start();
+                $_SESSION['username'] = $db_user;
+                header("Location: php/choose_competition.php");
+
+            }
+            else{
+
+                header("Location: index.php?loginerror=4");
+
+            }
+        }
+        else{
+            if(!$username){
+
+                $user_error = "usererror=1&";
+        
+            }
+            else{
+                $user_error = "";
+            }
+            if(!$password){
+        
+                $pass_error = "passerror=2&";
+        
+            }
+            else{
+                $pass_error = "";
+            }
+            $errors = $user_error . $pass_error;
+            header("Location: index.php?$errors");
+        }
+
+    } elseif ($choose == 2) { //technician
+
+        $db_user = "";
+        $db_pass = "";
+
         $username = $_POST["username"];
         $password = $_POST["password"];
 
- 
         $username = mysqli_real_escape_string($connection, $username);
         $password = mysqli_real_escape_string($connection, $password);
 
+        $query_get_comp_ids = "SELECT * FROM competitions";
+        $do_get_comp_ids = mysqli_query($connection, $query_get_comp_ids);
 
-        $query = "SELECT * FROM organisers WHERE username = '$username'";
-        $select_organisers_query = mysqli_query($connection, $query);
-
-        while($row = mysqli_fetch_assoc($select_organisers_query)) {
-
-        $db_id = $row["id"];
-        $db_user = $row["username"];
-        $db_pass = $row["password"];
-
-    }
-
-
-    if ($username != "" && $password != ""){
-
-        if($username == $db_user && password_verify($password, $db_pass)) {
-
-            setcookie("org_id", $db_id, time() + 31536000);
-            setcookie("lastlogin", 1, time() + 31536000);
-            setcookie("year",$test1,time()+31556926);
-            setcookie("month",$test,time()+31556926);
-
-            session_start();
-            $_SESSION['username'] = $db_user;
-            header("Location: php/choose_competition.php");
-
-        }
-        else{
-
-            header("Location: index.php?loginerror=4");
-
-        }
-    }
-    else{
-        if(!$username){
-
-            $user_error = "usererror=1&";
-    
-        }
-        else{
-            $user_error = "";
-        }
-        if(!$password){
-    
-            $pass_error = "passerror=2&";
-    
-        }
-        else{
-            $pass_error = "";
-        }
-        $errors = $user_error . $pass_error;
-        header("Location: index.php?$errors");
-    }
-
-}
-elseif ($choose == 2) { //technician
-
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
-
-
-        $query = "SELECT * FROM technicians WHERE username = '$username'";
-        $select_technicians_query = mysqli_query($connection, $query);
-
-        while($row = mysqli_fetch_assoc($select_technicians_query)) {
-
-        $db_id = $row["id"];
-        $db_user = $row["username"];
-        $db_pass = $row["password"];
-        $ass_comp_id = $row["ass_comp_id"];
-
+        $comp_ids[] = array();
+        $feedback[] = array();
+        $where = "";
+        while ($row = mysqli_fetch_assoc($do_get_comp_ids)) {
+            array_push($comp_ids, $row['comp_id']);
         }
 
+        foreach ($comp_ids as $value) {
 
-    if($username != "" && $password != ""){
+            $table_name = "tech_" . $value;
 
-        if($username == $db_user && $password == $db_pass) {
+            $query = "SELECT * FROM `$table_name` WHERE `name` = '$username'";
+            $select_technicians_query = mysqli_query($connection, $query);
+                
 
-            setcookie("tech_id", $db_id, time() + 31536000);
-            setcookie("lastlogin", 2, time() + 31536000);
-            setcookie("year",$test1,time()+31556926);
-            setcookie("month",$test,time()+31556926);
+                if ($row = mysqli_fetch_assoc($select_technicians_query)) {
 
-            session_start();
-            $_SESSION['username'] = $db_user;
-            header("Location: php/choose_competition.php");
+                    $db_id = $row["id"];
+                    $db_pass = $row["pass"];
+                    $role = $row['role'];
+                    $where .= $value . "_";
+                    array_push($feedback, "ok!");
 
+                } else {
+                    array_push($feedback, mysqli_error($connection) . "aight but nope");
+                }
+            
         }
-        else{
+        
 
-            header("Location: index.php?loginerror=4");
 
+        if($username != ""){
+
+            if ($password != "") {
+
+                if($username == $db_user && $password == $db_pass) {
+
+                    setcookie("tech_id", $db_id, time() + 31536000);
+                    setcookie("lastlogin", 2, time() + 31536000);
+                    setcookie("year",$test1,time()+31556926);
+                    setcookie("month",$test,time()+31556926);
+
+                    session_start();
+                    $_SESSION['username'] = $db_user;
+                    header("Location: php/choose_competition.php");
+
+                } else {
+
+                    header("Location: index.php?loginerror=4");
+                }
+
+            } else {
+                session_start();
+                $_SESSION['username'] = $username;
+                header("Location: php/set_new_pass_first.php?where=$where");
+            }
+
+        } else {
+            
+            if(!$username){
+
+                $user_error = "usererror=1&";
+        
+            }
+            else{
+                $user_error = "";
+            }
+            if(!$password){
+        
+                $pass_error = "passerror=2&";
+        
+            }
+            else{
+                $pass_error = "";
+            }
+            $errors = $user_error . $pass_error;
+            header("Location: index.php?$errors");
         }
 
-    }
-    else{
-        if(!$username){
 
-            $user_error = "usererror=1&";
-    
-        }
-        else{
-            $user_error = "";
-        }
-        if(!$password){
-    
-            $pass_error = "passerror=2&";
-    
-        }
-        else{
-            $pass_error = "";
-        }
-        $errors = $user_error . $pass_error;
-        header("Location: index.php?$errors");
-    }
-
-
-}
+    }   
 }
 
 ?>
@@ -257,6 +286,7 @@ elseif ($choose == 2) { //technician
                 <!-- login form end -->
         </div>
     </div>
+    <?php print_r($feedback); ?>
     <div id="login_links_wrapper"> 
         <div id="program_news">
             <a type="button" class="other_apps_button">News and updates</a>

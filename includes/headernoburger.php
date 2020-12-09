@@ -62,7 +62,7 @@ if(isset($_POST["logout"])) {
 
 $_COOKIE["org_id"] = NULL;
 $_COOKIE["tech_id"] = NULL;
-
+session_destroy();
 header("Location: ../index.php");
 
 }
