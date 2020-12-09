@@ -36,7 +36,7 @@ $checkwc ++;
 
 if(isset($_POST["create_pools"])){
 
-$query_create_table = "CREATE TABLE `pools_$comp_id` ( id INT NOT NULL AUTO_INCREMENT , pool_number INT NOT NULL , pool_of INT NOT NULL , f1 VARCHAR(255) NOT NULL , f2 VARCHAR(255) NOT NULL , f3 VARCHAR(255) NOT NULL , f4 VARCHAR(255) NOT NULL , f5 VARCHAR(255) NOT NULL , f6 VARCHAR(255) NOT NULL , f7 VARCHAR(255) NOT NULL , ref INT NOT NULL , piste INT NOT NULL , time VARCHAR(255) NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
+$query_create_table = "CREATE TABLE `pools_$comp_id` ( id INT NOT NULL AUTO_INCREMENT , pool_number INT NOT NULL , pool_of INT NOT NULL , f1 VARCHAR(255) NOT NULL , f2 VARCHAR(255) NOT NULL , f3 VARCHAR(255) NOT NULL , f4 VARCHAR(255) NOT NULL , f5 VARCHAR(255) NOT NULL , f6 VARCHAR(255) NOT NULL , f7 VARCHAR(255) NOT NULL , ref INT NOT NULL , ref2 INT NOT NULL , piste INT NOT NULL , time VARCHAR(255) NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;";
 $query_create_table_do = mysqli_query($connection,$query_create_table);
 
 if(!$query_create_table_do){
@@ -141,90 +141,173 @@ $doit = 0;
 
     }
 }
+
+
+
 //$szamolo = 0;
-for ($s=0; $s < count($savefencerarray) + 1 ; $s++) { 
+// for ($s=0; $s < count($savefencerarray) + 1 ; $s++) { 
     
-    if($savefencerarray[$s] == "OFF"){
-        unset($savefencerarray[$s]);
-        //$szamolo++;
+//     if($savefencerarray[$s] == "OFF"){
+//         unset($savefencerarray[$s]);
+//         //$szamolo++;
+//     }
+
+// }
+
+$doornot = 0;
+
+foreach ($savefencerarray as $check) {
+    if($check != "OFF"){
+ $doornot++;
     }
-
 }
+
+
+
+print_r($all_fencers_n);
+
 $xd = 0;
-if(count($savefencerarray) > 0){
 
-for ($h=0; $h < count($savefencerarray); $h++) { 
+if($doornot != 0){
 
+print_r($savefencerarray);
 
-
-    $annalkisebb = count(${$xd . "_group_n"});
-
-for ($c=0; $c < $poolsnum; $c++) { 
+foreach ($savefencerarray as $key) {
     
-if($annalkisebb > count(${$c . "_group_n"}) && !in_array($all_fencers_n[$savefencerarray[$h]], ${$c . "_group_n"})){
+echo $key;
 
-    $annalkisebb = count(${$c . "_group_n"});
+$getrekt = 0;
 
-    $toplace = $c;
+if($key == "OFF"){
 
-    $fencertoplace = $savefencerarray[$h];
+    echo "//TOV//";
+continue;
 
-    unset($savefencerarray[$h]);
+}
+else{
+
+
+    $h = array_search($key, $savefencerarray);
+
+    echo($h);
+    
+    $annalkisebb = count(${$xd . "_group_n"});
+    $toplace = 0;
+    
+    for ($c=0; $c < $poolsnum; $c++) { 
+        
+    if($annalkisebb > count(${$c . "_group_n"})){
+    
+        $annalkisebb = count(${$c . "_group_n"});
+    
+        $toplace = $c;
+    
+    }
+    
+    $fencertoplace = array_search($savefencerarray[$h], $all_fencers_n);
+
+    }
+    print_r($savefencerarray);
+    
+        array_push(${$toplace . "_group_id"}, $all_fencers_id[$key]);
+        array_push(${$toplace . "_group_f"}, $all_fencers_f[$key]);
+        array_push(${$toplace . "_group_n"}, $all_fencers_n[$key]);
+
+
 
 }
 
 
+
 }
 
-array_push(${$toplace . "_group_id"}, $all_fencers_id[$fencertoplace /*+ $szamolo]*/]);
-array_push(${$toplace . "_group_f"}, $all_fencers_f[$fencertoplace /*+ $szamolo]*/]);
-array_push(${$toplace . "_group_n"}, $all_fencers_n[$fencertoplace /*+ $szamolo]*/]);
+print_r(${"0" . "_group_n"});
+echo $toplace;
 }
-}
+
+// $temp = count($savefencerarray);
+
+
+// for ($h=0; $h < $temp; $h++) { 
+
+// if(!isset($savefencerarray[$h]) || $savefencerarray[$h] == "OFF"){
+
+// continue;
+
+// }
+
+
 
 //REPEAT
 
-$xd = 0;
-if(count($savefencerarray) > 0){
+// $xd = 0;
+// if(count($savefencerarray) > 0){
 
-for ($h=0; $h < count($savefencerarray); $h++) { 
+// for ($h=0; $h < count($savefencerarray); $h++) { 
 
 
 
-    $annalkisebb = count(${$xd . "_group_n"});
+//     $annalkisebb = count(${$xd . "_group_n"});
 
-for ($c=0; $c < $poolsnum; $c++) { 
+// for ($c=0; $c < $poolsnum; $c++) { 
     
-if($annalkisebb > count(${$c . "_group_n"})){
+// if($annalkisebb > count(${$c . "_group_n"})){
 
-    $annalkisebb = count(${$c . "_group_n"});
+//     $annalkisebb = count(${$c . "_group_n"});
 
-    $toplace = $c;
+//     $toplace = $c;
 
-}
-
-
-}
-
-array_push(${$toplace . "_group_id"}, $all_fencers_id[$savefencerarray[$h /*+ $szamolo]*/]]);
-array_push(${$toplace . "_group_f"}, $all_fencers_f[$savefencerarray[$h /*+ $szamolo]*/]]);
-array_push(${$toplace . "_group_n"}, $all_fencers_n[$savefencerarray[$h /*+ $szamolo]*/]]);
-
-}
-}
+// }
 
 
-print_r($all_fencers_id);
-print_r($all_fencers_n);
+// }
+
+// array_push(${$toplace . "_group_id"}, $all_fencers_id[$savefencerarray[$h /*+ $szamolo]*/]]);
+// array_push(${$toplace . "_group_f"}, $all_fencers_f[$savefencerarray[$h /*+ $szamolo]*/]]);
+// array_push(${$toplace . "_group_n"}, $all_fencers_n[$savefencerarray[$h /*+ $szamolo]*/]]);
+
+// }
+// }
+// if(count($savefencerarray) > 0){
+
+// for ($h=0; $h < count($savefencerarray); $h++) { 
+
+
+
+//     $annalkisebb = count(${$xd . "_group_n"});
+
+// for ($c=0; $c < $poolsnum; $c++) { 
+    
+// if($annalkisebb > count(${$c . "_group_n"})){
+
+//     $annalkisebb = count(${$c . "_group_n"});
+
+//     $toplace = $c;
+
+// }
+
+
+// }
+
+// array_push(${$toplace . "_group_id"}, $all_fencers_id[$savefencerarray[$h /*+ $szamolo]*/]]);
+// array_push(${$toplace . "_group_f"}, $all_fencers_f[$savefencerarray[$h /*+ $szamolo]*/]]);
+// array_push(${$toplace . "_group_n"}, $all_fencers_n[$savefencerarray[$h /*+ $szamolo]*/]]);
+
+// }
+// }
+
+
+//print_r($all_fencers_id);
+//print_r($all_fencers_n);
 
 for ($i=0; $i < $poolsnum; $i++) { 
-  print_r(${$i . "_group_id"});
-  print_r(${$i . "_group_f"});
-  print_r(${$i . "_group_n"});
+  //print_r(${$i . "_group_id"});
+  //print_r(${$i . "_group_f"});
+  //print_r(${$i . "_group_n"});
 }
 
-print_r($savegrouparray);
-print_r($savefencerarray);
+//print_r($savegrouparray);
+//print_r($savefencerarray);
 
 $querypart = "INSERT INTO `pools_$comp_id`(`pool_number`, `pool_of`, `f1`, `f2`, `f3`, `f4`, `f5`, `f6`, `f7`) VALUES ";
 $poolserial = 1;
@@ -233,7 +316,7 @@ $comma = 0;
 
 for ($n=0; $n < $poolsnum; $n++) {
     
-    print_r(${$n . "_group_id"});
+    //print_r(${$n . "_group_id"});
 
     $poolof = count(${$n . "_group_id"});
 
@@ -366,6 +449,133 @@ header("Location: pools.php?comp_id=$comp_id");
 }
 
 
+
+
+
+
+
+
+
+
+if(isset($_POST["draw_ref"])){
+
+$get_all_ref = "SELECT * FROM ref_$comp_id";
+$get_all_ref_do = mysqli_query($connection, $get_all_ref);
+
+$ref_id_array = [];
+$ref_nat_array = [];
+
+while($row = mysqli_fetch_assoc($get_all_ref_do)){
+
+$ref_id = $row["id"];
+$ref_nat = $row["nat"];
+
+array_push($ref_id_array, $ref_id);
+array_push($ref_nat_array, $ref_nat);
+
+}
+
+//print_r($ref_id_array);
+//print_r($ref_nat_array);
+
+$query_get_pools = "SELECT * FROM pools_$comp_id";
+$query_get_pools_do = mysqli_query($connection, $query_get_pools);
+
+
+for ($j=1; $j <= mysqli_num_rows($query_get_pools_do); $j++) { 
+    
+    ${$j . "_group"} = [];
+
+}
+
+$g_counter = 1;
+
+
+$bigc = 1;
+while($row = mysqli_fetch_assoc($query_get_pools_do)){
+
+$fencers_this_pool = [];
+
+    for ($i=1; $i <= 7 ; $i++) { 
+        
+        if($row["f$i"] != ""){
+
+        ${"f" . $i} = $row["f$i"];
+
+        array_push($fencers_this_pool, ${"f" . $i});
+
+        }
+        else{
+
+        break;
+
+        }
+
+
+
+    }
+
+$ids_string = "'";
+$ids_string .= implode("','",$fencers_this_pool);
+$ids_string .= "'";
+
+echo "<br>" . $ids_string;
+
+$query_get_f_nations = "SELECT * FROM cptrs_$comp_id WHERE id IN ($ids_string)";
+$query_get_f_nations_do = mysqli_query($connection, $query_get_f_nations);
+
+if(!$query_get_f_nations_do){
+
+    echo mysqli_error($connection);
+
+}
+
+
+
+$per = 1;
+
+while($row2 = mysqli_fetch_assoc($query_get_f_nations_do)){
+
+//echo $row2["nationality"];
+
+array_push(${$g_counter . "_group"},$row2["nationality"]);
+
+if($per == mysqli_num_rows($query_get_f_nations_do)){
+
+$g_counter++;
+
+}
+$per++;
+}
+
+//print_r($fencers_this_pool);
+
+//print_r(${$bigc . "_group"});
+
+for ($i=0; $i < count($ref_nat_array); $i++) { 
+    
+    //print_r($ref_id_array);
+
+    if($ref_nat_array[$i] == ""){
+        continue;
+    }
+    elseif(!in_array($ref_nat_array[$i], ${$bigc . "_group"})){
+
+        $query_add_ref = "UPDATE pools_$comp_id SET ref = $ref_id_array[$i] WHERE pool_number = $bigc";
+        $query_add_ref_do = mysqli_query($connection, $query_add_ref);
+
+        $ref_id_array[$i] = "";
+        $ref_nat_array[$i] = "";
+
+    break;
+    }
+
+}
+
+$bigc++;
+}
+
+}
 
 
 
@@ -537,7 +747,7 @@ else
                                 
                                 ?>
                         </div>
-                        <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
+                        <button type="submit" name="draw_ref" value="Save" class="panel_submit">Save</button>
                     </form>
                 </div>
 
@@ -751,7 +961,7 @@ else{
                                     ?>
                                     
                                         <div class="table_row">
-                                            <div class="table_item" ondrop="drop(event)" ondragover="allowDrop(event)"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
+                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
                                             <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
                                             <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
                                             

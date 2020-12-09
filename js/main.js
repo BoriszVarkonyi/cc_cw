@@ -424,6 +424,9 @@ function resultChecker(x){
         ul.classList.add("empty")
     }
     else {
+        for(i=0; i<li.length; i++){
+            li[i].classList.remove("selected")
+        }
         selectedElementIndex = 0;
         li[selectedElementIndex].classList.add("selected")
     }
