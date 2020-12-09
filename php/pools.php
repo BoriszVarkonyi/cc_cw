@@ -961,7 +961,7 @@ else{
                                     ?>
                                     
                                         <div class="table_row">
-                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="1"><?php echo ${$n . "_f_n"} ?></p></div>
+                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="<?php echo $n ?>"><?php echo ${$n . "_f_n"} ?></p></div>
                                             <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
                                             <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
                                             
