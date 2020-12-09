@@ -59,19 +59,32 @@ function selectPistes() {
     selectPistes.classList.remove("disabled")
 }
 
+
+//Drag n drop system
 function allowDrop(ev) {
     ev.preventDefault();
-  }
-  
-  function drag(ev) {
+}
+var rowToDelete;
+var regenerateTable;
+var rowToSave = [];
+    function drag(ev, x) {
+    //Saves the row that we dragged
+    rowToDelete = x.parentNode.parentNode;
+    //Saves the dragged element innerHTML
+    rowToSave.push(x.parentNode.parentNode.innerHTML)
+    regenerateTable = x.parentNode.parentNode.parentNode;
     ev.dataTransfer.setData("text", ev.target.id);
-  }
-  
-  function drop(ev) {
+}
+
+function drop(ev) {
+    //Delertes the dragged row if we dropped down.
+    rowToDelete.remove();
+    //Clears the var
+    rowToDelete = undefined;
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-  }
+}
 
     
 
