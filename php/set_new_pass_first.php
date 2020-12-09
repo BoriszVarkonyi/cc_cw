@@ -4,19 +4,22 @@
 <?php 
     
     print_r($_POST);
-
+    
     $where = $_GET['where'];
     $where = rtrim($where, "_");
     $array_where = explode("_", $where);
-
-        if (isset($_POST['submit'])) {
-            $password = $_POST['pass'];
-            $passworda = $_POST['pass_again'];
+    
+        if (isset($_POST['r_submit'])) {
+            $password = $_POST['r_pass'];
+            $passworda = $_POST['r_passa'];
             echo "áááááááááááááá";
             if ($password != "" && $passworda != "") {
 
                 if ($password == $passworda) {
-                    foreach ($value as $array_where) {
+
+                    $password = password_hash($password, DEFAULT_PASSWORD);
+                    $passworda = password_hash($password, DEFAULT_PASSWORD);
+                    foreach ($array_where as $value) {
                         $qry_update_pass = "UPDATE `tech_$value` SET `pass` = '$password' WHERE `name` = '$username'";
                         $do_uodate_pass = mysqli_query($connection, $qry_update_pass);
                     }
@@ -34,24 +37,10 @@
     <title>Set up your password!</title>
 </head>
 <body>
-    <p><h1>Choose a password for <?php echo $username ?></h1></p>
-
-    <from id="asd" method="POST" action="../php/set_new_pass_first.php">
-        <label for="pass">Type in your password</label>
-        <br>
-        <input type="password" name="pass">
-        <br>
-        <label for="pass_again">Type in your password again</label>
-        <br>
-        <input type="password" name="pass_again">
-        <br>
-        <input type="submit" name="submit" value="submit">
+    <form id="login" method="POST">
+        <input type="password" name="r_pass" placeholder="password">
+        <input type="password" name="r_passa" placeholder="password again">
+        <input type="submit" name="r_submit">
     </form>
-    <?php 
-        print_r($array_where);
-        echo mysqli_error($connection);
-        
-    
-    ?>
 </body>
 </html>

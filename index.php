@@ -144,7 +144,7 @@ if(strlen($test, 1) == 0){
 
             if ($password != "") {
 
-                if($username == $db_user && $password == $db_pass) {
+                if($username == $db_user && password_verify($password, $db_pass)) {
 
                     setcookie("tech_id", $db_id, time() + 31536000);
                     setcookie("lastlogin", 2, time() + 31536000);
