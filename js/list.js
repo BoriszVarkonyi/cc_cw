@@ -62,16 +62,22 @@ function selectRow(x){
 }
 //Toggles the selection on clicked searchresult
 function selectSearch(x) {
+    //Makes the id
     var selectedElementId = x.id.slice(0, -1);
     var selectedElements = document.querySelectorAll(".page_content_flex .selected")
+    //Removes selected class from all selected element
     for(i=0; i<selectedElements.length; i++){
         selectedElements[i].classList.remove("selected")
     }
+    //Gets the tablerow by id
     var selectedTableElement = document.getElementById(selectedElementId)
+    //Adds selected class
     selectedTableElement.classList.add("selected") 
+    //Counts the selected table row index
     var rows = document.querySelectorAll(".table .table_row");
     for(i=0; i<rows.length; i++){
         if(rows[i].classList.contains("selected")){
+            //It is a var. from control.js 
             selectedElementIndexAr = i;
             break;
         }

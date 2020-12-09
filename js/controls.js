@@ -1,8 +1,9 @@
 //Arrow system
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
+//This var. used in other files.
 var selectedElementIndexAr = 0;
 document.onkeydown = (keyDownEvent) => {
-    //Arrow system
+    //Arrow system, works only if search bar closed
     if(searchBarClosed) {
         if(keyDownEvent.key == "ArrowUp"){
             var table = document.querySelector(".table");
@@ -21,6 +22,7 @@ document.onkeydown = (keyDownEvent) => {
 
 
         if(keyDownEvent.key == "ArrowDown"){
+            //Cheks if theres a selected row.
             var hasSelected = false;
             var table = document.querySelector(".table");
             var tableRows = document.querySelectorAll(".table .table_row")
@@ -42,6 +44,7 @@ document.onkeydown = (keyDownEvent) => {
                 hiddenin.value = tableRows[selectedElementIndexAr].id
                 keyDownEvent.preventDefault();
             }
+            //If there is not a selected row than it selects the first row.
             else{
                 tableRows[selectedElementIndexAr].classList.add("selected")
                 tableRows[selectedElementIndexAr].focus()
@@ -62,6 +65,7 @@ document.onkeydown = (keyDownEvent) => {
                 }
                 selectedTableElement.focus();
                 selectedTableElement.classList.add("selected")
+                //Counts the selected table row index
                 var rows = document.querySelectorAll(".table .table_row");
                 for(i=0; i<rows.length; i++){
                     if(rows[i].classList.contains("selected")){
