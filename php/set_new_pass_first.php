@@ -17,8 +17,7 @@
 
                 if ($password == $passworda) {
 
-                    $password = password_hash($password, DEFAULT_PASSWORD);
-                    $passworda = password_hash($password, DEFAULT_PASSWORD);
+                    $password = password_hash($password, PASSWORD_DEFAULT);
                     foreach ($array_where as $value) {
                         $qry_update_pass = "UPDATE `tech_$value` SET `pass` = '$password' WHERE `name` = '$username'";
                         $do_uodate_pass = mysqli_query($connection, $qry_update_pass);
