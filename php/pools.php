@@ -866,7 +866,7 @@ else{
                 <div id="pools_wrapper">
 
                     STATE: 1
-                    <div id="pool_listing" class="with_drag table_row_wrapper"> 
+                    <div id="pool_listing" class="with_drag"> 
 
 
                         <?php
@@ -956,11 +956,12 @@ else{
                                         
                                     </div>
                                     <div class="table_row_wrapper">
-                                    <?php
-                                    for ($n=0; $n < $pool_f_in; $n++) { 
+                                        <div class="table_row_drop"></div>
+                                        <?php
+                                        for ($n=0; $n < $pool_f_in; $n++) { 
 
-                                    ?>
-                                    
+                                        ?>
+                                        
                                         <div class="table_row">
                                             <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
                                             <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
@@ -975,9 +976,8 @@ else{
                                         <?php } ?>
 
                                         </div>
-
+                                        <div class="table_row_drop"></div>
                                         <?php } ?>
-                                        
                                     </div>
                                 </div>
                             </div>

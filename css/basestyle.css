@@ -394,19 +394,40 @@ form.hidden, form.disabled {
 	overflow: hidden;
 }
 
-.table_row.drop {
+.table_row_drop {
+	display: none !important;
+	justify-content: center;
+	align-items: center;
+}
+
+.table_row_drop.collapsed {
+	background-color: var(--c-darkgray) !important;
+	height: 100%;
+	min-height: 3px;
+	display: flex !important;
+}
+
+.table_row_drop.opened {
+	display: flex !important;
 	background-color: var(--c-lightgray) !important;
+	min-height: calc(1.4em + 1.25vmin);
 }
 
-.table_row.drop .table_item {
-	max-width: 100% !important;
+.table_row_drop.opened:after {
+	content: "Drop Fencer here";
+	font-size: var(--f-middle);
+	color: var(--c-darkgray);
 }
 
-.table_row.drop:hover {
+.table_row_drop.opened:hover {
 	background-color: var(--c-lightergray) !important;
 	max-width: 100% !important;
 	transform: scale(1.01);
 	font-family: var(--bold);
+}
+
+.table_row_drop:hover p {
+	color: var(--c-black);
 }
 
 .table_row.start > .table_item {
