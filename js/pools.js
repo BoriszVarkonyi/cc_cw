@@ -61,13 +61,13 @@ function selectPistes() {
 
 
 //Drag n drop system
-function allowDrop(ev) {
+function allowDrop(ev, x) {
     ev.preventDefault();
 }
 var rowToDelete;
 var regenerateTable;
 var rowToSave = [];
-    function drag(ev, x) {
+function drag(ev, x) {
     //Saves the row that we dragged
     rowToDelete = x.parentNode.parentNode;
     //Saves the dragged element innerHTML
@@ -77,20 +77,77 @@ var rowToSave = [];
 }
 
 function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
     //Delertes the dragged row if we dropped down.
     rowToDelete.remove();
     //Clears the var
     rowToDelete = undefined;
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    regenerate();
+}
+function regenerate() {
+    var table = regenerateTable;
+    var tableheader = table.previousElementSibling
+    var tableHeaderText = tableheader.querySelectorAll(".table_header_text")
+    var rows = table.querySelectorAll(".table_row")
+    for(i=3; i<tableHeaderText.length; i++){
+        tableHeaderText[i].remove()
+    }
+    for(i=3; i<rows.length+3; i++){
+        tableheader.innerHTML = tableheader.innerHTML + '<div class="table_header_text square">' + (i -2) + '</div>'
+    }
+    for(i=0; i<rows.length; i++){
+        var tableItems = rows[i].querySelectorAll(".table_item")
+        for(c=2; c<tableItems.length; c++){
+            tableItems[c].remove()
+        }
+    }
+    for(i=0; i<rows.length; i++){
+        var tableItems = rows[i].querySelectorAll(".table_item")
+        for(c=2; c<rows.length+3; c++){
+            
+            if(c == 2){
+                rows[i].innerHTML = rows[i].innerHTML + '<div class="table_item square row_title"><p>' + (i + 1) +'</p></div>'
+            }
+            else if(c == i + 3){ 
+                rows[i].innerHTML = rows[i].innerHTML + '<div class="table_item square filled"></div>'
+            }
+            else{
+                rows[i].innerHTML = rows[i].innerHTML + '<div class="table_item square "></div>'
+            }
+        }
+    }
 }
 
-    
+function tableWrapperHoverOn(x) {  
+  var dropAreas = x.querySelectorAll(".table_row_drop")
+  for(i=0; i<dropAreas.length; i++){
+    dropAreas[i].classList.add("collapsed")
+  }
 
+}
 
+function tableWrapperHoverOff(x){
+    setTimeout( function(){
+        if(active){
+            var dropAreas = x.querySelectorAll(".table_row_drop")
+            for(i=0; i<dropAreas.length; i++){
+            dropAreas[i].classList.remove("collapsed")
+            }
+        }
+    }, 750)        
+}
+var active = true;
+function dropAreaHoverOn(x){
+    active = false;
+    x.classList.add("opened")
+}
 
-
+function dropAreaHoverOff(x){
+    active = true;
+    x.classList.remove("opened")
+}
     
 
     

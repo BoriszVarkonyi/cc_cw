@@ -955,8 +955,8 @@ else{
 
                                         
                                     </div>
-                                    <div class="table_row_wrapper">
-                                        <div class="table_row_drop"></div>
+                                    <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
+                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this)" ondragleave="dropAreaHoverOff(this)" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
                                         <?php
                                         for ($n=0; $n < $pool_f_in; $n++) { 
 
@@ -976,7 +976,7 @@ else{
                                         <?php } ?>
 
                                         </div>
-                                        <div class="table_row_drop"></div>
+                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this)" ondragleave="dropAreaHoverOff(this)" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
                                         <?php } ?>
                                     </div>
                                 </div>
