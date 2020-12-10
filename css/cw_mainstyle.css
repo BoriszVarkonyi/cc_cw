@@ -1244,3 +1244,11 @@ b.green {
 	color: var(--c-green);
 	background-color: transparent;
 }
+
+#video_wrapper {
+	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	align-content: flex-start;
+}

@@ -21,7 +21,7 @@
                 <p class="cw_panel_subtitle">Latest Videos</p>
                 
                 <!-- latest video placeholder -->
-                <div class="video_wrapper">
+                <div class="video_wrapper" onclick="location.href='cw_video.php'">
                     <img src="../assets/img/fencers_bg.svg" >
                     <div>
                         <p>Title</p>
