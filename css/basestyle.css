@@ -334,7 +334,7 @@ form.hidden, form.disabled {
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
-	margin-right: 40px;
+	margin-right: 15px;
 }
 
 .small_status_header {
