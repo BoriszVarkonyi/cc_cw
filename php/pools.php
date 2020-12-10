@@ -905,6 +905,7 @@ else{
 
                         ${$cla . "_f_n"} = $row["name"];
                         ${$cla . "_f_na"} = $row["nationality"];
+                        ${$cla . "_f_id"} = $row["id"];
                         $cla++;
 
                         }
@@ -961,7 +962,7 @@ else{
                                     ?>
                                     
                                         <div class="table_row">
-                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="<?php echo $n ?>"><?php echo ${$n . "_f_n"} ?></p></div>
+                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
                                             <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
                                             <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
                                             

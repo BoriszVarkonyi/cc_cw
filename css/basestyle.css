@@ -394,7 +394,19 @@ form.hidden, form.disabled {
 	overflow: hidden;
 }
 
-.table_row.start {
+.table_row.drop {
+	background-color: var(--c-lightgray) !important;
+}
+
+.table_row.drop .table_item {
+	max-width: 100% !important;
+}
+
+.table_row.drop:hover {
+	background-color: var(--c-lightergray) !important;
+	max-width: 100% !important;
+	transform: scale(1.01);
+	font-family: var(--bold);
 }
 
 .table_row.start > .table_item {
@@ -612,7 +624,7 @@ input[type="text"].search.cc {
 	font-family: var(--bold);
 	margin-right: 40px;
 	width: 225px;
-	z-index: 2;
+	z-index: 4;
 	position: relative;
 	height: auto;
 }
@@ -654,7 +666,7 @@ input[type="text"].search.cc:focus + div {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
-	z-index: 1;
+	z-index: 3;
 	max-height: 0;
 	opacity: 0;
 	overflow: hidden;
