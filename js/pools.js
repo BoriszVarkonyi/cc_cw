@@ -73,6 +73,7 @@ var dragPlaceTodelete;
 var canRegenerate = true;
 var canDrop = true;
 var dragEndActive = true;
+var previousTable;
 function drag(ev, x) {
     //Saves the dragged element innerHTML
     if(x.parentNode.parentNode.id == "pools_wrapper"){
@@ -94,8 +95,10 @@ function drag(ev, x) {
         rowToDelete = x.parentNode.parentNode;
         canRegenerate = true;
         canDrop = true;
+        dragEndActive = true;
+        regenerateTable = x.parentNode.parentNode.parentNode;
+        previousTable = x.parentNode.parentNode.parentNode;
     }
-    regenerateTable = x.parentNode.parentNode.parentNode;
     ev.dataTransfer.setData("text", ev.target.id);
 }
 function dragEnd(x){
@@ -187,14 +190,22 @@ function dropAreaHoverOff(x){
     x.classList.remove("opened")
 }
 function drop2(ev, x){
+    dragEndActive = false;
     ev.preventDefault();
     var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
     regenerateTable = x.parentNode
-    x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+    if(dragPlaceTodelete == x){
+        x.outerHTML = draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+    }
+    else{
+        x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+    }
     //Delertes the dragged row if we dropped down.
+    
     if(rowToDelete !== undefined){
         rowToDelete.remove();  
     }
+
     if(dragPlaceTodelete !== undefined){
         dragPlaceTodelete.remove()
     }
@@ -203,7 +214,11 @@ function drop2(ev, x){
     if (index > -1) {
         rowToSave.splice(index, 1);
     }
-    regenerate();  
+
+    regenerate();
+    regenerateTable = previousTable;
+    console.log(regenerateTable)
+    regenerate();
     for(i=0; i<dropAreas.length; i++){
     dropAreas[i].classList.remove("collapsed")
     }
