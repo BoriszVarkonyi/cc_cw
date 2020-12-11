@@ -967,14 +967,14 @@ else{
                                         
                                     </div>
                                     <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
-                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this)" ondragleave="dropAreaHoverOff(this)" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                         <?php
                                         for ($n=0; $n < $pool_f_in; $n++) { 
 
                                         ?>
                                         
                                         <div class="table_row">
-                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
+                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
                                             <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
                                             <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
                                             
@@ -987,7 +987,7 @@ else{
                                         <?php } ?>
 
                                         </div>
-                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this)" ondragleave="dropAreaHoverOff(this)" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                         <?php } ?>
                                     </div>
                                 </div>

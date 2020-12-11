@@ -67,24 +67,64 @@ function allowDrop(ev, x) {
 var rowToDelete;
 var regenerateTable;
 var rowToSave = [];
+var draggedElement;
+var index;
+var dragPlaceTodelete;
+var canRegenerate = true;
+var canDrop = true;
+var dragEndActive = true;
 function drag(ev, x) {
-    //Saves the row that we dragged
-    rowToDelete = x.parentNode.parentNode;
     //Saves the dragged element innerHTML
-    rowToSave.push(x.parentNode.parentNode.innerHTML)
+    if(x.parentNode.parentNode.id == "pools_wrapper"){
+        for(i=0; i<rowToSave.length; i++){
+            if(rowToSave[i].indexOf(x.outerHTML) > -1){
+               draggedElement = rowToSave[i]
+               index = i;
+            }
+            rowToDelete = x
+            canRegenerate = false;
+            canDrop = false;
+            dragEndActive = false;
+        }
+    }
+    else{
+        draggedElement = x.parentNode.parentNode.outerHTML;
+        dragPlaceTodelete = x.parentNode.parentNode.nextElementSibling
+        //Saves the row that we dragged
+        rowToDelete = x.parentNode.parentNode;
+        canRegenerate = true;
+        canDrop = true;
+    }
     regenerateTable = x.parentNode.parentNode.parentNode;
     ev.dataTransfer.setData("text", ev.target.id);
 }
-
+function dragEnd(x){
+    if(dragEndActive){
+        var dropAreas = x.parentNode.parentNode.parentNode.querySelectorAll(".table_row_drop")
+        for(i=0; i<dropAreas.length; i++){
+        dropAreas[i].classList.remove("collapsed")
+        }
+    }
+}
 function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    //Delertes the dragged row if we dropped down.
-    rowToDelete.remove();
-    //Clears the var
-    rowToDelete = undefined;
-    regenerate();
+    if(canDrop){
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        rowToSave.push(draggedElement)
+        //Delertes the dragged row if we dropped down.
+        if(rowToDelete !== undefined){
+            rowToDelete.remove();  
+        }
+        if(dragPlaceTodelete !== undefined){
+            dragPlaceTodelete.remove()
+        }
+        //Clears the var
+        rowToDelete = undefined;
+        if(canRegenerate){
+            regenerate();
+        }
+    }   
 }
 function regenerate() {
     var table = regenerateTable;
@@ -119,28 +159,26 @@ function regenerate() {
         }
     }
 }
-
-function tableWrapperHoverOn(x) {  
-  var dropAreas = x.querySelectorAll(".table_row_drop")
-  for(i=0; i<dropAreas.length; i++){
+var active = true;
+function tableWrapperHoverOn(x) {
+    active = false;
+    var dropAreas = x.querySelectorAll(".table_row_drop")
+    for(i=0; i<dropAreas.length; i++){
     dropAreas[i].classList.add("collapsed")
-  }
+    }
 
 }
 
 function tableWrapperHoverOff(x){
-    setTimeout( function(){
-        if(active){
-            var dropAreas = x.querySelectorAll(".table_row_drop")
-            for(i=0; i<dropAreas.length; i++){
-            dropAreas[i].classList.remove("collapsed")
-            }
+    if(active){
+        var dropAreas = x.querySelectorAll(".table_row_drop")
+        for(i=0; i<dropAreas.length; i++){
+        dropAreas[i].classList.remove("collapsed")
         }
-    }, 750)        
+    }     
 }
-var active = true;
+
 function dropAreaHoverOn(x){
-    active = false;
     x.classList.add("opened")
 }
 
@@ -148,7 +186,28 @@ function dropAreaHoverOff(x){
     active = true;
     x.classList.remove("opened")
 }
-    
+function drop2(ev, x){
+    ev.preventDefault();
+    var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
+    regenerateTable = x.parentNode
+    x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+    //Delertes the dragged row if we dropped down.
+    if(rowToDelete !== undefined){
+        rowToDelete.remove();  
+    }
+    if(dragPlaceTodelete !== undefined){
+        dragPlaceTodelete.remove()
+    }
+    //Clears the var
+    rowToDelete = undefined;
+    if (index > -1) {
+        rowToSave.splice(index, 1);
+    }
+    regenerate();  
+    for(i=0; i<dropAreas.length; i++){
+    dropAreas[i].classList.remove("collapsed")
+    }
+}
 
     
 
