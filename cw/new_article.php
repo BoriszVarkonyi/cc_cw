@@ -1,10 +1,7 @@
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
-<?php
-
-
-
+<?php 
 
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
@@ -12,6 +9,7 @@ if (isset($_POST['submit'])) {
     $time = date("Y/m/d");
 
     if ($title != "" && $body != "") {
+
         $target_dir = "../article_pics/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
@@ -39,14 +37,6 @@ if (isset($_POST['submit'])) {
         if ($row_num != FALSE) {
             echo "Sorry, this is and existing article";
             $uploadOk = 0;
-        }
-
-        // Check if file already exists
-        if (file_exists($target_file)) {
-
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-
         }
 
         // Check file size
