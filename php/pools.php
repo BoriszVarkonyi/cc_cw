@@ -454,13 +454,37 @@ header("Location: pools.php?comp_id=$comp_id");
 
 
 
-
-
+//get refs from form
 
 if(isset($_POST["draw_ref"])){
 
-$get_all_ref = "SELECT * FROM ref_$comp_id";
-$get_all_ref_do = mysqli_query($connection, $get_all_ref);
+    if ($_POST['ref_select'] == 'all_ref') {
+        $get_ref = "SELECT * FROM ref_$comp_id";
+    } else {
+
+        $where_clause = "WHERE ";
+        $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE online = 1";
+        $ref_query_do = mysqli_query($connection, $ref_query);
+        
+        while($row =  mysqli_fetch_assoc($ref_query_do)){
+
+            $refid = $row["id"];
+            $fullname = $row["full_name"];
+
+            if ($_POST[$ref_id] == 'checked') {
+                $where += "`id` = `$ref_id` OR";
+            }
+        
+        }
+
+        $where = substr($where, 0, -2);
+
+        $get_ref = "SELECT * FROM `ref_$comp_id` $where;";
+
+    }
+
+
+$get_ref_do = mysqli_query($connection, $get_all_ref);
 
 $ref_id_array = [];
 $ref_nat_array = [];
@@ -712,12 +736,12 @@ else
                             <input type="checkbox" name="pistes_type" id="true" value=""/>
                             <label for="true">True</label>
                         </div>
-                        <label for="pistes_type">SELECT REFEREES</label>
+                        <label for="all_ref">SELECT REFEREES</label>
                         <div class="option_container row">
-                            <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value=""/>
+                            <input type="radio" name="select_ref" checked id="all_ref" onclick="useAllReferees()" value="all_ref"/>
                             <label for="all_ref">Use all</label>
 
-                            <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value=""/>
+                            <input type="radio" name="select_ref" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref"/>
                             <label for="manual_select_ref">Select manually</label>
                         </div>
 
@@ -737,8 +761,8 @@ else
                                 ?>
                                 
                                 <div class="piste_select">
-                                    <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="ref_<?php echo $refid ?>"/>
-                                    <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
+                                    <input type="checkbox" name="<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="<?php echo $refid ?>"/>
+                                    <label for="<?php echo $refid ?>"><?php echo $fullname ?></label>
                                 </div>
 
                                 <?php
