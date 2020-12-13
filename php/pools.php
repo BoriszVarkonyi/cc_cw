@@ -450,10 +450,6 @@ header("Location: pools.php?comp_id=$comp_id");
 
 
 
-
-
-
-
 //get refs from form
 
 if(isset($_POST["draw_ref"])){
@@ -471,7 +467,7 @@ if(isset($_POST["draw_ref"])){
             $refid = $row["id"];
             $fullname = $row["full_name"];
 
-            if ($_POST[$ref_id] == 'checked') {
+            if ($_POST["ref_$ref_id"] == 'checked') {
                 $where += "`id` = `$ref_id` OR";
             }
         
@@ -762,7 +758,7 @@ else
                                 
                                 <div class="piste_select">
                                     <input type="checkbox" name="<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="<?php echo $refid ?>"/>
-                                    <label for="<?php echo $refid ?>"><?php echo $fullname ?></label>
+                                    <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
                                 </div>
 
                                 <?php
