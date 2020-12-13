@@ -22,6 +22,8 @@
     if (isset($_POST['delete'])) {
         $qry_delete = "DELETE FROM `cw_articles` WHERE `id` = '$id'";
         $do_delete = mysqli_query($connection, $qry_delete);
+        echo mysqli_error($connection);
+        header("Location: ../cw/admin.php");
     }
 
 
@@ -30,93 +32,98 @@
         $title = $_POST['title'];
         $body = $_POST['body'];
         $date = date("Y/m/d");
-
+        print_r($_POST);
+        print_r($_FILES["fileToUpload"]);
         if ($title != "" && $body != "") {
-            $target_dir = "../article_pics/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
+            if (isset($_FILES["fileToUpload"])) {
+
+                $target_dir = "../article_pics/";
+                $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                 $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-        }
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        
-        // Check if file already exists
-        if (file_exists($target_file)) {
-
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-
-        }
-
-        // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
-
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-
-        }
-
-        // Allow certain file formats
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-
-        }
-
-        if (unlink("../article_pics/$id.png")) {
-            echo "The existing picture is deleted";
-        } else {
-            echo "Could not find the image !";
-            $uploadOk = 0;
-        }
-
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
-        } else {
-
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                
-            
-                echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                // Check if image file is a actual image or fake image
+                if(isset($_POST["submit"])) {
+                    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                    if($check !== false) {
+                        echo "File is an image - " . $check["mime"] . ".";
+                        $uploadOk = 1;
+                    } else {
+                        echo "File is not an image.";
+                        $uploadOk = 0;
+                    }
+                }
 
                 
-            
-                if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
+                // Check if file already exists
+                if (file_exists($target_file)) {
 
-                    echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
-
-                    $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', `last_edit_by` = '$username'";
-                    $do_update = mysqli_query($connection, $qry_update);
-
-                } else {
-
-                    echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
+                    echo "Sorry, file already exists.";
+                    $uploadOk = 0;
 
                 }
-            
-               
 
-                header("Location: ../cw/admin.php");
-            } else {
+                // Check file size
+                if ($_FILES["fileToUpload"]["size"] > 500000) {
 
-            echo "Sorry, there was an error uploading your file.";
+                    echo "Sorry, your file is too large.";
+                    $uploadOk = 0;
+
+                }
+
+                // Allow certain file formats
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+
+                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $uploadOk = 0;
+
+                }
+
+                if (unlink("../article_pics/$id.png")) {
+                    echo "The existing picture is deleted";
+                } else {
+                    echo "Could not find the image !";
+                    $uploadOk = 0;
+                }
+
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                    // if everything is ok, try to upload file
+                } else {
+
+                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                        
+                    
+                        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+
+                        
+                    
+                        if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
+
+                            echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
+
+                        } else {
+
+                            echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
+
+                        }
+
+                    } else {
+
+                    echo "Sorry, there was an error uploading your file.";
+
+                    }
+
+                }
 
             }
 
-        }
+            $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', `last_edit_by` = '$username' WHERE id = '$id'";
+            $do_update = mysqli_query($connection, $qry_update);
+
+            //header("Location: ../cw/admin.php");
         }
     }
 ?>
@@ -148,7 +155,7 @@
 <br>
 <input type="submit" value="Save" name="update">
 </form>
-<form>
+<form method="POST">
 <input type="submit" name="delete" value="DELETE">
 </form>
 </body>
