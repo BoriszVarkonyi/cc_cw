@@ -217,7 +217,6 @@ function drop2(ev, x){
 
     regenerate();
     regenerateTable = previousTable;
-    console.log(regenerateTable)
     regenerate();
     for(i=0; i<dropAreas.length; i++){
     dropAreas[i].classList.remove("collapsed")
