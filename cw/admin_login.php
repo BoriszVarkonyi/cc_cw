@@ -26,7 +26,7 @@
                     if (!$do_new_admin = mysqli_query($connection, $qry_new_admin)) {
                         $feedback = mysqli_error($connection);
                     } else {
-                        $_SESSION['username'] = $rusername;
+                        $_SESSION['usernameblog'] = $rusername;
                         header('Location: ../cw/admin.php');
                     }
                 } else {
@@ -52,7 +52,7 @@
             $pass_crypt = $row['password'];
             if (password_verify($password, $pass_crypt)) {
                 $feedback = "ok!";
-                $_SESSION['username'] = $username;
+                $_SESSION['usernameblog'] = $username;
 
                 header('Location: ../cw/admin.php');
             } else {
