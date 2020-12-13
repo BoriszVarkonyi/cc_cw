@@ -223,8 +223,24 @@ function drop2(ev, x){
     }
 }
 
-    
-
+var poolsId = ""
+function idloader(){
+    var entries = document.querySelectorAll(".entry")
+    for(i=0; i<entries.length; i++){
+        if(i !== 0){
+            poolsId = poolsId + "//"
+        }
+        var tablerowsid = entries[i].querySelectorAll(".table_row .table_item:first-of-type > p")
+        for(d=0; d<tablerowsid.length; d++){
+            if(d == 0){
+                poolsId = poolsId + tablerowsid[d].id
+            }
+            else{
+                poolsId = poolsId + "," + tablerowsid[d].id
+            }
+        }
+    }  
+}
 
     
     
@@ -281,4 +297,3 @@ function generatePanel(){
 
 
 }
-  
