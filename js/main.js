@@ -456,25 +456,25 @@ function formvariableDeclaration(overlayForm, inputs, saveButton) {
     }
 }
 
-function formValidation(overlayForm, inputs, saveButton){
-    saveButton.disabled = true;
-    //If the document values are changing, it runs the function.
-    overlayForm.addEventListener("input", function(){
-        //Checking every input.
-        for(i=0; i<inputs.length; i++){
-            if(inputs[i].value == "" && inputs[i].checked == false){
-                //If it finds an empty input, then it disable the "Save" button.
-                saveButton.disabled = true;
-                break;
+// function formValidation(overlayForm, inputs, saveButton){
+//     saveButton.disabled = true;
+//     //If the document values are changing, it runs the function.
+//     overlayForm.addEventListener("input", function(){
+//         //Checking every input.
+//         for(i=0; i<inputs.length; i++){
+//             if(inputs[i].value == "" && inputs[i].checked == false){
+//                 //If it finds an empty input, then it disable the "Save" button.
+//                 saveButton.disabled = true;
+//                 break;
         
-            }
-            else {
-                //If everything has a value then it enable the "Save" Button. The user can save.
-                saveButton.disabled = false;  
+//             }
+//             else {
+//                 //If everything has a value then it enable the "Save" Button. The user can save.
+//                 saveButton.disabled = false;  
         
-            }
-        }
-    }
-    )
-}
+//             }
+//         }
+//     }
+//     )
+// }
 

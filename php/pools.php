@@ -921,6 +921,17 @@ else{
 
                         }
 
+                        $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = $ref";
+                        $get_ref_name_do = mysqli_query($connection, $get_ref_name);
+
+                        if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
+
+                            $refname = $refrow["full_name"];
+                            $refnat = $refrow["nat"];
+
+                        }
+
+
                         $get_group_fencers_query = "SELECT * FROM cptrs_$comp_id WHERE id IN ('$f1','$f2','$f3','$f4','$f5','$f6','$f7')";
                         $get_group_fencers_query_do = mysqli_query($connection, $get_group_fencers_query);
 
@@ -941,7 +952,7 @@ else{
                             <div class="table_row start">
                                 <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref: Név</div>
+                                <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
                                 <div class="table_item"><?php echo $time ?></div>
                                 <div class="big_status_item">
                                     <button type="button" onclick="" class="pool_config">
