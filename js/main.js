@@ -450,8 +450,8 @@ function formvariableDeclaration(overlayForm, inputs, saveButton) {
         if(formelement.classList.contains("overlay_panel_form")){
             return overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form"), 
             inputs = document.querySelectorAll(".overlay_panel:not( .hidden) .overlay_panel_form input"), 
-            saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit"),
-            formValidation(overlayForm, inputs, saveButton);
+            saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit");
+            //formValidation(overlayForm, inputs, saveButton);
         }
     }
 }

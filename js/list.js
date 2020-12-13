@@ -1,10 +1,34 @@
 //Auto width
 window.addEventListener("resize", automaticWidth);
 window.addEventListener("DOMContentLoaded", automaticWidth);
+var tableToAutoWidth;
+var allTable = document.querySelectorAll(".table");
 function automaticWidth(){
-    var table = document.querySelector(".table");
+    //for(i=0; i<allTable.length; i++){
+        tableToAutoWidth = allTable[0];
+        automaticWidthTest()
+        /*
+        tableToAutoWidth = allTable[1];
+        automaticWidthTest()
+        tableToAutoWidth = allTable[2];
+        automaticWidthTest()
+        tableToAutoWidth = allTable[3];
+        automaticWidthTest()
+        tableToAutoWidth = allTable[4];
+        automaticWidthTest()
+        tableToAutoWidth = allTable[5];
+        automaticWidthTest()
+        tableToAutoWidth = allTable[6];
+        automaticWidthTest()
+        tableToAutoWidth = allTable[7];
+        automaticWidthTest()
+        */
+    //}
+}
+function automaticWidthTest(){
+    var table = tableToAutoWidth
     if(table != null) {
-        var columnCounter = table.querySelectorAll(".table_row:last-of-type > div").length;
+        var columnCounter = table.querySelectorAll(".table_row:nth-last-of-type(2) > div").length;
         for(columnNumber = 1; columnNumber<=columnCounter; columnNumber++) {
             var column= table.querySelectorAll('.table_row > div:nth-of-type(' + columnNumber +'), .table_header > div:nth-of-type(' + columnNumber +')');
             var widthArray = [];
