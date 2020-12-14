@@ -767,7 +767,7 @@ else
                                 
                                 ?>
                         </div>
-                        <button type="submit" name="draw_ref" value="Save" class="panel_submit">Save</button>
+                        <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
                     </form>
                 </div>
 
@@ -780,11 +780,11 @@ else
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time" >STARTING TIME</label>
-                        <input type="time" name="starting_time">
+                        <input type="time" id="startingTimeInput" name="starting_time">
 
                         <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input small" name="interval_of_match">
+                            <input type="number" class="number_input small" name="interval_of_match" id="timeInput">
                             <p>Min.</p>
                         </div>
 
@@ -844,7 +844,7 @@ else
                                 
                         </div>
 
-                        <button type="submit" name="piste_time" value="Save" class="panel_submit">Save</button>
+                        <button type="submit" name="piste_time" value="Save" class="panel_submit" id="pNtSaveButton">Save</button>
                     </form>
                 </div>
 
