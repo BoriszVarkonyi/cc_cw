@@ -455,148 +455,87 @@ header("Location: pools.php?comp_id=$comp_id");
 if(isset($_POST["draw_ref"])){
 
     if ($_POST['ref_select'] == 'all_ref') {
-        $get_ref = "SELECT * FROM ref_$comp_id";
+        $get_ref = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
     } else {
 
-        $where_clause = "WHERE ";
-        $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE online = 1";
+        $where_clause = "";
+        $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
         $ref_query_do = mysqli_query($connection, $ref_query);
         
-        while($row =  mysqli_fetch_assoc($ref_query_do)){
+        while($row =  mysqli_fetch_assoc($ref_query_do)) {
 
             $refid = $row["id"];
-            $fullname = $row["full_name"];
 
             if ($_POST["ref_$ref_id"] == 'checked') {
-                $where += "`id` = `$ref_id` OR";
+                $where += $refid . ", ";
             }
         
         }
 
-        $where = substr($where, 0, -2);
+        $where = substr($where, 0, -1);
 
-        $get_ref = "SELECT * FROM `ref_$comp_id` $where;";
+        $get_ref = "SELECT * FROM `ref_$comp_id` WHERE `id` IN ('$where');";
 
     }
 
+    $get_ref_do = mysqli_query($connection, $get_ref);
 
-$get_ref_do = mysqli_query($connection, $get_all_ref);
+    $array_ref_nat = [];
 
-$ref_id_array = [];
-$ref_nat_array = [];
+    while ($row = mysqli_fetch_assoc($get_ref_do)) {
 
-while($row = mysqli_fetch_assoc($get_all_ref_do)){
+        $ref_id = $row['id'];
+        $ref_nat = $row['nat'];
 
-$ref_id = $row["id"];
-$ref_nat = $row["nat"];
-
-array_push($ref_id_array, $ref_id);
-array_push($ref_nat_array, $ref_nat);
-
+        $array_ref_nat[$ref_id] = $ref_nat;
+    }
 }
 
-//print_r($ref_id_array);
-//print_r($ref_nat_array);
+    $query_get_pools = "SELECT * FROM `pools_$comp_id`";
+    $query_get_pools_do = mysqli_query($connection, $query_get_pools);
 
-$query_get_pools = "SELECT * FROM pools_$comp_id";
-$query_get_pools_do = mysqli_query($connection, $query_get_pools);
+    $ARRAY_pool_nat = [];
 
+    //go through rows as pools
+    while($row = mysqli_fetch_assoc($query_get_pools_do)){
+        $pool_of = $row['pool_of'];
+        $pool_num = $row['pool_number'];
 
-for ($j=1; $j <= mysqli_num_rows($query_get_pools_do); $j++) { 
-    
-    ${$j . "_group"} = [];
+        $current_pool = "pool_" . $pool_num;
+        $ARRAY_pool_nat[$current_pool] = [];
 
-}
+        //go through fencers (f{n} columns)
+        for ($i = 1; $i <= $pool_of; $i++) {
 
-$g_counter = 1;
+            //get fencer id
+            $qry_get_fencer_id = "SELECT `f$i` FROM `pools_$comp_id` WHERE `pool_number` = '$pool_num'";
+            $do_get_fencer_id = mysqli_query($connection, $qry_get_fencer_id);
 
+            if ($row1 = mysqli_fetch_assoc($do_get_fencer_id)) {
+                $fencer_id = $row1["f$i"];
+            } else {
+                echo mysqli_error($connection) . "error on line 519!";
+            }
 
-$bigc = 1;
-while($row = mysqli_fetch_assoc($query_get_pools_do)){
+            //get fencer nat by id
+            $qry_get_fencer_nat = "SELECT `nationality` FROM `cptrs_$comp_id` WHERE `id` = '$fencer_id'";
+            $do_get_fencer_id = mysqli_query($connection, $qry_get_fencer_nat);
 
-$fencers_this_pool = [];
+            if ($row2 = mysqli_fetch_assoc($do_get_fencer_id)) {
+                $fencer_nat = $row2['nationality'];
 
-    for ($i=1; $i <= 7 ; $i++) { 
-        
-        if($row["f$i"] != ""){
-
-        ${"f" . $i} = $row["f$i"];
-
-        array_push($fencers_this_pool, ${"f" . $i});
-
+                //test if nat is already in the array
+                if (array_search($fencer_nat, $ARRAY_pool_nat[$current_pool]) === FALSE) {
+                    array_push($ARRAY_pool_nat[$current_pool], $fencer_nat);
+                }
+            } else {
+                echo mysqli_error($connection) . "error on line 529!";
+            }
         }
-        else{
-
-        break;
-
-        }
-
-
-
     }
 
-$ids_string = "'";
-$ids_string .= implode("','",$fencers_this_pool);
-$ids_string .= "'";
-
-echo "<br>" . $ids_string;
-
-$query_get_f_nations = "SELECT * FROM cptrs_$comp_id WHERE id IN ($ids_string)";
-$query_get_f_nations_do = mysqli_query($connection, $query_get_f_nations);
-
-if(!$query_get_f_nations_do){
-
-    echo mysqli_error($connection);
-
-}
-
-
-
-$per = 1;
-
-while($row2 = mysqli_fetch_assoc($query_get_f_nations_do)){
-
-//echo $row2["nationality"];
-
-array_push(${$g_counter . "_group"},$row2["nationality"]);
-
-if($per == mysqli_num_rows($query_get_f_nations_do)){
-
-$g_counter++;
-
-}
-$per++;
-}
-
-//print_r($fencers_this_pool);
-
-//print_r(${$bigc . "_group"});
-
-for ($i=0; $i < count($ref_nat_array); $i++) { 
-    
-    //print_r($ref_id_array);
-
-    if($ref_nat_array[$i] == ""){
-        continue;
-    }
-    elseif(!in_array($ref_nat_array[$i], ${$bigc . "_group"})){
-
-        $query_add_ref = "UPDATE pools_$comp_id SET ref = $ref_id_array[$i] WHERE pool_number = $bigc";
-        $query_add_ref_do = mysqli_query($connection, $query_add_ref);
-
-        $ref_id_array[$i] = "";
-        $ref_nat_array[$i] = "";
-
-    break;
-    }
-
-}
-
-$bigc++;
-}
-
-}
-
+print_r($ARRAY_pool_nat);
+print_r($array_ref_nat);
 
 
 ?>
@@ -607,7 +546,7 @@ $bigc++;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pools of {Comp anme}</title>
+    <title>Pools of <?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
@@ -734,10 +673,10 @@ else
                         </div>
                         <label for="all_ref">SELECT REFEREES</label>
                         <div class="option_container row">
-                            <input type="radio" name="select_ref" checked id="all_ref" onclick="useAllReferees()" value="all_ref"/>
+                            <input type="radio" name="ref_select" checked id="all_ref" onclick="useAllReferees()" value="all_ref"/>
                             <label for="all_ref">Use all</label>
 
-                            <input type="radio" name="select_ref" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref"/>
+                            <input type="radio" name="ref_select" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref"/>
                             <label for="manual_select_ref">Select manually</label>
                         </div>
 
@@ -757,7 +696,7 @@ else
                                 ?>
                                 
                                 <div class="piste_select">
-                                    <input type="checkbox" name="<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="<?php echo $refid ?>"/>
+                                    <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="value1"/>
                                     <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
                                 </div>
 
@@ -898,22 +837,22 @@ else{
 
                         for ($i=1; $i <= $szor; $i++) { 
                             
-                        $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
-                        $inside_query_do = mysqli_query($connection,$inside_query);
+                            $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
+                            $inside_query_do = mysqli_query($connection,$inside_query);
 
-                        if($row = mysqli_fetch_assoc($inside_query_do)){
+                            if($row = mysqli_fetch_assoc($inside_query_do)){
 
-                        $pool_f_in = $row["pool_of"];
-                        $f1 = $row["f1"];
-                        $f2 = $row["f2"];
-                        $f3 = $row["f3"];
-                        $f4 = $row["f4"];
-                        $f5 = $row["f5"];
-                        $f6 = $row["f6"];
-                        $f7 = $row["f7"];
-                        $ref = $row["ref"];
-                        $piste = $row["piste"];
-                        $time = $row["time"];
+                            $pool_f_in = $row["pool_of"];
+                            $f1 = $row["f1"];
+                            $f2 = $row["f2"];
+                            $f3 = $row["f3"];
+                            $f4 = $row["f4"];
+                            $f5 = $row["f5"];
+                            $f6 = $row["f6"];
+                            $f7 = $row["f7"];
+                            $ref = $row["ref"];
+                            $piste = $row["piste"];
+                            $time = $row["time"];
 
                         }
 
@@ -934,55 +873,55 @@ else{
                         $cla = 0;
                         while($row = mysqli_fetch_assoc($get_group_fencers_query_do)){
 
-                        ${$cla . "_f_n"} = $row["name"];
-                        ${$cla . "_f_na"} = $row["nationality"];
-                        ${$cla . "_f_id"} = $row["id"];
-                        $cla++;
+                            ${$cla . "_f_n"} = $row["name"];
+                            ${$cla . "_f_na"} = $row["nationality"];
+                            ${$cla . "_f_id"} = $row["id"];
+                            $cla++;
 
                         }
                         
                         ?>
 
 
-                        <div class="entry">
-                            <div class="table_row start">
-                                <div class="table_item bold">No.<?php echo $i ?></div>
-                                <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
-                                <div class="table_item"><?php echo $time ?></div>
-                                <div class="big_status_item">
-                                    <button type="button" onclick="" class="pool_config">
-                                        <img src="../assets/icons/settings-black-18dp.svg" >
-                                    </button>
+                            <div class="entry">
+                                <div class="table_row start">
+                                    <div class="table_item bold">No.<?php echo $i ?></div>
+                                    <div class="table_item">Piste <?php echo $piste ?></div>
+                                    <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
+                                    <div class="table_item"><?php echo $time ?></div>
+                                    <div class="big_status_item">
+                                        <button type="button" onclick="" class="pool_config">
+                                            <img src="../assets/icons/settings-black-18dp.svg" >
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="entry_panel gray">
-                                <div class="pool_table_wrapper table">
-                                    <div class="table_header">
-                                        <div class="table_header_text">
-                                            Fencers name
-                                        </div>
-                                        <div class="table_header_text">
-                                            Fencers nationality
-                                        </div>
+                                <div class="entry_panel gray">
+                                    <div class="pool_table_wrapper table">
+                                        <div class="table_header">
+                                            <div class="table_header_text">
+                                                Fencers name
+                                            </div>
+                                            <div class="table_header_text">
+                                                Fencers nationality
+                                            </div>
 
-                                        <div class="table_header_text square">
-                                            No.
-                                        </div>
+                                            <div class="table_header_text square">
+                                                No.
+                                            </div>
 
-                                        <?php 
-                                        
-                                        for ($e=1; $e <= $pool_f_in; $e++) {
+                                            <?php 
+                                            
+                                            for ($e=1; $e <= $pool_f_in; $e++) {
 
-                                        ?>
+                                            ?>
 
-                                        <div class="table_header_text square">
-                                            <?php echo $e ?>
-                                        </div>
+                                            <div class="table_header_text square">
+                                                <?php echo $e ?>
+                                            </div>
 
-                                        <?php
-                                        }
-                                        ?>
+                                            <?php
+                                            }
+                                            ?>
 
                                         
                                     </div>
@@ -991,23 +930,21 @@ else{
                                         <?php
                                         for ($n=0; $n < $pool_f_in; $n++) { 
 
-                                        ?>
-                                        
-                                        <div class="table_row">
-                                            <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
-                                            <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
-                                            <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
+                                            ?>
                                             
-                                            <?php
-                                        for ($g=0; $g < $pool_f_in; $g++) { 
-                                        ?>
+                                            <div class="table_row">
+                                                <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
+                                                <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
+                                                <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
+                                                
+                                                <?php for ($g=0; $g < $pool_f_in; $g++) { ?>
 
-                                            <div class="table_item square <?php if($g == $n){echo "filled";} ?>"></div>
-                                            
-                                        <?php } ?>
+                                                    <div class="table_item square <?php if($g == $n){echo "filled";} ?>"></div>
+                                                    
+                                                <?php } ?>
 
-                                        </div>
-                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
+                                            </div>
+                                            <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                         <?php } ?>
                                     </div>
                                 </div>
