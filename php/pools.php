@@ -943,9 +943,9 @@ else{
                         
                         ?>
 
-
+                        <div>
                         <div class="entry">
-                            <div class="table_row start">
+                            <div class="table_row">
                                 <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
@@ -960,10 +960,10 @@ else{
                                 <div class="pool_table_wrapper table">
                                     <div class="table_header">
                                         <div class="table_header_text">
-                                            Fencers name
+                                            name
                                         </div>
                                         <div class="table_header_text">
-                                            Fencers nationality
+                                            nationality
                                         </div>
 
                                         <div class="table_header_text square">
@@ -1012,6 +1012,7 @@ else{
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
 
 

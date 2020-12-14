@@ -178,8 +178,14 @@ checkComp($connection);
                         <!-- blank panel top-->
                         <div class="full_width_flex">
                             <div class="db_panel">
-                                <div onclick="location.href='https://www.example.com'">
-                                    <p>blank top panel</p>
+                                <div>
+                                    <p style="font-size: var(--f-xxlarge)">xxlarge</p>
+                                    <p style="font-size: var(--f-xlarge)">xlarge</p>
+                                    <p style="font-size: var(--f-large)">large</p>
+                                    <p style="font-size: var(--f-medium)">medium</p>
+                                    <p style="font-size: var(--f-small)">small</p>
+                                    <p style="font-size: var(--f-xsmall)">xsmall</p>
+                                    <p style="font-size: var(--f-xxsmall)">xxsmall</p>
                                 </div>
                             </div>
                         </div>
