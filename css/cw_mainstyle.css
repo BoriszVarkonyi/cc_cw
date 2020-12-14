@@ -521,7 +521,7 @@ input[value="Search"] {
 	align-items: center;
 	margin: 5px 0;
 	border-radius: 5px;
-	font-size: var(--f-middle);
+	font-size: var(--f-medium);
 	font-family: var(--bold);
 }
 

@@ -635,9 +635,9 @@
                     </div>
                 </div>
                 <div class="color_legend">
-                    <div class="cl_green">Finished</div>
-                    <div class="cl_yellow">Ongoing</div>
-                    <div class="cl_red">Haven't started</div>
+                    <div class="green">Finished</div>
+                    <div class="yellow">Ongoing</div>
+                    <div class="red">Haven't started</div>
                 </div>
             </div>
         </div>
