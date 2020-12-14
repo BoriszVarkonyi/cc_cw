@@ -203,10 +203,6 @@ form.hidden, form.disabled {
 	padding: 0;
 }
 
-:hover {
-	transition: var(--t-basic);
-}
-
 ::placeholder {
 	font-family: var(--reg);
 }
