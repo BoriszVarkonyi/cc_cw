@@ -885,7 +885,7 @@ else{
 
                 <div id="pools_wrapper">
 
-                    STATE: 1
+                    nem finális verzió anim á ci ó
                     <div id="pool_listing" class="with_drag"> 
 
 
