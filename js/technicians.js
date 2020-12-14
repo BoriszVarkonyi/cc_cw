@@ -96,12 +96,47 @@ function importTechnicians(x) {
     var remclass = document.getElementsByClassName("selected");
     var i;
     for(i = 0; i < remclass.length; i++){
-     remclass[i].classList.remove("selected");
+        remclass[i].classList.remove("selected");
     }
     var y = x.id;
     var z = document.getElementById(y);
     z.classList.add("selected");
     document.cookie="selected=" + y;
- }
+}
 
- //document.cookie="techtoremove=" + null;
+//document.cookie="techtoremove=" + null;
+
+//Technicians formvalidation
+var valid1 = false, valid2 = false;
+//It is a var from main.js
+canAutoValidate = false;
+var newTchForm = document.getElementById("new_technician");
+var techInput = newTchForm.querySelector("input:first-of-type")
+var techoptioncontainer = newTchForm.querySelector(".option_container")
+var techOptionButton = techoptioncontainer.querySelectorAll(".option_button")
+var techSaveButton = newTchForm.querySelector(".panel_submit")
+techSaveButton.disabled = true;
+function technisiansValidation(){
+    if(techInput.value == ""){
+        valid1 = false;
+    }
+    else{
+        valid1 = true;
+    }
+    for(i=0; i<techOptionButton.length; i++){
+        if(techOptionButton[i].checked){
+            valid2 = true;
+            break
+        }
+        else{
+            valid2 = false;
+        }
+    }
+    if(valid1 && valid2){
+        techSaveButton.disabled = false;    
+    }
+    else{
+        techSaveButton.disabled = true;
+    }
+}
+newTchForm.addEventListener("input", technisiansValidation)
