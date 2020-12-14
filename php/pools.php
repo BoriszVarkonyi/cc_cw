@@ -706,7 +706,7 @@ else
                                 
                                 ?>
                         </div>
-                        <button type="submit" name="draw_ref" value="Save" class="panel_submit">Save</button>
+                        <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
                     </form>
                 </div>
 
@@ -719,11 +719,11 @@ else
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time" >STARTING TIME</label>
-                        <input type="time" name="starting_time">
+                        <input type="time" id="startingTimeInput" name="starting_time">
 
                         <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input small" name="interval_of_match">
+                            <input type="number" class="number_input small" name="interval_of_match" id="timeInput">
                             <p>Min.</p>
                         </div>
 
@@ -783,7 +783,7 @@ else
                                 
                         </div>
 
-                        <button type="submit" name="piste_time" value="Save" class="panel_submit">Save</button>
+                        <button type="submit" name="piste_time" value="Save" class="panel_submit" id="pNtSaveButton">Save</button>
                     </form>
                 </div>
 
@@ -824,7 +824,7 @@ else{
 
                 <div id="pools_wrapper">
 
-                    STATE: 1
+                    nem finális verzió anim á ci ó
                     <div id="pool_listing" class="with_drag"> 
 
 
@@ -882,36 +882,36 @@ else{
                         
                         ?>
 
-
-                            <div class="entry">
-                                <div class="table_row start">
-                                    <div class="table_item bold">No.<?php echo $i ?></div>
-                                    <div class="table_item">Piste <?php echo $piste ?></div>
-                                    <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
-                                    <div class="table_item"><?php echo $time ?></div>
-                                    <div class="big_status_item">
-                                        <button type="button" onclick="" class="pool_config">
-                                            <img src="../assets/icons/settings-black-18dp.svg" >
-                                        </button>
-                                    </div>
+                        <div>
+                        <div class="entry">
+                            <div class="table_row">
+                                <div class="table_item bold">No.<?php echo $i ?></div>
+                                <div class="table_item">Piste <?php echo $piste ?></div>
+                                <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
+                                <div class="table_item"><?php echo $time ?></div>
+                                <div class="big_status_item">
+                                    <button type="button" onclick="" class="pool_config">
+                                        <img src="../assets/icons/settings-black-18dp.svg" >
+                                    </button>
                                 </div>
-                                <div class="entry_panel gray">
-                                    <div class="pool_table_wrapper table">
-                                        <div class="table_header">
-                                            <div class="table_header_text">
-                                                Fencers name
-                                            </div>
-                                            <div class="table_header_text">
-                                                Fencers nationality
-                                            </div>
+                            </div>
+                            <div class="entry_panel gray">
+                                <div class="pool_table_wrapper table">
+                                    <div class="table_header">
+                                        <div class="table_header_text">
+                                            name
+                                        </div>
+                                        <div class="table_header_text">
+                                            nationality
+                                        </div>
 
-                                            <div class="table_header_text square">
-                                                No.
-                                            </div>
+                                        <div class="table_header_text square">
+                                            No.
+                                        </div>
 
-                                            <?php 
-                                            
-                                            for ($e=1; $e <= $pool_f_in; $e++) {
+                                        <?php 
+                                        
+                                        for ($e=1; $e <= $pool_f_in; $e++) {
 
                                             ?>
 
@@ -949,6 +949,7 @@ else{
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
 
 

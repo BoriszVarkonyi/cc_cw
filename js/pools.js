@@ -23,10 +23,12 @@ var timePistPanel = document.getElementById("pist_time_panel");
 
 function toggleRefPanel() {
     refPanel.classList.toggle("hidden");
+    rfrsValidation();
 }
 
 function togglePistTimePanel() {
     timePistPanel.classList.toggle("hidden");
+    pNtValidation();
 }
 
 function poolConfigToggle(x) {
@@ -64,16 +66,8 @@ function selectPistes() {
 function allowDrop(ev, x) {
     ev.preventDefault();
 }
-var rowToDelete;
-var regenerateTable;
+var rowToDelete, regenerateTable, draggedElement, index, dragPlaceTodelete, previousTable, canRegenerate = true, canDrop = true, dragEndActive = true;
 var rowToSave = [];
-var draggedElement;
-var index;
-var dragPlaceTodelete;
-var canRegenerate = true;
-var canDrop = true;
-var dragEndActive = true;
-var previousTable;
 function drag(ev, x) {
     //Saves the dragged element innerHTML
     if(x.parentNode.parentNode.id == "pools_wrapper"){
@@ -223,8 +217,99 @@ function drop2(ev, x){
     }
 }
 
-    
-
+var poolsId = ""
+function idloader(){
+    var entries = document.querySelectorAll(".entry")
+    for(i=0; i<entries.length; i++){
+        if(i !== 0){
+            poolsId = poolsId + "//"
+        }
+        var tablerowsid = entries[i].querySelectorAll(".table_row .table_item:first-of-type > p")
+        for(d=0; d<tablerowsid.length; d++){
+            if(d == 0){
+                poolsId = poolsId + tablerowsid[d].id
+            }
+            else{
+                poolsId = poolsId + "," + tablerowsid[d].id
+            }
+        }
+    }  
+}
+//FORM VALIDATION
+var valid1 = false, valid2 = false;
+//It is a var from main.js
+canAutoValidate = false;
+//Pistes And Time validation
+var pistesAndTimeForm = document.getElementById("pist_time_panel")
+var input1 = document.getElementById("startingTimeInput");
+var input2 = document.getElementById("timeInput");
+var pNtsaveButton = document.getElementById("pNtSaveButton");
+var inputs = [input1, input2];
+var allButton = document.getElementById("all")
+var pNtoptioncontainer = document.getElementById("select_pistes_panel")
+var pisteSelect = pNtoptioncontainer.querySelectorAll(".piste_select")
+function pNtValidation(){
+    pNtsaveButton.disabled = true;
+    //Checking every input.
+    for(i=0; i<inputs.length; i++){
+        if(inputs[i].value == ""){
+            //If it finds an empty input, then it disable the "Save" button.
+            valid1 = false;
+            break;      
+        }
+        else {
+            //If everything has a value then it enable the "Save" Button. The user can save.
+            valid1 = true;
+        }
+    }
+    if(allButton.checked){
+        valid2 = true;
+    }
+    else{
+        valid2 = false;
+        for(i=0; i<pisteSelect.length; i++){
+            if(pisteSelect[i].firstElementChild.checked == true){
+                valid2 = true;
+                break;
+            }
+        }
+    }
+    if(valid1 && valid2){
+        pNtsaveButton.disabled = false;
+    }
+    else{
+        pNtsaveButton.disabled = true;
+    }
+}
+pistesAndTimeForm.addEventListener("input", pNtValidation)
+//Referees validation
+var refereesForm = document.getElementById("ref_panel")
+var allrfrs = document.getElementById("all_ref")
+var rfrsoptioncontaioner = document.getElementById("select_referees_panel")
+var rfrsselect = rfrsoptioncontaioner.querySelectorAll(".piste_select")
+var rfrsSaveButton = document.getElementById("rfrsSaveButton")
+function rfrsValidation(){
+    rfrsSaveButton.disabled = true
+    if(allrfrs.checked){
+        valid2 = true;
+    }
+    else{
+        valid2 = false;
+        for(i=0; i<rfrsselect.length; i++){
+            if(rfrsselect[i].firstElementChild.checked == true){
+                valid2 = true;
+                break;
+            }
+        }
+    }
+    if(valid2){
+        rfrsSaveButton.disabled = false;
+    }
+    else{
+        rfrsSaveButton.disabled = true;
+    }  
+}
+refereesForm.addEventListener("input", rfrsValidation)
 
     
     
@@ -281,4 +366,3 @@ function generatePanel(){
 
 
 }
-  

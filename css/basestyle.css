@@ -50,14 +50,13 @@
 	/* Misc */
 	--t-basic: ease-in .2s;
 	/* Font Sizes */
-	--f-xxlarge: calc(2em + 2vmin);
+	--f-xxlarge: calc(1.9em + 1.9vmin);
 	--f-xlarge: calc(1.5em + 1.5vmin);
-	--f-large: calc(1.25em + 1vmin);
-	--f-medium: calc(0.8em + 0.7vmin);
-	--f-middle: calc(0.65em + 0.65vmin);
-	--f-small: calc(0.6em + 0.5vmin);
-	--f-xsmall: calc(0.6em + 0.3vmin);
-	--f-xxsmall: calc(0.6em + 0.3vmin);
+	--f-large: calc(1.2em + 1.2vmin);
+	--f-medium: calc(0.8em + 0.8vmin);
+	--f-small: calc(0.75em + 0.7vmin);
+	--f-xsmall: calc(0.675em + 0.675vmin);
+	--f-xxsmall: calc(0.55em + 0.5vmin);
 	/* Fonts */
 	--thin: ProximaNovaThin;
 	--reg: ProximaNova;
@@ -204,10 +203,6 @@ form.hidden, form.disabled {
 	padding: 0;
 }
 
-:hover {
-	transition: var(--t-basic);
-}
-
 ::placeholder {
 	font-family: var(--reg);
 }
@@ -305,7 +300,8 @@ form.hidden, form.disabled {
 
 .table {		/* Whole table */
 	flex-direction: column;
-	color: var(--c-black)
+	color: var(--c-black);
+	font-size: var(--f-medium);
 }
 
 .table_row_wrapper {	/* Wraps table_row elements */
@@ -384,6 +380,26 @@ form.hidden, form.disabled {
 	display: none;
 }
 
+.entry > .table_row {
+	background-color: var(--c-white);
+}
+
+.entry:nth-of-type(even) > .table_row {
+	background-color: var(--c-lightestgray);
+}
+
+.entry .entry_panel {
+	background-color: var(--c-lightestgray);
+}
+
+.entry:nth-of-type(even) .entry_panel {
+	background-color: var(--c-white) !important;
+}
+
+.entry_panel .table {
+	font-size: var(--f-xsmall) !important;
+}
+
 .table_row.selected {
 	background-color: var(--c-orange) !important;
 	box-shadow: var(--s-black);
@@ -415,7 +431,7 @@ form.hidden, form.disabled {
 
 .table_row_drop.opened:after {
 	content: "Drop Fencer here";
-	font-size: var(--f-middle);
+	font-size: var(--f-medium);
 	color: var(--c-darkgray);
 }
 
@@ -515,7 +531,6 @@ form.hidden, form.disabled {
 
 .table_header, .table_row {
 	height: calc(1.4em + 1.25vmin);
-	font-size: var(--f-medium) !important;
 }
 
 .table_header_text, .table_item {
@@ -638,7 +653,7 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 input[type="text"].search.cc {
 	background-color: var(--c-white);
-	font-size: var(--f-middle);
+	font-size: var(--f-medium);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
@@ -674,7 +689,7 @@ input[type="text"].search.cc:focus + div {
 
 .overlay_panel_form .search_results {
 	width: 350px;
-	top: calc( var(--f-middle) + 15px );
+	top: calc( var(--f-medium) + 15px );
 }
 
 .overlay_panel_form .search_wrapper .search.cc {
@@ -695,7 +710,7 @@ input[type="text"].search.cc:focus + div {
 	flex-direction: column;
 	align-items: stretch;
 	padding-top: 5px;
-	font-size: var(--f-middle);
+	font-size: var(--f-medium);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
@@ -730,8 +745,8 @@ input[type="text"].search.cc:focus + div {
 
 .clear_search_button {
 	position: absolute;
-	height: var(--f-middle);
-	width: var(--f-middle);
+	height: var(--f-medium);
+	width: var(--f-medium);
 	background-color: transparent;
 	right: 10px;
 	top: 8.1px;
@@ -1058,7 +1073,7 @@ input[type="time"] {
 .stripe_button {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
-	font-size: var(--f-middle);
+	font-size: var(--f-small);
 	border-radius: 30px;
 	cursor: pointer;
 	margin: 0 15px 0 0;
@@ -1254,7 +1269,7 @@ input[type="time"] {
 	position: relative;
 }
 
-.entry.opened > .table_row > .table_item {
+.entry.opened > .table_row {
 	font-family: var(--bold);
 }
 
@@ -1262,7 +1277,6 @@ input[type="time"] {
 	width: 100%;
 	height: 40vh;
 	max-height: 500px;
-	background-color: var(--c-white);
 	display: flex;
 	justify-content: center;
 	align-items: center;

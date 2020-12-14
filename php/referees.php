@@ -150,7 +150,8 @@
                                 <button type="submit" name="import_ref" class="panel_submit" value="Import">Import</span></button>
                             </form>
                         </div>
-                        <form action="" method="POST" id="remove_technician" class="ghost_form"></form>
+                        <input type="text" class="selected_list_item_input">
+                        <form action="" method="POST" id="remove_technician" class="hidden"></form>
                         <button class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                             <p>Remove Referee</p>
                             <img src="../assets/icons/delete-black-18dp.svg"/>
