@@ -450,6 +450,53 @@ header("Location: pools.php?comp_id=$comp_id");
 
 
 
+
+
+
+$ARRAY_pool_nat = [];
+
+//go through rows as pools
+$query_get_pools = "SELECT * FROM `pools_$comp_id`";
+$query_get_pools_do = mysqli_query($connection, $query_get_pools);
+
+while($row = mysqli_fetch_assoc($query_get_pools_do)){
+    $pool_of = $row['pool_of'];
+    $pool_num = $row['pool_number'];
+
+    $current_pool = "pool_" . $pool_num;
+    $ARRAY_pool_nat[$current_pool] = [];
+
+    //go through fencers (f{n} columns)
+    for ($i = 1; $i <= $pool_of; $i++) {
+
+        //get fencer id
+        $qry_get_fencer_id = "SELECT `f$i` FROM `pools_$comp_id` WHERE `pool_number` = '$pool_num'";
+        $do_get_fencer_id = mysqli_query($connection, $qry_get_fencer_id);
+
+        if ($row1 = mysqli_fetch_assoc($do_get_fencer_id)) {
+            $fencer_id = $row1["f$i"];
+        } else {
+            echo mysqli_error($connection) . "error on line 519!";
+        }
+
+        //get fencer nat by id
+        $qry_get_fencer_nat = "SELECT `nationality` FROM `cptrs_$comp_id` WHERE `id` = '$fencer_id'";
+        $do_get_fencer_id = mysqli_query($connection, $qry_get_fencer_nat);
+
+        if ($row2 = mysqli_fetch_assoc($do_get_fencer_id)) {
+            $fencer_nat = $row2['nationality'];
+
+            //test if nat is already in the array
+            if (array_search($fencer_nat, $ARRAY_pool_nat[$current_pool]) === FALSE) {
+                array_push($ARRAY_pool_nat[$current_pool], $fencer_nat);
+            }
+        } else {
+            echo mysqli_error($connection) . "error on line 529!";
+        }
+    }
+}
+
+
 //get refs from form
 
 if(isset($_POST["draw_ref"])){
@@ -489,55 +536,29 @@ if(isset($_POST["draw_ref"])){
 
         $array_ref_nat[$ref_id] = $ref_nat;
     }
-}
-
-    $query_get_pools = "SELECT * FROM `pools_$comp_id`";
-    $query_get_pools_do = mysqli_query($connection, $query_get_pools);
-
-    $ARRAY_pool_nat = [];
-
-    //go through rows as pools
-    while($row = mysqli_fetch_assoc($query_get_pools_do)){
-        $pool_of = $row['pool_of'];
-        $pool_num = $row['pool_number'];
-
-        $current_pool = "pool_" . $pool_num;
-        $ARRAY_pool_nat[$current_pool] = [];
-
-        //go through fencers (f{n} columns)
-        for ($i = 1; $i <= $pool_of; $i++) {
-
-            //get fencer id
-            $qry_get_fencer_id = "SELECT `f$i` FROM `pools_$comp_id` WHERE `pool_number` = '$pool_num'";
-            $do_get_fencer_id = mysqli_query($connection, $qry_get_fencer_id);
-
-            if ($row1 = mysqli_fetch_assoc($do_get_fencer_id)) {
-                $fencer_id = $row1["f$i"];
-            } else {
-                echo mysqli_error($connection) . "error on line 519!";
-            }
-
-            //get fencer nat by id
-            $qry_get_fencer_nat = "SELECT `nationality` FROM `cptrs_$comp_id` WHERE `id` = '$fencer_id'";
-            $do_get_fencer_id = mysqli_query($connection, $qry_get_fencer_nat);
-
-            if ($row2 = mysqli_fetch_assoc($do_get_fencer_id)) {
-                $fencer_nat = $row2['nationality'];
-
-                //test if nat is already in the array
-                if (array_search($fencer_nat, $ARRAY_pool_nat[$current_pool]) === FALSE) {
-                    array_push($ARRAY_pool_nat[$current_pool], $fencer_nat);
-                }
-            } else {
-                echo mysqli_error($connection) . "error on line 529!";
+    $ref_assigned_pools = [];
+    //create array of pools to assign to refs
+    for ($i = 1; $i <= $pool_num; $i++) {
+        $ref_assigned_pools["pool_" . $i] = "";
+    }
+    
+//assign ref to the pools based on nat and pool nat
+    foreach ($ref_assigned_pools as $pool => $assigned_ref) {
+        foreach ($array_ref_nat as $ref_id => $ref_nat) {
+            if ($ref_nat != "" && array_search($ref_nat, $ARRAY_pool_nat[$pool]) === FALSE) {
+                $ref_assigned_pools[$pool] = $ref_id;
+                $array_ref_nat[$ref_id] = "";
             }
         }
     }
+    
+    
+    echo "asdasdasd";
+    print_r($ref_assigned_pools);
+}
 
 print_r($ARRAY_pool_nat);
 print_r($array_ref_nat);
-
-
 ?>
 
 <!DOCTYPE html>
