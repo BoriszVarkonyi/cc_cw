@@ -17,7 +17,6 @@
 	--c-blue: #42CAFD;
 	--c-purple: #7765E3;
 	--c-bronze :#E58955;
-	--c-transparent: rgba(0, 0, 0, 0);
 	/* Static throughout colormodes */
 	--cs-black: #252525; 
 	--cs-transparent-black: rgba(0, 0, 0, 0.3);
@@ -79,7 +78,6 @@
 	--c-green: #8DFFB7;
 	--c-blue: #42CAFD;
 	--c-purple: #7765E3;
-	--c-transparent: rgba(0, 0, 0, 0);
 	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
 	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--f-xxlarge: calc(1.25em + 1vmin);
@@ -372,8 +370,9 @@ form.hidden, form.disabled {
 }
 
 .table_row {
+	outline: none;
 	cursor: pointer;
-	transition: background-color var(--t-basic), transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
+	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 }
 
 .table_row.hidden {
@@ -1309,11 +1308,14 @@ input[type="time"] {
 	background-color: var(--c-lightergray);
 	display: flex;
 	position: relative;
+	border-radius: 5px;
+	box-shadow: var(--s-black);
+	overflow: hidden;
 }
 
 #call_room.cc {
-	margin: 50px 0;
-	width: 90%;
+	background-color: var(--c-white);
+	display: flex;
 }
 
 .elimination_slider_button {
@@ -1347,8 +1349,7 @@ input[type="time"] {
 }
 
 .elimination {
-	flex-basis: 300px;
-	flex-grow: 1;
+	width: 200px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-lightestgray);
@@ -1356,7 +1357,7 @@ input[type="time"] {
 }
 
 .elimination:nth-child(even) {
-	background-color: var(--c-lightergray);
+	background-color: transparent;
 }
 
 .elimination_label {
@@ -1365,7 +1366,6 @@ input[type="time"] {
 	align-items: center;
 	font-size: var(--f-medium);
 	font-family: var(--bold);
-	margin-bottom: 10px;
 	height: 30px;
 }
 
@@ -1374,18 +1374,25 @@ input[type="time"] {
 	overflow: hidden;
 }
 
-.table_round {
-	height: 200px;
-	padding: 0px 30px;
+.table_round_wrapper {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
 	justify-content: center;
-	cursor: pointer;
 	transition: height var(--t-basic);
+	font-size: var(--f-xxsmall);
+	padding: 5px 30px;
 }
 
+.table_round {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	box-shadow: var(--s-black);
+}
+/*
 .table_round.red {
 	background-color: rgba(248, 79, 79, 0.3);
 }
@@ -1397,56 +1404,62 @@ input[type="time"] {
 .table_round.yellow {
 	background-color: rgba(255, 201, 20, 0.3);
 }
-
+*/
 .table_round:hover > .table_fencer {
 	transform: scale(1.02);
 	transition: transform var(--t-basic);
 }
 
-.table_round:before, .table_round:after {
+.table_round_wrapper:before, .table_round_wrapper:after {
 	background-color: var(--c-gray);
 	z-index: 2;
 	content: "";
 	position: absolute;
 }
 
-.table_round:before {
+.table_round_wrapper:before {
 	width: 100%;
 	height: 2px;
 	right: 0;
 	top: calc(50% - 1px);
 }
 
-.table_round:after {
+.table_round_wrapper:after {
 	width: 2px;
 	height: 50%;
 	right: -1px;
 	top: calc(50% - 1px);
 }
 
-.elimination > .table_round:nth-child(2n+3):after {
+.elimination > .table_round_wrapper:nth-child(2n+3):after {
 	width: 2px;
 	height: 50%;
 	right: -1px;
 	top: 0;
 }
 
-.elimination:first-of-type > .table_round:before {
+.elimination:first-of-type > .table_round_wrapper:before {
 	width: 95%;
 }
 
-.elimination:last-of-type > .table_round:after {
+.elimination:last-of-type > .table_round_wrapper:after {
 	display: none;
 }
 
 .table_fencer {
 	align-self: stretch;
-	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	background-color: var(--c-white);
 	transition: transform var(--t-basic);
+}
+
+.table_fencer > div {
+	justify-content: center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .table_fencer.dna > .table_fencer_nat, .table_fencer.dna > .table_fencer_number {
@@ -1460,22 +1473,28 @@ input[type="time"] {
 }
 
 .table_fencer_number {
-	width: 40px;
+	height: 100%;
+	min-width: 25px;
 	background-color: var(--c-green);
 	font-family: var(--bold);
 	justify-content: center;
+	align-items: center;
 }
 
 .table_fencer_name {
+	height: 100%;
 	flex-grow: 5;
 	font-family: var(--reg);
-	justify-content: center;
+	background-color: #b3ffcf;
+	max-width: 10vw;
 }
 
 .table_fencer_nat {
-	flex-basis: 65px;
+	height: 100%;
+	width: 40px;
 	justify-content: space-evenly;
 	background-color: var(--c-lightergray);
+	text-transform: uppercase;
 }
 
 .elimination:nth-child(even) > .table_round > .table_fencer > .table_fencer_nat {
@@ -1483,7 +1502,7 @@ input[type="time"] {
 }
 
 .table_fencer_nat > img {
-	max-height: var(--f-xsmall);
+	max-height: var(--f-xxsmall);
 }
 
 .table_fencer > div {

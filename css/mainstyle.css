@@ -1835,7 +1835,7 @@ input[type="file"] {
 	font-family: var(--reg);
 }
 
-/* Competitions page*/
+/* Competitions page */
 
 .cw_panel_title {
 	font-family: var(--bold);
@@ -2471,7 +2471,7 @@ div.icon_box > svg {
 }
 
 div.icon_box > svg > circle {
-	fill: var(--c-transparent);
+	fill: transparent;
 	stroke-width: 0.8vh;
 	stroke: var(--c-darkgray);
 	border-radius: 50%;
@@ -2502,7 +2502,7 @@ div.title_box > button {
 	font-family: var(--bold);
 	transition: var(--t-basic);
 	visibility: visible;
-	background-color: var(--c-transparent);
+	background-color: transparent;
 	color: var(--c-black);
 }
 
@@ -3560,7 +3560,7 @@ input.wc_time {
 	right: 40px;
 }
 
-/* User Guide*/
+/* User Guide */
 
 #guide_choose {
 	display: flex;

@@ -205,432 +205,1102 @@
                 <div id="call_room" class="cc full">
                     <div id="e_1" class="elimination first visible">
                         <div class="elimination_label">Table of __</div>
-                        <div class="table_round red" onclick="tableRoundConfig(this)">
-                            <div class="round_information">
-                                <p>Ref: {Referee's Name}</p>
-                                <p>20 / 12 / 2020 15:20</p>
-                                <p>Piste No.: 5</p>
-                                <p>Ref: {Referee's Name}</p>
-                            </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
 
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    1
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Bida Sergey
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
                                 </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="table_round yellow">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
                                 </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round green">
-                            <div class="table_fencer dna">
-                                <div class="table_fencer_number"> <!-- Not visible if dna-->
-                                25
-                                </div>
-                                <div class="table_fencer_name"> <!-- Has to be rewritten to dna-->
-                                    DDA
-                                </div>
-                                <div class="table_fencer_nat"> <!-- Not visible if dna-->
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div id="e_2" class="elimination visible">
-                        <div class="elimination_label">Table of __</div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div id="e_3" class="elimination visible">
-                        <div class="elimination_label">Table of __</div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="table_round">
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div id="e_4" class="elimination visible">
-                        <div class="elimination_label">Table of __</div>
 
-                        <div class="table_round">
-                            <div class="round_information">
-                                <p>Ref: {Referee's Name}</p>
-                                <p>20 / 12 / 2020 15:20</p>
-                                <p>Piste No.: 5</p>
-                                <p>Ref: {Referee's Name}</p>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    <p>25</p>
+                                    </div>
+                                    <div class="table_fencer_name">
+                                    <p>Bida Sergey Bida Sergey Bida</p>
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        <p>rus</p>
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
                                 </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
-                                </div>
-                            </div>
-                            <div class="table_fencer">
-                                <div class="table_fencer_number">
-                                25
-                                </div>
-                                <div class="table_fencer_name">
-                                    Szia Enber
-                                </div>
-                                <div class="table_fencer_nat">
-                                    NAT
-                                    <img src="../assets/icons/english.svg" >
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
                                 </div>
                             </div>
-                            
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    1
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Bida Sergey
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    <p>25</p>
+                                    </div>
+                                    <div class="table_fencer_name">
+                                    <p>Bida Sergey Bida Sergey Bida</p>
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        <p>rus</p>
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="e_1" class="elimination first visible">
+                        <div class="elimination_label">Table of __</div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    1
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Bida Sergey
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    <p>25</p>
+                                    </div>
+                                    <div class="table_fencer_name">
+                                    <p>Bida Sergey Bida Sergey Bida</p>
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        <p>rus</p>
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="e_2" class="elimination first visible">
+                        <div class="elimination_label">Table of __</div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="e_3" class="elimination first visible">
+                        <div class="elimination_label">Table of __</div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="e_4" class="elimination first visible">
+                        <div class="elimination_label">Table of __</div>
+                        <div class="table_round_wrapper">
+                            <div class="table_round red" onclick="tableRoundConfig(this)">
+                                <div class="round_information">
+                                    <p>Ref: {Referee's Name}</p>
+                                    <p>20 / 12 / 2020 15:20</p>
+                                    <p>Piste No.: 5</p>
+                                    <p>Ref: {Referee's Name}</p>
+                                </div>
+
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                                <div class="table_fencer">
+                                    <div class="table_fencer_number">
+                                    25
+                                    </div>
+                                    <div class="table_fencer_name">
+                                        Szia Enber
+                                    </div>
+                                    <div class="table_fencer_nat">
+                                        NAT
+                                        <img src="../assets/icons/english.svg" >
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
