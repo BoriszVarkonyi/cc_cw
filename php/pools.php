@@ -533,8 +533,9 @@ if(isset($_POST["draw_ref"])){
 
         $ref_id = $row['id'];
         $ref_nat = $row['nat'];
+        $ref_online = 0;
 
-        $array_ref_nat[$ref_id] = $ref_nat;
+        $array_ref_nat[$ref_id] = ["nat" => $ref_nat, "online" => $ref_online];
     }
     $ref_assigned_pools = [];
     //create array of pools to assign to refs
@@ -542,16 +543,42 @@ if(isset($_POST["draw_ref"])){
         $ref_assigned_pools["pool_" . $i] = "";
     }
     
-//assign ref to the pools based on nat and pool nat
+    //assign ref to the pools based on nat and pool nat
     foreach ($ref_assigned_pools as $pool => $assigned_ref) {
-        foreach ($array_ref_nat as $ref_id => $ref_nat) {
-            if ($ref_nat != "" && array_search($ref_nat, $ARRAY_pool_nat[$pool]) === FALSE) {
-                $ref_assigned_pools[$pool] = $ref_id;
-                $array_ref_nat[$ref_id] = "";
+
+        if ($assigned_ref == "") {
+            foreach ($array_ref_nat as $current_ref_id) {
+                if ($current_ref_id['online'] == 0 && array_search($current_ref_id['nat'], $ARRAY_pool_nat[$pool]) === FALSE) {
+                    $ref_assigned_pools[$pool] = ["ref_1" => key($current_ref_id), "ref_2" => ""];
+                    $current_ref_id['online'] = 1;
+                }
             }
         }
     }
-    
+    unset($pool, $current_ref_id, $assigned_ref);
+
+    //assign ref and second ref to pools where there is no ref
+    foreach ($ref_assigned_pools as $pool => $assigned_ref){
+        if ($assigned_ref['ref_1'] == "") {
+            foreach ($array_ref_nat as $current_ref_id) {
+                if ($current_ref_id['online'] == 0) {
+                    $ref_assigned_pools[$pool]['ref_1'] = key($current_ref_id);
+
+                    //search for 2. ref
+                    foreach ($array_ref_nat as $current_ref_id_sec) {
+                        if ($current_ref['nat'] != $current_ref_id_sec['nat']) {
+                            $current_ref_id_sec['online'] = 1;
+                            $ref_assigned_pools['ref_2'] = key($current_ref_id_sec);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //test for pool with no ref if true return not possible!
+
+
     
     echo "asdasdasd";
     print_r($ref_assigned_pools);
