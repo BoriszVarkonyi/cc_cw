@@ -540,35 +540,39 @@ if(isset($_POST["draw_ref"])){
     $ref_assigned_pools = [];
     //create array of pools to assign to refs
     for ($i = 1; $i <= $pool_num; $i++) {
-        $ref_assigned_pools["pool_" . $i] = "";
+        $ref_assigned_pools["pool_" . $i] = ['ref_1' => "", 'ref_2' => ""];
     }
     
     //assign ref to the pools based on nat and pool nat
     foreach ($ref_assigned_pools as $pool => $assigned_ref) {
 
-        if ($assigned_ref == "") {
-            foreach ($array_ref_nat as $current_ref_id) {
-                if ($current_ref_id['online'] == 0 && array_search($current_ref_id['nat'], $ARRAY_pool_nat[$pool]) === FALSE) {
-                    $ref_assigned_pools[$pool] = ["ref_1" => key($current_ref_id), "ref_2" => ""];
-                    $current_ref_id['online'] = 1;
+        if ($assigned_ref['ref_1'] == "") {
+            foreach ($array_ref_nat as $current_ref_id  => $ref_value) {
+
+                if ($ref_value['online'] == 0 && array_search($ref_value['nat'], $ARRAY_pool_nat[$pool]) === FALSE) {
+                    $ref_assigned_pools[$pool]['ref_1'] = $current_ref_id;
+                    $array_ref_nat[$current_ref_id]['online'] = 1;
+                    break;
                 }
             }
         }
     }
     unset($pool, $current_ref_id, $assigned_ref);
 
+    
     //assign ref and second ref to pools where there is no ref
     foreach ($ref_assigned_pools as $pool => $assigned_ref){
         if ($assigned_ref['ref_1'] == "") {
-            foreach ($array_ref_nat as $current_ref_id) {
-                if ($current_ref_id['online'] == 0) {
-                    $ref_assigned_pools[$pool]['ref_1'] = key($current_ref_id);
-
+            foreach ($array_ref_nat as $current_ref_id => $ref_current) {
+                if ($array_ref_nat[$current_ref_id]['online'] == 0) {
+                    $ref_assigned_pools[$pool]['ref_1'] = $current_ref_id;
+                    $array_ref_nat[$current_ref_id]['online'] = 1;
                     //search for 2. ref
-                    foreach ($array_ref_nat as $current_ref_id_sec) {
-                        if ($current_ref['nat'] != $current_ref_id_sec['nat']) {
-                            $current_ref_id_sec['online'] = 1;
-                            $ref_assigned_pools['ref_2'] = key($current_ref_id_sec);
+                    foreach ($array_ref_nat as $current_ref_id_sec => $current_ref_sec) {
+                        if ($array_ref_nat[$current_ref_id]['nat'] != $array_ref_nat[$current_ref_id_sec]['nat'] && $array_ref_nat[$current_ref_id_sec]['online'] == 0) {
+                            $array_ref_nat[$current_ref_id_sec]['online'] = 1;
+                            $ref_assigned_pools[$pool]['ref_2'] = $current_ref_id_sec;
+                            break 2;
                         }
                     }
                 }
@@ -577,10 +581,36 @@ if(isset($_POST["draw_ref"])){
     }
 
     //test for pool with no ref if true return not possible!
+    $test_possibility = FALSE;
+    foreach ($ref_assigned_pools as $pool_num => $ref_array) {
+        if ($ref_array['ref_1'] == "") {
+            $test_possibility = TRUE;
+        }
+    }
+    unset($pool_num, $ref_array);
 
+    if ($test_possibility) {
+        echo "ASSIGNING REFEREES TO THESE POOLS ARE NOT POSSIBLE PICK DIFFERENT REFEREES OR MIX UP THE POOLS!";
+    }
 
-    
-    echo "asdasdasd";
+    //update refs in pools_$comp_id
+    if (!$test_possibility) {
+
+        foreach ($ref_assigned_pools as $pool_num => $ref_array) {
+            $ref_1 = $ref_array['ref_1'];
+            if ($ref_array['ref_2'] == "") {
+                $ref_2 = 0;
+            } else {
+                $ref_2 = $ref_array['ref_2'];
+            }
+            $pool_of = substr($pool_num, -1);
+
+            $qry_update_ref = "UPDATE pools_$comp_id SET ref ='$ref_1', ref2 = '$ref_2' WHERE pool_of = $pool_of";
+            $do_update_ref = mysqli_query($connection, $qry_update_ref);
+            echo mysqli_error($connection);
+        }
+    }
+
     print_r($ref_assigned_pools);
 }
 
@@ -884,55 +914,67 @@ else{
 
                         <?php
                         
-                        $query_get_group_number = "SELECT * FROM pools_$comp_id";
-                        $query_get_group_number_do = mysqli_query($connection, $query_get_group_number);
-                        
-                        $szor = mysqli_num_rows($query_get_group_number_do);
+                        $qry_get_pool_number = "SELECT MAX(`pool_of`) FROM `pool_$comp_id`";
+                        $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
+                        if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
+                            $pool_of = $row['pool_of'];
+                        }
 
-                        for ($i=1; $i <= $szor; $i++) { 
+                        for ($i=1; $i <= $pool_of; $i++) { 
                             
                             $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
                             $inside_query_do = mysqli_query($connection,$inside_query);
 
                             if($row = mysqli_fetch_assoc($inside_query_do)){
 
-                            $pool_f_in = $row["pool_of"];
-                            $f1 = $row["f1"];
-                            $f2 = $row["f2"];
-                            $f3 = $row["f3"];
-                            $f4 = $row["f4"];
-                            $f5 = $row["f5"];
-                            $f6 = $row["f6"];
-                            $f7 = $row["f7"];
-                            $ref = $row["ref"];
-                            $piste = $row["piste"];
-                            $time = $row["time"];
+                                $pool_f_in = $row["pool_of"];
+                                $f1 = $row["f1"];
+                                $f2 = $row["f2"];
+                                $f3 = $row["f3"];
+                                $f4 = $row["f4"];
+                                $f5 = $row["f5"];
+                                $f6 = $row["f6"];
+                                $f7 = $row["f7"];
+                                $ref = $row["ref"];
+                                $ref_2 = $row["ref2"];
+                                $piste = $row["piste"];
+                                $time = $row["time"];
 
-                        }
+                            }
 
-                        $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = $ref";
-                        $get_ref_name_do = mysqli_query($connection, $get_ref_name);
+                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = $ref";
+                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
 
-                        if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
+                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
 
-                            $refname = $refrow["full_name"];
-                            $refnat = $refrow["nat"];
+                                $refname = $refrow["full_name"];
+                                $refnat = $refrow["nat"];
 
-                        }
+                            }
+
+                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = $ref_2";
+                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
+
+                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
+
+                                $ref2name = $refrow["full_name"];
+                                $ref2nat = $refrow["nat"];
+
+                            }
 
 
-                        $get_group_fencers_query = "SELECT * FROM cptrs_$comp_id WHERE id IN ('$f1','$f2','$f3','$f4','$f5','$f6','$f7')";
-                        $get_group_fencers_query_do = mysqli_query($connection, $get_group_fencers_query);
+                            $get_group_fencers_query = "SELECT * FROM cptrs_$comp_id WHERE id IN ('$f1','$f2','$f3','$f4','$f5','$f6','$f7')";
+                            $get_group_fencers_query_do = mysqli_query($connection, $get_group_fencers_query);
 
-                        $cla = 0;
-                        while($row = mysqli_fetch_assoc($get_group_fencers_query_do)){
+                            $cla = 0;
+                            while($row = mysqli_fetch_assoc($get_group_fencers_query_do)){
 
-                            ${$cla . "_f_n"} = $row["name"];
-                            ${$cla . "_f_na"} = $row["nationality"];
-                            ${$cla . "_f_id"} = $row["id"];
-                            $cla++;
+                                ${$cla . "_f_n"} = $row["name"];
+                                ${$cla . "_f_na"} = $row["nationality"];
+                                ${$cla . "_f_id"} = $row["id"];
+                                $cla++;
 
-                        }
+                            }
                         
                         ?>
 
@@ -941,7 +983,8 @@ else{
                             <div class="table_row">
                                 <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
+                                <div class="table_item">Ref 1: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
+                                <div class="table_item">Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</div>
                                 <div class="table_item"><?php echo $time ?></div>
                                 <div class="big_status_item">
                                     <button type="button" onclick="" class="pool_config">
@@ -990,9 +1033,9 @@ else{
                         </div>
 
 
-<?php
-}
-?>
+                            <?php
+                            }
+                            ?>
 
 
 
