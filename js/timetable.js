@@ -2,7 +2,7 @@ var oldClickedDate;
 var setWcPanel = document.getElementById("set_wc_panel");
 
 //wcPanel toggle
-function toggleWcPanel(x) {
+function toggleWcPanel(x){
     var clickedDate = x;
     //hide the wcPanwel
     setWcPanel.classList.add("hidden")
@@ -30,7 +30,33 @@ function toggleWcPanel(x) {
     hiddeninput = document.getElementById("save_date");
     hiddeninput.value = y;
     //Timetable form placer
-    // :c
+    var clickedDateBounding = clickedDate.getBoundingClientRect()
+    var setWcPanelBounding = setWcPanel.getBoundingClientRect()
+    var navbar = document.getElementById("nav_bar").getBoundingClientRect()
+    var headerbar = document.getElementById("header_bar").getBoundingClientRect()
+    var titlesprite = document.getElementById("title_stripe").getBoundingClientRect()
+    var page = document.getElementById("page_content_panel_main").getBoundingClientRect()
+    //console.log(clickedDateBounding.left-navbar.width)
+    //console.log(page.height -setWcPanelBounding.bottom - headerbar.height - titlesprite.height -page.height)
+    if(page.width > clickedDateBounding.right-navbar.width+setWcPanelBounding.width){
+        setWcPanel.style.width = "454px"
+        setWcPanel.style.left = clickedDateBounding.right-navbar.width
+    }
+    else{
+        setWcPanel.style.left = clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width
+    }
+    //console.log(page.height)
+    //console.log(page.height)
+    console.log(clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height)
+    //console.log(clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height - titlesprite.height - page.height)
+    if(page.height > clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height - titlesprite.height){
+        setWcPanel.style.top = clickedDateBounding.top + clickedDateBounding.width/2  -setWcPanelBounding.width/2 - headerbar.height
+    }
+    else{
+        //console.log(setWcPanelBounding.bottom - headerbar.height - titlesprite.height - page.height)
+        setWcPanel.style.top = clickedDateBounding.top + clickedDateBounding.width/2  -setWcPanelBounding.width/2 - headerbar.height - (clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height - titlesprite.height - page.height)
+    }    
+    
 }
 
 function closeWcPanel() {

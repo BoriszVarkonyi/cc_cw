@@ -27,7 +27,9 @@ function automaticWidthTest(){
             });
             //Sets the width to all array element.
             for(i = 0; i<column.length; i++) {
-                column[i].style.width = biggestWidth + "px";
+                if(column[i].style.width !== biggestWidth || column[i].style.width !== biggestWidth -1 || column[i].style.width !== biggestWidth +1){
+                    column[i].style.width = biggestWidth + "px";
+                }   
                 widthArray.pop();
             }
         }
@@ -37,7 +39,6 @@ function automaticWidthTest(){
 // Select System
 
 var selectedRowInput = document.querySelector(".selected_list_item_input");
-
 function selectRow(x){
     //If we clicked the same it removes the selected class
     if(x.classList.contains("selected")){

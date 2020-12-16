@@ -450,31 +450,33 @@ function formvariableDeclaration(overlayForm, inputs, saveButton) {
         if(formelement.classList.contains("overlay_panel_form")){
             return overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form"), 
             inputs = document.querySelectorAll(".overlay_panel:not( .hidden) .overlay_panel_form input"), 
-            saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit");
-            //formValidation(overlayForm, inputs, saveButton);
+            saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit"),
+            formValidation(overlayForm, inputs, saveButton);
         }
     }
 }
+var canAutoValidate = true;
+function formValidation(overlayForm, inputs, saveButton){
+    if(canAutoValidate){
+        saveButton.disabled = true;
+        //If the document values are changing, it runs the function.
+        overlayForm.addEventListener("input", function(){
+            //Checking every input.
+            for(i=0; i<inputs.length; i++){
+                if(inputs[i].value == ""){
+                    //If it finds an empty input, then it disable the "Save" button.
+                    saveButton.disabled = true;
+                    break;      
+                }
+                else {
+                    //If everything has a value then it enable the "Save" Button. The user can save.
+                    saveButton.disabled = false;       
+                }
+            }   
 
-// function formValidation(overlayForm, inputs, saveButton){
-//     saveButton.disabled = true;
-//     //If the document values are changing, it runs the function.
-//     overlayForm.addEventListener("input", function(){
-//         //Checking every input.
-//         for(i=0; i<inputs.length; i++){
-//             if(inputs[i].value == "" && inputs[i].checked == false){
-//                 //If it finds an empty input, then it disable the "Save" button.
-//                 saveButton.disabled = true;
-//                 break;
-        
-//             }
-//             else {
-//                 //If everything has a value then it enable the "Save" Button. The user can save.
-//                 saveButton.disabled = false;  
-        
-//             }
-//         }
-//     }
-//     )
-// }
+        }
+        )
+    }    
+
+}
 
