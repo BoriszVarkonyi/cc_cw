@@ -63,56 +63,75 @@ function selectPistes() {
 
 
 //Drag n drop system
+//Allows the drop
 function allowDrop(ev, x) {
     ev.preventDefault();
 }
 var rowToDelete, regenerateTable, draggedElement, index, dragPlaceTodelete, previousTable, canRegenerate = true, canDrop = true, dragEndActive = true;
 var rowToSave = [];
 function drag(ev, x) {
-    //Saves the dragged element innerHTML
+    //If a drag starts from Draf Fencers Area
     if(x.parentNode.parentNode.id == "pools_wrapper"){
+        //Gets the dragged Element innerHTML
         for(i=0; i<rowToSave.length; i++){
             if(rowToSave[i].indexOf(x.outerHTML) > -1){
+               //Saves the dragged element 
                draggedElement = rowToSave[i]
+               //Saves the index
                index = i;
             }
+            //Saves the element we dragged
             rowToDelete = x
             canRegenerate = false;
+            //Denies the drop to the Drag Fencers area
             canDrop = false;
+            //Denies the dragEnd function
             dragEndActive = false;
         }
     }
+    //If a drag starts from a Table
     else{
+        //Saves the dragged element
         draggedElement = x.parentNode.parentNode.outerHTML;
+        //Saves the Dragged row, bottom drag place.
         dragPlaceTodelete = x.parentNode.parentNode.nextElementSibling
         //Saves the row that we dragged
         rowToDelete = x.parentNode.parentNode;
         canRegenerate = true;
+        //Allows the drop to the Drag Fencers area
         canDrop = true;
+        //Allows the dragEnd function
         dragEndActive = true;
+        //Saves the table that need to be regenerated
         regenerateTable = x.parentNode.parentNode.parentNode;
+        //Saves the table where the drag started from.
         previousTable = x.parentNode.parentNode.parentNode;
     }
     ev.dataTransfer.setData("text", ev.target.id);
 }
+//If we start a drag but we doesn't finish it.
 function dragEnd(x){
     if(dragEndActive){
         var dropAreas = x.parentNode.parentNode.parentNode.querySelectorAll(".table_row_drop")
         for(i=0; i<dropAreas.length; i++){
-        dropAreas[i].classList.remove("collapsed")
+            //It removes the droparea classes
+            dropAreas[i].classList.remove("collapsed")
         }
     }
 }
+
 function drop(ev) {
     if(canDrop){
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
+        //Saves the dragged element innerHTML
         rowToSave.push(draggedElement)
-        //Delertes the dragged row if we dropped down.
+        //Deletes the dragged row if we dropped down.
         if(rowToDelete !== undefined){
             rowToDelete.remove();  
         }
+        //Deletes the Dragged row, bottom drag place
         if(dragPlaceTodelete !== undefined){
             dragPlaceTodelete.remove()
         }
@@ -158,7 +177,9 @@ function regenerate() {
     }
 }
 */
+//Enables/Disables the tableWrapperHoverOff function.
 var active = true;
+//Add class for every droparea in the table
 function tableWrapperHoverOn(x) {
     active = false;
     var dropAreas = x.querySelectorAll(".table_row_drop")
@@ -167,7 +188,7 @@ function tableWrapperHoverOn(x) {
     }
 
 }
-
+//Removes class from every droparea in the table
 function tableWrapperHoverOff(x){
     if(active){
         var dropAreas = x.querySelectorAll(".table_row_drop")
@@ -176,44 +197,50 @@ function tableWrapperHoverOff(x){
         }
     }     
 }
-
+//Adds class to the droparea
 function dropAreaHoverOn(x){
     x.classList.add("opened")
 }
-
+//Removes class from the droparea
 function dropAreaHoverOff(x){
     active = true;
     x.classList.remove("opened")
 }
+//If we drop an element to a table
 function drop2(ev, x){
+    //Denies the dragEnd function
     dragEndActive = false;
     ev.preventDefault();
     var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
     regenerateTable = x.parentNode
+    //If the droparea that we dropped in equals the saved droparea
     if(dragPlaceTodelete == x){
+        //It doesnt generate the top droparea
         x.outerHTML = draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
     }
     else{
+        //Else it does generate the top droparea
         x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
     }
     //Delertes the dragged row if we dropped down.
-    
     if(rowToDelete !== undefined){
         rowToDelete.remove();  
     }
-
+    //Deletes the saved droparea
     if(dragPlaceTodelete !== undefined){
         dragPlaceTodelete.remove()
     }
     //Clears the var
     rowToDelete = undefined;
+    //Deletes the dropped element innerHTMl from the array
     if (index > -1) {
+        //Deletes by index
         rowToSave.splice(index, 1);
     }
-
     //regenerate();
     regenerateTable = previousTable;
     //regenerate();
+    //Removes the class from all the droparea in the table
     for(i=0; i<dropAreas.length; i++){
     dropAreas[i].classList.remove("collapsed")
     }
