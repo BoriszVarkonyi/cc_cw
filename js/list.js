@@ -27,7 +27,7 @@ function automaticWidthTest(){
             });
             //Sets the width to all array element.
             for(i = 0; i<column.length; i++) {
-                if(column[i].style.width !== biggestWidth){
+                if(column[i].style.width !== biggestWidth || column[i].style.width !== biggestWidth -1 || column[i].style.width !== biggestWidth +1){
                     column[i].style.width = biggestWidth + "px";
                 }   
                 widthArray.pop();
