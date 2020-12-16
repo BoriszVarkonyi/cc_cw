@@ -119,10 +119,11 @@ function drop(ev) {
         //Clears the var
         rowToDelete = undefined;
         if(canRegenerate){
-            regenerate();
+            //regenerate();
         }
     }   
 }
+/*
 function regenerate() {
     var table = regenerateTable;
     var tableheader = table.previousElementSibling
@@ -156,6 +157,7 @@ function regenerate() {
         }
     }
 }
+*/
 var active = true;
 function tableWrapperHoverOn(x) {
     active = false;
@@ -209,9 +211,9 @@ function drop2(ev, x){
         rowToSave.splice(index, 1);
     }
 
-    regenerate();
+    //regenerate();
     regenerateTable = previousTable;
-    regenerate();
+    //regenerate();
     for(i=0; i<dropAreas.length; i++){
     dropAreas[i].classList.remove("collapsed")
     }
