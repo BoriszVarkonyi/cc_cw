@@ -704,6 +704,11 @@ else
                     <p>Pistes & Time</p>
                     <img src="../assets/icons/ballot-black-18dp.svg"/>
                 </button>
+
+                <button class="stripe_button orange" type="submit">
+                    <p>Save Pools</p>
+                    <img src="../assets/icons/save-black-18dp.svg" />
+                </button>
                 
                 <button class="stripe_button orange" type="submit">
                     <p>Start Pools</p>
@@ -950,27 +955,16 @@ else{
                                             name
                                         </div>
                                         <div class="table_header_text">
-                                            nationality
+                                            nation
                                         </div>
 
                                         <div class="table_header_text square">
-                                            No.
+                                            Cp
                                         </div>
 
-                                        <?php 
-                                        
-                                        for ($e=1; $e <= $pool_f_in; $e++) {
-
-                                            ?>
-
-                                            <div class="table_header_text square">
-                                                <?php echo $e ?>
-                                            </div>
-
-                                            <?php
-                                            }
-                                            ?>
-
+                                        <div class="table_header_text square">
+                                            rp
+                                        </div>
                                         
                                     </div>
                                     <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
@@ -983,14 +977,8 @@ else{
                                             <div class="table_row">
                                                 <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo ${$n . "_f_id"} ?>"><?php echo ${$n . "_f_n"} ?></p></div>
                                                 <div class="table_item"><p><?php echo ${$n . "_f_na"} ?></p></div>
-                                                <div class="table_item square row_title"><p><?php echo $n + 1 ?></p></div>
-                                                
-                                                <?php for ($g=0; $g < $pool_f_in; $g++) { ?>
-
-                                                    <div class="table_item square <?php if($g == $n){echo "filled";} ?>"></div>
-                                                    
-                                                <?php } ?>
-
+                                                <div class="table_item square"><p>1</p></div>
+                                                <div class="table_item square"><p>1</p></div>
                                             </div>
                                             <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                         <?php } ?>

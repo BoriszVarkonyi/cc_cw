@@ -3407,7 +3407,7 @@ input.wc_time {
 	margin-bottom: 50px;
 	border-radius: 5px;
 }
-
+/*
 #pool_listing > div::before {
 	content: '';
 	position: absolute;
@@ -3432,7 +3432,7 @@ input.wc_time {
   clip-path: polygon(0% 50%, 0% 100%, 50% 100%, 50% 50%);
 	}
 }
-
+*/
 #pool_listing .entry {
 	margin: 3px;
 	border-radius: 5px;
