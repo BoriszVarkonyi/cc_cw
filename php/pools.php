@@ -704,12 +704,13 @@ else
                     <p>Pistes & Time</p>
                     <img src="../assets/icons/ballot-black-18dp.svg"/>
                 </button>
-
-                <button class="stripe_button orange" type="submit">
-                    <p>Save Pools</p>
-                    <img src="../assets/icons/save-black-18dp.svg" />
-                </button>
-                
+                <form class="title_stripe_form">
+                    <input type="text" class="hidden">
+                    <button class="stripe_button orange" type="submit">
+                        <p>Save Pools</p>
+                        <img src="../assets/icons/save-black-18dp.svg" />
+                    </button>
+                </form>
                 <button class="stripe_button orange" type="submit">
                     <p>Start Pools</p>
                     <img src="../assets/icons/outlined_flag-black-18dp.svg" />

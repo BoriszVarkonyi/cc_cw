@@ -1105,6 +1105,10 @@ input[type="time"] {
 	margin-right: 40px;
 }
 
+.title_stripe_form {
+	margin-right: -25px;
+}
+
 .stripe_button.disabled,.stripe_button.orange.disabled, .stripe_button.red.disabled {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
