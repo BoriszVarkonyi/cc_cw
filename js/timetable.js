@@ -36,25 +36,22 @@ function toggleWcPanel(x){
     var headerbar = document.getElementById("header_bar").getBoundingClientRect()
     var titlesprite = document.getElementById("title_stripe").getBoundingClientRect()
     var page = document.getElementById("page_content_panel_main").getBoundingClientRect()
-    //console.log(clickedDateBounding.left-navbar.width)
-    //console.log(page.height -setWcPanelBounding.bottom - headerbar.height - titlesprite.height -page.height)
     if(page.width > clickedDateBounding.right-navbar.width+setWcPanelBounding.width){
-        setWcPanel.style.width = "454px"
         setWcPanel.style.left = clickedDateBounding.right-navbar.width
     }
     else{
-        setWcPanel.style.left = clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width
+        if(clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width > 0){
+            setWcPanel.style.left = clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width
+        }
+        else{
+            setWcPanel.style.left = clickedDateBounding.right-navbar.width 
+        }    
     }
-    //console.log(page.height)
-    //console.log(page.height)
-    console.log(clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height)
-    //console.log(clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height - titlesprite.height - page.height)
-    if(page.height > clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height - titlesprite.height){
-        setWcPanel.style.top = clickedDateBounding.top + clickedDateBounding.width/2  -setWcPanelBounding.width/2 - headerbar.height
+    if(page.height > clickedDateBounding.top - clickedDateBounding.height/2 - setWcPanelBounding.height/2 - headerbar.height + setWcPanelBounding.height){
+        setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height
     }
     else{
-        //console.log(setWcPanelBounding.bottom - headerbar.height - titlesprite.height - page.height)
-        setWcPanel.style.top = clickedDateBounding.top + clickedDateBounding.width/2  -setWcPanelBounding.width/2 - headerbar.height - (clickedDateBounding.top - clickedDateBounding.width/2 + setWcPanelBounding.width/2 - headerbar.height - titlesprite.height - page.height)
+        setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height - (clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height + setWcPanelBounding.height - page.height) -10;
     }    
     
 }
