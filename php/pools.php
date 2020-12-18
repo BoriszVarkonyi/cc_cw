@@ -705,8 +705,8 @@ else
                     <img src="../assets/icons/ballot-black-18dp.svg"/>
                 </button>
                 <form class="title_stripe_form">
-                    <input type="text" class="hidden">
-                    <button class="stripe_button orange" type="submit">
+                    <input type="text" id="savePoolsHiddenInput" class="hidden">
+                    <button class="stripe_button orange" onclick="savePools()" type="submit">
                         <p>Save Pools</p>
                         <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
