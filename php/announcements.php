@@ -206,5 +206,4 @@
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/announcements.js"></script>
-<script src="../js/controls.js"></script>
 </html>

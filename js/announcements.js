@@ -10,7 +10,6 @@ function toggleEntry(x) {
 //NewAnnouncementsButton and addingEntryPanel.
 var addingEntryPanel = document.getElementById("adding_entry");
 var newAnnouncementsButton = document.getElementById("new_announcement_top");
-console.log(addingEntryPanel)
 //console.log(newAnnouncementsButton)
 
 //Toggles the class.
@@ -26,6 +25,14 @@ function hideNshow() {
         newAnnouncementsButton.disabled = true;
     }
 }
+document.onkeyup=function(e){
+    var newAnn = document.getElementById("new_announcement_top")
+    var titleBar = document.querySelector(".title_input")
+    if(e.shiftKey && e.which == 78) {
+        newAnn.click()
+        titleBar.focus()
+    }
+}     
 
 
 
