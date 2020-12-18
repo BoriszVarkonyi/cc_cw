@@ -636,6 +636,45 @@ if(isset($_POST["draw_ref"])){
 
 print_r($ARRAY_pool_nat);
 print_r($array_ref_nat);
+$ARRAY_competitors = [];
+
+if (isset($_POST['save_pools'])) {
+    $hidden_input = $_POST['save_pools_hidden_input'];
+
+    $array_hidden = explode("//", $hidden_input);
+
+    for ($i = 0; $i < count($array_hidden); $i++) {
+        $ARRAY_competitors[$i] = explode(",", $array_hidden[$i]);
+    }
+
+    //fill up the array until there is 7 element in each sub array ""
+    foreach ($ARRAY_competitors as $pool_number => $current_array) {
+        if (count($current_array) != 7) {
+            for ($i = 0; $i < 7; $i++) {
+                if (!isset($current_array[$i])) {
+                    $ARRAY_competitors[$pool_number][$i] = "";
+                }
+            }
+        }
+    }
+    unset($pool_number, $current_array);
+
+    //update table with the new records
+    foreach ($ARRAY_competitors as $pool_number => $current_array) {
+        $pool_number_real = $pool_number + 1;
+        for ($i = 1; $i <= count($current_array); $i++) {
+            ${"f".$i} = $current_array[$i-1];
+        }
+        $qry_update = "UPDATE pools_$comp_id SET f1 = '$f1', f2 = '$f2', f3 = '$f3', f4 = '$f4', f5 = '$f5', f6 = '$f6', f7 = '$f7' WHERE `pool_number` = '$pool_number_real'";
+        $do_update = mysqli_query($connection, $qry_update);
+        echo mysqli_error($connection);
+    }
+
+    echo "ARRAY_COMPETITORS";
+    print_r($ARRAY_competitors);
+    echo "array_hidden";
+    print_r($array_hidden);
+}
 ?>
 
 <!DOCTYPE html>
@@ -754,9 +793,9 @@ else
                     <p>Pistes & Time</p>
                     <img src="../assets/icons/ballot-black-18dp.svg"/>
                 </button>
-                <form class="title_stripe_form">
-                    <input type="text" id="savePoolsHiddenInput" class="hidden">
-                    <button class="stripe_button orange" onclick="savePools()" type="submit">
+                <form class="title_stripe_form" method="POST" action="">
+                    <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
+                    <button class="stripe_button orange" name="save_pools" onclick="savePools()" type="submit">
                         <p>Save Pools</p>
                         <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
