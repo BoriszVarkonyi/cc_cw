@@ -508,24 +508,25 @@ if(isset($_POST["draw_ref"])){
         $where_clause = "";
         $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
         $ref_query_do = mysqli_query($connection, $ref_query);
-        
+        $where = "";
         while($row =  mysqli_fetch_assoc($ref_query_do)) {
 
             $refid = $row["id"];
-
-            if ($_POST["ref_$ref_id"] == 'checked') {
-                $where += $refid . ", ";
+            
+            if (isset($_POST["ref_$refid"])) {
+                $where .= $refid . ",";
             }
-        
         }
 
         $where = substr($where, 0, -1);
-
+        echo "<br>";
+        echo $where;
         $get_ref = "SELECT * FROM `ref_$comp_id` WHERE `id` IN ('$where');";
 
     }
 
     $get_ref_do = mysqli_query($connection, $get_ref);
+    echo mysqli_error($connection);
 
     $array_ref_nat = [];
 
@@ -613,7 +614,7 @@ if(isset($_POST["draw_ref"])){
             echo mysqli_error($connection);
         }
     }
-
+    
     foreach ($ref_assigned_pools as $value){
         foreach ($value as $key => $refs) {
             if ($refs != "") {
