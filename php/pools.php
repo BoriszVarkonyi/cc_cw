@@ -382,20 +382,18 @@ header("Location: pools.php?comp_id=$comp_id");
 }
 
 
+$pistes_available = [];
 if(isset($_POST["piste_time"])){
 
 $start =  $_POST["starting_time"];
 $interval = $_POST["interval_of_match"];
 $usage = $_POST["pistes_usage_type"];
-
 if($usage == 1){
 
 $pistes_query = "SELECT * FROM pistes_$comp_id";
 $pistes_query_do = mysqli_query($connection, $pistes_query);
 
 $p_number = mysqli_num_rows($pistes_query_do);
-
-$pistes_available = [];
 
 while($row = mysqli_fetch_assoc($pistes_query_do)){
 
@@ -404,7 +402,19 @@ $pistenum = $row["piste_number"];
 array_push($pistes_available, $pistenum);
 
 }
+} else {
+    $qry_get_pisets = "SELECT * FROM pistes_$comp_id";
+    $do_get_pistes = mysqli_query($connection, $qry_get_pisets);
+    echo mysqli_error($connection); //null
 
+    while ($row = mysqli_fetch_assoc($do_get_pistes)) {
+        $pistenum = $row['piste_number'];
+
+        if (isset($_POST["piste_$pistenum"])) {
+            array_push($pistes_available, $pistenum);
+        }
+    }
+}
 
 $pools_get_query = "SELECT * FROM pools_$comp_id";
 $pools_get_query_do = mysqli_query($connection, $pools_get_query);
@@ -444,15 +454,10 @@ $update_piste_query_do = mysqli_query($connection, $update_piste_query);
 $cou++;
 }
 }
+//header("Location: pools.php?comp_id=$comp_id");
 }
-header("Location: pools.php?comp_id=$comp_id");
-}
-
-
-
-
-
-
+print_r($_POST);
+print_r($pistes_available);
 $ARRAY_pool_nat = [];
 
 //go through rows as pools
@@ -842,7 +847,7 @@ else
                                 $pistes_query = "SELECT * FROM pistes_$comp_id EXCEPT SELECT * FROM pistes_$comp_id WHERE piste_activity = 1";
                                 $pistes_query_do = mysqli_query($connection, $pistes_query);
                                 
-                                $r = 0;
+                                $r = 1;
                                 while($row =  mysqli_fetch_assoc($pistes_query_do)){
 
                                 $pistenum = $row["piste_number"];
@@ -854,7 +859,7 @@ else
                                 
 
                                 <div class="piste_select">
-                                    <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value=""/>
+                                    <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value="1"/>
                                     <label for="piste_<?php echo $r ?>">Piste <?php 
                                     
                                     if($pistetype == 1){
