@@ -593,24 +593,38 @@ if(isset($_POST["draw_ref"])){
         echo "ASSIGNING REFEREES TO THESE POOLS ARE NOT POSSIBLE PICK DIFFERENT REFEREES OR MIX UP THE POOLS!";
     }
 
+    $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
+    $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
+    if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
+        $pool_num = $row['MAX(`pool_number`)'];
+    }
+    print_r($row);
+    echo mysqli_error($connection);
     //update refs in pools_$comp_id
     if (!$test_possibility) {
 
-        foreach ($ref_assigned_pools as $pool_num => $ref_array) {
-            $ref_1 = $ref_array['ref_1'];
-            if ($ref_array['ref_2'] == "") {
-                $ref_2 = 0;
-            } else {
-                $ref_2 = $ref_array['ref_2'];
-            }
-            $pool_of = substr($pool_num, -1);
+        for ($current_pool = 1; $current_pool <= $pool_num; $current_pool++) {
+            //get rank ids from multi array
+            $ref_1 = $ref_assigned_pools["pool_$current_pool"]["ref_1"];
+            $ref_2 = $ref_assigned_pools["pool_$current_pool"]["ref_2"];
 
-            $qry_update_ref = "UPDATE pools_$comp_id SET ref ='$ref_1', ref2 = '$ref_2' WHERE pool_of = $pool_of";
+            $qry_update_ref = "UPDATE pools_$comp_id SET ref = '$ref_1', ref2 = '$ref_2' WHERE pool_number = '$current_pool'";
             $do_update_ref = mysqli_query($connection, $qry_update_ref);
             echo mysqli_error($connection);
         }
     }
 
+    foreach ($ref_assigned_pools as $value){
+        foreach ($value as $key => $refs) {
+            if ($refs != "") {
+                //upadte ref statzs in ref_compid 
+                $qry_update_ref_status = "UPDATE ref_$comp_id SET `online` = 1 WHERE id = '$refs'";
+                $do_update_ref_status = mysqli_query($connection, $qry_update_ref_status);
+                echo mysqli_error($connection);
+            }
+        }
+    }
+    
     print_r($ref_assigned_pools);
 }
 
@@ -912,13 +926,12 @@ else{
                     <div id="pool_listing" class="with_drag"> 
 
 
-                        <?php
-                        
-                        $qry_get_pool_number = "SELECT MAX(`pool_of`) FROM `pool_$comp_id`";
-                        $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
-                        if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
-                            $pool_of = $row['pool_of'];
-                        }
+                        <?php   
+                            $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
+                            $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
+                            if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
+                                $pool_of = $row['MAX(`pool_number`)'];
+                            }
 
                         for ($i=1; $i <= $pool_of; $i++) { 
                             
@@ -942,7 +955,7 @@ else{
 
                             }
 
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = $ref";
+                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref'";
                             $get_ref_name_do = mysqli_query($connection, $get_ref_name);
 
                             if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
@@ -952,8 +965,11 @@ else{
 
                             }
 
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = $ref_2";
+                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref_2'";
                             $get_ref_name_do = mysqli_query($connection, $get_ref_name);
+
+                            $ref2name = "";
+                            $ref2nat = "";
 
                             if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
 
@@ -984,7 +1000,14 @@ else{
                                 <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref 1: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
+
+                                <?php
+                                    if ($ref2name != "") {
+                                ?>
                                 <div class="table_item">Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</div>
+                                <?php 
+                                    } 
+                                ?>
                                 <div class="table_item"><?php echo $time ?></div>
                                 <div class="big_status_item">
                                     <button type="button" onclick="" class="pool_config">
