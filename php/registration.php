@@ -86,18 +86,17 @@
             }
 
         ?>
-
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
-                    <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()">
+                    <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()">
                         <p>Add Fencer</p>
                         <img src="../assets/icons/person_add_alt_1-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button red" onclick="" name="reg_out" type="submit">
+                    <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit">
                         <p>Register out</p>
                         <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button green" onclick="" name="reg_in" type="submit">
+                    <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit">
                         <p>Register in</p>
                         <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
                      </button>

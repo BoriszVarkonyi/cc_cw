@@ -146,12 +146,12 @@ textarea {
 #username {
 	font-family: var(--bold);
 	margin: 2px 0 -2px;
-	font-size: var(--f-small);
+	font-size: var(--f-xsmall);
 }
 
 #role {
 	margin: -2px 0 2px;
-	font-size: var(--f-xsmall);
+	font-size: var(--f-xxsmall);
 }
 
 #menu_button {
@@ -423,7 +423,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	max-width: 500px;
 	display: flex;
 	justify-content: center;
-	font-size: var(--f-medium);
 	color: var(--c-black);
 	flex: 1 1 100%;
 	overflow: visible;
@@ -472,6 +471,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	padding: 0;
 	margin: 25px 0 7px 0;
 	transition: transform var(--t-basic);
+	font-size: var(--f-medium);
 }
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_title {
@@ -485,7 +485,7 @@ input[type="range"]:focus::-ms-fill-upper {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-	font-size: var(--f-medium);
+	font-size: calc(var(--f-medium) + 3px);
 	padding: 0;
 	background-color: transparent;
 	color: var(--c-black);
@@ -617,7 +617,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	width: 1.05em;
 	transform: rotate(0deg);
 	transition: transform var(--t-basic);
-
 	animation: showDropdown var(--t-basic);
 	animation-fill-mode: forwards; 
 }
@@ -641,7 +640,6 @@ input[type="range"]:focus::-ms-fill-upper {
 	flex-wrap: nowrap;
 	flex-direction: column;
 	padding-left: 65px;
-	font-size: var(--f-xsmall) !important;
 }
 
 .dropdown_menu::before {
@@ -662,7 +660,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin: 0;
 	height: auto;
 	min-height: 0;
-	position: relative;
+	font-size: var(--f-small) !important;
 }
 
 .dropdown_menu a::before {
@@ -671,8 +669,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	background-color: var(--c-lightorange);
 	width: 18px;
 	height: 2px;
-	top: 50%;
-	left: -25px;
+	left: 50px;
 }
 
 .dropdown_menu > a.disabled {
@@ -699,9 +696,10 @@ input[type="range"]:focus::-ms-fill-upper {
 	align-items: center;
 }
 
-#need_help > p {
+#need_help p {
 	animation: showNavTitles var(--t-basic);
 	animation-fill-mode: forwards;  
+	font-size: var(--f-medium);
 }
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help {
@@ -727,12 +725,15 @@ input[type="range"]:focus::-ms-fill-upper {
 /* Page content elements */
 
 #title_stripe {		/*  Wide gray stripe that coontains he pages's title */
+	position: relative;
+	z-index: 1;
 	background-color: var(--c-lightestgray);
 	min-height: 80px;
 	height: 10vh;
 	max-height: 120px;
 	display: flex;
 	align-items: center;
+	box-shadow: var(--s-black);
 }
 
 #page_content_panel_main {
@@ -782,12 +783,13 @@ input[type="range"]:focus::-ms-fill-upper {
 .color_legend {
 	background-color: var(--c-transparent-white);
 	position: fixed;
-	right: 20px;
-	bottom: 20px;
+	right: 15px;
+	bottom: 15px;
 	padding: 25px;
-	font-size: var(--f-medium);
+	font-size: var(--f-xsmall);
 	border-radius: 5px;
-	z-index: 0;
+	z-index: 5;
+	backdrop-filter: blur(2px);
 }
 
 .color_legend > div {
