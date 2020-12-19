@@ -20,7 +20,7 @@ registrationtable.addEventListener("click", function(){
     }
     console.log(isselected)
 })
-document.onkeyup=function registrationkeyevents(e){
+document.addEventListener("keyup", function(e){
     if(e.shiftKey && e.which == 65) {
         var addfencer = document.getElementById("addFencer")
         addfencer.click()
@@ -35,4 +35,4 @@ document.onkeyup=function registrationkeyevents(e){
             regInButton.click()
         } 
     }
-}
+})
