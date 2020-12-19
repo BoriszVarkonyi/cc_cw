@@ -382,20 +382,18 @@ header("Location: pools.php?comp_id=$comp_id");
 }
 
 
+$pistes_available = [];
 if(isset($_POST["piste_time"])){
 
 $start =  $_POST["starting_time"];
 $interval = $_POST["interval_of_match"];
 $usage = $_POST["pistes_usage_type"];
-
 if($usage == 1){
 
 $pistes_query = "SELECT * FROM pistes_$comp_id";
 $pistes_query_do = mysqli_query($connection, $pistes_query);
 
 $p_number = mysqli_num_rows($pistes_query_do);
-
-$pistes_available = [];
 
 while($row = mysqli_fetch_assoc($pistes_query_do)){
 
@@ -404,7 +402,19 @@ $pistenum = $row["piste_number"];
 array_push($pistes_available, $pistenum);
 
 }
+} else {
+    $qry_get_pisets = "SELECT * FROM pistes_$comp_id";
+    $do_get_pistes = mysqli_query($connection, $qry_get_pisets);
+    echo mysqli_error($connection); //null
 
+    while ($row = mysqli_fetch_assoc($do_get_pistes)) {
+        $pistenum = $row['piste_number'];
+
+        if (isset($_POST["piste_$pistenum"])) {
+            array_push($pistes_available, $pistenum);
+        }
+    }
+}
 
 $pools_get_query = "SELECT * FROM pools_$comp_id";
 $pools_get_query_do = mysqli_query($connection, $pools_get_query);
@@ -444,15 +454,10 @@ $update_piste_query_do = mysqli_query($connection, $update_piste_query);
 $cou++;
 }
 }
+//header("Location: pools.php?comp_id=$comp_id");
 }
-header("Location: pools.php?comp_id=$comp_id");
-}
-
-
-
-
-
-
+print_r($_POST);
+print_r($pistes_available);
 $ARRAY_pool_nat = [];
 
 //go through rows as pools
@@ -508,24 +513,25 @@ if(isset($_POST["draw_ref"])){
         $where_clause = "";
         $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
         $ref_query_do = mysqli_query($connection, $ref_query);
-        
+        $where = "";
         while($row =  mysqli_fetch_assoc($ref_query_do)) {
 
             $refid = $row["id"];
-
-            if ($_POST["ref_$ref_id"] == 'checked') {
-                $where += $refid . ", ";
+            
+            if (isset($_POST["ref_$refid"])) {
+                $where .= $refid . ",";
             }
-        
         }
 
         $where = substr($where, 0, -1);
-
+        echo "<br>";
+        echo $where;
         $get_ref = "SELECT * FROM `ref_$comp_id` WHERE `id` IN ('$where');";
 
     }
 
     $get_ref_do = mysqli_query($connection, $get_ref);
+    echo mysqli_error($connection);
 
     $array_ref_nat = [];
 
@@ -613,7 +619,7 @@ if(isset($_POST["draw_ref"])){
             echo mysqli_error($connection);
         }
     }
-
+    
     foreach ($ref_assigned_pools as $value){
         foreach ($value as $key => $refs) {
             if ($refs != "") {
@@ -630,6 +636,45 @@ if(isset($_POST["draw_ref"])){
 
 print_r($ARRAY_pool_nat);
 print_r($array_ref_nat);
+$ARRAY_competitors = [];
+
+if (isset($_POST['save_pools'])) {
+    $hidden_input = $_POST['save_pools_hidden_input'];
+
+    $array_hidden = explode("//", $hidden_input);
+
+    for ($i = 0; $i < count($array_hidden); $i++) {
+        $ARRAY_competitors[$i] = explode(",", $array_hidden[$i]);
+    }
+
+    //fill up the array until there is 7 element in each sub array ""
+    foreach ($ARRAY_competitors as $pool_number => $current_array) {
+        if (count($current_array) != 7) {
+            for ($i = 0; $i < 7; $i++) {
+                if (!isset($current_array[$i])) {
+                    $ARRAY_competitors[$pool_number][$i] = "";
+                }
+            }
+        }
+    }
+    unset($pool_number, $current_array);
+
+    //update table with the new records
+    foreach ($ARRAY_competitors as $pool_number => $current_array) {
+        $pool_number_real = $pool_number + 1;
+        for ($i = 1; $i <= count($current_array); $i++) {
+            ${"f".$i} = $current_array[$i-1];
+        }
+        $qry_update = "UPDATE pools_$comp_id SET f1 = '$f1', f2 = '$f2', f3 = '$f3', f4 = '$f4', f5 = '$f5', f6 = '$f6', f7 = '$f7' WHERE `pool_number` = '$pool_number_real'";
+        $do_update = mysqli_query($connection, $qry_update);
+        echo mysqli_error($connection);
+    }
+
+    echo "ARRAY_COMPETITORS";
+    print_r($ARRAY_competitors);
+    echo "array_hidden";
+    print_r($array_hidden);
+}
 ?>
 
 <!DOCTYPE html>
@@ -748,9 +793,9 @@ else
                     <p>Pistes & Time</p>
                     <img src="../assets/icons/ballot-black-18dp.svg"/>
                 </button>
-                <form class="title_stripe_form">
-                    <input type="text" class="hidden">
-                    <button class="stripe_button orange" type="submit">
+                <form class="title_stripe_form" method="POST" action="">
+                    <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
+                    <button class="stripe_button orange" name="save_pools" onclick="savePools()" type="submit">
                         <p>Save Pools</p>
                         <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
@@ -841,7 +886,7 @@ else
                                 $pistes_query = "SELECT * FROM pistes_$comp_id EXCEPT SELECT * FROM pistes_$comp_id WHERE piste_activity = 1";
                                 $pistes_query_do = mysqli_query($connection, $pistes_query);
                                 
-                                $r = 0;
+                                $r = 1;
                                 while($row =  mysqli_fetch_assoc($pistes_query_do)){
 
                                 $pistenum = $row["piste_number"];
@@ -853,7 +898,7 @@ else
                                 
 
                                 <div class="piste_select">
-                                    <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value=""/>
+                                    <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value="1"/>
                                     <label for="piste_<?php echo $r ?>">Piste <?php 
                                     
                                     if($pistetype == 1){
@@ -1089,48 +1134,37 @@ else{
                                         <div class="table_header_text">
                                             Fencers nationality
                                         </div>
-
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-
                                         <div class="table_header_text square">
                                             1
                                         </div>
-
                                         <div class="table_header_text square">
                                             2
                                         </div>
-
                                         <div class="table_header_text square">
                                             3
                                         </div>
-
                                         <div class="table_header_text square">
                                             4
                                         </div>
-
                                         <div class="table_header_text square">
                                             5
                                         </div>
-
                                         <div class="table_header_text square">
                                             6
                                         </div>
-
                                         <div class="table_header_text square">
                                             W
                                         </div>
-
                                         <div class="table_header_text square">
                                             L
                                         </div>
-
                                         <div class="table_header_text square">
                                             TR
                                         </div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1146,7 +1180,6 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1157,12 +1190,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1173,13 +1204,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1190,12 +1218,10 @@ else{
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1206,12 +1232,10 @@ else{
                                         <div class="table_item square">gr</div>
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
@@ -1250,48 +1274,37 @@ else{
                                         <div class="table_header_text">
                                             Fencers nationality
                                         </div>
-
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-
                                         <div class="table_header_text square">
                                             1
                                         </div>
-
                                         <div class="table_header_text square">
                                             2
                                         </div>
-
                                         <div class="table_header_text square">
                                             3
                                         </div>
-
                                         <div class="table_header_text square">
                                             4
                                         </div>
-
                                         <div class="table_header_text square">
                                             5
                                         </div>
-
                                         <div class="table_header_text square">
                                             6
                                         </div>
-
                                         <div class="table_header_text square">
                                             W
                                         </div>
-
                                         <div class="table_header_text square">
                                             L
                                         </div>
-
                                         <div class="table_header_text square">
                                             TR
                                         </div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1307,7 +1320,6 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1318,12 +1330,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1334,13 +1344,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1351,12 +1358,10 @@ else{
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1367,12 +1372,10 @@ else{
                                         <div class="table_item square">gr</div>
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
@@ -1411,48 +1414,37 @@ else{
                                         <div class="table_header_text">
                                             Fencers nationality
                                         </div>
-
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-
                                         <div class="table_header_text square">
                                             1
                                         </div>
-
                                         <div class="table_header_text square">
                                             2
                                         </div>
-
                                         <div class="table_header_text square">
                                             3
                                         </div>
-
                                         <div class="table_header_text square">
                                             4
                                         </div>
-
                                         <div class="table_header_text square">
                                             5
                                         </div>
-
                                         <div class="table_header_text square">
                                             6
                                         </div>
-
                                         <div class="table_header_text square">
                                             W
                                         </div>
-
                                         <div class="table_header_text square">
                                             L
                                         </div>
-
                                         <div class="table_header_text square">
                                             TR
                                         </div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1468,7 +1460,6 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1479,12 +1470,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1495,13 +1484,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1512,12 +1498,10 @@ else{
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1528,12 +1512,10 @@ else{
                                         <div class="table_item square">gr</div>
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
@@ -1572,48 +1554,37 @@ else{
                                         <div class="table_header_text">
                                             Fencers nationality
                                         </div>
-
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-
                                         <div class="table_header_text square">
                                             1
                                         </div>
-
                                         <div class="table_header_text square">
                                             2
                                         </div>
-
                                         <div class="table_header_text square">
                                             3
                                         </div>
-
                                         <div class="table_header_text square">
                                             4
                                         </div>
-
                                         <div class="table_header_text square">
                                             5
                                         </div>
-
                                         <div class="table_header_text square">
                                             6
                                         </div>
-
                                         <div class="table_header_text square">
                                             W
                                         </div>
-
                                         <div class="table_header_text square">
                                             L
                                         </div>
-
                                         <div class="table_header_text square">
                                             TR
                                         </div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1629,7 +1600,6 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1640,12 +1610,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1656,13 +1624,10 @@ else{
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1673,12 +1638,10 @@ else{
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1689,12 +1652,10 @@ else{
                                         <div class="table_item square">gr</div>
                                         <div class="table_item square filled"></div>
                                         <div class="table_item square">5a</div>
-
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-
                                     
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
