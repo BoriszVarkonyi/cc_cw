@@ -1,7 +1,6 @@
 var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
-console.log(btLeft)
 //Hides all the eliminations
 for(i=0; i<eleminitaions.length; i++){
     eleminitaions[i].classList.add("hidden")
@@ -9,6 +8,7 @@ for(i=0; i<eleminitaions.length; i++){
 //Shows eleminiations by index
 var firstIndex = 0;
 var secondIndex = 4;
+btLeft.classList.add("disabled")
 for(i=firstIndex; i<secondIndex; i++){
     eleminitaions[i].classList.remove("hidden")
 
@@ -16,40 +16,40 @@ for(i=firstIndex; i<secondIndex; i++){
 function buttonLeft(){
     btLeft.classList.remove("disabled")
     btRight.classList.remove("disabled")
-    if(firstIndex == 0) {
-        btLeft.classList.add("disabled")
+    firstIndex--
+    secondIndex--
+    //Hides all the eliminations
+    for(i=0; i<eleminitaions.length; i++){
+        eleminitaions[i].classList.add("hidden")
     }
-    else{
-        firstIndex--
-        secondIndex--
-        //Hides all the eliminations
-        for(i=0; i<eleminitaions.length; i++){
-            eleminitaions[i].classList.add("hidden")
-        }
-        //Shows eleminiations by index
-        for(i=firstIndex; i<secondIndex; i++){
-            eleminitaions[i].classList.remove("hidden")
-        
-        }
+    //Shows eleminiations by index
+    for(i=firstIndex; i<secondIndex; i++){
+        eleminitaions[i].classList.remove("hidden")
+    
     }
+    disabler();
 }
 function buttonRight(){
     btLeft.classList.remove("disabled")
     btRight.classList.remove("disabled")
+    firstIndex++
+    secondIndex++
+    //Hides all the eliminations
+    for(i=0; i<eleminitaions.length; i++){
+        eleminitaions[i].classList.add("hidden")
+    }
+    //Shows eleminiations by index
+    for(i=firstIndex; i<secondIndex; i++){
+        eleminitaions[i].classList.remove("hidden")
+    
+    }
+    disabler();
+}
+function disabler(){
+    if(firstIndex ==0) {
+        btLeft.classList.add("disabled")
+    }
     if(secondIndex == eleminitaions.length) {
         btRight.classList.add("disabled")
-    }
-    else{
-        firstIndex++
-        secondIndex++
-        //Hides all the eliminations
-        for(i=0; i<eleminitaions.length; i++){
-            eleminitaions[i].classList.add("hidden")
-        }
-        //Shows eleminiations by index
-        for(i=firstIndex; i<secondIndex; i++){
-            eleminitaions[i].classList.remove("hidden")
-        
-        }
     }
 }

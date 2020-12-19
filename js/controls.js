@@ -94,7 +94,6 @@ function isClosed() {
     }
     searchBarClosed = true;
 }
-
 document.onkeyup=function(e){
     if(e.shiftKey && e.which == 70) {
         var searchBar = document.getElementById("inputs")
