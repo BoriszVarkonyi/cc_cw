@@ -1,4 +1,19 @@
 <?php include "cw_header.php"; ?>
+<?php include "../includes/db.php" ?>
+<?php 
+    $id = $_GET['vid_id'];
+
+    $get_video_data = "SELECT * FROM cw_videos WHERE id = '$id'";
+    $do_get_video_data = mysqli_query($connection, $get_video_data);
+    
+    if ($row = mysqli_fetch_assoc($do_get_video_data)) {
+        $title = $row['title'];
+        $comp_name = $row['comp_name'];
+        $url = $row['URL'];
+        parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+        $video_id = $my_array_of_vars['v'];
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,22 +21,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Comp name}'s final results</title>
+    <title><?php echo $comp_name ?>'s final results</title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
     <div id="cw_main_live">
         <div class="cw_panel_title_wrapper">
-            <button type="button" class="back_button" onclick="location.href='cw_table.php'">
+            <button type="button" class="back_button" onclick="location.href='cw_videos.php'">
                 <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
             </button>
-            <p>LIVE RESULTS OF {COMP NAME}, {PISTE NUMBER}, {FENCERNAME} VS. {FENCERNAME}</p>
+            <p>LIVE RESULTS OF <?php echo $comp_name ?></p>
         </div>
         <div id="round_live_wrapper">
             <div id="round_livestream_wrapper">
                 <p id="no_livestream" class="hidden">There is no avalible livestream for this round.</p>
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 

@@ -19,14 +19,6 @@
             echo mysqli_error($connection);
         }
     }
-
-
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>

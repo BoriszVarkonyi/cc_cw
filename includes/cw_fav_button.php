@@ -3,7 +3,6 @@
 
     $cookie_expires = time() + 31556926;
     $cookie_name = "fav_comp";
-    $ttest = "a";
 
     if (isset($_COOKIE[$cookie_name])) {
         $cookie_value = $_COOKIE[$cookie_name];
@@ -32,7 +31,6 @@
         }
 
         setcookie($cookie_name, $cookie_value, $cookie_expires, "/");
-        $ttest = "b";
-
+        header("Refresh:0");
     }
 ?>
