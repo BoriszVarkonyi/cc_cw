@@ -140,7 +140,8 @@ function drop(ev) {
         if(canRegenerate){
             //regenerate();
         }
-    }   
+    }
+    idloader();   
 }
 /*
 function regenerate() {
@@ -244,10 +245,12 @@ function drop2(ev, x){
     for(i=0; i<dropAreas.length; i++){
     dropAreas[i].classList.remove("collapsed")
     }
+    idloader();
 }
 
 var poolsId = ""
 function idloader(){
+    poolsId = ""
     var entries = document.querySelectorAll(".entry")
     for(i=0; i<entries.length; i++){
         if(i !== 0){
@@ -262,8 +265,15 @@ function idloader(){
                 poolsId = poolsId + "," + tablerowsid[d].id
             }
         }
-    }  
+    }
+    hiddenInput = document.getElementById("savePoolsHiddenInput")
+    hiddenInput.value = poolsId  
+    hiddenInput.classList.remove("hidden")
 }
+idloader()
+var hiddenInput = document.getElementById("savePoolsHiddenInput")
+hiddenInput.value = poolsId  
+hiddenInput.classList.remove("hidden")
 //FORM VALIDATION
 var valid1 = false, valid2 = false;
 //It is a var from main.js

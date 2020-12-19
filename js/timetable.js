@@ -34,7 +34,6 @@ function toggleWcPanel(x){
     var setWcPanelBounding = setWcPanel.getBoundingClientRect()
     var navbar = document.getElementById("nav_bar").getBoundingClientRect()
     var headerbar = document.getElementById("header_bar").getBoundingClientRect()
-    var titlesprite = document.getElementById("title_stripe").getBoundingClientRect()
     var page = document.getElementById("page_content_panel_main").getBoundingClientRect()
     if(page.width > clickedDateBounding.right-navbar.width+setWcPanelBounding.width){
         setWcPanel.style.left = clickedDateBounding.right-navbar.width

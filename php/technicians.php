@@ -182,15 +182,15 @@
                     } else {
                         ?>
                         <div class="table_header">
-                            <div class="table_header_text">NAME</div>
-                                <button class="resizer"></button>
-                                <div class="table_header_text">ROLE</div>
-                                <button class="resizer"></button>
+                            <div class="table_header_text" id="drag-left">NAME</div>
+                                <button class="resizer" id="dragbar" mousedown="focus()"></button>
+                                <div class="table_header_text" id="drag-right">ROLE</div>
+                                <button class="resizer" ></button>
                                 <div class="table_header_text">STATUS</div>
                                 <div class="small_status_header">
                             </div>
                         </div>
-                        <div class="table_row_wrapper">
+                        <div class="table_row_wrapper" id="table">
                             <?php  
                                 $qry = "SELECT * FROM $table_name";
                                 $qry_do = mysqli_query($connection, $qry);

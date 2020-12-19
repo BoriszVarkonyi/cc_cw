@@ -80,8 +80,8 @@ document.onkeydown = (keyDownEvent) => {
     } 
     if(keyDownEvent.key == "Tab"){
         keyDownEvent.preventDefault(); 
-    }    
-}
+    }
+}    
 var searchBarClosed = true;
 function isOpen() {
     searchBarClosed = false;
@@ -93,4 +93,11 @@ function isClosed() {
         removeElemClass[i].classList.remove("selected")
     }
     searchBarClosed = true;
+}
+
+document.onkeyup=function(e){
+    if(e.shiftKey && e.which == 70) {
+        var searchBar = document.getElementById("inputs")
+        searchBar.focus()
+    }
 }
