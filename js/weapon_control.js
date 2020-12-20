@@ -11,8 +11,8 @@ wctable.addEventListener("click", function(){
         addWeaponControlButton.classList.remove("disabled")
     }
 })
-document.onkeyup=function(e){
+document.addEventListener("keyup", function(e){
     if(e.shiftKey && e.which == 78) {
         addWeaponControlButton.click()
     }
-}
+})
