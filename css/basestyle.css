@@ -652,7 +652,7 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 input[type="text"].search.cc {
 	background-color: var(--c-white);
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
@@ -709,7 +709,7 @@ input[type="text"].search.cc:focus + div {
 	flex-direction: column;
 	align-items: stretch;
 	padding-top: 5px;
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
