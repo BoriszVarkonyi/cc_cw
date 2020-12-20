@@ -28,7 +28,7 @@
                 <div class="table_header_text">HOSTING COUNTRY</div>
                 <div class="big_status_header"></div>
             </div>
-            <div class="table_row_wrapper">
+            <div class="table_row_wrapper alt">
                 <!-- comps display scheduled -->
                 <?php include "../cw/comps_display.php" ?>
             </div>
