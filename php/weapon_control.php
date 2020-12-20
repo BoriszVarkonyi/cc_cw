@@ -82,7 +82,7 @@
         <div class="page_content_flex">
                 <form id="title_stripe" method="POST" action="" >
                     <p class="page_title">Weapon Control</p>
-                    <button class="stripe_button disabled" type="submit">
+                    <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                         <p>Send message to fencer</p>
                         <img src="../assets/icons/chat-black-18dp.svg"/>
                     </button>
