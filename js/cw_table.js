@@ -53,3 +53,49 @@ function disabler(){
         btRight.classList.add("disabled")
     }
 }
+window.addEventListener("resize", windowSize);
+window.addEventListener("DOMContentLoaded", windowSize);
+var vw;
+function windowSize(){
+    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    if(vw > 1600){
+        for(i=0; i<eleminitaions.length; i++){
+            eleminitaions[i].classList.add("hidden")
+        }
+        secondIndex = 4;
+        for(i=firstIndex; i<secondIndex; i++){
+            eleminitaions[i].classList.remove("hidden")
+        
+        }
+    }
+    else if(vw > 1400 && vw < 1600){
+        for(i=0; i<eleminitaions.length; i++){
+            eleminitaions[i].classList.add("hidden")
+        }
+        secondIndex = 3;
+        for(i=firstIndex; i<secondIndex; i++){
+            eleminitaions[i].classList.remove("hidden")
+        
+        }
+    }
+    else if(vw > 1200 && vw < 1400){
+        for(i=0; i<eleminitaions.length; i++){
+            eleminitaions[i].classList.add("hidden")
+        }
+        secondIndex = 2;
+        for(i=firstIndex; i<secondIndex; i++){
+            eleminitaions[i].classList.remove("hidden")
+        
+        }
+    }
+    else if(vw < 1200){
+        for(i=0; i<eleminitaions.length; i++){
+            eleminitaions[i].classList.add("hidden")
+        }
+        secondIndex = 1;
+        for(i=firstIndex; i<secondIndex; i++){
+            eleminitaions[i].classList.remove("hidden")
+        
+        }
+    }
+}
