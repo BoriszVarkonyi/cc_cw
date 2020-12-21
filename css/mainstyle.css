@@ -764,12 +764,21 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .comp_logo {
+	min-width: var(--f-xxlarge);
 	width: var(--f-xxlarge);
 	height: var(--f-xxlarge);
 	margin: 0 10px;
+	transition: all ease-out .2s;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
-.page_title {		/* The page's title fills the login panel and page_content*/
+.comp_logo:hover {
+	transform: scale(1.05);
+	border-radius: 0;
+}
+
+.page_title {		/* The page's title fills the login panel and page_content */
 	font-family: var(--bold);
 	font-size: var(--f-large);
 	max-width: 50vw;

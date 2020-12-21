@@ -356,6 +356,10 @@ form.hidden, form.disabled {
 	background-color: var(--c-white);
 }
 
+.table_row_wrapper .table_row:hover, .table_row_wrapper .table_row:nth-child(even):hover  { /* Hover */
+	background-color: var(--c-lightergray);
+}
+
 .table_row_wrapper .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightestgray);
 }
@@ -365,14 +369,20 @@ form.hidden, form.disabled {
 	background-color: var(--c-lightestgray);
 }
 
+.table_row_wrapper.alt .table_row:hover, .table_row_wrapper.alt .table_row:nth-child(even):hover {
+	background-color: var(--c-lightgray);
+}
+
 .table_row_wrapper.alt .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightergray);
 }
 
+/* General */
 .table_row {
 	outline: none;
 	cursor: pointer;
 	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
+	background-color: var(--c-white);
 }
 
 .table_row.hidden {
@@ -407,6 +417,15 @@ form.hidden, form.disabled {
 	font-family: var(--bold);
 	border-radius: 2.5px;
 	overflow: hidden;
+}
+
+.table_row.selected .table_item {
+	overflow: visible !important;
+}
+
+.table_row.selected p {
+	overflow: visible !important;
+	text-overflow: clip !important;
 }
 
 .table_row_drop {
@@ -528,7 +547,7 @@ form.hidden, form.disabled {
 
 /* Universal Table */
 
-.table_header, .table_row {
+.table_row {
 	height: calc(1.4em + 1.25vmin);
 }
 
@@ -652,7 +671,7 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 input[type="text"].search.cc {
 	background-color: var(--c-white);
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
@@ -709,7 +728,7 @@ input[type="text"].search.cc:focus + div {
 	flex-direction: column;
 	align-items: stretch;
 	padding-top: 5px;
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
@@ -1025,7 +1044,8 @@ input[type="time"] {
 	margin: 3px 0 30px;
 	height: 35px;
 	padding-left: 20px;
-	font-size: var(--f-small);
+	font-size: var(--f-small) !important;
+	font-family: var(--reg);
 }
 
 /* ///ALL BUTTONS/// */

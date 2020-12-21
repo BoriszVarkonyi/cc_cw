@@ -82,7 +82,7 @@
         <div class="page_content_flex">
                 <form id="title_stripe" method="POST" action="" >
                     <p class="page_title">Weapon Control</p>
-                    <button class="stripe_button disabled" type="submit">
+                    <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                         <p>Send message to fencer</p>
                         <img src="../assets/icons/chat-black-18dp.svg"/>
                     </button>
@@ -91,6 +91,24 @@
                         <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                     </button>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
+                    <div class="search_wrapper">
+                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                        <div class="search_results">
+                        <?php
+                        $query = "SELECT * FROM $table_name";
+                        $query_do = mysqli_query($connection, $query);
+
+                        while($row = mysqli_fetch_assoc($query_do)){
+                            $idke = $row["id"];
+                            $nevecske = $row["name"];
+                            ?>
+                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $nevecske ?></a>
+                            <?php
+                        }
+                            ?>
+                        </div>
+                    </div>
                 </form>
                 <div id="page_content_panel_main">
                     <div class="wrapper table">
@@ -144,7 +162,7 @@
                                 }
                         ?>
                         <!-- while -->
-                        <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>">
+                        <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">
                             <div class="table_item"><p><?php echo $fencer_name ?></p></div>
                             <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
                             <div class="table_item"><p><?php echo $wc_test ?></p></div>
@@ -162,4 +180,5 @@
     <script src="../js/main.js"></script>
     <script src="../js/weapon_control.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/controls.js"></script>
 </html>
