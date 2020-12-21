@@ -21,7 +21,7 @@
 
             <input type="button" value="Search" onclick="giveClassToFirst()">
         </form>
-        <div id="call_room" class="">
+        <div id="call_room">
             <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
                 <img src="../assets/icons/arrow_back_ios-black-18dp.svg" >
             </div>

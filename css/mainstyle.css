@@ -120,12 +120,12 @@ textarea {
 }
 
 .username_big {
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	font-family: var(--bold);
 }
 
 .role_big {
-	font-size: var(--f-small);
+	font-size: var(--f-xsmall);
 	margin: -5px 0 15px;
 }
 
@@ -203,18 +203,24 @@ textarea {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	overflow-x: hidden;
-	overflow-y: scroll;
 	flex-wrap: wrap;
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
-} 
+}
+
+#language_panel div {
+	z-index: 6;
+	position: absolute;
+	width: 100%;
+}
 
 #languages_wrapper {
 	position: relative;
 	height: 80%;
-	width: 70%;
+	width: 100%;
 	padding: 10px 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 .language_button {
@@ -225,7 +231,7 @@ textarea {
 	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: nowrap;
-	font-size: var(--f-small);
+	font-size: var(--f-xsmall);
 	margin-bottom: 5px;
 	padding: 5px;
 	background-color: transparent;
@@ -258,7 +264,7 @@ textarea {
 
 .cs_label_section {
 	width: 80%;
-	font-size: var(--f-xsmall);
+	font-size: var(--f-xxsmall);
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
@@ -288,7 +294,7 @@ textarea {
 }
 
 #logout_form > button {
-	font-size: var(--f-small);
+	font-size: var(--f-xxsmall);
 	font-family: var(--bold);
 	padding: 5px 15px;
 	border-radius: 30px;
@@ -764,12 +770,21 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .comp_logo {
+	min-width: var(--f-xxlarge);
 	width: var(--f-xxlarge);
 	height: var(--f-xxlarge);
 	margin: 0 10px;
+	transition: all ease-out .2s;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
-.page_title {		/* The page's title fills the login panel and page_content*/
+.comp_logo:hover {
+	transform: scale(1.05);
+	border-radius: 0;
+}
+
+.page_title {		/* The page's title fills the login panel and page_content */
 	font-family: var(--bold);
 	font-size: var(--f-large);
 	max-width: 50vw;

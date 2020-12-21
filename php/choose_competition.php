@@ -77,7 +77,7 @@ $query_comps = mysqli_query($connection, $query);
                     //Saves the data separately to variables from the row array
                 ?>
                 <?php   ?>
-                <div class="table_row" onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>'">
+                <div class="table_row" onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>'" title="<?php echo $comp_name; ?>">
                     <div class="table_item"><p><?php echo $comp_name; ?></p></div>
                     <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
                 </div>

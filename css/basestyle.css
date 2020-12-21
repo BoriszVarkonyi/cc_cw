@@ -51,7 +51,7 @@
 	/* Font Sizes */
 	--f-xxlarge: calc(1.9em + 1.9vmin);
 	--f-xlarge: calc(1.5em + 1.5vmin);
-	--f-large: calc(1.2em + 1.2vmin);
+	--f-large: calc(1.1em + 1.1vmin);
 	--f-medium: calc(0.8em + 0.8vmin);
 	--f-small: calc(0.75em + 0.7vmin);
 	--f-xsmall: calc(0.675em + 0.675vmin);
@@ -356,6 +356,10 @@ form.hidden, form.disabled {
 	background-color: var(--c-white);
 }
 
+.table_row_wrapper .table_row:hover, .table_row_wrapper .table_row:nth-child(even):hover  { /* Hover */
+	background-color: var(--c-lightergray);
+}
+
 .table_row_wrapper .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightestgray);
 }
@@ -365,14 +369,20 @@ form.hidden, form.disabled {
 	background-color: var(--c-lightestgray);
 }
 
+.table_row_wrapper.alt .table_row:hover, .table_row_wrapper.alt .table_row:nth-child(even):hover {
+	background-color: var(--c-lightgray);
+}
+
 .table_row_wrapper.alt .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightergray);
 }
 
+/* General */
 .table_row {
 	outline: none;
 	cursor: pointer;
 	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
+	background-color: var(--c-white);
 }
 
 .table_row.hidden {
@@ -407,6 +417,15 @@ form.hidden, form.disabled {
 	font-family: var(--bold);
 	border-radius: 2.5px;
 	overflow: hidden;
+}
+
+.table_row.selected .table_item {
+	overflow: visible !important;
+}
+
+.table_row.selected p {
+	overflow: visible !important;
+	text-overflow: clip !important;
 }
 
 .table_row_drop {
@@ -528,7 +547,7 @@ form.hidden, form.disabled {
 
 /* Universal Table */
 
-.table_header, .table_row {
+.table_row {
 	height: calc(1.4em + 1.25vmin);
 }
 
@@ -598,6 +617,10 @@ form.hidden, form.disabled {
 	height: 10px;
 }
 
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
 ::-webkit-scrollbar-thumb { /* Handle */
 	background: var(--c-darkgray); 
 	border-radius: 10px;
@@ -652,7 +675,7 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 input[type="text"].search.cc {
 	background-color: var(--c-white);
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
@@ -709,7 +732,7 @@ input[type="text"].search.cc:focus + div {
 	flex-direction: column;
 	align-items: stretch;
 	padding-top: 5px;
-	font-size: var(--f-medium);
+	font-size: var(--f-small);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
@@ -1025,7 +1048,8 @@ input[type="time"] {
 	margin: 3px 0 30px;
 	height: 35px;
 	padding-left: 20px;
-	font-size: var(--f-small);
+	font-size: var(--f-small) !important;
+	font-family: var(--reg);
 }
 
 /* ///ALL BUTTONS/// */
@@ -1247,9 +1271,7 @@ input[type="time"] {
 
 .panel_button.fixed {
 	position: absolute;
-	top: 2px;
-	right: 2px;
-	margin-left: 0;
+	margin: 0, 5px, 5px, 0;
 }
 
 .panel_button.hidden {
@@ -1309,18 +1331,16 @@ input[type="time"] {
 
 #call_room {
 	margin: 0 50px;
-	background-color: var(--c-lightergray);
 	display: flex;
 	position: relative;
 	border-radius: 5px;
 	box-shadow: var(--s-black);
+	overflow: hidden;
 }
 
 #call_room.cc {
 	margin: 20px;
 	width: 100%;
-	background-color: var(--c-white);
-	overflow: hidden;
 }
 
 .elimination_slider_button {
@@ -1357,7 +1377,6 @@ input[type="time"] {
 
 .elimination {
 	flex: 1 1 0px;
-	background-color: var(--c-lightestgray);
 	transition: flex ease-in .2s, max-height ease-in .5s .2s;
 	display: flex;
 	flex-direction: column;
@@ -1372,7 +1391,21 @@ input[type="time"] {
 	overflow: hidden;
 }
 
-.elimination:nth-child(even), .elimination:nth-child(odd) .elimination_label {
+/* Coloring of Columns and column labels, both cc and cw */
+
+#call_room .elimination:nth-child(odd), #call_room .elimination:nth-child(even) .elimination_label {
+	background-color: var(--c-lightergray);
+}
+
+#call_room.cc .elimination:nth-child(odd), #call_room.cc .elimination:nth-child(even) .elimination_label {
+	background-color: var(--c-lightestgray);
+}
+
+#call_room .elimination:nth-child(even), #call_room  .elimination:nth-child(odd) .elimination_label {
+	background-color: var(--c-lightestgray);
+}
+
+#call_room.cc .elimination:nth-child(even), #call_room.cc  .elimination:nth-child(odd) .elimination_label {
 	background-color: var(--c-white);
 }
 
@@ -1402,6 +1435,7 @@ input[type="time"] {
 	justify-content: space-between;
 	margin: 0 25px;
 	font-size: var(--f-xxsmall);
+	white-space: nowrap;
 }
 
 .elimination > .table_round_wrapper:nth-child(2) {
@@ -1531,7 +1565,6 @@ input[type="time"] {
 }
 
 .table_fencer_nat {
-	background-color: var(--c-lightergray);
 	text-transform: uppercase;
 	min-width: 20%;
 	width: 20%;
@@ -1541,8 +1574,22 @@ input[type="time"] {
 	font-family: var(--reg) !important;
 }
 
-.elimination:nth-child(odd) .table_fencer_nat {
-	background-color: var(--c-white);
+/* Coloring of natinon conatiners, both cc and cw */
+
+#call_room .elimination:nth-child(odd) .table_fencer_nat {
+	background-color: var(--c-lightestgray);
+}
+
+#call_room.cc .elimination:nth-child(odd) .table_fencer_nat {
+	background-color: var(--c-white) !important;
+}
+
+#call_room .elimination:nth-child(even) .table_fencer_nat {
+	background-color: var(--c-lightergray);
+}
+
+#call_room.cc .elimination:nth-child(even) .table_fencer_nat {
+	background-color: var(--c-lightestgray) !important;
 }
 
 .table_fencer_nat > img {
@@ -1608,4 +1655,5 @@ input[type="time"] {
 .table_round_wrapper.purple .table_fencer_number, .table_round_wrapper.purple .table_fencer_name {
 	background-color: var(--cs-purple);
 	color: var(--cs-white);
+	font-family: var(--reg);
 }

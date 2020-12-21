@@ -61,7 +61,7 @@
                             $reg = $row["reg"];
                             $wc = $row["wc"];?>
 
-                            <div class="table_row" onclick="selectRow(this)">
+                            <div class="table_row" onclick="selectRow(this)" tabindex="0">
                                 <div class="table_item"><p><?php echo $pos ?></p></div>
                                 <div class="table_item"><p><?php echo $name ?></p></div>
                                 <div class="table_item"><p><?php echo $nat ?></p></div>

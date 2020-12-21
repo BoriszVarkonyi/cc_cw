@@ -2,6 +2,12 @@
 <?php include "../includes/db.php"; ?>
 <?php 
 
+$enLang = "../assets/languages/en.txt";
+$enLines = file($enLang);
+
+$huLang = "../assets/languages/hu.txt";
+$huLines = file($huLang);
+
 checkComp($connection);
 
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
@@ -169,7 +175,7 @@ checkComp($connection);
                         <img src="../assets/icons/send-black-18dp.svg"/>
                     </button>
 
-                </div>
+                </div
 
                 <!-- dashboard body -->  
                 <div id="page_content_panel_main">
@@ -186,6 +192,8 @@ checkComp($connection);
                                     <p style="font-size: var(--f-small)">small</p>
                                     <p style="font-size: var(--f-xsmall)">xsmall</p>
                                     <p style="font-size: var(--f-xxsmall)">xxsmall</p>
+                                    <p><?php echo $enLines[0];?> // This text is read from en.txt line 1</p>
+                                    <p><?php echo $huLines[0];?> // This text is read from hu.txt line 1</p>
                                 </div>
                             </div>
                         </div>
