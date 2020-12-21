@@ -164,13 +164,13 @@ foreach ($savefencerarray as $check) {
 
 
 
-print_r($all_fencers_n);
+//print_r($all_fencers_n);
 
 $xd = 0;
 
 if($doornot != 0){
 
-print_r($savefencerarray);
+//print_r($savefencerarray);
 
 foreach ($savefencerarray as $key) {
     
@@ -207,7 +207,7 @@ else{
     $fencertoplace = array_search($savefencerarray[$h], $all_fencers_n);
 
     }
-    print_r($savefencerarray);
+    //print_r($savefencerarray);
     
         array_push(${$toplace . "_group_id"}, $all_fencers_id[$key]);
         array_push(${$toplace . "_group_f"}, $all_fencers_f[$key]);
@@ -221,7 +221,7 @@ else{
 
 }
 
-print_r(${"0" . "_group_n"});
+//print_r(${"0" . "_group_n"});
 echo $toplace;
 }
 
@@ -456,8 +456,8 @@ $cou++;
 }
 header("Location: pools.php?comp_id=$comp_id");
 }
-print_r($_POST);
-print_r($pistes_available);
+//print_r($_POST);
+//print_r($pistes_available);
 $ARRAY_pool_nat = [];
 
 //go through rows as pools
@@ -604,7 +604,7 @@ if(isset($_POST["draw_ref"])){
     if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
         $pool_num = $row['MAX(`pool_number`)'];
     }
-    print_r($row);
+    //print_r($row);
     echo mysqli_error($connection);
     //update refs in pools_$comp_id
     if (!$test_possibility) {
@@ -631,11 +631,11 @@ if(isset($_POST["draw_ref"])){
         }
     }
     
-    print_r($ref_assigned_pools);
+    //print_r($ref_assigned_pools);
 }
 
-print_r($ARRAY_pool_nat);
-print_r($array_ref_nat);
+//print_r($ARRAY_pool_nat);
+//print_r($array_ref_nat);
 $ARRAY_competitors = [];
 
 if (isset($_POST['save_pools'])) {
@@ -672,18 +672,76 @@ if (isset($_POST['save_pools'])) {
 
     header("Location: pools.php?comp_id=$comp_id");
     echo "ARRAY_COMPETITORS";
-    print_r($ARRAY_competitors);
+    //print_r($ARRAY_competitors);
     echo "array_hidden";
-    print_r($array_hidden);
+    //print_r($array_hidden);
 }
 
 
 if(isset($_POST["start_pools"])){
 
-$s_table_create = "CREATE TABLE '' ( m_id VARCHAR(11) NOT NULL , p_in INT(11) NOT NULL , f1_id VARCHAR(11) NOT NULL , f2_id VARCHAR(11) NOT NULL , f1_sc INT(11) NOT NULL , f2_sc INT(11) NOT NULL , oip INT(11) NOT NULL , w_id VARCHAR(255) NOT NULL ) ENGINE = InnoDB;";
+//CREATION OF POOL MATCHES TABLE
+
+include "../includes/pool_orders.php";
+
+$s_table_create = "CREATE TABLE pool_matches_$comp_id ( m_id VARCHAR(11) NOT NULL , p_in INT(11) NOT NULL , f1_id VARCHAR(11) NOT NULL , f2_id VARCHAR(11) NOT NULL , f1_sc INT(11) NOT NULL , f2_sc INT(11) NOT NULL , oip INT(11) NOT NULL , w_id VARCHAR(255) NOT NULL ) ENGINE = InnoDB;";
 $s_table_create_do = mysqli_query($connection, $s_table_create);
 
 
+if(!$s_table_create_do){
+
+echo mysqli_error($connection);
+
+}
+
+$query_create_matches = "INSERT INTO `pool_matches_52`(`m_id`, `p_in`, `f1_id`, `f2_id`, `oip`) VALUES ";
+
+$get_fencers_for_matches = "SELECT * FROM pools_$comp_id";
+$get_fencers_for_matches_do = mysqli_query($connection, $get_fencers_for_matches);
+
+$actualfencers = [];
+
+$commajes = 0;
+while($row = mysqli_fetch_assoc($get_fencers_for_matches_do)){
+
+    $inpool = $row["pool_number"];
+    $fencersinpool = $row["pool_of"];
+
+    $order = poolOrder($fencersinpool);
+    
+    for ($i=1; $i <= $fencersinpool ; $i++) { 
+        
+        array_push($actualfencers, $row["f" . $i]);
+
+    }
+    
+    for ($i=0; $i < count($order) ; $i++) { 
+        
+        echo $first = substr($order[$i],0,1);
+        echo $second = substr($order[$i],2,1);
+
+        $first_id = $actualfencers[$first - 1];
+        $second_id = $actualfencers[$second - 1];
+
+        $repl = $i+1;
+
+        $query_create_matches .= "('" . $order[$i] . "','" . $inpool . "','" . $first_id . "','" . $second_id . "','" . $repl . "'),";
+    }
+    
+
+    print_r($actualfencers);
+    $actualfencers = [];
+
+}
+
+echo substr($query_create_matches, 0, -1);
+$query_create_matches_do = mysqli_query($connection, substr($query_create_matches, 0, -1));
+
+if(!$query_create_matches_do){
+
+mysqli_error($connection);
+
+}
 
 }
 
@@ -721,6 +779,16 @@ LIMIT 1;";
 $query_ex_do = mysqli_query($connection, $query_ex);
 
 $exist = mysqli_num_rows($query_ex_do);
+
+
+$query_fex = "SELECT * 
+FROM `information_schema`.`tables`
+WHERE table_schema = 'ccdatabase' 
+    AND table_name = 'pool_matches_$comp_id'
+LIMIT 1;";
+$query_fex_do = mysqli_query($connection, $query_fex);
+
+$exist2 = mysqli_num_rows($query_fex_do);
 
 if($exist == 0){
 
@@ -785,7 +853,7 @@ if($exist == 0){
 
 <?php
 }
-else
+elseif ($exist != 0 && $exist2 == 0)
 {
 
 ?>
@@ -813,10 +881,12 @@ else
                         <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
                 </form>
-                <button class="stripe_button orange" type="submit">
+                <form action="" method="POST">
+                <button class="stripe_button orange" type="submit" name="start_pools">
                     <p>Start Pools</p>
                     <img src="../assets/icons/outlined_flag-black-18dp.svg" />
                 </button>
+                </form>
                 <div id="ref_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleRefPanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
@@ -948,17 +1018,21 @@ else
 
 
 
-<?php } ?>
+<?php 
+}else{ 
+    ?>
                 
-<!--
+
                 STATE: 2
                 
                 <button class="stripe_button" type="button">
                     <p>Open CC Match Control</p>
                     <img src="../assets/icons/pages-black-18dp.svg" />
                 </button>
--->
-                
+
+     <?php
+    }
+    ?>           
 
             </div>
             <div id="page_content_panel_main">
@@ -975,7 +1049,7 @@ else
                 </div>
 <?php
 }
-else{
+elseif($exist != 0 && $exist2 == 0){
     ?>
 
                 <div id="pools_wrapper">
@@ -1121,8 +1195,7 @@ else{
                     <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
                     </div>
 
-                    <?php } ?>
-<!--
+                    <?php }else{ ?>
                     STATE: 2 
                     <div id="pool_listing"> 
                         <div class="entry" >
@@ -1684,7 +1757,9 @@ else{
                                     </div>
                                 </div>
                             </div>
--->
+<?php
+}
+?>
                         </div>
                     </div>
 

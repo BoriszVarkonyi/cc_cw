@@ -30,6 +30,6 @@ if($fencersin == 7){
 }
 }
 
-$order = poolOrder(5);
-print_r($order);
+// $order = poolOrder(5);
+// print_r($order);
 ?>
