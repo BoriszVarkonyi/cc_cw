@@ -184,6 +184,10 @@ form {
 	margin: 0;
 }
 
+body * {
+	user-select: none !important;
+}
+
 a {
 	text-decoration: none;
 	color: var(--c-black);
