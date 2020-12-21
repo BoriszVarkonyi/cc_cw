@@ -48,6 +48,13 @@
 
 
     if(isset($_POST["import_ref"])) {
+        //get oragasniser id
+        $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
+        $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
+
+        if ($row = mysqli_fetch_assoc($do_get_org_id)) {
+            $org_id = $row['id'];
+        }
     }
 
     if(isset($_POST["remove_referee"])) {
