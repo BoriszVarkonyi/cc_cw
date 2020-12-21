@@ -389,23 +389,27 @@ function searchEngine(x) {
             liCounter++
         }
     }
+    //importOverlayClosed is a var. from importoverlay.js
+    importOverlayClosed = true;
     input.onkeydown = (keyDownEvent) => {
-        if(keyDownEvent.key == "ArrowUp"){
-            if(selectedElementIndex == 0) {
-                selectedElementIndex++
-            }
-            selectedElementIndex--
-            li[selectedElementIndex + 1].classList.remove("selected")
-            li[selectedElementIndex].classList.add("selected")
-        }
-        if(keyDownEvent.key == "ArrowDown"){
-            if(selectedElementIndex == liCounter -1) {
+        if(importOverlayClosed){
+            if(keyDownEvent.key == "ArrowUp"){
+                if(selectedElementIndex == 0) {
+                    selectedElementIndex++
+                }
                 selectedElementIndex--
+                li[selectedElementIndex + 1].classList.remove("selected")
+                li[selectedElementIndex].classList.add("selected")
             }
-            selectedElementIndex++
-            li[selectedElementIndex - 1].classList.remove("selected")
-            li[selectedElementIndex].classList.add("selected")
-        }
+            if(keyDownEvent.key == "ArrowDown"){
+                if(selectedElementIndex == liCounter -1) {
+                    selectedElementIndex--
+                }
+                selectedElementIndex++
+                li[selectedElementIndex - 1].classList.remove("selected")
+                li[selectedElementIndex].classList.add("selected")
+            }
+        }       
     }
     
 }
@@ -460,7 +464,7 @@ function formValidation(overlayForm, inputs, saveButton){
     if(canAutoValidate){
         saveButton.disabled = true;
         //If the document values are changing, it runs the function.
-        overlayForm.addEventListener("input", function(){
+        function validation(){
             //Checking every input.
             for(i=0; i<inputs.length; i++){
                 if(inputs[i].value == ""){
@@ -475,7 +479,8 @@ function formValidation(overlayForm, inputs, saveButton){
             }   
 
         }
-        )
+        validation();
+        overlayForm.addEventListener("input", validation)
     }    
 
 }

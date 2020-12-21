@@ -7,6 +7,13 @@ function toggle_add_technician() {
 function toggle_import_technician() {
     var element = document.getElementById("import_technician_panel");
     element.classList.toggle("hidden");
+    //importOverlayClosed is a var. from importoverlay.js
+    if(element.classList.contains("hidden")){
+        importOverlayClosed = true;
+    }
+    else{
+        importOverlayClosed = false;
+    }
 }
 
 
@@ -93,9 +100,15 @@ function hidePasswords(x) {
 
 //Selects the competition that the technicians will be imported from
 function importTechnicians(x) {
-    var selectedComp = x;
-    var selectedCompInput = document.getElementById("selected_comp_input")
-    selectedCompInput.value= selectedComp.id;
+    var remclass = document.getElementsByClassName("selected");
+    var i;
+    for(i = 0; i < remclass.length; i++){
+        remclass[i].classList.remove("selected");
+    }
+    var y = x.id;
+    var z = document.getElementById(y);
+    z.classList.add("selected");
+    document.cookie="selected=" + y;
 }
 
 //document.cookie="techtoremove=" + null;

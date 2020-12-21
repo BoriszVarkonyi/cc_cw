@@ -97,22 +97,3 @@ function autoFill(x){
     var input = x.parentNode.previousElementSibling
     input.value = x.innerHTML;
 }
-//Dragging system 
-/*
-function drag(e){
-    document.selection ? document.selection.empty() : window.getSelection().removeAllRanges();
-    left.style.width = (e.pageX - bar.offsetWidth / 2) + 'px';
-}
-var bar
-var left
-var right
-function mouseDown(x) {
-    document.addEventListener('mousemove', drag);
-    return bar = x,
-    left = bar.previousElementSibling,
-    right = bar.nextElementSibling
-    
-}
-function mouseUp() {
-    document.removeEventListener('mousemove', drag);
-}*/

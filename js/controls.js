@@ -4,7 +4,8 @@ var hiddenin = document.getElementsByClassName("selected_list_item_input");
 var selectedElementIndexAr = 0;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system, works only if search bar closed
-    if(searchBarClosed) {
+    //importOverlayClosed is a var. from importoverlay.js
+    if(searchBarClosed && importOverlayClosed) {
         if(keyDownEvent.key == "ArrowUp"){
             var table = document.querySelector(".table");
             var tableRows = document.querySelectorAll(".table .table_row")
@@ -52,7 +53,8 @@ document.onkeydown = (keyDownEvent) => {
         }
     } 
     //Selects to enter
-    if(!searchBarClosed) {
+    //importOverlayClosed is a var. from importoverlay.js
+    if(!searchBarClosed && importOverlayClosed) {
         if(keyDownEvent.key == "Enter"){
             var selected = document.querySelector(".search_results .selected")
             var selectedElementId = document.querySelector(".search_results .selected").id.slice(0, -1);
@@ -76,6 +78,8 @@ document.onkeydown = (keyDownEvent) => {
             }
             selected.classList.add("selected")
             keyDownEvent.target.value = selected.innerHTML;
+            keyDownEvent.preventDefault(); 
+            formvariableDeclaration();
         }
     } 
     if(keyDownEvent.key == "Tab"){
