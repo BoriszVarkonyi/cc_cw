@@ -47,14 +47,31 @@
 
 
 
-    if(isset($_POST["import_ref"])) {
-        //get oragasniser id
-        $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
-        $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
+    if (isset($_POST['submit_import'])) {
+        $selected_comp_id = $_POST['selected_comp_id'];
 
-        if ($row = mysqli_fetch_assoc($do_get_org_id)) {
-            $org_id = $row['id'];
+        $qry_import = "SELECT * FROM `tech_$selected_comp_id`";
+        $do_import = mysqli_query($connection, $qry_import);
+
+        while ($row = mysqli_fetch_assoc($do_import)) {
+            $name = $row['name'];
+            $pass = $row['pass'];
+            $role = $row['role'];
+            $online = $row['online'];
+
+            //test for existing techs
+            $test_for_dupli = "SELECT * FROM $table_name WHERE name = '$name'";
+            $do_test_for_dupli = mysqli_query($connection, $test_for_dupli);
+            $test_num_rows = mysqli_num_rows($do_test_for_dupli);
+
+            if ($test_num_rows == FALSE) {
+                //update current comps tach table with imported tecch
+                $qry_insert_import = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$name', '$pass', '$role', '$online')";
+                $do_insert_import = mysqli_query($connection, $qry_insert_import);
+                echo mysqli_error($connection);
+            }
         }
+        
     }
 
     if(isset($_POST["remove_referee"])) {
@@ -136,26 +153,33 @@
                             </button>
                             <form action="" id="import_ref" method="POST" class="overlay_panel_form">
                                 <div class="select_competition_wrapper table_row_wrapper">
-                                <input type="text" name="" id="selected_comp_input">
-                                <?php
-                            
-                                $query_other = "SELECT * FROM competitions WHERE comp_organiser_id = $org_id EXCEPT SELECT * FROM competitions WHERE comp_id = $comp_id";
-                                $query_other_competitions = mysqli_query($connection, $query_other);
-                            
+                                <input type="text" name="selected_comp_id" id="selected_comp_input">
+                                    <?php
+                                    //get oragasniser id
+                                    $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
+                                    $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
 
-                                while($row = mysqli_fetch_assoc($query_other_competitions)) {
+                                    if ($row = mysqli_fetch_assoc($do_get_org_id)) {
+                                        $org_id = $row['id'];
+                                    } else {
+                                        echo mysqli_error($connection);
+                                    }
 
-                                $select_comp_id = $row["comp_id"];
-                                $select_comp_name = $row["comp_name"];
-                            
-                                ?>
+                                    $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id'";
+                                    $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
+
+                                    while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
+                                        $import_comp_name = $row['comp_name'];
+                                        $import_comp_id = $row['comp_id'];
+                                    ?>
                                 
-                                <div class="table_row" id="<?php echo $select_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="<?php echo $select_comp_id; ?>"><?php echo $select_comp_name; ?></div></div>
-                                     <?php
-                                }
-                                     ?>
+                                <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="<?php echo $import_comp_id; ?>"><?php echo $import_comp_name; ?></div></div>
+
+                                <?php
+                                    }
+                                ?>
                                 </div>
-                                <button type="submit" name="import_ref" class="panel_submit" value="Import">Import</span></button>
+                                <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
                             </form>
                         </div>
                         <input type="text" class="selected_list_item_input">
