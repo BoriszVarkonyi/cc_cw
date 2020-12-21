@@ -95,7 +95,7 @@ function windowSize(){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }
-        secondIndex = 4;
+        secondIndex = firstIndex + 4;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
         
@@ -105,7 +105,7 @@ function windowSize(){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }
-        secondIndex = 3;
+        secondIndex = firstIndex + 3;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
         
@@ -115,7 +115,7 @@ function windowSize(){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }
-        secondIndex = 2;
+        secondIndex = firstIndex + 2;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
         
@@ -125,7 +125,7 @@ function windowSize(){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }
-        secondIndex = 1;
+        secondIndex = firstIndex + 1;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
         

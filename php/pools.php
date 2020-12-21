@@ -676,6 +676,18 @@ if (isset($_POST['save_pools'])) {
     echo "array_hidden";
     print_r($array_hidden);
 }
+
+
+if(isset($_POST["start_pools"])){
+
+$s_table_create = "CREATE TABLE '' ( m_id VARCHAR(11) NOT NULL , p_in INT(11) NOT NULL , f1_id VARCHAR(11) NOT NULL , f2_id VARCHAR(11) NOT NULL , f1_sc INT(11) NOT NULL , f2_sc INT(11) NOT NULL , oip INT(11) NOT NULL , w_id VARCHAR(255) NOT NULL ) ENGINE = InnoDB;";
+$s_table_create_do = mysqli_query($connection, $s_table_create);
+
+
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
