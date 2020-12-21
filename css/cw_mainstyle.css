@@ -61,7 +61,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 #cw_header {
 	width: 100%;
 	height: 50px;
-	background-color: var(--c-white);
+	background-color: var(--c-lightestgray);
 	display: flex;
     align-items: center;
     position: fixed;
@@ -70,9 +70,15 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 #cw_header > a {
-	font-size: var(--f-medium);
+	font-size: var(--f-large);
 	font-family: var(--bold);
+	margin-left: 5px;
+}
+
+#cw_header > img {
 	margin-left: 20px;
+	height: 30px;
+	width: 30px;
 }
 
 #cw_header > div:first-of-type {
@@ -94,44 +100,46 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	display: flex;
 	align-items: center;
 	height: 100%;
-	max-width: 1000px;
-	width: 30vw;
-	min-width: 500px;
 	margin-right: 20px;
 	position: relative;
+	justify-content: flex-end;
 }
 
-#cw_header > div:last-of-type > button, #cw_header > div:last-of-type > a {
+#cw_header > div:last-of-type button {
+	width: 180px;
+}
+
+#cw_header > div:last-of-type button, #cw_header > div:last-of-type > a {
 	height: 100%;
-	width: 25%;
 	font-size: var(--f-medium);
 	font-family: var(--bold);
-	background-color: var(--c-white);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: background-color var(--t-basic);
+	padding: 0 15px;
+	background-color: transparent;
 }
 
 #cw_header > div:last-of-type > button:hover, #cw_header > div:last-of-type > a:hover {
-	background-color: var(--c-lightergray);
+	background-color: var(--c-lightgray);
 }
 
 #competition_dropdown {
 	position: absolute;
-	width: 25%;
 	height: 20vh;
 	max-height: 140px;
 	background-color: var(--c-white);
 	top: 50px;
-	border-radius: 0 0 10px 10px;
+	border-radius: 0 0 5px 5px;
 	transition: max-height var(--t-basic);
 	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 	flex-direction: column;
-	justify-content: center;
 	z-index: 2;
 	box-shadow: var(--s-black);
 	overflow: hidden;  
+	width: 180px;
 }
 
 #competition_dropdown.closed {
@@ -139,8 +147,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	max-height: 0;
 }
 
-#competition_dropdown > a {
-	margin: 0 0 10px 15px;
+#competition_dropdown a {
 	font-size: var(--f-medium);
 	font-family: var(--reg);
 	opacity: 1;
@@ -149,10 +156,6 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 #competition_dropdown.closed > a {
 	opacity: 0;
-}
-
-#competition_dropdown  > a:last-of-type {
-	margin-left: 15px;
 }
 
 /* ///custom pages/// */

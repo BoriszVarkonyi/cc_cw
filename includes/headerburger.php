@@ -79,11 +79,12 @@ if (isset($_POST["logout"])) {
         
         <!-- language select drop-down -->
         <div id="language_panel" class="small overlay_panel hidden">
-
-            <div id="languages_wrapper">  
+            <div>
                 <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
                     <img src="../assets/icons/close-black-18dp.svg"/>
                 </button>
+            </div>
+            <div id="languages_wrapper">  
                 <button id="language_english" class="language_button selected">
                     <img src="../assets/icons/english.svg"  class="not_icon"/>
                     <p class="language_label">English</p>  

@@ -93,15 +93,9 @@ function hidePasswords(x) {
 
 //Selects the competition that the technicians will be imported from
 function importTechnicians(x) {
-    var remclass = document.getElementsByClassName("selected");
-    var i;
-    for(i = 0; i < remclass.length; i++){
-        remclass[i].classList.remove("selected");
-    }
-    var y = x.id;
-    var z = document.getElementById(y);
-    z.classList.add("selected");
-    document.cookie="selected=" + y;
+    var selectedComp = x;
+    var selectedCompInput = document.getElementById("selected_comp_input")
+    selectedCompInput.value= selectedComp.id;
 }
 
 //document.cookie="techtoremove=" + null;

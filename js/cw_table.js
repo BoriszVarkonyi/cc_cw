@@ -68,7 +68,7 @@ function windowSize(){
         
         }
     }
-    else if(vw > 1400 && vw < 1600){
+    else if(vw > 1100 && vw < 1600){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }
@@ -78,7 +78,7 @@ function windowSize(){
         
         }
     }
-    else if(vw > 1200 && vw < 1400){
+    else if(vw > 700 && vw < 1100){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }
@@ -88,7 +88,7 @@ function windowSize(){
         
         }
     }
-    else if(vw < 1200){
+    else if(vw < 700){
         for(i=0; i<eleminitaions.length; i++){
             eleminitaions[i].classList.add("hidden")
         }

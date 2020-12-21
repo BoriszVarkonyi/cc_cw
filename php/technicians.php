@@ -115,6 +115,8 @@
                         <img src="../assets/icons/close-black-18dp.svg">
                     </button>
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form">
+                        <div class="select_competition_wrapper table_row_wrapper">
+                        <input type="text" name="" id="selected_comp_input">
                         <?php 
                             $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id'";
                             $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
@@ -123,13 +125,13 @@
                                 $import_comp_name = $row['comp_name'];
                                 $import_comp_id = $row['comp_id'];
                         ?>
-                                    <div class="select_competition_wrapper table_row_wrapper">
                                         <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $import_comp_id; ?>"><?php echo $import_comp_name; ?></div></div>
-                                    </div>
+                                    
                         <?php 
                             }
                         
                         ?>
+                        </div>
                         <button type="submit" name="submit_import" class="panel_submit" form="import_technician" value="Import">Import</button>
                     </form>
                 </div>
