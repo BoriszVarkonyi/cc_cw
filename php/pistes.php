@@ -119,6 +119,17 @@ if(isset($_POST["create_piste"])){
     }
 }
 
+
+    if (isset($_POST['delete_piste'])) {
+        $id_to_delete = $_POST['id_to_change'];
+
+        //delete piste from db
+
+        $qry_delete = "DELETE FROM `pistes_$comp_id` WHERE `id` = '$id_to_delete'";
+        $do_delete = mysqli_query($connection, $qry_delete);
+        echo mysqli_error($connection);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +138,7 @@ if(isset($_POST["create_piste"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Comp's name}'s pistes</title>
+    <title><?php echo $comp_name ?>'s pistes</title>
     <link rel="stylesheet" href="../css/basestyle.css">
     <link rel="stylesheet" href="../css/mainstyle.css">
 </head>
@@ -240,7 +251,8 @@ if(isset($_POST["create_piste"])){
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
-                            <form class="piste_settings_panel">
+                            <form  method="POST" class="piste_settings_panel">
+                            <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"><input>
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">
@@ -258,7 +270,7 @@ if(isset($_POST["create_piste"])){
                                 </div>
                                 <div>
                                     <p>Delete</p>
-                                    <button>
+                                    <button name="delete_piste" id="delete_piste" type="submit">
                                         <img src="../assets/icons/delete-black-18dp.svg" >
                                     </button>
                                 </div>
@@ -320,7 +332,8 @@ if(isset($_POST["create_piste"])){
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
-                            <form class="piste_settings_panel">
+                            <form method="POST" class="piste_settings_panel">
+                                <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"><input>
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">
@@ -338,7 +351,7 @@ if(isset($_POST["create_piste"])){
                                 </div>
                                 <div>
                                     <p>Delete</p>
-                                    <button>
+                                    <button name="delete_piste" id="delete_piste" type="submit">
                                         <img src="../assets/icons/delete-black-18dp.svg" >
                                     </button>
                                 </div>
@@ -397,7 +410,8 @@ if(isset($_POST["create_piste"])){
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
-                            <form class="piste_settings_panel">
+                            <form method="POST" class="piste_settings_panel">
+                            <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"><input>
                                 <div>
                                     <p>Control</p>
                                     <button class="selected">
@@ -415,7 +429,7 @@ if(isset($_POST["create_piste"])){
                                 </div>
                                 <div>
                                     <p>Delete</p>
-                                    <button>
+                                    <button name="delete_piste" id="delete_piste" type="submit">
                                         <img src="../assets/icons/delete-black-18dp.svg" >
                                     </button>
                                 </div>
