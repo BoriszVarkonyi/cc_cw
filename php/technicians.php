@@ -121,8 +121,6 @@
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
 
-                <input class="selected_list_item_input hidden" form="remove_technician" name='id' type="text" class="selected_list_item_input">
-
                     <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()">
                         <p>Import Technicians</p>
                         <img src="../assets/icons/save_alt-black-18dp.svg"/>
@@ -134,7 +132,8 @@
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form">
                         <div class="select_competition_wrapper table_row_wrapper">
 
-                        <input type="text" name="selected_comp_id" id="selected_comp_input">
+                        <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
+
                         <?php
                             //get oragasniser id
                             $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
