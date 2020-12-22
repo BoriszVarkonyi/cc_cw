@@ -22,6 +22,7 @@ function buttonDisabler(){
 }
 
 var wcRows = document.querySelectorAll(".table_row_wrapper .table_row")
+//Event listener to class change
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {

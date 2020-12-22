@@ -1,3 +1,33 @@
+var removeButton = document.querySelector(".stripe_button.red");
+removeButton.classList.add("disabled")
+removeButton.disabled = true;
+//Event listener to class change
+function removeButtonDisabler(){
+    var selectedItem = document.querySelector(".table_row_wrapper .selected")
+    if(selectedItem !== null){
+        removeButton.disabled = false;
+        removeButton.classList.remove("disabled")
+    }
+    else{
+        removeButton.disabled = true;
+        removeButton.classList.add("disabled")
+    }
+}
+
+var wcRows = document.querySelectorAll(".table_row_wrapper .table_row")
+function callback(mutationsList, observer) {
+    mutationsList.forEach(mutation => {
+        if (mutation.attributeName === 'class') {
+            removeButtonDisabler();
+        }
+    })
+}
+    
+const mutationObserver3 = new MutationObserver(callback)
+for(i=0; i<wcRows.length; i++){
+mutationObserver3.observe(wcRows[i], { attributes: true })
+}
+
 var importOverlayClosed = true;
 var selectedElementIndexImport = 0;
 document.addEventListener("keyup", function(keyDownEvent){
@@ -41,5 +71,19 @@ document.addEventListener("keyup", function(keyDownEvent){
                 tableRows[selectedElementIndexImport].focus()
             }
         }
-    } 
-})    
+    }
+    //searchBarClosed is a var. from control.js
+    if(searchBarClosed){
+        if(keyDownEvent.shiftKey && keyDownEvent.which == 65) {
+            var orangeAddButton = document.querySelector(".stripe_button.orange")
+            orangeAddButton.click()
+        }
+        if(keyDownEvent.shiftKey && keyDownEvent.which == 73) {
+            var stripeButton = document.querySelector(".stripe_button")
+            stripeButton.click()
+        }
+        if(keyDownEvent.shiftKey && keyDownEvent.which == 82){
+            removeButton.click()
+        }
+    }     
+})

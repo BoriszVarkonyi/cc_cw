@@ -74,3 +74,13 @@ function toggleEntry(x) {
     oldentry = undefined;
   }
 }
+document.addEventListener("keyup", function(e){
+  if(e.shiftKey && e.which == 83) {
+    var orangeSaveButton = document.querySelector(".stripe_button.orange")
+    orangeSaveButton.click()
+  }
+  if(e.shiftKey && e.which == 80) {
+  var stripeButton = document.querySelector(".stripe_button")
+  stripeButton.click()
+}
+})

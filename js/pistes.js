@@ -29,7 +29,8 @@ function togglePisteSettings(x) {
 
     }  
 }
-
+//It is a var from main.js
+canAutoValidate = false;
 
 
 
@@ -112,3 +113,9 @@ function numberedPiste(){
     }
 
 }
+document.addEventListener("keyup", function(e){
+    if(e.shiftKey && e.which == 65) {
+        var orangeAddButton = document.querySelector(".stripe_button.orange")
+        orangeAddButton.click()
+    }
+})

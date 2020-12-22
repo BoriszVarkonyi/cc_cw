@@ -99,3 +99,20 @@ function windowSize(){
         }
     }
 }
+var eliminations = document.querySelectorAll(".elimination_label")
+var tableOfIndex = 8;
+for(i=eliminations.length-1; i>=0; i--){
+    if(i == eliminations.length-1){
+        eliminations[i].innerHTML = "Winner"
+    }
+    else if(i == eliminations.length-2){
+        eliminations[i].innerHTML = "Final"
+    }
+    else if(i == eliminations.length-3){
+        eliminations[i].innerHTML = "Semi Final"
+    }
+    else{
+        eliminations[i].innerHTML = "Table of " + tableOfIndex
+        tableOfIndex = tableOfIndex*2
+    }
+}
