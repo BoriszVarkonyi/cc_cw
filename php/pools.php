@@ -684,7 +684,7 @@ if(isset($_POST["start_pools"])){
 
 include "../includes/pool_orders.php";
 
-$s_table_create = "CREATE TABLE pool_matches_$comp_id ( m_id VARCHAR(11) NOT NULL , p_in INT(11) NOT NULL , f1_id VARCHAR(11) NOT NULL , f2_id VARCHAR(11) NOT NULL , f1_sc INT(11) NOT NULL , f2_sc INT(11) NOT NULL , oip INT(11) NOT NULL , w_id VARCHAR(255) NOT NULL ) ENGINE = InnoDB;";
+$s_table_create = "CREATE TABLE pool_matches_$comp_id ( m_id VARCHAR(11) NOT NULL , p_in INT(11) NOT NULL , f1_id VARCHAR(11) NOT NULL , f2_id VARCHAR(11) NOT NULL , f1_sc INT(11) , f2_sc INT(11) , oip INT(11) NOT NULL , w_id VARCHAR(255) NOT NULL ) ENGINE = InnoDB;";
 $s_table_create_do = mysqli_query($connection, $s_table_create);
 
 
@@ -1198,12 +1198,70 @@ elseif($exist != 0 && $exist2 == 0){
                     <?php }else{ ?>
                     STATE: 2 
                     <div id="pool_listing"> 
-                        <div class="entry" >
+
+
+                    
+                    <?php
+
+                    $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
+                    $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
+                    if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
+                        $pool_of = $row['MAX(`pool_number`)'];
+                    }
+
+                    $f = [];
+                    for ($i=1; $i <= $pool_of; $i++) { 
+                            
+                        $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
+                        $inside_query_do = mysqli_query($connection,$inside_query);
+
+                        if($row = mysqli_fetch_assoc($inside_query_do)){
+
+                            $pool_f_in = $row["pool_of"];
+                            $f[0] = $row['f1'];
+                            $f[1] = $row['f2'];
+                            $f[2] = $row['f3'];
+                            $f[3] = $row['f4'];
+                            $f[4] = $row['f5'];
+                            $f[5] = $row['f6'];
+                            $f[6] = $row['f7'];
+                            $ref = $row["ref"];
+                            $ref_2 = $row["ref2"];
+                            $piste = $row["piste"];
+                            $time = $row["time"];
+
+
+                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref'";
+                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
+
+                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
+
+                                $refname = $refrow["full_name"];
+                                $refnat = $refrow["nat"];
+
+                            }
+
+                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref_2'";
+                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
+
+                            $ref2name = "";
+                            $ref2nat = "";
+
+                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
+
+                                $ref2name = $refrow["full_name"];
+                                $ref2nat = $refrow["nat"];
+
+                            }
+
+                        }?>
+                    
+                    <div class="entry" >
                             <div class="table_row start">
-                                <div class="table_item bold">No. 1</div>
-                                <div class="table_item">Piste 1</div>
-                                <div class="table_item">Ref: Név</div>
-                                <div class="table_item">11:50</div>
+                                <div class="table_item bold">No. <?php echo $i ?></div>
+                                <div class="table_item">Piste <?php echo $piste ?></div>
+                                <div class="table_item">Ref: <?php echo $refname ?></div>
+                                <div class="table_item"><?php echo $time ?></div>
                                 <button type="button" onclick="" class="pool_config">
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
@@ -1220,125 +1278,136 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-                                        <div class="table_header_text square">
-                                            1
+                                        <?php 
+                                        for ($k=0; $k < $pool_f_in; $k++) { ?>
+                                            <div class="table_header_text square">
+                                            <?php echo $k +1; ?>
                                         </div>
-                                        <div class="table_header_text square">
-                                            2
-                                        </div>
-                                        <div class="table_header_text square">
-                                            3
-                                        </div>
-                                        <div class="table_header_text square">
-                                            4
-                                        </div>
-                                        <div class="table_header_text square">
-                                            5
-                                        </div>
-                                        <div class="table_header_text square">
-                                            6
-                                        </div>
-                                        <div class="table_header_text square">
-                                            W
-                                        </div>
-                                        <div class="table_header_text square">
-                                            L
-                                        </div>
-                                        <div class="table_header_text square">
-                                            TR
-                                        </div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">1</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
+                                        <?php
+                                        }
+                                        ?>
                                         
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
                                     </div>
+
+                                    <?php
+                                    for ($n=0; $n < $pool_f_in; $n++) { 
+                                            $fx = $f[$n];
+                                            $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
+                                            $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+
+                                            if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
+                                                $fencer_nat = $row['nationality'];
+                                                $fencer_name = $row['name'];
+                                            }?>
+                                            
+
                                     <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">2</div>
-                                        <div class="table_item square">a</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">3</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">as</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">gr</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">5</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">gr</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                    </div>
+                                        <div class="table_item"><?php echo $fencer_name ?></div>
+                                        <div class="table_item"><?php echo $fencer_nat ?></div>
+                                        <div class="table_item square row_title"><?php echo $n+1 ?></div>
+                                        <?php
+                                        $filled = "";
+                                        for ($l=0; $l < $pool_f_in; $l++) { 
+                                            
+                                        if($l == $n){
+
+                                        $filled = "filled";
+
+                                        }?>
+                                        
+                                        <div class="table_item square <?php echo $filled ?>">
                                     
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">6</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">ge</div>
-                                        <div class="table_item square  filled"></div>
+                                        <?php
+                                        $front = 0;
+                                        $back = 0;
+                                            if($l > $n){
                                         
+                                                $front = $n+1;
+                                                $back = $l+1;
+
+                                            }else{
+
+                                                $front = $l +1 ;
+                                                $back = $n+1;
+
+                                            }
+                                        if($l != $n){
+                                            $scorenow = 0;
+                                            $m_id = $front . "-" . $back;
+
+                                            if($l > $n){
+                                                $ret = $i +1;
+                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $i";
+                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
+
+                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
+
+                                                    $scorenow = $row4["f1_sc"];
+                                                    
+                                                }
+                                                echo $scorenow;
+
+                                            }
+                                            elseif($n > $l){
+                                                $ret = $i +1;
+                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $i";
+                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
+
+                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
+
+                                                    $scorenow = $row4["f2_sc"];
+                                                    
+                                                }
+                                                echo $scorenow;
+                                            }
+
+                                            }
+
+                                        ?>
+                                        
+                                        </div>
+                                        
+                                        <?php
+                                        $filled = "";
+                                        }
+
+                                        ?>
+
+                                        
+                                        
+                                        <!-- <div class="table_item square">a4</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
+                                        <div class="table_item square">5a</div>
+                                        <div class="table_item square">5a</div> -->
+
                                     </div>
+
+                                    <?php
+                                        }
+                                            ?>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="entry" >
+                    
+                    <?php
+                    }
+                    ?>
+
+
+
+                        
+
+
+
+
+
+
+
+
+                        <!-- <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
@@ -1756,7 +1825,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 <?php
 }
 ?>
