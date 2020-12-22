@@ -22,6 +22,7 @@ function buttonDisabler(){
 }
 
 var wcRows = document.querySelectorAll(".table_row_wrapper .table_row")
+//Event listener to class change
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {
@@ -38,7 +39,10 @@ mutationObserver2.observe(wcRows[i], { attributes: true })
 wctable.addEventListener("click", buttonDisabler)    
 
 document.addEventListener("keyup", function(e){
-    if(e.shiftKey && e.which == 78) {
-        addWeaponControlButton.click()
-    }
+    //searchBarClosed is a var. from control.js
+    if(searchBarClosed){
+        if(e.shiftKey && e.which == 65) {
+            addWeaponControlButton.click()
+        }
+    }    
 })

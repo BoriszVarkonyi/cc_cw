@@ -2,6 +2,7 @@
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
 //This var. used in other files.
 var selectedElementIndexAr = 0;
+importOverlayClosed = true;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system, works only if search bar closed
     //importOverlayClosed is a var. from importoverlay.js
@@ -78,7 +79,8 @@ document.onkeydown = (keyDownEvent) => {
             }
             selected.classList.add("selected")
             keyDownEvent.target.value = selected.innerHTML;
-            keyDownEvent.preventDefault(); 
+            keyDownEvent.preventDefault();
+            //It is a function from main.js 
             formvariableDeclaration();
         }
     } 

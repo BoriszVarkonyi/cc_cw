@@ -50,13 +50,14 @@
     if (isset($_POST['submit_import'])) {
         $selected_comp_id = $_POST['selected_comp_id'];
 
-        $qry_import = "SELECT * FROM `tech_$selected_comp_id`";
+        $qry_import = "SELECT * FROM `ref_$selected_comp_id`";
         $do_import = mysqli_query($connection, $qry_import);
 
         while ($row = mysqli_fetch_assoc($do_import)) {
             $name = $row['name'];
             $pass = $row['pass'];
-            $role = $row['role'];
+            $full_name = $row['full_name'];
+            $nat = $row['nat'];
             $online = $row['online'];
 
             //test for existing techs
@@ -66,26 +67,23 @@
 
             if ($test_num_rows == FALSE) {
                 //update current comps tach table with imported tecch
-                $qry_insert_import = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$name', '$pass', '$role', '$online')";
+                $qry_insert_import = "INSERT INTO $table_name (name, pass, full_name, nat, online) VALUES ('$name', '$pass', '$full_name', '$nat', '$online')";
                 $do_insert_import = mysqli_query($connection, $qry_insert_import);
                 echo mysqli_error($connection);
             }
         }
-        
     }
 
     if(isset($_POST["remove_referee"])) {
         $id = $_POST['id'];
+        echo "áááááááááááááááá";
+        echo $id ;
+        echo "asd";
 
-        $qry_delete = "DELETE FROM $table_name WHERE id = '$id'";
-        if ($do_delete = mysqli_query($connection, $qry_delete)) {
-            $feedback['delete'] = 'ok!';
-        
-        } else {
-            $feedback['delete'] = 'ERROR ' . mysqli_error($connection);
-        
-        }
-
+        $qry_delete = "DELETE FROM ref_$comp_id WHERE id = '$id'";
+        $do_delete = mysqli_query($connection, $qry_delete);
+        echo mysqli_error($connection);
+        //header("Refresh:0");
     }
 
     if(isset($_POST["new_technician"])){
@@ -142,7 +140,6 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
-                        <input class="hidden" type="text" name="id" form="remove_technician" class="selected_list_item_input">
                         <button class="stripe_button" onclick="toggle_import_technician()">
                             <p>Import Referees</p>
                             <img src="../assets/icons/save_alt-black-18dp.svg"/>
@@ -182,9 +179,9 @@
                                 <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
                             </form>
                         </div>
-                        <input type="text" class="selected_list_item_input">
+                        <input type="text" name='id' form="remove_technician" class="selected_list_item_input hidden">
                         <form action="" method="POST" id="remove_technician" class="hidden"></form>
-                        <button class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                        <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                             <p>Remove Referee</p>
                             <img src="../assets/icons/delete-black-18dp.svg"/>
                         </button>
@@ -230,7 +227,7 @@
                             
                             ?>
 
-                            <a id="<?php echo $ref_id ?>A" href="#"  onclick="selectSearch(this), autoFill(this)"><?php echo $ref_name ?></a>
+                            <a id="<?php echo $ref_id ?>" href="#"  onclick="selectSearch(this), autoFill(this)"><?php echo $ref_name ?></a>
 
                             <?php 
                             

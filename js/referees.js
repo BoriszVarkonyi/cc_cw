@@ -10,9 +10,11 @@ function toggle_import_technician() {
     //importOverlayClosed is a var. from importoverlay.js
     if(element.classList.contains("hidden")){
         importOverlayClosed = true;
+        canAutoValidate = true;
     }
     else{
         importOverlayClosed = false;
+        canAutoValidate = false;
     }
 }
 
