@@ -1026,9 +1026,10 @@ elseif ($exist != 0 && $exist2 == 0)
 <?php 
 }else{ 
     ?>
-                
-
-                STATE: 2
+                <a class="stripe_button orange" href="https://www.google.com" target="_target">
+                    <p>Print Pools</p>
+                    <img src="../assets/icons/print-black-18dp.svg"/>
+                </a>
      <?php
     }
     ?>           

@@ -3490,8 +3490,8 @@ input.wc_time {
 	cursor: default;
 }
 
-#pool_listing .entry > .entry_panel > .pool_table_wrapper > .table_row > .table_item:first-of-type {
-	font-family: var(--bold);
+#pool_listing .table_row > .table_item:first-of-type {
+	font-family: var(--bold) !important;
 }
 
 #pool_listing .pool_table_wrapper .table_row {
@@ -3506,7 +3506,7 @@ input.wc_time {
 	background-color: var(--c-white) !important;
 }
 
-#pool_listing.state_2 .pool_table_wrapper .table_row:nth-of-type(odd) {
+#pool_listing.state_2 .pool_table_wrapper .table_row:nth-of-type(even) {
 	background-color: var(--c-lightergray) !important;
 }
 
@@ -3886,4 +3886,96 @@ input.wc_time {
 .disqualify_button:hover {
 	color: var(--c-white);
 	background-color: var(--c-red);
+}
+
+/* Pool Results */
+
+#pool_results {
+	display: flex;
+	max-width: 100%;
+}
+
+#pool_results > div {
+	flex: 1 1 0;
+	width: 0;
+	display: flex;
+}
+
+#pool_results .entry {
+	align-self: center;
+	justify-self: center;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 50px;
+}
+
+#pool_matches {
+	padding: 50px 0;
+	height: 100%;
+	width: 50%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end !important;
+}
+
+.match {
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	position: relative;
+	background-color: var(--c-white);
+	border: 5px solid;
+	margin: 5px 0;
+}
+
+.match.red {
+	border-color: var(--c-red);
+}
+
+.match.green {
+	border-color: var(--c-green);
+}
+
+.match_number {
+	font-size: var(--f-large);
+	font-family: var(--bold);
+	color: var(--c-darkgray);
+	justify-content: center;
+}
+
+.match > div {
+	display: flex;
+	flex: 1 1 0;
+	width: 0;
+	align-items: center;
+}
+
+.match > div > p {
+	font-size: var(--f-medium);
+	font-family: var(--bold);
+	text-overflow: ellipsis;
+}
+
+.match > div:nth-of-type(2) {
+	justify-content: flex-end;
+	text-align: end;
+}
+
+.match > div:last-of-type {
+	justify-content: flex-start;
+	text-align: start;
+}
+
+.match > div.vs, .match > div.match_number  {
+	flex: 0 0 50px;
+}
+
+.match input[type="number"] {
+	padding: 0 !important;
+	width: 40px !important;
+	margin: 20px !important;
+	text-align: center;
 }

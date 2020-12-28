@@ -49,7 +49,7 @@
                                                 Fencers name
                                             </div>
                                             <div class="table_header_text">
-                                                Fencers nationality
+                                                Fencers nation / club
                                             </div>
 
                                             <div class="table_header_text square">
@@ -201,7 +201,7 @@
                                                 Fencers name
                                             </div>
                                             <div class="table_header_text">
-                                                Fencers nationality
+                                                Fencers nation / club
                                             </div>
 
                                             <div class="table_header_text square">

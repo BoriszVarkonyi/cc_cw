@@ -219,7 +219,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     <form id="appdisapp_<?php  echo $entry_id  ?>" class="approve_fencers_wrapper table" action="" method="POST">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
-                                            <div class="table_header_text">FENCER'S NATIONALITY</div>
+                                            <div class="table_header_text">FENCER'S NATION / CLUBY</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
                                         </div>
                                         <div class="table_row_wrapper">
@@ -357,7 +357,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     <form class="approve_fencers_wrapper table">
                                         <div class="table_header">
                                             <div class="table_header_text">FENCER'S NAME</div>
-                                            <div class="table_header_text">FENCER'S NATIONALITY</div>
+                                            <div class="table_header_text">FENCER'S NATION / CLUB</div>
                                             <div class="table_header_text">FENCER'S DATE OF BIRTH</div>
                                         </div>
                                         <div class="table_row_wrapper">

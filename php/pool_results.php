@@ -67,162 +67,335 @@
             </div>
 
             <div id="page_content_panel_main">
-                <div class="wrapper width_80 table_row_wrapper" id="pool_results">
+                <div class="wrapper full" id="pool_results">
+                    <div>
+                        <div class="entry">
+                            <div class="table_row start">
+                                    <div class="table_item bold">No. 1</div>
+                                    <div class="table_item">Piste 1</div>
+                                    <div class="table_item">Ref: Név</div>
+                                    <div class="table_item">11:50</div>
+                                </div>
+                                <div class="entry_panel gray results">
+                                    <div class="pool_table_wrapper table">
+                                        <div class="table_header">
+                                            <div class="table_header_text">
+                                                Fencers name
+                                            </div>
+                                            <div class="table_header_text square">
+                                                No.
+                                            </div>
 
-                    <div class="entry" >
-                        <div class="table_row start">
-                                <div class="table_item bold">No. 1</div>
-                                <div class="table_item">Piste 1</div>
-                                <div class="table_item">Ref: Név</div>
-                                <div class="table_item">11:50</div>
-                            </div>
-                            <div class="entry_panel gray results">
-                                <div class="pool_table_wrapper">
-                                    <div class="table_header">
-                                        <div class="table_header_text">
-                                            Fencers name
-                                        </div>
-                                        <div class="table_header_text">
-                                            Fencers nationality
-                                        </div>
+                                            <div class="table_header_text square">
+                                                1
+                                            </div>
 
-                                        <div class="table_header_text square">
-                                            No.
-                                        </div>
+                                            <div class="table_header_text square">
+                                                2
+                                            </div>
 
-                                        <div class="table_header_text square">
-                                            1
-                                        </div>
+                                            <div class="table_header_text square">
+                                                3
+                                            </div>
 
-                                        <div class="table_header_text square">
-                                            2
-                                        </div>
+                                            <div class="table_header_text square">
+                                                4
+                                            </div>
 
-                                        <div class="table_header_text square">
-                                            3
-                                        </div>
+                                            <div class="table_header_text square">
+                                                5
+                                            </div>
 
-                                        <div class="table_header_text square">
-                                            4
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            5
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            6
+                                            <div class="table_header_text square">
+                                                6
+                                            </div>
                                         </div>
 
-                                        <div class="table_header_text square">
-                                            W
+                                        <div class="table_row">
+                                            <div class="table_item"><p>Name</p></div>
+                                            <div class="table_item square row_title">1</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
-                                        <div class="table_header_text square">
-                                            L
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">2</div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
-                                        <div class="table_header_text square">
-                                            TR
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">3</div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
-                                    </div>
 
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Name</p></div>
-                                        <div class="table_item">Nat</div>
-                                        <div class="table_item square row_title">1</div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                    </div>
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">4</div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                        </div>
 
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">2</div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                    </div>
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">5</div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                        </div>
 
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">3</div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                    </div>
-
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">4</div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                    </div>
-
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">5</div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square filled"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                    </div>
-
-                                    
-                                    <div class="table_row">
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item">Name</div>
-                                        <div class="table_item square row_title">6</div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square  filled"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
-                                        <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                        <div class="table_row">
+                                            <div class="table_item">Name</div>
+                                            <div class="table_item square row_title">6</div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square  filled"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    <div id="pool_matches">
+                        <div class="match red">
+                            <div class="match_number">
+                                <p>1.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match red">
+                            <div class="match_number">
+                                <p>2.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match red">
+                            <div class="match_number">
+                                <p>1.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match red">
+                            <div class="match_number">
+                                <p>3.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>4.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>5.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>6.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>7.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>8.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>9.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>10.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>11.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+                        <div class="match green">
+                            <div class="match_number">
+                                <p>12.</p>
+                            </div>
+                            <div>
+                                <p>Embermm mmmmm mmmmmm</p>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                            </div>
+                            <div class="vs">
+                                <p>VS.</p>
+                            </div>
+                            <div>
+                                <input type="number" name="" id="" class="number_input" placeholder="#">
+                                <p>Embermm mmmmm mmmmmm</p>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+</body>
 </html>
