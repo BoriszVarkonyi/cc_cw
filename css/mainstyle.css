@@ -3494,11 +3494,19 @@ input.wc_time {
 	font-family: var(--bold);
 }
 
-.pool_table_wrapper .table_row {
+#pool_listing .pool_table_wrapper .table_row {
 	background-color: var(--c-white) !important;
 }
 
-.pool_table_wrapper .table_row:nth-of-type(4n) {
+#pool_listing .pool_table_wrapper .table_row:nth-of-type(4n) {
+	background-color: var(--c-lightergray) !important;
+}
+
+#pool_listing.state_2 .pool_table_wrapper .table_row {
+	background-color: var(--c-white) !important;
+}
+
+#pool_listing.state_2 .pool_table_wrapper .table_row:nth-of-type(odd) {
 	background-color: var(--c-lightergray) !important;
 }
 
