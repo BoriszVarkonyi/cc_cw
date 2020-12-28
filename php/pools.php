@@ -633,6 +633,7 @@ if(isset($_POST["draw_ref"])){
         
         //print_r($ref_assigned_pools);
     }
+    header("Refresh:0");
 }
 
     
@@ -660,23 +661,24 @@ if (isset($_POST['save_pools'])) {
             }
         }
     }
+
     unset($pool_number, $current_array);
 
+    print_r($ARRAY_competitors);
     //update table with the new records
     foreach ($ARRAY_competitors as $pool_number => $current_array) {
         $pool_number_real = $pool_number + 1;
+        $pool_of = array_search("", $current_array);
         for ($i = 1; $i <= count($current_array); $i++) {
             ${"f".$i} = $current_array[$i-1];
         }
-        $qry_update = "UPDATE pools_$comp_id SET f1 = '$f1', f2 = '$f2', f3 = '$f3', f4 = '$f4', f5 = '$f5', f6 = '$f6', f7 = '$f7' WHERE `pool_number` = '$pool_number_real'";
+        $qry_update = "UPDATE pools_$comp_id SET pool_of = '$pool_of', f1 = '$f1', f2 = '$f2', f3 = '$f3', f4 = '$f4', f5 = '$f5', f6 = '$f6', f7 = '$f7' WHERE `pool_number` = '$pool_number_real'";
         $do_update = mysqli_query($connection, $qry_update);
         echo mysqli_error($connection);
     }
 
-    header("Location: pools.php?comp_id=$comp_id");
-    echo "ARRAY_COMPETITORS";
+    //header("Location: pools.php?comp_id=$comp_id");
     //print_r($ARRAY_competitors);
-    echo "array_hidden";
     //print_r($array_hidden);
 }
 
