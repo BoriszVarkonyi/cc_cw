@@ -1160,7 +1160,7 @@ elseif($exist != 0 && $exist2 == 0){
                                             <div class="table_header_text square">
                                                 rp
                                             </div>
-                                            
+        
                                         </div>
                                         <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
                                             <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
