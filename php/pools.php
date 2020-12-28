@@ -1829,6 +1829,7 @@ elseif($exist != 0 && $exist2 == 0){
             </div>
         </div>
     </body>
+    
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/pools.js"></script>

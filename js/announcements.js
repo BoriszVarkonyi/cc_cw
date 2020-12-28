@@ -57,10 +57,12 @@ function hideNshow() {
 document.onkeyup=function(e){
     var newAnn = document.getElementById("new_announcement_top")
     var titleBar = document.querySelector(".title_input")
-    if(e.shiftKey && e.which == 78) {
-        newAnn.click()
-        titleBar.focus()
-    }
+    if(!somethingisOpened && IsNotFocused){
+        if(e.shiftKey && e.which == 78) {
+            newAnn.click()
+            titleBar.focus()
+        }
+    }    
 }
 var IsNotFocused = true;
 var openedForm =  document.querySelectorAll(".db_panel_main .entry_panel textarea")

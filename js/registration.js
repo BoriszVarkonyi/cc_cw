@@ -21,18 +21,20 @@ registrationtable.addEventListener("click", function(){
     console.log(isselected)
 })
 document.addEventListener("keyup", function(e){
-    if(e.shiftKey && e.which == 65) {
-        var addfencer = document.getElementById("addFencer")
-        addfencer.click()
-    }
-    if(isselected){
-        if(e.shiftKey && e.which == 79) {
-            var regOutButton = document.getElementById("regOut")
-            regOutButton.click()
+    if(!somethingisOpened){
+        if(e.shiftKey && e.which == 65) {
+            var addfencer = document.getElementById("addFencer")
+            addfencer.click()
         }
-        if(e.shiftKey && e.which == 73) {
-            var regInButton = document.getElementById("regIn")
-            regInButton.click()
-        } 
-    }
+        if(isselected){
+            if(e.shiftKey && e.which == 79) {
+                var regOutButton = document.getElementById("regOut")
+                regOutButton.click()
+            }
+            if(e.shiftKey && e.which == 73) {
+                var regInButton = document.getElementById("regIn")
+                regInButton.click()
+            } 
+        }
+    }    
 })
