@@ -70,7 +70,7 @@ header("Location: ../index.php");
 ?>
 
 <div>
-    <div id="header_bar">
+    <header>
         
         <!-- header title left -->
         <p id="app_name">Competition Control Alpha</p>
@@ -160,5 +160,5 @@ header("Location: ../index.php");
                 <button type="submit" name="logout" class="logout_button">Log out</button>
             </form>
         </div>
-    </div>
+    </header>
 </div>

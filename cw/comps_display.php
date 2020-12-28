@@ -1,3 +1,12 @@
+<div class="table cw">
+    <div class="table_header">
+        <div class="table_header_text"><p>COMPETITION'S NAME</p></div>
+        <div class="table_header_text"><p>STARTING AND ENDING DATE</p></div>
+        <div class="table_header_text"><p>HOSTING COUNTRY</p></div>
+        <div class="big_status_header"></div>
+    </div>
+    <div class="table_row_wrapper alt">
+
 <?php
 include "../cw/db.php";
 
@@ -17,7 +26,7 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     ?>
 
     <!-- outputting the table -->    
-    <div class="table_row" onclick="window.location.href='cw_competition.php?comp_id=<?php echo $comp_id ?>'">
+    <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
         <div class="table_item">
             <p>
                 <?php echo $comp_name; ?>
@@ -41,9 +50,5 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     </div>
 
 <?php } ?>
-    
 
-    
-        </div>
-    </div>
 </div>

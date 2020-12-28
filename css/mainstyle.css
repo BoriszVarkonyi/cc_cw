@@ -1,12 +1,6 @@
 /* ///UNIVERSAL/// */
 
 body, html {	/* Gives placeholder background and default font*/
-    background-color: var(--c-white);
-	font-family: var(--reg);
-	color: var(--c-black);
-	height: 100%;
-	padding: 0;
-	margin: 0;
 	overflow: hidden;
 }
 
@@ -88,7 +82,7 @@ textarea {
 
 /* Header Bar */
 
-#header_bar {
+header {
 	width: 100%;
 	max-height: 40px;
 	background-color: var(--c-white);
@@ -234,7 +228,7 @@ textarea {
 	font-size: var(--f-xsmall);
 	margin-bottom: 5px;
 	padding: 5px;
-	background-color: transparent;
+	background: transparent;
 	color: var(--c-black)
 }
 
@@ -419,6 +413,30 @@ input[type="range"]:focus::-ms-fill-upper {
 	background: var(--c-gray);
 }
 
+/* Back Button used in CC Dasboard And CW Competition's page and subpages */
+
+.back_button {
+	margin-left: 40px;
+	min-height: 35px;
+	min-width: 35px;
+	border: 0;
+	border-radius: 50%;
+	background-color: var(--c-lightergray);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.back_button > img {
+	margin-right: 3px;
+	height: 25px;
+	width: 25px;
+}
+
+.back_button:hover {
+	background-color: var(--c-gray);
+}
+
 /* Navigation */
 
 #nav_bar {
@@ -493,7 +511,7 @@ input[type="range"]:focus::-ms-fill-upper {
     align-items: center;
 	font-size: calc(var(--f-medium) + 3px);
 	padding: 0;
-	background-color: transparent;
+	background: transparent;
 	color: var(--c-black);
 	margin: 3px 0;
 	max-height: 39px;
@@ -661,7 +679,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .dropdown_menu a {
 	padding: 0 0 0 5px;
 	transition: var(--t-basic);
-	background-color: transparent;
+	background: transparent;
 	overflow: visible;
 	margin: 0;
 	height: auto;
@@ -1419,7 +1437,7 @@ input[type=radio]:checked:disabled + label:before {
 .other_apps_button {
 	color: var(--c-white);
 	font-size: var(--f-small);
-	background-color: transparent;
+	background: transparent;
 	text-transform: uppercase;
 	transition: var(--t-basic);
 	padding: 10px;
@@ -1521,7 +1539,7 @@ input[type=radio]:checked:disabled + label:before {
 #random_password_button {
 	height: 35px;
 	width: 35px;
-	background-color: transparent;
+	background: transparent;
 	position: absolute;
 	margin-top: 3px;
 }
@@ -1538,7 +1556,7 @@ input[type=radio]:checked:disabled + label:before {
 #visibility_button {
 	max-width: var(--f-medium);
 	max-height: var(--f-medium);
-	background-color: transparent;
+	background: transparent;
 	vertical-align: middle;
 	margin-left: 3px;
 }
@@ -1603,7 +1621,7 @@ input[type=radio]:checked:disabled + label:before {
 	content: attr(placeholder);
 	position: absolute;
 	color: var(--c-black);
-	background-color: transparent;
+	background: transparent;
 	font-size: var(--f-small);
 }
 
@@ -1623,7 +1641,7 @@ input[type=radio]:checked:disabled + label:before {
 	justify-content: center;
 	align-items: center;
 	margin-left: 5px;
-	background-color: transparent;
+	background: transparent;
 }
 
 /* ///REGISTRTION/// */
@@ -1783,7 +1801,7 @@ input[type="file"] {
 	height: 70%;
 	font-family: var(--reg);
 	font-size: var(--f-medium);
-	background-color: transparent;
+	background: transparent;
 	border: 2px dashed var(--c-gray);
 	transition: background-color var(--t-basic), border var(--t-basic);
 }
@@ -1814,7 +1832,7 @@ input[type="file"] {
 
 #add_entry > button {
 	width: 100%;
-	background-color: transparent;
+	background: transparent;
 }
 
 #add_entry > .table_row {
@@ -2072,7 +2090,7 @@ input[type="file"] {
 }
 
 #time_stripe > button {
-	background-color: transparent;
+	background: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -2196,7 +2214,7 @@ input[type="file"] {
 	position: absolute;
 	top: 5px;
 	right: 5px;
-	background-color: transparent;
+	background: transparent;
 }
 
 #timetable > div:hover > a > button {
@@ -2266,7 +2284,7 @@ input[type="file"] {
 }
 
 .add_peroid_container > button {
-	background-color: transparent;
+	background: transparent;
 	width: 40px;
 	height: 40px;
 	border-radius: 5px;
@@ -2322,7 +2340,7 @@ input[type="file"] {
 }
 
 #wc_notes::placeholder {
-	font-size: var(--f--small);
+	font-size: var(--f-small);
 	font-family: var(--reg);
 	color: var(--c-black);
 }
@@ -2442,7 +2460,7 @@ input[type="file"] {
 
 .open_panel_button {
 	display: block;
-	background-color: transparent;
+	background: transparent;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -2519,7 +2537,7 @@ div.title_box > button {
 	font-family: var(--bold);
 	transition: var(--t-basic);
 	visibility: visible;
-	background-color: transparent;
+	background: transparent;
 	color: var(--c-black);
 }
 
@@ -2803,7 +2821,7 @@ div.title_box > button {
 
 .approve_all_button {
 	font-size: var(--f-small);
-	background-color: transparent;
+	background: transparent;
 	font-family: var(--bold);
 	display: flex;
 	justify-content: center;
@@ -2827,7 +2845,7 @@ div.title_box > button {
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	background-color: transparent;
+	background: transparent;
 	width: 30px;
 	height: 30px;
 	border-radius: 5px;
@@ -2878,7 +2896,7 @@ div.title_box > button {
 }
 
 input.wc_time {
-	background-color: transparent;
+	background: transparent;
 	color: var(--cs-black);
 	font-family: var(--reg);
 	font-size: var(--f-medium);
@@ -3145,7 +3163,7 @@ input.wc_time {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(2) > button { /* Period button */
-	background-color: transparent;
+	background: transparent;
 	height: 35px;
 	width: 35px;
 }
@@ -3317,7 +3335,7 @@ input.wc_time {
 .piste_config_button {
 	width: 75%;
 	height: 75%;
-	background-color: transparent;
+	background: transparent;
 	transition: opacity var(--t-basic);
 	opacity: 0;
 }
@@ -3359,7 +3377,7 @@ input.wc_time {
 .piste_settings_panel > div > button {
 	width: 28px;
 	height: 28px;
-	background-color: transparent;
+	background: transparent;
 	margin-top: 15px;
 	border-radius: 50%;
 }
@@ -3489,7 +3507,7 @@ input.wc_time {
 }
 
 .pool_config {
-	background-color: transparent;
+	background: transparent;
 	height: 28px;
 	width: 28px;
 	margin-left: auto;
@@ -3726,7 +3744,7 @@ input.wc_time {
 	text-decoration: underline;
 	font-size: var(--f-medium);
 	font-family: var(--bold);
-	background-color: transparent;
+	background: transparent;
 	padding: 3px 5px;
 }
 
@@ -3826,7 +3844,7 @@ input.wc_time {
 	margin: 10px 5px 5px 5px;
 	padding: 5px 10px;
 	color: var(--c-red);
-	background-color: transparent;
+	background: transparent;
 	border-radius: 100px;
 	transition: all var(--t-basic);
 }

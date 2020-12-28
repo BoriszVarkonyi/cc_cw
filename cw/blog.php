@@ -1,3 +1,4 @@
+
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
@@ -12,20 +13,21 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-    <div id="cw_main_full">
-        <div class="cw_panel_title_wrapper">
-            <p>BLOG</p>
-        </div>
-
-
-        <form id="browsing_bar">
-            <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-            <div>
-                <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                <input type="text" name="" placeholder="Search by Fencer" class="search">
-            </div>
-            <input type="submit" value="Search">
-        </form>
+    <div id="wrapper">
+        <?php include "cw_header.php"; ?>
+        <div id="main">
+            <div id="content" class="list">
+                <div id="title_stripe">
+                    <p class="stripe_title">Blog</p>
+                </div>
+                <form id="browsing_bar">
+                    <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
+                    <div>
+                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" placeholder="Search by Fencer" class="search">
+                    </div>
+                    <input type="submit" value="Search">
+                </form>
 
         <div class="cw_table_wrapper">
 
@@ -61,9 +63,10 @@
             ?>
 
 
+            </div>
+            <?php include "cw_footer.php"; ?>
         </div>
     </div>
-<?php include "cw_footer.php"; ?>
-</body>
 <script src="../js/cw_main.js"></script>
+</body>
 </html>

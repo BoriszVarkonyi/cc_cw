@@ -57,7 +57,7 @@ if (isset($_POST["logout"])) {
 ?>
 
 <div>
-    <div id="header_bar">
+    <header>
         <p id="app_name">Competition Control <b>Alpha</b></p>
 
         <!-- hamburger tab for navbar left -->
@@ -153,5 +153,5 @@ if (isset($_POST["logout"])) {
                 <button type="submit" name="logout" class="logout_button">Log out</button>
             </form>
         </div>
-    </div>
+    </header>
 </div>

@@ -1,23 +1,66 @@
-<header id="cw_header">
-    <img src="../assets/img/favicon.svg">
-    <a href="competition_view.php">CompetitionView</a>
+<header>
     <div>
-        <a href="cw_saved_competitions.php">Saved Competitions</a>
-        <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
-            <img src="../assets/icons/language-black-18dp.svg" >
-        </button>
+        <a href="competition_view.php" id="app_name">CompetitionView</a>
     </div>
-    <div>
+    <div id="navigation">
+        <div class="current">
+            <a href="competition_view.php">Home</a>
+        </div>
         <div>
-            <button value="Competitions" onclick="openCompetitionsDropdown()">Competitions</button>
-            <div id="competition_dropdown" class="closed">
-                <a href="cw_sheduled_competitions.php">Sheduled</a>
-                <a href="cw_ongoing_competitions.php">Ongoing</a>
-                <a href="cw_finished_competitions.php">Finished</a>
+            <button onclick="toggleCompetitionsPanel(this)" type="button">Competitions</button>
+            <div id="competitions_navigation">
+                <a href="upcoming_competitions.php">Upcoming</a>
+                <a href="ongoing_competitions.php">Ongoing</a>
+                <a href="finished_competitions.php">Finished</a>
             </div>
         </div>
-        <a href="cw_blog.php">Blog</a>
-        <a href="cw_videos.php">Videos</a>
-        <a href="cw_rankings.php">Rankings</a>
+        <div>
+            <a href="blog.php">Blog</a>
+        </div>
+        <div>
+            <a href="videos.php">Videos</a>
+        </div>
+        <div>
+            <a href="rankings.php">Rankings</a>
+        </div>
+        <div>
+            <a id="saved_competitions" href="saved_competitions.php">Saved Competitions</a>
+        </div>
+    </div>
+    <div id="change_language">
+        <div>
+            <button onclick="toggleLanguagesPanel(this)">
+                <p>En</p>
+                <img src="../assets/icons/arrow_drop_down-black-18dp.svg">
+            </button>
+            <div id="change_language_panel">
+                <div>
+                    <button class="selected">English</button>
+                    <button>German</button>
+                    <button>French</button>
+                    <button>Russian</button>
+                    <button>Spanish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="navigation_mobile">
+        <button onclick="toggleMobileNavigation(this)">
+            <img src="../assets/icons/menu-black-18dp.svg" alt="">
+        </button>
+        <div id="mobile_navigation">
+            <div>
+                <a class="current" href="">Home</a>
+                <p>Competitions</p>
+                <div>
+                    <a href="upcoming_competitions.php">Upcoming</a>
+                    <a href="ongoing_competitions.php">Ongoing</a>
+                    <a href="finished_competitions.php">Finished</a>
+                </div>
+                <a href="blog.php">Blog</a>
+                <a href="videos.php">Videos</a>
+                <a href="rankings.php">Rankings</a>
+            </div>
+        </div>
     </div>
 </header>

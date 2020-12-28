@@ -306,6 +306,16 @@ form.hidden, form.disabled {
 	font-size: var(--f-medium);
 }
 
+.table.cw {		/* Whole table */
+	width: 90%;
+	margin: 0 auto 100px;
+}
+
+.table.cw.middle {		/* Whole table */
+	width: 90%;
+	margin: 100px auto;
+}
+
 .table_row_wrapper {	/* Wraps table_row elements */
 	flex-direction: column;
 	border-left: 2px solid var(--c-darkgray);
@@ -329,6 +339,10 @@ form.hidden, form.disabled {
 .table_header_text.square, .table_item.square {
 	min-width: calc(1.4em + 1.25vmin);
 	max-width: calc(1.4em + 1.25vmin);
+}
+
+.table_header_text.square p, .table_item.square p {
+	text-overflow: clip !important;
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
@@ -622,7 +636,7 @@ form.hidden, form.disabled {
 }
 
 ::-webkit-scrollbar-track {
-	background-color: transparent;
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb { /* Handle */
@@ -773,7 +787,7 @@ input[type="text"].search.cc:focus + div {
 	position: absolute;
 	height: var(--f-medium);
 	width: var(--f-medium);
-	background-color: transparent;
+	background: transparent;
 	right: 10px;
 	top: 8.1px;
 	z-index: 3;
@@ -871,7 +885,7 @@ input:focus ~ .clear_search_button {
 
 input[type="date"] {
 	font-family: var(--reg);
-	background-color: transparent;
+	background: transparent;
 }
 
 /* Text Input */
@@ -884,7 +898,7 @@ input, input:focus {	/* Removes borders on all inputs*/
 }
 
 input[type="text"], input[type="password"], input[type="date"], input[type="email"] {		/* Sets basic look of text and password inputs*/
-	background-color: transparent;
+	background: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
 	width: 313px;
@@ -990,7 +1004,7 @@ input[type="text"].no_margin {
 
 input[type="number"] {
 	width: 40px;
-	background-color: transparent;
+	background: transparent;
 	font-family: var(--reg);
 	font-size: var(--f-small);
 	margin-right: -35px;
@@ -999,7 +1013,7 @@ input[type="number"] {
 /* Input Classes */
 
 input[type="number"].number_input {
-	background-color: transparent;
+	background: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
 	width: 100%;
@@ -1047,7 +1061,7 @@ p.wc_time {
 /* Input Time */
 
 input[type="time"] {
-	background-color: transparent;
+	background: transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
 	height: 35px;
@@ -1069,30 +1083,6 @@ input[type="time"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-/* Back Button used in CC Dasboard And CW Competition's page and subpages */
-
-.back_button {
-	margin-left: 40px;
-	min-height: 35px;
-	min-width: 35px;
-	border: 0;
-	border-radius: 50%;
-	background-color: var(--c-lightergray);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.back_button > img {
-	margin-right: 3px;
-	height: 25px;
-	width: 25px;
-}
-
-.back_button:hover {
-	background-color: var(--c-gray);
 }
 
 /* Stripe Button Elements Used in CC Title Stripe*/
@@ -1345,6 +1335,10 @@ input[type="time"] {
 #call_room.cc {
 	margin: 20px;
 	width: 100%;
+}
+
+#call_room.cw {
+	margin-bottom: 50px;
 }
 
 .elimination_slider_button {

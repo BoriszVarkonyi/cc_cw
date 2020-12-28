@@ -1,4 +1,3 @@
-<?php include "cw_header.php"; ?>
 <?php include "../includes/db.php" ?>
 <?php 
     $id = $_GET['vid_id'];
@@ -26,7 +25,13 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-    <div id="cw_main_live">
+    <div id="wrapper">
+        <?php include "cw_header.php"; ?>
+        <div id="main">
+            <div id="content" class="list">
+                <div id="title_stripe">
+                    <p class="stripe_title">Saved competitions</p>
+                </div>
         <div class="cw_panel_title_wrapper">
             <button type="button" class="back_button" onclick="location.href='cw_videos.php'">
                 <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
@@ -39,18 +44,9 @@
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
     </div>
-<?php include "cw_footer.php"; ?>
+    <?php include "cw_footer.php"; ?>
+</div>
 </body>
 <script src="../js/cw_main.js"></script>
 <script src="../js/cw_table.js"></script>

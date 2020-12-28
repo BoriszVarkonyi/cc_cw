@@ -1,4 +1,3 @@
-<?php include "cw_header.php"; ?>
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
@@ -12,14 +11,16 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>    
-    <div id="cw_main_narrow">
-        <p class="cw_panel_title">Videos</p>
-        <div id="browsing_bar">
-            <input type="submit" value="Search">
-        </div>
-        <div id="videos_wrapper">
-            <div id="latest_videos_panel_full">
-                <p class="cw_panel_subtitle">Latest Videos</p>
+    <div id="wrapper">
+        <?php include "cw_header.php"; ?>
+        <div id="main">
+            <div id="content" class="list">
+                <div id="title_stripe">
+                    <p class="stripe_title">Videos</p>
+                </div>
+                <div class="column">
+                    <div id="latest_videos_panel_full">
+                        <p class="cw_panel_subtitle">Latest Videos</p>
                 
 
                 <?php
@@ -49,13 +50,13 @@
                 <?php 
                     }
                 ?>
-
-
-
+                </div>
+                </div>
+                </div>
             </div>
+            <?php include "cw_footer.php"; ?>
         </div>
     </div>
-<?php include "cw_footer.php"; ?>
-</body>
 <script src="../js/cw_main.js"></script>
+</body>
 </html>

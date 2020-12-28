@@ -1,4 +1,3 @@
-<?php include "cw_header.php"; ?>
 <?php include "../cw/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
 
