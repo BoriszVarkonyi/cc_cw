@@ -20,7 +20,7 @@
         </div>
         <div id="round_live_wrapper">
             <div id="round_livestream_wrapper">
-                <p id="no_livestream" class="hidden">There is no avalible livestream for this round.</p>
+                <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div id="round_info_wrapper">
