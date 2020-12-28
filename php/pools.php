@@ -507,11 +507,11 @@ while($row = mysqli_fetch_assoc($query_get_pools_do)){
 if(isset($_POST["draw_ref"])){
 
     if ($_POST['ref_select'] == 'all_ref') {
-        $get_ref = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
+        $get_ref = "SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
     } else {
 
         $where_clause = "";
-        $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
+        $ref_query = "SELECT * FROM ref_$comp_id WHERE `online` = 1 ";
         $ref_query_do = mysqli_query($connection, $ref_query);
         $where = "";
         while($row =  mysqli_fetch_assoc($ref_query_do)) {
@@ -597,45 +597,48 @@ if(isset($_POST["draw_ref"])){
 
     if ($test_possibility) {
         echo "ASSIGNING REFEREES TO THESE POOLS ARE NOT POSSIBLE PICK DIFFERENT REFEREES OR MIX UP THE POOLS!";
-    }
+    } else {
 
-    $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
-    $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
-    if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
-        $pool_num = $row['MAX(`pool_number`)'];
-    }
-    //print_r($row);
-    echo mysqli_error($connection);
-    //update refs in pools_$comp_id
-    if (!$test_possibility) {
-
-        for ($current_pool = 1; $current_pool <= $pool_num; $current_pool++) {
-            //get rank ids from multi array
-            $ref_1 = $ref_assigned_pools["pool_$current_pool"]["ref_1"];
-            $ref_2 = $ref_assigned_pools["pool_$current_pool"]["ref_2"];
-
-            $qry_update_ref = "UPDATE pools_$comp_id SET ref = '$ref_1', ref2 = '$ref_2' WHERE pool_number = '$current_pool'";
-            $do_update_ref = mysqli_query($connection, $qry_update_ref);
-            echo mysqli_error($connection);
+        $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
+        $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
+        if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
+            $pool_num = $row['MAX(`pool_number`)'];
         }
-    }
-    
-    foreach ($ref_assigned_pools as $value){
-        foreach ($value as $key => $refs) {
-            if ($refs != "") {
-                //upadte ref statzs in ref_compid 
-                $qry_update_ref_status = "UPDATE ref_$comp_id SET `online` = 1 WHERE id = '$refs'";
-                $do_update_ref_status = mysqli_query($connection, $qry_update_ref_status);
+        //print_r($row);
+        echo mysqli_error($connection);
+        //update refs in pools_$comp_id
+        if (!$test_possibility) {
+
+            for ($current_pool = 1; $current_pool <= $pool_num; $current_pool++) {
+                //get rank ids from multi array
+                $ref_1 = $ref_assigned_pools["pool_$current_pool"]["ref_1"];
+                $ref_2 = $ref_assigned_pools["pool_$current_pool"]["ref_2"];
+
+                $qry_update_ref = "UPDATE pools_$comp_id SET ref = '$ref_1', ref2 = '$ref_2' WHERE pool_number = '$current_pool'";
+                $do_update_ref = mysqli_query($connection, $qry_update_ref);
                 echo mysqli_error($connection);
             }
         }
+        
+        foreach ($ref_assigned_pools as $value){
+            foreach ($value as $key => $refs) {
+                if ($refs != "") {
+                    //upadte ref statzs in ref_compid 
+                    $qry_update_ref_status = "UPDATE ref_$comp_id SET `online` = 1 WHERE id = '$refs'";
+                    $do_update_ref_status = mysqli_query($connection, $qry_update_ref_status);
+                    echo mysqli_error($connection);
+                }
+            }
+        }
+        
+        //print_r($ref_assigned_pools);
     }
-    
-    //print_r($ref_assigned_pools);
 }
 
-//print_r($ARRAY_pool_nat);
-//print_r($array_ref_nat);
+    
+
+print_r($ARRAY_pool_nat);
+print_r($array_ref_nat);
 $ARRAY_competitors = [];
 
 if (isset($_POST['save_pools'])) {
@@ -910,7 +913,7 @@ elseif ($exist != 0 && $exist2 == 0)
                                 
                         <?php
                                 
-                                $ref_query = "SELECT * FROM ref_$comp_id EXCEPT SELECT * FROM ref_$comp_id WHERE online = 1";
+                                $ref_query = "SELECT * FROM ref_$comp_id WHERE online = 1";
                                 $ref_query_do = mysqli_query($connection, $ref_query);
                             
                                 while($row =  mysqli_fetch_assoc($ref_query_do)){
@@ -1118,7 +1121,17 @@ elseif($exist != 0 && $exist2 == 0){
                             <div class="table_row">
                                 <div class="table_item bold">No.<?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref 1: <?php echo $refname ?> (<?php echo $refnat ?>)</div>
+                                <div class="table_item">Ref 1: <?php 
+                                if (isset($refname)) {
+                                    
+                                    echo $refname;
+                                    echo "(" . $refnat . ")"; 
+                                } else {
+                                    echo "No ref assigned!";
+                                }
+
+                                
+                                ?></div>
 
                                 <?php
                                     if ($ref2name != "") {
