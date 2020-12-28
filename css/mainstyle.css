@@ -3520,40 +3520,65 @@ input.wc_time {
 }
 
 #pools_drag_panel {
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
 	position: fixed;
 	width: 13vw;
-	height: fill;
 	top: 170px;
 	right: 50px;
 	bottom: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+#pools_drag_panel > div {
+	flex-grow: 1;
+	background-color: var(--c-white);
+	box-shadow: var(--s-black);
 	display: flex;
 	align-items: flex-start;
 	align-content: flex-start;
 	flex-wrap: wrap;
 	border-radius: 10px;
 	padding: 10px;
-	border: 5px dashed var(--c-gray)
 }
 
-#pools_drag_panel > .drag_fencer {
+#pools_drag_panel > div.holder {
+	flex-basis: 70%;
+	border: 5px dashed var(--c-gray);
+	margin-bottom: 10px;
+}
+
+#pools_drag_panel > div.deleter {
+	flex-basis: 30%;
+	border: 5px dashed var(--c-red);
+	margin-top: 10px;
+}
+
+#pools_drag_panel .drag_fencer {
 	padding: 5px;
 	margin: 5px;
 	background-color: var(--c-lightestgray);
 	font-family: var(--bold);
 }
 
-#pools_drag_panel:before {
-	content: "Drag Fencers here";
+#pools_drag_panel > div:before {
+	width: 100%;
 	align-self: center;
 	font-size: var(--f-medium);
 	font-family: var(--bold);
-	color: var(--c-gray);
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	white-space: nowrap;
+	text-align: center;
+}
+
+#pools_drag_panel > div.holder:before {
+	color: var(--c-gray);
+	content: "Drag Fencers here";
+}
+
+#pools_drag_panel > div.deleter:before {
+	color: var(--c-red);
+	content: "Drag Fencers here to remove them";
 }
 
 #interval_of_match_wrapper {

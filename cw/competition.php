@@ -174,6 +174,11 @@
             <?php include "cw_footer.php"; ?>
         </div>
     </div>
-</body>
 <script src="../js/cw_main.js"></script>
+<script>
+    function printPage() {
+        window.print();
+    }
+</script>
+</body>
 </html>

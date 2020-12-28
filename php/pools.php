@@ -1192,7 +1192,9 @@ elseif($exist != 0 && $exist2 == 0){
 
 
                     </div>
-                    <div id="pools_drag_panel" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="pools_drag_panel">
+                        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="holder"></div>
+                        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="deleter"></div>
                     </div>
 
                     <?php }else{ ?>

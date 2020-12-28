@@ -1,7 +1,3 @@
-function printPage() {
-    window.print();
-}
-
 var languagesPanel = document.getElementById("change_language_panel");
 var currentLang;
 function toggleLanguagesPanel(x) {
