@@ -34,7 +34,7 @@
                 </button>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table w90">
+                <div class="wrapper table w90 first_column_small">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
                         <button class="resizer"></button>

@@ -3512,6 +3512,7 @@ input.wc_time {
 	width: 28px;
 	margin-left: auto;
 	margin-right: 3px;
+	align-self: center;
 }
 
 .pool_config > img {

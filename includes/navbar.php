@@ -32,6 +32,7 @@ setcookie("today",$test,time()+31556926);
             <div id="dt_dropdown_menu" class="dropdown_menu hidden">
                 <a <?php echo $assoc_array_functions['competitors'] ?>>Competitiors</a>
                 <a <?php echo $assoc_array_functions['pools'] ?>>Pools</a>
+                <a <?php echo $assoc_array_functions['temp_ranking'] ?>>Temporary Ranking</a>
                 <a <?php echo $assoc_array_functions['table'] ?>>Table</a>
                 <a <?php echo $assoc_array_functions['overview'] ?>>Overview</a>
             </div>

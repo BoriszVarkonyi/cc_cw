@@ -17,6 +17,7 @@
         "dt" =>                 'onclick="toggle_dt_dropdown()"',
         "competitors" =>        'href="competitors.php?comp_id=' . $comp_id . '"',
         "pools" =>              'href="pools.php?comp_id=' . $comp_id . '"',
+        "temp_ranking" =>              'href="temporary_ranking.php?comp_id=' . $comp_id . '"',
         "table" =>              'href="table.php?comp_id=' . $comp_id . '"',
         "overview" =>           'href="overview.php?comp_id=' . $comp_id .'"',
         "call_room" =>          'href="call_room.php?comp_id=' . $comp_id . '"',

@@ -492,6 +492,11 @@ form.hidden, form.disabled {
 
 /* Table Items */
 
+.table.first_column_small .table_row > .table_item:first-of-type, .table.first_column_small .table_header_text:first-of-type {
+	flex: 0 0 auto;
+	min-width: 20%;
+}
+
 .table_item.row_title {
 	font-family: var(--thin);
 	text-transform: uppercase;
@@ -573,11 +578,10 @@ form.hidden, form.disabled {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	flex-grow: 1;
+	flex: 1 1 auto;
 	justify-content: center;
 	align-items: center;
 	max-width: 50%;
-	flex-basis: auto;
 }
 
 .table_item p {
