@@ -293,6 +293,7 @@ function resizeTableColumn() {
 
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
+var somethingisOpened = false;
 
 function overlayPanel() {
     var overlayPanelsHidden = [];
@@ -322,7 +323,14 @@ function overlayPanel() {
             }
         }
     }
+    if(overlayPanelsOepened.length == 1){
+        somethingisOpened = true;
+    }
+    else{
+        somethingisOpened = false;
+    }
 }
+var somethingisOpened = false;
 
 //Event listener to class change (overlay panels)
 function callback(mutationsList, observer) {
