@@ -102,5 +102,14 @@
     //start sorting the array array
     array_multisort($ratio_column, SORT_DESC, $point_diff_column, SORT_DESC, $given_points_column, SORT_DESC, $ARRAY_fencers);
 
+    //update competitors temp ranking
+    $temp_ranking_array = array_keys($ratio_column);
+
+    foreach ($temp_ranking_array as $fencer_pos => $fencer_id) {
+        $real_pos = $fencer_pos + 1;
+        $qry_update_temp_rank = "UPDATE `cptrs_$comp_id` SET `temporary_rank`= '$real_pos' WHERE `id` = '$fencer_id'";
+        $do_update_temp_rank = mysqli_query($connection, $qry_update_temp_rank);
+        echo mysqli_error($connection);
+    }
     
 ?>
