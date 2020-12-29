@@ -778,6 +778,10 @@ input[type="range"]:focus::-ms-fill-upper {
 	overflow: hidden;
 }
 
+#page_content_panel_main.scroll {
+	overflow: auto;
+}
+
 /* Title Stripe Elements */
 
 .comp_title {
@@ -2108,11 +2112,15 @@ input[type="file"] {
 	.pool_content {
 		height: 90vh !important;
 	}
-	
+
 
 	@page {
 		margin: 0 !important;
 		size: A4;
+	}
+
+	.pool_matches {
+
 	}
 
 }

@@ -2,14 +2,15 @@
 
 #pool_print_wrapper {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .pool_print {
-    width: 21cm;
+    margin: 20px;
+    min-width: 21cm;
     height: 29.7cm;
-	border: 5px solid black;
+    width: 21cm;
 	page-break-before: always;
 	page-break-after: always;
 	background-color: var(--cs-white);
@@ -20,12 +21,16 @@
 }
 
 .title_container {
-	height: 10vh;
+    padding: 0 10px;
+    box-sizing: border-box;
+	height: 10%;
 	display: flex;
 }
 
 .pool_content {
-	height: 90vh;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
 }
 
 .title_container > div {
@@ -80,17 +85,16 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    padding: 20pt 20pt 10pt;
+    box-sizing: border-box;
 }
 
 .pool_match {
     flex: 1 1 30%;
-    padding: 20px;
+    width: 30%;
+    padding: 15px;
     box-sizing: border-box;
     display: flex;
-}
-
-.pool_match > div {
-    flex-grow: 1;
 }
 
 .number {
@@ -100,15 +104,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 2px;
 }
 
 .numbering {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     text-align: center;
-    font-size: 10pt;
     font-family: var(--bold);
+    font-size: 10pt;
 }
 
 .names {
@@ -116,19 +122,181 @@
     flex-direction: column;
     justify-content: space-around;
     font-size: 10pt;
+    margin: 0 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: var(--bold);
 }
 
 .grid {
-    display: table;
-    border-collapse: collapse;
-    border: 3pt solid black;
+    display: block;
+    width: 23pt;
+    height: 46pt;
+    min-height: 46pt;
+    min-width: 23pt;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
 .grid div {
-    border: 3pt solid black;
-    display: table-cell;
-    width: 22pt;
-    height: 22pt;
-    display: grid;
+    min-height: 50%;
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
 }
 
+.grid div:first-of-type {
+    border: 2pt solid black;
+    border-bottom: 1.5pt solid black;
+}
+
+.grid div:last-of-type {
+    border: 2pt solid black;
+    border-top: 1pt solid black;
+}
+
+.signatures {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+}
+
+.signatures > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fencers {
+    align-items: flex-end;
+}
+
+.referees {
+    align-items: flex-end;
+    padding-right: 10%;
+}
+
+.fencer, .referee {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.s_numbering {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    font-family: var(--bold);
+    font-size: 10pt;
+}
+
+.s_names {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 10pt;
+    margin: 0 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: var(--bold);
+}
+
+.s_grid {
+    display: block;
+    width: 100pt;
+    height: 25pt;
+    min-height: 25pt;
+    min-width: 100pt;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.s_grid div {
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2pt solid black;
+    border-bottom: 1pt solid black;
+}
+
+.fencers > .fencer:last-of-type .s_grid div, .referees > .referee:last-of-type .s_grid div  {
+    border-bottom: 2pt solid black;
+}
+
+.fencers > .fencer:nth-of-type(n+2) .s_grid div, .referees > .referee:last-of-type .s_grid div  {
+    border-top: 1pt solid black;
+}
+
+@media print {
+
+	body, * {
+		height: auto !important;
+		box-shadow: none !important;
+	}
+
+	header, .nav_bar_flex, #plus_information, .inv_panel, #title_stripe, .weapon_control_day > a  {
+		display: none !important;
+		width: 0 !important;
+		max-width: 0 !important;
+		max-height: 0 !important;
+		visibility: hidden !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		min-height: 0 !important;
+		max-height: 0 !important;
+		height: 0 !important;
+	}
+
+	#pool_print_wrapper {
+		position: absolute !important;
+		top: -40px !important;
+		left: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		display: block !important;
+		flex-wrap: nowrap !important;
+		justify-content: initial !important;
+	}
+
+	.pool_print {
+        transform: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		width: 100vw !important;
+		height: 100vh !important;
+		box-sizing: border-box !important;
+		page-break-before: always !important;
+        page-break-after: always !important;
+        overflow: hidden !important;
+	}
+
+	.title_container {
+		height: 10vh !important;
+	}
+
+	.pool_content {
+		height: 90vh !important;
+	}
+
+	@page {
+		margin: 0 !important;
+		size: A4;
+	}
+
+    .names {
+        overflow: hidden !important;
+    }
+
+    .s_names {
+        overflow: hidden !important;
+    }
+
+}
