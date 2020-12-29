@@ -1,14 +1,14 @@
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	/* Changes throughout colormodes */
 	--c-black: #252525; 
-	--c-transparent-black: rgba(0, 0, 0, 0.3);
+	--c-transparent-black: #25252503;
 	--c-darkgray: #9B9A9A;
 	--c-gray: #CCC;
 	--c-lightgray: #DDD;
 	--c-lightergray: #ECECEC;
 	--c-lightestgray: #F6F6F6;
 	--c-white: #FFF;
-	--c-transparent-white: rgba(255, 255, 255, 0.2);
+	--c-transparent-white: #FFFFFF02;
 	--c-yellow: #FFC914;
 	--c-orange: #FF9700;
 	--c-lightorange: #FFBE5C;
@@ -19,7 +19,7 @@
 	--c-bronze :#E58955;
 	/* Static throughout colormodes */
 	--cs-black: #252525; 
-	--cs-transparent-black: rgba(0, 0, 0, 0.3);
+	--cs-transparent-black: #25252503;
 	--cs-darkgray: #9B9A9A;
 	--cs-gray: #CCC;
 	--cs-lightgray: #DDD;
@@ -27,7 +27,7 @@
 	--cs-lightestgray: #F6F6F6;
 	--cs-white: #FFF;
 	--cs-navbar: #252525; 
-	--cs-transparent-white: rgba(255, 255, 255, 0.2);
+	--cs-transparent-white: #FFFFFF02;
 	--cs-yellow: #FFC914;
 	--cs-orange: #FF9700;
 	--cs-lightorange: #FFBE5C;
@@ -35,7 +35,6 @@
 	--cs-green: #8DFFB7;
 	--cs-blue: #42CAFD;
 	--cs-purple: #7765E3;
-	--cs-transparent: rgba(0, 0, 0, 0);
 	--cs-input: #252525; 
 	--cs-bronze :#E58955;
 	/* Unique */
