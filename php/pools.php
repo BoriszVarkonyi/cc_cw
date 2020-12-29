@@ -669,6 +669,9 @@ if (isset($_POST['save_pools'])) {
     foreach ($ARRAY_competitors as $pool_number => $current_array) {
         $pool_number_real = $pool_number + 1;
         $pool_of = array_search("", $current_array);
+        if (!$pool_of) {
+            $pool_of = 7;
+        }
         for ($i = 1; $i <= count($current_array); $i++) {
             ${"f".$i} = $current_array[$i-1];
         }
