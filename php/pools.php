@@ -1029,15 +1029,10 @@ elseif ($exist != 0 && $exist2 == 0)
 <?php 
 }else{ 
     ?>
-                
-
-                STATE: 2
-                
-                <button class="stripe_button" type="button">
-                    <p>Open CC Match Control</p>
-                    <img src="../assets/icons/pages-black-18dp.svg" />
-                </button>
-
+                <a class="stripe_button orange" href="https://www.google.com" target="_target">
+                    <p>Print Pools</p>
+                    <img src="../assets/icons/print-black-18dp.svg"/>
+                </a>
      <?php
     }
     ?>           
@@ -1122,85 +1117,85 @@ elseif($exist != 0 && $exist2 == 0){
                         ?>
 
                         <div>
-                        <div class="entry">
-                            <div class="table_row">
-                                <div class="table_item bold">No.<?php echo $i ?></div>
-                                <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref 1: <?php 
-                                if (isset($refname)) {
-                                    
-                                    echo $refname;
-                                    echo "(" . $refnat . ")"; 
-                                } else {
-                                    echo "No ref assigned!";
-                                }
-
-                                
-                                ?></div>
-
-                                <?php
-                                    if ($ref2name != "") {
-                                ?>
-                                <div class="table_item">Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</div>
-                                <?php 
-                                    } 
-                                ?>
-                                <div class="table_item"><?php echo $time ?></div>
-                                <div class="big_status_item">
-                                    <button type="button" onclick="" class="pool_config">
-                                        <img src="../assets/icons/settings-black-18dp.svg" >
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="entry_panel gray">
-                                <div class="pool_table_wrapper table">
-                                    <div class="table_header">
-                                        <div class="table_header_text">
-                                            name
-                                        </div>
-                                        <div class="table_header_text">
-                                            nation
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            Cp
-                                        </div>
-
-                                        <div class="table_header_text square">
-                                            rp
-                                        </div>
+                            <div class="entry">
+                                <div class="table_row">
+                                    <div class="table_item bold">No.<?php echo $i ?></div>
+                                    <div class="table_item">Piste <?php echo $piste ?></div>
+                                    <div class="table_item">Ref 1: <?php 
+                                    if (isset($refname)) {
                                         
-                                    </div>
-                                    <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
-                                        <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
+                                        echo $refname;
+                                        echo "(" . $refnat . ")"; 
+                                    } else {
+                                        echo "No ref assigned!";
+                                    }
+
+                                    
+                                    ?></div>
+
                                         <?php
+                                            if ($ref2name != "") {
+                                        ?>
+                                        <div class="table_item">Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</div>
+                                        <?php 
+                                            } 
+                                        ?>
+                                        <div class="table_item"><?php echo $time ?></div>
+                                        <div class="big_status_item">
+                                            <button type="button" onclick="" class="pool_config">
+                                                <img src="../assets/icons/settings-black-18dp.svg" >
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="entry_panel gray">
+                                        <div class="pool_table_wrapper table">
+                                            <div class="table_header">
+                                                <div class="table_header_text">
+                                                    name
+                                                </div>
+                                                <div class="table_header_text">
+                                                    nation
+                                                </div>
 
-                                        //for loop for fencers in pool (name id nation)
-                                        for ($n=0; $n < $pool_f_in; $n++) { 
-                                            $fx = $f[$n];
-                                            $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
-                                            $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+                                                <div class="table_header_text square">
+                                                    Cp
+                                                </div>
 
-                                            if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
-                                                $fencer_nat = $row['nationality'];
-                                                $fencer_name = $row['name'];
-                                            }
-
-                                            ?>
-                                            
-                                            <div class="table_row">
-                                                <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fx ?>"><?php echo $fencer_name ?></p></div>
-                                                <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
-                                                <div class="table_item square"><p>1</p></div>
-                                                <div class="table_item square"><p>1</p></div>
+                                                <div class="table_header_text square">
+                                                    rp
+                                                </div>
+            
                                             </div>
-                                            <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
-                                        <?php } ?>
+                                            <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
+                                                <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
+                                                <?php
+
+                                                //for loop for fencers in pool (name id nation)
+                                                for ($n=0; $n < $pool_f_in; $n++) { 
+                                                    $fx = $f[$n];
+                                                    $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
+                                                    $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+
+                                                    if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
+                                                        $fencer_nat = $row['nationality'];
+                                                        $fencer_name = $row['name'];
+                                                    }
+
+                                                    ?>
+                                                    
+                                                    <div class="table_row">
+                                                        <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fx ?>"><?php echo $fencer_name ?></p></div>
+                                                        <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
+                                                        <div class="table_item square"><p>1</p></div>
+                                                        <div class="table_item square"><p>1</p></div>
+                                                    </div>
+                                                    <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        </div>
 
 
                             <?php
@@ -1217,7 +1212,7 @@ elseif($exist != 0 && $exist2 == 0){
 
                     <?php }else{ ?>
                     STATE: 2 
-                    <div id="pool_listing"> 
+                    <div id="pool_listing" class="state_2 wrapper"> 
 
 
                     
@@ -1275,19 +1270,19 @@ elseif($exist != 0 && $exist2 == 0){
                             }
 
                         }?>
-                    
-                    <div class="entry" >
+                    <div>
+                        <div class="entry" >
                             <div class="table_row start">
                                 <div class="table_item bold">No. <?php echo $i ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: <?php echo $refname ?></div>
                                 <div class="table_item"><?php echo $time ?></div>
-                                <button type="button" onclick="" class="pool_config">
+                                <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $i ?>'" class="pool_config">
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
                             <div class="entry_panel">
-                                <div class="pool_table_wrapper">
+                                <div class="pool_table_wrapper table">
                                     <div class="table_header">
                                         <div class="table_header_text">
                                             Fencers name
@@ -1308,7 +1303,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         ?>
                                         
                                     </div>
-
+                                    <div class="table_row_wrapper">
                                     <?php
                                     for ($n=0; $n < $pool_f_in; $n++) { 
                                             $fx = $f[$n];
@@ -1392,39 +1387,18 @@ elseif($exist != 0 && $exist2 == 0){
                                         }
 
                                         ?>
-
-                                        
-                                        
-                                        <!-- <div class="table_item square">a4</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div>
-                                        <div class="table_item square">5a</div> -->
-
                                     </div>
-
                                     <?php
                                         }
                                             ?>
-                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    
+                    </div>
                     <?php
                     }
                     ?>
-
-
-
-                        
-
-
-
-
-
-
 
 
                         <!-- <div class="entry" >
@@ -1858,6 +1832,7 @@ elseif($exist != 0 && $exist2 == 0){
             </div>
         </div>
     </body>
+    
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/pools.js"></script>

@@ -73,7 +73,8 @@ document.addEventListener("keyup", function(keyDownEvent){
         }
     }
     //searchBarClosed is a var. from control.js
-    if(searchBarClosed){
+    //somethingisOpened is a var. from main.js
+    if(searchBarClosed && !somethingisOpened){
         if(keyDownEvent.shiftKey && keyDownEvent.which == 65) {
             var orangeAddButton = document.querySelector(".stripe_button.orange")
             orangeAddButton.click()
