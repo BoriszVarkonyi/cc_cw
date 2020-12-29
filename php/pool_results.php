@@ -115,65 +115,65 @@
                                             <div class="table_item"><p>Name</p></div>
                                             <div class="table_item square row_title">1</div>
                                             <div class="table_item square filled"></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
                                         <div class="table_row">
                                             <div class="table_item">Name</div>
                                             <div class="table_item square row_title">2</div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                             <div class="table_item square filled"></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
                                         <div class="table_row">
                                             <div class="table_item">Name</div>
                                             <div class="table_item square row_title">3</div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                             <div class="table_item square filled"></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
                                         <div class="table_row">
                                             <div class="table_item">Name</div>
                                             <div class="table_item square row_title">4</div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                             <div class="table_item square filled"></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
                                         <div class="table_row">
                                             <div class="table_item">Name</div>
                                             <div class="table_item square row_title">5</div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                             <div class="table_item square filled"></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                         </div>
 
                                         <div class="table_row">
                                             <div class="table_item">Name</div>
                                             <div class="table_item square row_title">6</div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
-                                            <div class="table_item square"><p>#</p></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
+                                            <div class="table_item square"><input type="text" class="pool_result_input" placeholder="#"></div>
                                             <div class="table_item square  filled"></div>
                                         </div>
                                     </div>
