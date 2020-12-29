@@ -4,7 +4,19 @@
 <?php checkComp($connection); ?>
 
 <?php 
+$query = "SELECT * 
+FROM `information_schema`.`tables`
+WHERE table_schema = 'ccdatabase' 
+    AND table_name = 'cptrs_$comp_id'
+LIMIT 1;";
+$query_do = mysqli_query($connection, $query);
 
+if(mysqli_num_rows($query_do) == 0){
+
+$query = "CREATE TABLE cptrs_$comp_id ( `id` VARCHAR(255) NOT NULL , `name` VARCHAR(255) NOT NULL , `nationality` VARCHAR(255) NOT NULL , `reg` INT NOT NULL , `wc` INT NOT NULL , `rank` INT NOT NULL , `comp_rank` INT NOT NULL, `temporary_rank` INT NOT NULL, `final_rank` INT NOT NULL, `ass_match` INT NOT NULL ) ENGINE = InnoDB;";
+$query_do = mysqli_query($connection, $query);
+
+}
 
 
 ?>

@@ -7,6 +7,32 @@
 
 $poolnum = $_GET["poolid"];
 
+if(isset($_POST["savepool"])){
+
+print_r($_POST);
+
+$get_matches_query = "SELECT * FROM pool_matches_$comp_id WHERE p_in = $poolnum ORDER BY oip ASC";
+$get_matches_query_do = mysqli_query($connection, $get_matches_query);
+
+while($row = mysqli_fetch_assoc($get_matches_query_do)){
+
+$oip = $row["oip"];
+
+$score1 = $_POST[$oip . "_1"];
+$score2 = $_POST[$oip . "_2"];
+
+if($score1 != NULL && $score2 != NULL){
+
+    $update_query = "UPDATE pool_matches_$comp_id SET f1_sc = $score1, f2_sc = $score2 WHERE p_in = $poolnum AND oip = $oip";
+    $update_query_do = mysqli_query($connection, $update_query);
+
+}
+
+}
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -36,12 +62,12 @@ $poolnum = $_GET["poolid"];
                     <p>Disqualify</p>
                     <img src="../assets/icons/highlight_off-black-18dp.svg"/>
                 </button>
-
-                <button class="stripe_button orange" type="submit">
+                <form id="savepool" method="POST">
+                </form>
+                <button class="stripe_button orange" name="savepool" type="submit" form="savepool">
                     <p>Save Pool</p>
                     <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
-
                 <div id="disqualify_panel" class="overlay_panel hidden">
                     <p class="panel_title">Disqualify {Fencer's name}</p>
                     <button class="panel_button" onclick="disqualifyToggle()">
@@ -121,7 +147,15 @@ $poolnum = $_GET["poolid"];
                             <div class="table_row start">
                                 <div class="table_item bold">No. <?php echo $poolnum ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref: <?php echo $refname ?></div>
+                                <div class="table_item">Ref: <?php if (isset($refname)) {
+                                        
+                                        echo $refname;
+                                        echo "(" . $refnat . ")"; 
+                                    } else {
+                                        echo "No ref assigned!";
+                                    } ?></div>
+
+
                                 <div class="table_item"><?php echo $time ?></div>
                             </div>
                             <div class="entry_panel">
@@ -147,7 +181,7 @@ $poolnum = $_GET["poolid"];
                                     <?php
                                     for ($n=0; $n < $pool_f_in; $n++) { 
                                             $fx = $f[$n];
-                                            $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
+                                            $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
                                             $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
 
                                             if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
@@ -270,19 +304,20 @@ $poolnum = $_GET["poolid"];
                         
                         ?>
 
-                        <div class="match red">
+
+                        <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
                             <div class="match_number">
                                 <p><?php echo $oip ?></p>
                             </div>
                             <div>
                                 <p><?php echo $f1_n ?></p>
-                                <input type="number" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="#">
+                                <input type="number" form="savepool" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="<?php echo $f1_sc ?>">
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="#">
+                                <input type="number" form="savepool" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="<?php echo $f2_sc ?>">
                                 <p><?php echo $f2_n ?></p>
                             </div>
                         </div>
@@ -293,200 +328,6 @@ $poolnum = $_GET["poolid"];
                     }
 
                         ?>
-
-
-                        <!-- <div class="match red">
-                            <div class="match_number">
-                                <p>2.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match red">
-                            <div class="match_number">
-                                <p>1.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match red">
-                            <div class="match_number">
-                                <p>3.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>4.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>5.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>6.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>7.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>8.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>9.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>10.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>11.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>12.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div> -->
 
 
                     </div>

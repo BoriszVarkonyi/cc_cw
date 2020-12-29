@@ -702,7 +702,7 @@ echo mysqli_error($connection);
 
 }
 
-$query_create_matches = "INSERT INTO `pool_matches_52`(`m_id`, `p_in`, `f1_id`, `f2_id`, `oip`) VALUES ";
+$query_create_matches = "INSERT INTO pool_matches_$comp_id (`m_id`, `p_in`, `f1_id`, `f2_id`, `oip`) VALUES ";
 
 $get_fencers_for_matches = "SELECT * FROM pools_$comp_id";
 $get_fencers_for_matches_do = mysqli_query($connection, $get_fencers_for_matches);
@@ -1173,8 +1173,10 @@ elseif($exist != 0 && $exist2 == 0){
                                                 //for loop for fencers in pool (name id nation)
                                                 for ($n=0; $n < $pool_f_in; $n++) { 
                                                     $fx = $f[$n];
-                                                    $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
+                                                    $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
                                                     $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+
+                                                    echo mysqli_error($connection);
 
                                                     if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
                                                         $fencer_nat = $row['nationality'];
@@ -1307,7 +1309,7 @@ elseif($exist != 0 && $exist2 == 0){
                                     <?php
                                     for ($n=0; $n < $pool_f_in; $n++) { 
                                             $fx = $f[$n];
-                                            $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
+                                            $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
                                             $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
 
                                             if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
