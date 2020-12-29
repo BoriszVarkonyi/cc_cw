@@ -119,6 +119,7 @@
 
 .names {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     justify-content: space-around;
     font-size: 10pt;
@@ -200,6 +201,7 @@
     justify-content: space-around;
     font-size: 10pt;
     margin: 0 5px;
+    flex: 1 1 auto;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
