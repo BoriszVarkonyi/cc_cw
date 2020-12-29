@@ -57,6 +57,7 @@ function hideNshow() {
 document.onkeyup=function(e){
     var newAnn = document.getElementById("new_announcement_top")
     var titleBar = document.querySelector(".title_input")
+    //somethingisOpened is a var. from main.js
     if(!somethingisOpened && IsNotFocused){
         if(e.shiftKey && e.which == 78) {
             newAnn.click()

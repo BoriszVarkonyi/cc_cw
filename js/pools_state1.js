@@ -66,7 +66,7 @@ function selectPistes() {
 function allowDrop(ev, x) {
     ev.preventDefault();
 }
-var rowToDelete, regenerateTable, draggedElement, index, dragPlaceTodelete, previousTable, canRegenerate = true, canDrop = true, dragEndActive = true;
+var rowToDelete, regenerateTable, draggedElement, index, dragPlaceTodelete, previousTable, canRegenerate = true, dragStart, dragEndActive = true;
 var rowToSave = [];
 function drag(ev, x) {
     //If a drag starts from Draf Fencers Area
@@ -82,8 +82,8 @@ function drag(ev, x) {
             //Saves the element we dragged
             rowToDelete = x
             canRegenerate = false;
-            //Denies the drop to the Drag Fencers area
-            canDrop = false;
+            //Saves the drop area where the drag started
+            dragStart = x.parentNode
             //Denies the dragEnd function
             dragEndActive = false;
         }
@@ -97,8 +97,8 @@ function drag(ev, x) {
         //Saves the row that we dragged
         rowToDelete = x.parentNode.parentNode;
         canRegenerate = true;
-        //Allows the drop to the Drag Fencers area
-        canDrop = true;
+        //sets the  dragStart to undifined
+        dragStart = x.parentNode
         //Allows the dragEnd function
         dragEndActive = true;
         //Saves the table that need to be regenerated
@@ -120,14 +120,16 @@ function dragEnd(x){
 }
 
 function drop(ev) {
-    if(canDrop){
+    if(dragStart !== ev.target){
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
         //Saves the dragged element innerHTML
-        rowToSave.push(draggedElement)
+        if(dragStart.parentNode.id !== "pools_drag_panel"){
+            rowToSave.push(draggedElement)
+        }    
         //Deletes the dragged row if we dropped down.
-        if(rowToDelete !== undefined){
+        if(rowToDelete !== undefined && !dragStart.classList.contains("holder") && !dragStart.classList.contains("deleter")){
             rowToDelete.remove();  
         }
         //Deletes the Dragged row, bottom drag place
@@ -139,7 +141,7 @@ function drop(ev) {
         if(canRegenerate){
             regenerate();
         }
-    }
+    } 
     idloader();   
 }
 function regenerate() {
