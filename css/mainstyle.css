@@ -3580,13 +3580,13 @@ input.wc_time {
 
 #pools_drag_panel > div.holder {
 	flex-basis: 70%;
-	border: 5px dashed var(--c-gray);
+	border: 5px dashed var(--cs-gray);
 	margin-bottom: 10px;
 }
 
 #pools_drag_panel > div.deleter {
 	flex-basis: 30%;
-	border: 5px dashed var(--c-red);
+	border: 5px dashed var(--cs-red);
 	margin-top: 10px;
 }
 
@@ -3595,6 +3595,8 @@ input.wc_time {
 	margin: 5px;
 	background-color: var(--c-lightestgray);
 	font-family: var(--bold);
+	position: relative;
+	z-index: +1;
 }
 
 #pools_drag_panel > div:before {
@@ -3609,13 +3611,23 @@ input.wc_time {
 }
 
 #pools_drag_panel > div.holder:before {
-	color: var(--c-gray);
+	color: var(--cs-gray);
 	content: "Drag Fencers here";
+	opacity: .2;
 }
 
 #pools_drag_panel > div.deleter:before {
-	color: var(--c-red);
+	color: var(--cs-red);
 	content: "Drag Fencers here to remove them";
+	opacity: .2;
+}
+
+#pools_drag_panel > div:empty.holder:before {
+	opacity: 1;
+}
+
+#pools_drag_panel > div:empty.deleter:before {
+	opacity: 1;
 }
 
 #interval_of_match_wrapper {
