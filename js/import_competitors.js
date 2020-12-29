@@ -1,6 +1,7 @@
 //Image upload
 var input = document.getElementById("fileToUpload");
 var uploadButton = document.getElementById("import_button");
+var filetext = document.getElementById("fileText")
 document.getElementById("fileText").textContent = " ";
 //Input change event listener
 input.addEventListener("input", function() {
@@ -16,6 +17,37 @@ input.addEventListener("input", function() {
     //Deletes file parth. 
     document.getElementById("fileText").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
   }
-})
+  if(filetext.innerHTML.substr(filetext.innerHTML.lastIndexOf('.') + 1) !== "xml"){
+   filetext.innerHTML = "Incorrect file format"
+   input.value = ""
+  }
+  else{
+    var file, fr, parser;
+    file = input.files[0];
+    fr = new FileReader();
+    parser = new DOMParser();
+    fr.onload = receivedText;
+    fr.readAsText(file);
 
-console.log(uploadButton)
+    var tablewrapper = document.querySelector(".table_row_wrapper")
+    function receivedText() {
+      var doc = parser.parseFromString(fr.result, "text/xml");
+      var tireurs = doc.getElementsByTagName("Tireur")
+      for(i=0; i<(tireurs.length/2)-1; i++){
+        tablewrapper.innerHTML = tablewrapper.innerHTML + '<div class="table_row"><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div></div>'
+      }
+      var tablerows = document.querySelectorAll(".table_row")
+      for(i=0; i<tireurs.length/2; i++){
+        var tableitems = tablerows[i].querySelectorAll(".table_item")
+        tableitems[0].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("ID")
+        tableitems[1].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Prenom")
+        tableitems[2].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Nom")
+        tableitems[3].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Nation")
+        tableitems[4].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Club")
+        tableitems[5].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Classement")
+      }
+      automaticWidth();
+    }
+  }
+
+})
