@@ -101,8 +101,11 @@ function isClosed() {
     searchBarClosed = true;
 }
 document.onkeyup=function(e){
-    if(e.shiftKey && e.which == 70) {
-        var searchBar = document.getElementById("inputs")
-        searchBar.focus()
-    }
+    //somethingisOpened is a var. from main.js
+    if(!somethingisOpened){
+        if(e.shiftKey && e.which == 70) {
+            var searchBar = document.getElementById("inputs")
+            searchBar.focus()
+        }
+    }    
 }

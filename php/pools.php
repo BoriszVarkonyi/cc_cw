@@ -1274,7 +1274,7 @@ elseif($exist != 0 && $exist2 == 0){
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: <?php echo $refname ?></div>
                                 <div class="table_item"><?php echo $time ?></div>
-                                <button type="button" onclick="" class="pool_config">
+                                <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $i ?>'" class="pool_config">
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>

@@ -21,6 +21,7 @@ registrationtable.addEventListener("click", function(){
     console.log(isselected)
 })
 document.addEventListener("keyup", function(e){
+    //somethingisOpened is a var. from main.js
     if(!somethingisOpened){
         if(e.shiftKey && e.which == 65) {
             var addfencer = document.getElementById("addFencer")
