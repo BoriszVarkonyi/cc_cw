@@ -1,14 +1,14 @@
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	/* Changes throughout colormodes */
 	--c-black: #252525; 
-	--c-transparent-black: rgba(0, 0, 0, 0.3);
+	--c-transparent-black: #25252530;
 	--c-darkgray: #9B9A9A;
 	--c-gray: #CCC;
 	--c-lightgray: #DDD;
 	--c-lightergray: #ECECEC;
 	--c-lightestgray: #F6F6F6;
 	--c-white: #FFF;
-	--c-transparent-white: rgba(255, 255, 255, 0.2);
+	--c-transparent-white: #FFFFFF20;
 	--c-yellow: #FFC914;
 	--c-orange: #FF9700;
 	--c-lightorange: #FFBE5C;
@@ -19,7 +19,7 @@
 	--c-bronze :#E58955;
 	/* Static throughout colormodes */
 	--cs-black: #252525; 
-	--cs-transparent-black: rgba(0, 0, 0, 0.3);
+	--cs-transparent-black: #25252520;
 	--cs-darkgray: #9B9A9A;
 	--cs-gray: #CCC;
 	--cs-lightgray: #DDD;
@@ -27,7 +27,7 @@
 	--cs-lightestgray: #F6F6F6;
 	--cs-white: #FFF;
 	--cs-navbar: #252525; 
-	--cs-transparent-white: rgba(255, 255, 255, 0.2);
+	--cs-transparent-white: #FFFFFF20;
 	--cs-yellow: #FFC914;
 	--cs-orange: #FF9700;
 	--cs-lightorange: #FFBE5C;
@@ -35,17 +35,16 @@
 	--cs-green: #8DFFB7;
 	--cs-blue: #42CAFD;
 	--cs-purple: #7765E3;
-	--cs-transparent: rgba(0, 0, 0, 0);
 	--cs-input: #252525; 
 	--cs-bronze :#E58955;
 	/* Unique */
 	--csd-orange: transparent;
 	--csd-lightorange: transparent;
 	/* Shadows */
-	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
-	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
-	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
-	--s-green: 0 3px 6px rgba(141, 255, 183, 0.1);
+	--s-black: 0 3px 6px #25252510;
+	--s-orange: 0 3px 6px #FF970010;
+	--s-red: 0 3px 6px #F84F4F10;
+	--s-green: 0 3px 6px #8DFFB710;
 	/* Misc */
 	--t-basic: ease-in .2s;
 	/* Font Sizes */
@@ -64,25 +63,22 @@
 
 [data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */
 	--c-black: #FFFC00; 
-	--c-transparent-black: rgba(0, 0, 0, 0.3);
+	--c-transparent-black: #25252530;
 	--c-darkgray: #1A1A1A; 
 	--c-gray: #141414; 
 	--c-lightgray: #0F0F0F; 
 	--c-lightergray: #0A0A0A; 
 	--c-lightestgray: #050505;
 	--c-white: #000;
-	--c-transparent-white: rgba(255, 255, 255, 0.2);
+	--c-transparent-white: #25252530;
 	--c-orange: #1A1A1A;
 	--c-lightorange: #1A1A1A;
 	--c-red: #F84F4F;
 	--c-green: #8DFFB7;
 	--c-blue: #42CAFD;
 	--c-purple: #7765E3;
-	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
-	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
 	--f-xxlarge: calc(1.25em + 1vmin);
 	--f-xlarge: calc(1.25em + 1vmin);
-	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
 	--f-large: calc(1.3em + 1.3vmin);
 	--f-medium: calc(1em + 0.85vmin);
 	--f-small: calc(0.8em + 0.7vmin);
@@ -92,14 +88,14 @@
 
 [data-theme="dark"]:root {	/* Dark Mode */
 	--c-black: #F1F1F1; 
-	--c-transparent-black: rgba(0, 0, 0, 0.3);
+	--c-transparent-black: #25252530;
 	--c-darkgray: #3F3F3F;
 	--c-gray: #393939;
 	--c-lightgray: #343434;
 	--c-lightergray: #2F2F2F;
 	--c-lightestgray: #2A2A2A;
 	--c-white: #252525;
-	--c-transparent-white: rgba(255, 255, 255, 0.2);
+	--c-transparent-white: #FFFFFF20;
 	--c-orange:  #444;
 	--c-lightorange: #3C3C3C;
 	--c-yellow: #393939;
@@ -111,10 +107,11 @@
 	/* Unique */
 	--csd-orange: #FF9700;
 	--csd-lightorange: #FFBE5C;
-	--s-black: 0 3px 6px rgba(0, 0, 0, 0.1);
-	--s-orange: 0 3px 6px rgba(255, 151, 0, 0.1);
-	--s-red: 0 3px 6px rgba(248, 79, 79, 0.1);
-	--s-green: 0 3px 6px rgba(141, 255, 183, 0.1);
+	/* Shadows */
+	--s-black: 0 3px 6px #25252510;
+	--s-orange: 0 3px 6px #FF970010;
+	--s-red: 0 3px 6px #F84F4F10;
+	--s-green: 0 3px 6px #8DFFB710;
 }
 
 @font-face {	

@@ -57,14 +57,15 @@
                             <div class="table_header_text"><p>gr</p></div>
                             <div class="table_header_text"><p>gr</p></div>
                             <div class="table_header_text"><p>gr</p></div>
+                            <div class="table_header_text"><p>gr</p></div>
+                            <div class="table_header_text"><p>gr</p></div>
+                            <div class="table_header_text"><p>gr</p></div>
                         </div>
                         <div class="table_row_wrapper">
                             <div class="table_row">
                                 <div class="table_item"><p>g</p></div>
                                 <div class="table_item"><p>g</p></div>
                                 <div class="table_item"><p>g</p></div>
-                            </div>
-                            <div class="table_row">
                                 <div class="table_item"><p>g</p></div>
                                 <div class="table_item"><p>g</p></div>
                                 <div class="table_item"><p>g</p></div>

@@ -31,7 +31,7 @@ header {
 	flex-wrap: wrap;
 	margin: auto;
 	background-color: var(--c-white);
-	box-shadow: 0 3px 6px rgba(37, 37, 37, 0.3);
+	box-shadow: 0 3px 6px #25252530;
 }
 
 #content.list {
@@ -272,7 +272,7 @@ header > div {
 }
 
 #change_language > div > button {
-	background: linear-gradient(90deg, rgba(255,188,92,1) 0%, rgba(255,151,0,1) 100%);
+	background: linear-gradient(90deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
 	height: 30px;
 	width: 60px;
 	border-radius: 20px;
@@ -313,7 +313,7 @@ header > div {
 	right: 0;
 	position: absolute;
 	width: 0;
-	background: linear-gradient(180deg, rgba(255,188,92,1) 0%, rgba(255,151,0,1) 100%);
+	background: linear-gradient(180deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
 	border-radius: 0 0 5px 5px;
 	transition: all var(--t-basic);
 	overflow: hidden;
@@ -340,7 +340,7 @@ header > div {
 
 #change_language_panel button {
 	width: 100%;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: #FFFFFF50;
 	border-radius: 3px;
 	border: 1px solid var(--c-gray);
 	padding: 2px;
@@ -348,11 +348,11 @@ header > div {
 }
 
 #change_language_panel button.selected {
-	background-color: rgba(255, 255, 255, 0.9) !important;
+	background-color: #FFFFFF90 !important;
 }
 
 #change_language_panel button:hover {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: #FFFFFF70;
 }
 
 /* Mobile */
@@ -385,7 +385,7 @@ header > div {
 	width: 100vw;
 	position: absolute;
 	top: 50px;
-	background-color: rgba(37, 37, 37, 0.7);
+	background-color: #25252590;
 	height: 0;
 	transition: all var(--t-basic);
 	overflow: hidden;
@@ -1523,7 +1523,7 @@ input[value="Search"] {
 	width: 100vw;
 	top: 0;
 	background: rgb(255,188,92);
-	background: linear-gradient(190deg, rgba(255,188,92,1) 0%, rgba(255,151,0,1) 100%);	
+	background: linear-gradient(190deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
 }
 
 #basic_body::before {

@@ -940,7 +940,7 @@ label:hover > p {
 	position: absolute;
 	padding: 5px 10px;
 	font-size: var(--f-small);
-	background-color: rgba(37, 37, 37, 0.9);
+	background-color: #25252590;
 	backdrop-filter: blur(1px);
 	text-transform: none;
 	font-family: var(--reg);
@@ -1450,7 +1450,7 @@ input[type=radio]:checked:disabled + label:before {
 }
 
 .other_apps_button:hover {
-	background-color: var(--c-transparent-black);
+	background-color: var(--c-transparent-white);
 }
 
 #other_apps.opened > button {
@@ -3281,12 +3281,12 @@ input.wc_time {
 
 .piste.focused {
 	transform: scale(1.025);
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 3px 6px #25252530;
 	z-index: 5;
 }
 
 .piste.focused > form {
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 6px #25252530;
 }
 
 .piste > .piste_settings_panel {
