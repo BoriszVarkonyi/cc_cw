@@ -30,6 +30,7 @@ $query_do = mysqli_query($connection, $query);
     <title>Print Pools</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/printpools_style.css">
 </head>
 <body>
 <!-- header -->
@@ -44,29 +45,60 @@ $query_do = mysqli_query($connection, $query);
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
                 </div>
-
                 <div id="page_content_panel_main">
                     <div class="wrapper" id="pool_print_wrapper">
                         <div class="pool_print">
-                            <div>
-                                <p>Pool 1</p>
+                            <div class="title_container">
+                                <div><p class="title">Pools no.: 1</p></div>
+                                <div class="pool_info">
+                                    <div>
+                                        <p class="info_label">PISTE:</p>
+                                        <p>Red</p>
+                                    </div>
+                                    <div>
+                                        <p class="info_label">REFEREES:</p>
+                                        <p>Ember 1 Jajdejó</p>
+                                        <p>Ember 2</p>
+                                    </div>
+                                    <div>
+                                        <p class="info_label">TIME:</p>
+                                        <p>14:30</p>
+                                    </div>
+                                </div>
+                                <div class="comp_info">
+                                    <p class="info_label">Absolute Fencing Retard 20200 If Else Statement</p>
+                                    <div>
+                                        <p>WOMEN'S</p>
+                                        <p>EPEE</p>
+                                    </div>
+                                    <p>2020. 04. 29.</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>Tölt</p>
-                            </div>
-                            <div>
-                                <p>Aláírás</p>
+                            <div class="pool_content">
+                                <div class="pool_matches">
+
+                                    <div class="pool_match">
+                                        <div class="number">
+                                            <p>1.</p>
+                                        </div>
+                                        <div class="numbering">
+                                            <p>1.</p>
+                                            <p>64.</p>
+                                        </div>
+                                        <div class="names">
+                                            <p>Bida Sergey 2 5 5 </p>
+                                            <p>Bida Sergey 2 5 5115 </p>
+                                        </div>
+                                        <div class="grid">
+                                            <div><p>0g</p></div>
+                                            <div><p>0g</p></div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="pool_print">
-                            <div class="comp_info">
-                                <p>Come</p>
-                                <p>2020. 04. 30.</p>
-                                <p>Comp ANme</p>
-                                <p>Comp ANme</p>
-                                <p>Comp ANme</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

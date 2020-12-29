@@ -341,6 +341,14 @@ form.hidden, form.disabled {
 	max-width: calc(1.4em + 1.25vmin);
 }
 
+.table_item.square.red {
+	background-color: var(--c-red) !important;
+}
+
+.table_item.square.green {
+	background-color: var(--c-green) !important;
+}
+
 .table_header_text.square p, .table_item.square p {
 	text-overflow: clip !important;
 }

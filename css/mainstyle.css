@@ -2101,8 +2101,17 @@ input[type="file"] {
 		page-break-after: always !important;
 	}
 
+	.title_container {
+		height: 10vh !important;
+	}
+
+	.pool_content {
+		height: 90vh !important;
+	}
+	
+
 	@page {
-		margin: 0;
+		margin: 0 !important;
 		size: A4;
 	}
 
@@ -4017,40 +4026,4 @@ input.wc_time {
 	width: 40px !important;
 	margin: 20px !important;
 	text-align: center;
-}
-
-/* Pool Print */
-
-#pool_print_wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-}
-
-.pool_print {
-    width: 210mm;
-    height: 297mm;
-	border: 5px solid black;
-	page-break-before: always;
-	page-break-after: always;
-	background-color: var(--cs-white);
-}
-
-.pool_print > div {
-	width: 100%;
-}
-
-.pool_print > div:nth-of-type(1), .pool_print > div:nth-of-type(3)  {
-	height: 20%;
-}
-
-.pool_print > div:nth-of-type(2) {
-	height: 60%;
-	border-bottom: 5px solid black;
-	border-top: 5px solid red;
-}
-
-.comp_info {
-	width: 30%;
-	border: 5px solid black;
 }
