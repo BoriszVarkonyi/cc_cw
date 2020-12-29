@@ -40,7 +40,7 @@
                             <p>Import Competitors</p>
                         </div>
                         <div class="db_panel_main">
-                            <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
+                            <form method="POST" id="delete_logo">
                                 <button id="delete_logo" class="panel_button">
                                     <img src="../assets/icons/delete-black-18dp.svg" >
                                 </button>
@@ -52,11 +52,32 @@
                             </form>
                         </div>
                     </div>
+                    <div class="table">
+                        <div class="table_header">
+                            <div class="table_header_text"><p>gr</p></div>
+                            <div class="table_header_text"><p>gr</p></div>
+                            <div class="table_header_text"><p>gr</p></div>
+                        </div>
+                        <div class="table_row_wrapper">
+                            <div class="table_row">
+                                <div class="table_item"><p>g</p></div>
+                                <div class="table_item"><p>g</p></div>
+                                <div class="table_item"><p>g</p></div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item"><p>g</p></div>
+                                <div class="table_item"><p>g</p></div>
+                                <div class="table_item"><p>g</p></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 <script src="../js/main.js"></script>
 <script src="../js/controls.js"></script>
+<script src="../js/list.js"></script>
 <script src="../js/import_competitors.js"></script>
 </html>

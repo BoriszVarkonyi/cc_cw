@@ -4047,7 +4047,7 @@ input.wc_time {
 .pool_print > div:nth-of-type(2) {
 	height: 60%;
 	border-bottom: 5px solid black;
-	border-top: 5px solid black;
+	border-top: 5px solid red;
 }
 
 .comp_info {
