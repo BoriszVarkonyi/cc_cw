@@ -55,7 +55,7 @@
 
                             if ($ref1 != 0) {
 
-                                $qry_get_ref = "SELECT `name` FROM `ref_$comp_id` WHERE id = $ref1";
+                                $qry_get_ref = "SELECT `full_name` FROM `ref_$comp_id` WHERE id = $ref1";
                                 $do_get_ref = mysqli_query($connection, $qry_get_ref);
                                 if ($row = mysqli_fetch_assoc($do_get_ref)) {
                                     $ref1_name = $row['full_name'];
@@ -65,7 +65,7 @@
                             }
                             if ($ref2 != 0) {
 
-                                $qry_get_ref2 = "SELECT `name` FROM `ref_$comp_id` WHERE id = $ref2";
+                                $qry_get_ref2 = "SELECT `full_name` FROM `ref_$comp_id` WHERE id = $ref2";
                                 $do_get_ref2 = mysqli_query($connection, $qry_get_ref2);
                                 if ($row = mysqli_fetch_assoc($do_get_ref2)) {
                                     $ref2_name = $row['full_name'];
