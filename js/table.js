@@ -89,6 +89,7 @@ function disabler(){
 window.addEventListener("resize", windowSize);
 window.addEventListener("DOMContentLoaded", windowSize);
 var vw;
+//Chagnes the shown table numbers by the window size
 function windowSize(){
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     if(vw > 1600){
@@ -132,6 +133,7 @@ function windowSize(){
         }
     }
 }
+//Automaticly sets the table title
 var eliminations = document.querySelectorAll(".elimination_label")
 var tableOfIndex = 8;
 for(i=eliminations.length-1; i>=0; i--){

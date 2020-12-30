@@ -1,3 +1,4 @@
+//Decides which js file needed to be loaded
 addScript = function(number) {
     var body = document.getElementsByTagName("body")[0],
         script = document.createElement('script');

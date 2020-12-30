@@ -13,7 +13,7 @@ function removeButtonDisabler(){
         removeButton.classList.add("disabled")
     }
 }
-
+//An event listener to class change
 var wcRows = document.querySelectorAll(".table_row_wrapper .table_row")
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
