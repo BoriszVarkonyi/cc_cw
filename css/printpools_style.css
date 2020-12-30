@@ -99,6 +99,7 @@
 
 .pool_match.ghost {
     visibility: hidden;
+    max-height: 0;
 }
 
 .number {
