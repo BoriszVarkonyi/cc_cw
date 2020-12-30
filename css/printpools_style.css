@@ -97,6 +97,10 @@
     display: flex;
 }
 
+.pool_match.ghost {
+    visibility: hidden;
+}
+
 .number {
     color: DimGray;
     font-size: 20pt;
