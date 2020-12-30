@@ -289,17 +289,26 @@ if($score1 != NULL && $score2 != NULL){
                         $oip = $row["oip"];
 
                         
-                        $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id IN ('$f1_id','$f2_id')";
+                        $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id = '$f1_id'";
                         $get_fencer_names_do = mysqli_query($connection, $get_fencer_names);
+
+                        $get_fencer_names2 = "SELECT * FROM cptrs_$comp_id WHERE id = '$f2_id'";
+                        $get_fencer_names_do2 = mysqli_query($connection, $get_fencer_names2);
                         
-                        $cou = 1;
 
-                        while($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
 
-                        ${"f" . $cou . "_n"} = $row2["name"];
+                        if($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
 
-                        $cou++;
+                        $f1_n = $row2["name"];
+
+
                         }
+                        if($row3 = mysqli_fetch_assoc($get_fencer_names_do2)){
+
+                            $f2_n = $row3["name"];
+    
+    
+                            }
 
                         
                         ?>
