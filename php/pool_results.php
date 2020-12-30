@@ -68,7 +68,7 @@ $poolnum = $_GET["poolid"];
 
             <div id="page_content_panel_main">
                 <div class="wrapper full" id="pool_results">
-                    <div>
+
 
 
                     <?php
@@ -116,122 +116,122 @@ $poolnum = $_GET["poolid"];
                             }
 
                         }?>
-                    <div>
-                        <div class="entry" >
-                            <div class="table_row start">
-                                <div class="table_item bold">No. <?php echo $poolnum ?></div>
-                                <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref: <?php echo $refname ?></div>
-                                <div class="table_item"><?php echo $time ?></div>
-                            </div>
-                            <div class="entry_panel">
-                                <div class="pool_table_wrapper table">
-                                    <div class="table_header">
-                                        <div class="table_header_text">
-                                            Fencers name
-                                        </div>
-                                        <div class="table_header_text square">
-                                            No.
-                                        </div>
-                                        <?php 
-                                        for ($k=0; $k < $pool_f_in; $k++) { ?>
+                        <div>
+                            <div class="entry" >
+                                <div class="table_row start">
+                                    <div class="table_item bold">No. <?php echo $poolnum ?></div>
+                                    <div class="table_item">Piste <?php echo $piste ?></div>
+                                    <div class="table_item">Ref: <?php echo $refname ?></div>
+                                    <div class="table_item"><?php echo $time ?></div>
+                                </div>
+                                <div class="entry_panel">
+                                    <div class="pool_table_wrapper table">
+                                        <div class="table_header">
+                                            <div class="table_header_text">
+                                                Fencers name
+                                            </div>
                                             <div class="table_header_text square">
-                                            <?php echo $k +1; ?>
+                                                No.
+                                            </div>
+                                            <?php 
+                                            for ($k=0; $k < $pool_f_in; $k++) { ?>
+                                                <div class="table_header_text square">
+                                                <?php echo $k +1; ?>
+                                            </div>
+                                            <?php
+                                            }
+                                            ?>
+                                            
                                         </div>
+                                        <div class="table_row_wrapper">
                                         <?php
-                                        }
-                                        ?>
-                                        
-                                    </div>
-                                    <div class="table_row_wrapper">
-                                    <?php
-                                    for ($n=0; $n < $pool_f_in; $n++) { 
-                                            $fx = $f[$n];
-                                            $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
-                                            $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+                                        for ($n=0; $n < $pool_f_in; $n++) { 
+                                                $fx = $f[$n];
+                                                $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
+                                                $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
 
-                                            if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
-                                                $fencer_name = $row['name'];
+                                                if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
+                                                    $fencer_name = $row['name'];
+                                                }?>
+                                                
+
+                                        <div class="table_row">
+                                            <div class="table_item"><?php echo $fencer_name ?></div>
+                                            <div class="table_item square row_title"><?php echo $n+1 ?></div>
+                                            <?php
+                                            $filled = "";
+                                            for ($l=0; $l < $pool_f_in; $l++) { 
+                                                
+                                            if($l == $n){
+
+                                            $filled = "filled";
+
                                             }?>
                                             
-
-                                    <div class="table_row">
-                                        <div class="table_item"><?php echo $fencer_name ?></div>
-                                        <div class="table_item square row_title"><?php echo $n+1 ?></div>
-                                        <?php
-                                        $filled = "";
-                                        for ($l=0; $l < $pool_f_in; $l++) { 
+                                            <div class="table_item square <?php echo $filled ?>">
+                                        
+                                            <?php
+                                            $front = 0;
+                                            $back = 0;
+                                                if($l > $n){
                                             
-                                        if($l == $n){
+                                                    $front = $n+1;
+                                                    $back = $l+1;
 
-                                        $filled = "filled";
+                                                }else{
 
-                                        }?>
-                                        
-                                        <div class="table_item square <?php echo $filled ?>">
-                                    
-                                        <?php
-                                        $front = 0;
-                                        $back = 0;
-                                            if($l > $n){
-                                        
-                                                $front = $n+1;
-                                                $back = $l+1;
+                                                    $front = $l +1 ;
+                                                    $back = $n+1;
 
-                                            }else{
-
-                                                $front = $l +1 ;
-                                                $back = $n+1;
-
-                                            }
-                                        if($l != $n){
-                                            $scorenow = 0;
-                                            $m_id = $front . "-" . $back;
-
-                                            if($l > $n){
-                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                    $scorenow = $row4["f1_sc"];
-                                                    
                                                 }
-                                                echo $scorenow;
+                                            if($l != $n){
+                                                $scorenow = 0;
+                                                $m_id = $front . "-" . $back;
 
-                                            }
-                                            elseif($n > $l){
-                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
+                                                if($l > $n){
+                                                    $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
+                                                    $query_get_scores_do = mysqli_query($connection, $query_get_scores);
 
-                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
+                                                    while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
 
-                                                    $scorenow = $row4["f2_sc"];
-                                                    
+                                                        $scorenow = $row4["f1_sc"];
+                                                        
+                                                    }
+                                                    echo $scorenow;
+
                                                 }
-                                                echo $scorenow;
-                                            }
+                                                elseif($n > $l){
+                                                    $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
+                                                    $query_get_scores_do = mysqli_query($connection, $query_get_scores);
 
-                                            }
+                                                    while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
 
-                                        ?>
-                                        
-                                        </div>
-                                        
-                                        <?php
-                                        $filled = "";
-                                        }
+                                                        $scorenow = $row4["f2_sc"];
+                                                        
+                                                    }
+                                                    echo $scorenow;
+                                                }
 
-                                        ?>
-                                    </div>
-                                    <?php
-                                        }
+                                                }
+
                                             ?>
+                                            
+                                            </div>
+                                            
+                                            <?php
+                                            $filled = "";
+                                            }
+
+                                            ?>
+                                        </div>
+                                        <?php
+                                            }
+                                                ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
 
@@ -489,7 +489,6 @@ $poolnum = $_GET["poolid"];
                         </div> -->
 
 
-                    </div>
                 </div>
             </div>
         </div>

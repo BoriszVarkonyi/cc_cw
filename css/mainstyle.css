@@ -3953,8 +3953,8 @@ input.wc_time {
 }
 
 #pool_results > div {
-	flex: 1 1 0;
-	width: 0;
+	width: 50%;
+	max-width: 50%;
 	display: flex;
 }
 
