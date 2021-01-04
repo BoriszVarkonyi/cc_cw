@@ -11,7 +11,6 @@ html {
 button {
 	cursor: pointer;
 	padding: 0;
-	font-family: var(--reg);
 }
 
 ul {
@@ -33,8 +32,8 @@ input.hidden {
 textarea {
 	outline: none;
 	border: none;
-	resize: none;
-	font-family: var(--reg);
+	resize: none;	
+	font-family: var(--regular);
 }
 
 /* ///PAGE LAYOUT/// */
@@ -140,12 +139,11 @@ header {
 #username {
 	font-family: var(--bold);
 	margin: 2px 0 -2px;
-	font-size: var(--f-xsmall);
 }
 
 #role {
 	margin: -2px 0 2px;
-	font-size: var(--f-xxsmall);
+	font-size: var(--f-small);
 }
 
 #menu_button {
@@ -448,14 +446,14 @@ input[type="range"]:focus::-ms-fill-upper {
 	max-width: 500px;
 	display: flex;
 	justify-content: center;
-	color: var(--c-black);
 	flex: 1 1 100%;
 	overflow: visible;
-	transition: all var(--t-basic), font-size none;
+	transition: width var(--t-basic);
 	position: relative;
 }
 
 #nav_bar.closed {
+	transition: width var(--t-basic);
 	min-width: 40px;
 	width: 2vw;
 	max-width: 80px;
@@ -469,7 +467,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 #app_name.closed {
-	left: -200px;
+	left: -500px;
 }
 
 #nav_bar_wrapper {
@@ -491,12 +489,12 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .nav_bar_title {
-	font-family: var(--thin);
+	font-family: var(--bold);
 	text-transform: uppercase;
 	padding: 0;
 	margin: 25px 0 7px 0;
 	transition: transform var(--t-basic);
-	font-size: var(--f-medium);
+	font-size: var(--f-xlarge);
 }
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_title {
@@ -509,8 +507,8 @@ input[type="range"]:focus::-ms-fill-upper {
 	width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
-	font-size: calc(var(--f-medium) + 3px);
+	align-items: center;
+	font-size: var(--f-xlarge);
 	padding: 0;
 	background: transparent;
 	color: var(--c-black);
@@ -685,7 +683,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	margin: 0;
 	height: auto;
 	min-height: 0;
-	font-size: var(--f-small) !important;
+	font-size: var(--f-large)
 }
 
 .dropdown_menu a::before {
@@ -715,6 +713,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #need_help {
 	margin: auto 0 10px 0;
+	font-size: var(--f-large);
 	font-family: var(--bold);
 	display: flex;
 	justify-content: center;
@@ -724,7 +723,6 @@ input[type="range"]:focus::-ms-fill-upper {
 #need_help p {
 	animation: showNavTitles var(--t-basic);
 	animation-fill-mode: forwards;  
-	font-size: var(--f-medium);
 }
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help {
@@ -786,7 +784,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .comp_title {
 	font-family: var(--bold);
-	font-size: var(--f-large);
+	font-size: var(--f-xxlarge);
 	max-width: 50vw;
 	overflow: hidden;
 	float: left;
@@ -809,11 +807,9 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .page_title {		/* The page's title fills the login panel and page_content */
 	font-family: var(--bold);
-	font-size: var(--f-large);
+	font-size: var(--f-xxlarge);
 	max-width: 50vw;
 	margin-left: 40px;
-	float: left;
-	user-select: none;
 }
 
 /* Legends */
@@ -918,9 +914,8 @@ input[type="range"]:focus::-ms-fill-upper {
 /* ///FORMS AND INPUTS/// */
 
 label {	/* Used in forms, all caps, thin font    NO option buttons*/
-	font-family: var(--thin);
+	font-family: var(--light);
 	text-transform: uppercase;
-	font-size: var(--f-medium);
 	color: var(--c-black);
 	padding: 0;
 	align-self: flex-start;
@@ -943,11 +938,9 @@ label:hover > p {
 	background-color: #25252590;
 	backdrop-filter: blur(1px);
 	text-transform: none;
-	font-family: var(--reg);
 }
 
 label.small {
-	font-family: var(--reg);
 	text-transform: initial;
 	font-size: var(--f-small);
 }
@@ -955,7 +948,7 @@ label.small {
 .panel_title {
 	font-family: var(--bold);
 	text-transform: uppercase;
-	font-size: var(--f-medium);
+	
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -1006,8 +999,7 @@ label.small {
 	opacity: 1;
 	transition: opacity var(--t-basic);
 	width: 350px;
-	max-width: 330px;
-	font-size: var(--f-medium);
+	max-width: 330px;	
 }
 
 .option_container.grid.piste_select.disabled {
@@ -1028,7 +1020,6 @@ input[type=checkbox] + label {
 	display: flex;
 	align-items: center;
 	margin-bottom: 8px;
-	font-family: var(--reg);
 	color: var(--c-black);
 	text-transform: none;
 }
@@ -1086,7 +1077,6 @@ input[type=radio] + label {
 	display: flex;
 	align-items: center;
 	margin-bottom: 8px;
-	font-family: var(--reg);
 	color: var(--c-black);
 	text-transform: none;
 }
@@ -1323,7 +1313,7 @@ input[type=radio]:checked:disabled + label:before {
 	flex: 0 1 auto;
 	display: flex;
 	align-items: center;
-	font-size: var(--f-medium);
+	
 }
 
 #db_comp_status {
@@ -1357,7 +1347,6 @@ input[type=radio]:checked:disabled + label:before {
 #sheduled_to_do_list {
 	padding: 0;
 	margin: 0;
-	font-size: var(--f-medium);
 	font-family: var(--bold);
 	display: flex;
 	flex-direction: column;
@@ -1398,7 +1387,6 @@ input[type=radio]:checked:disabled + label:before {
 
 .sheduled_to_do_sublist {
 	font-size: var(--f-small);
-	font-family: var(--reg);
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
@@ -1480,7 +1468,7 @@ input[type=radio]:checked:disabled + label:before {
 #other_apps.opened > #other_apps_dropdown > p {
 	font-size: var(--f-small);
 	text-transform: uppercase;
-	font-family: var(--thin);
+	font-family: var(--light);
 	margin: 10px 0 5px 5px;
 }
 
@@ -1722,7 +1710,6 @@ input:focus::placeholder {
 }
 
 .invitation_file_wrapper > p {
-	font-size: var(--f-medium);
 	font-family: var(--bold);
 }
 
@@ -1730,8 +1717,7 @@ input[type="file"] {
 	display: none;
 }
 
-.invitation_file_wrapper > label, .file_label {
-	font-size: var(--f-medium);
+.invitation_file_wrapper > label, .file_label {	
 	font-family: var(--bold);
 	text-decoration: underline;
 	cursor: pointer;
@@ -1772,7 +1758,6 @@ input[type="file"] {
 	color: var(--c-darkgray);
 	position: absolute;
 	z-index: 1;
-	font-size: var(--f-medium);
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -1804,8 +1789,6 @@ input[type="file"] {
 	padding: 5px;
 	width: 80%;
 	height: 70%;
-	font-family: var(--reg);
-	font-size: var(--f-medium);
 	background: transparent;
 	border: 2px dashed var(--c-gray);
 	transition: background-color var(--t-basic), border var(--t-basic);
@@ -1872,7 +1855,7 @@ input[type="file"] {
 
 #fileText {
 	font-size: var(--f-small);
-	font-family: var(--reg);
+	
 }
 
 /* Competitions page */
@@ -1885,7 +1868,7 @@ input[type="file"] {
 }
 
 #comp_status {
-	font-family: var(--thin);
+	font-family: var(--light);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin: -20px 0 0 100px;
@@ -1914,7 +1897,7 @@ input[type="file"] {
 }
 
 #comp_data > div > p {
-	font-family: var(--reg);
+	
 	font-size: var(--f-large);
 	text-transform: uppercase;
 	margin-right: 20px;
@@ -1928,7 +1911,7 @@ input[type="file"] {
 	align-self: center;
 	flex: 0 1 auto;
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1964,13 +1947,13 @@ input[type="file"] {
 }
 
 .data_label {
-	font-family: var(--reg);
+	
 	text-transform: uppercase;
 	margin-top: 10px;
 }
 
 .data_label:first-child {
-	font-family: var(--reg);
+	
 	text-transform: uppercase;
 	margin-top: 0;
 }
@@ -2005,11 +1988,11 @@ input[type="file"] {
 }
 
 #plus_information_panel > div > p:nth-of-type(odd) {
-	font-size: var(--f-medium);
+	
 }
 
 #plus_information_panel > div > p:nth-of-type(even) {
-	font-family: var(--reg);
+	
 	margin-bottom: 20px;
 }
 
@@ -2204,7 +2187,7 @@ input[type="file"] {
 	align-items: center;
 	justify-content: center;
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 }
 
 #timetable {
@@ -2247,7 +2230,7 @@ input[type="file"] {
 
 #timetable > div.disabled > a > p {
 	color: var(--c-darkgray);
-	font-family: var(--reg);
+	
 }
 
 #timetable > div > a > button {
@@ -2386,7 +2369,7 @@ input[type="file"] {
 
 #wc_notes::placeholder {
 	font-size: var(--f-small);
-	font-family: var(--reg);
+	
 	color: var(--c-black);
 }
 
@@ -2476,7 +2459,7 @@ input[type="file"] {
 
 #ranking_search .table::before {
 	content: "No Rankings found";
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	color: var(--c-gray);
 	white-space: nowrap;
@@ -2529,8 +2512,8 @@ div.desc_box > p:nth-child(1) {
 }
 
 div.desc_box > p:nth-child(2) {
-	font-size: var(--f-medium);
-	font-family: var(--reg);
+	
+	
 	padding-left: 20px;
 }
 
@@ -2613,7 +2596,7 @@ div.title_box > button {
 	border: 3px solid var(--cs-orange);
 	background-color: var(--c-orange);
 	border-radius: 5px;
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	cursor: pointer;
 	width: auto;
@@ -2743,7 +2726,7 @@ div.title_box > button {
 
 #ranking_info_panel > div > p {
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 }
 
 #ranking_info_panel > div > div {
@@ -2753,7 +2736,7 @@ div.title_box > button {
 
 #ranking_info_panel > div > div > p {
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 }
 
 /* ///REFEREES/// */
@@ -2791,7 +2774,7 @@ div.title_box > button {
 
 #new_entries_panel:after, #managed_entries_panel:after {
 	content: "There are no new entries";
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	color: var(--c-gray);
 	white-space: nowrap;
@@ -2943,8 +2926,8 @@ div.title_box > button {
 input.wc_time {
 	background: transparent;
 	color: var(--cs-black);
-	font-family: var(--reg);
-	font-size: var(--f-medium);
+	
+	
 	margin: 0;
 	padding: 0;
 }
@@ -3008,8 +2991,8 @@ input.wc_time {
 }
 
 #confirmation_form > p:nth-of-type(2), #create_ranking_form > p:nth-of-type(2) {
-	font-size: var(--f-medium);
-	font-family: var(--reg);
+	
+	
 	margin-bottom: 10px;
 	border-bottom: 2.5px solid var(--c-red);
 }
@@ -3025,8 +3008,8 @@ input.wc_time {
 #confirmation_button_section > button {
 	margin-right: 15px;
 	padding: 6.5px;
-	font-size: var(--f-medium);
-	font-family: var(--reg);
+	
+	
 	border-radius: 5px;
 	background-color: var(--c-lightgray);
 }
@@ -3082,7 +3065,7 @@ input.wc_time {
 }
 
 .period > div:first-child > p:first-child {
-	font-size: var(--f-medium);
+	
 	padding: 10px 0;
 } 
 
@@ -3179,8 +3162,8 @@ input.wc_time {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div > p {
-	font-size: var(--f-medium);
-	font-family: var(--reg);
+	
+	
 	text-align: center;
 	padding: 5px 0;
 	width: 50%;
@@ -3192,8 +3175,8 @@ input.wc_time {
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div:last-child > p {
 	width: 100%;
-	font-size: var(--f-medium);
-	font-family: var(--reg);
+	
+	
 	text-align: center;
 	padding: 10px 0;
 }
@@ -3238,7 +3221,7 @@ input.wc_time {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(3) > p { /* Period buttons */
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);  
 	width: 50%;
 	text-align: center;
@@ -3321,7 +3304,7 @@ input.wc_time {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: var(--f-large);
+	font-size: var(--f-xxxlarge);
 	font-family: var(--bold);
 }
 
@@ -3355,7 +3338,7 @@ input.wc_time {
 	flex-direction: column;
 	justify-content: center;
 	padding: 0 20px;
-	font-size: var(--f-medium);
+	font-size: var(--f-large);
 	font-family: var(--bold);
 	position: relative;
 }
@@ -3462,7 +3445,7 @@ input.wc_time {
 	width: 350px;
 	vertical-align: middle;
 	text-align: center;
-	font-size: var(--f-medium);
+	
 }
 
 #pools_wrapper {
@@ -3619,7 +3602,7 @@ input.wc_time {
 #pools_drag_panel > div:before {
 	width: 100%;
 	align-self: center;
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	position: absolute;
 	left: 50%;
@@ -3833,7 +3816,7 @@ input.wc_time {
 
 .underlined_button {
 	text-decoration: underline;
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	background: transparent;
 	padding: 3px 5px;
@@ -3864,7 +3847,7 @@ input.wc_time {
 }
 
 .fencer_wrapper > div:first-of-type > p {
-	font-size: var(--f-medium);
+	
 }
 
 .match_fencer_points {
@@ -3882,7 +3865,7 @@ input.wc_time {
 }
 
 .winner_text {
-	font-size: var(--f-medium);
+	
 	text-transform: uppercase;
 	color: var(--c-red);
 	font-family: var(--bold);
@@ -3901,7 +3884,7 @@ input.wc_time {
 	display: flex;
 	flex-direction: column;
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 	align-items: center;
 }
 
@@ -3931,7 +3914,7 @@ input.wc_time {
 }
 
 .disqualify_button {
-	font-size: var(--f-medium);
+	
 	margin: 10px 5px 5px 5px;
 	padding: 5px 10px;
 	color: var(--c-red);
@@ -4010,7 +3993,7 @@ input.wc_time {
 }
 
 .match > div > p {
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	text-overflow: ellipsis;
 }

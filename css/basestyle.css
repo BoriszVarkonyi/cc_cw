@@ -48,17 +48,19 @@
 	/* Misc */
 	--t-basic: ease-in .2s;
 	/* Font Sizes */
-	--f-xxlarge: calc(1.9em + 1.9vmin);
-	--f-xlarge: calc(1.5em + 1.5vmin);
-	--f-large: calc(1.1em + 1.1vmin);
-	--f-medium: calc(0.8em + 0.8vmin);
-	--f-small: calc(0.75em + 0.7vmin);
-	--f-xsmall: calc(0.675em + 0.675vmin);
-	--f-xxsmall: calc(0.55em + 0.5vmin);
+	--f-xxxxlarge: 3.052rem;
+	--f-xxxlarge: 2.441rem;
+	--f-xxlarge: 1.953rem;
+	--f-xlarge: 1.563rem;
+	--f-large: 1.25rem;
+	--f-medium: 1rem;
+	--f-small: 0.8rem;
+	--f-xsmall: 0.64rem;
+	--f-xxsmall: 0.512rem;
 	/* Fonts */
-	--thin: ProximaNovaThin;
-	--reg: ProximaNova;
-	--bold: ProximaNovaBold;
+	--light: Poppins-Light;
+	--regular: Poppins-Regular;
+	--bold: Poppins-SemiBold;
 }
 
 [data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */
@@ -77,13 +79,7 @@
 	--c-green: #8DFFB7;
 	--c-blue: #42CAFD;
 	--c-purple: #7765E3;
-	--f-xxlarge: calc(1.25em + 1vmin);
-	--f-xlarge: calc(1.25em + 1vmin);
-	--f-large: calc(1.3em + 1.3vmin);
-	--f-medium: calc(1em + 0.85vmin);
-	--f-small: calc(0.8em + 0.7vmin);
-	--f-xsmall: calc(0.7em + 0.7vmin);
-	--f-xxsmall: calc(0.6em + 0.3vmin);
+
 }
 
 [data-theme="dark"]:root {	/* Dark Mode */
@@ -115,23 +111,24 @@
 }
 
 @font-face {	
-	font-family: ProximaNovaThin;
-	src: url(../assets/fonts/ProximaNova-Thin.otf);
+	font-family: Poppins-Light;
+	src: url(../assets/fonts/Poppins-Light.ttf);
 }
 
 @font-face {
-	font-family: ProximaNova;
-	src: url(../assets/fonts/ProximaNova-Regular.otf);
+	font-family: Poppins-Regular;
+	src: url(../assets/fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
-	font-family: ProximaNovaBold;
-	src: url(../assets/fonts/ProximaNova-Bold.otf);
+	font-family: Poppins-SemiBold;
+	src: url(../assets/fonts/Poppins-SemiBold.ttf);
 }
 
 body, html {	/* Gives placeholder background and default font */
     background-color: var(--c-white);
-	font-family: var(--reg);
+	font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
+	font-size: 1rem;
 	color: var(--c-black);
 	height: 100%;
 	padding: 0;
@@ -150,7 +147,7 @@ body, html {	/* Gives placeholder background and default font */
 button {
 	cursor: pointer;
 	padding: 0;
-    font-family: var(--reg);
+    
     outline: none;
     border: none;
 }
@@ -203,7 +200,7 @@ form.hidden, form.disabled {
 }
 
 ::placeholder {
-	font-family: var(--reg);
+	
 }
 
 /* Loading Screen */
@@ -300,7 +297,7 @@ form.hidden, form.disabled {
 .table {		/* Whole table */
 	flex-direction: column;
 	color: var(--c-black);
-	font-size: var(--f-medium);
+	
 }
 
 .table.cw {		/* Whole table */
@@ -323,7 +320,7 @@ form.hidden, form.disabled {
 /* Header */
 
 .table_header {		/* Wraps table_header text elements */
-	font-family: var(--thin);
+	font-family: var(--light);
 	border-left: 2px solid transparent;
 	border-right: 2px solid transparent;
 	text-transform: uppercase;
@@ -428,10 +425,6 @@ form.hidden, form.disabled {
 	background-color: var(--c-white) !important;
 }
 
-.entry_panel .table {
-	font-size: var(--f-xsmall) !important;
-}
-
 .table_row.selected {
 	background-color: var(--c-orange) !important;
 	box-shadow: var(--s-black);
@@ -472,7 +465,7 @@ form.hidden, form.disabled {
 
 .table_row_drop.opened:after {
 	content: "Drop Fencer here";
-	font-size: var(--f-medium);
+	
 	color: var(--c-darkgray);
 }
 
@@ -503,7 +496,7 @@ form.hidden, form.disabled {
 }
 
 .table_item.row_title {
-	font-family: var(--thin);
+	font-family: var(--light);
 	text-transform: uppercase;
 }
 
@@ -661,7 +654,7 @@ form.hidden, form.disabled {
 
 input[type="text"].search {
 	background-color: var(--c-lightestgray);
-	font-size: var(--f-medium);
+	
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 7.5px 30px;
@@ -693,7 +686,7 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 	padding: 7.5px 30px;
 	background-color: var(--c-orange);
 	border-radius: 5px;
-	font-size: var(--f-medium);
+	
 	font-family: var(--bold);
 	cursor: pointer;
 }
@@ -702,7 +695,6 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 
 input[type="text"].search.cc {
 	background-color: var(--c-white);
-	font-size: var(--f-small);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	padding: 6px 30px;
@@ -715,7 +707,7 @@ input[type="text"].search.cc {
 }
 
 input[type="text"].search.cc::placeholder {
-	font-family: var(--reg);
+	
 }
 
 .search_wrapper {
@@ -826,7 +818,7 @@ input:focus ~ .clear_search_button {
 	z-index: 2;
 	box-shadow: var(--s-black);
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 	color: var(--c-darkgray);
 	background-color: var(--c-lightergray);
 }
@@ -868,7 +860,7 @@ input:focus ~ .clear_search_button {
 }
 
 .select_input > div > button {
-	font-size: var(--f-medium);
+	
 	background-color: var(--c-white);
 	width: 100%;
 	padding: 5px 0;
@@ -893,7 +885,7 @@ input:focus ~ .clear_search_button {
 /* Date input */
 
 input[type="date"] {
-	font-family: var(--reg);
+	
 	background: transparent;
 }
 
@@ -1014,7 +1006,7 @@ input[type="text"].no_margin {
 input[type="number"] {
 	width: 40px;
 	background: transparent;
-	font-family: var(--reg);
+	
 	font-size: var(--f-small);
 	margin-right: -35px;
 }
@@ -1076,7 +1068,7 @@ input[type="time"] {
 	height: 35px;
 	padding-left: 20px;
 	font-size: var(--f-small) !important;
-	font-family: var(--reg);
+	
 }
 
 /* ///ALL BUTTONS/// */
@@ -1099,7 +1091,7 @@ input[type="time"] {
 .stripe_button {
 	background-color: var(--c-gray);
 	box-shadow: var(--s-black);
-	font-size: var(--f-small);
+	
 	border-radius: 30px;
 	cursor: pointer;
 	margin: 0 15px 0 0;
@@ -1194,7 +1186,7 @@ input[type="time"] {
 .login_button {
 	background-color: var(--c-orange);
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 	border-radius: 5px;
 	padding: 5px 10px;
 	position: relative;
@@ -1207,7 +1199,7 @@ input[type="time"] {
 	padding: 5px 10px;
 	background-color: var(--cs-orange);
 	font-family: var(--bold);
-	font-size: var(--f-medium);
+	
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
@@ -1420,7 +1412,7 @@ input[type="time"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: var(--f-medium);
+	font-size: var(--f-large);
 	font-family: var(--bold);
 	padding: 7.5px 0;
 	width: 100%;
@@ -1441,7 +1433,7 @@ input[type="time"] {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 25px;
-	font-size: var(--f-xxsmall);
+	font-size: var(--f-small);
 	white-space: nowrap;
 }
 
@@ -1525,7 +1517,7 @@ input[type="time"] {
 	align-items: center;
 	background-color: var(--c-white);
 	transition: transform var(--t-basic);
-	font-size: var(--f-xxsmall);
+	
 	color: var(--cs-black);
 }
 
@@ -1578,7 +1570,7 @@ input[type="time"] {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: var(--reg) !important;
+	font-family: var(--regular) !important;
 }
 
 /* Coloring of natinon conatiners, both cc and cw */
@@ -1662,5 +1654,5 @@ input[type="time"] {
 .table_round_wrapper.purple .table_fencer_number, .table_round_wrapper.purple .table_fencer_name {
 	background-color: var(--cs-purple);
 	color: var(--cs-white);
-	font-family: var(--reg);
+	
 }

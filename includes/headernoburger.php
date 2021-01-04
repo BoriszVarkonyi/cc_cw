@@ -71,9 +71,8 @@ header("Location: ../index.php");
 
 <div>
     <header>
-        
         <!-- header title left -->
-        <p id="app_name">Competition Control Alpha</p>
+        <p id="app_name">Competition Control <b>Alpha</b></p>
         
                 <!-- colormode and language buttons -->
         <div class="settings_section">

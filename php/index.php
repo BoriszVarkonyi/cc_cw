@@ -185,6 +185,8 @@ checkComp($connection);
                         <div class="full_width_flex">
                             <div class="db_panel">
                                 <div>
+                                    <p style="font-size: var(--f-xxxxlarge)">xxxxlarge</p>
+                                    <p style="font-size: var(--f-xxxlarge)">xxxlarge</p>
                                     <p style="font-size: var(--f-xxlarge)">xxlarge</p>
                                     <p style="font-size: var(--f-xlarge)">xlarge</p>
                                     <p style="font-size: var(--f-large)">large</p>
