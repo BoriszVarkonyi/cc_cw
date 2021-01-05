@@ -19,7 +19,7 @@
     }
 
     $array_of_fencer_ids = array_unique($temp_array_fencers);
-
+    $array_of_fencer_ids = array_values($array_of_fencer_ids);
     foreach ($array_of_fencer_ids as $fencer_id) {
         array_push($ARRAY_fencers, ["id" => $fencer_id]);
     }
@@ -33,6 +33,7 @@
         if ($row = mysqli_fetch_assoc($do_get_count_of_won_games)) {
             $won_games = $row['COUNT(*)'];
         }
+        echo mysqli_error($connection);
 
         //get played games if won games is not 0
         if ($won_games != 0) {
@@ -49,7 +50,7 @@
             $won_per_played_game_ratio = 0;
         }
 
-        
+        echo mysqli_error($connection);
 
     //given points, given-gotten points
         //get given points in f1
@@ -94,22 +95,35 @@
             }
         }
     }
-    //define columns
-    $ratio_column = array_column($ARRAY_fencers, "ratio", 'id');
-    $point_diff_column = array_column($ARRAY_fencers, "point_difference", 'id');
-    $given_points_column = array_column($ARRAY_fencers, "given", 'id');
 
-    //start sorting the array array
-    array_multisort($ratio_column, SORT_DESC, $point_diff_column, SORT_DESC, $given_points_column, SORT_DESC, $ARRAY_fencers);
+    print_r($ARRAY_fencers);
+    //define columns
+    $ratio_column = array_column($ARRAY_fencers, "ratio", "id");
+    $point_diff_column = array_column($ARRAY_fencers, "point_difference", "id");
+    $given_points_column = array_column($ARRAY_fencers, "given", "id");
+
+     //start sorting the array array
+    if (!array_multisort($ratio_column, SORT_DESC, SORT_NUMERIC, $point_diff_column, SORT_DESC, SORT_NUMERIC, $given_points_column, SORT_DESC, SORT_NUMERIC, $ARRAY_fencers)) {
+        echo "CRITICAL ERROR: array_multisort could not complete the sort!";
+    } 
+
+    //do this because stack overflow said so
+    $ARRAY_fencers = array_column($ARRAY_fencers, null, "id");
 
     //update competitors temp ranking
-    $temp_ranking_array = array_keys($ratio_column);
+    $temp_ranking_array = array_keys($ARRAY_fencers);
 
     foreach ($temp_ranking_array as $fencer_pos => $fencer_id) {
         $real_pos = $fencer_pos + 1;
         $qry_update_temp_rank = "UPDATE `cptrs_$comp_id` SET `temporary_rank`= '$real_pos' WHERE `id` = '$fencer_id'";
         $do_update_temp_rank = mysqli_query($connection, $qry_update_temp_rank);
         echo mysqli_error($connection);
+        echo $real_pos . " ";
     }
-    
+    print_r($ARRAY_fencers);
+    print_r($temp_ranking_array);
+    print_r($ratio_column);
+    print_r($point_diff_column);
+    print_r(array_column($ARRAY_fencers, "given", "id"));
+    print_r(array_keys(array_column($ARRAY_fencers, "given", "id")))
 ?>
