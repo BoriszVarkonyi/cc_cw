@@ -119,15 +119,14 @@ header {
 .identity_section {
 	float: right;
 	margin-right: 20px;
+	line-height: 1.25;
 }
 
 #username {
 	font-family: var(--bold);
-	margin: 2px 0 -2px;
 }
 
 #role {
-	margin: -2px 0 2px;
 	font-size: var(--f-small);
 }
 
@@ -327,6 +326,7 @@ header {
 	white-space: nowrap;
 	color: var(--c-black);
 	border: 3px solid var(--cs-gray);
+	position: relative;
 }
 
 .stripe_button > p {
@@ -335,6 +335,25 @@ header {
 
 .stripe_button:hover {
 	background-color: var(--c-lightgray);
+}
+
+.stripe_button:hover::before {
+	opacity: 1;
+}
+
+
+.stripe_button:before {
+	content: attr(shortcut);
+	background-color: #25252595;
+	position: absolute;
+	font-size: var(--f-small);
+	font-family: var(--bold);
+	top: 100%;
+	right: 0;
+	padding: 2px 5px;
+	border-radius: 25px;
+	color: var(--c-white);
+	opacity: 0;
 }
 
 .title_stripe_form {
@@ -1186,109 +1205,70 @@ label.small {
 
 /* Checkbox Input */
 
-input[type=checkbox] + label {
+input[type=checkbox] + label:before {
+	border-radius: 5px;
+}
+
+/* Radio Input */
+
+input[type=radio] + label:before {
+	border-radius: 50%;
+}
+
+/* Checkbox and Radiobutton */
+
+input[type=checkbox], input[type=radio] {
+	display: none;
+}
+
+input[type=checkbox] + label, input[type=radio] + label {
 	display: block;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	margin-bottom: 8px;
 	color: var(--c-black);
+	font-family: var(--regular);
 	text-transform: none;
 }
 
-.approved_status_item > input[type=checkbox] + label {
-	font-size: initial;
+input[type=checkbox]:disabled + label, input[type=radio]:disabled + label {
+	color: var(--c-darkgray);
 }
 
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
 	display: none;
 }
 
-input[type=checkbox] + label:before {
+input[type=checkbox] + label:before, input[type=radio] + label:before {
 	content: "";
 	border: 2px solid var(--c-black);
-	border-radius: 5px;
 	display: inline-block;
 	min-width: 12px;
 	min-height: 12px;
 	transition: var(--t-basic);
-	color: var(--c-black);
-	margin-right: 8px;
+	margin: 10px 8px 10px 0;
 }
 
-.big_status_item > input[type=checkbox] + label:before {
-	margin-right: 0;
+input[type=checkbox] + label:before {
+	border-radius: 5px;
 }
 
-input[type=checkbox] + label:active:before {
+input[type=checkbox] + label:active:before, input[type=radio] + label:active:before {
 	transform: scale(0);
 }
   
-input[type=checkbox]:checked + label:before {
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before  {
 	background-color: var(--c-black);
 	border-color: var(--c-black);
 	color: transparent;
 }
   
-input[type=checkbox]:disabled + label:before {
+input[type=checkbox]:disabled + label:before, input[type=radio]:disabled + label:before {
 	transform: scale(1);
 	border-color:var(--c-darkgray);
 }
   
-input[type=checkbox]:checked:disabled + label:before {
-	transform: scale(1);
-	background-color: var(--c-darkgray);
-	border-color: var(--c-darkgray);
-}
-  
-/* Radio Input */
-  
-input[type=radio] + label {
-	display: block;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	margin-bottom: 8px;
-	color: var(--c-black);
-	text-transform: none;
-}
-  
-input[type=radio] {
-	display: none;
-}
-  
-input[type=radio] + label:before {
-	content: "";
-	border: 2px solid var(--c-black);
-	border-radius: 50%;
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	transition: var(--t-basic);
-	margin-right: 8px;
-	color: var(--c-black);
-}
-  
-input[type=radio] + label:active:before {
-	transform: scale(0);
-}
-  
-input[type=radio]:checked + label:before {
-	background-color: var(--c-black);
-	border-color: var(--c-black);
-	color: transparent;
-}
-  
-input[type=radio]:disabled + label:before {
-	transform: scale(1);
-	border-color:var(--c-darkgray);
-}
-
-input[type=radio]:disabled + label {
-	color:var(--c-darkgray);
-}
-  
-input[type=radio]:checked:disabled + label:before {
+input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:disabled + label:before {
 	transform: scale(1);
 	background-color: var(--c-darkgray);
 	border-color: var(--c-darkgray);

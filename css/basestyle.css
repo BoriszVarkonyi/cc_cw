@@ -650,7 +650,6 @@ input:focus ~ .clear_search_button {
 .table {		/* Whole table */
 	flex-direction: column;
 	color: var(--c-black);
-	
 }
 
 .table.cw {		/* Whole table */
@@ -1088,8 +1087,8 @@ p.wc_time {
 
 .elimination_slider_button {
 	position: absolute;
-	width: calc(var(--f-medium) + 18.5px);
-	height: calc(var(--f-medium) + 18.5px);
+	width: calc(var(--f-large) + 25px);
+	height: calc(var(--f-large) + 25px);
 	background-color: var(--c-gray);
 	cursor: pointer;
 	display: flex;
@@ -1179,6 +1178,8 @@ p.wc_time {
 	margin: 0 25px;
 	font-size: var(--f-small);
 	white-space: nowrap;
+	text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .elimination > .table_round_wrapper:nth-child(2) {

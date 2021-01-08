@@ -121,15 +121,15 @@
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
                 <div class="stripe_button_wrapper">
-                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()">
+                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()" shortcut="SHIFT+I">
                         <p>Import Technicians</p>
                         <img src="../assets/icons/save_alt-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button">
+                    <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button" shortcut="SHIFT+R">
                         <p>Remove Technician</p>
                         <img src="../assets/icons/delete-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button orange" onclick="toggle_add_technician()">
+                    <button class="stripe_button orange" onclick="toggle_add_technician()" shortcut="SHIFT+A">
                         <p>Add Technicians</p>
                         <img src="../assets/icons/add-black-18dp.svg"/>
                     </button>
@@ -234,9 +234,7 @@
                         ?>
                         <div class="table_header">
                             <div class="table_header_text" id="drag-left">NAME</div>
-                                <button class="resizer" id="dragbar" mousedown="focus()"></button>
                                 <div class="table_header_text" id="drag-right">ROLE</div>
-                                <button class="resizer" ></button>
                                 <div class="table_header_text">STATUS</div>
                                 <div class="small_status_header">
                             </div>

@@ -156,7 +156,6 @@ footer {
 /* Header */
 
 header {
-	padding: 0, 50vw;
 	background-color: var(--c-white);
 	display: flex;
 	align-items: stretch;
@@ -260,7 +259,6 @@ header > div {
 	align-items: center;
 	width: 100%;
 	margin: 2px 0;
-	font-size: var(--f-small);
 }
 
 #navigation > div > div a:hover {
@@ -907,7 +905,6 @@ input[value="Search"] {
 #equipment_panel > div {
 	width: 90%;
 	margin: 25px 0;
-	font-size: var(--f-xsmall);
 }
 
 #additional_panel > div, #weapon_control_panel > div, #plus_information_panel > div {
