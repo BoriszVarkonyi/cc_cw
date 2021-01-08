@@ -230,23 +230,23 @@ checkComp($connection);
 
                                         <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
                                             
-                                            <ul id="general_to_do" class="sheduled_to_do_sublist">
+                                            <div id="general_to_do" class="sheduled_to_do_sublist">
 
                                                 <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
                                                 <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" ></li>
                                                 <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" ></li>
                                                 <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" ></li>
 
-                                            </ul>
+                                            </div>
 
                                         <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
                                         
-                                            <ul id="technical_to_do" class="sheduled_to_do_sublist">
+                                            <div id="technical_to_do" class="sheduled_to_do_sublist">
                                                 
                                                 <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
                                                 <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
                                             
-                                            </ul>
+                                            </div>
 
                                         <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
 

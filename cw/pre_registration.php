@@ -54,7 +54,7 @@ if(isset($_POST["send_pre"])){
                         <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
                         <input type="email" name="f_email" >
                         <p class="data_label">FEDERATION'S PHONE NUMBER:</p>
-                        <input type="number" name="f_phone"  class="number_input no_web">
+                        <input type="number" name="f_phone"  class="number_input">
                     </div>
                     <div>
                         <p class="data_label">CONTACT KEEPER'S FULL NAME:</p>
@@ -62,7 +62,7 @@ if(isset($_POST["send_pre"])){
                         <p class="data_label">CONTACT KEEPER'S EMAIL ADDRESS:</p>
                         <input type="email" name="c_email" >
                         <p class="data_label">CONTACT KEEPER'S PHONE NUMBER:</p>
-                        <input type="number" name="c_phone"  class="number_input no_web">
+                        <input type="number" name="c_phone"  class="number_input">
 
                         <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
                         <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">

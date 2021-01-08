@@ -120,11 +120,21 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
-
+                <div class="stripe_button_wrapper">
                     <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()">
                         <p>Import Technicians</p>
                         <img src="../assets/icons/save_alt-black-18dp.svg"/>
                     </button>
+                    <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button">
+                        <p>Remove Technician</p>
+                        <img src="../assets/icons/delete-black-18dp.svg"/>
+                    </button>
+                    <button class="stripe_button orange" onclick="toggle_add_technician()">
+                        <p>Add Technicians</p>
+                        <img src="../assets/icons/add-black-18dp.svg"/>
+                    </button>
+                </div>
+
                 <div id="import_technician_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggle_import_technician()">
                         <img src="../assets/icons/close-black-18dp.svg">
@@ -163,14 +173,6 @@
                 </div>
 
                 <form action="" method="POST" id="remove_technician"></form>
-                <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button">
-                    <p>Remove Technician</p>
-                    <img src="../assets/icons/delete-black-18dp.svg"/>
-                </button>
-                <button class="stripe_button orange" onclick="toggle_add_technician()">
-                    <p>Add Technicians</p>
-                    <img src="../assets/icons/add-black-18dp.svg"/>
-                </button>
                      
                 <div id="add_technician_panel" class="overlay_panel hidden" >
                     <button class="panel_button" onclick="toggle_add_technician()">

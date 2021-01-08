@@ -20,7 +20,7 @@
                 <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
             </form>
             <div id="page_content_panel_main">
-                <div class="table wrapper first_column_small">
+                <div class="table wrapper first_column_centered">
                <?php
             
                $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
