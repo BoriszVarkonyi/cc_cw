@@ -1,4 +1,18 @@
-<!--<?php include "cw_comp_getdata.php"; ?>-->
+<?php include "../includes/db.php" ?>
+<?php
+
+    $comp_id = $_GET['comp_id'];
+    //get comp_name
+    $qry_get_comp_name = "SELECT * FROM competitions WHERE comp_id = $comp_id";
+    $do_get_comp_name = mysqli_query($connection, $qry_get_comp_name);
+    if ($row = mysqli_fetch_assoc($do_get_comp_name)) {
+        $comp_name = $row['comp_name'];
+        $ranking_id = $row['comp_ranking_id'];
+    } else {
+        echo mysqli_error($connection). "asd";
+    }
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Ranking's name}</title>
+    <title><?php echo $comp_name . "'s ranking" ?></title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
@@ -16,7 +30,7 @@
         <div id="main">
             <div id="content" class="list">
                 <div id="title_stripe">
-                    <p class="stripe_title">{Ranking's name}</p>
+                    <p class="stripe_title"><?php echo $comp_name . "'s ranking" ?></p>
                 </div>
                 <form id="browsing_bar">
                     <div>
@@ -32,15 +46,35 @@
                         <div class="table_header_text">DATE OF BIRTH</div>
                         <div class="table_header_text">POINTS</div>
                     </div>
+                    <?php     
+                        //echo out rankings fencers
+                        $qry_get_fencer = "SELECT * FROM rk_$ranking_id ORDER BY position ASC";
+                        $do_get_fencer = mysqli_query($connection, $qry_get_fencer);
+                        
+                        while ($row = mysqli_fetch_assoc($do_get_fencer)) {
+
+                            $fencer_name = $row['name'];
+                            $fencer_nat = $row['nationality'];
+                            $fencer_dob = $row['dob'];
+                            $fencer_position = $row['position'];
+                            $fencer_points = $row['points'];
+                        
+                    ?>
                     <div class="table_row_wrapper alt">
                         <div class="table_row">
-                            <div class="table_item"><p>Pos</p></div>
-                            <div class="table_item"><p>Name</p></div>
-                            <div class="table_item"><p>Nat</p></div>
-                            <div class="table_item"><p>Dob</p></div>
-                            <div class="table_item"><p>Points</p></div>
+                            <div class="table_item"><p><?php echo $fencer_position ?></p></div>
+                            <div class="table_item"><p><?php echo $fencer_name?></p></div>
+                            <div class="table_item"><p><?php echo $fencer_nat?></p></div>
+                            <div class="table_item"><p><?php echo $fencer_dob?></p></div>
+                            <div class="table_item"><p><?php echo $fencer_points?></p></div>
                         </div>
                     </div>
+                    <?php
+                        }
+                    ?>
+
+
+
                 </div>
             </div>
         </div>
