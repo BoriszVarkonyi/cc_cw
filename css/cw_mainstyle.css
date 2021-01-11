@@ -595,6 +595,11 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	margin-bottom: 20px;
 }
 
+.column_title.centered {
+	margin: 20px 0 10px;
+	justify-content: center;
+}
+
 .cw_panel_title > .favourite_button {
 	margin: 0 0 4px 10px;
 }
@@ -618,7 +623,6 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 .cw_panel_subtitle {
 	font-family: var(--bold);
-	
 	text-transform: uppercase;
 	position: absolute;
 	top: 30px;
@@ -845,7 +849,6 @@ input[value="Search"] {
 }
 
 #title_stripe > div > p {
-	
 	text-transform: uppercase;
 	margin-right: 20px;
 	font-size: var(--f-large);
@@ -857,7 +860,6 @@ input[value="Search"] {
 	padding: 30px 40px;
 	margin: 25px 0;
 	width: 100%;
-	
 	background-color: var(--c-lightestgray);
 }
 
@@ -866,7 +868,6 @@ input[value="Search"] {
 	top: 2px;
 	left: 5px;
 	font-family: var(--bold);
-	
 }
 
 #basic_information_panel {
@@ -877,7 +878,7 @@ input[value="Search"] {
 
 #basic_information_panel > div {
 	flex: 1 1 250px;
-	margin: 20px 25px;
+	margin: 40px 25px;
 }
 
 #basic_information_panel > div:last-child {
@@ -938,7 +939,6 @@ input[value="Search"] {
 .weapon_control_day > a {
 	margin-left: 10px;
 	text-decoration: underline;
-	
 }
 
 #competition_controls > div {
@@ -947,11 +947,10 @@ input[value="Search"] {
 	align-items: center;
 }
 
-#competition_controls button {
+#competition_controls button, .send_pre_reg_button  {
 	font-family: var(--bold);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
-	font-size: var(--f-small);
 	margin: 5px;
 	padding: 5px 15px;
 	background-color: var(--c-orange);
@@ -1089,6 +1088,26 @@ input[value="Search"] {
 
 /* Pre-Reg */
 
+#needed_information_panel {
+	position: relative;
+	margin: 0 50px 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--c-lightestgray);
+}
+
+#needed_information_panel > div {
+	flex: 1 1 250px;
+	margin: 40px 25px;
+}
+
+#needed_information_panel > div:last-child {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
 #select_fencers_panel {
 	display: flex;
 	align-items: center;
@@ -1117,7 +1136,7 @@ input[value="Search"] {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	margin: 50px 0 100px;
+	margin: 0 0 40px;
 }
 
 #selected_fencers_wrapper > * {
@@ -1143,7 +1162,13 @@ input[value="Search"] {
 
 #select_fencers_list_wrapper {
 	width: 80%;
-	margin: 25px 0 100px;
+	margin: 25px 0;
+}
+
+.send_pre_reg_panel {
+	margin: 25px 0;
+	width: 100%;
+	text-align: center;
 }
 
 /* Pools */
@@ -1537,7 +1562,6 @@ input[value="Search"] {
 	align-items: center;
 	flex-direction: column;
 	padding: 50px;
-	
 	background-color: var(--c-white);
 	border-radius: 5px;
 	border-top: 2px solid var(--c-darkgray);

@@ -160,7 +160,7 @@
                 </div>
                 <div id="competition_controls">
                     <div class="column_panel">
-                        <button onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'" disabled>Pre-Register</button>
+                        <button onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
                         <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
                         <button onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                         <button onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>

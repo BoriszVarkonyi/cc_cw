@@ -315,11 +315,26 @@ input[type="text"].error, input[type="password"].error {
 	background-image: url(../assets/icons/perm_identity-black-18dp.svg);
 }
 
+.email_input {
+	background-image: url(../assets/icons/email-black-18dp.svg);
+}
+
+.email_contact_input {
+	background-image: url(../assets/icons/contact_mail-black-18dp.svg);
+}
+
+.phone_number_input {
+	background-image: url(../assets/icons/call-black-18dp.svg);
+}
+
+.phone_number_contact_input {
+	background-image: url(../assets/icons/contact_phone-black-18dp.svg);
+}
+
 /* Number inputs */
 
 input[type="number"] {
 	width: 40px;
-	background: transparent;
 	margin-right: -35px;
 }
 
