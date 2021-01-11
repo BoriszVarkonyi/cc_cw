@@ -21,7 +21,7 @@
                 <form id="browsing_bar">
                     <div>
                         <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" placeholder="Search by Fencer" class="search">
+                        <input type="text" name="" placeholder="Search by Competition name" class="search">
                     </div>
                 </form>
                 <div class="table cw">
@@ -30,14 +30,31 @@
                         <div class="table_header_text">PLACEHOLDER</div>
                     </div>
                     <div class="table_row_wrapper">
-                        <div class="table_row">
-                            <div class="table_item"><p>Szia</p></div>
-                            <div class="table_item"><p>Plészholder vagyok</p></div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item"><p>Szia</p></div>
-                            <div class="table_item"><p>Plészholder vagyok</p></div>
-                        </div>
+
+                        <?php 
+                            //get comp_
+                            $qry_get_rankings = "SELECT * FROM `competitions` WHERE `comp_ranking_id` <> '0'";
+                            $do_get_rankings = mysqli_query($connection, $qry_get_rankings);
+                            echo mysqli_error($connection);
+                            while ($row =  mysqli_fetch_assoc($do_get_rankings)) {
+
+                            $comp_name = $row['comp_name'];
+                            $ranking_id = $row['comp_ranking_id'];
+                            $row_comp_id = $row['comp_id'];
+                        
+                        ?>
+
+                            <div class="table_row">
+                                <div class="table_item"><p><?php echo $comp_name ?></p></div>
+                                <div class="table_item"><p><?php echo $ranking_id ?></p></div>
+                            </div>
+                        
+                        <?php 
+                            }
+                        ?>
+
+
+
                     </div>
                 </div>
             </div>
