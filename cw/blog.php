@@ -1,7 +1,6 @@
 
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
-<?php include "../includes/cw_username_checker.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
