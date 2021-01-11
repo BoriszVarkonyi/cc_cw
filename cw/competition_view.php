@@ -15,10 +15,7 @@
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="slideshow">
-                <div id="slideshow_title">
-                    <p>Check Competitions</p>
-                    <p>Check Competitions</p>
-                </div>
+                <p id="slideshow_title">Check Competitions</p>
                 <div id="sildes">
                     <div id="slide_nav">
                         <button class="slideButtons active" onclick="toggleButton(this)"></button>

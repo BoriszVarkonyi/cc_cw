@@ -20,8 +20,8 @@
                 </div>
                 <form id="browsing_bar">
                     <div>
-                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" placeholder="Search by Fencer" class="search">
+                        <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" placeholder="Search by Name" class="search">
                     </div>
                 </form>
                 <!-- buttons menu -->

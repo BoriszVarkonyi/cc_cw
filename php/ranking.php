@@ -178,7 +178,7 @@ if(mysqli_num_rows($query_do) == 0){
                                 <input type="text" class="search" name="fencers_nationality" class="username_input" placeholder="Type the fencers's nationality">
 
                                 <label for="fencers_points" >POINTS</label>
-                                <input type="number" placeholder="-" id="ranking_points" class="number_input extra_small" name="fencer_points">
+                                <input type="number" placeholder="-" id="ranking_points" class="number_input centered" name="fencer_points">
 
                                 <label for="fencers_dob" >DATE OF BIRTH</label>
                                 <input type="date" name="fencer_dob">

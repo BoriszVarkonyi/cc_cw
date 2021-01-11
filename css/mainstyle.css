@@ -8,34 +8,6 @@ html {
 	scroll-behavior: smooth !important;
 }
 
-button {
-	cursor: pointer;
-	padding: 0;
-}
-
-ul {
-	list-style: none;
-}
-
-p {
-	margin: 0;
-}
-
-input {
-	color: var(--cs-black);
-}
-
-input.hidden {
-	display: none;
-}
-
-textarea {
-	outline: none;
-	border: none;
-	resize: none;	
-	font-family: var(--regular);
-}
-
 /* ///PAGE LAYOUT/// */
 
 #flexbox_container {
@@ -95,6 +67,19 @@ header {
 	z-index: 5;
 }
 
+/* Header Bar Buttons */
+
+.hb_button {
+	background-color: var(--c-lightgray);
+	height: 35px;
+	width: 35px;
+	border: 0;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 #profile_picture {
 	border-radius: 50%;
 	height: 30px;
@@ -113,7 +98,7 @@ header {
 }
 
 .username_big {
-	font-size: var(--f-small);
+	font-size: var(--f-large);
 	font-family: var(--bold);
 }
 
@@ -134,15 +119,14 @@ header {
 .identity_section {
 	float: right;
 	margin-right: 20px;
+	line-height: 1.25;
 }
 
 #username {
 	font-family: var(--bold);
-	margin: 2px 0 -2px;
 }
 
 #role {
-	margin: -2px 0 2px;
 	font-size: var(--f-small);
 }
 
@@ -177,8 +161,8 @@ header {
 
 #menu_button_section {
 	min-width: 300px;
-	width: 18vw;
-	max-width: 500px;
+	width: 20vw;
+	max-width: 375px;
 	transition: var(--t-basic);
 }
 
@@ -256,7 +240,7 @@ header {
 
 .cs_label_section {
 	width: 80%;
-	font-size: var(--f-xxsmall);
+	font-size: var(--f-small);
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
@@ -286,7 +270,7 @@ header {
 }
 
 #logout_form > button {
-	font-size: var(--f-xxsmall);
+	font-size: var(--f-small);
 	font-family: var(--bold);
 	padding: 5px 15px;
 	border-radius: 30px;
@@ -315,6 +299,215 @@ header {
 
 .wrapper.w90 {
 	min-width: 90%;
+}
+
+/* Stripe Button Elements Used in CC Title Stripe*/
+
+.stripe_button_wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	flex-grow: 1;
+	margin-right: 15px;
+	align-items: center;
+}
+
+.stripe_button {
+	background-color: var(--c-gray);
+	box-shadow: var(--s-black);
+	border-radius: 30px;
+	cursor: pointer;
+	margin: 3px 0 3px 15px;
+	padding: 3px 10px 3px 18px;
+	float: right;
+	display: flex;
+	align-items: center;
+	float: right;
+	white-space: nowrap;
+	color: var(--c-black);
+	border: 3px solid var(--cs-gray);
+	position: relative;
+}
+
+.stripe_button > p {
+	margin-right: 5px;
+}
+
+.stripe_button:hover {
+	background-color: var(--c-lightgray);
+}
+
+.stripe_button:hover::before, .stripe_button.hover::before {
+	opacity: 1;
+}
+
+.stripe_button:before {
+	content: attr(shortcut);
+	background-color: #25252595;
+	position: absolute;
+	font-size: var(--f-small);
+	font-family: var(--bold);
+	top: 100%;
+	right: 0;
+	padding: 2px 5px;
+	border-radius: 25px;
+	color: var(--c-white);
+	opacity: 0;
+}
+
+.title_stripe_form {
+	margin-right: -25px;
+}
+
+.stripe_button.disabled,.stripe_button.orange.disabled, .stripe_button.red.disabled {
+	background-color: var(--c-gray);
+	box-shadow: var(--s-black);
+	cursor: default;
+	pointer-events: none;
+	filter: contrast(50%);
+	border: 3px solid var(--cs-gray);
+}
+
+.stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
+	background-color: var(--c-white);
+}
+
+.stripe_button.bold {
+	font-family: var(--bold);
+}
+
+.stripe_button.orange {
+	background-color: var(--c-orange);
+	box-shadow: var(--s-orange);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-orange);
+}
+
+.stripe_button.orange:hover {
+	background-color: var(--c-lightorange);
+	box-shadow: var(--s-orange);
+}
+
+.stripe_button.red {
+	background-color: var(--c-red);
+	box-shadow: var(--s-red);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-red);
+}
+
+.stripe_button.red:hover {
+	background-color: var(--c-red);
+}
+
+.stripe_button.green {
+	background-color: var(--c-green);
+	box-shadow: var(--s-green);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-green);
+}
+
+.stripe_button.green:hover {
+	background-color: var(--c-green);
+}
+
+/* Panel Button Used in CC Panels */
+
+/* Used on login page */
+
+.login_button {
+	background-color: var(--c-orange);
+	font-family: var(--bold);
+	border-radius: 5px;
+	padding: 5px 10px;
+	position: relative;
+	cursor: pointer;
+}
+
+/* CC Panels */
+
+.panel_submit {
+	padding: 5px 10px;
+	background-color: var(--cs-orange);
+	font-family: var(--bold);
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.panel_submit.secondary {
+	background-color: var(--c-gray);
+	right: calc(5em + 3vmin);
+}
+
+.panel_submit.red {
+	background-color: var(--c-red);
+}
+
+.panel_submit.green {
+	background-color: var(--c-green);
+}
+
+.panel_submit:disabled {
+	background-color: var(--c-gray);
+	color: var(--c-darkgray);
+}
+
+.panel_button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 35px;
+	height: 35px;
+	background-color: var(--c-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.panel_button > img {
+	width: 20px;
+	height: 20px;
+}
+
+.panel_button:hover {
+	background-color: var(--c-lightestgray);
+}
+
+.panel_button.left {
+	top: 10px;
+	left: 10px;
+}
+
+.panel_button.drag {
+	top: 3px;
+	left: 0px;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	cursor: grab;
+}
+
+.panel_button.fixed {
+	position: absolute;
+	margin: 0, 5px, 5px, 0;
+}
+
+.panel_button.hidden {
+	display: none;
+}
+
+.panel_description {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	font-size: var(--f-small);
+	color: var(--c-gray);
 }
 
 /* Range Inputs */
@@ -415,7 +608,7 @@ input[type="range"]:focus::-ms-fill-upper {
 /* Back Button used in CC Dasboard And CW Competition's page and subpages */
 
 .back_button {
-	margin-left: 40px;
+	justify-self: start;
 	min-height: 35px;
 	min-width: 35px;
 	border: 0;
@@ -442,14 +635,15 @@ input[type="range"]:focus::-ms-fill-upper {
 	background: linear-gradient(190deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
 	box-shadow: var(--s-black);
 	min-width: 300px;
-	width: 18vw;
-	max-width: 500px;
+	width: 20vw;
+	max-width: 375px;
 	display: flex;
 	justify-content: center;
 	flex: 1 1 100%;
 	overflow: visible;
 	transition: width var(--t-basic);
 	position: relative;
+	font-size: var(--f-large);
 }
 
 #nav_bar.closed {
@@ -471,11 +665,10 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 #nav_bar_wrapper {
-	padding: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 10%;
 	margin: 0;
-	min-width: 250px;
-	width: 13vw;
-	max-width: 450px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -489,12 +682,12 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .nav_bar_title {
+	font-size: inherit;
 	font-family: var(--bold);
 	text-transform: uppercase;
 	padding: 0;
 	margin: 25px 0 7px 0;
 	transition: transform var(--t-basic);
-	font-size: var(--f-xlarge);
 }
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_title {
@@ -508,15 +701,11 @@ input[type="range"]:focus::-ms-fill-upper {
     display: flex;
     flex-wrap: nowrap;
 	align-items: center;
-	font-size: var(--f-xlarge);
 	padding: 0;
 	background: transparent;
 	color: var(--c-black);
-	margin: 3px 0;
-	max-height: 39px;
-	height: 3vh;
-	min-height: 27px;
 	overflow: visible;
+	font-size: inherit;
 }
 
 .nav_bar_item:hover {
@@ -678,12 +867,11 @@ input[type="range"]:focus::-ms-fill-upper {
 .dropdown_menu a {
 	padding: 0 0 0 5px;
 	transition: var(--t-basic);
-	background: transparent;
 	overflow: visible;
 	margin: 0;
 	height: auto;
 	min-height: 0;
-	font-size: var(--f-large)
+	font-size: var(--f-medium);
 }
 
 .dropdown_menu a::before {
@@ -713,8 +901,8 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #need_help {
 	margin: auto 0 10px 0;
-	font-size: var(--f-large);
-	font-family: var(--bold);
+	font-size: inherit;
+	font-size: var(--f-medium);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -754,6 +942,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	min-height: 80px;
 	height: 10vh;
 	max-height: 120px;
+	padding: 0 40px;
 	display: flex;
 	align-items: center;
 	box-shadow: var(--s-black);
@@ -784,16 +973,15 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .comp_title {
 	font-family: var(--bold);
-	font-size: var(--f-xxlarge);
+	font-size: var(--f-xlarge);
 	max-width: 50vw;
 	overflow: hidden;
 	float: left;
 }
 
 .comp_logo {
-	min-width: var(--f-xxlarge);
-	width: var(--f-xxlarge);
-	height: var(--f-xxlarge);
+	width: 50px;
+	height: 50px;
 	margin: 0 10px;
 	transition: all ease-out .2s;
 	border-radius: 5px;
@@ -809,7 +997,9 @@ input[type="range"]:focus::-ms-fill-upper {
 	font-family: var(--bold);
 	font-size: var(--f-xxlarge);
 	max-width: 50vw;
-	margin-left: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 1.25;
 }
 
 /* Legends */
@@ -914,7 +1104,7 @@ input[type="range"]:focus::-ms-fill-upper {
 /* ///FORMS AND INPUTS/// */
 
 label {	/* Used in forms, all caps, thin font    NO option buttons*/
-	font-family: var(--light);
+	font-family: var(--bold);
 	text-transform: uppercase;
 	color: var(--c-black);
 	padding: 0;
@@ -1014,109 +1204,70 @@ label.small {
 
 /* Checkbox Input */
 
-input[type=checkbox] + label {
+input[type=checkbox] + label:before {
+	border-radius: 5px;
+}
+
+/* Radio Input */
+
+input[type=radio] + label:before {
+	border-radius: 50%;
+}
+
+/* Checkbox and Radiobutton */
+
+input[type=checkbox], input[type=radio] {
+	display: none;
+}
+
+input[type=checkbox] + label, input[type=radio] + label {
 	display: block;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	margin-bottom: 8px;
 	color: var(--c-black);
+	font-family: var(--regular);
 	text-transform: none;
 }
 
-.approved_status_item > input[type=checkbox] + label {
-	font-size: initial;
+input[type=checkbox]:disabled + label, input[type=radio]:disabled + label {
+	color: var(--c-darkgray);
 }
 
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
 	display: none;
 }
 
-input[type=checkbox] + label:before {
+input[type=checkbox] + label:before, input[type=radio] + label:before {
 	content: "";
 	border: 2px solid var(--c-black);
-	border-radius: 5px;
 	display: inline-block;
 	min-width: 12px;
 	min-height: 12px;
 	transition: var(--t-basic);
-	color: var(--c-black);
-	margin-right: 8px;
+	margin: 10px 8px 10px 0;
 }
 
-.big_status_item > input[type=checkbox] + label:before {
-	margin-right: 0;
+input[type=checkbox] + label:before {
+	border-radius: 5px;
 }
 
-input[type=checkbox] + label:active:before {
+input[type=checkbox] + label:active:before, input[type=radio] + label:active:before {
 	transform: scale(0);
 }
   
-input[type=checkbox]:checked + label:before {
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before  {
 	background-color: var(--c-black);
 	border-color: var(--c-black);
 	color: transparent;
 }
   
-input[type=checkbox]:disabled + label:before {
+input[type=checkbox]:disabled + label:before, input[type=radio]:disabled + label:before {
 	transform: scale(1);
 	border-color:var(--c-darkgray);
 }
   
-input[type=checkbox]:checked:disabled + label:before {
-	transform: scale(1);
-	background-color: var(--c-darkgray);
-	border-color: var(--c-darkgray);
-}
-  
-/* Radio Input */
-  
-input[type=radio] + label {
-	display: block;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	margin-bottom: 8px;
-	color: var(--c-black);
-	text-transform: none;
-}
-  
-input[type=radio] {
-	display: none;
-}
-  
-input[type=radio] + label:before {
-	content: "";
-	border: 2px solid var(--c-black);
-	border-radius: 50%;
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	transition: var(--t-basic);
-	margin-right: 8px;
-	color: var(--c-black);
-}
-  
-input[type=radio] + label:active:before {
-	transform: scale(0);
-}
-  
-input[type=radio]:checked + label:before {
-	background-color: var(--c-black);
-	border-color: var(--c-black);
-	color: transparent;
-}
-  
-input[type=radio]:disabled + label:before {
-	transform: scale(1);
-	border-color:var(--c-darkgray);
-}
-
-input[type=radio]:disabled + label {
-	color:var(--c-darkgray);
-}
-  
-input[type=radio]:checked:disabled + label:before {
+input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:disabled + label:before {
 	transform: scale(1);
 	background-color: var(--c-darkgray);
 	border-color: var(--c-darkgray);
@@ -1179,9 +1330,9 @@ input[type=radio]:checked:disabled + label:before {
 
 .overlay_panel_form {
 	display: flex;
-	padding: 50px;
+	margin: 50px;
 	flex-direction: column;
-	width: 350px;
+	width: 313px;
 	align-items: flex-start;
 }
 
@@ -2105,7 +2256,6 @@ input[type="file"] {
 	.pool_matches {
 
 	}
-
 }
 
 /* ///TIMETABLE/// */
@@ -2114,7 +2264,6 @@ input[type="file"] {
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
-	margin-bottom: 25px;
 }
 
 #time_stripe > button {
@@ -2147,7 +2296,7 @@ input[type="file"] {
 
 #time_stripe > div > p {
 	font-family: var(--bold);
-	font-size: var(--f-large);
+	font-size: var(--f-xxlarge);
 	margin: 0 5px;
 }
 

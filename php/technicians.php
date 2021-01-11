@@ -120,11 +120,21 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
-
-                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()">
+                <div class="stripe_button_wrapper">
+                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()" shortcut="SHIFT+I">
                         <p>Import Technicians</p>
                         <img src="../assets/icons/save_alt-black-18dp.svg"/>
                     </button>
+                    <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button" shortcut="SHIFT+R">
+                        <p>Remove Technician</p>
+                        <img src="../assets/icons/delete-black-18dp.svg"/>
+                    </button>
+                    <button class="stripe_button orange hover" onclick="toggle_add_technician()" shortcut="SHIFT+A">
+                        <p>Add Technicians</p>
+                        <img src="../assets/icons/add-black-18dp.svg"/>
+                    </button>
+                </div>
+
                 <div id="import_technician_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggle_import_technician()">
                         <img src="../assets/icons/close-black-18dp.svg">
@@ -163,14 +173,6 @@
                 </div>
 
                 <form action="" method="POST" id="remove_technician"></form>
-                <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button">
-                    <p>Remove Technician</p>
-                    <img src="../assets/icons/delete-black-18dp.svg"/>
-                </button>
-                <button class="stripe_button orange" onclick="toggle_add_technician()">
-                    <p>Add Technicians</p>
-                    <img src="../assets/icons/add-black-18dp.svg"/>
-                </button>
                      
                 <div id="add_technician_panel" class="overlay_panel hidden" >
                     <button class="panel_button" onclick="toggle_add_technician()">
@@ -232,9 +234,7 @@
                         ?>
                         <div class="table_header">
                             <div class="table_header_text" id="drag-left">NAME</div>
-                                <button class="resizer" id="dragbar" mousedown="focus()"></button>
                                 <div class="table_header_text" id="drag-right">ROLE</div>
-                                <button class="resizer" ></button>
                                 <div class="table_header_text">STATUS</div>
                                 <div class="small_status_header">
                             </div>

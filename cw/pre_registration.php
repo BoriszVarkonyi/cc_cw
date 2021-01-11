@@ -27,55 +27,57 @@ if(isset($_POST["send_pre"])){
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-    <div id="cw_confirmation" class="disabled">
-        <div>
-           
-            <button class="panel_button" onclick="toggle_add_technician()">
-                <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
-            </button>
-            <p>Are you sure you want to send this Pre-Registration with these informations?</p>
-            <button type="submit" name="send_pre" class="panel_submit" form="competition_wrapper" value="Send">Send</button>
-        </div>
-    </div>
-    <div id="cw_main_full">
-        <div class="cw_panel_title_wrapper">
-            <?php include "cw_backbtn_choosecomp.php"; ?>
-            <p>PRE-REGISTER FENCERS FOR <?php echo $comp_name ?></p>
-        </div>
+<?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content" class="list">
+            <div id="title_stripe">
+                <p class="stripe_title">
+                    <button type="button" class="back_button" onclick="window.history.back();">
+                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                    </button>
+                    PRE-REGISTER FENCERS FOR <?php echo $comp_name ?>
+                </p>
+            </div>
+            <div id="cw_confirmation" class="disabled">
+                <div>
+                
+                    <button class="panel_button" onclick="toggle_add_technician()">
+                        <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
+                    </button>
+                    <p>Are you sure you want to send this Pre-Registration with these informations?</p>
+                    <button type="submit" name="send_pre" class="panel_submit" form="competition_wrapper" value="Send">Send</button>
+                </div>
+            </div>
 
         <form id="competition_wrapper" method="POST" action="process_pre.php">
-            <div>
-                <div id="basic_information_panel">
+                <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
+                <div id="needed_information_panel">
                     <div>
                         <p class="data_label">FEDERATION'S NAME:</p>
-                        <input type="text" name="f_name" >
+                        <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input">
                         <p class="data_label">COUNTRY / FENCING CLUB:</p>
-                        <input type="text" name="f_country" >
+                        <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input">
                         <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
-                        <input type="email" name="f_email" >
+                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input">
                         <p class="data_label">FEDERATION'S PHONE NUMBER:</p>
-                        <input type="number" name="f_phone"  class="number_input no_web">
+                        <input type="number" name="f_phone" class="number_input phone_number_input" placeholder="Type in the phone number">
                     </div>
                     <div>
                         <p class="data_label">CONTACT KEEPER'S FULL NAME:</p>
-                        <input type="text" name="c_name" >
+                        <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input">
                         <p class="data_label">CONTACT KEEPER'S EMAIL ADDRESS:</p>
-                        <input type="email" name="c_email" >
+                        <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input">
                         <p class="data_label">CONTACT KEEPER'S PHONE NUMBER:</p>
-                        <input type="number" name="c_phone"  class="number_input no_web">
+                        <input type="number" name="c_phone"  class="number_input phone_number_contact_input" placeholder="Type in the phone number">
 
                         <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
                         <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
                     </div>
                 </div>
-
+                <p class="column_title centered">SELECT FENCERS FROM THE COMPEITION'S RANKING: (STEP 2 / 2)</p>
                 <div id="select_fencers_panel">
-                    <p class="data_label panel_title">SELECT FENCERS FROM THE COMPEITION'S RANKING</p>
-                    
-
                     <div id="selected_fencers_wrapper">
                         <p>Selected fencers:</p>
-
                        <!-- <div>
                             <input type="number" name=""  class="hidden">
                             <p>Fencer's Name</p>
@@ -83,18 +85,15 @@ if(isset($_POST["send_pre"])){
                                 <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                         </div> -->
-
                     </div>
-
                     <input type="text" name="" placeholder="Search by Title" class="search">
-
-                    <div id="select_fencers_list_wrapper" class="table_row_wrapper">
+                    <div id="select_fencers_list_wrapper" class="table">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
                             <div class="table_header_text">NAME</div>
                             <div class="table_header_text">DATE OF BIRTH</div>
                         </div>
-
+                        <div class="table_row_wrapper">
                         <?php
                         
                         $query_actual_ranking = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
@@ -126,13 +125,12 @@ if(isset($_POST["send_pre"])){
                         <?php
                         }
                         ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-            <div>
-                <input type="button" onclick="openConf()" value="Send pre registration">
-            </div>
+                <div class="send_pre_reg_panel">
+                    <input type="button" onclick="openConf()" value="Send Pre-Registartion" class="send_pre_reg_button">
+                </div>
         </form>
     </div>
 <?php include "cw_footer.php"; ?>

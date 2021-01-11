@@ -833,7 +833,7 @@ if($exist == 0){
                         </div>
 
                         <label for="interval_of_match">NUMBER OF QUALIFIERS</label>
-                        <input type="number" placeholder="#" class="number_input extra_small">
+                        <input type="number" placeholder="#" class="number_input centered">
 
                         <label for="pistes_type" >STATISTICS</label>
 
@@ -957,7 +957,7 @@ elseif ($exist != 0 && $exist2 == 0)
 
                         <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input small" name="interval_of_match" id="timeInput">
+                            <input type="number" class="number_input centered" name="interval_of_match" id="timeInput">
                             <p>Min.</p>
                         </div>
 

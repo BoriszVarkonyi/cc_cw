@@ -103,7 +103,7 @@
 
                         <label for="interval_of_match" >INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input small">
+                            <input type="number" class="number_input centered">
                             <p>Min.</p>
                         </div>
 

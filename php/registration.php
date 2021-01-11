@@ -119,7 +119,7 @@
                                     </div>
                                 </div>
                                 <label for="fencers_points" >POSITION</label>
-                                <input type="number" placeholder="##" id="ranking_points" class="number_input extra_small" name="fencer_position">
+                                <input type="number" placeholder="##" id="ranking_points" class="number_input centered" name="fencer_position">
                                 <button type="submit" name="add_fencer" class="panel_submit">Save</button>
                             </form>
                         </div>
