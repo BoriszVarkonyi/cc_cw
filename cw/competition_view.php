@@ -16,31 +16,32 @@
         <div id="main">
             <div id="slideshow">
                 <p id="slideshow_title">Check Competitions</p>
+                <!--
                 <div id="text">
-                <div class="perspective-text">
-                    <div class="perspective-line">
-                        <p></p>
-                        <p>Check Competition</p>
-                    </div>
-                    <div class="perspective-line">
-                        <p>Check Competition</p>
-                        <p>Is Only</p>
-                    </div>
-                    <div class="perspective-line">
-                        <p>Is Only</p>
-                        <p>A Matter Of</p>
-                    </div>
-                    <div class="perspective-line">
-                        <p>A Matter Of</p>
-                        <p>Perception</p>
-                    </div>
-                    <div class="perspective-line">
-                        <p>Perception</p>
-                        <p></p>
+                    <div class="perspective-text">
+                        <div class="perspective-line">
+                            <p></p>
+                            <p>Check Competition</p>
+                        </div>
+                        <div class="perspective-line">
+                            <p>Check Competition</p>
+                            <p>Is Only</p>
+                        </div>
+                        <div class="perspective-line">
+                            <p>Is Only</p>
+                            <p>A Matter Of</p>
+                        </div>
+                        <div class="perspective-line">
+                            <p>A Matter Of</p>
+                            <p>Perception</p>
+                        </div>
+                        <div class="perspective-line">
+                            <p>Perception</p>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
-                </div>
-
+                -->
                 <div id="sildes">
                     <div id="slide_nav">
                         <button class="slideButtons active" onclick="toggleButton(this)"></button>

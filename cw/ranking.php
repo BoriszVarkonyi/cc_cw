@@ -46,6 +46,7 @@
                         <div class="table_header_text">DATE OF BIRTH</div>
                         <div class="table_header_text">POINTS</div>
                     </div>
+                    <div class="table_row_wrapper alt">
                     <?php     
                         //echo out rankings fencers
                         $qry_get_fencer = "SELECT * FROM rk_$ranking_id ORDER BY position ASC";
@@ -60,7 +61,6 @@
                             $fencer_points = $row['points'];
                         
                     ?>
-                    <div class="table_row_wrapper alt">
                         <div class="table_row">
                             <div class="table_item"><p><?php echo $fencer_position ?></p></div>
                             <div class="table_item"><p><?php echo $fencer_name?></p></div>
@@ -68,13 +68,12 @@
                             <div class="table_item"><p><?php echo $fencer_dob?></p></div>
                             <div class="table_item"><p><?php echo $fencer_points?></p></div>
                         </div>
-                    </div>
                     <?php
                         }
                     ?>
 
 
-
+                    </div>
                 </div>
             </div>
         </div>
