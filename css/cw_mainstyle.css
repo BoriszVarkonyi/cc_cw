@@ -506,27 +506,14 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 #slideshow_title {
-	top: 0;
-	left: 0;
+	top: 10%;
+	left: 10%;
 	position: absolute;
 	z-index: +1;
-}
-
-#slideshow_title p {
-	font-size: var(--f-xlarge);
+	font-size: 30vw;
+	color: var(--c-orange);
 	text-transform: uppercase;
 	font-family: var(--bold);
-}
-
-#slideshow_title p:first-of-type {
-	color: var(--c-black);
-	margin: 30px 0 0 30px;
-}
-
-#slideshow_title p:nth-of-type(2) {
-	margin: -20px 0 0 30px;
-	color: var(--c-lightergray);
-	transform: scaleY(-1);
 }
 
 .slide {
@@ -542,7 +529,6 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	left: 0;
 	transition: opacity ease-in .25s, left ease-in .5s;
 	z-index: 1;
-
 }
 
 .slide.hidden {

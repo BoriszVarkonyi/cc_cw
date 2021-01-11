@@ -337,10 +337,9 @@ header {
 	background-color: var(--c-lightgray);
 }
 
-.stripe_button:hover::before {
+.stripe_button:hover::before, .stripe_button.hover::before {
 	opacity: 1;
 }
-
 
 .stripe_button:before {
 	content: attr(shortcut);
