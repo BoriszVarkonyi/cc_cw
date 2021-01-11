@@ -29,7 +29,7 @@
                         <div class="table_header_text">RANKINGS NAME</div>
                         <div class="table_header_text">PLACEHOLDER</div>
                     </div>
-                    <div class="table_row_wrapper">
+                    <div class="table_row_wrapper alt">
 
                         <?php 
                             //get comp_

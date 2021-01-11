@@ -32,7 +32,7 @@
                         <div class="table_header_text">DATE OF BIRTH</div>
                         <div class="table_header_text">POINTS</div>
                     </div>
-                    <div class="table_row_wrapper">
+                    <div class="table_row_wrapper alt">
                         <div class="table_row">
                             <div class="table_item"><p>Pos</p></div>
                             <div class="table_item"><p>Name</p></div>
