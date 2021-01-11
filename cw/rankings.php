@@ -44,7 +44,7 @@
                         
                         ?>
 
-                            <div class="table_row">
+                            <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <div class="table_item"><p><?php echo $comp_name ?></p></div>
                                 <div class="table_item"><p><?php echo $ranking_id ?></p></div>
                             </div>
