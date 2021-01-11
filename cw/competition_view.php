@@ -16,6 +16,36 @@
         <div id="main">
             <div id="slideshow">
                 <p id="slideshow_title">Check Competitions</p>
+                <ul class="Words">
+                    <li class="Words-line">
+                        <p>&nbsp;</p>
+                        <p>CSS Only</p>
+                    </li>
+                    <li class="Words-line">
+                        <p>CSS Only</p>
+                        <p>Perspective</p>
+                    </li>
+                    <li class="Words-line">
+                        <p>Perspective</p>
+                        <p>Text Effect</p>
+                    </li>
+                    <li class="Words-line">
+                        <p>Text Effect</p>
+                        <p>by</p>
+                    </li>
+                    <li class="Words-line">
+                        <p>by</p>
+                        <p>James</p>
+                    </li>
+                    <li class="Words-line">
+                        <p>James</p>
+                        <p>Bosworth</p>
+                    </li>
+                    <li class="Words-line">
+                        <p>Bosworth</p>
+                        <p>&nbsp;</p>
+                    </li>
+                </ul>
                 <div id="sildes">
                     <div id="slide_nav">
                         <button class="slideButtons active" onclick="toggleButton(this)"></button>
