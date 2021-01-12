@@ -24,7 +24,7 @@
             <a href="rankings.php">Rankings</a>
         </div>
         <div>
-            <a id="saved_competitions" href="saved_competitions.php">Saved Competitions</a>
+            <a href="saved_competitions.php">Saved Competitions</a>
         </div>
     </div>
     <div id="change_language">

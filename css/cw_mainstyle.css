@@ -210,7 +210,7 @@ header > div {
 	background-color: var(--c-lightergray);
 }
 
-#navigation > div.current > a, #mobile_navigation a.current {
+#navigation > div.current > a, #mobile_navigation a.current, #navigation > div.current button {
 	font-family: var(--bold);
 	color: var(--c-orange);
 }
@@ -222,7 +222,6 @@ header > div {
 	width: 100%;
 	height: 100%;
 	background: transparent;
-	
 	padding: 0 8px;
 	box-sizing: border-box;
 }
@@ -246,7 +245,6 @@ header > div {
 	left: 0;
 	height: 100px !important;
 	border-radius: 0 0 5px 5px;
-
 }
 
 #navigation > div > div.opened {
@@ -1009,33 +1007,35 @@ input[value="Search"] {
 }
 
 .video_wrapper > img {
-	height: 100%;
-	object-fit: contain;
-	width: max-content;
+	height: 110px;
+	width: 190px;
+	min-width: 190px;
+	object-fit: cover;
 }
 
-.video_wrapper div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-	padding: 0 20px;
+.video_wrapper_info {
+	padding: 0 0 0 20px;
 	max-height: 150px;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	line-height: 1.25;
+	display: flex;
+	flex-direction: column;
 }
 
-.video_wrapper div p {
+.video_wrapper_info p {
 	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
-.video_wrapper > div > p:first-child {
+.video_wrapper_info p:first-child {
     font-family: var(--bold);
-    font-size: var(--f-large);
+	max-height: 3.8rem;
+	flex: 1 0 3.8rem;
+	margin-bottom: 5px;
 }
 
-.video_wrapper > div > p:last-child {
-	
+.video_wrapper_info p:last-child {
+	flex: 1 1 100%;
+	margin-top: 5px;
 }
 
 
