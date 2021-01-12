@@ -192,10 +192,10 @@ function weaponConenverterReversed($weapon_name_in) {
 
 function sexConverterReversed($sex_name_in) {
     switch ($sex_name_in) {
-        case "male":
+        case "Male":
             $output = "1";
         break;
-        case "female":
+        case "Female":
             $output = "2";
         break;
         default:

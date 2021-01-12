@@ -18,7 +18,7 @@
                 <div id="title_stripe">
                     <p class="stripe_title">Finished competitions</p>
                 </div>
-                <form id="browsing_bar">
+                <form method="POST" id="browsing_bar">
                     <!-- search by name box -->
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <input type="text" name="name" placeholder="Search by Name" class="search">
