@@ -169,6 +169,43 @@ function weaponConverter($weaponin) {
     
 }
 
+
+//weponConenverterReversed
+function weaponConenverterReversed($weapon_name_in) {
+    switch ($weapon_name_in) {
+        case "Epee":
+            $output = 1;
+        break;
+        case "Foil":
+            $output = 2;
+        break;
+        case "Sabre":
+            $output = 3;
+        break;
+        default:
+            $output = "Unidentified weapon";
+        break;
+    }
+
+    return $output;
+}
+
+function sexConverterReversed($sex_name_in) {
+    switch ($sex_name_in) {
+        case "male":
+            $output = "1";
+        break;
+        case "female":
+            $output = "2";
+        break;
+        default:
+            $output = "Wrong sex!";
+        break;
+    }
+
+    return $output;
+}
+
 function pisteColor($color_id) {
 
     switch ($color_id) {

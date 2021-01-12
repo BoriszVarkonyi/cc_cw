@@ -9,12 +9,14 @@
 
 <?php
 include "../cw/db.php";
+include "../includes/functions.php";
+include "../cw/competition_filtering.php";
 
 //fetching data drom 'comptetitions' from the rows with the same 'comp_status' as '$statusofpage'
 //'$statusofpage' is defined at the beginning of cw_""_competition - s
-$query = "SELECT * FROM competitions WHERE comp_status = '$statusofpage'";
+$query = "SELECT * FROM competitions " . $WHERE_CLAUSE;
 $select_all_comps = mysqli_query($connection, $query);
-
+echo $query;
 
 while ($row = mysqli_fetch_assoc($select_all_comps)){
     $comp_name = $row['comp_name'];

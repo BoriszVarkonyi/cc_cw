@@ -38,14 +38,15 @@
                             echo mysqli_error($connection);
                             while ($row =  mysqli_fetch_assoc($do_get_rankings)) {
 
-                            $comp_name = $row['name'];
-                            $ranking_id = $row['comp_ranking_id'];
-                            $row_comp_id = $row['comp_id'];
+                            $ranking_name = $row['name'];
+                            $ranking_id = $row['id'];
+                            $ass_comp_id = $row['ass_comp_id'];
+                            $ranking_password = $row['password'];
                         
                         ?>
 
                             <div class="table_row" onclick="window.location.href='ranking.php?comp_id=<?php echo $row_comp_id ?>'">
-                                <div class="table_item"><p><?php echo $comp_name ?></p></div>
+                                <div class="table_item"><p><?php echo $ranking_name ?></p></div>
                                 <div class="table_item"><p><?php echo $ranking_id ?></p></div>
                             </div>
                         

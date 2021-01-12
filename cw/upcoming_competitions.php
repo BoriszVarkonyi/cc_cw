@@ -18,7 +18,7 @@
                 <div id="title_stripe">
                     <p class="stripe_title">Upcoming competitions</p>
                 </div>
-                <form id="browsing_bar">
+                <form method="POST" id="browsing_bar">
                     <!-- search by name box -->
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <input type="text" name="" placeholder="Search by Name" class="search">
@@ -26,7 +26,7 @@
                     <div class="select_input">
                         <button type="button" onclick="toggleDropdown(this)">
                             <p>-Year-</p>
-                            <input type="text" value="">
+                            <input name="year" type="text" value="">
                         </button>
                         <div id="year_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">2020</button>
@@ -41,7 +41,7 @@
                     <div class="select_input">
                         <button type="button" onclick="toggleDropdown(this)">
                             <p>-Sex-</p>
-                            <input type="text" value="">
+                            <input name="sex" type="text" value="">
                         </button>
                         <div id="sex_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">Male</button>
@@ -52,7 +52,7 @@
                     <div class="select_input">
                         <button type="button" onclick="toggleDropdown(this)">
                             <p>-Weapon Type-</p>
-                            <input type="text" value="">
+                            <input name="wt" type="text" value="">
                         </button>
                         <div id="wt_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
@@ -60,7 +60,7 @@
                             <button type="button" onclick="selectSystem(this)">Sabre</button>
                         </div>
                     </div>
-                    <input type="submit" value="Search">
+                    <input name="submit_search" type="submit" value="Search">
                 </form>
                 <?php include "../cw/comps_display.php" ?>
             </div>
