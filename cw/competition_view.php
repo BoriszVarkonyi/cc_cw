@@ -15,33 +15,7 @@
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="slideshow">
-                <p id="slideshow_title">Check Competitions</p>
-                <!--
-                <div id="text">
-                    <div class="perspective-text">
-                        <div class="perspective-line">
-                            <p></p>
-                            <p>Check Competition</p>
-                        </div>
-                        <div class="perspective-line">
-                            <p>Check Competition</p>
-                            <p>Is Only</p>
-                        </div>
-                        <div class="perspective-line">
-                            <p>Is Only</p>
-                            <p>A Matter Of</p>
-                        </div>
-                        <div class="perspective-line">
-                            <p>A Matter Of</p>
-                            <p>Perception</p>
-                        </div>
-                        <div class="perspective-line">
-                            <p>Perception</p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                -->
+                <p id="slideshow_title" title="Check Competitions">Check Competitions</p>
                 <div id="sildes">
                     <div id="slide_nav">
                         <button class="slideButtons active" onclick="toggleButton(this)"></button>
@@ -73,7 +47,7 @@
             <div id="content">
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
-                    <div class="cw_table_wrapper table t_c_1">
+                    <div class="table t_c_1">
                         <div class="table_row_wrapper">
                     <?php
                         //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)

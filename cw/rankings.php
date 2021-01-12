@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="rankings">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
@@ -58,9 +58,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        <?php include "cw_footer.php"; ?>
+            </div>
+            <?php include "cw_footer.php"; ?>
         </div>
     </div>
 <script src="../js/cw_main.js"></script>
