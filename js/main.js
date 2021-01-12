@@ -493,8 +493,8 @@ function formValidation(overlayForm, inputs, saveButton){
 
 }
 var stripeButtons = document.querySelectorAll(".stripe_button")
-console.log(stripeButtons)
 var canAddHoverClass = true;
+earchBarClosed = true;
 document.addEventListener("keydown", function(e){
     //searchBarClosed is a var. from control.js
     if(searchBarClosed){
@@ -508,11 +508,13 @@ document.addEventListener("keydown", function(e){
 })
 document.addEventListener("keyup", function(e){
     //searchBarClosed is a var. from control.js
+    if(searchBarClosed){
         if(e.key == "Shift") {
             for(i=0; i<stripeButtons.length; i++){
                 stripeButtons[i].classList.remove("hover")
             }
             canAddHoverClass = true;
-        }  
+        }
+    }        
 })
 
