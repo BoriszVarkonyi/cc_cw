@@ -8,7 +8,6 @@
         $weapont_type = $_POST['wt'];
         $sex = $_POST['sex'];
         $name = $_POST['name'];
-        print_r($_POST);
 
 
         if ($name != "") {
