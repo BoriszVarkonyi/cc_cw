@@ -29,11 +29,13 @@
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="content" class="list">
-                <button type="button" class="back_button" onclick="location.href='cw_videos.php'">
-                    <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
-                </button>
                 <div id="title_stripe">
-                    <p>LIVE RESULTS OF <?php echo $comp_name ?></p>
+                    <p class="stripe_title">
+                        <button type="button" class="back_button" onclick="window.history.back();">
+                            <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        </button>
+                        Video From <?php echo $comp_name ?></p>
+                    </p>
                 </div>
         <div id="round_live_wrapper">
             <div id="round_livestream_wrapper">

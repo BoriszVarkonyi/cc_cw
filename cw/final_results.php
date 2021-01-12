@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="competitions">
+<div id="wrapper">
     <?php include "cw_header.php"; ?>
     <div id="main">
         <div id="content" class="list">
@@ -25,7 +26,7 @@
                 <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                 <div>
                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                    <input type="text" name="" placeholder="Search by Fencer" class="search">
+                    <input type="text" name="" placeholder="Search by Name" class="search">
                 </div>
                 <input type="submit" value="Search">
             </form>
@@ -134,6 +135,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             </div>
             <?php include "cw_footer.php"; ?>

@@ -26,7 +26,7 @@ if(isset($_POST["send_pre"])){
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="competitions">
 <?php include "cw_header.php"; ?>
     <div id="main">
         <div id="content" class="list">
@@ -86,7 +86,7 @@ if(isset($_POST["send_pre"])){
                             </button>
                         </div> -->
                     </div>
-                    <input type="text" name="" placeholder="Search by Title" class="search">
+                    <input type="text" name="" placeholder="Search by Name" class="search">
                     <div id="select_fencers_list_wrapper" class="table">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>

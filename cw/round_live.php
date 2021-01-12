@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="competitions">
     <div id="cw_main_live">
         <div class="cw_panel_title_wrapper">
             <button type="button" class="back_button" onclick="location.href='cw_table.php'">

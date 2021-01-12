@@ -16,7 +16,7 @@
         <div id="main">
             <div id="content" class="list">
                 <div id="title_stripe">
-                    <p class="stripe_title">Rankings</p>
+                    <p class="stripe_title">Videos</p>
                 </div>
                 <form id="browsing_bar">
                     <div>
