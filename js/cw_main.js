@@ -1,5 +1,6 @@
 var languagesPanel = document.getElementById("change_language_panel");
 var currentLang;
+
 function toggleLanguagesPanel(x) {
     var languagesButton = x;
     languagesButton.classList.toggle("opened");
@@ -20,5 +21,4 @@ function toggleCompetitionsPanel(x) {
     competitionsNavButton.classList.toggle("opened");
     compDropdown.classList.toggle("opened");
     console.log(compDropdown)
-
 }

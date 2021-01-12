@@ -27,7 +27,7 @@ input.addEventListener("input", function() {
     fr = new FileReader();
     parser = new DOMParser();
     fr.onload = receivedText;
-    fr.readAsText(file);
+    fr.readAsText(file, 'ISO-8859-1');
 
     var tablewrapper = document.querySelector(".table_row_wrapper")
     function receivedText() {
@@ -46,8 +46,8 @@ input.addEventListener("input", function() {
         tableitems[4].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Club")
         tableitems[5].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Classement")
       }
+      //This is a function from list.js
       automaticWidth();
     }
   }
-
 })
