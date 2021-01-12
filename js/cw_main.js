@@ -22,26 +22,28 @@ function toggleCompetitionsPanel(x) {
     compDropdown.classList.toggle("opened");
     console.log(compDropdown)
 }
-
-var bodyClass = document.querySelector("body");
-var navigationButtons = document.querySelectorAll("#navigation > div")
-var className = bodyClass.classList.value;
+//selects the body
+var body = document.querySelector("body");
+//gets the classname of the body
+var className = body.classList.value;
+//selects all navigation buttons
+var navigationButtons = document.querySelectorAll("#navigation > div");
+//remove current class from every navigatiob button
 for(i=0; i<navigationButtons.length; i++){
     navigationButtons[i].classList.remove("current")
 }
-console.log(document.querySelectorAll("#navigation > div")[5])
+//adds current class to the appropirate navigation button
 switch(className){
-    case "home" : document.querySelectorAll("#navigation > div")[0].classList.add("current")
+    case "home" : navigationButtons[0].classList.add("current");
     break;
-    case "competitions" : document.querySelectorAll("#navigation > div")[1].classList.add("current")
+    case "competitions" : navigationButtons[1].classList.add("current");
     break;
-    case "blog" : document.querySelectorAll("#navigation > div")[2].classList.add("current")
+    case "blog" : navigationButtons[2].classList.add("current");
     break;
-    case "videos" : document.querySelectorAll("#navigation > div")[3].classList.add("current")
+    case "videos" : navigationButtons[3].classList.add("current");
     break;
-    case "rankings" : document.querySelectorAll("#navigation > div")[4].classList.add("current")
+    case "rankings" : navigationButtons[4].classList.add("current");
     break;
-    case "saved_competitions" : document.querySelectorAll("#navigation > div")[5].classList.add("current")
+    case "saved_competitions" : navigationButtons[5].classList.add("current");
     break;
-
 }
