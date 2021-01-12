@@ -1,4 +1,3 @@
-<?php include "cw_header.php"; ?>
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
 <?php $statusofpage = 4; ?>

@@ -3,7 +3,7 @@
         <a href="competition_view.php" id="app_name">CompetitionView</a>
     </div>
     <div id="navigation">
-        <div class="current">
+        <div>
             <a href="competition_view.php">Home</a>
         </div>
         <div>
