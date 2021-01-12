@@ -83,6 +83,7 @@ footer {
 		width: calc(100% - 50px);
 		margin: 0 25px;
 	}
+	
 }
 
 @media (min-width: 576px) {
@@ -1004,6 +1005,11 @@ input[value="Search"] {
 	padding: 20px;
 	box-sizing: border-box;
 	display: flex;
+	cursor: pointer;
+}
+
+.video_wrapper:hover {
+	background-color: var(--c-lightestgray);
 }
 
 .video_wrapper > img {

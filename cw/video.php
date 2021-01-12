@@ -29,15 +29,12 @@
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="content" class="list">
+                <button type="button" class="back_button" onclick="location.href='cw_videos.php'">
+                    <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
+                </button>
                 <div id="title_stripe">
-                    <p class="stripe_title">Saved competitions</p>
+                    <p>LIVE RESULTS OF <?php echo $comp_name ?></p>
                 </div>
-        <div class="cw_panel_title_wrapper">
-            <button type="button" class="back_button" onclick="location.href='cw_videos.php'">
-                <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
-            </button>
-            <p>LIVE RESULTS OF <?php echo $comp_name ?></p>
-        </div>
         <div id="round_live_wrapper">
             <div id="round_livestream_wrapper">
                 <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
