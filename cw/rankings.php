@@ -33,12 +33,12 @@
 
                         <?php 
                             //get comp_
-                            $qry_get_rankings = "SELECT * FROM `competitions` WHERE `comp_ranking_id` <> '0'";
+                            $qry_get_rankings = "SELECT * FROM `ranking` WHERE `ass_comp_id` <> '0'";
                             $do_get_rankings = mysqli_query($connection, $qry_get_rankings);
                             echo mysqli_error($connection);
                             while ($row =  mysqli_fetch_assoc($do_get_rankings)) {
 
-                            $comp_name = $row['comp_name'];
+                            $comp_name = $row['name'];
                             $ranking_id = $row['comp_ranking_id'];
                             $row_comp_id = $row['comp_id'];
                         
