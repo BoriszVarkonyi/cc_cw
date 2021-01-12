@@ -8,7 +8,6 @@
     <div class="table_row_wrapper alt">
 
 <?php
-print_r($_POST);
 include "../cw/db.php";
 include "../includes/functions.php";
 include "../cw/competition_filtering.php";

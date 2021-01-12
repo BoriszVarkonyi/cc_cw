@@ -21,7 +21,7 @@
                 <form method="POST" id="browsing_bar">
                     <!-- search by name box -->
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <input type="text" name="" placeholder="Search by Name" class="search">
+                    <input type="text" name="name" placeholder="Search by Name" class="search">
                     <!-- year drop-down -->
                     <div class="select_input">
                         <button type="button" onclick="toggleDropdown(this)">

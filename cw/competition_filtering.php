@@ -4,12 +4,16 @@
 
     if (isset($_POST['submit_search'])) {
 
-        echo "asdasdasd";
         $year = $_POST['year'];
         $weapont_type = $_POST['wt'];
         $sex = $_POST['sex'];
+        $name = $_POST['name'];
         print_r($_POST);
 
+
+        if ($name != "") {
+            $WHERE_CLAUSE .= " AND `comp_name` LIKE '%$name%'";
+        }
         if ($year != "") {
             $WHERE_CLAUSE .= " AND $year = YEAR(`comp_start`)";
         }
