@@ -864,7 +864,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	left: 40px;
 }
 
-.dropdown_menu a {
+.dropdown_menu a, .dropdown_menu a.disabled {
 	padding: 0 0 0 5px;
 	transition: var(--t-basic);
 	overflow: visible;
@@ -874,18 +874,21 @@ input[type="range"]:focus::-ms-fill-upper {
 	font-size: var(--f-medium);
 }
 
-.dropdown_menu a::before {
+.dropdown_menu a::before, .dropdown_menu a.disabled::before {
 	content: '';
 	position: absolute;
-	background-color: var(--c-lightorange);
 	width: 18px;
 	height: 2px;
-	left: 50px;
 }
 
-.dropdown_menu > a.disabled {
-	cursor: default;
-	pointer-events: none;
+.dropdown_menu a::before {
+	left: 40px;
+	background-color: var(--c-lightorange);
+}
+
+.dropdown_menu a.disabled::before {
+	left: -25px;
+	background-color: var(--c-lightestgray);
 }
 
 .dropdown_menu.hidden {
