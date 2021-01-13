@@ -1187,6 +1187,12 @@ p.wc_time {
 	width: 100%;
 }
 
+/* cw specific, makes good looking hover */
+#call_room.cw  .table_round_wrapper:hover {
+	transform: scale(1.01);
+}
+
+
 .table_round_wrapper > div:not(.table_round){
 	display: flex;
 	justify-content: space-between;
