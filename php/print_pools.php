@@ -195,64 +195,71 @@
                                     </div>
                                 </div>
                                 <div class="signatures">
-                                    <div class="fencers">
-                                        <?php
-                                            foreach ($fencer_signiture as $value) {
-                                        ?>
-                                        <div class="fencer">
-                                            <div class="s_names">
-                                                <p><?php echo $value ?></p>
+                                    <div class="grid_table fencers">
+                                        <div class="grid_header">
+                                            <div class="grid_header_text">NAME</div>
+                                            <div class="grid_header_text square">No.</div>
+                                            <div class="grid_header_text square">1</div>
+                                            <div class="grid_header_text square">2</div>
+                                            <div class="grid_header_text square">3</div>
+                                            <div class="grid_header_text square">4</div>
+                                            <div class="grid_header_text signature">SIGNATURE</div>
+                                        </div>
+                                        <div class="grid_row_wrapper">
+                                            <div class="grid_row">
+                                                <div class="grid_item">Sziaaa</div>
+                                                <div class="grid_item square header">1</div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square filled"></div>
+                                                <div class="grid_item signature"></div>
                                             </div>
-                                            <div class="s_grid">
-                                                <div></div>
+                                            <div class="grid_row">
+                                                <div class="grid_item">Sziaaa</div>
+                                                <div class="grid_item square header">1</div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square filled"></div>
+                                                <div class="grid_item signature"></div>
+                                            </div>
+                                            <div class="grid_row">
+                                                <div class="grid_item">Sziaaa</div>
+                                                <div class="grid_item square header">1</div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square filled"></div>
+                                                <div class="grid_item signature"></div>
+                                            </div>
+                                            <div class="grid_row">
+                                                <div class="grid_item">Sziaaa</div>
+                                                <div class="grid_item square header">1</div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square"></div>
+                                                <div class="grid_item square filled"></div>
+                                                <div class="grid_item signature"></div>
                                             </div>
                                         </div>
-                                        <?php
-                                            } 
-                                        ?>
-
                                     </div>
-                                    <div class="referees">
-
-
-                                        <?php
-                                        
-                                        if ($ref1 == 0) {
-                                            
-                                            echo "<p>Referees are not set up yet!</p>";
-                                        } else {
-                                        
-                                        ?>
-                                        
-                                        <div class="referee">
-                                            <div class="s_numbering">
-                                                <p>1.</p>
-                                            </div>
-                                            <div class="s_names">
-                                                <p><?php echo $ref1_name ?></p>
-                                            </div>
-                                            <div class="s_grid">
-                                                <div></div>
-                                            </div>
+                                    <div class="grid_table referees">
+                                        <div class="grid_header">
+                                            <div class="grid_header_text">NAME</div>
+                                            <div class="grid_header_text signature">SIGNATURE</div>
                                         </div>
-                                        <?php 
-                                        }
-                                            if ($ref2_name != "") {
-                                        ?>
-                                        <div class="referee">
-                                            <div class="s_numbering">
-                                                <p>2.</p>
+                                        <div class="grid_row_wrapper">
+                                            <div class="grid_row">
+                                                <div class="grid_item">Sziaaaa</div>
+                                                <div class="grid_item signature"></div>
                                             </div>
-                                            <div class="s_names">
-                                                <p><?php echo $ref2_name ?></p>
+                                            <div class="grid_row">
+                                                <div class="grid_item">Sziaaaaaaaaa</div>
+                                                <div class="grid_item signature"></div>
                                             </div>
-                                            <div class="s_grid">
-                                                <div></div>
-                                            </div>
+
                                         </div>
-                                        <?php 
-                                            } 
-                                        ?>
                                     </div>
                                 </div>
                             </div>
