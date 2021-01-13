@@ -996,9 +996,6 @@ input[type="range"]:focus::-ms-fill-upper {
 .page_title {		/* The page's title fills the login panel and page_content */
 	font-family: var(--bold);
 	font-size: var(--f-xxlarge);
-	max-width: 50vw;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	line-height: 1.25;
 }
 
