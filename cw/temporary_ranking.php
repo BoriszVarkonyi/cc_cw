@@ -43,26 +43,39 @@
                         <div class="small_status_header"></div>
                     </div>
                     <div class="table_row_wrapper alt">
+                        <?php 
+                            //get competitors sorted by temp rank
+                            $qry = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank ASC";
+                            $qry_do = mysqli_query($connection, $qry);
+                            echo mysqli_error($connection);
+                            while ($row = mysqli_fetch_assoc($qry_do)) {
+                                $fencer_name = $row['name'];
+                                $fencer_nat = $row['nationality'];
+                                $fencer_id = $row['id'];
+                                $fencer_temp_rank = $row['temporary_rank'];
+                        ?>
+
                         <div class="table_row">
-                        <div class="table_item">
-                                <p>
-                                    1.
-                                </p> 
-                            </div>
                             <div class="table_item">
-                                <p>
-                                    Néve
-                                </p> 
+                                    <p>
+                                        <?php echo $fencer_temp_rank ?>
+                                    </p> 
+                                </div>
+                                <div class="table_item">
+                                    <p>
+                                        <?php echo $fencer_name ?>
+                                    </p> 
+                                </div>
+                                <div class="table_item">
+                                    <p>
+                                        <?php echo $fencer_nat ?>
+                                    </p> 
+                                </div>
+                                <div class="small_status_item red"></div>
                             </div>
-                            <div class="table_item">
-                                <p>
-                                    HUN
-                                </p> 
-                            </div>
-                            <div class="small_status_item red"></div>
+                            <?php } ?>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
             <?php include "cw_footer.php"; ?>
