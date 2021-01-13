@@ -20,30 +20,55 @@ function toggleCompetitionsPanel(x) {
     var competitionsNavButton = x;
     competitionsNavButton.classList.toggle("opened");
     compDropdown.classList.toggle("opened");
-    console.log(compDropdown)
 }
+//NAVIGATION BUTTON
 //selects the body
 var body = document.querySelector("body");
 //gets the classname of the body
 var className = body.classList.value;
 //selects all navigation buttons
 var navigationButtons = document.querySelectorAll("#navigation > div");
+var mobileNavihationButtons = document.querySelectorAll("#mobile_navigation > div  a");
+console.log(mobileNavihationButtons)
 //remove current class from every navigatiob button
 for(i=0; i<navigationButtons.length; i++){
     navigationButtons[i].classList.remove("current")
 }
 //adds current class to the appropirate navigation button
 switch(className){
-    case "home" : navigationButtons[0].classList.add("current");
+    case "home" :
+        mobileNavihationButtons[0].classList.add("current"); 
+        navigationButtons[0].classList.add("current");
     break;
-    case "competitions" : navigationButtons[1].classList.add("current");
+    case "upcoming_competitions" : 
+        mobileNavihationButtons[1].classList.add("current"); 
+        navigationButtons[1].classList.add("current");
+        navigationButtons[1].querySelectorAll("a")[0].classList.add("current")
     break;
-    case "blog" : navigationButtons[2].classList.add("current");
+    case "ongoing_competitions" : 
+        mobileNavihationButtons[2].classList.add("current"); 
+        navigationButtons[1].classList.add("current");
+        navigationButtons[1].querySelectorAll("a")[1].classList.add("current")
     break;
-    case "videos" : navigationButtons[3].classList.add("current");
+    case "finished_competitions" : 
+        mobileNavihationButtons[3].classList.add("current"); 
+        navigationButtons[1].classList.add("current");
+        navigationButtons[1].querySelectorAll("a")[2].classList.add("current")
     break;
-    case "rankings" : navigationButtons[4].classList.add("current");
+    case "blog" : 
+        mobileNavihationButtons[4].classList.add("current"); 
+        navigationButtons[2].classList.add("current");
     break;
-    case "saved_competitions" : navigationButtons[5].classList.add("current");
+    case "videos" : 
+        mobileNavihationButtons[5].classList.add("current"); 
+        navigationButtons[3].classList.add("current");
+    break;
+    case "rankings" : 
+        mobileNavihationButtons[6].classList.add("current"); 
+        navigationButtons[4].classList.add("current");
+    break;
+    case "saved_competitions" : 
+        mobileNavihationButtons[7].classList.add("current"); 
+        navigationButtons[5].classList.add("current");
     break;
 }

@@ -1,3 +1,4 @@
+<?php include "../includes/cw_fav_button_list.php" ?>
 <?php $statusofpage = 3; ?>
 
 <!DOCTYPE html>

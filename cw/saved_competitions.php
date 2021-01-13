@@ -2,17 +2,31 @@
 <?php include "../includes/functions.php"; ?>
 <?php $statusofpage = 4; ?>
 <?php 
+    
 
-    if (isset($_COOKIE['fav_comp'])) {
-        $saved_comps = $_COOKIE["fav_comp"];
+    $cookie_expires = time() + 31556926;
+    $cookie_name = "fav_comp";
+
+    if (isset($_COOKIE[$cookie_name])) {
+        $saved_comps = $_COOKIE[$cookie_name];
     } else {
         $saved_comps = 0;
     }
-    
 
     $saved_comps = str_replace("%", ", ", $saved_comps);
     $saved_comps = substr_replace($saved_comps, "", 0, 1);
     $saved_comps .= "0";
+
+    $cookie_value = $_COOKIE[$cookie_name];
+
+    if (isset($_POST['submit_button'])) {
+        $comp_id = $_POST['submit_button'];
+
+        $cookie_value = str_replace($comp_id . "%", "", $cookie_value);
+
+        setcookie($cookie_name, $cookie_value, $cookie_expires, "/");
+        header("Refresh:0");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,22 +61,25 @@
 
                         while ($row = mysqli_fetch_assoc($do_get_data)) {
                             $comp_name = $row['comp_name'];
-                            $comp_id_table = $row['comp_id'];
+                            $comp_id = $row['comp_id'];
                             $comp_status = $row['comp_status'];
+                            $star = "../assets/icons/star-black-18dp.svg";
+
                             ?>
-                            <!-- outputting the table -->    
-                            <div class="table_row">
+                            <!-- outputting the table -->
+                            <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <div class="table_item">
                                     <p><?php echo $comp_name ?></p>
                                 </div>
                                 <div class="table_item">
                                     <p><?php echo statusConverter($comp_status) ?></p>
                                 </div>
-                                <div class="big_status_item">
-                                    <button class="favourite_button">
-                                        <img src="../assets/icons/star_border-black-18dp.svg" >
+                                <form method="POST" class="big_status_item">
+
+                                    <button name="submit_button" type="submit" class="favourite_button" value="<?php echo $comp_id?>">
+                                        <img src="<?php echo $star ?>" >
                                     </button>
-                                </div>
+                                </form>
                             </div>
                         <?php 
                         }
