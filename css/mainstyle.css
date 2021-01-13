@@ -3965,7 +3965,6 @@ input.wc_time {
 
 .underlined_button {
 	text-decoration: underline;
-	
 	font-family: var(--bold);
 	background: transparent;
 	padding: 3px 5px;
