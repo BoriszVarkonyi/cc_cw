@@ -60,6 +60,7 @@
                 <a href="blog.php">Blog</a>
                 <a href="videos.php">Videos</a>
                 <a href="rankings.php">Rankings</a>
+                <a href="saved_competitions.php">Saved Competitions</a>
             </div>
         </div>
     </div>

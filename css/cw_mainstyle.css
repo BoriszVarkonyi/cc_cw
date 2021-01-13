@@ -71,7 +71,7 @@ footer {
 }
 
 @media (min-width: 0) {
-	
+
 	#navigation {
 		display: none;
 	}
@@ -357,6 +357,10 @@ header > div {
 	margin: 2px 0;
 }
 
+#navigation > div > div a.current {
+	font-family: var(--bold);
+}
+
 #navigation > div > div a:hover {
 	background-color: var(--c-lightergray);
 }
@@ -505,6 +509,12 @@ header > div {
 }
 
 #mobile_navigation a, #mobile_navigation p {
+	margin-top: 10px;
+	color: var(--c-white);
+	font-size: var(--f-xlarge);
+}
+
+#mobile_navigation a.cu, #mobile_navigation p {
 	margin-top: 10px;
 	color: var(--c-white);
 	font-size: var(--f-xlarge);
@@ -785,7 +795,7 @@ input[value="Search"] {
 
 .stripe_title {
 	font-family: var(--bold);
-	font-size: var(--f-large);
+	font-size: var(--f-xlarge);
 	display: flex;
 	align-items: center;
 }
@@ -1105,6 +1115,16 @@ input[value="Search"] {
 	object-fit: cover;
 }
 
+@supports (aspect-ratio) {
+	.video_wrapper > img {
+		height: 110px;
+		width: 190px;
+		min-width: 190px;
+		object-fit: cover;
+		aspect-ratio: 16:9;
+	}
+}
+
 .video_wrapper_info {
 	padding: 0 0 0 20px;
 	max-height: 150px;
@@ -1156,6 +1176,8 @@ input[value="Search"] {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	background-color: var(--c-lightestgray);
+	margin: 0 50px 50px;
 }
 
 #select_fencers_wrapper {

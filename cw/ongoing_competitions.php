@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body class="competitions">
+<body class="ongoing_competitions">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
