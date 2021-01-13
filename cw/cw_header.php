@@ -50,7 +50,7 @@
         </button>
         <div id="mobile_navigation">
             <div>
-                <a class="current" href="">Home</a>
+                <a href="competition_view.php">Home</a>
                 <p>Competitions</p>
                 <div>
                     <a href="upcoming_competitions.php">Upcoming</a>

@@ -677,6 +677,11 @@ input:focus ~ .clear_search_button {
 	margin: 100px auto;
 }
 
+.table.cw.middle::before {		/* Whole table */
+	width: 90%;
+	margin: 100px auto;
+}
+
 .table_row_wrapper {	/* Wraps table_row elements */
 	flex-direction: column;
 	border-left: 2px solid var(--c-darkgray);
@@ -1186,6 +1191,12 @@ p.wc_time {
 	justify-content: center;
 	width: 100%;
 }
+
+/* cw specific, makes good looking hover */
+#call_room.cw  .table_round_wrapper:hover {
+	transform: scale(1.01);
+}
+
 
 .table_round_wrapper > div:not(.table_round){
 	display: flex;
