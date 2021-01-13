@@ -1115,16 +1115,6 @@ input[value="Search"] {
 	object-fit: cover;
 }
 
-@supports (aspect-ratio) {
-	.video_wrapper > img {
-		height: 110px;
-		width: 190px;
-		min-width: 190px;
-		object-fit: cover;
-		aspect-ratio: 16:9;
-	}
-}
-
 .video_wrapper_info {
 	padding: 0 0 0 20px;
 	max-height: 150px;
