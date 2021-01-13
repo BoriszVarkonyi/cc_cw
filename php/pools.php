@@ -803,11 +803,12 @@ if($exist == 0){
 ?>
 
                 STATE: 0
-
-                <button class="stripe_button orange" onclick="generatePanel()" type="submit">
-                    <p>Generate Pools</p>
-                    <img src="../assets/icons/add_box-black-18dp.svg" />
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button orange" onclick="generatePanel()" type="submit">
+                        <p>Generate Pools</p>
+                        <img src="../assets/icons/add_box-black-18dp.svg" />
+                    </button>
+                </div>
 
                 <div id="ref_pis_time_panel" class="overlay_panel">
                     <button class="panel_button" onclick="refPisTimePanel()">
@@ -867,34 +868,38 @@ elseif ($exist != 0 && $exist2 == 0)
 ?>
 
                 STATE: 1 
-
-                <button class="stripe_button disabled" type="button">
-                    <p>Send Message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg" />
-                </button>
-
-                <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
-                    <p>Referees</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg"/>
-                </button>
-
-                <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
-                    <p>Pistes & Time</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg"/>
-                </button>
-                <form class="title_stripe_form" method="POST" action="">
-                    <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
-                    <button class="stripe_button orange" name="save_pools" onclick="savePools()" type="submit">
-                        <p>Save Pools</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button disabled" type="button">
+                        <p>Send Message to Fencer</p>
+                        <img src="../assets/icons/message-black-18dp.svg" />
                     </button>
-                </form>
-                <form action="" method="POST">
-                <button class="stripe_button orange" type="submit" name="start_pools">
-                    <p>Start Pools</p>
-                    <img src="../assets/icons/outlined_flag-black-18dp.svg" />
-                </button>
-                </form>
+
+                    <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
+                        <p>Referees</p>
+                        <img src="../assets/icons/ballot-black-18dp.svg"/>
+                    </button>
+
+                    <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
+                        <p>Pistes & Time</p>
+                        <img src="../assets/icons/ballot-black-18dp.svg"/>
+                    </button>
+
+                    <form action="" method="POST">
+                        <button class="stripe_button orange" type="submit" name="start_pools">
+                            <p>Start Pools</p>
+                            <img src="../assets/icons/outlined_flag-black-18dp.svg" />
+                        </button>
+                    </form>
+
+                    <form class="title_stripe_form" method="POST" action="">
+                        <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
+                        <button class="stripe_button orange" name="save_pools" onclick="savePools()" type="submit">
+                            <p>Save Pools</p>
+                            <img src="../assets/icons/save-black-18dp.svg" />
+                        </button>
+                    </form>
+                </div>
+
                 <div id="ref_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleRefPanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
@@ -1029,10 +1034,13 @@ elseif ($exist != 0 && $exist2 == 0)
 <?php 
 }else{ 
     ?>
-                <a class="stripe_button orange" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
-                    <p>Print Pools</p>
-                    <img src="../assets/icons/print-black-18dp.svg"/>
-                </a>
+                <div class="stripe_button_wrapper">
+                    <a class="stripe_button orange" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                        <p>Print Pools</p>
+                        <img src="../assets/icons/print-black-18dp.svg"/>
+                    </a>
+                </div>
+
      <?php
     }
     ?>           

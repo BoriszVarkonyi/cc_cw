@@ -140,10 +140,21 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
-                        <button class="stripe_button" onclick="toggle_import_technician()">
-                            <p>Import Referees</p>
-                            <img src="../assets/icons/save_alt-black-18dp.svg"/>
-                        </button>
+                        <div class="stripe_button_wrapper">
+                            <button class="stripe_button" onclick="toggle_import_technician()">
+                                <p>Import Referees</p>
+                                <img src="../assets/icons/save_alt-black-18dp.svg"/>
+                            </button>
+                            <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                                <p>Remove Referee</p>
+                                <img src="../assets/icons/delete-black-18dp.svg"/>
+                            </button>
+                            <button class="stripe_button orange" onclick="toggle_add_technician()">
+                                <p>Add Referees</p>
+                                <img src="../assets/icons/add-black-18dp.svg"/>
+                            </button>
+                        </div>
+
                         <div id="import_technician_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
                                 <img src="../assets/icons/close-black-18dp.svg" >
@@ -181,14 +192,7 @@
                         </div>
                         <input type="text" name='id' form="remove_technician" class="selected_list_item_input hidden">
                         <form action="" method="POST" id="remove_technician" class="hidden"></form>
-                        <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
-                            <p>Remove Referee</p>
-                            <img src="../assets/icons/delete-black-18dp.svg"/>
-                        </button>
-                        <button class="stripe_button orange" onclick="toggle_add_technician()">
-                            <p>Add Referees</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/>
-                        </button>
+
                     <div id="add_technician_panel" class="overlay_panel hidden">
                         <button class="panel_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" >

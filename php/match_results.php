@@ -27,10 +27,12 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">{Fencer 1} vs {Fencer 2}</p>
-                <button class="stripe_button orange" type="submit">
-                    <p>Save Match</p>
-                    <img src="../assets/icons/save-black-18dp.svg"/>
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button orange" type="submit">
+                        <p>Save Match</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/>
+                    </button>
+                </div>
             </div>
             <div id="page_content_panel_main">
                 <div class="wrapper width_80" id="match_result_wrapper">

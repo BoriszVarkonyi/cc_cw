@@ -28,27 +28,31 @@
             <div id="title_stripe">
                 <p class="page_title">Table</p>
                 <!-- STATE 0 -->
-                <button class="stripe_button orange" type="button">
-                    <p>Generate Table</p>
-                    <img src="../assets/icons/add_box-black-18dp.svg"/>
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button orange" type="button">
+                        <p>Generate Table</p>
+                        <img src="../assets/icons/add_box-black-18dp.svg"/>
+                    </button>
+                </div>
                 <!-- STATE 1 -->
-                <button class="stripe_button disabled" type="button">
-                    <p>Send Message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"/>
-                </button>
-                <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
-                    <p>Referees</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg"/>
-                </button>
-                <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
-                    <p>Pistes & Time</p>
-                    <img src="../assets/icons/ballot-black-18dp.svg"/>
-                </button>
-                <button class="stripe_button orange" type="submit">
-                    <p>Start next Round</p>
-                    <img src="../assets/icons/next_plan-black-18dp.svg"/>
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button disabled" type="button">
+                        <p>Send Message to Fencer</p>
+                        <img src="../assets/icons/message-black-18dp.svg"/>
+                    </button>
+                    <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
+                        <p>Referees</p>
+                        <img src="../assets/icons/ballot-black-18dp.svg"/>
+                    </button>
+                    <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
+                        <p>Pistes & Time</p>
+                        <img src="../assets/icons/ballot-black-18dp.svg"/>
+                    </button>
+                    <button class="stripe_button orange" type="submit">
+                        <p>Start next Round</p>
+                        <img src="../assets/icons/next_plan-black-18dp.svg"/>
+                    </button>
+                </div>
             </div>
                 <div id="ref_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleRefPanel()">

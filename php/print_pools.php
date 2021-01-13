@@ -33,10 +33,12 @@
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Print Pools</p>
-                    <button class="stripe_button orange" onclick="printPage()">
-                        <p id="save_text">Print All Pools</p>
-                        <img src="../assets/icons/print-black-18dp.svg"/>
-                    </button>
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button orange" onclick="printPage()">
+                            <p id="save_text">Print All Pools</p>
+                            <img src="../assets/icons/print-black-18dp.svg"/>
+                        </button>
+                    </div>
                 </div>
                 <div id="page_content_panel_main" class="scroll">
                     <div class="wrapper w90" id="pool_print_wrapper">

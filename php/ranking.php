@@ -106,18 +106,30 @@ if(mysqli_num_rows($query_do) == 0){
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Ranking</p>
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button" type="submit" method="post" onclick="toggleRankingInfo()">
+                            <p>Ranking Information</p>
+                            <img src="../assets/icons/info-black-18dp.svg"/>
+                        </button>
+                    
+                        <!-- delete ranking button -->
+                        <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="hidden"></form>
+                        <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
+                            <p>Delete Ranking</p>
+                            <img src="../assets/icons/delete-black-18dp.svg"/>
+                        </button>
 
-                    <button class="stripe_button" type="submit" method="post" onclick="toggleRankingInfo()">
-                        <p>Ranking Information</p>
-                        <img src="../assets/icons/info-black-18dp.svg"/>
-                    </button>
-                
-                    <!-- delete ranking button -->
-                    <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="hidden"></form>
-                    <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
-                        <p>Delete Ranking</p>
-                        <img src="../assets/icons/delete-black-18dp.svg"/>
-                    </button>
+                        <button class="stripe_button disabled" id="delete_fencer_button" type="submit" name="delete_fencer" form="delete_fencer_form">
+                            <p>Delete fencer</p>
+                            <img src="../assets/icons/delete-black-18dp.svg"/>
+                        </button>
+
+                        <button class="stripe_button orange" type="submit" onclick="toggleAddFencer()">
+                            <p>Add fencer</p>
+                            <img src="../assets/icons/add-black-18dp.svg"/>
+                        </button>
+                    </div>
+
                 
                     <?php
 
@@ -155,16 +167,6 @@ if(mysqli_num_rows($query_do) == 0){
                 <form id="delete_fencer_form" class="hidden" method="POST">
                 <input class="hidden" id="id_to_delete" type="text" name="id_to_delete">
                 </form>
-                    <button class="stripe_button disabled" id="delete_fencer_button" type="submit" name="delete_fencer" form="delete_fencer_form">
-                        <p>Delete fencer</p>
-                        <img src="../assets/icons/delete-black-18dp.svg"/>
-                    </button>
-
-                    <button class="stripe_button orange" type="submit" onclick="toggleAddFencer()">
-                        <p>Add fencer</p>
-                        <img src="../assets/icons/add-black-18dp.svg"/>
-                    </button>
-
                     <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencer()">
                                 <img src="../assets/icons/close-black-18dp.svg" >

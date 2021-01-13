@@ -227,10 +227,12 @@ if($query_do){
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Timetable</p>
-                    <button class="stripe_button orange" type="submit">
-                        <p>Save Timetable</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/>
-                    </button>
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button orange" type="submit">
+                            <p>Save Timetable</p>
+                            <img src="../assets/icons/save-black-18dp.svg"/>
+                        </button>
+                    </div>
                 </div>
                 <div id="page_content_panel_main" class="no_scroll">
                     <div id="set_wc_panel" class="overlay_panel_single hidden">

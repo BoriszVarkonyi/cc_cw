@@ -27,21 +27,22 @@ $poolnum = $_GET["poolid"];
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Pool No. <?php echo $poolnum ?> 's results</p>
-                <button class="stripe_button disabled" type="button">
-                    <p>Send message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"/>
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button disabled" type="button">
+                        <p>Send message to Fencer</p>
+                        <img src="../assets/icons/message-black-18dp.svg"/>
+                    </button>
 
-                <button class="stripe_button red disabled" type="button" onclick="disqualifyToggle()">
-                    <p>Disqualify</p>
-                    <img src="../assets/icons/highlight_off-black-18dp.svg"/>
-                </button>
+                    <button class="stripe_button red disabled" type="button" onclick="disqualifyToggle()">
+                        <p>Disqualify</p>
+                        <img src="../assets/icons/highlight_off-black-18dp.svg"/>
+                    </button>
 
-                <button class="stripe_button orange" type="submit">
-                    <p>Save Pool</p>
-                    <img src="../assets/icons/save-black-18dp.svg"/>
-                </button>
-
+                    <button class="stripe_button orange" type="submit">
+                        <p>Save Pool</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/>
+                    </button>
+                </div>
                 <div id="disqualify_panel" class="overlay_panel hidden">
                     <p class="panel_title">Disqualify {Fencer's name}</p>
                     <button class="panel_button" onclick="disqualifyToggle()">

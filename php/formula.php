@@ -138,10 +138,12 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Formula</p>
-                <button name="submit_form" form="save_form" class="stripe_button orange" type="submit">
-                    <p>Save Formula</p>
-                    <img src="../assets/icons/save-black-18dp.svg"/>
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button name="submit_form" form="save_form" class="stripe_button orange" type="submit">
+                        <p>Save Formula</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/>
+                    </button>
+                </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">

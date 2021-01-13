@@ -888,7 +888,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .dropdown_menu a.disabled::before {
 	left: -25px;
-	background-color: var(--c-lightestgray);
+	background-color: var(--c-transparent-white);
 }
 
 .dropdown_menu.hidden {
@@ -942,10 +942,7 @@ input[type="range"]:focus::-ms-fill-upper {
 	position: relative;
 	z-index: 1;
 	background-color: var(--c-lightestgray);
-	min-height: 80px;
-	height: 10vh;
-	max-height: 120px;
-	padding: 0 40px;
+	padding: 30px 40px;
 	display: flex;
 	align-items: center;
 	box-shadow: var(--s-black);
@@ -2611,7 +2608,6 @@ input[type="file"] {
 
 #ranking_search .table::before {
 	content: "No Rankings found";
-	
 	font-family: var(--bold);
 	color: var(--c-gray);
 	white-space: nowrap;

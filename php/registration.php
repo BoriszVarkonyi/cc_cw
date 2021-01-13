@@ -88,18 +88,20 @@
         ?>
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
-                    <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()">
-                        <p>Add Fencer</p>
-                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg"/>
-                    </button>
-                    <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit">
-                        <p>Register out</p>
-                        <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
-                    </button>
-                    <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit">
-                        <p>Register in</p>
-                        <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
-                     </button>
+                    <div class="stripe_button_wrapper">
+                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()">
+                            <p>Add Fencer</p>
+                            <img src="../assets/icons/person_add_alt_1-black-18dp.svg"/>
+                        </button>
+                        <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit">
+                            <p>Register out</p>
+                            <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
+                        </button>
+                        <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit">
+                            <p>Register in</p>
+                            <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
+                        </button>
+                    </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">

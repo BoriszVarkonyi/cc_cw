@@ -170,11 +170,12 @@ checkComp($connection);
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
                     <form id="publishcomp" class="hidden" ></form>
-                    <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
-                        <p>Publish Competition</p>
-                        <img src="../assets/icons/send-black-18dp.svg"/>
-                    </button>
-
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
+                            <p>Publish Competition</p>
+                            <img src="../assets/icons/send-black-18dp.svg"/>
+                        </button>
+                    </div>
                 </div
 
                 <!-- dashboard body -->  
