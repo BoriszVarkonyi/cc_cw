@@ -65,7 +65,7 @@
 
                             //displays the compnames in a table with href button (live)
                             ?>
-                            <div class="table_row">
+                            <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <!-- comp_name displayed -->
                                 <div class="table_item">
                                     <p>

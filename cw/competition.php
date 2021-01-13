@@ -41,7 +41,6 @@
                         <p><?php echo date('Y', strtotime($comp_start)) ?></p>
                     </div>
                 </div>
-                <?php var_dump($_COOKIE['fav_comp']) ?>
                 <div id="competition_info">
                     <!-- basic info panel -->
                     <div id="basic_information_panel" class="column_panel">
