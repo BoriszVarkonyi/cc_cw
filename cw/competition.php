@@ -7,8 +7,6 @@
 
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
-    } else {
-        $logo_path = "../assets/icons/delete-black-18dp.svg";
     }
 
 ?>
@@ -30,7 +28,7 @@
             <div id="content" class="competition">
                 <div id="title_stripe" class="big">
                     <img src="<?php echo $logo_path ?>">
-                    <form action="../cw/cw_competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
+                    <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                     <p class="stripe_title"><?php echo $comp_name ?></p>
                     <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
                         <img src=<?php echo $star ?> >
@@ -43,6 +41,7 @@
                         <p><?php echo date('Y', strtotime($comp_start)) ?></p>
                     </div>
                 </div>
+                <?php var_dump($_COOKIE['fav_comp']) ?>
                 <div id="competition_info">
                     <!-- basic info panel -->
                     <div id="basic_information_panel" class="column_panel">

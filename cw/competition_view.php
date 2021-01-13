@@ -1,5 +1,6 @@
 <?php include "../includes/db.php"; ?>
-
+<?php include "../includes/cw_fav_button_list.php" ?>
+<?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +59,9 @@
                         //displays row in the table with parameters
                         while ($row = mysqli_fetch_assoc($qry_do)) {
                             $comp_name =  $row['comp_name'];
+                            $comp_id = $row['comp_id'];
+
+                            $star = getStar($comp_id);
 
                             //displays the compnames in a table with href button (live)
                             ?>
@@ -72,11 +76,11 @@
                                 <div class="table_item live">
                                     <a href="">Live</a>
                                 </div>
-                                <div class="big_status_item">
-                                    <button class="favourite_button">
-                                        <img src="../assets/icons/star_border-black-18dp.svg" >
+                                <form method="POST" class="big_status_item">
+                                    <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
+                                        <img src="<?php echo $star ?>" >
                                     </button>
-                                </div>
+                                </form>
                             </div>
 
                             <?php
