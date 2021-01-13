@@ -78,6 +78,7 @@ openedForm.forEach(item => {
 
 var selectedElementIndexAnn = 0;
 document.onkeydown = (keyDownEvent) => {
+    //Arrow system
     if(IsNotFocused){
         if(keyDownEvent.key == "ArrowUp"){
             var tableRows = document.querySelectorAll(".db_panel_main  .entry")

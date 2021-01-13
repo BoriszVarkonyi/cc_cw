@@ -99,6 +99,7 @@ function windowSize(){
         }
     }
 }
+//Filles the "table of " title automaticly
 var eliminations = document.querySelectorAll(".elimination_label")
 var tableOfIndex = 8;
 for(i=eliminations.length-1; i>=0; i--){

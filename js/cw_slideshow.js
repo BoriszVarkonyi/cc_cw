@@ -40,6 +40,7 @@ function toggleButton(x) {
   
     }
   }, 1000)
+  
 }
 
 //Showslide automatic

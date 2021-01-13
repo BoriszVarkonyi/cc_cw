@@ -23,11 +23,11 @@ function selectSystem(x) {
     var inputClass = x.parentNode.parentNode
     var dropDown = inputClass.firstElementChild.nextElementSibling
     var selectInput = x.parentNode.previousElementSibling.firstElementChild
+    //Fill the input value
     selectInput.innerHTML = clickedOption.innerHTML
     selectInput.nextElementSibling.value = clickedOption.innerHTML
     inputClass.classList.add("checked")
     //Closes automaticly the dropdown.
     dropDown.classList.add("closed")
-    console.log(selectInput.nextElementSibling.value)
 }
 
