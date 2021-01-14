@@ -7,6 +7,32 @@
 
 $poolnum = $_GET["poolid"];
 
+if(isset($_POST["savepool"])){
+
+print_r($_POST);
+
+$get_matches_query = "SELECT * FROM pool_matches_$comp_id WHERE p_in = $poolnum ORDER BY oip ASC";
+$get_matches_query_do = mysqli_query($connection, $get_matches_query);
+
+while($row = mysqli_fetch_assoc($get_matches_query_do)){
+
+$oip = $row["oip"];
+
+$score1 = $_POST[$oip . "_1"];
+$score2 = $_POST[$oip . "_2"];
+
+if($score1 != NULL && $score2 != NULL){
+
+    $update_query = "UPDATE pool_matches_$comp_id SET f1_sc = $score1, f2_sc = $score2 WHERE p_in = $poolnum AND oip = $oip";
+    $update_query_do = mysqli_query($connection, $update_query);
+
+}
+
+}
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +95,7 @@ $poolnum = $_GET["poolid"];
 
             <div id="page_content_panel_main">
                 <div class="wrapper full" id="pool_results">
-
+                    <div>
 
 
                     <?php
@@ -117,122 +143,130 @@ $poolnum = $_GET["poolid"];
                             }
 
                         }?>
-                        <div>
-                            <div class="entry" >
-                                <div class="table_row start">
-                                    <div class="table_item bold">No. <?php echo $poolnum ?></div>
-                                    <div class="table_item">Piste <?php echo $piste ?></div>
-                                    <div class="table_item">Ref: <?php echo $refname ?></div>
-                                    <div class="table_item"><?php echo $time ?></div>
-                                </div>
-                                <div class="entry_panel">
-                                    <div class="pool_table_wrapper table">
-                                        <div class="table_header">
-                                            <div class="table_header_text">
-                                                Fencers name
-                                            </div>
-                                            <div class="table_header_text square">
-                                                No.
-                                            </div>
-                                            <?php 
-                                            for ($k=0; $k < $pool_f_in; $k++) { ?>
-                                                <div class="table_header_text square">
-                                                <?php echo $k +1; ?>
-                                            </div>
-                                            <?php
-                                            }
-                                            ?>
-                                            
+                    <div>
+                        <div class="entry" >
+                            <div class="table_row start">
+                                <div class="table_item bold">No. <?php echo $poolnum ?></div>
+                                <div class="table_item">Piste <?php echo $piste ?></div>
+                                <div class="table_item">Ref: <?php if (isset($refname)) {
+                                        
+                                        echo $refname;
+                                        echo "(" . $refnat . ")"; 
+                                    } else {
+                                        echo "No ref assigned!";
+                                    } ?></div>
+
+
+                                <div class="table_item"><?php echo $time ?></div>
+                            </div>
+                            <div class="entry_panel">
+                                <div class="pool_table_wrapper table">
+                                    <div class="table_header">
+                                        <div class="table_header_text">
+                                            Fencers name
                                         </div>
-                                        <div class="table_row_wrapper">
+                                        <div class="table_header_text square">
+                                            No.
+                                        </div>
+                                        <?php 
+                                        for ($k=0; $k < $pool_f_in; $k++) { ?>
+                                            <div class="table_header_text square">
+                                            <?php echo $k +1; ?>
+                                        </div>
                                         <?php
-                                        for ($n=0; $n < $pool_f_in; $n++) { 
-                                                $fx = $f[$n];
-                                                $get_fencer_data = "SELECT * FROM `cptrs_52` WHERE id = '$fx'";
-                                                $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+                                        }
+                                        ?>
+                                        
+                                    </div>
+                                    <div class="table_row_wrapper">
+                                    <?php
+                                    for ($n=0; $n < $pool_f_in; $n++) { 
+                                            $fx = $f[$n];
+                                            $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
+                                            $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
 
-                                                if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
-                                                    $fencer_name = $row['name'];
-                                                }?>
-                                                
-
-                                        <div class="table_row">
-                                            <div class="table_item"><?php echo $fencer_name ?></div>
-                                            <div class="table_item square row_title"><?php echo $n+1 ?></div>
-                                            <?php
-                                            $filled = "";
-                                            for ($l=0; $l < $pool_f_in; $l++) { 
-                                                
-                                            if($l == $n){
-
-                                            $filled = "filled";
-
+                                            if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
+                                                $fencer_name = $row['name'];
                                             }?>
                                             
-                                            <div class="table_item square <?php echo $filled ?>">
-                                        
-                                            <?php
-                                            $front = 0;
-                                            $back = 0;
-                                                if($l > $n){
-                                            
-                                                    $front = $n+1;
-                                                    $back = $l+1;
 
-                                                }else{
-
-                                                    $front = $l +1 ;
-                                                    $back = $n+1;
-
-                                                }
-                                            if($l != $n){
-                                                $scorenow = 0;
-                                                $m_id = $front . "-" . $back;
-
-                                                if($l > $n){
-                                                    $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                    $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                    while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                        $scorenow = $row4["f1_sc"];
-                                                        
-                                                    }
-                                                    echo $scorenow;
-
-                                                }
-                                                elseif($n > $l){
-                                                    $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                    $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                    while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                        $scorenow = $row4["f2_sc"];
-                                                        
-                                                    }
-                                                    echo $scorenow;
-                                                }
-
-                                                }
-
-                                            ?>
-                                            
-                                            </div>
-                                            
-                                            <?php
-                                            $filled = "";
-                                            }
-
-                                            ?>
-                                        </div>
+                                    <div class="table_row">
+                                        <div class="table_item"><?php echo $fencer_name ?></div>
+                                        <div class="table_item square row_title"><?php echo $n+1 ?></div>
                                         <?php
+                                        $filled = "";
+                                        for ($l=0; $l < $pool_f_in; $l++) { 
+                                            
+                                        if($l == $n){
+
+                                        $filled = "filled";
+
+                                        }?>
+                                        
+                                        <div class="table_item square <?php echo $filled ?>">
+                                    
+                                        <?php
+                                        $front = 0;
+                                        $back = 0;
+                                            if($l > $n){
+                                        
+                                                $front = $n+1;
+                                                $back = $l+1;
+
+                                            }else{
+
+                                                $front = $l +1 ;
+                                                $back = $n+1;
+
                                             }
-                                                ?>
+                                        if($l != $n){
+                                            $scorenow = 0;
+                                            $m_id = $front . "-" . $back;
+
+                                            if($l > $n){
+                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
+                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
+
+                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
+
+                                                    $scorenow = $row4["f1_sc"];
+                                                    
+                                                }
+                                                echo $scorenow;
+
+                                            }
+                                            elseif($n > $l){
+                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
+                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
+
+                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
+
+                                                    $scorenow = $row4["f2_sc"];
+                                                    
+                                                }
+                                                echo $scorenow;
+                                            }
+
+                                            }
+
+                                        ?>
+                                        
                                         </div>
+                                        
+                                        <?php
+                                        $filled = "";
+                                        }
+
+                                        ?>
+                                    </div>
+                                    <?php
+                                        }
+                                            ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
 
 
@@ -256,34 +290,44 @@ $poolnum = $_GET["poolid"];
                         $oip = $row["oip"];
 
                         
-                        $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id IN ('$f1_id','$f2_id')";
+                        $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id = '$f1_id'";
                         $get_fencer_names_do = mysqli_query($connection, $get_fencer_names);
+
+                        $get_fencer_names2 = "SELECT * FROM cptrs_$comp_id WHERE id = '$f2_id'";
+                        $get_fencer_names_do2 = mysqli_query($connection, $get_fencer_names2);
                         
-                        $cou = 1;
 
-                        while($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
 
-                        ${"f" . $cou . "_n"} = $row2["name"];
+                        if($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
 
-                        $cou++;
+                        $f1_n = $row2["name"];
+
+
                         }
+                        if($row3 = mysqli_fetch_assoc($get_fencer_names_do2)){
+
+                            $f2_n = $row3["name"];
+    
+    
+                            }
 
                         
                         ?>
 
-                        <div class="match red">
+
+                        <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
                             <div class="match_number">
                                 <p><?php echo $oip ?></p>
                             </div>
                             <div>
                                 <p><?php echo $f1_n ?></p>
-                                <input type="number" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="#">
+                                <input type="number" form="savepool" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="<?php echo $f1_sc ?>">
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="#">
+                                <input type="number" form="savepool" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="<?php echo $f2_sc ?>">
                                 <p><?php echo $f2_n ?></p>
                             </div>
                         </div>
@@ -296,200 +340,7 @@ $poolnum = $_GET["poolid"];
                         ?>
 
 
-                        <!-- <div class="match red">
-                            <div class="match_number">
-                                <p>2.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match red">
-                            <div class="match_number">
-                                <p>1.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match red">
-                            <div class="match_number">
-                                <p>3.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>4.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>5.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>6.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>7.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>8.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>9.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>10.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>11.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div>
-                        <div class="match green">
-                            <div class="match_number">
-                                <p>12.</p>
-                            </div>
-                            <div>
-                                <p>Embermm mmmmm mmmmmm</p>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <input type="number" name="" id="" class="number_input" placeholder="#">
-                                <p>Embermm mmmmm mmmmmm</p>
-                            </div>
-                        </div> -->
-
-
+                    </div>
                 </div>
             </div>
         </div>

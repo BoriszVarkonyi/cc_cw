@@ -23,7 +23,7 @@
                 <div class="table wrapper first_column_centered">
                <?php
             
-               $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
+               $query = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank";
                $query_do = mysqli_query($connection, $query);
                
                ?>
@@ -41,12 +41,12 @@
 
                         $name = $row["name"];
                         $nat = $row["nationality"];
-                        $id = $row["id"];
+                        $temp = $row["temporary_rank"];
                         
                         ?>
                         
-                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
-                            <div class="table_item"><p>1.</p></div>
+                        <div class="table_row" id="<?php echo $temp ?>" onclick="selectRow(this)" tabindex="0">
+                            <div class="table_item"><p><?php echo $temp ?></p></div>
                             <div class="table_item"><p><?php echo $name ?></p></div>
                             <div class="table_item"><p><?php echo $nat ?></p></div>
                         </div>

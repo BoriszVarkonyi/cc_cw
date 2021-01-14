@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE BaseCompetitionIndividuelle>
+<BaseCompetitionIndividuelle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Championnat="HUN" ID="5698" Arme="E" Sexe="M" Domaine="N" Federation="HUN" Categorie="S" TitreLong="Szilveszter Kupa-Felnõtt Férfi Párbajtõr Verseny" Annee="2020/2021" Date="30-12-2020" DateFichierXML="29.12.2020 20:36">
+<Tireurs>
+<Tireur ID="10266" Nom="ÁDÁM" Prenom="Konrád" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="10266" Statut="N" DateNaissance="23-09-2003" Classement="5" Points="90" />
+<Tireur ID="3379" Nom="ALMÁSI" Prenom="Balázs" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="3379" Statut="N" DateNaissance="18-06-1980" Classement="" Points="0" />
+<Tireur ID="10222" Nom="ALMÁSI" Prenom="Maximilián Norbert" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Régia Vívó Akadémia" LicenceNat="10222" Statut="N" DateNaissance="15-06-2006" Classement="" Points="0" />
+<Tireur ID="10129" Nom="ANDRÁS" Prenom="Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="10129" Statut="N" DateNaissance="01-01-2002" Classement="" Points="0" />
+<Tireur ID="7115" Nom="BALOGH" Prenom="Szabolcs" Sexe="M" Lateralite="D" Nation="HUN" Club="Debreceni Sportcentrum" LicenceNat="7115" Statut="N" DateNaissance="30-08-2001" Classement="" Points="0" />
+<Tireur ID="10353" Nom="BÁRÁNY" Prenom="Péter András" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="10353" Statut="N" DateNaissance="13-04-2001" Classement="7" Points="20" />
+<Tireur ID="12945" Nom="BATUSKA" Prenom="Dominik" Sexe="M" Lateralite="D" Nation="HUN" Club="Csepel" LicenceNat="12945" Statut="N" DateNaissance="21-04-2003" Classement="" Points="0" />
+<Tireur ID="7529" Nom="BERHENCZ" Prenom="Ákos" Sexe="M" Lateralite="D" Nation="HUN" Club="OVSE-Jövõ Záloga" LicenceNat="7529" Statut="N" DateNaissance="05-03-1977" Classement="7" Points="20" />
+<Tireur ID="5304" Nom="BODOR" Prenom="Elõd" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="5304" Statut="N" DateNaissance="09-08-2004" Classement="" Points="0" />
+<Tireur ID="13772" Nom="BORBÉLY" Prenom="Szabolcs" Sexe="M" Lateralite="D" Nation="HUN" Club="SZTE-VK" LicenceNat="13772" Statut="N" DateNaissance="11-04-1982" Classement="" Points="0" />
+<Tireur ID="9706" Nom="BÕHM" Prenom="Csaba" Sexe="M" Lateralite="D" Nation="HUN" Club="Vasas" LicenceNat="9706" Statut="N" DateNaissance="21-07-2000" Classement="" Points="0" />
+<Tireur ID="12730" Nom="CSÁK" Prenom="Milán" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="12730" Statut="N" DateNaissance="13-10-2004" Classement="" Points="0" />
+<Tireur ID="9846" Nom="CSEKE" Prenom="Balázs" Sexe="M" Lateralite="D" Nation="HUN" Club="DVE" LicenceNat="9846" Statut="N" DateNaissance="18-09-2005" Classement="" Points="0" />
+<Tireur ID="5344" Nom="CSIKÓS" Prenom="Attila" Sexe="M" Lateralite="D" Nation="HUN" Club="Piliscsabai SE" LicenceNat="5344" Statut="N" DateNaissance="04-12-1962" Classement="" Points="0" />
+<Tireur ID="3697" Nom="DEÁK" Prenom="István" Sexe="M" Lateralite="D" Nation="HUN" Club="NKESE" LicenceNat="3697" Statut="N" DateNaissance="17-10-1976" Classement="" Points="0" />
+<Tireur ID="5066" Nom="DEMETER" Prenom="Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="5066" Statut="N" DateNaissance="20-03-1990" Classement="" Points="0" />
+<Tireur ID="13928" Nom="DR CSEPORÁN" Prenom="Zsolt" Sexe="M" Lateralite="D" Nation="HUN" Club="Ama-Tõr Vívó Egylet" LicenceNat="13928" Statut="N" DateNaissance="12-09-1990" Classement="" Points="0" />
+<Tireur ID="13022" Nom="DR. KESZTHELYI" Prenom="László" Sexe="M" Lateralite="D" Nation="HUN" Club="Belvárosi Vívó SE" LicenceNat="13022" Statut="N" DateNaissance="14-02-1955" Classement="7" Points="20" />
+<Tireur ID="3391" Nom="ERDÕS" Prenom="Csaba" Sexe="M" Lateralite="D" Nation="HUN" Club="Bajai Vívó SE" LicenceNat="3391" Statut="N" DateNaissance="02-03-1958" Classement="" Points="0" />
+<Tireur ID="7068" Nom="FARKAS" Prenom="Péter" Sexe="M" Lateralite="D" Nation="HUN" Club="OVSE-Jövõ Záloga" LicenceNat="7068" Statut="N" DateNaissance="19-11-2003" Classement="5" Points="90" />
+<Tireur ID="10166" Nom="FEKETE" Prenom="Levente Tamás" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="10166" Statut="N" DateNaissance="07-04-2006" Classement="" Points="0" />
+<Tireur ID="5381" Nom="FERKE" Prenom="Norbert" Sexe="M" Lateralite="D" Nation="HUN" Club="SZTE-VK" LicenceNat="5381" Statut="N" DateNaissance="22-12-1973" Classement="" Points="0" />
+<Tireur ID="10535" Nom="GERGELY" Prenom="Felicián" Sexe="M" Lateralite="D" Nation="HUN" Club="Ama-Tõr Vívó Egylet" LicenceNat="10535" Statut="N" DateNaissance="16-09-1983" Classement="" Points="0" />
+<Tireur ID="10038" Nom="GYÕRFI" Prenom="Zsombor Péter" Sexe="M" Lateralite="D" Nation="HUN" Club="Békessy Debrecen" LicenceNat="10038" Statut="N" DateNaissance="11-03-2004" Classement="" Points="0" />
+<Tireur ID="10551" Nom="GYÖRGY" Prenom="Attila" Sexe="M" Lateralite="D" Nation="HUN" Club="Danubius RSC" LicenceNat="10551" Statut="N" DateNaissance="29-04-1972" Classement="6" Points="50" />
+<Tireur ID="5069" Nom="HARANGOZÓ" Prenom="Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="5069" Statut="N" DateNaissance="28-03-1992" Classement="5" Points="90" />
+<Tireur ID="8321" Nom="HORVÁTH" Prenom="Ádám" Sexe="M" Lateralite="D" Nation="HUN" Club="OVSE-Jövõ Záloga" LicenceNat="8321" Statut="N" DateNaissance="02-04-2005" Classement="" Points="0" />
+<Tireur ID="12812" Nom="ILLÉS" Prenom="Henrik János" Sexe="M" Lateralite="D" Nation="HUN" Club="Belvárosi Vívó SE" LicenceNat="12812" Statut="N" DateNaissance="04-08-1971" Classement="6" Points="50" />
+<Tireur ID="7524" Nom="KÁMÁNY" Prenom="Roland" Sexe="M" Lateralite="D" Nation="HUN" Club="Piliscsabai SE" LicenceNat="7524" Statut="N" DateNaissance="26-09-1972" Classement="" Points="0" />
+<Tireur ID="6098" Nom="KARDOS" Prenom="Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="MTK Budapest" LicenceNat="6098" Statut="N" DateNaissance="22-05-1998" Classement="6" Points="50" />
+<Tireur ID="4479" Nom="KÁTAI" Prenom="Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="OMS-Tata" LicenceNat="4479" Statut="N" DateNaissance="17-02-1988" Classement="" Points="0" />
+<Tireur ID="10359" Nom="KIS" Prenom="Iván" Sexe="M" Lateralite="D" Nation="HUN" Club="NKESE" LicenceNat="10359" Statut="N" DateNaissance="18-08-1993" Classement="" Points="0" />
+<Tireur ID="12539" Nom="KISS" Prenom="Bálint" Sexe="M" Lateralite="D" Nation="HUN" Club="Danubius RSC" LicenceNat="12539" Statut="N" DateNaissance="26-12-2006" Classement="" Points="0" />
+<Tireur ID="12540" Nom="KISS" Prenom="Marcell" Sexe="M" Lateralite="D" Nation="HUN" Club="Danubius RSC" LicenceNat="12540" Statut="N" DateNaissance="26-12-2006" Classement="" Points="0" />
+<Tireur ID="13625" Nom="KISS" Prenom="Máté" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="13625" Statut="N" DateNaissance="15-11-2006" Classement="" Points="0" />
+<Tireur ID="13002" Nom="KISS" Prenom="Szabolcs Máté" Sexe="M" Lateralite="D" Nation="HUN" Club="AvEnGarde VSE" LicenceNat="13002" Statut="N" DateNaissance="03-05-2008" Classement="" Points="0" />
+<Tireur ID="7879" Nom="KLINGA" Prenom="Zoltán" Sexe="M" Lateralite="D" Nation="HUN" Club="DVE" LicenceNat="7879" Statut="N" DateNaissance="11-03-2001" Classement="" Points="0" />
+<Tireur ID="8613" Nom="KOHAJDA" Prenom="László" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="8613" Statut="N" DateNaissance="28-01-2004" Classement="" Points="0" />
+<Tireur ID="10928" Nom="KOLB" Prenom="Tamás" Sexe="M" Lateralite="D" Nation="HUN" Club="MTK Budapest" LicenceNat="10928" Statut="N" DateNaissance="08-10-1966" Classement="7" Points="20" />
+<Tireur ID="7202" Nom="KORMOS" Prenom="Levente" Sexe="M" Lateralite="D" Nation="HUN" Club="Debreceni Sportcentrum" LicenceNat="7202" Statut="N" DateNaissance="15-05-2001" Classement="5" Points="90" />
+<Tireur ID="8573" Nom="KOSKA-G" Prenom="Bendegúz" Sexe="M" Lateralite="D" Nation="HUN" Club="MTK Budapest" LicenceNat="8573" Statut="N" DateNaissance="08-11-2004" Classement="6" Points="50" />
+<Tireur ID="13145" Nom="KUN" Prenom="Benjamin" Sexe="M" Lateralite="D" Nation="HUN" Club="SZVSZSE" LicenceNat="13145" Statut="N" DateNaissance="28-01-1993" Classement="6" Points="50" />
+<Tireur ID="5386" Nom="KUN" Prenom="Péter" Sexe="M" Lateralite="D" Nation="HUN" Club="Hiperaktív" LicenceNat="5386" Statut="N" DateNaissance="14-08-1982" Classement="5" Points="90" />
+<Tireur ID="5892" Nom="LEHNER" Prenom="Péter" Sexe="M" Lateralite="D" Nation="HUN" Club="NKESE" LicenceNat="5892" Statut="N" DateNaissance="22-01-1993" Classement="" Points="0" />
+<Tireur ID="11013" Nom="LEPSICS" Prenom="Gergõ" Sexe="M" Lateralite="D" Nation="HUN" Club="AvEnGarde VSE" LicenceNat="11013" Statut="N" DateNaissance="04-12-1981" Classement="" Points="0" />
+<Tireur ID="13573" Nom="MACH" Prenom="József" Sexe="M" Lateralite="D" Nation="HUN" Club="Piliscsabai SE" LicenceNat="13573" Statut="N" DateNaissance="19-06-1967" Classement="" Points="0" />
+<Tireur ID="5068" Nom="MÁLITS" Prenom="István" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="5068" Statut="N" DateNaissance="07-01-1992" Classement="" Points="0" />
+<Tireur ID="7624" Nom="MARCZALI" Prenom="László" Sexe="M" Lateralite="D" Nation="HUN" Club="OSC" LicenceNat="7624" Statut="N" DateNaissance="08-05-1948" Classement="" Points="0" />
+<Tireur ID="10259" Nom="MÉRÕ" Prenom="Leon" Sexe="M" Lateralite="D" Nation="HUN" Club="OVSE-Jövõ Záloga" LicenceNat="10259" Statut="N" DateNaissance="02-04-2004" Classement="" Points="0" />
+<Tireur ID="13574" Nom="MIKÓ" Prenom="György" Sexe="M" Lateralite="D" Nation="HUN" Club="Piliscsabai SE" LicenceNat="13574" Statut="N" DateNaissance="20-03-1963" Classement="" Points="0" />
+<Tireur ID="13396" Nom="NADERI" Prenom="Ármin" Sexe="M" Lateralite="D" Nation="HUN" Club="OVSE-Jövõ Záloga" LicenceNat="13396" Statut="N" DateNaissance="08-07-2004" Classement="" Points="0" />
+<Tireur ID="5732" Nom="NAGY" Prenom="Balázs" Sexe="M" Lateralite="D" Nation="HUN" Club="Danubius RSC" LicenceNat="5732" Statut="N" DateNaissance="30-06-2001" Classement="6" Points="50" />
+<Tireur ID="12431" Nom="NAGY" Prenom="Károly" Sexe="M" Lateralite="D" Nation="HUN" Club="SZVSZSE" LicenceNat="12431" Statut="N" DateNaissance="04-07-1965" Classement="" Points="0" />
+<Tireur ID="8278" Nom="NARANJO-ROSALES" Prenom="Hunor" Sexe="M" Lateralite="D" Nation="HUN" Club="DVE" LicenceNat="8278" Statut="N" DateNaissance="19-04-2002" Classement="" Points="0" />
+<Tireur ID="12733" Nom="NÉMEDI" Prenom="Ádám Zoltán" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="12733" Statut="N" DateNaissance="16-12-2003" Classement="" Points="0" />
+<Tireur ID="12744" Nom="ÓCSAI" Prenom="János" Sexe="M" Lateralite="D" Nation="HUN" Club="Belvárosi Vívó SE" LicenceNat="12744" Statut="N" DateNaissance="31-10-1970" Classement="" Points="0" />
+<Tireur ID="10257" Nom="ÖRSI" Prenom="Benedek" Sexe="M" Lateralite="D" Nation="HUN" Club="OVSE-Jövõ Záloga" LicenceNat="10257" Statut="N" DateNaissance="11-01-2007" Classement="" Points="0" />
+<Tireur ID="11265" Nom="PAP" Prenom="Levente" Sexe="M" Lateralite="D" Nation="HUN" Club="OSC" LicenceNat="11265" Statut="N" DateNaissance="25-10-2000" Classement="" Points="0" />
+<Tireur ID="4169" Nom="PARTICS" Prenom="Péter" Sexe="M" Lateralite="D" Nation="HUN" Club="Danubius RSC" LicenceNat="4169" Statut="N" DateNaissance="12-01-1982" Classement="3" Points="200" />
+<Tireur ID="4023" Nom="PÁSZTOR" Prenom="Attila" Sexe="M" Lateralite="D" Nation="HUN" Club="DVE" LicenceNat="4023" Statut="N" DateNaissance="25-10-1978" Classement="4" Points="140" />
+<Tireur ID="5482" Nom="PÁSZTOR" Prenom="Balázs" Sexe="M" Lateralite="D" Nation="HUN" Club="DVE" LicenceNat="5482" Statut="N" DateNaissance="11-06-2001" Classement="" Points="0" />
+<Tireur ID="7862" Nom="PATAKI" Prenom="Gergely" Sexe="M" Lateralite="D" Nation="HUN" Club="Csepel" LicenceNat="7862" Statut="N" DateNaissance="02-01-2002" Classement="" Points="0" />
+<Tireur ID="12644" Nom="RÓZSA" Prenom="Levente" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="12644" Statut="N" DateNaissance="18-10-2004" Classement="" Points="0" />
+<Tireur ID="3637" Nom="SERRA" Prenom="Solt" Sexe="M" Lateralite="D" Nation="HUN" Club="Békessy Debrecen" LicenceNat="3637" Statut="N" DateNaissance="22-05-1989" Classement="2" Points="260" />
+<Tireur ID="4734" Nom="SMIDLA" Prenom="Ádám" Sexe="M" Lateralite="D" Nation="HUN" Club="OSC" LicenceNat="4734" Statut="N" DateNaissance="31-12-1991" Classement="" Points="0" />
+<Tireur ID="13275" Nom="SZABÓ" Prenom="Péter" Sexe="M" Lateralite="D" Nation="HUN" Club="Belvárosi Vívó SE" LicenceNat="13275" Statut="N" DateNaissance="18-12-1972" Classement="" Points="0" />
+<Tireur ID="4207" Nom="SZAKMÁRY" Prenom="Nándor" Sexe="M" Lateralite="D" Nation="HUN" Club="BHSE" LicenceNat="4207" Statut="N" DateNaissance="06-01-2000" Classement="" Points="0" />
+<Tireur ID="4620" Nom="SZAKMÁRY" Prenom="Sándor" Sexe="M" Lateralite="D" Nation="HUN" Club="Veresegyház" LicenceNat="4620" Statut="N" DateNaissance="05-03-1968" Classement="6" Points="50" />
+<Tireur ID="12019" Nom="SZALAI" Prenom="Zalán" Sexe="M" Lateralite="D" Nation="HUN" Club="MTK Budapest" LicenceNat="12019" Statut="N" DateNaissance="23-07-2004" Classement="6" Points="50" />
+<Tireur ID="3407" Nom="SZALAY" Prenom="Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="3407" Statut="N" DateNaissance="13-02-1990" Classement="" Points="0" />
+<Tireur ID="12900" Nom="SZANISZLÓ" Prenom="József" Sexe="M" Lateralite="D" Nation="HUN" Club="Piliscsabai SE" LicenceNat="12900" Statut="N" DateNaissance="11-01-1955" Classement="" Points="0" />
+<Tireur ID="9015" Nom="SZÉP" Prenom="Balázs" Sexe="M" Lateralite="D" Nation="HUN" Club="NKESE" LicenceNat="9015" Statut="N" DateNaissance="18-10-1999" Classement="" Points="0" />
+<Tireur ID="10825" Nom="SZODORAY-PARÁDI" Prenom="Hunor" Sexe="M" Lateralite="D" Nation="HUN" Club="Debreceni Sportcentrum" LicenceNat="10825" Statut="N" DateNaissance="01-04-2004" Classement="4" Points="140" />
+<Tireur ID="10173" Nom="TAKÁCS" Prenom="Bence József" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="10173" Statut="N" DateNaissance="30-05-2005" Classement="" Points="0" />
+<Tireur ID="12199" Nom="TAMÁS" Prenom="Botond László" Sexe="M" Lateralite="D" Nation="HUN" Club="MTK Budapest" LicenceNat="12199" Statut="N" DateNaissance="27-01-2005" Classement="" Points="0" />
+<Tireur ID="8967" Nom="TAMÁS" Prenom="József" Sexe="M" Lateralite="D" Nation="HUN" Club="Alba Volán SC" LicenceNat="8967" Statut="N" DateNaissance="27-05-2000" Classement="" Points="0" />
+<Tireur ID="12745" Nom="TÓTH" Prenom="Andor" Sexe="M" Lateralite="D" Nation="HUN" Club="Danubius RSC" LicenceNat="12745" Statut="N" DateNaissance="20-06-1979" Classement="7" Points="20" />
+<Tireur ID="13532" Nom="TÓTH" Prenom="Balázs Bence" Sexe="M" Lateralite="D" Nation="HUN" Club="Belvárosi Vívó SE" LicenceNat="13532" Statut="N" DateNaissance="10-10-1996" Classement="" Points="0" />
+<Tireur ID="4960" Nom="UDVARI" Prenom="Donát" Sexe="M" Lateralite="D" Nation="HUN" Club="OSC" LicenceNat="4960" Statut="N" DateNaissance="24-03-1977" Classement="" Points="0" />
+<Tireur ID="11264" Nom="VADÁSZ" Prenom="Gábor" Sexe="M" Lateralite="D" Nation="HUN" Club="OSC" LicenceNat="11264" Statut="N" DateNaissance="13-06-1957" Classement="" Points="0" />
+<Tireur ID="5716" Nom="VÁLIK" Prenom="Ferenc" Sexe="M" Lateralite="D" Nation="HUN" Club="KRVSE" LicenceNat="5716" Statut="N" DateNaissance="04-12-2000" Classement="" Points="0" />
+<Tireur ID="12347" Nom="VÁSÁRHELYI" Prenom="Patrik" Sexe="M" Lateralite="D" Nation="HUN" Club="AvEnGarde VSE" LicenceNat="12347" Statut="N" DateNaissance="18-10-2009" Classement="" Points="0" />
+<Tireur ID="9440" Nom="VERES" Prenom="István" Sexe="M" Lateralite="D" Nation="HUN" Club="OSC" LicenceNat="9440" Statut="N" DateNaissance="15-11-1959" Classement="7" Points="20" />
+<Tireur ID="10623" Nom="VIRÁG" Prenom="Gellért" Sexe="M" Lateralite="D" Nation="HUN" Club="Bajai Vívó SE" LicenceNat="10623" Statut="N" DateNaissance="27-10-2004" Classement="" Points="0" />
+<Tireur ID="10803" Nom="VÖLCSEI" Prenom="György" Sexe="M" Lateralite="D" Nation="HUN" Club="MTK Budapest" LicenceNat="10803" Statut="N" DateNaissance="01-06-1961" Classement="6" Points="50" />
+</Tireurs>
+<Arbitres>
+</Arbitres>
+</BaseCompetitionIndividuelle>
