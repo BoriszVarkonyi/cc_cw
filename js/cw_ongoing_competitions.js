@@ -10,9 +10,9 @@ function cwSearchEngine(){
         a = li[i].firstElementChild;
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+            li[i].classList.remove("hidden");
         } else {
-            li[i].style.display = "none";
+            li[i].classList.add("hidden")
         }
     }
 }

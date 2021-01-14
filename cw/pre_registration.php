@@ -86,7 +86,7 @@ if(isset($_POST["send_pre"])){
                             </button>
                         </div> -->
                     </div>
-                    <input type="text" name="" placeholder="Search by Name" class="search">
+                    <input type="text" name="" placeholder="Search by Name" class="search" onkeyup="cwSearchEngine(this)">
                     <div id="select_fencers_list_wrapper" class="table">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
@@ -137,4 +137,5 @@ if(isset($_POST["send_pre"])){
 </body>
 <script src="../js/cw_main.js"></script>
 <script src="../js/pre_registration.js"></script>
+<script src="../js/list.js"></script>
 </html>
