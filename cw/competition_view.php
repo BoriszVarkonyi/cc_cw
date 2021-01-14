@@ -94,45 +94,32 @@
                 <div class="column">
                     <p class="column_title">Latest Videos</p>
 
-                    <div class="video_wrapper">
-                        <img src="../assets/img/fencers_bg.svg" >
-                        <div>
-                            <p>Title</p>
-                            <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
-                        </div>
-                    </div>
+                    
 
-                    <div class="video_wrapper">
-                        <img src="../assets/img/fencers_bg.svg" >
+                        <?php 
+                            $qry_get_videos = "SELECT * FROM cw_videos ORDER BY Date_of_creation ASC LIMIT 5;";
+                            $do_get_videos = mysqli_query($connection, $qry_get_videos);
+    
+                            while ($row = mysqli_fetch_assoc($do_get_videos)) {
+                                $video_id = "asd";
+                                $url = $row['URL'];
+                                $comp_name = $row['comp_name'];
+                                $id = $row['id'];
+                                $title = $row['title'];
+                                parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+                                $video_id = $my_array_of_vars['v'];
+                                
+                        ?>
+                    <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
+                        <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" >
                         <div>
-                            <p>Title</p>
-                            <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
+                            <p><?php echo $title ?></p>
+                            <p><?php echo $comp_name ?></p>
                         </div>
                     </div>
+                        <?php } ?>
 
-                    <div class="video_wrapper">
-                        <img src="../assets/img/fencers_bg.svg" >
-                        <div>
-                            <p>Title</p>
-                            <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
-                        </div>
-                    </div>
-
-                    <div class="video_wrapper">
-                        <img src="../assets/img/fencers_bg.svg" >
-                        <div>
-                            <p>Title</p>
-                            <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
-                        </div>
-                    </div>
-
-                    <div class="video_wrapper">
-                        <img src="../assets/img/fencers_bg.svg" >
-                        <div>
-                            <p>Title</p>
-                            <p>Landesmeisterschaft Mecklenburg-Vorpommern</p>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         <?php include "cw_footer.php"; ?>
