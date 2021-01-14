@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="competitions">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
@@ -47,7 +47,7 @@
                         <button type="button" class="back_button" onclick="window.history.back();">
                             <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
                         </button>
-                        Competitions of <?php echo $comp_name ?>
+                        Competitors of <?php echo $comp_name ?>
                     </p>
                 </div>
                 <form method="POST" id="browsing_bar">
