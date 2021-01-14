@@ -1,4 +1,32 @@
 <?php include "cw_comp_getdata.php"; ?>
+<?php 
+    $WHERE_CLAUSE = "";
+
+    if (isset($_POST['submit_search'])) {
+
+        $WHERE_CLAUSE = "WHERE";
+        $year = $_POST['year'];
+        $name = $_POST['name'];
+
+
+        if ($name != "") {
+            $WHERE_CLAUSE .= " `name` LIKE '%$name%' AND";
+        }
+        if ($year != "") {
+            $WHERE_CLAUSE .= " $year = YEAR(`comp_start`) AND";
+        }
+
+        if ($WHERE_CLAUSE == "WHERE") {
+            $WHERE_CLAUSE = "";
+        } else {
+            $WHERE_CLAUSE = substr($WHERE_CLAUSE, 0, -3);
+        }
+    }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,34 +50,33 @@
                         Competitions of <?php echo $comp_name ?>
                     </p>
                 </div>
-                <form id="browsing_bar">
-                    <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
+                <form method="POST" id="browsing_bar">
+                    <input name="" type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <div>
                         <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" placeholder="Search by Name" class="search">
+                        <input type="text" name="name" placeholder="Search by Name" class="search">
                     </div>
 
                     <div class="select_input">
                         <button type="button" onclick="toggleYearSelect()">
                             <p>-Date of Birth-</p>
-                            <input type="text" value="">
+                            <input name="year" type="text" value="">
                         </button>
                         <div id="year_select_dropdown" class="closed">
                             <input type="date">
                         </div>
                     </div>
-                    <input type="submit" value="Search">
+                    <input name="submit_search" type="submit" value="Search">
                 </form>
 
                 <div class="table cw">
 
                     <?php 
-                        $qry = "SELECT * FROM `cptrs_$comp_id` ORDER BY `rank` ASC";
+                        $qry = "SELECT * FROM `cptrs_$comp_id` " . $WHERE_CLAUSE . " ORDER BY `rank` ASC";
                         $do = mysqli_query($connection, $qry);
-
-                        if ($do == FALSE) {
+                        if ($do == FALSE || mysqli_num_rows($do) == 0) {
                             ?>
-                                <p>You have no competitors set up!</p>
+                                <p>You have no competitors set up or the search criteria is too narrow!</p>
                             <?php
                         } else {
                         ?>
