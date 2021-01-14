@@ -40,17 +40,19 @@ $query_do = mysqli_query($connection, $query);
             <div id="title_stripe">
                 <p class="page_title">Competitors</p>
                 <input type="text" class="selected_list_item_input">
-                <button class="stripe_button disabled" type="button">
-                    <p>Send message to Fencer</p>
-                    <img src="../assets/icons/message-black-18dp.svg"/>
-                </button>
-                <a class="stripe_button orange" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
-                    <p>Import Competitors from XML</p>
-                    <img src="../assets/icons/get_app-black-18dp.svg"/>
-                </a>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button disabled" type="button">
+                        <p>Send message to Fencer</p>
+                        <img src="../assets/icons/message-black-18dp.svg"/>
+                    </button>
+                    <a class="stripe_button orange" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
+                        <p>Import Competitors from XML</p>
+                        <img src="../assets/icons/get_app-black-18dp.svg"/>
+                    </a>
+                </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table w90 first_column_small">
+                <div class="wrapper table w90 first_column_centered">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
                         <button class="resizer"></button>

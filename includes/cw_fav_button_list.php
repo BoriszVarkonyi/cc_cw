@@ -1,11 +1,14 @@
-<?php
-
+<?php 
+    
     $cookie_expires = time() + 31556926;
     $cookie_name = "fav_comp";
 
-    //get comp_id
-    if (isset($_GET['comp_id'])) {
-        $comp_id = $_GET['comp_id'];
+    if (isset($_POST['submit_button'])) {
+
+        
+
+        //get comp_id
+        $comp_id = $_POST['submit_button'];
 
         if (isset($_COOKIE[$cookie_name])) {
             $cookie_value = $_COOKIE[$cookie_name];
@@ -24,9 +27,7 @@
         } else {
             $star = "../assets/icons/star_border-black-18dp.svg";
         }
-    }
-
-    if (isset($_POST['submit_button'])) {
+        
 
         if ($contains) {
             $cookie_value = str_replace($comp_id . "%", "", $cookie_value);
@@ -37,4 +38,6 @@
         setcookie($cookie_name, $cookie_value, $cookie_expires, "/");
         header("Refresh:0");
     }
+
+
 ?>

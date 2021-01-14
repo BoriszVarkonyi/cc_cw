@@ -9,12 +9,12 @@
 
 <?php
 include "../cw/db.php";
-
+include "../includes/functions.php";
+include "../cw/competition_filtering.php";
 //fetching data drom 'comptetitions' from the rows with the same 'comp_status' as '$statusofpage'
 //'$statusofpage' is defined at the beginning of cw_""_competition - s
-$query = "SELECT * FROM competitions WHERE comp_status = '$statusofpage'";
+$query = "SELECT * FROM competitions " . $WHERE_CLAUSE;
 $select_all_comps = mysqli_query($connection, $query);
-
 
 while ($row = mysqli_fetch_assoc($select_all_comps)){
     $comp_name = $row['comp_name'];
@@ -22,6 +22,8 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     $comp_end = $row['comp_end'];
     $comp_host = $row['comp_host'];
     $comp_id = $row['comp_id'];
+
+    $star = getStar($comp_id);
 
     ?>
 
@@ -42,11 +44,11 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
                 <?php echo $comp_host; ?>
             </p>
         </div>
-        <div class="big_status_item">
-            <button class="favourite_button">
-                <img src="../assets/icons/star_border-black-18dp.svg" >
+        <form method="POST" class="big_status_item">
+            <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
+                <img src="<?php echo $star ?>" >
             </button>
-        </div>
+        </form>
     </div>
 
 <?php } ?>

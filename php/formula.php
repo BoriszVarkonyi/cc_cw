@@ -138,10 +138,12 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Formula</p>
-                <button name="submit_form" form="save_form" class="stripe_button orange" type="submit">
-                    <p>Save Formula</p>
-                    <img src="../assets/icons/save-black-18dp.svg"/>
-                </button>
+                <div class="stripe_button_wrapper">
+                    <button name="submit_form" form="save_form" class="stripe_button orange" type="submit">
+                        <p>Save Formula</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/>
+                    </button>
+                </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
@@ -154,13 +156,13 @@
                     <form id="save_form" action="" class="column_form_wrapper" method="POST">
                         <div class="form_column">
                             <label for="points_pools" >POINTS IN POOLS</label>
-                            <input type="number" name="points_pools"  class="number_input extra_small" value="<?php echo $p_pools ?>">
+                            <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $p_pools ?>">
 
                             <label for="points_table" >POINTS IN TABLE</label>
-                            <input type="number" name="points_table"  class="number_input extra_small" value="<?php echo $p_table ?>">
+                            <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $p_table ?>">
                         
                             <label for="nb_qualifier" >NUMBER OF QUALIFIERS AFTER POOLS</label>
-                            <input type="number" name="nb_qualifier"  class="number_input extra_small" value="<?php echo $nb_qualifiers ?>">
+                            <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $nb_qualifiers ?>">
 
                             <label for="elimnation_type" >ELIMINATION TYPE</label>
                             <div class="option_container">
@@ -174,10 +176,10 @@
                         </div>
                         <div class="form_column">
                             <label for="exempted_fencers_pools" >NUMBER OF EXEMPTED FENCERS IN POOLS</label>
-                            <input type="number" name="exempted_fencers_pools"  class="number_input extra_small" value="<?php echo $nb_o_exemp_pool ?>">
+                            <input type="number" name="exempted_fencers_pools" placeholder="#" class="number_input centered" value="<?php echo $nb_o_exemp_pool ?>">
 
                             <label for="exempted_fencers_table" >NUMBER OF EXEMPTED FENCERS IN TABLE</label>
-                            <input type="number" name="exempted_fencers_table"  class="number_input extra_small" value="<?php echo $nb_o_exemp_table ?>">
+                            <input type="number" name="exempted_fencers_table" placeholder="#" class="number_input centered" value="<?php echo $nb_o_exemp_table ?>">
 
                             <label for="third_place" >FENCING FOR 3RD PLACE</label>
                             <div class="option_container">

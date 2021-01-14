@@ -7,8 +7,6 @@
 
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
-    } else {
-        $logo_path = "../assets/icons/delete-black-18dp.svg";
     }
 
 ?>
@@ -23,14 +21,14 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="competitions">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="content" class="competition">
                 <div id="title_stripe" class="big">
                     <img src="<?php echo $logo_path ?>">
-                    <form action="../cw/cw_competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
+                    <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                     <p class="stripe_title"><?php echo $comp_name ?></p>
                     <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
                         <img src=<?php echo $star ?> >
@@ -160,7 +158,7 @@
                 </div>
                 <div id="competition_controls">
                     <div class="column_panel">
-                        <button onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'" disabled>Pre-Register</button>
+                        <button onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
                         <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
                         <button onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                         <button onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>

@@ -114,6 +114,7 @@ function numberedPiste(){
 
 }
 document.addEventListener("keyup", function(e){
+    //Opens Add piste to Shift+A
     if(e.shiftKey && e.which == 65) {
         var orangeAddButton = document.querySelector(".stripe_button.orange")
         orangeAddButton.click()

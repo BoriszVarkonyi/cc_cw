@@ -6,38 +6,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ongoing competitions</title>
+    <title>Rankings</title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="rankings">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="content" class="list">
                 <div id="title_stripe">
-                    <p class="stripe_title">Ongoing competitions</p>
+                    <p class="stripe_title">Rankings</p>
                 </div>
                 <form id="browsing_bar">
                     <div>
                         <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" placeholder="Search by Fencer" class="search">
+                        <input type="text" name="" placeholder="Search by Competition name" class="search">
                     </div>
                 </form>
-                <!-- buttons menu -->
-                <div id="competition_color_legend">
-                    <button id="registration_lengend" value="Registration Finished"></button>
-                    <p>Registration Finished</p>
-                    <button id="pools_lengend" value="Ongoing Pools"></button>
-                    <p>Ongoing Pools</p>
-                    <button id="table_lengend" value="Ongoing Table"></button>
-                    <p>Ongoing Table</p>
+                <div class="table cw">
+                    <div class="table_header">
+                        <div class="table_header_text">RANKINGS NAME</div>
+                        <div class="table_header_text">PLACEHOLDER</div>
+                    </div>
+                    <div class="table_row_wrapper alt">
+
+                        <?php 
+                            //get comp_
+                            $qry_get_rankings = "SELECT * FROM `ranking` WHERE `ass_comp_id` <> '0'";
+                            $do_get_rankings = mysqli_query($connection, $qry_get_rankings);
+                            echo mysqli_error($connection);
+                            while ($row =  mysqli_fetch_assoc($do_get_rankings)) {
+
+                            $ranking_name = $row['name'];
+                            $ranking_id = $row['id'];
+                            $ass_comp_id = $row['ass_comp_id'];
+                            $ranking_password = $row['password'];
+                        
+                        ?>
+
+                            <div class="table_row" onclick="window.location.href='ranking.php?comp_id=<?php echo $ass_comp_id ?>'">
+                                <div class="table_item"><p><?php echo $ranking_name ?></p></div>
+                                <div class="table_item"><p><?php echo $ranking_id ?></p></div>
+                            </div>
+                        
+                        <?php 
+                            }
+                        ?>
+
+
+
+                    </div>
                 </div>
-                <?php include "../cw/comps_display.php" ?>
             </div>
-        </div>
-        </div>
-        <?php include "cw_footer.php"; ?>
+            </div>
+            <?php include "cw_footer.php"; ?>
         </div>
     </div>
 <script src="../js/cw_main.js"></script>

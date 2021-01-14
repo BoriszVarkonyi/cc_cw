@@ -106,7 +106,7 @@ $query_do = mysqli_query($connection, $query);
                             }
                             
                             ?>">
-                            <input type="number" placeholder="Postal Code" name="postal" class="number_input small postal_input" id="postal_input" value="<?php
+                            <input type="number" placeholder="Zip Code" name="postal" class="number_input centered" id="postal_input" value="<?php
                             
                             if($postal_get == 0){
 

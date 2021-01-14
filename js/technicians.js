@@ -147,27 +147,3 @@ function technisiansValidation(){
     }
 }
 newTchForm.addEventListener("input", technisiansValidation)
-/*
-var left = document.getElementById('drag-left');
-var right = document.getElementById('drag-right');
-var bar = document.getElementById('dragbar');
-
-const drag = (e) => {
-    var navbar = document.getElementById("nav_bar").getBoundingClientRect()
-    var page = document.getElementById("page_content_panel_main").getBoundingClientRect()
-    var wrapper = document.getElementById("table").getBoundingClientRect()
-    console.log((page.width-wrapper.width)/2 + navbar.width)
-  document.selection ? document.selection.empty() : window.getSelection().removeAllRanges();
-  left.style.width = (e.pageX - (page.width-wrapper.width)/2 - navbar.width - bar.offsetWidth / 2) + 'px';
-}
-
-bar.addEventListener('mousedown', () => {
-    console.log("miéééért")
-  document.addEventListener('mousemove', drag);
-});
-
-bar.addEventListener('mouseup', () => {
-    console.log("miafasz")
-  document.removeEventListener('mousemove', drag);
-});
-*/

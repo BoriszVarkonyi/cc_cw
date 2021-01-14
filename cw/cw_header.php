@@ -3,7 +3,7 @@
         <a href="competition_view.php" id="app_name">CompetitionView</a>
     </div>
     <div id="navigation">
-        <div class="current">
+        <div>
             <a href="competition_view.php">Home</a>
         </div>
         <div>
@@ -24,7 +24,7 @@
             <a href="rankings.php">Rankings</a>
         </div>
         <div>
-            <a id="saved_competitions" href="saved_competitions.php">Saved Competitions</a>
+            <a href="saved_competitions.php">Saved Competitions</a>
         </div>
     </div>
     <div id="change_language">
@@ -50,7 +50,7 @@
         </button>
         <div id="mobile_navigation">
             <div>
-                <a class="current" href="">Home</a>
+                <a href="competition_view.php">Home</a>
                 <p>Competitions</p>
                 <div>
                     <a href="upcoming_competitions.php">Upcoming</a>
@@ -60,6 +60,7 @@
                 <a href="blog.php">Blog</a>
                 <a href="videos.php">Videos</a>
                 <a href="rankings.php">Rankings</a>
+                <a href="saved_competitions.php">Saved Competitions</a>
             </div>
         </div>
     </div>

@@ -492,4 +492,29 @@ function formValidation(overlayForm, inputs, saveButton){
     }    
 
 }
+var stripeButtons = document.querySelectorAll(".stripe_button")
+var canAddHoverClass = true;
+earchBarClosed = true;
+document.addEventListener("keydown", function(e){
+    //searchBarClosed is a var. from control.js
+    if(searchBarClosed){
+        if(e.shiftKey && canAddHoverClass) {
+            for(i=0; i<stripeButtons.length; i++){
+                stripeButtons[i].classList.add("hover")
+            }
+            canAddHoverClass = false;
+        }
+    }    
+})
+document.addEventListener("keyup", function(e){
+    //searchBarClosed is a var. from control.js
+    if(searchBarClosed){
+        if(e.key == "Shift") {
+            for(i=0; i<stripeButtons.length; i++){
+                stripeButtons[i].classList.remove("hover")
+            }
+            canAddHoverClass = true;
+        }
+    }        
+})
 

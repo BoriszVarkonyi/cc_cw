@@ -170,11 +170,12 @@ checkComp($connection);
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
                     <form id="publishcomp" class="hidden" ></form>
-                    <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
-                        <p>Publish Competition</p>
-                        <img src="../assets/icons/send-black-18dp.svg"/>
-                    </button>
-
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
+                            <p>Publish Competition</p>
+                            <img src="../assets/icons/send-black-18dp.svg"/>
+                        </button>
+                    </div>
                 </div
 
                 <!-- dashboard body -->  
@@ -185,6 +186,8 @@ checkComp($connection);
                         <div class="full_width_flex">
                             <div class="db_panel">
                                 <div>
+                                    <p style="font-size: var(--f-xxxxlarge)">xxxxlarge</p>
+                                    <p style="font-size: var(--f-xxxlarge)">xxxlarge</p>
                                     <p style="font-size: var(--f-xxlarge)">xxlarge</p>
                                     <p style="font-size: var(--f-xlarge)">xlarge</p>
                                     <p style="font-size: var(--f-large)">large</p>
@@ -228,23 +231,23 @@ checkComp($connection);
 
                                         <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
                                             
-                                            <ul id="general_to_do" class="sheduled_to_do_sublist">
+                                            <div id="general_to_do" class="sheduled_to_do_sublist">
 
                                                 <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
                                                 <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" ></li>
                                                 <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" ></li>
                                                 <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" ></li>
 
-                                            </ul>
+                                            </div>
 
                                         <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
                                         
-                                            <ul id="technical_to_do" class="sheduled_to_do_sublist">
+                                            <div id="technical_to_do" class="sheduled_to_do_sublist">
                                                 
                                                 <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
                                                 <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
                                             
-                                            </ul>
+                                            </div>
 
                                         <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
 

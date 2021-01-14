@@ -82,14 +82,16 @@
         <div class="page_content_flex">
                 <form id="title_stripe" method="POST" action="" >
                     <p class="page_title">Weapon Control</p>
-                    <button class="stripe_button disabled" id="sendMessageButton" type="submit">
-                        <p>Send message to fencer</p>
-                        <img src="../assets/icons/chat-black-18dp.svg"/>
-                    </button>
-                    <button name="add_wc" class="stripe_button orange" id="wcButton" type="submit">
-                        <p>Add weapon control</p>
-                        <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
-                    </button>
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button disabled" id="sendMessageButton" type="submit">
+                            <p>Send message to fencer</p>
+                            <img src="../assets/icons/chat-black-18dp.svg"/>
+                        </button>
+                        <button name="add_wc" class="stripe_button orange" id="wcButton" type="submit">
+                            <p>Add weapon control</p>
+                            <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
+                        </button>
+                    </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     <div class="search_wrapper">
                         <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>

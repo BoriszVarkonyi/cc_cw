@@ -1,5 +1,6 @@
 <?php include "../includes/db.php"; ?>
-
+<?php include "../includes/cw_fav_button_list.php" ?>
+<?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +16,7 @@
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="slideshow">
-                <div id="slideshow_title">
-                    <p>Check Competitions</p>
-                    <p>Check Competitions</p>
-                </div>
+                <p id="slideshow_title" title="Check Competitions">Check Competitions</p>
                 <div id="sildes">
                     <div id="slide_nav">
                         <button class="slideButtons active" onclick="toggleButton(this)"></button>
@@ -50,7 +48,7 @@
             <div id="content">
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
-                    <div class="cw_table_wrapper table t_c_1">
+                    <div class="table t_c_1">
                         <div class="table_row_wrapper">
                     <?php
                         //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)
@@ -61,10 +59,13 @@
                         //displays row in the table with parameters
                         while ($row = mysqli_fetch_assoc($qry_do)) {
                             $comp_name =  $row['comp_name'];
+                            $comp_id = $row['comp_id'];
+
+                            $star = getStar($comp_id);
 
                             //displays the compnames in a table with href button (live)
                             ?>
-                            <div class="table_row">
+                            <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <!-- comp_name displayed -->
                                 <div class="table_item">
                                     <p>
@@ -75,11 +76,11 @@
                                 <div class="table_item live">
                                     <a href="">Live</a>
                                 </div>
-                                <div class="big_status_item">
-                                    <button class="favourite_button">
-                                        <img src="../assets/icons/star_border-black-18dp.svg" >
+                                <form method="POST" class="big_status_item">
+                                    <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
+                                        <img src="<?php echo $star ?>" >
                                     </button>
-                                </div>
+                                </form>
                             </div>
 
                             <?php

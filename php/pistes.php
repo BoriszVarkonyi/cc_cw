@@ -150,10 +150,12 @@ if(isset($_POST["create_piste"])){
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Pistes</p>
+                    <div class="stripe_button_wrapper">
                     <button class="stripe_button orange" onclick="toggleAddPistePanel()">
-                        <p>Add Piste</p>
-                        <img src="../assets/icons/add-black-18dp.svg"/>
-                    </button>
+                            <p>Add Piste</p>
+                            <img src="../assets/icons/add-black-18dp.svg"/>
+                        </button>
+                    </div>
 
                     <div class="overlay_panel hidden" id="add_piste_panel">
                         <button class="panel_button" onclick="toggleAddPistePanel()">

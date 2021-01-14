@@ -227,10 +227,12 @@ if($query_do){
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Timetable</p>
-                    <button class="stripe_button orange" type="submit">
-                        <p>Save Timetable</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/>
-                    </button>
+                    <div class="stripe_button_wrapper">
+                        <button class="stripe_button orange" type="submit">
+                            <p>Save Timetable</p>
+                            <img src="../assets/icons/save-black-18dp.svg"/>
+                        </button>
+                    </div>
                 </div>
                 <div id="page_content_panel_main" class="no_scroll">
                     <div id="set_wc_panel" class="overlay_panel_single hidden">
@@ -244,8 +246,8 @@ if($query_do){
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
-                                <label for="wc_per_ten_min" class="small">Estimated number of weapon controls done in 10 minutes</label>
-                                <input type="number" class="number_input small" placeholder="e.g. 8" id="wc_input" class="wc_input" name="wc_per_ten_min">
+                                <label for="wc_per_ten_min" class="centered">Estimated number of weapon controls done in 10 minutes</label>
+                                <input type="number" class="number_input centered" placeholder="e.g. 8" id="wc_input" class="wc_input" name="wc_per_ten_min">
 
                                 <div class="table_header">
                                     <div class="table_header_text">STARTING TIME</div>

@@ -24,20 +24,19 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="videos">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
             <div id="content" class="list">
                 <div id="title_stripe">
-                    <p class="stripe_title">Saved competitions</p>
+                    <p class="stripe_title">
+                        <button type="button" class="back_button" onclick="window.history.back();">
+                            <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        </button>
+                        Video From <?php echo $comp_name ?></p>
+                    </p>
                 </div>
-        <div class="cw_panel_title_wrapper">
-            <button type="button" class="back_button" onclick="location.href='cw_videos.php'">
-                <img  src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
-            </button>
-            <p>LIVE RESULTS OF <?php echo $comp_name ?></p>
-        </div>
         <div id="round_live_wrapper">
             <div id="round_livestream_wrapper">
                 <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>

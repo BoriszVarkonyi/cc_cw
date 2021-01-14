@@ -100,6 +100,7 @@ function isClosed() {
     }
     searchBarClosed = true;
 }
+//Opens the searchbar to Shift+F
 document.onkeyup=function(e){
     //somethingisOpened is a var. from main.js
     if(!somethingisOpened){

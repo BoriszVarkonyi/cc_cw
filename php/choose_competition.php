@@ -56,10 +56,12 @@ $query_comps = mysqli_query($connection, $query);
     <div id="your_competitions_panel" class="panel">
         <div id="title_stripe">
             <p class="page_title">Your competitions</p>
-            <button class="stripe_button orange" onclick="location.href='create_competition.php'">
-                <p>Create Competition</p>
-                <img src="../assets/icons/add-black-18dp.svg"/>
-            </button>
+            <div class="stripe_button_wrapper">
+                <button class="stripe_button orange" onclick="location.href='create_competition.php'">
+                    <p>Create Competition</p>
+                    <img src="../assets/icons/add-black-18dp.svg"/>
+                </button>
+            </div>
         </div>
         <div id="panel_main">
             <div class="table wrapper t_c_2">
