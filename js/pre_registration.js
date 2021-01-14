@@ -82,9 +82,30 @@ function cwSearchEngine(x){
         a = li[i].firstElementChild.nextElementSibling;
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+            li[i].classList.remove("hidden");
         } else {
-            li[i].style.display = "none";
+            li[i].classList.add("hidden");
+        }
+    }
+    if(input.value != ""){
+        var showedRows = document.querySelectorAll(".table_row:not(.hidden)")
+        for(i=0; i<showedRows.length; i++){
+            if(i%2 ==0){
+                showedRows[i].style.backgroundColor = "rgb(246, 246, 246)"
+            }
+            else{
+                showedRows[i].style.backgroundColor = "rgb(236, 236, 236)"
+            }
+        }
+    }
+    else{
+        for(i=0; i<li.length; i++){
+            if(i%2 ==0){
+                li[i].style.backgroundColor = "rgb(246, 246, 246)"
+            }
+            else{
+                li[i].style.backgroundColor = "rgb(236, 236, 236)"
+            }
         }
     }
 }
