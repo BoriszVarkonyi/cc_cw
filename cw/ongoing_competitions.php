@@ -23,7 +23,7 @@
                     <!-- search by name box -->
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <input type="text" name="" placeholder="Search by Name" class="search">
-                    <input type="submit" value="Search">
+                    <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>
                 <!-- buttons menu -->
                 <div id="competition_color_legend">
@@ -43,5 +43,6 @@
     </div>
 <script src="../js/cw_main.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/cw_ongoing_competitions.js"></script>
 </body>
 </html>

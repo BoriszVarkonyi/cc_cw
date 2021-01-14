@@ -494,7 +494,8 @@ function formValidation(overlayForm, inputs, saveButton){
 }
 var stripeButtons = document.querySelectorAll(".stripe_button")
 var canAddHoverClass = true;
-earchBarClosed = true;
+//searchBarClosed is a var. from control.js
+searchBarClosed = true;
 document.addEventListener("keydown", function(e){
     //searchBarClosed is a var. from control.js
     if(searchBarClosed){

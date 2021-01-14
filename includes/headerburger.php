@@ -56,7 +56,7 @@ if (isset($_POST["logout"])) {
 
 ?>
 
-<div>
+<div id="header">
     <header>
         <p id="app_name">Competition Control <b>Alpha</b></p>
 
