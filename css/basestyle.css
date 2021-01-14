@@ -374,6 +374,10 @@ input[type="text"].search {
 	border: none;
 }
 
+input[type="text"].search.alt {
+	background-color: var(--c-white);
+}
+
 input[type="text"].search:focus {
 	margin: 0;
 	border: none;

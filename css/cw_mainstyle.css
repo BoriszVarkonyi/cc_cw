@@ -1104,6 +1104,10 @@ input[value="Search"] {
 	cursor: pointer;
 }
 
+.video_wrapper.ghost {
+	visibility: hidden;
+}
+
 .video_wrapper:hover {
 	background-color: var(--c-lightestgray);
 }
@@ -1125,12 +1129,14 @@ input[value="Search"] {
 }
 
 .video_wrapper_info p {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;  
 	overflow: hidden;
 }
 
 .video_wrapper_info p:first-child {
 	font-family: var(--bold);
-	max-height: 3.8rem;
+	-webkit-line-clamp: 3;
 	flex: 1 0 3.8rem;
 	margin-bottom: 5px;
 }
@@ -1138,6 +1144,7 @@ input[value="Search"] {
 .video_wrapper_info p:last-child {
 	flex: 1 1 100%;
 	margin-top: 5px;
+	-webkit-line-clamp: 2;
 }
 
 /* Pre-Reg */

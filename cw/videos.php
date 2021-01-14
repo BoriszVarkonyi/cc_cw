@@ -52,6 +52,8 @@
                     <?php 
                         }
                     ?>
+                    <div class="video_wrapper ghost"></div>
+                    <div class="video_wrapper ghost"></div>
                     </div>
                     </div>
                 </div>
