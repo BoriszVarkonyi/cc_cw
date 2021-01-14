@@ -39,6 +39,9 @@ switch(className){
         mobileNavihationButtons[0].classList.add("current"); 
         navigationButtons[0].classList.add("current");
     break;
+    case "competitions" : 
+        navigationButtons[1].classList.add("current");
+    break;
     case "upcoming_competitions" : 
         mobileNavihationButtons[1].classList.add("current"); 
         navigationButtons[1].classList.add("current");
