@@ -25,7 +25,7 @@
                 <form id="browsing_bar">
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <input type="text" name="" placeholder="Search by Title" class="search">
-                    <input type="submit" value="Search">
+                    <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>
                 <div id="competition_color_legend">
                     <button id="fencing_lengend" value="Registration Finished"></button>
@@ -84,4 +84,5 @@
 <script src="../js/cw_main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/competitions.js"></script>
+<script src="../js/cw_temporary_ranking.js"></script>
 </html>

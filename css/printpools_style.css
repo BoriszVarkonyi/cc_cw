@@ -41,7 +41,7 @@
 
 .title {
 	font-family: var(--bold);
-	font-size: 26pt;
+	font-size: 20pt;
 	width: 100%;
 	text-align: center;
 }
@@ -51,7 +51,7 @@
 }
 
 .pool_info > div {
-	font-size: 14pt;
+	font-size: 12pt;
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
@@ -66,7 +66,7 @@
 
 .comp_info {
 	flex-direction: column;
-	font-size: 10pt;
+	font-size: 8pt;
 	justify-content: center;
 	align-items: flex-start !important;
 }
@@ -105,8 +105,8 @@
 
 .number {
     color: DimGray;
-    font-size: 20pt;
-    flex-basis: 20pt;
+    font-size: 17pt;
+    flex-basis: 17pt;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,10 +138,10 @@
 
 .grid {
     display: block;
-    width: 23pt;
-    height: 46pt;
-    min-height: 46pt;
-    min-width: 23pt;
+    width: 20pt;
+    height: 40pt;
+    min-height: 40pt;
+    min-width: 20pt;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -168,78 +168,18 @@
     width: 100%;
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 50pt;
+    box-sizing: border-box;
 }
 
 .signatures > div {
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.fencers {
-    align-items: flex-end;
-}
-
-.referees {
-    align-items: flex-end;
-    padding-right: 10%;
-}
-
-.fencer, .referee {
-    display: flex;
-    box-sizing: border-box;
-}
-
-.s_numbering {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    font-family: var(--bold);
-    font-size: 10pt;
-}
-
-.s_names {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-size: 10pt;
-    margin: 0 5px;
-    flex: 1 1 auto;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-family: var(--bold);
-}
-
-.s_grid {
-    display: block;
-    width: 100pt;
-    height: 25pt;
-    min-height: 25pt;
-    min-width: 100pt;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-}
-
-.s_grid div {
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 2pt solid black;
-    border-bottom: 1pt solid black;
-}
-
-.fencers > .fencer:last-of-type .s_grid div, .referees > .referee:last-of-type .s_grid div  {
-    border-bottom: 2pt solid black;
-}
-
-.fencers > .fencer:nth-of-type(n+2) .s_grid div, .referees > .referee:last-of-type .s_grid div  {
-    border-top: 1pt solid black;
 }
 
 @media print {
@@ -303,10 +243,6 @@
         overflow: hidden !important;
     }
 
-    .s_names {
-        overflow: hidden !important;
-    }
-
     .grid {
         display: block;
         width: 23pt !important;
@@ -334,4 +270,159 @@
         border: 2pt solid black;
         border-top: 1pt solid black;
     }
+
+
+    .grid_table {
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        font-size: 10pt !important;
+        margin-bottom: 20pt !important;
+        position: relative !important;
+    }
+    
+    .grid_row_wrapper::before {
+        position: absolute !important;
+        right: 100% !important;
+        margin-right: 5pt !important;
+        top: 50% !important;
+        transform: translateY(-40%) !important;
+        writing-mode: vertical-rl !important;
+        text-orientation: upright !important;
+        white-space: nowrap !important;
+        font-family: var(--bold) !important;
+    }
+    
+    .grid_table.fencers .grid_row_wrapper::before {
+        content: "FENCERS" !important;
+    }
+    
+    .grid_table.referees .grid_row_wrapper::before {
+        content: "REFEREES" !important;
+    }
+    
+    .grid_header, .grid_row {
+        display: flex !important;
+    }
+    
+    .grid_header_text {
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .grid_row_wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        border: 1pt solid black !important;
+        box-shadow: inset 0 0 0 1000px black !important;
+    }
+    
+    .grid_item, .grid_header_text {
+        background-color: white !important;
+        display: flex !important;
+        flex-grow: 1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 22pt !important;
+        margin: 1pt !important;
+    }
+    
+    .grid_table.fencers .grid_row .grid_item:first-of-type {
+        margin-right: 0 !important;
+    }
+    
+    .grid_item.square, .grid_header_text.square {
+        flex-grow: 0 !important;
+        width: 22pt !important;
+        height: 22pt !important;
+    }
+    
+    .grid_item.square.filled {
+        background-color: black !important;
+    }
+    
+    .grid_item.signature, .grid_header_text.signature {
+        flex: 0 0 25% !important;
+    }
+    
+    .grid_item.square.header {
+        margin-left: 0 !important;
+    }
+}
+
+.grid_table {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    font-size: 10pt !important;
+    margin-bottom: 20pt !important;
+    position: relative !important;
+}
+
+.grid_row_wrapper::before {
+    position: absolute !important;
+    right: 100% !important;
+    margin-right: 5pt !important;
+    top: 50% !important;
+    transform: translateY(-40%) !important;
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    white-space: nowrap !important;
+    font-family: var(--bold) !important;
+}
+
+.grid_table.fencers .grid_row_wrapper::before {
+    content: "FENCERS" !important;
+}
+
+.grid_table.referees .grid_row_wrapper::before {
+    content: "REFEREES" !important;
+}
+
+.grid_header, .grid_row {
+    display: flex !important;
+}
+
+.grid_header_text {
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.grid_row_wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    border: 1pt solid black !important;
+    box-shadow: inset 0 0 0 1000px black;
+}
+
+.grid_item, .grid_header_text {
+    background-color: white !important;
+    display: flex !important;
+    flex-grow: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 22pt !important;
+    margin: 1pt !important;
+}
+
+.grid_table.fencers .grid_row .grid_item:first-of-type {
+    margin-right: 0 !important;
+}
+
+.grid_item.square, .grid_header_text.square {
+    flex-grow: 0 !important;
+    width: 22pt !important;
+    height: 22pt !important;
+}
+
+.grid_item.square.filled {
+    background-color: black !important;
+}
+
+.grid_item.signature, .grid_header_text.signature {
+    flex: 0 0 25% !important;
+}
+
+.grid_item.square.header {
+    margin-left: 0 !important;
 }

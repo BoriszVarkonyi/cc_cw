@@ -28,7 +28,7 @@
                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                     <input type="text" name="" placeholder="Search by Name" class="search">
                 </div>
-                <input type="submit" value="Search">
+                <input type="button" value="Search" onclick="cwSearchEngine()">
             </form>
             <div class="table cw">
                 <div class="table_header">
@@ -144,5 +144,6 @@
 <script src="../js/cw_main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/competitions.js"></script>
+<script src="../js/cw_temporary_ranking.js"></script>
 </body>
 </html>

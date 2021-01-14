@@ -29,7 +29,6 @@ var className = body.classList.value;
 //selects all navigation buttons
 var navigationButtons = document.querySelectorAll("#navigation > div");
 var mobileNavihationButtons = document.querySelectorAll("#mobile_navigation > div  a");
-console.log(mobileNavihationButtons)
 //remove current class from every navigatiob button
 for(i=0; i<navigationButtons.length; i++){
     navigationButtons[i].classList.remove("current")
