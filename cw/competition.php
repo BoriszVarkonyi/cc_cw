@@ -158,14 +158,14 @@
                 </div>
                 <div id="competition_controls">
                     <div class="column_panel">
-                        <button onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
+                        <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
                         <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
-                        <button onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
-                        <button onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                        <button onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
-                        <button onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
+                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
                         <button onclick="printPage()">Print</a>
-                        <button onclick="location.href=''">Watch Video / Watch Live</a>
+                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
                     </div>
                 </div>
             </div>
