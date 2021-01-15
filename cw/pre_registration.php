@@ -86,7 +86,11 @@ if(isset($_POST["send_pre"])){
                             </button>
                         </div> -->
                     </div>
-                    <input type="text" name="" placeholder="Search by Name" class="search">
+<<<<<<< HEAD
+                    <input type="text" name="" placeholder="Search by Name" class="search" onkeyup="cwSearchEngine(this)">
+=======
+                    <input type="text" name="" placeholder="Search by Name" class="search alt">
+>>>>>>> a1e2d187acaefc4835027a20a27f4496e4eac0ec
                     <div id="select_fencers_list_wrapper" class="table">
                         <div class="table_header">
                             <div class="table_header_text">POSITION</div>
@@ -134,7 +138,8 @@ if(isset($_POST["send_pre"])){
         </form>
     </div>
 <?php include "cw_footer.php"; ?>
-</body>
 <script src="../js/cw_main.js"></script>
 <script src="../js/pre_registration.js"></script>
+<script src="../js/list.js"></script>
+</body>
 </html>

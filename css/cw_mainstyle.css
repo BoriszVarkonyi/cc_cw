@@ -17,8 +17,6 @@ header {
 	width: 100%;
 	max-width: 100vw;
 	height: 50px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -585,7 +583,8 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	max-height: 40vh;
 	height: 500px;
 	width: 100%;
-	clip-path: ellipse( 100% 100% at 100% 100%);
+	-webkit-clip-path: ellipse( 100% 100% at 100% 100%);
+	        clip-path: ellipse( 100% 100% at 100% 100%);
 }
 
 #slide_nav {
@@ -652,7 +651,8 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .slide.blurred > img {
-	filter: blur(5px) brightness(75%);
+	-webkit-filter: blur(5px) brightness(75%);
+	        filter: blur(5px) brightness(75%);
 }
 
 .slide > p {
@@ -1104,6 +1104,10 @@ input[value="Search"] {
 	cursor: pointer;
 }
 
+.video_wrapper.ghost {
+	visibility: hidden;
+}
+
 .video_wrapper:hover {
 	background-color: var(--c-lightestgray);
 }
@@ -1112,7 +1116,8 @@ input[value="Search"] {
 	height: 110px;
 	width: 190px;
 	min-width: 190px;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 }
 
 .video_wrapper_info {
@@ -1125,12 +1130,14 @@ input[value="Search"] {
 }
 
 .video_wrapper_info p {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;  
 	overflow: hidden;
 }
 
 .video_wrapper_info p:first-child {
 	font-family: var(--bold);
-	max-height: 3.8rem;
+	-webkit-line-clamp: 3;
 	flex: 1 0 3.8rem;
 	margin-bottom: 5px;
 }
@@ -1138,6 +1145,7 @@ input[value="Search"] {
 .video_wrapper_info p:last-child {
 	flex: 1 1 100%;
 	margin-top: 5px;
+	-webkit-line-clamp: 2;
 }
 
 /* Pre-Reg */
@@ -1543,7 +1551,8 @@ input[value="Search"] {
 #article_wrapper img {
 	width: 30rem;
 	height: 20rem;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 	float: left;
 	margin: 0 1rem 1rem 0;
 }
