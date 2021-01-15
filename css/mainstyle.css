@@ -728,13 +728,13 @@ input[type="range"]:focus::-ms-fill-upper {
 	justify-content: center;
 	flex: 1 1 100%;
 	overflow: visible;
-	transition: width var(--t-basic);
+	transition: all var(--t-basic);
 	position: relative;
 	font-size: var(--f-large);
 }
 
 #nav_bar.closed {
-	transition: width var(--t-basic);
+	transition: all var(--t-basic);
 	min-width: 40px;
 	width: 2vw;
 	max-width: 80px;
@@ -827,12 +827,12 @@ input[type="range"]:focus::-ms-fill-upper {
 	}
 
 	99% {
-		position: absolute;
+		max-width: 0;
 	}
 
     100% {
 		opacity: 0;
-		position: absolute;
+		max-width: 0;
 	}
 }
 
@@ -849,19 +849,21 @@ input[type="range"]:focus::-ms-fill-upper {
 	}
 
 	99% {
-		position: absolute;
+		max-width: 0;
 	}
 
     100% {
 		opacity: 0;
-		position: absolute;
+		max-width: 0;
+		padding-left: 0;
 	}
 }
 
 @-webkit-keyframes showNavTitles {
 	0% {
 		opacity: 0;
-		display: aboslute;
+		max-width: 0;
+		padding-left: 0;
 	}
 
 	1% {
@@ -878,7 +880,8 @@ input[type="range"]:focus::-ms-fill-upper {
 @keyframes showNavTitles {
 	0% {
 		opacity: 0;
-		display: aboslute;
+		max-width: 0;
+		padding-left: 0;
 	}
 
 	1% {
@@ -903,12 +906,14 @@ input[type="range"]:focus::-ms-fill-upper {
 	}
 
 	99% {
-		position: absolute;
+		max-width: 0;
+		padding-left: 0;
 	}
 
     100% {
 		opacity: 0;
-		position: absolute;
+		max-width: 0;
+		padding-left: 0;
 	}
 }
 
