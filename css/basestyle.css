@@ -746,6 +746,10 @@ input:focus ~ .clear_search_button {
 
 /* Table row */
 
+.table_row.hidden {
+	display: none;
+}
+
 /* Basic Coloring of row, Mostly CC */
 .table_row_wrapper .table_row {
 	background-color: var(--c-white);
@@ -778,10 +782,6 @@ input:focus ~ .clear_search_button {
 	cursor: pointer;
 	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 	background-color: var(--c-white);
-}
-
-.table_row.hidden {
-	display: none;
 }
 
 .entry > .table_row {
