@@ -53,17 +53,37 @@
                 <form method="POST" id="browsing_bar">
                     <input name="" type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <div>
-                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <input type="text" name="name" placeholder="Search by Name" class="search">
                     </div>
 
-                    <div class="select_input">
-                        <button type="button" onclick="toggleYearSelect()">
-                            <p>-Date of Birth-</p>
-                            <input name="year" type="text" value="">
-                        </button>
-                        <div id="year_select_dropdown" class="closed">
-                            <input type="date">
+                    <div class="select_input dense">
+                        <input type="number" name="year" placeholder="-Year-" onclick="toggleDropdown(this)">
+                        <div id="year_select_dropdown">
+                            <button type="button" onclick="selectSystem(this)">2020</button>
+                            <button type="button" onclick="selectSystem(this)">2019</button>
+                            <button type="button" onclick="selectSystem(this)">2018</button>
+                            <button type="button" onclick="selectSystem(this)">2017</button>
+                            <button type="button" onclick="selectSystem(this)">2016</button>
+                            <button type="button" onclick="selectSystem(this)">2015</button>
+                            <button type="button" onclick="selectSystem(this)">2014</button>
+                            <button type="button" onclick="selectSystem(this)">2013</button>
+                            <button type="button" onclick="selectSystem(this)">2012</button>
+                            <button type="button" onclick="selectSystem(this)">2011</button>
+                            <button type="button" onclick="selectSystem(this)">2010</button>
+                            <button type="button" onclick="selectSystem(this)">2009</button>
+                            <button type="button" onclick="selectSystem(this)">2008</button>
+                            <button type="button" onclick="selectSystem(this)">2007</button>
+                            <button type="button" onclick="selectSystem(this)">2006</button>
+                            <button type="button" onclick="selectSystem(this)">2005</button>
+                            <button type="button" onclick="selectSystem(this)">2004</button>
+                            <button type="button" onclick="selectSystem(this)">2003</button>
+                            <button type="button" onclick="selectSystem(this)">2002</button>
+                            <button type="button" onclick="selectSystem(this)">2001</button>
+                            <button type="button" onclick="selectSystem(this)">2000</button>
+                            <button type="button" onclick="selectSystem(this)">1999</button>
+                            <button type="button" onclick="selectSystem(this)">1998</button>
+                            <button type="button" onclick="selectSystem(this)">1997</button>
                         </div>
                     </div>
                     <input name="submit_search" type="submit" value="Search">
