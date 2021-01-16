@@ -3,7 +3,11 @@
 
 <?php
 
-session_destroy();
+
+
+if (isset($_SESSION)) {
+    session_destroy();
+}
 if (isset($_POST["submit"])) {
 
     $user_error = "";
@@ -286,7 +290,6 @@ if(strlen($test, 1) == 0){
                 <!-- login form end -->
         </div>
     </div>
-    <?php print_r($feedback); ?>
     <div id="login_links_wrapper"> 
         <div id="program_news">
             <a type="button" class="other_apps_button">News and updates</a>
