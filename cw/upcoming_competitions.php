@@ -25,7 +25,7 @@
                     <input type="text" name="name" placeholder="Search by Name" class="search">
                     <!-- year drop-down -->
                     <div class="select_input">
-                        <input type="number" name="year" placeholder="-Year-" onclick="toggleDropdown(this)">
+                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
                         <div id="year_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">2020</button>
                             <button type="button" onclick="selectSystem(this)">2019</button>

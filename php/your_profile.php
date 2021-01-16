@@ -45,13 +45,13 @@
                     <img src="../assets/icons/profile_picture.svg"  class="profile_picture not_icon">
                     <label for="file" class="file_label">Upload File</label>
                     <input type="file" id="file">
-                    <p>File name</p>
+                    <p id="fileText">File name</p>
                 </div>
             </form>
         </div>
     </div>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
+    <script src="../js/your_profile.js"></script>
     <script>
         function closePage() {
             close();
