@@ -149,7 +149,7 @@ function toggle_technical_dropdown() {
     dt_drop_icon.classList.toggle("close");
 }
 
-/*  Color changer    */
+/*  Color changer */
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const current_cs = localStorage.getItem('theme');
@@ -165,48 +165,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-document.getElementById("cs_range").addEventListener("click", csChanger);
 
 var hasBackgroundIcon = document.querySelectorAll("input");
-
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon), input.backgroundImage');
-var i;
-
-function csChanger() {
-    
-    var cs_range = document.getElementById("cs_range");
-    var cs_option = cs_range.value;
-
-    var light = 1;
-    var highcontrast = 2;
-    var dark = 3;
-
-
-    if (cs_option == light) {
-        setToLight();
-    }
-
-    if (cs_option == highcontrast) {
-        setToHighContrast();
-    }
-
-    if (cs_option == dark) {
-        setToDark();
-    }
-}
-
-var cs_range = document.getElementById("cs_range");
+var csWrapper = document.getElementById("color_mode_wrapper");
+var colorModes = csWrapper.getElementsByTagName("input");
+console.log(colorModes)
 
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');
     localStorage.setItem('theme', '');
-    cs_range.value = "1";
+    colorModes[0].checked = true;
 
-    for (i = 0; i < icons.length; i++) {
+    for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "contrast(71%)";
     }
 
-    for (i = 1; i < hasBackgroundIcon.length; i++) {
+    for (var i = 1; i < hasBackgroundIcon.length; i++) {
         hasBackgroundIcon[i].style.filter = "";
     }
 }
@@ -214,8 +189,9 @@ function setToLight() {
 function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
-    cs_range.value = "2";
-    for (i = 0; i < icons.length; i++) {
+    colorModes[1].checked = true;
+
+    for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
     }
     for (i = 1; i < hasBackgroundIcon.length; i++) {
@@ -226,8 +202,9 @@ function setToHighContrast() {
 function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
-    cs_range.value = "3";
-    for (i = 0; i < icons.length; i++) {
+    colorModes[2].checked = true;
+
+    for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%)";
     }
     for (i = 1; i < hasBackgroundIcon.length; i++) {

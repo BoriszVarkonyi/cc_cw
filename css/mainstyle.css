@@ -188,7 +188,7 @@ header {
 
 #languages_wrapper {
 	width: 100%;
-	padding: 50px 10px 10px;
+	padding: 10px;
 	box-sizing: border-box;
 	position: relative;
 	z-index: 5;
@@ -228,22 +228,8 @@ header {
 	position: absolute;
 	right: 130px;
 	top: 40px;
-	justify-content: flex-start;
-	flex-direction: column;
-}
-
-.cs_label_section {
-	width: 80%;
-	font-size: var(--f-small);
-	display: flex;
-	justify-content: space-evenly;
-	text-align: center;
-	word-wrap: break-word;
-}
-
-.cs_label_section p {
-	margin: 0;
-	word-wrap: break-word;
+	justify-content: center;
+	align-items: center;
 }
 
 #profile_panel {
@@ -275,6 +261,69 @@ header {
 
 #logout_form > button:hover {
 	background-color: var(--c-darkgray);
+}
+
+/* Colormode changer*/
+
+.color_mode_wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	position: relative;
+	margin-top: 20px;
+}
+
+.color_mode {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.color_mode > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.color_sample {
+	width: 2em;
+	height: 2em;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: .2rem solid;
+	font-size: var(--f-large);
+	font-family: var(--bold);
+}
+
+.color_sample.light {
+	color: var(--cs-black);
+	border-color: var(--cs-orange);
+	background-color: var(--cs-lightergray);
+}
+
+.color_sample.high_contrast {
+	color: var(--cs-yellow);
+	border-color: var(--cs-gray);
+	background-color: var(--cs-black);
+}
+
+.color_sample.dark {
+	color: var(--cs-white);
+	border-color: var(--cs-orange);
+	background-color: var(--cs-black);
+}
+
+.color_mode_wrapper label {
+	width: 2px;
+	flex-direction: column;
+	text-align: center;
+	font-size: var(--f-small);
+}
+
+.color_mode_wrapper label::before {
+	margin: 8px 0 5px !important;
 }
 
 /* Wrapper */
@@ -330,7 +379,7 @@ header {
 }
 
 #apps input:checked + label {
-	font-size: 2em;
+	font-size: var(--f-xxxlarge);
 	border-right: 5px solid var(--c-orange);
 }
 
@@ -348,7 +397,7 @@ header {
 	right: 100%;
 	top: 50%;
 	transform: translateY(-50%);
-	font-size: 2em;
+	font-size: var(--f-xxxlarge);
 	padding: 0;
 	background-color: var(--c-orange);
 	z-index: 1;
@@ -361,9 +410,6 @@ header {
 	padding: 5px 10px !important;
 	transition: max-width ease-in .2s .2s, padding ease-in .2s .2s;
 }
-
-
-
 
 /* Stripe Button Elements Used in CC Title Stripe*/
 
@@ -579,117 +625,6 @@ header {
 	left: 10px;
 	font-size: var(--f-small);
 	color: var(--c-gray);
-}
-
-/* Range Inputs */
-
-input::-webkit-input-placeholder {
-	color: var(--cs-black);
-}
-
-input::-moz-placeholder {
-	color: var(--cs-black);
-}
-
-input:-ms-input-placeholder {
-	color: var(--cs-black);
-}
-
-input::-ms-input-placeholder {
-	color: var(--cs-black);
-}
-
-input::placeholder {
-	color: var(--cs-black);
-}
-
-input[type="range"] {
-	-webkit-appearance: none;
-	margin-top: 65px;
-	width: 70px;
-	background: transparent;
-	display: flex;
-	align-items: center;
-}
-
-input[type="range"]:focus {
-	outline: none;
-}
-  
-input[type="range"]::-webkit-slider-runnable-track {
-	width: 70px;
-	height: 25px;
-	cursor: pointer;
-	background: var(--c-gray);
-	border-radius: 25px;
-	padding: 0 2.5px;
-	display: flex;
-	align-items: center;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-	height: 20px;
-	width: 20px;
-	border-radius: 10px;
-	margin-top: 2.25px;
-	background: var(--c-white);
-	cursor: pointer;
-	-webkit-appearance: none;
-}
-  
-input[type="range"]:focus::-webkit-slider-runnable-track {
-	background: var(--c-darkgray);
-}
-  
-input[type="range"]::-moz-range-track {
-	width: 70px;
-	height: 25px;
-	cursor: pointer;
-	background: var(--c-darkgray);
-	border-radius: 25px;
-}
-
-input[type="range"]::-moz-range-thumb {
-	height: 20px;
-	width: 20px;
-	border-radius: 10px;
-	background: var(--c-white);
-	cursor: pointer;
-}
-
-input[type="range"]::-ms-track {
-	width: 70px;
-	height: 25px;
-	cursor: pointer;
-	background: transparent;
-	border-color: transparent;
-	color: transparent;
-}
-
-input[type="range"]::-ms-fill-lower {
-	background: var(--c-gray);
-	border-radius: 50px;
-}
-
-input[type="range"]::-ms-fill-upper {
-	background: var(--c-gray);
-	border-radius: 50px;
-}
-
-input[type="range"]::-ms-thumb {
-	height: 20px;
-	width: 20px;
-	border-radius: 10px;
-	background: var(--c-white);
-	cursor: pointer;
-}
-
-input[type="range"]:focus::-ms-fill-lower {
-	background: var(--c-gray);
-}
-
-input[type="range"]:focus::-ms-fill-upper {
-	background: var(--c-gray);
 }
 
 /* Back Button used in CC Dasboard And CW Competition's page and subpages */
@@ -1570,7 +1505,15 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	top: 2em;
 }
 
-/* ///CHOOSE COMPETITION ELEMENTS/// */
+/* ///PRPFILE PANEL ELEMENTS/// */
+
+.profile_picture {
+	width: 5rem;
+	height: 5rem;
+	margin: 5px auto;
+	border: .2rem solid var(--c-gray);
+	border-radius: 5px;
+}
 
 /* ///FORMS WRAPPER ELEMENTS/// */
 
@@ -1585,6 +1528,33 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 .column_form_wrapper {
 	width: auto;
 	display: flex;
+}
+
+.form_wrapper {
+	padding: 50px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.form_wrapper p {
+	margin-bottom: 30px;
+}
+
+.form_wrapper div {
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
+	max-width: 300px;
+}
+
+.separate_column {
+	margin: 50px 0;
 }
 
 /* ///DASHBOARD ELEMENTS/// */

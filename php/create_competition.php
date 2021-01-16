@@ -94,7 +94,6 @@ $query = "";
 <!-- header -->
     <div id="create_competition_panel" class="panel">
         <div id="title_stripe">
-            </div>
             <p class="page_title">Create new competition</p>
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_competition.php'">

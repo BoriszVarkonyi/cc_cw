@@ -148,9 +148,9 @@ header("Location: ../index.php");
             <button class="panel_button" onclick="toggle_profile_panel()">
                 <img src="../assets/icons/close-black-18dp.svg"/>
             </button>
-            <button class="panel_button left" onclick="">
+            <a class="panel_button left" href="your_profile.php" target="_blank">
                 <img src="../assets/icons/edit-black-18dp.svg"/>
-            </button>
+            </a>
             <img src="https://thispersondoesnotexist.com/image" class="profile_picture_big">
             <p class="username_big"><?php echo $name; ?></p>
             <p class="role_big"><?php echo $role; ?></p>
