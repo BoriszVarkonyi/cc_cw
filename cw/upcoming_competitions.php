@@ -26,7 +26,7 @@
                     <!-- year drop-down -->
                     <div class="select_input">
                         <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
-                        <div id="year_select_dropdown" class="closed">
+                        <div id="year_select_dropdown">
                             <button type="button" onclick="selectSystem(this)">2020</button>
                             <button type="button" onclick="selectSystem(this)">2019</button>
                             <button type="button" onclick="selectSystem(this)">2018</button>
@@ -37,16 +37,16 @@
                     </div>
                     <!-- sex drop-down -->
                     <div class="select_input">
-                        <input type="text" name="sex" placeholder="-Sex-" onclick="toggleDropdown(this)">
-                        <div id="sex_select_dropdown" class="closed">
+                        <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)">
+                        <div id="sex_select_dropdown">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
                         </div>
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="select_input">
-                        <input type="text" name="wt" placeholder="-Weapon type-" onclick="toggleDropdown(this)">
-                        <div id="wt_select_dropdown" class="closed">
+                        <input type="text" name="wt" placeholder="-Weapon type-" onkeyup="selectSystemWithSearch(this)">
+                        <div id="wt_select_dropdown">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
                             <button type="button" onclick="selectSystem(this)">Sabre</button>
