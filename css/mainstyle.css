@@ -4273,6 +4273,11 @@ input.wc_time {
 }
 
 #pool_results > div {
+	width: 100%;
+	display: flex;
+}
+
+#pool_results > div > div {
 	width: 50%;
 	max-width: 50%;
 	display: flex;
@@ -4287,14 +4292,13 @@ input.wc_time {
 }
 
 #pool_matches {
-	padding: 50px 0;
-	width: 50%;
+	padding: 50px;
+	width: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: flex-end !important;
 }
 
 .match {

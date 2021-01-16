@@ -1133,7 +1133,7 @@ input[value="Search"] {
 	width: 190px;
 	min-width: 190px;
 	-o-object-fit: cover;
-	   object-fit: cover;
+	object-fit: cover;
 }
 
 .video_wrapper_info {

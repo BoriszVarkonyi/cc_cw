@@ -34,7 +34,6 @@
                                     
                                     ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
                                 }
-
                             ?>
                         </div>
                     </div>
