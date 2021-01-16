@@ -25,7 +25,7 @@
                     <input type="text" name="name" placeholder="Search by Name" class="search">
                     <!-- year drop-down -->
                     <div class="select_input dense">
-                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
+                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this, event)">
                         <div id="year_select_dropdown" class="closed">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
