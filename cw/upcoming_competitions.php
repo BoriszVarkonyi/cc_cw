@@ -24,15 +24,18 @@
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <input type="text" name="name" placeholder="Search by Name" class="search">
                     <!-- year drop-down -->
-                    <div class="select_input">
+                    <div class="select_input dense">
                         <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
-                        <div id="year_select_dropdown">
-                            <button type="button" onclick="selectSystem(this)">2020</button>
-                            <button type="button" onclick="selectSystem(this)">2019</button>
-                            <button type="button" onclick="selectSystem(this)">2018</button>
-                            <button type="button" onclick="selectSystem(this)">2017</button>
-                            <button type="button" onclick="selectSystem(this)">2016</button>
-                            <button type="button" onclick="selectSystem(this)">2015</button>
+                        <div id="year_select_dropdown" class="closed">
+                            <?php
+                                for ($i = -1; $i <= 10; $i++) {
+                                    
+                                    $year = date("Y") - $i; 
+                                    
+                                    ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
+                                }
+
+                            ?>
                         </div>
                     </div>
                     <!-- sex drop-down -->
