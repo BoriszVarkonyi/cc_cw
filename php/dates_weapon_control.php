@@ -18,9 +18,6 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
    $maxinperiod = $row["ids"];
 
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -45,16 +42,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                 <div id="page_content_panel_main">
                     <div id="dates_weapon_control_wrapper">
 
-
-
-
                         <?php
                         
                         $query = "SELECT * FROM $controlon";
                         $query_do = mysqli_query($connection, $query);
-
-                        
-
 
                         $rowsave = "";
 
@@ -105,14 +96,9 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                         $oraig = $ora + 6;
                                         $perc = 0;
 
-                                        
                                         for ($i=$ora; $i < $oraig ; $i++) { 
-                                            
-                                            
-                                            
+
                                             ?>
-                                            
-                                            
 
                                             <div id='<?php echo $ora . "_" . $perc?>' class='ten_minutes_wrapper' onclick=''>
                                                     <p><?php echo $ora ?>:00 - <?php echo $ora ?>:<?php echo $perc ?>9</p>
