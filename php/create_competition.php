@@ -90,7 +90,7 @@ $query = "";
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body id="illustration_bg">
-<?php include "../includes/headernoburger.php";?>
+<?php include "../includes/headerburger.php";?>
 <!-- header -->
     <div id="create_competition_panel" class="panel">
         <div id="title_stripe">

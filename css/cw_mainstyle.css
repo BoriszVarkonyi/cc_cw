@@ -933,6 +933,20 @@ input[value="Search"] {
 	font-family: var(--bold);
 }
 
+#announcements {
+	border-left: 1em solid var(--c-red);
+}
+
+#announcements p:nth-of-type(odd) {
+	font-size: var(--f-large);
+	font-family: var(--bold);
+}
+
+#announcements p:nth-of-type(even) {
+	margin-bottom: 10px;
+}
+
+
 #basic_information_panel {
 	display: flex;
 	align-items: center;

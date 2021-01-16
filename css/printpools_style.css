@@ -13,7 +13,9 @@
     width: 21cm;
 	page-break-before: always;
 	page-break-after: always;
-	background-color: var(--cs-white);
+    background-color: var(--cs-white);
+    display: flex;
+    flex-direction: column;
 }
 
 .pool_print > div {
@@ -84,15 +86,17 @@
 .pool_matches {
     width: 100%;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     padding: 20pt 20pt 10pt;
     box-sizing: border-box;
+    max-height: 50vh;
+    align-items: center;
 }
 
 .pool_match {
-    flex: 1 1 30%;
     width: 30%;
-    padding: 15px;
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
 }

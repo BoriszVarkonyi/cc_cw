@@ -79,7 +79,7 @@
                         ?>
                         <div class="pool_print">
                             <div class="title_container">
-                                <div><p class="title">Pools no.: <?php echo $echo = isset($pool_num) ? $pool_num : "Pool number is not set" ?></p></div>
+                                <div><p class="title">Pool no.: <?php echo $echo = isset($pool_num) ? $pool_num : "Pool number is not set" ?></p></div>
                                 <div class="pool_info">
                                     <div>
                                         <p class="info_label">PISTE:</p>

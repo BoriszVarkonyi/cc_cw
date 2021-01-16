@@ -1,5 +1,4 @@
 <?php include "../includes/db.php" ?>
-<?php include "../includes/functions.php" ?>
 <?php session_start();?>
 <?php ob_start();?>
 
@@ -51,7 +50,7 @@ $query_comps = mysqli_query($connection, $query);
 </head>
 <body id="illustration_bg">
 
-    <?php include "../includes/headernoburger.php" ?>
+    <?php include "../includes/headerburger.php" ?>
 
     <div id="your_competitions_panel" class="panel">
         <div id="title_stripe">
