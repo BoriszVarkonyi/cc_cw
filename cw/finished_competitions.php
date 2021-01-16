@@ -25,10 +25,7 @@
                     <input type="text" name="name" placeholder="Search by Name" class="search">
                     <!-- year drop-down -->
                     <div class="select_input">
-                        <button type="button" onclick="toggleDropdown(this)">
-                            <p>-Year-</p>
-                            <input name="year" type="text" value="">
-                        </button>
+                        <input type="number" name="year" placeholder="-Year-" onclick="toggleDropdown(this)">
                         <div id="year_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">2020</button>
                             <button type="button" onclick="selectSystem(this)">2019</button>
@@ -40,10 +37,7 @@
                     </div>
                     <!-- sex drop-down -->
                     <div class="select_input">
-                        <button type="button" onclick="toggleDropdown(this)">
-                            <p>-Sex-</p>
-                            <input name="sex" type="text" value="">
-                        </button>
+                        <input type="text" name="sex" placeholder="-Sex-" onclick="toggleDropdown(this)">
                         <div id="sex_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
@@ -51,10 +45,7 @@
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="select_input">
-                        <button type="button" onclick="toggleDropdown(this)">
-                            <p>-Weapon Type-</p>
-                            <input name="wt" type="text" value="">
-                        </button>
+                        <input type="text" name="wt" placeholder="-Weapon type-" onclick="toggleDropdown(this)">
                         <div id="wt_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
