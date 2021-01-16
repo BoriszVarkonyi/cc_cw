@@ -64,12 +64,17 @@
                             $comp_id = $row['comp_id'];
                             $comp_status = $row['comp_status'];
                             $star = "../assets/icons/star-black-18dp.svg";
+                            $comp_start = $row[''];
+                            $comp_end = $row[''];
 
                             ?>
                             <!-- outputting the table -->
                             <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <div class="table_item">
                                     <p><?php echo $comp_name ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo statusConverter($comp_status) ?></p>
                                 </div>
                                 <div class="table_item">
                                     <p><?php echo statusConverter($comp_status) ?></p>
