@@ -43,6 +43,12 @@
                 </div>
                 <div id="competition_info">
                     <!-- basic info panel -->
+                    <div id="announcements" class="column_panel">
+                        <p>Announcement Title</p>
+                        <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
+                        <p>Announcement Title</p>
+                        <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
+                    </div>
                     <div id="basic_information_panel" class="column_panel">
                         <p class="column_panel_title">Basic Information:</p>
                         <div>

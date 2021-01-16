@@ -579,6 +579,14 @@ input:focus ~ .clear_search_button {
 	opacity: 0;
 }
 
+.select_input > div.empty::after  {
+	content: "No results";
+	position: relative;
+	text-align: center;
+	padding: 30px 0;
+	font-family: var(--bold);
+}
+
 .select_input > div > button {
 	background-color: var(--c-white);
 	width: 100%;
@@ -832,7 +840,6 @@ input:focus ~ .clear_search_button {
 .table_row.selected {
 	background-color: var(--c-orange) !important;
 	box-shadow: var(--s-black);
-	z-index: 2; /* Has to above resizer */
 	transform: scale(1.01);
 	font-family: var(--bold);
 	border-radius: 2.5px;
