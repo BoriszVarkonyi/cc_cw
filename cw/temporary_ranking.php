@@ -24,7 +24,7 @@
                 </div>
                 <form id="browsing_bar">
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <input type="text" name="" placeholder="Search by Title" class="search">
+                    <input type="text" name="" placeholder="Search by Name" class="search">
                     <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>
                 <div id="competition_color_legend">

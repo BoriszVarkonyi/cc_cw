@@ -141,8 +141,5 @@ if(isset($_POST["send_pre"])){
 <script src="../js/cw_main.js"></script>
 <script src="../js/pre_registration.js"></script>
 <script src="../js/list.js"></script>
-<<<<<<< HEAD
-=======
 </body>
->>>>>>> a1e2d187acaefc4835027a20a27f4496e4eac0ec
 </html>

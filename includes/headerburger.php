@@ -79,12 +79,10 @@ if (isset($_POST["logout"])) {
         
         <!-- language select drop-down -->
         <div id="language_panel" class="small overlay_panel hidden">
-            <div>
-                <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
-                    <img src="../assets/icons/close-black-18dp.svg"/>
-                </button>
-            </div>
-            <div id="languages_wrapper">  
+            <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
+                <img src="../assets/icons/close-black-18dp.svg"/>
+            </button>
+            <div id="languages_wrapper">
                 <button id="language_english" class="language_button selected">
                     <img src="../assets/icons/english.svg"  class="not_icon"/>
                     <p class="language_label">English</p>  
@@ -121,16 +119,33 @@ if (isset($_POST["logout"])) {
             <button class="panel_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/close-black-18dp.svg"/>
             </button>
-            <input type="range" id="cs_range" value="1" min="1" max="3">
-            <div class="cs_label_section">
-                <p>Light</p>
-                <p>High Contrast</p>
-                <p>Dark</p>
+            <div class="color_mode_wrapper" id="color_mode_wrapper">
+                <div class="color_mode">
+                    <div class="color_sample light">Aa</div>
+                    <div>
+                        <input type="radio" name="colormode" id="light">
+                        <label for="light" onclick="setToLight();">Light</label>
+                    </div>
+                </div>
+                <div class="color_mode">
+                    <div class="color_sample high_contrast">Aa</div>
+                    <div>
+                        <input type="radio" name="colormode" id="highcontrast">
+                        <label for="highcontrast" onclick="setToHighContrast()">High Contrast</label>
+                    </div>
+                </div>
+                <div class="color_mode">
+                    <div class="color_sample dark">Aa</div>
+                    <div>
+                        <input type="radio" name="colormode" id="dark">
+                        <label for="dark" onclick="setToDark()">Dark</label>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- profile pic -->
-        <img src="https://thispersondoesnotexist.com/image" alt="profile picture" id="profile_picture" onclick="toggle_profile_panel()"/>
+        <img src="https://thispersondoesnotexist.com/image" id="profile_picture" onclick="toggle_profile_panel()"/>
         
         <!-- profile data -->
         <div class="identity_section">
@@ -143,9 +158,9 @@ if (isset($_POST["logout"])) {
             <button class="panel_button" onclick="toggle_profile_panel()">
                 <img src="../assets/icons/close-black-18dp.svg"/>
             </button>
-            <button class="panel_button left" onclick="">
+            <a class="panel_button left" href="your_profile.php" target="_blank">
                 <img src="../assets/icons/edit-black-18dp.svg"/>
-            </button>
+            </a>
             <img src="https://thispersondoesnotexist.com/image" class="profile_picture_big">
             <p class="username_big"><?php echo $username; ?></p>
             <p class="role_big"><?php echo $role; ?></p>

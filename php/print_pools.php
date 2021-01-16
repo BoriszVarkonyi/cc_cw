@@ -108,6 +108,7 @@
                                 <div class="pool_matches">
                                     <?php
                                         $fencer_signiture = [];
+                                        $fencer_grid = [];
 
                                         $qry_get_pool_match = "SELECT * FROM `pool_matches_$comp_id` WHERE `p_in` = '$pool_num'";
                                         $do_get_pool_match = mysqli_query($connection, $qry_get_pool_match);
@@ -126,15 +127,22 @@
                                             $do_get_fencer_data1 = mysqli_query($connection, $qry_get_fencer_data1);
                                             if ($row = mysqli_fetch_assoc($do_get_fencer_data1)) {
                                                 $f1_name = $row['name'];
+                                            } else {
+                                                echo mysqli_error($connection);
                                             }
                                             $qry_get_fencer_data2 = "SELECT `name` FROM cptrs_$comp_id WHERE id = '$f2_id'";
                                             $do_get_fencer_data2 = mysqli_query($connection, $qry_get_fencer_data2);
                                             if ($row = mysqli_fetch_assoc($do_get_fencer_data2)) {
                                                 $f2_name = $row['name'];
+                                            } else {
+                                                echo mysqli_error($connection);
                                             }
+
                                             array_push($fencer_signiture, $m_id_array[0] . ". " . $f1_name);
                                             array_push($fencer_signiture, $m_id_array[1] . ". " . $f2_name);
                                             $fencer_signiture = array_unique($fencer_signiture);
+                                            $fencer_grid[$m_id_array[0]] = $f1_name;
+                                            $fencer_grid[$m_id_array[1]] = $f2_name;
                                             
 
                                     ?>
@@ -199,49 +207,42 @@
                                         <div class="grid_header">
                                             <div class="grid_header_text">NAME</div>
                                             <div class="grid_header_text square">No.</div>
-                                            <div class="grid_header_text square">1</div>
-                                            <div class="grid_header_text square">2</div>
-                                            <div class="grid_header_text square">3</div>
-                                            <div class="grid_header_text square">4</div>
+                                            <?php 
+                                            for ($i = 1; $i <= $pool_of; $i++) {
+                                            ?>
+                                            <div class="grid_header_text square"><?php echo $i ?></div>
+                                            <?php } ?>
                                             <div class="grid_header_text signature">SIGNATURE</div>
                                         </div>
                                         <div class="grid_row_wrapper">
+                                            <?php
+                                                ksort($fencer_grid);
+                                                foreach ($fencer_grid as $key => $value) {
+
+                                                
+
+
+                                            ?>
+
+
                                             <div class="grid_row">
-                                                <div class="grid_item">Sziaaa</div>
-                                                <div class="grid_item square header">1</div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square filled"></div>
+                                                <div class="grid_item"><?php echo $value ?></div>
+                                                <div class="grid_item square header"><?php echo $key . "." ?></div>
+                                                <?php 
+                                                    for ($i = 1; $i <= $pool_of; $i++ ) {
+
+                                                        if ($i == $key){
+                                                            ?><div class="grid_item square filled"></div><?php
+                                                        } else {
+                                                            ?><div class="grid_item square"></div><?php
+                                                        }
+                                                    }
+                                                ?>
                                                 <div class="grid_item signature"></div>
                                             </div>
-                                            <div class="grid_row">
-                                                <div class="grid_item">Sziaaa</div>
-                                                <div class="grid_item square header">1</div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square filled"></div>
-                                                <div class="grid_item signature"></div>
-                                            </div>
-                                            <div class="grid_row">
-                                                <div class="grid_item">Sziaaa</div>
-                                                <div class="grid_item square header">1</div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square filled"></div>
-                                                <div class="grid_item signature"></div>
-                                            </div>
-                                            <div class="grid_row">
-                                                <div class="grid_item">Sziaaa</div>
-                                                <div class="grid_item square header">1</div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square"></div>
-                                                <div class="grid_item square filled"></div>
-                                                <div class="grid_item signature"></div>
-                                            </div>
+                                            <?php
+                                                } 
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="grid_table referees">
@@ -251,13 +252,17 @@
                                         </div>
                                         <div class="grid_row_wrapper">
                                             <div class="grid_row">
-                                                <div class="grid_item">Sziaaaa</div>
+                                                <div class="grid_item"><?php echo $ref1_name ?></div>
                                                 <div class="grid_item signature"></div>
                                             </div>
+                                            <?php 
+                                                if ($ref2_name != "") {
+                                            ?>
                                             <div class="grid_row">
-                                                <div class="grid_item">Sziaaaaaaaaa</div>
+                                                <div class="grid_item"><?php echo $ref2_name ?></div>
                                                 <div class="grid_item signature"></div>
                                             </div>
+                                            <?php } ?>
 
                                         </div>
                                     </div>

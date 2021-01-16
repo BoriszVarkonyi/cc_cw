@@ -48,11 +48,9 @@
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
                         <p class="article_title"><?php echo $title ?></p>
                         <img src="<?php echo $pic ?>"  class="article_image">
-                        <div>
-                            <p class="article_brief"><?php echo $brief ?></p>
-                            <p class="article_post_date">POSTED: <?php echo $date ?></p>
-                            <p class="article_post_date">BY: <?php echo $author ?></p> <!-- ennek nem biztos date nek kene lennie de csak ez volt na -->
-                        </div>
+                        <p class="article_brief"><?php echo $body ?></p>
+                        <p class="article_post_date">POSTED: <?php echo $date ?></p>
+                        <p class="article_post_date">BY: <?php echo $author ?></p> <!-- ennek nem biztos date nek kene lennie de csak ez volt na -->
                     </div>
                     <?php 
                         }

@@ -272,33 +272,14 @@
     }
 
 
+
     .grid_table {
         display: flex !important;
         flex-direction: column !important;
         text-align: center !important;
         font-size: 10pt !important;
-        margin-bottom: 20pt !important;
+        margin-top: 10pt !important;
         position: relative !important;
-    }
-    
-    .grid_row_wrapper::before {
-        position: absolute !important;
-        right: 100% !important;
-        margin-right: 5pt !important;
-        top: 50% !important;
-        transform: translateY(-40%) !important;
-        writing-mode: vertical-rl !important;
-        text-orientation: upright !important;
-        white-space: nowrap !important;
-        font-family: var(--bold) !important;
-    }
-    
-    .grid_table.fencers .grid_row_wrapper::before {
-        content: "FENCERS" !important;
-    }
-    
-    .grid_table.referees .grid_row_wrapper::before {
-        content: "REFEREES" !important;
     }
     
     .grid_header, .grid_row {
@@ -337,8 +318,16 @@
         height: 22pt !important;
     }
     
-    .grid_item.square.filled {
-        background-color: black !important;
+    .grid_item.square.filled::before {
+        content: "X" !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        font-size: 20pt !important;
+    }
+    
+    .grid_item.square.filled::before {
+        content: "X" !important;
     }
     
     .grid_item.signature, .grid_header_text.signature {
@@ -355,10 +344,11 @@
     flex-direction: column !important;
     text-align: center !important;
     font-size: 10pt !important;
-    margin-bottom: 20pt !important;
+    margin-top: 10pt !important;
     position: relative !important;
 }
 
+/*
 .grid_row_wrapper::before {
     position: absolute !important;
     right: 100% !important;
@@ -378,6 +368,7 @@
 .grid_table.referees .grid_row_wrapper::before {
     content: "REFEREES" !important;
 }
+*/
 
 .grid_header, .grid_row {
     display: flex !important;
@@ -392,7 +383,7 @@
     display: flex !important;
     flex-direction: column !important;
     border: 1pt solid black !important;
-    box-shadow: inset 0 0 0 1000px black;
+    box-shadow: inset 0 0 0 1000px black !important;
 }
 
 .grid_item, .grid_header_text {
@@ -415,8 +406,16 @@
     height: 22pt !important;
 }
 
-.grid_item.square.filled {
-    background-color: black !important;
+.grid_item.square.filled::before {
+    content: "X";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20pt;
+}
+
+.grid_item.square.filled::before {
+    content: "X";
 }
 
 .grid_item.signature, .grid_header_text.signature {

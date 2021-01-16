@@ -17,8 +17,6 @@ header {
 	width: 100%;
 	max-width: 100vw;
 	height: 50px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -466,6 +464,9 @@ header > div {
 	background: transparent;
 	height: 50px;
 	width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #navigation_mobile > button.opened {
@@ -585,7 +586,8 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	max-height: 40vh;
 	height: 500px;
 	width: 100%;
-	clip-path: ellipse( 100% 100% at 100% 100%);
+	-webkit-clip-path: ellipse( 100% 100% at 100% 100%);
+	        clip-path: ellipse( 100% 100% at 100% 100%);
 }
 
 #slide_nav {
@@ -652,7 +654,8 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .slide.blurred > img {
-	filter: blur(5px) brightness(75%);
+	-webkit-filter: blur(5px) brightness(75%);
+	        filter: blur(5px) brightness(75%);
 }
 
 .slide > p {
@@ -1116,7 +1119,8 @@ input[value="Search"] {
 	height: 110px;
 	width: 190px;
 	min-width: 190px;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 }
 
 .video_wrapper_info {
@@ -1484,11 +1488,10 @@ input[value="Search"] {
 /* Blog */
 
 .blog_article {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 20px 50px;
+	margin: 0 20px 50px;
 	padding: 20px;
 	cursor: pointer;
+	min-height: calc(180px + 2em);
 }
 
 .blog_article:hover {
@@ -1501,28 +1504,33 @@ input[value="Search"] {
 	font-family: var(--bold);
 	text-transform: uppercase;
 	margin-bottom: 5px;
-}
-
-.blog_article > div {
-	display: flex;
-	flex-wrap: wrap;
-	width: calc(100% - 220px);
-	padding: 0 10px;
+	-webkit-line-clamp: 4;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;  
+	overflow: hidden;
 }
 
 .article_image {
-	width: 200px;
+	height: 180px;
+	width: 320px;
+	max-width: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	float: left;
+	margin: 0 1rem 1rem 0;
 }
 
-/*
 .article_brief {
-	
+	-webkit-line-clamp: 4;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;  
+	overflow: hidden;
 }
-*/
 
 .article_post_date {
 	text-transform: uppercase;
 	color: var(--c-darkgray);
+	margin-right: 1rem;
 }
 
 /* ARTICLE */
@@ -1550,7 +1558,8 @@ input[value="Search"] {
 #article_wrapper img {
 	width: 30rem;
 	height: 20rem;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 	float: left;
 	margin: 0 1rem 1rem 0;
 }
