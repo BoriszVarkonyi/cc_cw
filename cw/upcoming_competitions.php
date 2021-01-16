@@ -27,12 +27,15 @@
                     <div class="select_input">
                         <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
                         <div id="year_select_dropdown" class="closed">
-                            <button type="button" onclick="selectSystem(this)">2020</button>
-                            <button type="button" onclick="selectSystem(this)">2019</button>
-                            <button type="button" onclick="selectSystem(this)">2018</button>
-                            <button type="button" onclick="selectSystem(this)">2017</button>
-                            <button type="button" onclick="selectSystem(this)">2016</button>
-                            <button type="button" onclick="selectSystem(this)">2015</button>
+                            <?php
+                                for ($i = -1; $i <= 10; $i++) {
+                                    
+                                    $year = date("Y") - $i; 
+                                    
+                                    ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
+                                }
+
+                            ?>
                         </div>
                     </div>
                     <!-- sex drop-down -->
