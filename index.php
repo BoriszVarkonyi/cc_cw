@@ -297,9 +297,24 @@ if(strlen($test, 1) == 0){
                 <p>For Organisers</p>
                 <a href="">CC Wheelchair</a>
                 <p>For Federations</p>
-                <a href="">CC FC</a>
+                <a href="">Competition View</a>
             </div>
         </div>
+    </div>
+
+
+    <div id="apps">
+        <div>
+            <input type="radio" name="app" id="cc" value="cc" checked/>
+            <label for="cc">Competition Control</label>
+        </div>
+
+        <div>
+            <input type="radio" name="app" id="ccw" value="ccw"/>
+            <label for="ccw" other>Competition Control Wheelchair</label>
+            <button>OPEN</button>
+        </div>
+
     </div>
 
     <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>

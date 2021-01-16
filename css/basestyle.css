@@ -543,33 +543,26 @@ input:focus ~ .clear_search_button {
 	position: relative;
 }
 
-.select_input > button {
+.select_input > input {
 	width: 100%;
 	border-radius: 5px;
 	z-index: 2;
 	box-shadow: var(--s-black);
 	font-family: var(--bold);
-	color: var(--c-darkgray);
-	background-color: var(--c-lightergray);
-}
-
-.select_input.checked > button {
 	color: var(--c-black);
-}
-
-.select_input > button > p {
-	width: 100%;
-	padding: 7.5px 0;
 	background-color: var(--c-lightestgray);
-	white-space: nowrap;
+	padding: 7.5px 0;
+	text-align: center;
+	border: none !important;
+	margin: 0;
 }
 
-.select_input > button > input {
-	display: none;
+.select_input > input:focus + div {
+	max-height: 40vh;
+	opacity: 1;
 }
 
 .select_input > div {
-	max-height: 40vh;
 	position: absolute;
 	top: calc( var(--f-medium) + 18px );
 	background-color: var(--c-white);
@@ -578,13 +571,10 @@ input:focus ~ .clear_search_button {
 	box-shadow: var(--s-black);
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
 	transition: all var(--t-basic);
 	opacity: 1;
 	overflow: hidden;
-}
-
-.select_input > div.closed {
+	padding: 15px 0 10px;
 	max-height: 0;
 	opacity: 0;
 }
@@ -595,20 +585,20 @@ input:focus ~ .clear_search_button {
 	padding: 5px 0;
 }
 
-.select_input > div > button:first-of-type {
-	margin-top: 15px;
-}
-
-.select_input > div > button:last-of-type {
-	margin-bottom: 15px;
-}
-
 .select_input > div > button:hover {
 	background-color: var(--c-lightestgray);
 }
 
 .select_input > div > button.selected {
 	background-color: var(--c-lightestgray);
+}
+
+.select_input.dense > div {
+	overflow-y: auto;
+}
+
+.select_input.dense > div > button {
+	padding: 2px 0;
 }
 
 /* Loading Screen */
