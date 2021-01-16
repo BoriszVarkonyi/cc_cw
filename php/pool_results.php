@@ -55,7 +55,7 @@ if($score1 != NULL && $score2 != NULL){
                 <p class="page_title">Pool No. <?php echo $poolnum ?> 's results</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
-                        <p>Send message to Fencer</p>
+                        <p>Message Fencer</p>
                         <img src="../assets/icons/message-black-18dp.svg"/>
                     </button>
 

@@ -84,7 +84,7 @@
                     <p class="page_title">Weapon Control</p>
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" id="sendMessageButton" type="submit">
-                            <p>Send message to fencer</p>
+                            <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
                         </button>
                         <button name="add_wc" class="stripe_button orange" id="wcButton" type="submit">

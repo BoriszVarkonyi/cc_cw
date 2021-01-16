@@ -29,7 +29,7 @@
                     <p class="page_title">Call Room</p>
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button" type="submit">
-                            <p>Send Message to Fencer</p>
+                            <p>Message Fencer</p>
                             <img src="../assets/icons/message-black-18dp.svg"/>
                         </button>
                         <button class="stripe_button orange" type="submit">

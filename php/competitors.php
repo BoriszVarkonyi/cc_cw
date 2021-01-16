@@ -42,7 +42,7 @@ $query_do = mysqli_query($connection, $query);
                 <input type="text" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
-                        <p>Send message to Fencer</p>
+                        <p>Message Fencer</p>
                         <img src="../assets/icons/message-black-18dp.svg"/>
                     </button>
                     <a class="stripe_button orange" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">

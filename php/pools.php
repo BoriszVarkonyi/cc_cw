@@ -870,7 +870,7 @@ elseif ($exist != 0 && $exist2 == 0)
                 STATE: 1 
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
-                        <p>Send Message to Fencer</p>
+                        <p>Message Fencer</p>
                         <img src="../assets/icons/message-black-18dp.svg" />
                     </button>
 
