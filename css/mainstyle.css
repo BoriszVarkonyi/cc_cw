@@ -4278,9 +4278,15 @@ input.wc_time {
 }
 
 #pool_results > div > div {
-	width: 50%;
-	max-width: 50%;
 	display: flex;
+}
+
+#pool_results > div > div:first-of-type {
+	width: 60%;
+}
+
+#pool_results > div > div:last-of-type {
+	width: 40%;
 }
 
 #pool_results .entry {
@@ -4288,7 +4294,7 @@ input.wc_time {
 	justify-self: center;
 	box-sizing: border-box;
 	width: 100%;
-	margin: 0 50px;
+	margin: 0 30px;
 }
 
 #pool_matches {
@@ -4309,6 +4315,7 @@ input.wc_time {
 	background-color: var(--c-white);
 	border: 5px solid;
 	margin: 5px 0;
+	overflow: auto;
 }
 
 .match.red {

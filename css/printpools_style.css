@@ -276,8 +276,6 @@
         border-top: 1pt solid black;
     }
 
-
-
     .grid_table {
         display: flex !important;
         flex-direction: column !important;
