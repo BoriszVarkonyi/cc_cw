@@ -98,7 +98,7 @@
                         <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                         <?php
-                        $query = "SELECT * FROM $table_name";
+                        $query = "SELECT * FROM cptrs_$comp_id";
                         $query_do = mysqli_query($connection, $query);
 
                         while($row = mysqli_fetch_assoc($query_do)){

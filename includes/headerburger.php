@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
+<?php include "../includes/functions.php" ?>
 <?php include "db.php"; ?>
-<?php include "functions.php"; ?>
 <?php include "username_checker.php"; ?>
 <?php
 
@@ -60,12 +60,20 @@ if (isset($_POST["logout"])) {
     <header>
         <p id="app_name">Competition Control <b>Alpha</b></p>
 
-        <!-- hamburger tab for navbar left -->
-        <div id="menu_button_section">
-            <button type="button" onclick="toggle_nav_bar()" id="menu_button">
-                <img src="../assets/icons/menu-black-18dp.svg"/>
-            </button>
-        </div>
+        <?php 
+            if (isset($_GET['comp_id'])) {
+
+                ?>
+                    <!-- hamburger tab for navbar left -->
+                    <div id="menu_button_section">
+                        <button type="button" onclick="toggle_nav_bar()" id="menu_button">
+                            <img src="../assets/icons/menu-black-18dp.svg"/>
+                        </button>
+                    </div>
+                <?php
+            }
+
+        ?>
         
         <!-- colormode and language buttons -->
         <div class="settings_section">
