@@ -14,7 +14,7 @@
 
     $assoc_array_functions = // creating assoc array of button names and onclicks, and hrefs
     [
-        "dt" =>                 'onclick="toggle_dt_dropdown()"',
+        "dt" =>                 'onclick="toggle_dtDropdown()"',
         "competitors" =>        'href="competitors.php?comp_id=' . $comp_id . '"',
         "pools" =>              'href="pools.php?comp_id=' . $comp_id . '"',
         "temp_ranking" =>              'href="temporary_ranking.php?comp_id=' . $comp_id . '"',

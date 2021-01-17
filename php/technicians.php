@@ -140,33 +140,36 @@
                         <img src="../assets/icons/close-black-18dp.svg">
                     </button>
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form">
-                        <div class="select_competition_wrapper table_row_wrapper">
+                        <div class="table t_c_0">
+                            <div class="table_header">
+                                <div class="table_header_text"><p>NAME</p></div>
+                            </div>
+                            <div class="select_competition_wrapper table_row_wrapper">
+                                <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
+                                <?php
+                                    //get oragasniser id
+                                    $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
+                                    $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
 
-                        <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
+                                    if ($row = mysqli_fetch_assoc($do_get_org_id)) {
+                                        $org_id = $row['id'];
+                                    } else {
+                                        echo mysqli_error($connection);
+                                    }
 
-                        <?php
-                            //get oragasniser id
-                            $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
-                            $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
+                                    $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id'";
+                                    $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
 
-                            if ($row = mysqli_fetch_assoc($do_get_org_id)) {
-                                $org_id = $row['id'];
-                            } else {
-                                echo mysqli_error($connection);
-                            }
-
-                            $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id'";
-                            $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
-
-                            while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
-                                $import_comp_name = $row['comp_name'];
-                                $import_comp_id = $row['comp_id'];
-                        ?>
-                                        <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $import_comp_id; ?>"><?php echo $import_comp_name; ?></div></div>
-                                    
-                        <?php 
-                            }
-                        ?>
+                                    while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
+                                        $import_comp_name = $row['comp_name'];
+                                        $import_comp_id = $row['comp_id'];
+                                ?>
+                                                <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p></div></div>
+                                            
+                                <?php 
+                                    }
+                                ?>
+                            </div>
                         </div>
                         <button type="submit" name="submit_import" class="panel_submit" form="import_technician" value="Import">Import</button>
                     </form>

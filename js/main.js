@@ -8,18 +8,23 @@ var navBar = document.getElementById("nav_bar");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("menu_button_section");
 var menuButton = document.getElementById("menu_button");
-var dtDrop = document.getElementById("dt_dropdown_icon");
-var genDrop = document.getElementById("general_dropdown_icon");
-var techDrop = document.getElementById("technical_dropdown_icon");
+
+var dtDropIcon = document.getElementById("dt_dropdown_icon");
+var gnDropIcon = document.getElementById("general_dropdown_icon");
+var thDropIcon = document.getElementById("technical_dropdown_icon");
+
+var dtDrop = document.getElementById("dt_dropdown_menu");
+var gnDrop = document.getElementById("general_dropdown_menu");
+var thDrop = document.getElementById("technical_dropdown_menu");
 
 function toggle_nav_bar() {
     navBar.classList.toggle("closed");
     appName.classList.toggle("closed");
     menuSection.classList.toggle("closed");
     menuButton.classList.toggle("closed");
-    dtDrop.classList.toggle("closed");
-    genDrop.classList.toggle("closed");
-    techDrop.classList.toggle("closed");
+    dtDropIcon.classList.toggle("close");
+    gnDropIcon.classList.toggle("close");
+    thDropIcon.classList.toggle("close");
 
     if (status == "closed") {
         ovtext.innerHTML = "OVERVIEW";
@@ -27,13 +32,37 @@ function toggle_nav_bar() {
         setext.innerHTML = "SETUP";
         status = "opened";
     }
-
     else if (status == "opened"){
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
         setext.innerHTML = "S";
         status = "closed";
+
+        dtDrop.classList.add("hidden");
+        dtDropIcon.classList.add("close");
+
+        gnDrop.classList.add("hidden");
+        gnDropIcon.classList.add("close");
+
+        thDrop.classList.add("hidden");
+        thDropIcon.classList.add("close");
     }
+}
+
+/* Toggle Nav Dropdow  */
+function toggle_dtDropdown() {
+    dtDrop.classList.toggle("hidden");
+    dtDropIcon.classList.toggle("close");
+}
+
+function toggle_general_dropdown() {
+    gnDrop.classList.toggle("hidden");
+    gnDropIcon.classList.toggle("close");
+}
+
+function toggle_technical_dropdown() {
+    thDrop.classList.toggle("hidden");
+    thDropIcon.classList.toggle("close");
 }
 
 // Disables transition on Pageload
@@ -126,29 +155,6 @@ function toggle_profile_panel() {
     profile_panel.classList.toggle("hidden");
 }
 
-/* Toggle Nav Dropdow  */
-
-function toggle_dt_dropdown() {
-    var dt_drop = document.getElementById("dt_dropdown_menu");
-    var dt_drop_icon = document.getElementById("dt_dropdown_icon");
-    dt_drop.classList.toggle("hidden");
-    dt_drop_icon.classList.toggle("close");
-}
-
-function toggle_general_dropdown() {
-    var dt_drop = document.getElementById("general_dropdown_menu");
-    var dt_drop_icon = document.getElementById("general_dropdown_icon");
-    dt_drop.classList.toggle("hidden");
-    dt_drop_icon.classList.toggle("close");
-}
-
-function toggle_technical_dropdown() {
-    var dt_drop = document.getElementById("technical_dropdown_menu");
-    var dt_drop_icon = document.getElementById("technical_dropdown_icon");
-    dt_drop.classList.toggle("hidden");
-    dt_drop_icon.classList.toggle("close");
-}
-
 /*  Color changer */
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -170,7 +176,6 @@ var hasBackgroundIcon = document.querySelectorAll("input");
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon), input.backgroundImage');
 var csWrapper = document.getElementById("color_mode_wrapper");
 var colorModes = csWrapper.getElementsByTagName("input");
-console.log(colorModes)
 
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');

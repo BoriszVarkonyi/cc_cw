@@ -12,6 +12,9 @@ setcookie("today",$test,time()+31556926);
 <!-- navbar -->
 <div class="nav_bar_flex">
     <div id="nav_bar">
+        <button id="nav_bar_pin" class="pinned">
+            <img src="../assets/icons/push_pin-black-18dp.svg">
+        </button>
         <div id="nav_bar_wrapper">
             <p id="overview_text" class="nav_bar_title">OVERVIEW</p> 
             <!-- dashboard -->

@@ -10,8 +10,14 @@
 	--c-white: #FFF;
 	--c-transparent-white: #FFFFFF20;
 	--c-yellow: #FFC914;
+	/*
 	--c-orange: #FF9700;
+	*/
+	--c-orange: #F19A3E;
+	/*
 	--c-lightorange: #FFBE5C;
+	*/
+	--c-lightorange: #f2a451;
 	--c-red: #F84F4F;
 	--c-green: #8DFFB7;
 	--c-blue: #42CAFD;
@@ -29,8 +35,8 @@
 	--cs-navbar: #252525; 
 	--cs-transparent-white: #FFFFFF20;
 	--cs-yellow: #FFC914;
-	--cs-orange: #FF9700;
-	--cs-lightorange: #FFBE5C;
+	--cs-orange: #F19A3E;
+	--cs-lightorange: #f2a451;
 	--cs-red: #F84F4F;
 	--cs-green: #8DFFB7;
 	--cs-blue: #42CAFD;
@@ -101,8 +107,8 @@
 	--c-purple: #393939;
 	--c-bronze : #393939;
 	/* Unique */
-	--csd-orange: #FF9700;
-	--csd-lightorange: #FFBE5C;
+	--csd-orange:  #F19A3E;
+	--csd-lightorange: #f2a451;
 	/* Shadows */
 	--s-black: 0 3px 6px #25252510;
 	--s-orange: 0 3px 6px #FF970010;

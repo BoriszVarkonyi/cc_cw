@@ -156,7 +156,7 @@ if (isset($_POST["logout"])) {
         <img src="https://thispersondoesnotexist.com/image" id="profile_picture" onclick="toggle_profile_panel()"/>
         
         <!-- profile data -->
-        <div class="identity_section">
+        <div class="identity_section" onclick="toggle_profile_panel()">
             <p id="username"><?php echo $username; ?></p>
             <p id="role"><?php echo $role; ?></p>
         </div>

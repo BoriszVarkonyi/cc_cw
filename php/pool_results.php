@@ -53,6 +53,7 @@ if($score1 != NULL && $score2 != NULL){
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Pool No. <?php echo $poolnum ?> 's results</p>
+                <input type="text" name="" id="" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
@@ -321,13 +322,13 @@ if($score1 != NULL && $score2 != NULL){
                             </div>
                             <div>
                                 <p><?php echo $f1_n ?></p>
-                                <input type="number" form="savepool" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="<?php echo $f1_sc ?>">
+                                <input type="number" form="savepool" placeholder="#" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="<?php echo $f1_sc ?>">
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" form="savepool" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="<?php echo $f2_sc ?>">
+                                <input type="number" form="savepool" placeholder="#" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="<?php echo $f2_sc ?>">
                                 <p><?php echo $f2_n ?></p>
                             </div>
                         </div>
