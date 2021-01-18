@@ -36,7 +36,7 @@
 	--cs-transparent-white: #FFFFFF20;
 	--cs-yellow: #FFC914;
 	--cs-orange: #F19A3E;
-	--cs-lightorange: #f2a451;
+	--cs-lightorange: #F5B877;
 	--cs-red: #F84F4F;
 	--cs-green: #8DFFB7;
 	--cs-blue: #42CAFD;
@@ -570,7 +570,7 @@ input:focus ~ .clear_search_button {
 
 .select_input > div {
 	position: absolute;
-	top: calc( var(--f-medium) + 18px );
+	top: 100%;
 	background-color: var(--c-white);
 	width: 100%;
 	z-index: 1;
@@ -816,27 +816,55 @@ input:focus ~ .clear_search_button {
 }
 
 /* General */
+
 .table_row {
 	outline: none;
 	cursor: pointer;
 	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
-	background-color: var(--c-white);
 }
 
 .entry > .table_row {
 	background-color: var(--c-white);
 }
 
-.entry:nth-of-type(even) > .table_row {
+.entry > .table_row:hover {
+	background-color: var(--c-lightergray);
+}
+
+.table_row_wrapper.alt > .entry > .table_row:hover {
+	background-color: var(--c-lightgray);
+}
+
+.table_row_wrapper .entry:nth-of-type(even) > .table_row, .table_row_wrapper > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {
+	background-color: var(--c-lightestgray);
+}
+
+.entry:nth-of-type(even) > .table_row, .table_row_wrapper #add_entry .table_row, #add_entry + #adding_entry .table_row {
+	background-color: var(--c-white);
+}
+
+.table_row_wrapper.alt .entry:nth-of-type(even) > .table_row, .table_row_wrapper.alt > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {
+	background-color: var(--c-lightergray);
+}
+
+.entry:nth-of-type(even) > .table_row, .table_row_wrapper.alt #add_entry .table_row, #add_entry + #adding_entry .table_row {
 	background-color: var(--c-lightestgray);
 }
 
 .entry .entry_panel {
-	background-color: var(--c-lightestgray);
+	background-color: var(--c-white);
 }
 
 .entry:nth-of-type(even) .entry_panel {
-	background-color: var(--c-white) !important;
+	background-color: var(--c-lightestgray);
+}
+
+.table_row_wrapper.alt .entry .entry_panel {
+	background-color: var(--c-lightestgray);
+}
+
+.table_row_wrapper.alt .entry:nth-of-type(even) .entry_panel {
+	background-color: var(--c-lightergray);
 }
 
 .table_row.selected {
@@ -878,7 +906,6 @@ input:focus ~ .clear_search_button {
 
 .table_row_drop.opened:after {
 	content: "Drop Fencer here";
-	
 	color: var(--c-darkgray);
 }
 
@@ -1020,6 +1047,8 @@ input:focus ~ .clear_search_button {
 	max-width: 100% !important;
 }
 
+/* Table Sort */
+
 /* Resizer */
 
 .resizer {
@@ -1098,6 +1127,7 @@ p.wc_time {
 
 .entry.opened > .table_row {
 	font-family: var(--bold);
+	background-color: var(--c-orange) !important;
 }
 
 .entry_panel {

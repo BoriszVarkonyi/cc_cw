@@ -146,7 +146,7 @@
                         </div>
                         <div class="db_panel_main ">
                             <div class="table t_c_0" id="plus_info_wrapper" >
-                                <div class="table_row_wrapper">
+                                <div class="table_row_wrapper alt">
 
                                     <?php
                                         //displaying plsu infos from db in table rows

@@ -101,16 +101,6 @@ function toggle_technical_dropdown() {
     thDropIcon.classList.toggle("close");
 }
 
-// Disables transition on Pageload
-
-window.removeEventListener('DOMContentLoaded', (event) => {
-    document.body.classList.remove("preload");
-});
-
-window.removeEventListener('load', (event) => {
-    document.body.classList.remove("preload");
-});
-
 // Toggle panels
 // Getting panels by id
 
@@ -127,12 +117,12 @@ var oldClickedelement;
 function toggle_language_panel() {
    /* //Making every panel hidden.
     for(i=0; i<elements.length; i++){
-        elements[i].classList.remove("hidden")
+        elements[i].classList.add("hidden")
     }
     //Checking if the lang panel equals the oldClickedelement.
     if(lang_panel == oldClickedelement) {
         //If yes it removes the class.
-        lang_panel.classList.remove("hidden");
+        lang_panel.classList.add("hidden");
     }
     //Toggles the class.
     lang_panel.classList.toggle("hidden");
@@ -152,11 +142,11 @@ function toggle_language_panel() {
 function toggle_colormode_panel() {
    /* //Making every panel hidden
     for(i=0; i<elements.length; i++){
-        elements[i].classList.remove("hidden")
+        elements[i].classList.add("hidden")
     }
 
     if(color_panel == oldClickedelement) {
-        color_panel.classList.remove("hidden");
+        color_panel.classList.add("hidden");
     }
 
     color_panel.classList.toggle("hidden");
@@ -173,11 +163,11 @@ function toggle_colormode_panel() {
 function toggle_profile_panel() {
    /* //Making every panel hidden
     for(i=0; i<elements.length; i++){
-        elements[i].classList.remove("hidden")
+        elements[i].classList.add("hidden")
     }
 
     if(profile_panel == oldClickedelement) {
-        profile_panel.classList.remove("hidden");
+        profile_panel.classList.add("hidden");
     }
 
     profile_panel.classList.toggle("hidden");
@@ -191,9 +181,11 @@ function toggle_profile_panel() {
     profile_panel.classList.toggle("hidden");
 }
 
-/*  Color changer */
+// Disables transition on Pageload
 
-window.removeEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.body.classList.add("preload");
+
     const current_cs = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', current_cs);
     if (current_cs == "") {
@@ -207,6 +199,11 @@ window.removeEventListener('DOMContentLoaded', (event) => {
     }
 });
 
+window.addEventListener('load', (event) => {
+    document.body.classList.remove("preload");
+});
+
+/*  Color changer */
 
 var hasBackgroundIcon = document.querySelectorAll("input");
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon), input.backgroundImage');
@@ -265,7 +262,7 @@ console.log(dds);
 
 for(i = 0; i < dds.length; i++){
 
-    dds[i].classList.remove("disabled");
+    dds[i].classList.add("disabled");
     dds[i].onclick = "";
 
    }
@@ -275,37 +272,14 @@ for(i = 0; i < dds.length; i++){
 
 for(i = 0; i < set.length; i++){
 
-    set[i].classList.remove("disabled");
+    set[i].classList.add("disabled");
     set[i].href = "";
 
    }
 var setuptext = document.getElementById("setup_text");
-setuptext.classList.remove("disabled");
+setuptext.classList.add("disabled");
 
 }
-
-/* Table Column resizer */
-
-document.removeEventListener("click", resizeTableColumn());
-
-function resizeTableColumn() {
-    var tableHeader = document.querySelector(".table_header");
-    var tableHeaderText = document.querySelectorAll(".table_header_text");
-    var tableRow = document.querySelectorAll(".table_row");
-    var tableItem = document.querySelectorAll(".table_item");
-    var amountOfColumns = tableHeaderText.length;
-    var singeColumn = 1;
-    var i;
-
-    //console.log(amountOfColumns);
-
-    for(i = 1; i <= amountOfColumns; i++){
-
-        //console.log("");
-    }
-}
-
-
 
 // Overlay_panels
 
@@ -329,7 +303,7 @@ function overlayPanel() {
         for(i=0; i<overlayPanelsOepened.length; i++) {
             overlayPanelsOepened.pop()
         }
-        overlayPanelsOepened[0].classList.remove("hidden")
+        overlayPanelsOepened[0].classList.add("hidden")
         overlayPanelsOepened.pop()
     }
     //Check if the first array element contains hidden.
@@ -385,7 +359,7 @@ function searchEngine(x) {
     var filter = input.value.toUpperCase();
     var ul = input.nextElementSibling;
     var li = ul.getElementsByTagName('a');
-    ul.classList.remove("empty")
+    ul.classList.add("empty")
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
       a = li[i];
@@ -405,7 +379,7 @@ function searchEngine(x) {
         }
     }
     if(!allDisplay) {
-        ul.classList.remove("empty")
+        ul.classList.add("empty")
 
     }
     //Search engine arrow system
@@ -424,16 +398,16 @@ function searchEngine(x) {
                     selectedElementIndex++
                 }
                 selectedElementIndex--
-                li[selectedElementIndex + 1].classList.remove("selected")
-                li[selectedElementIndex].classList.remove("selected")
+                li[selectedElementIndex + 1].classList.add("selected")
+                li[selectedElementIndex].classList.add("selected")
             }
             if(keyDownEvent.key == "ArrowDown"){
                 if(selectedElementIndex == liCounter -1) {
                     selectedElementIndex--
                 }
                 selectedElementIndex++
-                li[selectedElementIndex - 1].classList.remove("selected")
-                li[selectedElementIndex].classList.remove("selected")
+                li[selectedElementIndex - 1].classList.add("selected")
+                li[selectedElementIndex].classList.add("selected")
             }
         }       
     }
@@ -451,14 +425,14 @@ function resultChecker(x){
         li[i].style.display = "";
     }
     if(li.length == 0) {
-        ul.classList.remove("empty")
+        ul.classList.add("empty")
     }
     else {
         for(i=0; i<li.length; i++){
-            li[i].classList.remove("selected")
+            li[i].classList.add("selected")
         }
         selectedElementIndex = 0;
-        li[selectedElementIndex].classList.remove("selected")
+        li[selectedElementIndex].classList.add("selected")
     }
 }
 
@@ -519,7 +493,7 @@ document.removeEventListener("keydown", function(e){
     if(searchBarClosed){
         if(e.shiftKey && canAddHoverClass) {
             for(i=0; i<stripeButtons.length; i++){
-                stripeButtons[i].classList.remove("hover")
+                stripeButtons[i].classList.add("hover")
             }
             canAddHoverClass = false;
         }
@@ -530,7 +504,7 @@ document.removeEventListener("keyup", function(e){
     if(searchBarClosed){
         if(e.key == "Shift") {
             for(i=0; i<stripeButtons.length; i++){
-                stripeButtons[i].classList.remove("hover")
+                stripeButtons[i].classList.add("hover")
             }
             canAddHoverClass = true;
         }

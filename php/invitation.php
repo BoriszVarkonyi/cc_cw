@@ -161,13 +161,13 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
         <div class="page_content_flex">
 
             <div id="title_stripe">
-                <p class="page_title">Plus Information</p>
+                <p class="page_title">Invitation & Plus Information</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button" type="button" onclick="printPage()">
+                    <button class="stripe_button" type="button" onclick="printPage()" shortcut="SHIFT+P">
                         <p>Print Invitation</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button orange" type="button">
+                    <button class="stripe_button orange" type="button" shortcut="SHIFT+S">
                         <p>Save Invitation</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
@@ -177,16 +177,18 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
             <div id="page_content_panel_main">
                 <div id="invitation_wrapper" class="wrapper">
 
-                    <div id="plus_information">
-
+                    <div class="db_panel invitation">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
                             <p>Plus information</p>
                         </div>
-
                         <div class="db_panel_main">
                             <div class="table t_c_0" id="plus_info_wrapper">
-                                <div class="table_row_wrapper">
+                                <div class="table t_c_0">
+                                    <div class="table_header">
+                                        <div class="table_header_text">TITLE</div>
+                                    </div>
+                                <div class="table_row_wrapper alt">
                                     <?php
 
                                         //displaying plsu infos from db in table rows
@@ -199,7 +201,6 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                                 $info_body = $row['info_body'];
                                     ?>
 
-                                            <!-- while ozd majd ki csoro  -->
                                             <div class="entry" >
                                                 <div class="table_row" onclick="toggleEntry(this)">
                                                     <div class="table_item invitation"><?php echo $info_title ?></div>
@@ -213,12 +214,10 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                                         <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
                                                     </form>
                                             </div>
-
                                     <?php        
                                             } 
                                         }
                                     ?>
-
                                     <div id="add_entry" onclick="hideNshow()">
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
@@ -236,11 +235,12 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                             </div>
                                         </div>
                                     </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="inv_panel">
+                    <div class="db_panel invitation">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
                             <p>Add competition logo</p>

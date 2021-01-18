@@ -61,7 +61,7 @@
                         <input type="number" name="year" placeholder="-Year-Of-Birth-" onkeyup="selectSystemWithSearch(this)">
                         <div id="year_select_dropdown">
                             <?php
-                                for ($i = -1; $i <= 10; $i++) {
+                                for ($i = +3; $i <= 100; $i++) {
                                     
                                     $year = date("Y") - $i; 
                                     

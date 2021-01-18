@@ -112,7 +112,7 @@
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body>
+<body class="preload">
 <!-- header -->
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
@@ -220,7 +220,7 @@
                 </div>
             </div>
             <?php echo $selected_comp_id ?>
-                        <div id="page_content_panel_main">
+            <div id="page_content_panel_main">
                 <div class="table wrapper">
                     <?php
 
@@ -236,9 +236,12 @@
                     } else {
                         ?>
                         <div class="table_header">
-                            <div class="table_header_text" id="drag-left">NAME</div>
-                                <div class="table_header_text" id="drag-right">ROLE</div>
-                                <div class="table_header_text">STATUS</div>
+                            <div class="table_header_text" id="drag-left">
+                                <p>NAME</p>
+                                <button class="sort_button"><img src="" alt=""></button>
+                            </div>
+                                <div class="table_header_text" id="drag-right"><p>ROLE</p></div>
+                                <div class="table_header_text"><p>STATUS</p></div>
                                 <div class="small_status_header">
                             </div>
                         </div>

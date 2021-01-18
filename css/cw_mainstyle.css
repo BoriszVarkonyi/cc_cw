@@ -144,11 +144,11 @@ footer {
 @media (min-width: 768px) {
 
 	#navigation {
-		display: flex;
+		display: none;
 	}
 
 	#navigation_mobile {
-		display: none;
+		display: flex;
 	}
 
 	header {
@@ -1252,26 +1252,8 @@ input[value="Search"] {
 
 /* Pools */
 
-#pools_wrapper {}
-
-#pools_wrapper > .entry > .table_row {
-	background-color: var(--c-lightestgray);
-}
-
-#pools_wrapper > .entry:nth-child(even) > .table_row {
-	background-color: var(--c-lightergray);
-}
-
-#pools_wrapper > .entry:nth-child(even) > .entry_panel {
-	background-color: var(--c-lightestgray);
-}
-
 .pool_table_wrapper {
 	width: 80%;
-}
-
-.pool_table_wrapper .table_row {
-	background: transparent;
 }
 
 /* Final result */

@@ -34,7 +34,7 @@
                             <div class="table_header_text">REFEREE</div>
                             <div class="table_header_text">TIME</div>
                         </div>
-                        <div id="pools_wrapper" class="table_row_wrapper">
+                        <div class="table_row_wrapper alt">
                             <div class="entry">
                                 <div class="table_row start" onclick="togglePool(this)">
                                     <div class="table_item bold">No. 1</div>
@@ -43,7 +43,7 @@
                                     <div class="table_item">11:50</div>
                                 </div>
                                 <div class="entry_panel gray collapsed">
-                                    <div class="pool_table_wrapper table">
+                                    <div class="table">
                                         <div class="table_header">
                                             <div class="table_header_text">
                                                 Fencers name
