@@ -58,14 +58,14 @@ if (isset($_POST["logout"])) {
 
 <div id="header">
     <header>
-        <p id="app_name">Competition Control <b>Alpha</b></p>
+        <p id="app_name" class="closed">Competition Control <b>Alpha</b></p>
 
         <?php 
             if (isset($_GET['comp_id'])) {
 
                 ?>
                     <!-- hamburger tab for navbar left -->
-                    <div id="menu_button_section">
+                    <div id="menu_button_section" class="closed">
                         <button type="button" onclick="toggle_nav_bar()" id="menu_button">
                             <img src="../assets/icons/menu-black-18dp.svg"/>
                         </button>

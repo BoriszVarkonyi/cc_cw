@@ -1,5 +1,5 @@
 /* navigatation */
-status = "opened";
+status = "closed";
 
 var cotext = document.getElementById("controls_text");
 var ovtext = document.getElementById("overview_text");
@@ -8,6 +8,7 @@ var navBar = document.getElementById("nav_bar");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("menu_button_section");
 var menuButton = document.getElementById("menu_button");
+var pin = document.getElementById("nav_bar_pin");
 
 var dtDropIcon = document.getElementById("dt_dropdown_icon");
 var gnDropIcon = document.getElementById("general_dropdown_icon");
@@ -48,6 +49,41 @@ function toggle_nav_bar() {
         thDropIcon.classList.add("close");
     }
 }
+//Toggle pin
+function togglePinButton(x){
+    x.classList.toggle("pinned");
+    pinChecker();
+}
+//
+function pinChecker(){
+    if(pin.classList.contains("pinned")){
+        localStorage.setItem('navbar_status', 'pinned');
+    }
+    else{
+        localStorage.setItem('navbar_status', 'notPinned');
+    }
+}
+
+const navbar_status = localStorage.getItem('navbar_status');
+
+function opened_nav_bar(){
+    navBar.classList.remove("closed");
+    appName.classList.remove("closed");
+    menuSection.classList.remove("closed");
+    menuButton.classList.remove("closed");
+    dtDropIcon.classList.remove("close");
+    gnDropIcon.classList.remove("close");
+    thDropIcon.classList.remove("close");
+    ovtext.innerHTML = "OVERVIEW";
+    cotext.innerHTML = "CONTROLS";
+    setext.innerHTML = "SETUP";
+    status = "opened";
+}
+
+if(navbar_status == "pinned"){
+    opened_nav_bar();
+    pin.classList.add("pinned")
+}
 
 /* Toggle Nav Dropdow  */
 function toggle_dtDropdown() {
@@ -67,11 +103,11 @@ function toggle_technical_dropdown() {
 
 // Disables transition on Pageload
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    document.body.classList.add("preload");
+window.removeEventListener('DOMContentLoaded', (event) => {
+    document.body.classList.remove("preload");
 });
 
-window.addEventListener('load', (event) => {
+window.removeEventListener('load', (event) => {
     document.body.classList.remove("preload");
 });
 
@@ -91,7 +127,7 @@ var oldClickedelement;
 function toggle_language_panel() {
    /* //Making every panel hidden.
     for(i=0; i<elements.length; i++){
-        elements[i].classList.add("hidden")
+        elements[i].classList.remove("hidden")
     }
     //Checking if the lang panel equals the oldClickedelement.
     if(lang_panel == oldClickedelement) {
@@ -116,7 +152,7 @@ function toggle_language_panel() {
 function toggle_colormode_panel() {
    /* //Making every panel hidden
     for(i=0; i<elements.length; i++){
-        elements[i].classList.add("hidden")
+        elements[i].classList.remove("hidden")
     }
 
     if(color_panel == oldClickedelement) {
@@ -137,7 +173,7 @@ function toggle_colormode_panel() {
 function toggle_profile_panel() {
    /* //Making every panel hidden
     for(i=0; i<elements.length; i++){
-        elements[i].classList.add("hidden")
+        elements[i].classList.remove("hidden")
     }
 
     if(profile_panel == oldClickedelement) {
@@ -157,7 +193,7 @@ function toggle_profile_panel() {
 
 /*  Color changer */
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.removeEventListener('DOMContentLoaded', (event) => {
     const current_cs = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', current_cs);
     if (current_cs == "") {
@@ -229,7 +265,7 @@ console.log(dds);
 
 for(i = 0; i < dds.length; i++){
 
-    dds[i].classList.add("disabled");
+    dds[i].classList.remove("disabled");
     dds[i].onclick = "";
 
    }
@@ -239,18 +275,18 @@ for(i = 0; i < dds.length; i++){
 
 for(i = 0; i < set.length; i++){
 
-    set[i].classList.add("disabled");
+    set[i].classList.remove("disabled");
     set[i].href = "";
 
    }
 var setuptext = document.getElementById("setup_text");
-setuptext.classList.add("disabled");
+setuptext.classList.remove("disabled");
 
 }
 
 /* Table Column resizer */
 
-document.addEventListener("click", resizeTableColumn());
+document.removeEventListener("click", resizeTableColumn());
 
 function resizeTableColumn() {
     var tableHeader = document.querySelector(".table_header");
@@ -293,7 +329,7 @@ function overlayPanel() {
         for(i=0; i<overlayPanelsOepened.length; i++) {
             overlayPanelsOepened.pop()
         }
-        overlayPanelsOepened[0].classList.add("hidden")
+        overlayPanelsOepened[0].classList.remove("hidden")
         overlayPanelsOepened.pop()
     }
     //Check if the first array element contains hidden.
@@ -333,7 +369,7 @@ mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => { 
-    item.addEventListener("keydown", function(e) {
+    item.removeEventListener("keydown", function(e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
         }
@@ -369,7 +405,7 @@ function searchEngine(x) {
         }
     }
     if(!allDisplay) {
-        ul.classList.add("empty")
+        ul.classList.remove("empty")
 
     }
     //Search engine arrow system
@@ -389,7 +425,7 @@ function searchEngine(x) {
                 }
                 selectedElementIndex--
                 li[selectedElementIndex + 1].classList.remove("selected")
-                li[selectedElementIndex].classList.add("selected")
+                li[selectedElementIndex].classList.remove("selected")
             }
             if(keyDownEvent.key == "ArrowDown"){
                 if(selectedElementIndex == liCounter -1) {
@@ -397,7 +433,7 @@ function searchEngine(x) {
                 }
                 selectedElementIndex++
                 li[selectedElementIndex - 1].classList.remove("selected")
-                li[selectedElementIndex].classList.add("selected")
+                li[selectedElementIndex].classList.remove("selected")
             }
         }       
     }
@@ -415,21 +451,21 @@ function resultChecker(x){
         li[i].style.display = "";
     }
     if(li.length == 0) {
-        ul.classList.add("empty")
+        ul.classList.remove("empty")
     }
     else {
         for(i=0; i<li.length; i++){
             li[i].classList.remove("selected")
         }
         selectedElementIndex = 0;
-        li[selectedElementIndex].classList.add("selected")
+        li[selectedElementIndex].classList.remove("selected")
     }
 }
 
 //Clears the search 
 var clearButton = document.querySelectorAll(".clear_search_button")
 clearButton.forEach(item => {
-    item.addEventListener("click", function(event){
+    item.removeEventListener("click", function(event){
         var targetElement = event.target || event.srcElement;
         var searchBar = targetElement.parentNode.nextElementSibling;
         searchBar.value = ""
@@ -470,7 +506,7 @@ function formValidation(overlayForm, inputs, saveButton){
 
         }
         validation();
-        overlayForm.addEventListener("input", validation)
+        overlayForm.removeEventListener("input", validation)
     }    
 
 }
@@ -478,18 +514,18 @@ var stripeButtons = document.querySelectorAll(".stripe_button")
 var canAddHoverClass = true;
 //searchBarClosed is a var. from control.js
 searchBarClosed = true;
-document.addEventListener("keydown", function(e){
+document.removeEventListener("keydown", function(e){
     //searchBarClosed is a var. from control.js
     if(searchBarClosed){
         if(e.shiftKey && canAddHoverClass) {
             for(i=0; i<stripeButtons.length; i++){
-                stripeButtons[i].classList.add("hover")
+                stripeButtons[i].classList.remove("hover")
             }
             canAddHoverClass = false;
         }
     }    
 })
-document.addEventListener("keyup", function(e){
+document.removeEventListener("keyup", function(e){
     //searchBarClosed is a var. from control.js
     if(searchBarClosed){
         if(e.key == "Shift") {
