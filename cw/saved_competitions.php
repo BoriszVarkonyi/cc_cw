@@ -64,8 +64,8 @@
                             $comp_id = $row['comp_id'];
                             $comp_status = $row['comp_status'];
                             $star = "../assets/icons/star-black-18dp.svg";
-                            $comp_start = $row[''];
-                            $comp_end = $row[''];
+                            $comp_start = $row['comp_start'];
+                            $comp_end = $row['comp_start'];
 
                             ?>
                             <!-- outputting the table -->
@@ -74,7 +74,7 @@
                                     <p><?php echo $comp_name ?></p>
                                 </div>
                                 <div class="table_item">
-                                    <p><?php echo statusConverter($comp_status) ?></p>
+                                    <p><?php echo $comp_start . " - " . $comp_end ?></p>
                                 </div>
                                 <div class="table_item">
                                     <p><?php echo statusConverter($comp_status) ?></p>
