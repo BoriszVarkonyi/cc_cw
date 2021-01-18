@@ -699,6 +699,7 @@ header {
 
 #nav_bar_pin.pinned {
 	opacity: 1 !important;
+	border: 1px solid var(--c-white);
 }
 
 #nav_bar.closed #nav_bar_pin {

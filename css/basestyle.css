@@ -719,13 +719,9 @@ input:focus ~ .clear_search_button {
 	margin: 0 auto 100px;
 }
 
-.table.cw.middle {		/* Whole table */
+.table.cw.middle {		/* Whole table, primarly cw */
 	width: 90%;
 	margin: 100px auto;
-}
-
-.table.cw.middle::before {		/* Whole table, cw saved comps, cringe vagy! */
-	content: "You have no saved competitions yet!";
 }
 
 .table_row_wrapper {	/* Wraps table_row elements */
