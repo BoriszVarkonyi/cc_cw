@@ -724,7 +724,7 @@ input:focus ~ .clear_search_button {
 	margin: 100px auto;
 }
 
-.table.cw.middle::before {		/* Whole table, cw saved comps */
+.table.cw.middle::before {		/* Whole table, cw saved comps, cringe vagy! */
 	content: "You have no saved competitions yet!";
 }
 
