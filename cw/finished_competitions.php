@@ -24,8 +24,8 @@
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <input type="text" name="name" placeholder="Search by Name" class="search">
                     <!-- year drop-down -->
-                    <div class="select_input">
-                        <input type="number" name="year" placeholder="-Year-" onclick="toggleDropdown(this)">
+                    <div class="select_input dense">
+                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
                         <div id="year_select_dropdown" class="closed">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
@@ -34,13 +34,12 @@
                                     
                                     ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
                                 }
-
                             ?>
                         </div>
                     </div>
                     <!-- sex drop-down -->
                     <div class="select_input">
-                        <input type="text" name="sex" placeholder="-Sex-" onclick="toggleDropdown(this)">
+                        <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)">
                         <div id="sex_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
@@ -48,11 +47,11 @@
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="select_input">
-                        <input type="text" name="wt" placeholder="-Weapon type-" onclick="toggleDropdown(this)">
+                        <input type="text" name="wt" placeholder="-Weapon type-" onkeyup="selectSystemWithSearch(this)">
                         <div id="wt_select_dropdown" class="closed">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
-                            <button type="button" onclick="selectSystem(this)">Sabre</button>
+                            <button type="button"onclick="selectSystem(this)">Sabre</button>
                         </div>
                     </div>
                     <input name="submit_search" type="submit" value="Search">

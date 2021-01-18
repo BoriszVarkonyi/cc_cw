@@ -109,14 +109,15 @@
                                 parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
                                 $video_id = $my_array_of_vars['v'];
                                 
-                        ?>
-                    <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
-                        <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" >
-                        <div>
-                            <p><?php echo $title ?></p>
-                            <p><?php echo $comp_name ?></p>
-                        </div>
-                    </div>
+                            ?>
+                                <!-- latest video placeholder -->
+                                <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
+                                    <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" >
+                                    <div class="video_wrapper_info">
+                                        <p><?php echo$title ?></p>
+                                        <p><?php echo $comp_name ?></p>
+                                    </div>
+                                </div>
                         <?php } ?>
 
                     

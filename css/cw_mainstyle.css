@@ -1112,7 +1112,6 @@ input[value="Search"] {
 }
 
 .video_wrapper {
-	width: 0;
 	flex: 1 1 400px;
 	height: 150px;
 	padding: 20px;
@@ -1134,7 +1133,7 @@ input[value="Search"] {
 	width: 190px;
 	min-width: 190px;
 	-o-object-fit: cover;
-	   object-fit: cover;
+	object-fit: cover;
 }
 
 .video_wrapper_info {

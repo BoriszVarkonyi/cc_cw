@@ -74,3 +74,15 @@ switch(className){
         navigationButtons[5].classList.add("current");
     break;
 }
+
+//Prevents typing invalid chars. to the number input
+var invalidChars = ["-", "+", "e", "E"];
+var numberInputs = document.querySelectorAll("input[type='number']")
+numberInputs.forEach(item => { 
+    item.addEventListener("keydown", function(e) {
+        if (invalidChars.includes(e.key)) {
+            e.preventDefault();
+        }
+        }
+    );
+})

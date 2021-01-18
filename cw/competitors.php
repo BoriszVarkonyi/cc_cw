@@ -58,18 +58,15 @@
                     </div>
 
                     <div class="select_input dense">
-                        <input type="number" name="year" placeholder="-Year-Of-Birth-" onclick="toggleDropdown(this)">
+                        <input type="number" name="year" placeholder="-Year-Of-Birth-" onkeyup="selectSystemWithSearch(this)">
                         <div id="year_select_dropdown">
                             <?php
-                                for ($i = 0; $i <= date("Y"); $i++) {
-                                    if ($i == date("Y")) {
-                                        $year = "URUNK KIRÁLYUNK JÉZUS KRISZTUS SZÜLETÉSE";
-                                    } else {
-                                        $year = date("Y") - $i; 
-                                    }
+                                for ($i = -1; $i <= 10; $i++) {
+                                    
+                                    $year = date("Y") - $i; 
+                                    
                                     ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
                                 }
-
                             ?>
                         </div>
                     </div>

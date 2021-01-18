@@ -167,40 +167,6 @@
                                     <?php 
                                     } 
                                     ?>
-                                    <div class="pool_match ghost">
-                                        <div class="number">
-                                            <p><?php echo $oip?></p>
-                                        </div>
-                                        <div class="numbering">
-                                            <p><?php echo $m_id_array[0] ?>.</p>
-                                            <p><?php echo $m_id_array[1] ?>.</p>
-                                        </div>
-                                        <div class="names">
-                                            <p><?php echo $f1_name ?></p>
-                                            <p><?php echo $f2_name ?></p>
-                                        </div>
-                                        <div class="grid">
-                                            <div></div>
-                                            <div></div>
-                                        </div>
-                                    </div>
-                                    <div class="pool_match ghost">
-                                        <div class="number">
-                                            <p><?php echo $oip?></p>
-                                        </div>
-                                        <div class="numbering">
-                                            <p><?php echo $m_id_array[0] ?>.</p>
-                                            <p><?php echo $m_id_array[1] ?>.</p>
-                                        </div>
-                                        <div class="names">
-                                            <p><?php echo $f1_name ?></p>
-                                            <p><?php echo $f2_name ?></p>
-                                        </div>
-                                        <div class="grid">
-                                            <div></div>
-                                            <div></div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="signatures">
                                     <div class="grid_table fencers">
