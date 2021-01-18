@@ -54,7 +54,7 @@ function togglePinButton(x){
     x.classList.toggle("pinned");
     pinChecker();
 }
-//
+//Checks if the pin has pinned class
 function pinChecker(){
     if(pin.classList.contains("pinned")){
         localStorage.setItem('navbar_status', 'pinned');
@@ -63,9 +63,9 @@ function pinChecker(){
         localStorage.setItem('navbar_status', 'notPinned');
     }
 }
-
+//Saves the status ofthe pin
 const navbar_status = localStorage.getItem('navbar_status');
-
+//Opens the navbar
 function opened_nav_bar(){
     navBar.classList.remove("closed");
     appName.classList.remove("closed");
@@ -79,7 +79,7 @@ function opened_nav_bar(){
     setext.innerHTML = "SETUP";
     status = "opened";
 }
-
+//Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
 if(navbar_status == "pinned"){
     opened_nav_bar();
     pin.classList.add("pinned")
