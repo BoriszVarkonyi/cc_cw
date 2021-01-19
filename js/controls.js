@@ -1,7 +1,13 @@
 //Arrow system
 var hiddenin = document.getElementsByClassName("selected_list_item_input");
 //This var. used in other files.
-var selectedElementIndexAr = 0;
+var selectedElementIndexAr;
+if(localStorage.getItem('elementIndex') == null){
+    selectedElementIndexAr = 0;
+}
+else{
+    selectedElementIndexAr = localStorage.getItem('elementIndex')
+}
 importOverlayClosed = true;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system, works only if search bar closed
@@ -52,6 +58,7 @@ document.onkeydown = (keyDownEvent) => {
                 tableRows[selectedElementIndexAr].focus()
             }
         }
+        localStorage.setItem('elementIndex', selectedElementIndexAr);
     } 
     //Selects to enter
     //importOverlayClosed is a var. from importoverlay.js
@@ -110,3 +117,12 @@ document.onkeyup=function(e){
         }
     }    
 }
+function test(){
+    var table = document.querySelector(".table");
+    var tableRows = document.querySelectorAll(".table .table_row")
+    tableRows[selectedElementIndexAr].classList.add("selected")
+    tableRows[selectedElementIndexAr].focus()
+    hiddenin.value = tableRows[selectedElementIndexAr].id
+    selectChecker();
+}
+test();
