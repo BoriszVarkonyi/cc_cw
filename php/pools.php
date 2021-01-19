@@ -1033,13 +1033,32 @@ elseif ($exist != 0 && $exist2 == 0)
 
 <?php 
 }else{ 
+
+    //determine if finsih pools is disabled
+    $qry_fin_pools = "SELECT * FROM `pool_matches_$comp_id` WHERE `f1_sc` = NULL OR `f2_sc` = NULL;";
+    $do_fin_pools = mysqli_query($connection, $qry_fin_pools);
+
+    if ($row = mysqli_fetch_assoc($do_fin_pools)) {
+        $is_disabled = "disabled";
+    } else {
+        $is_disabled = "";
+    }
+
+
+
+
     ?>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button orange" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
                         <p>Print Pools</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </a>
+                    <a  class="stripe_button orange <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                        <p>Finish Pools</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
+                    </a>
                 </div>
+                
 
      <?php
     }

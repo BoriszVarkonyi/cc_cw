@@ -96,7 +96,6 @@
         }
     }
 
-    print_r($ARRAY_fencers);
     //define columns
     $ratio_column = array_column($ARRAY_fencers, "ratio", "id");
     $point_diff_column = array_column($ARRAY_fencers, "point_difference", "id");
@@ -120,10 +119,5 @@
         echo mysqli_error($connection);
         echo $real_pos . " ";
     }
-    print_r($ARRAY_fencers);
-    print_r($temp_ranking_array);
-    print_r($ratio_column);
-    print_r($point_diff_column);
-    print_r(array_column($ARRAY_fencers, "given", "id"));
-    print_r(array_keys(array_column($ARRAY_fencers, "given", "id")))
+    header("Location: ../php/temporary_ranking.php?comp_id=$comp_id");
 ?>
