@@ -1181,7 +1181,7 @@ header {
 	border-radius: 5px;
 	z-index: 5;
 	-webkit-backdrop-filter: blur(2px);
-	        backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
 }
 
 .color_legend > div {
@@ -1208,6 +1208,10 @@ header {
 }
 
 .color_legend > div.green::after {
+	background-color: var(--cs-green);
+}
+
+.color_legend > div.orange::after {
 	background-color: var(--cs-green);
 }
 
@@ -3246,11 +3250,9 @@ div.title_box > button {
 	white-space: nowrap;
 }
 
-input. {
+input {
 	background: transparent;
 	color: var(--cs-black);
-	
-	
 	margin: 0;
 	padding: 0;
 }
@@ -4265,8 +4267,12 @@ input. {
 }
 
 #pool_results > div > div {
-	display: flex;
 	width: 50%;
+}
+
+#pool_results > div > div:first-of-type {
+	display: flex;
+
 }
 
 #pool_results .entry {
@@ -4282,9 +4288,6 @@ input. {
 	width: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
 }
 
 .match {

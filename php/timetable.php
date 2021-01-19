@@ -358,9 +358,10 @@ if($query_do){
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
+        <script src="../js/main.js"></script>
+        <!--<script src="../js/timetable.js"></script>-->
     </body>
-    <script src="../js/main.js"></script>
-<script src="../js/timetable.js"></script>
 </html>
