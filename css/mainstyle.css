@@ -2133,7 +2133,6 @@ input[type="file"] {
 	padding: 3px 10px;
 	background-color: var(--c-orange);
 	font-family: var(--bold);
-	font-size: var(--f-little);
 	border-radius: 5px;
 	margin: 0 20px 0 auto;
 	width: auto;

@@ -85,9 +85,9 @@
                         } else {
                         ?>
                             <div class="table_header">
-                                <div class="table_header_text">POSITION</div>
-                                <div class="table_header_text">NAME</div>
-                                <div class="table_header_text">NATION / CLUB</div>
+                                <div class="table_header_text"><p>POSITION</p></div>
+                                <div class="table_header_text"><p>NAME</p></div>
+                                <div class="table_header_text"><p>NATION / CLUB</p></div>
                             </div>
                             <div class="table_row_wrapper alt">
                         <?php
@@ -101,13 +101,13 @@
 
                                 <div class="table_row">
                                     <div class="table_item bold">
-                                        <?php echo $pos ?>
+                                        <p><?php echo $pos ?></p>
                                     </div>
                                     <div class="table_item">
-                                        <?php echo $name ?>
+                                        <p><?php echo $name ?></p>
                                     </div>
                                     <div class="table_item">
-                                        <?php echo $nat ?>
+                                        <p><?php echo $nat ?></p>
                                     </div>
                                 </div>
                                 

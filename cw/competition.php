@@ -51,22 +51,36 @@
                     </div>
                     <div id="basic_information_panel" class="column_panel">
                         <p class="column_panel_title">Basic Information:</p>
-                        <div>
-                            <p class="data_label">HOST COUNTRY:</p>
-                            <p><?php echo $comp_host ?></p>
-                            <p class="data_label">LOCATION AND ADDRESS:</p>
-                            <p><?php echo $comp_location ?></p>
-                            <p><?php echo $comp_postal ?></p>
-                            <p class="data_label">ENTRY-FEE:</p>
-                            <p><?php echo $comp_entry ?></p>
-                        </div>
-                        <div>
-                            <p class="data_label">STARTING DATE:</p>
-                            <p><?php echo $comp_start ?></p>
-                            <p class="data_label">ENDING DATE:</p>
-                            <p><?php echo $comp_end ?></p>
-                            <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                            <p><?php echo $comp_pre_end ?></p>
+                        <div class="form_wrapper">
+                            <div>
+                                <div>
+                                    <p class="data_label">HOST COUNTRY:</p>
+                                    <p><?php echo $comp_host ?></p>                                
+                                </div>
+                                <div>
+                                    <p class="data_label">LOCATION AND ADDRESS:</p>
+                                    <p><?php echo $comp_location ?></p>
+                                    <p><?php echo $comp_postal ?></p>                                
+                                </div>
+                                <div>
+                                    <p class="data_label">ENTRY-FEE:</p>
+                                    <p><?php echo $comp_entry ?></p>
+                                </div>                                
+                            </div>
+                            <div>
+                                <div>
+                                    <p class="data_label">STARTING DATE:</p>
+                                    <p><?php echo $comp_start ?></p>                                
+                                </div>
+                                <div>
+                                    <p class="data_label">ENDING DATE:</p>
+                                    <p><?php echo $comp_end ?></p>                                
+                                </div>
+                                <div>
+                                    <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                    <p><?php echo $comp_pre_end ?></p>                                
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -92,7 +106,6 @@
                                             <div class="table_row">
                                                 <div class="table_item"><?php echo $equipment[$i] ?></div>
                                                 <div class="table_item"><?php echo $array_equipment[$i] ?></div>
-                                        
                                             </div>
                                         <?php
                                     }

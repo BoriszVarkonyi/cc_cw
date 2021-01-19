@@ -1,7 +1,6 @@
-/* 	universal */
+/* 	Universal */
 
 body, html {
-	/* Gives placeholder background and default font*/
 	background-color: var(--c-lightestgray) !important;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -780,7 +779,7 @@ input[value="Search"] {
 }
 
 #title_stripe {
-	padding: 30px 50px;
+	padding: 30px 5%;
 	background-color: var(--c-lightergray);
 	width: 100%;
 	display: flex;
@@ -816,6 +815,29 @@ input[value="Search"] {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
+}
+
+/* Listing inputs and similars */
+
+.form_wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.form_wrapper > div {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 50%;
+}
+
+.form_wrapper > div > div {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
 }
 
 /* Back Button used in CC Dasboard And CW Competition's page and subpages */
@@ -909,6 +931,7 @@ input[value="Search"] {
 
 #title_stripe > div {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 #title_stripe > div > p {
@@ -920,16 +943,18 @@ input[value="Search"] {
 .column_panel {
 	position: relative;
 	box-sizing: border-box;
-	padding: 30px 40px;
+	padding: 0 40px 30px;
 	margin: 25px 0;
 	width: 100%;
 	background-color: var(--c-lightestgray);
+	display: flex;
+	flex-direction: column;
 }
 
 .column_panel_title {
-	position: absolute;
-	top: 2px;
-	left: 5px;
+	width: 100%;
+	padding: 5px 40px;
+	background-color: var(--c-lightergray);
 	font-family: var(--bold);
 }
 
@@ -950,18 +975,7 @@ input[value="Search"] {
 #basic_information_panel {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-}
-
-#basic_information_panel > div {
-	flex: 1 1 250px;
-	margin: 40px 25px;
-}
-
-#basic_information_panel > div:last-child {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+	justify-content: center;
 }
 
 .data_label {
@@ -981,15 +995,20 @@ input[value="Search"] {
 }
 
 #equipment_panel > div {
-	width: 90%;
+	width: 100%;
 	margin: 25px 0;
 }
 
 #additional_panel > div, #weapon_control_panel > div, #plus_information_panel > div {
-	padding: 25px;
+	padding: 25px 0;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: justify;
 }
 
-#plus_information_panel > div > p:nth-of-type(odd) {}
+#plus_information_panel > div > p:nth-of-type(odd) {
+
+}
 
 #plus_information_panel > div > p:nth-of-type(even) {
 	margin-bottom: 20px;
@@ -1004,6 +1023,7 @@ input[value="Search"] {
 	display: flex;
 	margin-bottom: 5px;
 	font-family: var(--bold);
+	align-items: center;
 }
 
 .weapon_control_day:last-child {
