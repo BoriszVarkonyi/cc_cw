@@ -10,7 +10,8 @@ function setNation(x){
 }
 var isselected = false;
 var registrationtable = document.querySelector(".table_row_wrapper")
-registrationtable.addEventListener("click", function(){
+registrationtable.addEventListener("click", selectChecker)
+function selectChecker(){
     var selectedItem = document.querySelector(".table_row_wrapper .selected")
     if(selectedItem !== null){
         isselected = true; 
@@ -18,7 +19,21 @@ registrationtable.addEventListener("click", function(){
     else{
         isselected = false;
     }
-})
+    buttonDisabler();
+}
+function buttonDisabler(){
+    var regInButton = document.getElementById("regIn")
+    var regOutButton = document.getElementById("regOut")
+    if(isselected){
+        regInButton.classList.remove("disabled");
+        regOutButton.classList.remove("disabled");
+    }
+    else{
+        regInButton.classList.add("disabled");
+        regOutButton.classList.add("disabled");
+    }
+}
+buttonDisabler();
 document.addEventListener("keyup", function(e){
     //somethingisOpened is a var. from main.js
     if(!somethingisOpened){
@@ -39,5 +54,6 @@ document.addEventListener("keyup", function(e){
                 regInButton.click()
             } 
         }
-    }    
+    }
+    selectChecker();
 })
