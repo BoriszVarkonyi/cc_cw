@@ -996,6 +996,7 @@
                         </div>
                     </div>
                 </div>
+                                -->
                 <div id="e_4" class="elimination">
                     <div class="elimination_label">Table of __</div>
                     <div class="table_round_wrapper finished purple">
@@ -1067,7 +1068,6 @@
                         </div>
                     </div>
                 </div>
-                -->
                 <div id="e_5" class="elimination">
                     <div class="elimination_label">Table of __</div>
                     <div class="table_round_wrapper finished purple">

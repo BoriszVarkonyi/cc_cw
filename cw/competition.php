@@ -96,23 +96,23 @@
                                 <div class="table_header_text">Needed Quantity</div>
                             </div>
                             <div class="table_row_wrapper">
-                            <?php 
-                                $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+                                <?php 
+                                    $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
-                                $array_equipment = explode(",", $comp_equipment);
+                                    $array_equipment = explode(",", $comp_equipment);
 
-                                for ($i = 0; $i < count($equipment); $i++) {
-                                    
-                                    if ($array_equipment[$i] != 0) {
-                                        ?>
-                                            <div class="table_row">
-                                                <div class="table_item"><?php echo $equipment[$i] ?></div>
-                                                <div class="table_item"><?php echo $array_equipment[$i] ?></div>
-                                            </div>
-                                        <?php
+                                    for ($i = 0; $i < count($equipment); $i++) {
+                                        
+                                        if ($array_equipment[$i] != 0) {
+                                            ?>
+                                                <div class="table_row">
+                                                    <div class="table_item"><?php echo $equipment[$i] ?></div>
+                                                    <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                                                </div>
+                                            <?php
+                                        }
                                     }
-                                }
-                            ?>
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                                 } else  { // displayed when there are no plus infos for comp_id
                             ?>
                                 
-                                <p>You have not added any plus information yet!</p>
+                                <p>This competition has no plus information!</p>
 
                             <?php
                                 }

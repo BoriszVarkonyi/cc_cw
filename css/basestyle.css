@@ -737,7 +737,6 @@ input:focus ~ .clear_search_button {
 	cursor: default;
 }
 
-
 .table_row_wrapper {	/* Wraps table_row elements */
 	flex-direction: column;
 	border-left: 2px solid var(--c-darkgray);
