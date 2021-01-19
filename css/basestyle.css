@@ -51,6 +51,7 @@
 	--s-orange: 0 3px 6px #FF970010;
 	--s-red: 0 3px 6px #F84F4F10;
 	--s-green: 0 3px 6px #8DFFB710;
+	--s-blue: 0 3px 6px #42CAFD10;
 	/* Misc */
 	--t-basic: ease-in .2s;
 	/* Font Sizes */
@@ -395,6 +396,7 @@ input[type="text"].search {
 	margin: 0;
 	height: 100%;
 	border: none;
+	width: 100%;
 }
 
 input[type="text"].search.alt {
@@ -553,7 +555,6 @@ input:focus ~ .clear_search_button {
 .select_input > input {
 	width: 100%;
 	border-radius: 5px;
-	z-index: 2;
 	box-shadow: var(--s-black);
 	font-family: var(--bold);
 	color: var(--c-black);
@@ -584,6 +585,7 @@ input:focus ~ .clear_search_button {
 	padding: 15px 0 10px;
 	max-height: 0;
 	opacity: 0;
+	z-index: -1;
 }
 
 .select_input > div.empty::after  {
@@ -720,14 +722,21 @@ input:focus ~ .clear_search_button {
 }
 
 .table.cw {		/* Whole table */
-	width: 90%;
-	margin: 0 auto 100px;
+    width: 100%;
+	padding: 0 50px;
+	margin-bottom: 50px;
+    box-sizing: border-box;
 }
 
 .table.cw.middle {		/* Whole table, primarly cw */
 	width: 90%;
 	margin: 100px auto;
 }
+
+.table.no_interaction * {		/* Whole table, primarly cw */
+	cursor: default;
+}
+
 
 .table_row_wrapper {	/* Wraps table_row elements */
 	flex-direction: column;

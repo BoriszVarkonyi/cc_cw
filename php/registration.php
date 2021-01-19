@@ -89,15 +89,15 @@
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
-                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()">
+                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/person_add_alt_1-black-18dp.svg"/>
                         </button>
-                        <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit">
+                        <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
                             <p>Register out</p>
                             <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
                         </button>
-                        <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit">
+                        <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit" shortcut="SHIFT+I">
                             <p>Register in</p>
                             <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
                         </button>

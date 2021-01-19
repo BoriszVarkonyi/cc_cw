@@ -488,7 +488,7 @@ var stripeButtons = document.querySelectorAll(".stripe_button")
 var canAddHoverClass = true;
 //searchBarClosed is a var. from control.js
 searchBarClosed = true;
-document.removeEventListener("keydown", function(e){
+document.addEventListener("keydown", function(e){
     //searchBarClosed is a var. from control.js
     if(searchBarClosed){
         if(e.shiftKey && canAddHoverClass) {
@@ -499,12 +499,12 @@ document.removeEventListener("keydown", function(e){
         }
     }    
 })
-document.removeEventListener("keyup", function(e){
+document.addEventListener("keyup", function(e){
     //searchBarClosed is a var. from control.js
     if(searchBarClosed){
         if(e.key == "Shift") {
             for(i=0; i<stripeButtons.length; i++){
-                stripeButtons[i].classList.add("hover")
+                stripeButtons[i].classList.remove("hover")
             }
             canAddHoverClass = true;
         }

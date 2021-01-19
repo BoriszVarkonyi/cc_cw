@@ -528,6 +528,17 @@ header {
 	background-color: var(--c-green);
 }
 
+.stripe_button.blue {
+	background-color: var(--c-blue);
+	box-shadow: var(--s-blue);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-blue);
+}
+
+.stripe_button.blue:hover {
+	background-color: var(--c-blue);
+}
+
 /* Panel Button Used in CC Panels */
 
 /* Used on login page */

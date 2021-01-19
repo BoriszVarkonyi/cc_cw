@@ -47,40 +47,42 @@
                         <p>Announcement Title</p>
                         <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
                         <p>Announcement Title</p>
-                        <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
+                        <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p> 
                     </div>
                     <div id="basic_information_panel" class="column_panel">
                         <p class="column_panel_title">Basic Information:</p>
-                        <div class="form_wrapper">
-                            <div>
+                        <div>
+                            <div class="form_wrapper">
                                 <div>
-                                    <p class="data_label">HOST COUNTRY:</p>
-                                    <p><?php echo $comp_host ?></p>                                
+                                    <div>
+                                        <p class="data_label">HOST COUNTRY:</p>
+                                        <p><?php echo $comp_host ?></p>                                
+                                    </div>
+                                    <div>
+                                        <p class="data_label">LOCATION AND ADDRESS:</p>
+                                        <p><?php echo $comp_location ?></p>
+                                        <p><?php echo $comp_postal ?></p>                                
+                                    </div>
+                                    <div>
+                                        <p class="data_label">ENTRY-FEE:</p>
+                                        <p><?php echo $comp_entry ?></p>
+                                    </div>                                
                                 </div>
                                 <div>
-                                    <p class="data_label">LOCATION AND ADDRESS:</p>
-                                    <p><?php echo $comp_location ?></p>
-                                    <p><?php echo $comp_postal ?></p>                                
+                                    <div>
+                                        <p class="data_label">STARTING DATE:</p>
+                                        <p><?php echo $comp_start ?></p>                                
+                                    </div>
+                                    <div>
+                                        <p class="data_label">ENDING DATE:</p>
+                                        <p><?php echo $comp_end ?></p>                                
+                                    </div>
+                                    <div>
+                                        <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                        <p><?php echo $comp_pre_end ?></p>                                
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="data_label">ENTRY-FEE:</p>
-                                    <p><?php echo $comp_entry ?></p>
-                                </div>                                
-                            </div>
-                            <div>
-                                <div>
-                                    <p class="data_label">STARTING DATE:</p>
-                                    <p><?php echo $comp_start ?></p>                                
-                                </div>
-                                <div>
-                                    <p class="data_label">ENDING DATE:</p>
-                                    <p><?php echo $comp_end ?></p>                                
-                                </div>
-                                <div>
-                                    <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                                    <p><?php echo $comp_pre_end ?></p>                                
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                     </div>
 
@@ -88,7 +90,7 @@
                     <div id="equipment_panel" class="column_panel">
                         <p class="column_panel_title">Equipment needed to be checked:</p>
                         <!-- weapons check table rows -->
-                        <div class="table">
+                        <div class="table no_interaction">
                             <div class="table_header">
                                 <div class="table_header_text">Equipment's name</div>
                                 <div class="table_header_text">Needed Quantity</div>
@@ -177,14 +179,17 @@
                 </div>
                 <div id="competition_controls">
                     <div class="column_panel">
-                        <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
-                        <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
-                        <button onclick="printPage()">Print</a>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
+                        <p class="column_panel_title">Competition Controls:</p>
+                        <div class="competition_controls_wrapper">
+                            <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
+                            <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
+                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
+                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                            <button onclick="printPage()">Print</a>
+                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>                            
+                        </div>
                     </div>
                 </div>
             </div>

@@ -83,6 +83,10 @@
                 <form id="title_stripe" method="POST" action="" >
                     <p class="page_title">Weapon Control</p>
                     <div class="stripe_button_wrapper">
+                        <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>">
+                            <p>Weapon Control Statistics</p>
+                            <img src="../assets/icons/pie_chart-black-18dp.svg"/>
+                        </a>
                         <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                             <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
@@ -178,9 +182,9 @@
                 </div>
             </div>
         </div>
-    </body>
     <script src="../js/main.js"></script>
     <script src="../js/weapon_control.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
+    </body>
 </html>

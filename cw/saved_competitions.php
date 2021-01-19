@@ -97,5 +97,6 @@
         </div>
     </div>
 <script src="../js/cw_main.js"></script>
+<script src="../js/list.js"></script>
 </body>
 </html>

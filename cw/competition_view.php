@@ -68,9 +68,7 @@
                             <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <!-- comp_name displayed -->
                                 <div class="table_item">
-                                    <p>
-                                        <?php echo $comp_name ?>
-                                    </p>
+                                    <p><?php echo $comp_name ?></p>
                                 </div>
                                 <!-- live button href -->
                                 <div class="table_item live">

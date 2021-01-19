@@ -22,10 +22,10 @@
                 <form method="POST" id="browsing_bar">
                     <!-- search by name box -->
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <input type="text" name="name" placeholder="Search by Name" class="search">
+                    <input type="text" name="name" placeholder="Search by Name" class="search" tabindex="1">
                     <!-- year drop-down -->
                     <div class="select_input dense">
-                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this, event)">
+                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this, event)" tabindex="2">
                         <div id="year_select_dropdown" class="closed">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
@@ -39,7 +39,7 @@
                     </div>
                     <!-- sex drop-down -->
                     <div class="select_input">
-                        <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)">
+                        <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)" tabindex="3">
                         <div id="sex_select_dropdown">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
@@ -47,14 +47,14 @@
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="select_input">
-                        <input type="text" name="wt" placeholder="-Weapon type-" onkeyup="selectSystemWithSearch(this)">
+                        <input type="text" name="wt" placeholder="-Weapon type-" onkeyup="selectSystemWithSearch(this)" tabindex="4">
                         <div id="wt_select_dropdown">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
                             <button type="button" onclick="selectSystem(this)">Sabre</button>
                         </div>
                     </div>
-                    <input name="submit_search" type="submit" value="Search">
+                    <input name="submit_search" type="submit" value="Search" tabindex="5">
                 </form>
                 <?php include "../cw/comps_display.php" ?>
             </div>
