@@ -503,7 +503,6 @@ header {
 
 .stripe_button.orange:hover {
 	background-color: var(--c-lightorange);
-	box-shadow: var(--s-orange);
 }
 
 .stripe_button.red {
@@ -514,7 +513,7 @@ header {
 }
 
 .stripe_button.red:hover {
-	background-color: var(--c-red);
+	background-color: var(--c-lightred);
 }
 
 .stripe_button.green {
@@ -525,7 +524,7 @@ header {
 }
 
 .stripe_button.green:hover {
-	background-color: var(--c-green);
+	background-color: var(--c-lightgreen);
 }
 
 .stripe_button.blue {
@@ -536,7 +535,7 @@ header {
 }
 
 .stripe_button.blue:hover {
-	background-color: var(--c-blue);
+	background-color: var(--c-lightblue);
 }
 
 /* Panel Button Used in CC Panels */
