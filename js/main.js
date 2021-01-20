@@ -206,7 +206,7 @@ window.addEventListener('load', (event) => {
 /*  Color changer */
 
 var hasBackgroundIcon = document.querySelectorAll("input");
-var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon), input.backgroundImage');
+var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon)');
 var csWrapper = document.getElementById("color_mode_wrapper");
 var colorModes = csWrapper.getElementsByTagName("input");
 
@@ -511,3 +511,15 @@ document.addEventListener("keyup", function(e){
     }        
 })
 
+var loadingBar = document.getElementById("loading_bar");
+document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(function(){ loadingBar.classList.add("load")}, 300);
+    setTimeout(function(){ loadingBar.classList.remove("load"); loadingBar.classList.add("loading")}, 500);
+
+    if (document.readyState === "complete" || document.readyState === "loaded"  || document.readyState === "interactive"){
+        loadingBar.classList.remove("loading");
+        loadingBar.classList.add("loaded");
+        setTimeout(function(){ loadingBar.classList.remove("loading"); loadingBar.classList.add("finished")}, 1000);
+        setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.classList.add("hidden")}, 1200);
+    }
+})

@@ -448,6 +448,8 @@ input[type="text"].search.cc {
 	z-index: 4;
 	position: relative;
 	height: auto;
+	border: 3px solid var(--cs-lightergray);
+	box-sizing: border-box;
 }
 
 .search_wrapper {
@@ -618,88 +620,47 @@ input:focus ~ .clear_search_button {
 
 /* Loading Screen */
 
-#loading_screen {
+#loading_bar {
 	width: 100vw;
-	height: 100vh;
-	max-height: 100vh;
+	height: .15em;
 	position: absolute;
-	top: 50%;
+	top: 40px;
 	left: 0;
-	transform: translateY(-50%);
-	background-color: var(--c-lightestgray);
-	z-index: 20;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background-color: var(--cs-darkgray);
+	z-index: 5;
 	overflow: hidden;
-	transition: opacity var(--t-basic);
+	opacity: 1;
 }
 
-#loading_screen.done {
-	opacity: 0;
-	overflow: hidden;
-}
-
-.loading_panel {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	width: 100%;
-}
-
-.loading_panel img {
-	min-width: 150px;
-	width: 10vw;
-	min-height: 150px;
-	height: 10vw;
-	transition: -webkit-filter var(--t-basic);
-	transition: filter var(--t-basic);
-	transition: filter var(--t-basic), -webkit-filter var(--t-basic);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.loading_panel img.desaturated {
-	-webkit-filter: saturate(0);
-	        filter: saturate(0);
-}
-
-.loading_bar {
-	width: 100%;
-	height: 20px;
-	background-color: var(--c-lightergray);
-	position: absolute;
-}
-
-#progress_bar {
-	width: 1%;
+#loading_bar::after {
+	width: 0;
 	height: 100%;
-	background: linear-gradient(90deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: max-width var(--t-basic);
-}
-
-.loading_text {
-	font-size: var(--f-xlarge);
-	font-family: var(--bold);
+	background-color: var(--cs-orange);
+	content: "";
 	position: absolute;
+	transition: width var(--t-basic);
 }
 
-.loading_text.first {
-	top: calc(50vh - var(--f-large));
-	left: 25%;
-	transform: translateX(-50%);
+#loading_bar.load::after {
+	width: 26.1651%;
 }
 
-.loading_text.last {
-	top: calc(50vh + 10px);
-	left: 75%;
-	transform: translateX(-50%);
+#loading_bar.loading::after {
+	width: 81.5116261%;
+}
+
+#loading_bar.loaded::after {
+	width: 100%;
+}
+
+#loading_bar.finished {
+	height: 0;
+	opacity: 0;
+	transition: height var(--t-basic) .2s, opacity var(--t-basic) .2s;
+}
+
+#loading_bar.hidden {
+	display: none;
 }
 
 /* CUSTOM TABLE ELEMENTS */

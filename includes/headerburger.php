@@ -57,9 +57,9 @@ if (isset($_POST["logout"])) {
 ?>
 
 <div id="header">
+    <div id="loading_bar"></div>
     <header>
         <p id="app_name" class="closed">Competition Control <b>Alpha</b></p>
-
         <?php 
             if (isset($_GET['comp_id'])) {
 
@@ -74,7 +74,6 @@ if (isset($_POST["logout"])) {
             }
 
         ?>
-        
         <!-- colormode and language buttons -->
         <div class="settings_section">
             <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
