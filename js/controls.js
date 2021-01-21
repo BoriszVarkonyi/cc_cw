@@ -1,5 +1,6 @@
 //Arrow system
-var hiddenin = document.getElementsByClassName("selected_list_item_input");
+var hiddenin = document.querySelector(".selected_list_item_input");
+console.log(hiddenin)
 //This var. used in other files.
 var selectedElementIndexAr;
 if(localStorage.getItem('elementIndex') == null){
@@ -25,6 +26,7 @@ document.onkeydown = (keyDownEvent) => {
             tableRows[selectedElementIndexAr].classList.add("selected")
             tableRows[selectedElementIndexAr].focus()
             hiddenin.value = tableRows[selectedElementIndexAr].id
+            console.log(hiddenin.value)
             keyDownEvent.preventDefault();
         }
 
@@ -50,6 +52,7 @@ document.onkeydown = (keyDownEvent) => {
                 tableRows[selectedElementIndexAr].classList.add("selected")
                 tableRows[selectedElementIndexAr].focus()
                 hiddenin.value = tableRows[selectedElementIndexAr].id
+                console.log(hiddenin.value)
                 keyDownEvent.preventDefault();
             }
             //If there is not a selected row than it selects the first row.
@@ -123,6 +126,7 @@ function test(){
     tableRows[selectedElementIndexAr].classList.add("selected")
     tableRows[selectedElementIndexAr].focus()
     hiddenin.value = tableRows[selectedElementIndexAr].id
+    console.log(hiddenin.value)
     selectChecker();
 }
 test();

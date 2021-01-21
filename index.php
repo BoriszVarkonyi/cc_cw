@@ -215,13 +215,13 @@ if(strlen($test, 1) == 0){
         <div id="panel_main">
             <!-- login form -->
             <form action="index.php" method="POST" class="overlay_panel_form">
-                <label for="username" class="error">LOGIN ID</label>
-                <input type="text" placeholder="Type in your username" name="username" class="username_input">
+                <label for="username">LOGIN ID</label>
+                <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 
-                <label for="password" class="error">PASSWORD</label>
-                <input type="password" placeholder="Type in your password" name="password" class="password_input">
+                <label for="password">PASSWORD</label>
+                <input type="password" placeholder="Type in your password" name="password" class="password_input" onblur="errorChecker(this)">
 
-                <label for="password" class="error">ROLE</label>
+                <label for="password">ROLE</label>
                 <div class="option_container">
                     <input type="radio" name="role" id="a" value="1"/>
                     <label for="a">I am an organiser</label>
