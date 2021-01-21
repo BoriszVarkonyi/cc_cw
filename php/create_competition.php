@@ -121,7 +121,7 @@ $query = "";
                             ?>
 
 
-                        <label for="wc_type"  >TYPE OF WEAPON CONTROL</label>
+                        <label for="wc_type" >TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immidiate</label>

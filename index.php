@@ -79,22 +79,6 @@ if(strlen($test, 1) == 0){
             }
         }
         else{
-            if(!$username){
-
-                $user_error = "usererror=1&";
-        
-            }
-            else{
-                $user_error = "";
-            }
-            if(!$password){
-        
-                $pass_error = "passerror=2&";
-        
-            }
-            else{
-                $pass_error = "";
-            }
             $errors = $user_error . $pass_error;
             header("Location: index.php?$errors");
         }
@@ -170,24 +154,8 @@ if(strlen($test, 1) == 0){
                 header("Location: php/set_new_pass_first.php?where=$where");
             }
 
-        } else {
-            
-            if(!$username){
-
-                $user_error = "usererror=1&";
-        
-            }
-            else{
-                $user_error = "";
-            }
-            if(!$password){
-        
-                $pass_error = "passerror=2&";
-        
-            }
-            else{
-                $pass_error = "";
-            }
+        } 
+        else {
             $errors = $user_error . $pass_error;
             header("Location: index.php?$errors");
         }
@@ -214,7 +182,7 @@ if(strlen($test, 1) == 0){
         <div id="title_stripe"><div class="stripe_section"><p class="page_title">Login</p></div></div>
         <div id="panel_main">
             <!-- login form -->
-            <form action="index.php" method="POST" class="overlay_panel_form">
+            <form action="index.php" method="POST" class="overlay_panel_form <?php if($_GET["loginerror"] == 4){echo "error";} ?>">
                 <label for="username">LOGIN ID</label>
                 <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 

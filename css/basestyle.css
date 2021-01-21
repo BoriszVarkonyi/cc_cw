@@ -257,6 +257,15 @@ input[type="text"].no_margin {
 
 /* Error Texts */
 
+form.error::before {
+	content: 'INCORRECT USERNAME OR PASSWORD';
+	text-transform: uppercase;
+	color: var(--c-red);
+	font-family: var(--bold);
+	position: absolute;
+	top: 30px;
+}
+
 label.error  {
 	display: flex;
 	align-items: center;

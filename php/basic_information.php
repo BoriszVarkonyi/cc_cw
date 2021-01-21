@@ -49,7 +49,7 @@ $query_do = mysqli_query($connection, $query);
 
                     <div id="basic_information_wrapper" class="db_panel form_page_flex">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
+                            <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Set basic information</p>
                         </div>
                         <form action="" id="basic_information_form" class="column_form_wrapper" method="POST">

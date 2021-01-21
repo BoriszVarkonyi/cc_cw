@@ -22,7 +22,7 @@
         "overview" =>           'href="overview.php?comp_id=' . $comp_id .'"',
         "call_room" =>          'href="call_room.php?comp_id=' . $comp_id . '"',
         "registration" =>       'href="registration.php?comp_id=' . $comp_id . '"',
-        "weapon_control" =>     'href="weapon_control.php?comp_id=' . $comp_id . '"',
+        "weapon_control" =>     'href="weapon_control_administrated.php?comp_id=' . $comp_id . '"',
         "announcements" =>      'href="announcements.php?comp_id=' . $comp_id . '"',
         "general" =>            'onclick="toggle_general_dropdown()"',
         "basic_info" =>         'href="basic_information.php?comp_id=' . $comp_id . '"',
