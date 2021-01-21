@@ -360,6 +360,7 @@ header {
 	align-items: flex-end;
 	padding: 50px;
 	box-sizing: border-box;
+	z-index: 1;
 }
 
 #apps input + label {
@@ -1318,7 +1319,6 @@ label.small {
 .panel_title {
 	font-family: var(--bold);
 	text-transform: uppercase;
-	
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -1338,7 +1338,7 @@ label.small {
 .option_container {
 	display: flex;
 	flex-direction: column;
-	margin: 20px 0;
+	margin: 3px 0 30px;
 }
 
 .option_container.row {
@@ -1421,7 +1421,7 @@ input[type=checkbox] + label:before, input[type=radio] + label:before {
 	min-width: 12px;
 	min-height: 12px;
 	transition: var(--t-basic);
-	margin: 10px 8px 10px 0;
+	margin: 8px 8px 8px 0;
 }
 
 input[type=checkbox] + label:before {
@@ -1567,6 +1567,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	position: absolute;
 	left: 2em;
 	top: 2em;
+	z-index: 2;
 }
 
 /* ///PRPFILE PANEL ELEMENTS/// */

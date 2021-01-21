@@ -213,58 +213,23 @@ if(strlen($test, 1) == 0){
     <div id="login_panel" class="panel">
         <div id="title_stripe"><div class="stripe_section"><p class="page_title">Login</p></div></div>
         <div id="panel_main">
-            <?php   
-                if(in_array(4, $_GET)) {
-                    echo '<p class="error_text bold">Incorrect username or password</p>';
-                }
-            ?>
             <!-- login form -->
             <form action="index.php" method="POST" class="overlay_panel_form">
-                <label for="username">LOGIN ID</label>
-                <input type="text" placeholder="Type in your username" class="username_input" name="username"<?php 
-                
-                if(in_array(1, $_GET)) {
-                    echo 'class="error"';
-                }
-                ?>>
-                <?php 
-                if(in_array(1, $_GET)) {
-                    echo '<p class="error_text">Please fill in username field</p>';
-                }
-                ?>
-                <!-- appear when problem with error class on the affected input-->
-                <!--    <p class="error_text">Problem desc 2</p>
-                <p class="error_text">Problem desc 3</p> -->
-                <label for="password">PASSWORD</label>
-                <input type="password" placeholder="Type in your password" class="password_input" name="password"<?php 
-                
-                if(in_array(2, $_GET)) {
-                    echo 'class="error"';
-                }
-                ?>>
-                <?php 
-                
-                if(in_array(2, $_GET)) {
-                    echo '<p class="error_text">Please fill in password field</p>';
-                }
-                
-                ?>
-                <div class="option_container">
-                        <input type="radio" name="role" id="a" value="1"/>
-                        <label for="a">I am an organiser</label>
+                <label for="username" class="error">LOGIN ID</label>
+                <input type="text" placeholder="Type in your username" name="username" class="username_input">
 
-                        <input type="radio" name="role" id="b" value="2"/>
-                        <label for="b">I am a technician</label>
-                </div> 
-                <?php 
-                
-                if(in_array(3, $_GET)) {
-                    echo '<p class="error_text_option">Please choose a role</p>';
-                }
-                ?>
+                <label for="password" class="error">PASSWORD</label>
+                <input type="password" placeholder="Type in your password" name="password" class="password_input">
+
+                <label for="password" class="error">ROLE</label>
+                <div class="option_container">
+                    <input type="radio" name="role" id="a" value="1"/>
+                    <label for="a">I am an organiser</label>
+                    <input type="radio" name="role" id="b" value="2"/>
+                    <label for="b">I am a technician</label>
+                </div>
                 <input type="submit" name="submit" value="Login" class="login_button">
             </form>
-            <!-- login form end -->
         </div>
     </div>
     <div id="login_links_wrapper"> 
