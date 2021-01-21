@@ -95,7 +95,7 @@
                         </button>
                         <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
                             <p>Register out</p>
-                            <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
+                            <img src="../assets/icons/how_to_unreg-black-18dp.svg"/>
                         </button>
                         <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit" shortcut="SHIFT+I">
                             <p>Register in</p>

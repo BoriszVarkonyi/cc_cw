@@ -221,7 +221,7 @@ textarea {
 
 /* Text Based inputs */
 
-input.hidden, input.disabled {
+input.hidden {
 	display: none;
 }
 
