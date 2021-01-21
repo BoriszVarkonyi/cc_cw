@@ -548,8 +548,13 @@ header {
 	font-family: var(--bold);
 	border-radius: 5px;
 	padding: 5px 10px;
-	position: relative;
 	cursor: pointer;
+}
+
+.login_button.disabled {
+	background-color: var(--c-gray);
+	cursor: pointer;
+	pointer-events: none;
 }
 
 /* CC Panels */
