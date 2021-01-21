@@ -72,7 +72,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
 
                     <div id="needed_equipment_panel" class="info_panel"> 
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/beenhere-black-18dp.svg"  class="db_panel_stripe_icon">
+                            <img src="../assets/icons/beenhere-black-18dp.svg" >
                             <p>Equipment needed to be checked</p>
                         </div>
                         <div class="db_panel_main">
@@ -97,7 +97,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                 for($i = 0; $i < 13; $i++){?>
                                 <div class="table_row" id="<?php echo $i ?>" onclick="takeToField(this)">
                                     <div class="table_item"><?php echo $equipment[$i]?></div>
-                                    <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="-" value="<?php
+                                    <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
                                     
                                     if($assocdatapost[$i] == 0){
 
@@ -118,7 +118,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                     </div>
                     <div id="additional_info_panel" class="info_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/rule-black-18dp.svg"  class="db_panel_stripe_icon">
+                            <img src="../assets/icons/rule-black-18dp.svg" >
                             <p>Additional Information</p>
                         </div>
                         <div class="db_panel_main not_centered" >

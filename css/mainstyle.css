@@ -477,18 +477,18 @@ header {
 	margin-right: -25px;
 }
 
-.stripe_button.disabled,.stripe_button.orange.disabled, .stripe_button.red.disabled {
-	background-color: var(--c-gray);
-	box-shadow: var(--s-black);
-	cursor: default;
-	pointer-events: none;
-	-webkit-filter: contrast(50%);
-	        filter: contrast(50%);
-	border: 3px solid var(--cs-gray);
+.stripe_button.disabled {
+	background-color: var(--c-gray) !important;
+	box-shadow: var(--s-black) !important;
+	cursor: default !important;
+	pointer-events: none !important;
+	-webkit-filter: contrast(50%) !important;
+	filter: contrast(50%) !important;
+	border: 3px solid var(--cs-gray) !important;
 }
 
-.stripe_button.disabled:hover, .stripe_button.red.disabled:hover, .stripe_button.orange.disabled:hover {
-	background-color: var(--c-white);
+.stripe_button.disabled:hover {
+	background-color: var(--c-white) !important;
 }
 
 .stripe_button.bold {
@@ -1674,24 +1674,21 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 
 .db_panel_title_stripe {
 	background-color: var(--c-lightestgray);
-	min-height: 35px;
-	height: 4vh;
-	max-height: 70px;
+	padding: 10px;
 	width: 100%;
 	flex: 0 1 auto;
 	display: flex;
 	align-items: center;
-	
+	box-sizing: border-box;
 }
 
 #db_comp_status {
 	margin-left: auto;
-	padding-right: 10px;
 	font-family: var(--bold);
 }
 
-.db_panel_stripe_icon {
-	padding: 0 5px 0 10px;
+.db_panel_title_stripe img {
+	padding: 0 5px 0 0;
 	width: 20px;
 	height: 20px;
 }

@@ -141,7 +141,7 @@
                 <div id="announcements_wrapper" class="wrapper">
                     <div class="db_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
+                            <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Manage Announcements</p>
                         </div>
                         <div class="db_panel_main ">
