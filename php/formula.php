@@ -175,7 +175,7 @@
 
                         </div>
                         <div class="form_column">
-                            <label for="type_of_elimination">TYPE OF ELIMINTION</label>
+                            <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>
                             <div class="option_container">
                                 <input type="radio" name="type_of_elimination" id="one_phase_table" value=""/>
                                 <label for="one_phase_table">One Phase Table</label>
