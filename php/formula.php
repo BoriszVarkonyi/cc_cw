@@ -7,117 +7,67 @@
 
     $comp_id = $_GET['comp_id'];
 
-    //feedback array
-    $feedback = array(
-        "fencer_data" => "no",
-        "create_table" => "no",
-        "ttest" => "no",
-        "update" => "no",
-        "rtest" => "no",
-        "insert" => "no",
-        "get_comp_data" => "no",
-        "row_num" => "no",
-        "get_data" => "no",
-    );
-    $table_name = "formula_" . $comp_id;
+    //make formulas table 
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`formulas` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);
 
-    //get comp_name from id
-    $qry_get_comp_data = "SELECT * FROM `competitions` WHERE comp_id = '$comp_id'";
-    $do_qry_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
-
-    if ($row = mysqli_fetch_assoc($do_qry_get_comp_data)) {
-        $feedback['get_comp_data'] = "ok!";
-        $comp_name = $row['comp_name'];
-    } else {
-        $feedback['get_comp_data'] = "ERROR " . mysqli_error($connection);
-    }
-
-
-    //if there is an existing row get all data from table
-    $qry_get_data = "SELECT * FROM `$table_name`;";
-    $do_qry_get_data = mysqli_query($connection, $qry_get_data);
-
-    if ($row = mysqli_fetch_assoc($do_qry_get_data)) {
-
-        $feedback['get_data'] = "ok!";
-        $p_pools = $row['p_pools'];
-        $p_table = $row['p_table'];
-        $nb_o_rounds = $row['nb_exemp_pool'];
-        $nb_qualifiers = $row['nb_qualifiers'];
-        $nb_o_exemp_pool = $row['nb_exemp_pool'];
-        $nb_o_exemp_table = $row['nb_exemp_table'];
-
-    } else {
-        $feedback['get_data'] = "ERROR " . mysqli_error($connection);
-    }
-
-
-
+    //get data from form
     if (isset($_POST['submit_form'])) {
-
-        //checking for dupli tables
-        $check_d_table_qry = "SELECT *
-        FROM information_schema.tables 
-        WHERE table_schema = 'ccdatabase' 
-        AND table_name = '$table_name';";
-
-        if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-
-            $feedback['ttest'] = "ok!";
-            $row_num = mysqli_num_rows($check_d_table_do);
-            if ($row_num == 0) {
-                    //creating formula  table
-                    $qry_creating_wc_table = "CREATE TABLE `ccdatabase`.`$table_name` (
-                                                                                        `p_pools` INT(11) NOT NULL ,
-                                                                                        `p_table` INT(11) NOT NULL , 
-                                                                                        `nb_qualifiers` INT(11) NOT NULL , 
-                                                                                        `nb_exemp_pool` INT(11) NOT NULL , 
-                                                                                        `nb_exemp_table` INT(11) NOT NULL ,
-                                                                                        `elim_type` VARCHAR(11) NOT NULL ,  
-                                                                                        `fencing_f_3rd` VARCHAR(11) NOT NULL ,
-                                                                                        )
-                                                                                        ENGINE = InnoDB;";
-
-                if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
-                    $feedback['create_table'] = "ok!";
-                } else {
-                    $feedback['create_table'] = "ERROR " . mysqli_error($connection);
-                }
-
-                //insert new row into table_name
-                $qry_insert = "INSERT INTO `$table_name` (`p_pools`, `p_table`, `nb_qualifiers`, `nb_exemp_pool`, `nb_exemp_table`) VALUE ('','','','','')";
-                if ($do_qry_insert = mysqli_query($connection, $qry_insert)) {
-                    $feedback['insert'] = "ok!";
-                } else {
-                    $feedback['insert'] = "ERROR " . mysqli_error($connection);
-                }
-            }
-        } else {
-            $feedback['ttest'] = "ERROR " . mysqli_error($connection);
+        $pool_points = $_POST['points_pools'];
+        $table_points = $_POST['points_table'];
+        $qualifiers = $_POST['nb_qualifier'];
+        if ($_POST['elimnation_type'] == 1) {
+            $is_direct_elim = TRUE;
+        } else if ($_POST['elimnation_type'] == 0) {
+            $is_direct_elim = FALSE;
         }
-        
-        //get data from form into variables
-
-        $p_pools = $_POST['points_pools'];
-        $p_table = $_POST['points_table'];
-        $nb_qualifiers = $_POST['nb_qualifier'];
-        $nb_o_exemp_pool = $_POST['exempted_fencers_pools'];
-        $nb_o_exemp_table = $_POST['exempted_fencers_table'];
-
-        //not used yet!
-        $fencing_3rd = $_POST['third_place'];
-        $elim_type = $_POST['elimnation_type'];
-
-        //updateing weapon_errors from array_real_issues
-        $qry_update = "UPDATE $table_name SET p_pools = '$p_pools', p_table = '$p_table', nb_qualifiers = '$nb_qualifiers',nb_exemp_pool = '$nb_o_exemp_pool', nb_exemp_table = '$nb_o_exemp_table' "; 
-
-        if ($do_qry_update = mysqli_query($connection, $qry_update)) {
-            $feedback['update'] = "ok!";
-        } else {
-            $feedback['update'] = "ERROR " . mysqli_error($connection);
+        if ($_POST['type_of_elimination'] == 1) {
+            $is_one_phase = TRUE;
+        } else if ($_POST['type_of_elimination'] == 0) {
+            $is_one_phase = FALSE;
         }
-        
+
+        if ($_POST['third_place'] == 1) {
+            $fencing_for_third = TRUE;
+        } else if ($_POST['third_place'] == 0) {
+            $fencing_for_third = FALSE;
+        }
+
+        $formula_table = new stdClass();
+
+        $formula_table -> poolPoints = $pool_points;
+        $formula_table -> tablePoints = $table_points;
+        $formula_table -> qualifiers = $qualifiers;
+        $formula_table -> isDirectElim = $is_direct_elim;
+        $formula_table -> isOnePhase = $is_one_phase;
+        $formula_table -> fencingThird = $fencing_for_third;
+
+        $json_table = json_encode($formula_table);
+
+        //test for existing row
+        $qry_test_row = "SELECT COUNT(*) FROM formulas WHERE assoc_comp_id = '$comp_id'";
+        $do_test_row = mysqli_query($connection, $qry_test_row);
+        if (mysqli_fetch_assoc($do_test_row)['COUNT(*)'] != 1) {
+            $qry_make_row = "INSERT INTO formulas (assoc_comp_id, data) VALUES ('$comp_id', '$json_table')";
+        } else {
+            $qry_make_row = "UPDATE formulas SET data = '$json_table' WHERE assoc_comp_id = '$comp_id'";
+        }
+
+        if ($do_mane_row = mysqli_query($connection, $qry_make_row)) {
+            header("Refresh: 0");
+        }
     }
+
+    //get data for display from db
+    $qry_get_data = "SELECT * FROM formulas WHERE assoc_comp_id = '$comp_id'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $json_string = $row['data'];
+
+        $json_table = json_decode($json_string);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -156,20 +106,20 @@
                     <form id="save_form" action="" class="column_form_wrapper" method="POST">
                         <div class="form_column">
                             <label for="points_pools" >POINTS IN POOLS</label>
-                            <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $p_pools ?>">
+                            <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">
 
                             <label for="points_table" >POINTS IN TABLE</label>
-                            <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $p_table ?>">
+                            <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">
                         
                             <label for="nb_qualifier" >NUMBER OF QUALIFIERS AFTER POOLS</label>
-                            <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $nb_qualifiers ?>">
+                            <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">
 
                             <label for="elimnation_type" >ELIMINATION TYPE</label>
                             <div class="option_container">
-                                <input type="radio" name="elimnation_type" id="direct_et" value="1" checked/>
+                                <input type="radio" name="elimnation_type" id="direct_et" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
                                 <label for="direct_et">Direct-Elimination Tournament</label>
 
-                                <input type="radio" name="elimnation_type" id="double_et" value="" disabled/>
+                                <input type="radio" name="elimnation_type" id="double_et" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
                                 <label for="double_et">Double-Elimination Tournament</label>
                             </div>
 
@@ -177,19 +127,19 @@
                         <div class="form_column">
                             <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>
                             <div class="option_container">
-                                <input type="radio" name="type_of_elimination" id="one_phase_table" value=""/>
+                                <input type="radio" name="type_of_elimination" id="one_phase_table" value="1" <?php echo $is_checked = ($json_table -> isOnePhase == 1) ? "checked" : "" ?> />
                                 <label for="one_phase_table">One Phase Table</label>
 
-                                <input type="radio" name="type_of_elimination" id="two_phase_table" value=""/>
+                                <input type="radio" name="type_of_elimination" id="two_phase_table" value="0" <?php echo $is_checked = ($json_table -> isOnePhase == 0) ? "checked" : "" ?> />
                                 <label for="two_phase_table">Two Phase Table</label>
                             </div>
 
                             <label for="third_place" >FENCING FOR 3RD PLACE</label>
                             <div class="option_container">
-                                <input type="radio" name="third_place" id="third_place_yes" value="" disabled/>
+                                <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
                                 <label for="third_place_no">Yes</label>
 
-                                <input type="radio" name="third_place" id="third_place_no" value="" checked/>
+                                <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> /> 
                                 <label for="third_place_no">No</label>
                             </div>
                         </div>
