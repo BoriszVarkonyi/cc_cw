@@ -145,7 +145,7 @@
                             <p>Manage Announcements</p>
                         </div>
                         <div class="db_panel_main ">
-                            <div class="table t_c_0" id="plus_info_wrapper" >
+                            <div class="table t_c_0">
                                 <div class="table_row_wrapper alt">
 
                                     <?php

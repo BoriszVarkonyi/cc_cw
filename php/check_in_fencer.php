@@ -20,11 +20,11 @@
             <div id="title_stripe">
                 <p class="page_title">Check in {Fencer's name}</p>
                 <div class="stripe_button_wrapper">
-                    <button name="" id="" class="stripe_button">
+                    <button name="" id="" class="stripe_button" shortcut="SHIFT+P">
                         <p>Print Check In</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
-                    <button name="" class="stripe_button orange" type="submit" form="" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
+                    <button name="" class="stripe_button orange" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Save Check In</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
@@ -37,14 +37,30 @@
                             <img src="../assets/icons/backpack-black-18dp.svg"/>
                             Contents of fencer's bag
                         </div>
-                        <div class="dp_panel_pain">
+                        <div class="db_panel_main">
                             <div class="table">
                                 <div class="table_header">
                                     <div class="table_header_text">ISSUE</div>
                                     <div class="table_header_text">QUANTITY</div>
                                     <div class="big_status_header"></div>
                                 </div>
-                                <div class="table_row_wrapper">
+                                <div class="table_row_wrapper alt">
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
+                                        <div class="big_status_item">
+                                            <input type="checkbox" name="" id="" value=""/>
+                                            <label for=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
+                                        <div class="big_status_item">
+                                            <input type="checkbox" name="" id="" value=""/>
+                                            <label for=""></label>
+                                        </div>
+                                    </div>
                                     <div class="table_row">
                                         <div class="table_item"><p>Epee</p></div>
                                         <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>

@@ -1709,6 +1709,11 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	align-items: flex-start;
 }
 
+.db_panel_main .table {
+	min-width: 80%;
+	padding: 50px 0;
+}
+
 #sheduled_to_do_list {
 	padding: 0;
 	margin: 0;
@@ -2092,13 +2097,6 @@ input[type="file"] {
 	margin-bottom: 30px;
 }
 
-#plus_info_wrapper {
-	min-width: 80%;
-	width: 80%;
-	max-height: 80%;
-	padding: 50px 0;
-}
-
 #plus_info_wrapper > * {
 	z-index: 2;
 }
@@ -2237,6 +2235,9 @@ input[type="file"] {
 	align-content: flex-start;
 	border-radius: 5px;
 	overflow: hidden;
+	box-sizing: border-box;
+	margin: 10px;
+	width: 100%;
 }
 
 #cw_preview > div:not(#comp_data) {
