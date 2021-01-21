@@ -182,11 +182,7 @@ if(strlen($test, 1) == 0){
         <div id="title_stripe"><div class="stripe_section"><p class="page_title">Login</p></div></div>
         <div id="panel_main">
             <!-- login form -->
-<<<<<<< HEAD
             <form action="index.php" method="POST" class="overlay_panel_form <?php if($_GET["loginerror"] == 4){echo "error";} ?>">
-=======
-            <form action="index.php" method="POST" class="overlay_panel_form error">
->>>>>>> efd50ab68136c59c366b827da071eb4da6aa9498
                 <label for="username">LOGIN ID</label>
                 <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 
