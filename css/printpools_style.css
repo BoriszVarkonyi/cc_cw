@@ -90,6 +90,7 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
 }
 
 .pool_match {
@@ -243,26 +244,26 @@
         height: 46pt !important;
         min-height: 46pt !important;
         min-width: 23pt !important;
-        box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
+        box-sizing: border-box !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
     
     .grid div {
-        min-height: 50%;
-        width: 100%;
-        height: 50%;
-        box-sizing: border-box;
+        min-height: 50%  !important;
+        width: 100% !important;
+        height: 50% !important;
+        box-sizing: border-box !important;
     }
     
     .grid div:first-of-type {
-        border: 2pt solid black;
-        border-bottom: 1pt solid black;
+        border: 2pt solid black !important;
+        border-bottom: 1pt solid black !important;
     }
     
     .grid div:last-of-type {
-        border: 2pt solid black;
-        border-top: 1pt solid black;
+        border: 2pt solid black !important;
+        border-top: 1pt solid black !important;
     }
 
     .grid_table {
@@ -330,6 +331,7 @@
     font-size: 10pt !important;
     margin-top: 10pt !important;
     position: relative !important;
+    grid-auto-flow: column dense !important;
 }
 
 .grid_header, .grid_row {

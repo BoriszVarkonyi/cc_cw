@@ -175,11 +175,14 @@
 
                         </div>
                         <div class="form_column">
-                            <label for="exempted_fencers_pools" >NUMBER OF EXEMPTED FENCERS IN POOLS</label>
-                            <input type="number" name="exempted_fencers_pools" placeholder="#" class="number_input centered" value="<?php echo $nb_o_exemp_pool ?>">
+                            <label for="type_of_elimination">TYPE OF ELIMINTION</label>
+                            <div class="option_container">
+                                <input type="radio" name="type_of_elimination" id="one_phase_table" value=""/>
+                                <label for="one_phase_table">One Phase Table</label>
 
-                            <label for="exempted_fencers_table" >NUMBER OF EXEMPTED FENCERS IN TABLE</label>
-                            <input type="number" name="exempted_fencers_table" placeholder="#" class="number_input centered" value="<?php echo $nb_o_exemp_table ?>">
+                                <input type="radio" name="type_of_elimination" id="two_phase_table" value=""/>
+                                <label for="two_phase_table">Two Phase Table</label>
+                            </div>
 
                             <label for="third_place" >FENCING FOR 3RD PLACE</label>
                             <div class="option_container">
