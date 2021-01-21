@@ -91,10 +91,37 @@
                             <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
                         </button>
-                        <button name="add_wc" class="stripe_button orange" id="wcButton" type="submit">
-                            <p>Add weapon control</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
+
+                            IF BOTH RED
+                        <a name="" class="stripe_button orange" id="" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
+                            <p>Check In</p>
+                            <img src="../assets/icons/check_circle_outline-black-18dp.svg"/>
+                        </a>
+                        -->
+
+                        <!--    IF NOT READY
+                        <button name="" class="stripe_button orange" id="" type="submit">
+                            <p>Add Weapon Control</p>
+                            <img src="../assets/icons/add-black-18dp.svg"/> This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control
                         </button>
+                        -->
+
+                        <!--    IF BOTH READY BUT NOT CHECKED OUT
+                            <button name="" class="stripe_button" id="" type="submit">
+                                <p>Edit Weapon Control</p>
+                                <img src="../assets/icons/add-black-18dp.svg"/>
+                            </button>
+
+                            <button name="" class="stripe_button orange" id="" type="submit">
+                                <p>Check Outl</p>
+                                <img src="../assets/icons/add-black-18dp.svg"/>
+                            </button>
+                        -->
+
+                        <!--    CHECKED OUT
+
+                        -->
+
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     <div class="search_wrapper">
@@ -120,63 +147,45 @@
                     <div class="wrapper table">
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <button class="resizer"></button>
                             <div class="table_header_text">NATION / CLUB</div>
-                            <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>
-                            <div class="big_status_header"></div>
+                            <div class="small_status_header"></div>
+                            <div class="table_header_text">STATUS</div>
+                            <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
-                        <?php
-
-                            //get weapon type, comp sex from competitions
-                            $qry_get_comp_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
-
-                            $qry_get_comp_data_do = mysqli_query($connection, $qry_get_comp_data);
-
-                            if ($row = mysqli_fetch_assoc($qry_get_comp_data_do)) {
-                                $comp_sex = sexConverter($row['comp_sex']);
-                                $comp_weapon = weaponConverter($row['comp_weapon']);
-                                $feedback['getcompdata'] = "ok!";
-                            } else {
-                                $feedback['getcompdata'] = "ERROR " . mysqli_error($connection);
-                            }
-                            
-                            //get fencers from competitors by comp id :D
-                            $qry_get_fencers = "SELECT * FROM cptrs_$comp_id";
-
-                            $qry_get_fencers_do = mysqli_query($connection, $qry_get_fencers);
-
-                            while ($row = mysqli_fetch_assoc($qry_get_fencers_do)) {
-                                $feedback['getfencers'] = "ok!";
-
-                                $fencer_name = $row['name'];
-                                $fencer_id = $row['id'];
-                                $fencer_nat = $row['nationality'];
-
-                                //test for wc
-                                $qry_get_wc_data = "SELECT * FROM `wc_$comp_id` WHERE id = '$fencer_id'";
-                                $do_get_wc_data = mysqli_query($connection, $qry_get_wc_data);
-                                $num_rows = mysqli_num_rows($do_get_wc_data);
-
-                                if ($num_rows == 1) {
-                                    $wc_test_style = "green";
-                                    $wc_test = "Ready";
-                                } else {
-                                    $wc_test_style = "red";
-                                    $wc_test = "Not ready";
-                                }
-                        ?>
-                        <!-- while -->
-                        <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">
-                            <div class="table_item"><p><?php echo $fencer_name ?></p></div>
-                            <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
-                            <div class="table_item"><p><?php echo $wc_test ?></p></div>
-                            <div class="big_status_item <?php echo $wc_test_style ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
-                        </div>
-                        <?php
-                            }
-                        ?>
+                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                                <div class="table_item"><p>NAME</p></div>
+                                <div class="table_item"><p>NATION / CLUB</p></div>
+                                <div class="table_item"><p>Checked In</p></div>
+                                <div class="small_status_item green"></div>
+                                <div class="table_item"><p>Checked Out</p></div>
+                                <div class="small_status_item green"></div>
+                            </div>
+                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                                <div class="table_item"><p>NAME</p></div>
+                                <div class="table_item"><p>NATION / CLUB</p></div>
+                                <div class="table_item"><p>Checked In</p></div>
+                                <div class="small_status_item green"></div>
+                                <div class="table_item"><p>Ready</p></div>
+                                <div class="small_status_item green"></div>
+                            </div>
+                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                                <div class="table_item"><p>NAME</p></div>
+                                <div class="table_item"><p>NATION / CLUB</p></div>
+                                <div class="table_item"><p>Checked In</p></div>
+                                <div class="small_status_item green"></div>
+                                <div class="table_item"><p>Not ready</p></div>
+                                <div class="small_status_item red"></div>
+                            </div>
+                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                                <div class="table_item"><p>NAME</p></div>
+                                <div class="table_item"><p>NATION / CLUB</p></div>
+                                <div class="table_item"><p>Not checked In</p></div>
+                                <div class="small_status_item red"></div>
+                                <div class="table_item"><p>Not ready</p></div>
+                                <div class="small_status_item red"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

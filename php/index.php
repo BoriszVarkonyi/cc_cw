@@ -220,7 +220,7 @@ checkComp($connection);
                                 ?>  
 
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/beenhere-black-18dp.svg"  class="db_panel_stripe_icon">
+                                    <img src="../assets/icons/beenhere-black-18dp.svg" >
                                     <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                                 </div>
 
@@ -260,7 +260,7 @@ checkComp($connection);
                         <div class="half_width_flex">
                             <div class="db_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/chat-black-18dp.svg"  class="db_panel_stripe_icon">
+                                    <img src="../assets/icons/chat-black-18dp.svg" >
                                     <p>Chat</p>
                                 </div>
                             </div>

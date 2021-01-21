@@ -1104,7 +1104,8 @@ input[value="Search"] {
 }
 
 #plus_information_panel > div > p:nth-of-type(odd) {
-
+	font-size: var(--f-large);
+    font-family: var(--bold);
 }
 
 #plus_information_panel > div > p:nth-of-type(even) {

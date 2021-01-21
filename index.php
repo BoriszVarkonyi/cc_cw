@@ -214,7 +214,7 @@ if(strlen($test, 1) == 0){
         <div id="title_stripe"><div class="stripe_section"><p class="page_title">Login</p></div></div>
         <div id="panel_main">
             <!-- login form -->
-            <form action="index.php" method="POST" class="overlay_panel_form">
+            <form action="index.php" method="POST" class="overlay_panel_form error">
                 <label for="username">LOGIN ID</label>
                 <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 

@@ -148,7 +148,7 @@
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/build-black-18dp.svg"  class="db_panel_stripe_icon">
+                        <img src="../assets/icons/build-black-18dp.svg" >
                         <p>Set basic information</p>
                     </div>
                     <div class="db_panel_main">
