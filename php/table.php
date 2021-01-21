@@ -5,7 +5,14 @@
 
 <?php 
 
+//This section checks if table has already been gererated;
 
+$qry_check_existance = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
+$qry_check_existance_do = mysqli_query($connection, $qry_check_existance);
+
+$existance = mysqli_num_rows($qry_check_existance_do);
+
+echo $existance;
 
 ?>
 
@@ -22,19 +29,22 @@
 <body>
 <!-- header -->
     <div id="flexbox_container">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "../includes/navbar.php";?>
         <!-- navbar -->
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Table</p>
-                <!-- STATE 0 -->
+
+                <?php
+                 if($existance == 0){
+                ?>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button orange" type="button">
                         <p>Generate Table</p>
                         <img src="../assets/icons/add_box-black-18dp.svg"/>
                     </button>
                 </div>
-                <!-- STATE 1 -->
+                <?php }else{ ?>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
@@ -53,7 +63,9 @@
                         <img src="../assets/icons/next_plan-black-18dp.svg"/>
                     </button>
                 </div>
-            </div>
+                <?php } ?>
+
+            </div> 
                 <div id="ref_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleRefPanel()">
                         <img src="../assets/icons/close-black-18dp.svg" >
@@ -213,11 +225,11 @@
                 </div>
             <div id="page_content_panel_main">
                 <!-- State 0 -->
-                <!--
+                
                 <div id="no_something_panel">
                     <p>You have no table generated!</p>
-                </div>-->
-                <!-- State 1 -->
+                </div>
+                <!-- State 1 --><!--
                 <div id="call_room" class="cc">
                     <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg" >
@@ -1317,7 +1329,7 @@
                     <div class="green">Finished</div>
                     <div class="yellow">Ongoing</div>
                     <div class="red">Haven't started</div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
