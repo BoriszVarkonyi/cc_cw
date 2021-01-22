@@ -81,6 +81,10 @@ header {
 	margin: 0 2px;
 }
 
+.header_button:hover {
+	background-color: var(--c-lightergray);
+}
+
 #profile_picture {
 	border-radius: 50%;
 	height: 30px;
@@ -176,21 +180,20 @@ header {
 	right: 170px;
 	top: 40px;
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
-	overflow-x: hidden;
-	overflow-y: scroll;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+#language_panel > div {
+	width: 100%;
 }
 
 #languages_wrapper {
-	width: 100%;
-	padding: 10px;
+	padding: 10px 15px;
 	box-sizing: border-box;
 	position: relative;
 	z-index: 5;
+	overflow: auto;
 }
 
 .language_button {
@@ -200,7 +203,6 @@ header {
 	justify-items: flex-start;
 	justify-content: flex-start;
 	align-items: center;
-	flex-wrap: nowrap;
 	margin-bottom: 5px;
 	padding: 5px;
 	background: transparent;
@@ -626,7 +628,8 @@ header {
 }
 
 .panel_button.fixed {
-	margin: 0 5px 5px 0;
+	position: relative;
+	margin: 0 5px 0 auto;
 	z-index: 6;
 }
 
