@@ -69,7 +69,7 @@ header {
 
 /* Header Bar Buttons */
 
-.hb_button {
+.header_button {
 	background-color: var(--c-lightgray);
 	height: 35px;
 	width: 35px;
@@ -78,6 +78,7 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 0 2px;
 }
 
 #profile_picture {
@@ -109,11 +110,7 @@ header {
 
 .settings_section {
 	margin: 0 0 0 auto;
-	float: right;
 	display: flex;
-	flex-wrap: nowrap;
-	width: 75px;
-	justify-content: space-between;
 }
 
 .identity_section {
