@@ -106,7 +106,7 @@
                         </button>
                         -->
 
-                        <!--    IF BOTH READY BUT NOT CHECKED OUT
+                        <!--    IF BOTH RED BUT NOT CHECKED OUT
                             <button name="" class="stripe_button" id="" type="submit">
                                 <p>Edit Weapon Control</p>
                                 <img src="../assets/icons/add-black-18dp.svg"/>

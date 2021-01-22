@@ -49,24 +49,24 @@
                                         <div class="table_item"><p>Epee</p></div>
                                         <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
                                         <div class="big_status_item">
-                                            <input type="checkbox" name="" id="" value=""/>
-                                            <label for=""></label>
+                                            <input type="checkbox" name="bag_content" id="epee" value=""/>
+                                            <label for="epee"></label>
                                         </div>
                                     </div>
                                     <div class="table_row">
                                         <div class="table_item"><p>Epee</p></div>
                                         <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
                                         <div class="big_status_item">
-                                            <input type="checkbox" name="" id="" value=""/>
-                                            <label for=""></label>
+                                            <input type="checkbox" name="bag_content" id="foil" value=""/>
+                                            <label for="foil"></label>
                                         </div>
                                     </div>
                                     <div class="table_row">
                                         <div class="table_item"><p>Epee</p></div>
                                         <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
                                         <div class="big_status_item">
-                                            <input type="checkbox" name="" id="" value=""/>
-                                            <label for=""></label>
+                                            <input type="checkbox" name="bag_content" id="sabre" value=""/>
+                                            <label for="sabre"></label>
                                         </div>
                                     </div>
                                 </div>
