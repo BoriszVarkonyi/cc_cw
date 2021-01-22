@@ -62,33 +62,37 @@ if (isset($_POST["logout"])) {
         <p id="app_name" class="closed">Competition Control <b>Alpha</b></p>
         <?php 
             if (isset($_GET['comp_id'])) {
-
                 ?>
-                    <!-- hamburger tab for navbar left -->
-                    <div id="menu_button_section" class="closed">
-                        <button type="button" onclick="toggle_nav_bar()" id="menu_button">
-                            <img src="../assets/icons/menu-black-18dp.svg"/>
-                        </button>
-                    </div>
+                <!-- hamburger tab for navbar left -->
+                <div id="menu_button_section" class="closed">
+                    <button type="button" onclick="toggle_nav_bar()" id="menu_button">
+                        <img src="../assets/icons/menu-black-18dp.svg"/>
+                    </button>
+                </div>
                 <?php
             }
-
         ?>
         <!-- colormode and language buttons -->
         <div class="settings_section">
-            <button class="hb_button" id="language_button" onclick="toggle_language_panel()">
+            <button class="header_button" id="colormode_button" onclick="toggleFullscreen()">
+                <img src="../assets/icons/open_in_full-black-18dp.svg"/>
+                <img src="../assets/icons/close_fullscreen-black-18dp.svg"/>
+            </button>
+            <button class="header_button" id="language_button" onclick="toggle_language_panel()">
                 <img src="../assets/icons/language-black-18dp.svg"/>
             </button>
-            <button class="hb_button" id="colormode_button" onclick="toggle_colormode_panel()">
+            <button class="header_button" id="colormode_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/color_lens-black-18dp.svg"/>
             </button>
         </div>
         
         <!-- language select drop-down -->
         <div id="language_panel" class="small overlay_panel hidden">
-            <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
-                <img src="../assets/icons/close-black-18dp.svg"/>
-            </button>
+            <div>
+                <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
+                    <img src="../assets/icons/close-black-18dp.svg"/>
+                </button>
+            </div>
             <div id="languages_wrapper">
                 <button id="language_english" class="language_button selected">
                     <img src="../assets/icons/english.svg"  class="not_icon"/>

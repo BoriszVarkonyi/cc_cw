@@ -99,23 +99,23 @@
                         </a>
                         -->
 
-                        <!--    IF NOT READY
-                        <button name="" class="stripe_button orange" id="" type="submit">
+                        IF NOT READY
+                        <a name="" class="stripe_button orange" id="" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Add Weapon Control</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/> This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control
-                        </button>
+                            <img src="../assets/icons/add-black-18dp.svg"/>
+                        </a>
                         -->
 
-                        <!--    IF BOTH READY BUT NOT CHECKED OUT
-                            <button name="" class="stripe_button" id="" type="submit">
-                                <p>Edit Weapon Control</p>
-                                <img src="../assets/icons/add-black-18dp.svg"/>
-                            </button>
+                        <!--    IF BOTH RED BUT NOT CHECKED OUT
+                        <a name="" class="stripe_button" id="" type="submit">
+                            <p>Edit Weapon Control</p>
+                            <img src="../assets/icons/edit-black-18dp.svg"/>
+                        </a>
 
-                            <button name="" class="stripe_button orange" id="" type="submit">
-                                <p>Check Outl</p>
-                                <img src="../assets/icons/add-black-18dp.svg"/>
-                            </button>
+                        <button name="" class="stripe_button orange" id="" type="submit">
+                            <p>Check Out</p>
+                            <img src="../assets/icons/add-black-18dp.svg"/>
+                        </button>
                         -->
 
                         <!--    CHECKED OUT

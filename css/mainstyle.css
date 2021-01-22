@@ -69,7 +69,7 @@ header {
 
 /* Header Bar Buttons */
 
-.hb_button {
+.header_button {
 	background-color: var(--c-lightgray);
 	height: 35px;
 	width: 35px;
@@ -78,6 +78,11 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 0 2px;
+}
+
+.header_button:hover {
+	background-color: var(--c-lightergray);
 }
 
 #profile_picture {
@@ -109,11 +114,7 @@ header {
 
 .settings_section {
 	margin: 0 0 0 auto;
-	float: right;
 	display: flex;
-	flex-wrap: nowrap;
-	width: 75px;
-	justify-content: space-between;
 }
 
 .identity_section {
@@ -179,21 +180,20 @@ header {
 	right: 170px;
 	top: 40px;
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	background-color: var(--c-white);
-	box-shadow: var(--s-black);
-	overflow-x: hidden;
-	overflow-y: scroll;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+#language_panel > div {
+	width: 100%;
 }
 
 #languages_wrapper {
-	width: 100%;
-	padding: 10px;
+	padding: 10px 15px;
 	box-sizing: border-box;
 	position: relative;
 	z-index: 5;
+	overflow: auto;
 }
 
 .language_button {
@@ -203,7 +203,6 @@ header {
 	justify-items: flex-start;
 	justify-content: flex-start;
 	align-items: center;
-	flex-wrap: nowrap;
 	margin-bottom: 5px;
 	padding: 5px;
 	background: transparent;
@@ -629,7 +628,8 @@ header {
 }
 
 .panel_button.fixed {
-	margin: 0 5px 5px 0;
+	position: relative;
+	margin: 0 5px 0 auto;
 	z-index: 6;
 }
 
@@ -1157,6 +1157,7 @@ header {
 
 .comp_logo {
 	width: 50px;
+	min-width: 50px;
 	height: 50px;
 	margin: 0 10px;
 	transition: all ease-out .2s;
@@ -1709,6 +1710,11 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	align-items: flex-start;
 }
 
+.db_panel_main .table {
+	min-width: 80%;
+	padding: 50px 0;
+}
+
 #sheduled_to_do_list {
 	padding: 0;
 	margin: 0;
@@ -2092,13 +2098,6 @@ input[type="file"] {
 	margin-bottom: 30px;
 }
 
-#plus_info_wrapper {
-	min-width: 80%;
-	width: 80%;
-	max-height: 80%;
-	padding: 50px 0;
-}
-
 #plus_info_wrapper > * {
 	z-index: 2;
 }
@@ -2237,6 +2236,9 @@ input[type="file"] {
 	align-content: flex-start;
 	border-radius: 5px;
 	overflow: hidden;
+	box-sizing: border-box;
+	margin: 10px;
+	width: 100%;
 }
 
 #cw_preview > div:not(#comp_data) {

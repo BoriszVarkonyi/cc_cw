@@ -49,9 +49,7 @@ $query_comps = mysqli_query($connection, $query);
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body id="illustration_bg">
-
     <?php include "../includes/headerburger.php" ?>
-
     <div id="your_competitions_panel" class="panel">
         <div id="title_stripe">
             <p class="page_title">Your competitions</p>

@@ -34,7 +34,7 @@
                 <div id="title_stripe">
                     <p class="page_title">Print Pools</p>
                     <div class="stripe_button_wrapper">
-                        <button class="stripe_button orange" onclick="printPage()">
+                        <button class="stripe_button orange" onclick="printPage()" shortcut="SHIFT+P">
                             <p id="save_text">Print All Pools</p>
                             <img src="../assets/icons/print-black-18dp.svg"/>
                         </button>
