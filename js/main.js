@@ -525,7 +525,8 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 function toggleFullscreen(){
-    var elem = document.getElementById("illustration_bg")
+    var elem = document.querySelector("body");
+    console.log(elem)
     var buttonIcon = document.querySelector("#colormode_button > img");
     if(window.innerHeight == screen.height){
         buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
