@@ -112,10 +112,10 @@
                             <img src="../assets/icons/edit-black-18dp.svg"/>
                         </a>
 
-                        <button name="" class="stripe_button orange" id="" type="submit" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
+                        <a name="" class="stripe_button orange" id="" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check Out</p>
                             <img src="../assets/icons/check_circle-black-18dp.svg"/>
-                        </button>
+                        </a>
                         -->
 
                         <!--    CHECKED OUT

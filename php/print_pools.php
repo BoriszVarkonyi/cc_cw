@@ -23,7 +23,7 @@
     <title>Print Pools</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
-    <link rel="stylesheet" href="../css/printpools_style.css">
+    <link rel="stylesheet" href="../css/print_pools_style.css">
 </head>
 <body>
 <!-- header -->
@@ -42,15 +42,15 @@
 
                     <div class="view_button_wrapper">
                         <button class="view_button">
-                            <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                            <img src="../assets/icons/zoom_out-black-18dp.svg"/>
                         </button>
                         <button class="view_button">
-                            <img src="../assets/icons/zoom_out-black-18dp.svg"/>
-                        </button>                        
+                            <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                        </button>                      
                     </div>
                 </div>
                 <div id="page_content_panel_main" class="scroll">
-                    <div class="wrapper w90" id="pool_print_wrapper">
+                    <div id="pool_print_wrapper">
                         <?php
                             $qry_get_pool = "SELECT * FROM `pools_$comp_id`";
                             $do_get_pool = mysqli_query($connection, $qry_get_pool);

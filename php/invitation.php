@@ -177,7 +177,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
             <div id="page_content_panel_main">
                 <div id="invitation_wrapper" class="wrapper">
 
-                    <div class="db_panel invitation">
+                    <div class="db_panel  other">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Plus information</p>
@@ -240,7 +240,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             </div>
                         </div>
                     </div>
-                    <div class="db_panel invitation">
+                    <div class="db_panel  other">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Add competition logo</p>

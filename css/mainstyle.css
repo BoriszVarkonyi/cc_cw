@@ -544,9 +544,32 @@ header {
 	position: absolute;
 	top: 100%;
 	left: 50px;
-	background-color: var(--c-lightgray);
+	background-color: var(--c-gray);
 	border-radius: 0 0 5px 5px;
-	padding: 5px;
+	display: flex;
+	width: auto;
+	overflow: hidden;
+	padding: 0 1px;
+}
+
+.view_button_wrapper button {
+	height: 1.75rem;
+	width: 1.75rem;
+	background-color: var(--c-lightgray);
+	margin: 2px 1px 2px 1px;
+}
+
+.view_button_wrapper button:first-of-type {
+	border-radius: 0 0 0 3px;
+}
+
+.view_button_wrapper button:last-of-type {
+	border-radius: 0 0 3px 0;
+}
+
+.view_button_wrapper img {
+	height: 1.25rem;
+	width: 1.25rem;
 }
 
 /* Panel Button Used in CC Panels */
@@ -2098,7 +2121,11 @@ input[type="file"] {
 	text-transform: none;
 }
 
-.db_panel.invitation .db_panel_main{
+.db_panel.other {
+	margin-bottom: 50px;
+}
+
+.db_panel.other .db_panel_main {
 	min-height: 30vh;
 	max-height: 80vh;
 	flex-basis: 100%;
@@ -2106,7 +2133,6 @@ input[type="file"] {
 	overflow-x: hidden;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 30px;
 }
 
 #plus_info_wrapper > * {

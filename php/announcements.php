@@ -139,7 +139,7 @@
             
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
-                    <div class="db_panel">
+                    <div class="db_panel  other">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Manage Announcements</p>

@@ -2,8 +2,8 @@
 
 #pool_print_wrapper {
 	display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    transform: scale(.5);
+    margin: 50px;
 }
 
 .pool_print {
