@@ -526,10 +526,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 function toggleFullscreen(){
     var elem = document.querySelector("body");
-    console.log(elem)
-    var buttonIcon = document.querySelector("#colormode_button > img");
     if(window.innerHeight == screen.height){
-        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
         if (document.exitFullscreen){
             document.exitFullscreen();
         } 
@@ -539,9 +536,9 @@ function toggleFullscreen(){
         else if (document.msExitFullscreen){ /* IE11 */
             document.msExitFullscreen();
         }
+        iconChanger();
     }
     else{
-        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
         } 
@@ -551,5 +548,18 @@ function toggleFullscreen(){
         else if (elem.msRequestFullscreen){ /* IE11 */
             elem.msRequestFullscreen();
         }
+        iconChanger();
     }
 }
+function iconChanger(){
+    var buttonIcon = document.querySelector("#colormode_button > img");
+    if(window.innerHeight == screen.height){
+        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
+    }
+    else{
+        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
+    }
+}
+
+window.addEventListener("resize", iconChanger);
+
