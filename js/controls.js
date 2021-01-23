@@ -26,7 +26,6 @@ document.onkeydown = (keyDownEvent) => {
             tableRows[selectedElementIndexAr].classList.add("selected")
             tableRows[selectedElementIndexAr].focus()
             hiddenin.value = tableRows[selectedElementIndexAr].id
-            console.log(hiddenin.value)
             keyDownEvent.preventDefault();
         }
 
@@ -52,7 +51,6 @@ document.onkeydown = (keyDownEvent) => {
                 tableRows[selectedElementIndexAr].classList.add("selected")
                 tableRows[selectedElementIndexAr].focus()
                 hiddenin.value = tableRows[selectedElementIndexAr].id
-                console.log(hiddenin.value)
                 keyDownEvent.preventDefault();
             }
             //If there is not a selected row than it selects the first row.
@@ -121,12 +119,10 @@ document.onkeyup=function(e){
     }    
 }
 function test(){
-    var table = document.querySelector(".table");
     var tableRows = document.querySelectorAll(".table .table_row")
     tableRows[selectedElementIndexAr].classList.add("selected")
     tableRows[selectedElementIndexAr].focus()
     hiddenin.value = tableRows[selectedElementIndexAr].id
     console.log(hiddenin.value)
-    selectChecker();
 }
 test();

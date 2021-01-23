@@ -80,7 +80,7 @@ function opened_nav_bar(){
     status = "opened";
 }
 //Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
-if(navbar_status == "pinned"){
+if(navbar_status == "pinned" && navBar != null){
     opened_nav_bar();
     pin.classList.add("pinned")
 }
