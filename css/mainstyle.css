@@ -538,6 +538,17 @@ header {
 	background-color: var(--c-lightblue);
 }
 
+/* View Chnager Butgtons */
+
+.view_button_wrapper {
+	position: absolute;
+	top: 100%;
+	left: 50px;
+	background-color: var(--c-lightgray);
+	border-radius: 0 0 5px 5px;
+	padding: 5px;
+}
+
 /* Panel Button Used in CC Panels */
 
 /* Used on login page */
