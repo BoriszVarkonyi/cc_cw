@@ -242,9 +242,5 @@
         </div>
     </body>
 <script src="../js/main.js"></script>
-<script>
-    function printPage() {
-        window.print();
-    }
-</script>
+<script src="../js/print_pools.js"></script>
 </html>
