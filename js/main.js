@@ -523,3 +523,32 @@ document.addEventListener('DOMContentLoaded', function(){
         setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.classList.add("hidden")}, 1200);
     }
 })
+
+function toggleFullscreen(){
+    var elem = document.getElementById("illustration_bg")
+    var buttonIcon = document.querySelector("#colormode_button > img");
+    if(window.innerHeight == screen.height){
+        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
+        if (document.exitFullscreen){
+            document.exitFullscreen();
+        } 
+        else if (document.webkitExitFullscreen){ /* Safari */
+            document.webkitExitFullscreen();
+        } 
+        else if (document.msExitFullscreen){ /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+    else{
+        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } 
+        else if (elem.webkitRequestFullscreen){ /* Safari */
+            elem.webkitRequestFullscreen();
+        } 
+        else if (elem.msRequestFullscreen){ /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+}
