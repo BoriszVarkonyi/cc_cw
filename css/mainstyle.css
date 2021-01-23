@@ -557,6 +557,18 @@ header {
 	width: 1.75rem;
 	background-color: var(--c-lightgray);
 	margin: 2px 1px 2px 1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.view_button_wrapper button:hover {
+	background-color: var(--c-lightergray);
+}
+
+.view_button_wrapper button:disabled {
+	pointer-events: none;
+	background-color: var(--c-gray);
 }
 
 .view_button_wrapper button:first-of-type {
