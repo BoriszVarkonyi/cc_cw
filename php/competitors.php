@@ -55,16 +55,12 @@ $query_do = mysqli_query($connection, $query);
                 <div class="wrapper table w90 first_column_centered">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
-                        <button class="resizer"></button>
                         <div class="table_header_text">NAME</div>
-                        <button class="resizer"></button>
                         <div class="table_header_text">NATION / CLUB</div>
-                        <button class="resizer"></button>
-                        <div class="small_status_header"></div>
                         <div class="table_header_text">REGISTRATION</div>
-                        <button class="resizer"></button>
                         <div class="small_status_header"></div>
                         <div class="table_header_text">WEAPON CONTROL</div>
+                        <div class="small_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
                         <?php
@@ -83,17 +79,6 @@ $query_do = mysqli_query($connection, $query);
                                 <div class="table_item"><p><?php echo $pos ?></p></div>
                                 <div class="table_item"><p><?php echo $name ?></p></div>
                                 <div class="table_item"><p><?php echo $nat ?></p></div>
-                                <div class="small_status_item <?php
-
-                                if($reg == 0){
-
-                                    echo "red";
-                                }else{
-
-                                    echo "green";
-                                }
-                                ?>">
-                                </div>
                                 <div class="table_item">
                                     <p>
                                     <?php
@@ -109,26 +94,37 @@ $query_do = mysqli_query($connection, $query);
                                     </p>
                                 </div>
                                 <div class="small_status_item <?php
-                                if($wc == 0){
+                                    if($reg == 0){
 
-                                    echo "red";
-                                }else{
+                                        echo "red";
+                                    }else{
 
-                                    echo "green";
-                                }
-                                ?>">
+                                        echo "green";
+                                    }
+                                    ?>">
                                 </div>
                                 <div class="table_item"><?php
-                                if($wc == 0){
+                                    if($wc == 0){
 
-                                    echo "Not ready";
-                                }else{
+                                        echo "Not ready";
+                                    }else{
 
-                                    echo "Ready";
-                                }
-                                ?>
+                                        echo "Ready";
+                                    }
+                                    ?>
+                                </div>
+                                <div class="small_status_item <?php
+                                    if($wc == 0){
+
+                                        echo "red";
+                                    }else{
+
+                                        echo "green";
+                                    }
+                                    ?>">
                                 </div>
                             </div>
+
                         <?php
                         }
                         ?>

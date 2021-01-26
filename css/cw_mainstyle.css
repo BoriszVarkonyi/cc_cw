@@ -1657,6 +1657,7 @@ input[value="Search"] {
 
 #article_wrapper p.paragraph {
 	text-indent: 20px;
+	max-width: 70ch;
 }
 
 #article_wrapper p.h1 {
@@ -1673,9 +1674,9 @@ input[value="Search"] {
 	width: 30rem;
 	height: 20rem;
 	-o-object-fit: cover;
-	   object-fit: cover;
-	float: left;
-	margin: 0 1rem 1rem 0;
+	object-fit: cover;
+	float: right;
+	margin: 0 0 1rem 1rem;
 }
 
 .article_info {

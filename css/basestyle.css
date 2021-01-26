@@ -477,6 +477,9 @@ input[type="text"].search.cc:focus + div {
 }
 
 .search_results {
+	border: 3px solid var(--cs-lightergray);
+	border-top: none;
+	box-sizing: border-box;
 	width: 225px;
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
@@ -488,7 +491,6 @@ input[type="text"].search.cc:focus + div {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	padding-top: 5px;
 	font-size: var(--f-small);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
