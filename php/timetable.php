@@ -271,9 +271,7 @@ if($query_do){
                                      <button type="button" onclick="removePeriod()" class="close_add_peroid">
                                         <img src="../assets/icons/close-black-18dp.svg" >
                                     </button>
-                                </div>
-
-                                        
+                                </div>  
                                 <div class="add_peroid_container">
                                     <button type="button" id="add_period" onclick="addPeriod()">
                                         <img src="../assets/icons/more_time-black-18dp.svg" >

@@ -141,6 +141,10 @@ body, html {	/* Gives placeholder background and default font */
 	font-size: var(--f-medium) !important;
 }
 
+body * {	/* Gives placeholder background and default font */
+	user-select: none;
+}
+
 .preload * {
 	transition: none !important;
 }
@@ -189,7 +193,6 @@ textarea {
 	border: none;
 	resize: none;
 	font-family: var(--regular);
-
 }
 
 ::-webkit-input-placeholder {
