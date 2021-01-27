@@ -141,6 +141,10 @@ body, html {	/* Gives placeholder background and default font */
 	font-size: var(--f-medium) !important;
 }
 
+body * {	/* Gives placeholder background and default font */
+	user-select: none;
+}
+
 .preload * {
 	transition: none !important;
 }
@@ -189,7 +193,6 @@ textarea {
 	border: none;
 	resize: none;
 	font-family: var(--regular);
-
 }
 
 ::-webkit-input-placeholder {
@@ -477,6 +480,9 @@ input[type="text"].search.cc:focus + div {
 }
 
 .search_results {
+	border: 3px solid var(--cs-lightergray);
+	border-top: none;
+	box-sizing: border-box;
 	width: 225px;
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
@@ -488,7 +494,6 @@ input[type="text"].search.cc:focus + div {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	padding-top: 5px;
 	font-size: var(--f-small);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
@@ -993,6 +998,13 @@ input:focus ~ .clear_search_button {
 	max-width: 50%;
 }
 
+.table_item.selected {
+	background-color: var(--c-orange) !important;
+	transform: scale(1.01);
+	font-family: var(--bold);
+	overflow: hidden;
+}
+
 .table_item p {
 	padding: 0 20px;
 	overflow: hidden;
@@ -1329,12 +1341,10 @@ p.wc_time {
 
 .table_fencer {
 	width: 100%;
-	align-self: stretch;
 	display: flex;
 	align-items: center;
 	background-color: var(--c-white);
 	transition: transform var(--t-basic);
-	
 	color: var(--cs-black);
 }
 

@@ -52,10 +52,5 @@
     </div>
     <script src="../js/main.js"></script>
     <script src="../js/your_profile.js"></script>
-    <script>
-        function closePage() {
-            close();
-        }
-    </script>
 </body>
 </html>

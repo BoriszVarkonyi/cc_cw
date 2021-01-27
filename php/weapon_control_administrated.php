@@ -106,16 +106,16 @@
                         </a>
                         -->
 
-                        <!--    IF BOTH RED BUT NOT CHECKED OUT
-                        <a name="" class="stripe_button" id="" type="submit">
+                        IF BOTH RED BUT NOT CHECKED OUT
+                        <a name="" class="stripe_button" id="" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Edit Weapon Control</p>
                             <img src="../assets/icons/edit-black-18dp.svg"/>
                         </a>
 
-                        <button name="" class="stripe_button orange" id="" type="submit">
+                        <a name="" class="stripe_button orange" id="" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check Out</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/>
-                        </button>
+                            <img src="../assets/icons/check_circle-black-18dp.svg"/>
+                        </a>
                         -->
 
                         <!--    CHECKED OUT

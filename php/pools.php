@@ -1049,7 +1049,7 @@ elseif ($exist != 0 && $exist2 == 0)
 
     ?>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button orange" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                    <a class="stripe_button orange" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
                         <p>Print Pools</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </a>

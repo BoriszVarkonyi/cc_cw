@@ -80,7 +80,7 @@ function opened_nav_bar(){
     status = "opened";
 }
 //Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
-if(navbar_status == "pinned"){
+if(navbar_status == "pinned" && navBar != null){
     opened_nav_bar();
     pin.classList.add("pinned")
 }
@@ -523,3 +523,43 @@ document.addEventListener('DOMContentLoaded', function(){
         setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.classList.add("hidden")}, 1200);
     }
 })
+/*
+function toggleFullscreen(){
+    var elem = document.querySelector("body");
+    if(window.innerHeight == screen.height){
+        if (document.exitFullscreen){
+            document.exitFullscreen();
+        } 
+        else if (document.webkitExitFullscreen){ 
+            document.webkitExitFullscreen();
+        } 
+        else if (document.msExitFullscreen){ 
+            document.msExitFullscreen();
+        }
+        iconChanger();
+    }
+    else{
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } 
+        else if (elem.webkitRequestFullscreen){
+            elem.webkitRequestFullscreen();
+        } 
+        else if (elem.msRequestFullscreen){ 
+            elem.msRequestFullscreen();
+        }
+        iconChanger();
+    }
+}
+function iconChanger(){
+    var buttonIcon = document.querySelector("#colormode_button > img");
+    if(window.innerHeight == screen.height){
+        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
+    }
+    else{
+        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
+    }
+}
+
+window.addEventListener("resize", iconChanger);
+*/
