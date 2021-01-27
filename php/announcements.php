@@ -5,108 +5,101 @@
 
 <?php 
 
-    $feedback = array(
-        "delete" => "",
-        "update" => "",
-        "getnumrows" => "",
-        "getdata" => "",
-        "insert_info" => "",
-        "ttest" => "",
-        "create" => "",
-        "update" => ""
-    );
 
-    $table_name = "announcement_" . $comp_id;
+    class announcement {
+        public $title;
+        public $body;
 
-    
-    //update announcement_$comp_id table with new title from form
-    if (isset($_POST['input_submit']) && strlen($_POST['input_title']) > 0) {
-
-
-        //testing for dupli tables
-        $check_d_table_qry = "SELECT COUNT(*)
-                                FROM information_schema.tables 
-                                WHERE table_schema = 'ccdatabase' 
-                                AND table_name = '$table_name';";
-
-        if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-            if ($check_d_table_do) {
-
-                $create_table_qry = "CREATE TABLE $table_name ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
-    
-                
-                if (mysqli_query($connection, $create_table_qry)){
-                    $feedback['create'] = "Minden ok!";
-                } else {
-                    $feedback['create'] = "ERROR " . mysqli_error($connection);
-                }
-    
-            }
-        } else {
-            $feedback['ttest'] = "ERROR " . mysqli_error($connection);
+        function __constructor($title, $body) {
+            $this -> title = $title;
+            $this -> body = $body;
         }
 
-        
-        
+        function get_title() {
+            return $this -> title;
+        }
 
-        //get title from post
+        function get_body() {
+            return $this -> body;
+        }
+
+        function update_body($body) {
+            $this -> body = $body;
+        }
+    }
+
+    //make announcements table 
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`announcements` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_make_table = mysqli_query($connection, $qry_make_table);
+
+    //get data from table
+    $qry_get_data = "SELECT * FROM announcements WHERE assoc_comp_id = '$comp_id'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $test_row = TRUE;
+        $json_string = $row['data'];
+        $json_table_temp = json_decode($json_string);
+        $json_table = [];
+        foreach ($json_table_temp as $values) {
+            print_r($values);
+            $object_to_push = new announcement($values -> title, $values -> body);
+            array_push($json_table, $object_to_push);
+        }
+        print_r($json_table);
+    } else {
+        $test_row = FALSE;
+        //make template row
+        $json_table = [];
+        $json_string = json_encode($json_table);
+        $qry_make_template = "INSERT INTO `announcements` (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
+        $do_make_template = mysqli_query($connection, $qry_make_template);
+    }
+
+    //add announcement
+    if (isset($_POST['input_submit'])) {
+        //get data from form
         $title = $_POST['input_title'];
+        $announcement = new announcement($title, "");
 
+        //push
+        array_push($json_table, $announcement);
 
-        //check for row with same title
-        $dupli_rows_qry = "SELECT * FROM $table_name WHERE title = '$title'";
-        if ($dupli_rows_do = mysqli_query($connection, $dupli_rows_qry)) {
+        //json -> string
+        $json_string = json_encode($json_table);
 
-            $numrows = mysqli_num_rows($dupli_rows_do);
-
-        } else {
-            $feedback['getnumrows'] = "ERROR: " . mysqli_error($connection);
-        }
-
-
-        //create new ann row with name
-        if ($numrows == 0) {
-
-            $insert_info_qry = "INSERT INTO $table_name (title) VALUE ('$title')";
-            $inser_indo_do = mysqli_query($connection, $insert_info_qry);
-
-            if ($inser_indo_do) {
-                $feedback['insert_info'] = "minden OK!";
-            } else { //error branch
-                $feedback['insert_info'] =  "ERROR:" . mysqli_error($connection);
-            }
-
-        } else {
-            $feedback['insert_info'] = "You already have info with the same title!";
+        //send data to db
+        if ($title != "") {
+            $qry_new_announcement = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+            $do_new_announcement = mysqli_query($connection, $qry_new_announcement);
+            header("Refresh: 0");
         }
     }
 
-    //updateing announcement from text areas
-    if (isset($_POST['submit_body'])) {
+    //update body
+    if (isset($_POST["submit_body"])) {
+        $body = $_POST['text_body'];
+        $id_to_change = $_POST['text_title_to_change'];
 
-        $new_body = $_POST['text_body'];
-        $change_title = $_POST['text_title_to_change'];
+        $json_table[$id_to_change] -> update_body($body);
+        $json_string = json_encode($json_table);
 
-        $update_qry = "UPDATE $table_name SET body = '$new_body' WHERE title = '$change_title'";
-        if (mysqli_query($connection, $update_qry)) {
-            $feedback['update'] = "Minden ok!";
-        } else {
-            $feedback['update'] = "ERROR:" . mysqli_error($connection);
-        }
+        //update in db
+        $qry_update_body = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        $do_update_body = mysqli_query($connection, $qry_update_body);
+
+        header("Refresh: 0");
     }
 
-
-    //deleteing info_$comp_id row
+    //delete announcement
     if (isset($_POST['submit_delete'])) {
+        $id_to_change = $_POST['text_title_to_change'];
+        unset($json_table[$id_to_change]);
 
-        $change_title = $_POST['text_title_to_change'];
+        $json_string = json_encode($json_table);
 
-        $delete_qry = "DELETE FROM $table_name WHERE title = '$change_title'";
-        if (mysqli_query($connection, $delete_qry)) {
-            $feedback['delete'] = "Minden ok delete!";
-        } else {
-            $feedback['delete'] = "ERROR:" . mysqli_error($connection);
-        }
+        $qry_update_delete = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        $do_update_delete = mysqli_query($connection, $qry_update_delete);
+        header("Refresh: 0");
     }
 ?>
 
@@ -149,40 +142,38 @@
                                 <div class="table_row_wrapper alt">
 
                                     <?php
-                                        //displaying plsu infos from db in table rows
-                                        $get_data_plusinfo_qry = "SELECT * FROM $table_name";
-                                        $get_data_plusinfo_do = mysqli_query($connection, $get_data_plusinfo_qry);
-                                        if ($get_data_plusinfo_do !== FALSE) {
-                                            while ($row = mysqli_fetch_assoc($get_data_plusinfo_do)) {
 
-                                                $title = $row['title'];
-                                                $body = $row['body'];
-
-                                    ?>
-
-                                            <!-- ezt kell whileozni csorom -->
-                                            <div class="entry">
-
-                                                <!-- csak a cim kell -->
-                                                <div class="table_row" onclick="toggleEntry(this)">
-                                                    <div class="table_item invitation"><p><?php echo $title ?></p></div>
-                                                </div>
-
-                                                <!-- updateing entry -->
-                                                <form class="entry_panel collapsed" id="update" method="POST" action="../php/announcements.php?comp_id=<?php echo $comp_id ?>">
-                                                    <button class="panel_button" type="submit" name="submit_delete" id="update" >
-                                                        <img src="../assets/icons/delete-black-18dp.svg">
-                                                    </button>
-                                                    <textarea id="update" name="text_body" ><?php echo $body ?></textarea>
-                                                    <input id="update" name="text_title_to_change" type="text" value="<?php echo $title ?>" class="hidden">
-                                                    <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                                </form>
-
-                                            </div>
-                                            <!-- eddig mondjuk -->
-                                <?php 
-                                            }    
-                                        }                             
+                                        if (isset($json_table[0])) {
+                                            for ($i = 0; $i < count($json_table); $i++) {
+                                        
+                                            ?>
+        
+                                                    <!-- ezt kell whileozni csorom -->
+                                                    <div class="entry">
+        
+                                                        <!-- csak a cim kell -->
+                                                        <div class="table_row" onclick="toggleEntry(this)">
+                                                            <div class="table_item invitation"><p><?php echo $json_table[$i] -> title; ?></p></div>
+                                                        </div>
+        
+                                                        <!-- updateing entry -->
+                                                        <form class="entry_panel collapsed" id="update" method="POST" action="">
+                                                            <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                                <img src="../assets/icons/delete-black-18dp.svg">
+                                                            </button>
+                                                            <textarea id="update" name="text_body" ><?php echo $json_table[$i] -> body ?></textarea>
+                                                            <input id="update" name="text_title_to_change" type="text" value="<?php echo $i ?>" class="hidden">
+                                                            <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                                        </form>
+        
+                                                    </div>
+                                                    <!-- eddig mondjuk -->
+                                <?php
+                                                }   
+                                        } else {
+                                            ?><p>You have no announcement set up!</p><?php
+                                        }
+                                            
                                 ?>
     
                                     <!-- adding entry by title -->

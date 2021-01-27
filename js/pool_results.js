@@ -10,6 +10,7 @@ function selectRow(x){
                 selectedElements[i].classList.remove("selected")
             }
         }
+        hiddenInput.value = "";
         oldClickedRow = undefined; 
     }
     else{
@@ -39,6 +40,7 @@ function selectRow(x){
         for(i=0; i<selectColumn.length; i++){
             selectColumn[i].classList.add("selected")
         }
+        hiddenInput.value = selectedRow.id
         oldClickedRow = x;
     }
 }
