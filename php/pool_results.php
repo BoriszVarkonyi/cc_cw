@@ -190,8 +190,7 @@ if($score1 != NULL && $score2 != NULL){
                                                 $fencer_name = $row['name'];
                                             }?>
                                             
-
-                                    <div class="table_row">
+                                    <div id="<?php echo $n ?>" class="table_row">
                                         <div class="table_item"><?php echo $fencer_name ?></div>
                                         <div class="table_item square row_title"><?php echo $n+1 ?></div>
                                         <?php
