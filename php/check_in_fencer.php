@@ -79,5 +79,7 @@
     </div>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/check_in_fencer.js"></script>
+
 </body>
 </html>

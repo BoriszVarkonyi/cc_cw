@@ -44,5 +44,6 @@ document.addEventListener("keyup", function(e){
         if(e.shiftKey && e.which == 65) {
             addWeaponControlButton.click()
         }
-    }    
+    }
+        
 })
