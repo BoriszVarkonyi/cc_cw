@@ -10,7 +10,8 @@
     <title>Check out {Fencer's name}</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
-    <link rel="stylesheet" href="../css/check_out_fencer_style.css">
+    <link rel="stylesheet" href="../css/print_check_out_fencer_style.css">
+    <link rel="stylesheet" href="../css/print_style.css">
 </head>
 <body>
 <!-- header -->
@@ -31,53 +32,120 @@
                     </button>
                 </div>
             </div>
-            <div id="page_content_panel_main">
-                <div class="wrapper">
-                    <div class="db_panel  other">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/backpack-black-18dp.svg"/>
-                            Contents of fencer's bag
+            <div id="page_content_panel_main" class="scroll">
+                <div class="paper_wrapper">
+                    <div class="paper">
+                        <div class="title_container">
+                            <div><p class="title">{Fencer's name}'S CHECKING CERTIFICATE</p></div>
+                            <div class="comp_info small">
+                                <p class="info_label"><?php echo $comp_name ?></p>
+                                <div>
+                                    <p>SEX'S</p>
+                                    <p>W TYPE</p>
+                                </div>
+                                <p>STARTTIME</p>
+                            </div>
                         </div>
-                        <div class="db_panel_main">
-                            <div class="table">
-                                <div class="table_header">
-                                    <div class="table_header_text">ISSUE</div>
-                                    <div class="table_header_text">QUANTITY</div>
-                                </div>
-                                <div class="table_row_wrapper alt">
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><p>2</p></div>
+                        <div class="paper_content">
+                            <div class="bag_content">
+                                <div class="grid_table">
+                                    <div class="grid_header">
+                                        <div class="grid_header_text">NAME</div>
+                                        <div class="grid_header_text">QUANTITY</div>
                                     </div>
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><p>2</p></div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><p>2</p></div>
+                                    <div class="grid_row_wrapper">
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>   
-                        </div>
-                    </div>
-                    <div class="db_panel  other">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/backpack-black-18dp.svg"/>
-                            Control of fencer's equipment
-                        </div>
-                        <div class="db_panel_main">
-                            <div id="issues_panel" class="table">
-                                <div class="table_header">
-                                    <div class="table_header_text">ISSUE</div>
-                                    <div class="table_header_text">QUANTITY</div>
-                                </div>
-                                <div class="table_row_wrapper alt">
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Issue</p></div>
-                                        <div class="table_item"><p>5</p></div>
+                            </div>
+                            <div class="issues">
+                                <div class="grid_table">
+                                    <div class="grid_header">
+                                        <div class="grid_header_text">NAME</div>
+                                        <div class="grid_header_text">QUANTITY</div>
+                                    </div>
+                                    <div class="grid_row_wrapper">
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
+                                        <div class="grid_row">
+                                            <div class="grid_item">Name</div>
+                                            <div class="grid_item">1</div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="notes">
+                                <div>
+                                    <p>Sziaaaa</p>
+                                </div>
+                            </div>
+                            <div class="signatures">
+                            
                             </div>
                         </div>
                     </div>

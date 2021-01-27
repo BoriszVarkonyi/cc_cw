@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
     <link rel="stylesheet" href="../css/print_pools_style.css">
+    <link rel="stylesheet" href="../css/print_style.css">
 </head>
 <body>
 <!-- header -->
@@ -51,7 +52,7 @@
                 </div>
                 <div id="page_content_panel_main" class="loose">
                     <div>
-                        <div id="pool_print_wrapper">
+                        <div id="pool_print_wrapper" class="paper_wrapper">
                             <?php
                                 $qry_get_pool = "SELECT * FROM `pools_$comp_id`";
                                 $do_get_pool = mysqli_query($connection, $qry_get_pool);
@@ -87,7 +88,7 @@
                                 }
 
                             ?>
-                            <div class="pool_print">
+                            <div class="pool_print" class="paper">
                                 <div class="title_container">
                                     <div><p class="title">Pool no.: <?php echo $echo = isset($pool_num) ? $pool_num : "Pool number is not set" ?></p></div>
                                     <div class="pool_info">
@@ -114,7 +115,7 @@
                                         <p><?php echo $comp_start ?></p>
                                     </div>
                                 </div>
-                                <div class="pool_content">
+                                <div class="paper_content">
                                     <div class="pool_matches">
                                         <?php
                                             $fencer_signiture = [];

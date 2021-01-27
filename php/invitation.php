@@ -152,6 +152,8 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
     <title><?php echo $assoc_array_data['comp_name'] ?></title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/print_invitation_style.css">
+    <link rel="stylesheet" href="../css/print_style.css">
 </head>
 <body>
 <!-- header -->
@@ -260,13 +262,12 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                         </div>
                     </div>
 
-                    <div id="cw_preview">
-
-                        <div id="comp_data">
+                    <div id="cw_preview" class="paper_wrapper">
+                        <div id="invitation_title_stripe">
                             <img src=<?php echo $logo ?> >
 
-                            <p class="cw_panel_title"><?php echo $comp_name ?></p>
-                            <p id="comp_status">Ongoing</p>
+                            <p class="stripe_title"><?php echo $comp_name ?></p>
+                            <p id="comp_status">ONGOING</p>
 
                             <div>
                                 <p><?php echo sexConverter($assoc_array_data['comp_name']) . "'s" ?></p>
@@ -274,66 +275,93 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 <p><?php echo date('Y', strtotime($assoc_array_data['comp_start'])) ?></p>
                             </div>
                         </div>
-
+                        
+                        <div id="competition_info">
+                            <div id="announcements" class="column_panel">
+                                <p>Announcement Title</p>
+                                <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
+                                <p>Announcement Title</p>
+                                <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p> 
+                            </div>
                             <!-- basic info panel -->
-                        <div id="basic_information_panel">
-                            <div>
-                                <p class="data_label">HOST COUNTRY:</p>
-                                <p><?php echo $assoc_array_data['comp_host'] ?></p>
-                                <p class="data_label">LOCATION AND ADDRESS:</p>
-                                <p><?php echo $assoc_array_data['comp_location'] ?></p>
-                                <p class="data_label">ENTRY-FEE:</p>
-                                <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>
-                            </div>
-                            <div>
-                                <p class="data_label">STARTING DATE:</p>
-                                <p><?php echo $assoc_array_data['comp_start'] ?></p>
-                                <p class="data_label">ENDING DATE:</p>
-                                <p><?php echo $assoc_array_data['comp_end'] ?></p>
-                                <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                                <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>
-                            </div>
-                        </div>
-
-                        <!-- equipment panel -->
-                        <div id="equipment_panel">
-                            <p class="data_label panel_title">EQUIPMENT NEEDED TO BE CHECKED</p>
-
-                            <!-- weapons check table rows -->
-                            <div class="table">
-                                <div class="table_row_wrapper">
-                                <?php 
-                                    $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
-
-                                    $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
-
-                                    for ($i = 0; $i < count($equipment); $i++) {
-
-                                     if ($array_equipment[$i] != 0) {
-                                        ?>
-                                            <div class="table_row">
-                                                <div class="table_item"><?php echo $equipment[$i] ?></div>
-                                                <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                            <div id="basic_information_panel" class="breakpoint">
+                                <p class="column_panel_title">Basic Information:</p>
+                                <div>
+                                    <div class="invitation_form_wrapper">
+                                        <div>
+                                            <div>
+                                                <p class="data_label">HOST COUNTRY:</p>
+                                                <p><?php echo $assoc_array_data['comp_host'] ?></p>
                                             </div>
-                                        <?php
-                                            }
-                                        }
-                                    ?>
+                                            <div>
+                                                <p class="data_label">LOCATION AND ADDRESS:</p>
+                                                <p><?php echo $assoc_array_data['comp_location'] ?></p>                                                
+                                            </div>
+                                            <div>
+                                                <p class="data_label">ENTRY-FEE:</p>
+                                                <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>                                                
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p class="data_label">STARTING DATE:</p>
+                                                <p><?php echo $assoc_array_data['comp_start'] ?></p>                                                
+                                            </div>
+                                            <div>
+                                                <p class="data_label">ENDING DATE:</p>
+                                                <p><?php echo $assoc_array_data['comp_end'] ?></p>                                                
+                                            </div>
+                                            <div>
+                                                <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                                <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>                                                
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                </div>
+                            </div>
+
+                            <!-- equipment panel -->
+                            <div id="equipment_panel" class="breakpoint">
+                                <p class="column_panel_title">Equipment needed to be checked:</p>
+                                <div>
+                                    <!-- weapons check table rows -->
+                                    <div class="table">
+                                        <div class="table_row_wrapper">
+                                        <?php 
+                                            $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+
+                                            $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
+
+                                            for ($i = 0; $i < count($equipment); $i++) {
+
+                                            if ($array_equipment[$i] != 0) {
+                                                ?>
+                                                    <div class="table_row">
+                                                        <div class="table_item"><?php echo $equipment[$i] ?></div>
+                                                        <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                                                    </div>
+                                                <?php
+                                                    }
+                                                }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- additional info panel -->
-                            <div id="additional_panel">
-                                <p class="data_label panel_title">ADDITIONAL INFORMATION FOR FENCERS</p>
+                            <div id="additional_panel" class="breakpoint">
+                                <p class="column_panel_title">Additional information for Fencers:</p>
                                 <div>
-                                    <p><?php echo $assoc_array_data['comp_info'] ?></p>
+                                    <div>
+                                        <p><?php echo $assoc_array_data['comp_info'] ?></p>
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- weapon control panel -->
-                            <div id="weapon_control_panel">
-                                <p class="data_label panel_title">WEAPON CONTROL</p>
+                            <div id="weapon_control_panel" class="breakpoint">
+                                <p class="column_panel_title">Weapon Control appointments and bookings:</p>
                                 <div>
                                     <div class="weapon_control_day">
                                         <p>{Weapon Control Date}</p>
@@ -342,28 +370,30 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 </div>
                             </div>
 
-                            <div id="plus_information_panel">
-                                <p class="data_label panel_title">PLUS INFORMATION</p>
-                                <div>
-                                    <?php
-                                    
-                                        //display plus info from DB
-                                        $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
-                                        $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
+                                <div id="plus_information_panel">
+                                    <p class="column_panel_title">Plus Information:</p>
+                                    <div>
+                                        <?php
+                                        
+                                            //display plus info from DB
+                                            $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
+                                            $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
 
-                                        while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
+                                            while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
 
-                                            $info_title = $row['info_title'];
-                                            $info_body = $row['info_body'];
-                                    ?>
+                                                $info_title = $row['info_title'];
+                                                $info_body = $row['info_body'];
+                                        ?>
+                                        <div class="breakpoint">
+                                            <p><?php echo $info_title ?></p>
+                                            <p><?php echo $info_body ?></p>                                            
+                                        </div>
 
-                                        <p><?php echo $info_title ?></p>
-                                        <p><?php echo $info_body ?></p>
+                                        <?php
+                                            }
+                                        ?>
 
-                                    <?php
-                                        }
-                                    ?>
-
+                                    </div>
                                 </div>
                             </div>
                         </div>

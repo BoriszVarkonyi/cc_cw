@@ -42,7 +42,6 @@
                     </div>
                 </div>
                 <div id="competition_info">
-                    <!-- basic info panel -->
                     <div id="announcements" class="column_panel">
                         <p>Announcement Title</p>
                         <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>

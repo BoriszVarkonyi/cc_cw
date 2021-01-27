@@ -998,6 +998,14 @@ input:focus ~ .clear_search_button {
 	max-width: 50%;
 }
 
+.table_item.selected {
+	background-color: var(--c-orange) !important;
+	transform: scale(1.01);
+	font-family: var(--bold);
+	border-radius: 2.5px;
+	overflow: hidden;
+}
+
 .table_item p {
 	padding: 0 20px;
 	overflow: hidden;
@@ -1334,12 +1342,10 @@ p.wc_time {
 
 .table_fencer {
 	width: 100%;
-	align-self: stretch;
 	display: flex;
 	align-items: center;
 	background-color: var(--c-white);
 	transition: transform var(--t-basic);
-	
 	color: var(--cs-black);
 }
 
