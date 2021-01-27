@@ -119,5 +119,15 @@
         echo mysqli_error($connection);
         echo $real_pos . " ";
     }
-    header("Location: ../php/temporary_ranking.php?comp_id=$comp_id");
+    print_r($ratio_column);
+    echo "<br>";
+    print_r($point_diff_column);
+    echo "<br>";
+    print_r($given_points_column);
+
+    echo "<br>";
+    print_r($ARRAY_fencers);
+
+    //header("Location: ../php/temporary_ranking.php?comp_id=$comp_id");
+    //ind meg az adott tus valamiert nem jó lehet szarul van szamolva ertekek sem egyeznek meg!
 ?>

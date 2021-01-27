@@ -5,6 +5,29 @@
 
 <?php 
 
+
+    class announcement {
+        public $title;
+        public $body;
+
+        function __constructor($title, $body) {
+            $this -> title = $title;
+            $this -> body = $body;
+        }
+
+        function get_title() {
+            return $this -> title;
+        }
+
+        function get_body() {
+            return $this -> body;
+        }
+
+        function update_body($body) {
+            $this -> body = $body;
+        }
+    }
+
     //make announcements table 
     $qry_make_table = "CREATE TABLE `ccdatabase`.`announcements` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_make_table = mysqli_query($connection, $qry_make_table);
@@ -15,13 +38,20 @@
     if ($row = mysqli_fetch_assoc($do_get_data)) {
         $test_row = TRUE;
         $json_string = $row['data'];
-        $json_table = json_decode($json_string);
+        $json_table_temp = json_decode($json_string);
+        $json_table = [];
+        foreach ($json_table_temp as $values) {
+            print_r($values);
+            $object_to_push = new announcement($values -> title, $values -> body);
+            array_push($json_table, $object_to_push);
+        }
+        print_r($json_table);
     } else {
         $test_row = FALSE;
         //make template row
         $json_table = [];
         $json_string = json_encode($json_table);
-        $qry_make_template = "INSERT INTO `announcements` (assoc_comp_id, data) VALUES ('$comp_id', '$json_table')";
+        $qry_make_template = "INSERT INTO `announcements` (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
         $do_make_template = mysqli_query($connection, $qry_make_template);
     }
 
@@ -29,16 +59,10 @@
     if (isset($_POST['input_submit'])) {
         //get data from form
         $title = $_POST['input_title'];
-        $body = "";
-
-        //make the array to be pushed onto the json array
-        $array_to_push = [
-            "title" => $title,
-            "body" => $body
-        ];
+        $announcement = new announcement($title, "");
 
         //push
-        array_push($json_table, $array_to_push);
+        array_push($json_table, $announcement);
 
         //json -> string
         $json_string = json_encode($json_table);
@@ -47,7 +71,7 @@
         if ($title != "") {
             $qry_new_announcement = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
             $do_new_announcement = mysqli_query($connection, $qry_new_announcement);
-            echo mysqli_error($connection);
+            header("Refresh: 0");
         }
     }
 
@@ -56,16 +80,27 @@
         $body = $_POST['text_body'];
         $id_to_change = $_POST['text_title_to_change'];
 
-        $json_table[$id_to_change] -> body = $body;
+        $json_table[$id_to_change] -> update_body($body);
         $json_string = json_encode($json_table);
 
         //update in db
         $qry_update_body = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update_body = mysqli_query($connection, $qry_update_body);
 
-        echo mysqli_error($connection);
+        header("Refresh: 0");
     }
 
+    //delete announcement
+    if (isset($_POST['submit_delete'])) {
+        $id_to_change = $_POST['text_title_to_change'];
+        unset($json_table[$id_to_change]);
+
+        $json_string = json_encode($json_table);
+
+        $qry_update_delete = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        $do_update_delete = mysqli_query($connection, $qry_update_delete);
+        header("Refresh: 0");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +143,7 @@
 
                                     <?php
 
-                                        if (isset($json_table -> {0})) {
+                                        if (isset($json_table[0])) {
                                             for ($i = 0; $i < count($json_table); $i++) {
                                         
                                             ?>
@@ -118,7 +153,7 @@
         
                                                         <!-- csak a cim kell -->
                                                         <div class="table_row" onclick="toggleEntry(this)">
-                                                            <div class="table_item invitation"><p><?php echo $json_table[$i] -> title ?></p></div>
+                                                            <div class="table_item invitation"><p><?php echo $json_table[$i] -> title; ?></p></div>
                                                         </div>
         
                                                         <!-- updateing entry -->
@@ -135,6 +170,8 @@
                                                     <!-- eddig mondjuk -->
                                 <?php
                                                 }   
+                                        } else {
+                                            ?><p>You have no announcement set up!</p><?php
                                         }
                                             
                                 ?>
