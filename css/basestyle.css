@@ -1002,7 +1002,6 @@ input:focus ~ .clear_search_button {
 	background-color: var(--c-orange) !important;
 	transform: scale(1.01);
 	font-family: var(--bold);
-	border-radius: 2.5px;
 	overflow: hidden;
 }
 
