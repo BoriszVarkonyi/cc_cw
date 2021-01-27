@@ -191,7 +191,7 @@ if($score1 != NULL && $score2 != NULL){
                                             }?>
                                             
 
-                                    <div class="table_row">
+                                    <div class="table_row" onclick="selectRow(this)">
                                         <div class="table_item"><?php echo $fencer_name ?></div>
                                         <div class="table_item square row_title"><?php echo $n+1 ?></div>
                                         <?php
@@ -347,5 +347,6 @@ if($score1 != NULL && $score2 != NULL){
         </div>
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/pool_results.js"></script>
 </body>
 </html>
