@@ -6,11 +6,19 @@
 
         $comp_status = $row["comp_status"];
         $comp_id = $row["comp_id"];
+        $wc_type = $row['comp_wc_type'];
 
     }
 
     define("NORMAL_CLASS", ' class="nav_bar_item" ');
     define("DISABLED_CLASS", ' class="nav_bar_item disabled" ');
+
+    if ($wc_type == 1) {
+        $wc_page = 'href="weapon_control_immediate.php?comp_id=' . $comp_id . '"';
+    } else {
+        $wc_page = 'href="weapon_control_administrated.php?comp_id=' . $comp_id . '"';
+    }
+
 
     $assoc_array_functions = // creating assoc array of button names and onclicks, and hrefs
     [
@@ -22,7 +30,7 @@
         "overview" =>           'href="overview.php?comp_id=' . $comp_id .'"',
         "call_room" =>          'href="call_room.php?comp_id=' . $comp_id . '"',
         "registration" =>       'href="registration.php?comp_id=' . $comp_id . '"',
-        "weapon_control" =>     'href="weapon_control_administrated.php?comp_id=' . $comp_id . '"',
+        "weapon_control" =>     $wc_page,
         "announcements" =>      'href="announcements.php?comp_id=' . $comp_id . '"',
         "general" =>            'onclick="toggle_general_dropdown()"',
         "basic_info" =>         'href="basic_information.php?comp_id=' . $comp_id . '"',
