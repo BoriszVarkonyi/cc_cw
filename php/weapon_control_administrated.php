@@ -106,7 +106,7 @@
                         </a>
                         -->
 
-                        IF BOTH RED BUT NOT CHECKED OUT
+                        IF BOTH GREEN BUT NOT CHECKED OUT
                         <a name="" class="stripe_button" id="" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Edit Weapon Control</p>
                             <img src="../assets/icons/edit-black-18dp.svg"/>
@@ -154,7 +154,7 @@
                             <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
-                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                            <div class="table_row checked_out" onclick="selectRow(this)" id="" tabindex="0">
                                 <div class="table_item"><p>NAME</p></div>
                                 <div class="table_item"><p>NATION / CLUB</p></div>
                                 <div class="table_item"><p>Checked In</p></div>
@@ -162,7 +162,7 @@
                                 <div class="table_item"><p>Checked Out</p></div>
                                 <div class="small_status_item green"></div>
                             </div>
-                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                            <div class="table_row not_checked_out" onclick="selectRow(this)" id="" tabindex="0">
                                 <div class="table_item"><p>NAME</p></div>
                                 <div class="table_item"><p>NATION / CLUB</p></div>
                                 <div class="table_item"><p>Checked In</p></div>
@@ -170,7 +170,7 @@
                                 <div class="table_item"><p>Ready</p></div>
                                 <div class="small_status_item green"></div>
                             </div>
-                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                            <div class="table_row not_ready" onclick="selectRow(this)" id="" tabindex="0">
                                 <div class="table_item"><p>NAME</p></div>
                                 <div class="table_item"><p>NATION / CLUB</p></div>
                                 <div class="table_item"><p>Checked In</p></div>
@@ -178,7 +178,7 @@
                                 <div class="table_item"><p>Not ready</p></div>
                                 <div class="small_status_item red"></div>
                             </div>
-                            <div class="table_row" onclick="selectRow(this)" id="" tabindex="0">
+                            <div class="table_row red" onclick="selectRow(this)" id="" tabindex="0">
                                 <div class="table_item"><p>NAME</p></div>
                                 <div class="table_item"><p>NATION / CLUB</p></div>
                                 <div class="table_item"><p>Not checked In</p></div>
