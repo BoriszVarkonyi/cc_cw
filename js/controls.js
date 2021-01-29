@@ -1,14 +1,15 @@
 //Arrow system
 var hiddenin = document.querySelector(".selected_list_item_input");
-console.log(hiddenin)
 //This var. used in other files.
-var selectedElementIndexAr;
+var selectedElementIndexAr = 0;
+/*
 if(localStorage.getItem('elementIndex') == null){
     selectedElementIndexAr = 0;
 }
 else{
     selectedElementIndexAr = localStorage.getItem('elementIndex')
 }
+*/
 importOverlayClosed = true;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system, works only if search bar closed
@@ -119,10 +120,12 @@ document.onkeyup=function(e){
     }    
 }
 function test(){
+    /*
     var tableRows = document.querySelectorAll(".table .table_row")
     tableRows[selectedElementIndexAr].classList.add("selected")
     tableRows[selectedElementIndexAr].focus()
     hiddenin.value = tableRows[selectedElementIndexAr].id
     console.log(hiddenin.value)
+    */
 }
 test();

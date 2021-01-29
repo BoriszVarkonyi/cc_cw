@@ -183,7 +183,7 @@
             </div>
         </div>
     <script src="../js/main.js"></script>
-    <script src="../js/weapon_control.js"></script>
+    <script src="../js/weapon_control_immediate.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
     </body>

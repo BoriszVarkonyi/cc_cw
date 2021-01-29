@@ -167,6 +167,7 @@
     </div>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/print.js"></script>
 <script>
     function printPage() {
         window.print();

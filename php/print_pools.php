@@ -255,4 +255,5 @@
     </body>
 <script src="../js/main.js"></script>
 <script src="../js/print_pools.js"></script>
+<script src="../js/print.js"></script>
 </html>
