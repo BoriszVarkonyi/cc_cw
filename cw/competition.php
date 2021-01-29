@@ -37,7 +37,7 @@
                     <!-- <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>-->
                     <div>
                         <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
-                        <p><?php echo statusConverter($comp_status) ?></p>
+                        <p><?php echo weaponConverter($comp_weapon) ?></p>
                         <p><?php echo date('Y', strtotime($comp_start)) ?></p>
                     </div>
                 </div>
