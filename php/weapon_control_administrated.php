@@ -91,22 +91,14 @@
                             <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
                         </button>
-
-                            IF BOTH RED
                         <a name="" class="stripe_button orange" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check In</p>
                             <img src="../assets/icons/check_circle_outline-black-18dp.svg"/>
                         </a>
-                        -->
-
-                        IF NOT READY
                         <a name="" class="stripe_button orange" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Add Weapon Control</p>
                             <img src="../assets/icons/add-black-18dp.svg"/>
                         </a>
-                        -->
-
-                        IF BOTH GREEN BUT NOT CHECKED OUT
                         <a name="" class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Edit Weapon Control</p>
                             <img src="../assets/icons/edit-black-18dp.svg"/>
@@ -116,12 +108,6 @@
                             <p>Check Out</p>
                             <img src="../assets/icons/check_circle-black-18dp.svg"/>
                         </a>
-                        -->
-
-                        <!--    CHECKED OUT
-
-                        -->
-
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     <div class="search_wrapper">
