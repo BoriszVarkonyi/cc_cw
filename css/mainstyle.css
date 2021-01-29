@@ -3678,7 +3678,7 @@ input {
 }
 
 #pool_listing.state_2 .pool_table_wrapper .table_row {
-	background-color: var(--c-white) !important;
+	background-color: var(--c-lightestgray) !important;
 }
 
 #pool_listing.state_2 .pool_table_wrapper .table_row:nth-of-type(even) {
@@ -4089,7 +4089,6 @@ input {
 
 #pool_results > div > div:first-of-type {
 	display: flex;
-
 }
 
 #pool_results .entry {
@@ -4098,6 +4097,12 @@ input {
 	box-sizing: border-box;
 	width: 100%;
 	margin: 0 10px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+#pool_results .entry > .table_row{
+	background-color: var(--c-lightestgray);
 }
 
 #pool_matches {

@@ -31,6 +31,14 @@
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </div>
+                <div class="view_button_wrapper">
+                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
+                        <img src="../assets/icons/zoom_out-black-18dp.svg"/>
+                    </button>
+                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
+                        <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                    </button>                      
+                </div>
             </div>
             <div id="page_content_panel_main" class="scroll">
                 <div class="paper_wrapper">

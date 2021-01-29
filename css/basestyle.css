@@ -766,28 +766,28 @@ input:focus ~ .clear_search_button {
 }
 
 /* Basic Coloring of row, Mostly CC */
-.table_row_wrapper .table_row {
+.table_row_wrapper > .table_row {
 	background-color: var(--c-white);
 }
 
-.table_row_wrapper .table_row:hover, .table_row_wrapper .table_row:nth-child(even):hover  { /* Hover */
+.table_row_wrapper > .table_row:hover, .table_row_wrapper > .table_row:nth-child(even):hover  { /* Hover */
 	background-color: var(--c-lightergray);
 }
 
-.table_row_wrapper .table_row:nth-child(even) {	/* Coloring of rows */
+.table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightestgray);
 }
 
 /* Alternative Coloring of row, Mostly CW */
-.table_row_wrapper.alt .table_row {
+.table_row_wrapper.alt > .table_row {
 	background-color: var(--c-lightestgray);
 }
 
-.table_row_wrapper.alt .table_row:hover, .table_row_wrapper.alt .table_row:nth-child(even):hover {
+.table_row_wrapper.alt > .table_row:hover, .table_row_wrapper.alt > .table_row:nth-child(even):hover {
 	background-color: var(--c-lightgray);
 }
 
-.table_row_wrapper.alt .table_row:nth-child(even) {	/* Coloring of rows */
+.table_row_wrapper.alt > .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightergray);
 }
 
@@ -817,6 +817,10 @@ input:focus ~ .clear_search_button {
 
 .entry:nth-of-type(even) > .table_row, .table_row_wrapper #add_entry .table_row, #add_entry + #adding_entry .table_row {
 	background-color: var(--c-white);
+}
+
+.table_row_wrapper.alt .entry > .table_row, .table_row_wrapper.alt > #add_entrye .table_row, #add_entry + #adding_entry .table_row {
+	background-color: var(--c-lightestgray);
 }
 
 .table_row_wrapper.alt .entry:nth-of-type(even) > .table_row, .table_row_wrapper.alt > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {
