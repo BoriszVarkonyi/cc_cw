@@ -277,7 +277,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                         </div>
                         
                         <div id="competition_info">
-                            <div id="announcements" class="column_panel">
+                            <div id="announcements" class="breakpoint">
                                 <p>Announcement Title</p>
                                 <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
                                 <p>Announcement Title</p>

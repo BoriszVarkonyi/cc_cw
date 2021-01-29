@@ -76,11 +76,12 @@
         size: A4;
     }
 
-    body, * {
-        height: auto !important;
+	body, * {
+		box-shadow: none !important;
+		background-color: transparent !important;
         overflow: visible !important;
-        box-shadow: none !important;
-    }
+        height: auto !important;
+	}
 
     header, .nav_bar_flex, #title_stripe {
         display: none !important;
@@ -106,10 +107,6 @@
         flex-wrap: nowrap !important;
         justify-content: initial !important;
         transform: scale(1) !important;
-    }
-
-    .paper_wrapper * {
-        background-color: transparent;
     }
 
     .paper {

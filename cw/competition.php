@@ -20,6 +20,7 @@
     <title><?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/print_invitation_style.css" media="print">
 </head>
 <body class="competitions">
     <div id="wrapper">
@@ -42,13 +43,13 @@
                     </div>
                 </div>
                 <div id="competition_info">
-                    <div id="announcements" class="column_panel">
+                    <div id="announcements" class="column_panel breakpoint">
                         <p>Announcement Title</p>
                         <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
                         <p>Announcement Title</p>
                         <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p> 
                     </div>
-                    <div id="basic_information_panel" class="column_panel">
+                    <div id="basic_information_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Basic Information:</p>
                         <div>
                             <div class="form_wrapper">
@@ -86,7 +87,7 @@
                     </div>
 
                     <!-- equipment panel -->
-                    <div id="equipment_panel" class="column_panel">
+                    <div id="equipment_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Equipment needed to be checked:</p>
                         <!-- weapons check table rows -->
                         <div class="table no_interaction">
@@ -117,7 +118,7 @@
                     </div>
 
                     <!-- additional info panel -->
-                    <div id="additional_panel" class="column_panel">
+                    <div id="additional_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Additional information for Fencers:</p>
                         <div>
                             <p><?php echo $comp_info ?></p>
@@ -125,7 +126,7 @@
                     </div>
                     
                     <!-- weapon control panel -->
-                    <div id="weapon_control_panel" class="column_panel">
+                    <div id="weapon_control_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Weapon Control appointments and bookings:</p>
                         <div>
                             <div class="weapon_control_day">
@@ -140,7 +141,7 @@
                         </div>
                     </div>
                 
-                    <div id="plus_information_panel" class="column_panel">
+                    <div id="plus_information_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Plus Information:</p>
                         <div>
                             <?php
@@ -159,8 +160,10 @@
                                         $info_body = $row['info_body'];
                             ?>
 
-                                    <p><?php echo $info_title ?></p>
-                                    <p><?php echo $info_body ?></p>
+                                        <div class="breakpoint">
+                                            <p><?php echo $info_title ?></p>
+                                            <p><?php echo $info_body ?></p>                                            
+                                        </div>
 
                             <?php
                                     }
