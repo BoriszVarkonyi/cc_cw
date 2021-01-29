@@ -3888,10 +3888,6 @@ input {
 	height: 60vh;
 }
 
-.entry_panel.gray {
-	background-color: var(--c-lightestgray);
-}
-
 .pool_result_input {
 	margin: 0 !important;;
 	padding: 0 !important;;

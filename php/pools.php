@@ -1174,7 +1174,7 @@ elseif($exist != 0 && $exist2 == 0){
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="entry_panel gray">
+                                    <div class="entry_panel">
                                         <div class="pool_table_wrapper table">
                                             <div class="table_header">
                                                 <div class="table_header_text">
@@ -1440,7 +1440,7 @@ elseif($exist != 0 && $exist2 == 0){
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
-                            <div class="entry_panel gray">
+                            <div class="entry_panel">
                                 <div class="pool_table_wrapper">
                                     <div class="table_header">
                                         <div class="table_header_text">
@@ -1580,7 +1580,7 @@ elseif($exist != 0 && $exist2 == 0){
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
-                            <div class="entry_panel gray">
+                            <div class="entry_panel">
                                 <div class="pool_table_wrapper">
                                     <div class="table_header">
                                         <div class="table_header_text">
@@ -1720,7 +1720,7 @@ elseif($exist != 0 && $exist2 == 0){
                                     <img src="../assets/icons/settings-black-18dp.svg" >
                                 </button>
                             </div>
-                            <div class="entry_panel gray">
+                            <div class="entry_panel">
                                 <div class="pool_table_wrapper">
                                     <div class="table_header">
                                         <div class="table_header_text">

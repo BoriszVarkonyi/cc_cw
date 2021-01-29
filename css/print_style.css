@@ -69,6 +69,11 @@
     flex-direction: column;
 }
 
+.paper_wrapper {
+    transform: scale(.5);
+    transition: all var(--t-basic);
+}
+
 @media print {
 
     @page {

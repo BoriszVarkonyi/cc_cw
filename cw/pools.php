@@ -42,7 +42,7 @@
                                     <div class="table_item">Ref: Név</div>
                                     <div class="table_item">11:50</div>
                                 </div>
-                                <div class="entry_panel gray collapsed">
+                                <div class="entry_panel collapsed">
                                     <div class="table">
                                         <div class="table_header">
                                             <div class="table_header_text">
@@ -194,7 +194,7 @@
                                     <div class="table_item">Ref: Név</div>
                                     <div class="table_item">11:50</div>
                                 </div>
-                                <div class="entry_panel gray collapsed">
+                                <div class="entry_panel collapsed">
                                     <div class="pool_table_wrapper table">
                                         <div class="table_header">
                                             <div class="table_header_text">

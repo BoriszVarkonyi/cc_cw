@@ -4,8 +4,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    transform: scale(.5);
-    transition: all var(--t-basic);
     margin: 50px;
 }
 
