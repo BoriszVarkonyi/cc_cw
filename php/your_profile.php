@@ -1,3 +1,17 @@
+<?php ob_start(); ?>
+<?php include "../includes/db.php"; ?>
+<?php include "../includes/username_checker.php"; ?>
+
+<?php 
+
+    $qry_get_data = "SELECT * FROM organisers WHERE username = '$username'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $id = $row['id'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,21 +34,19 @@
                     <p>Close Page</p>
                     <img src="../assets/icons/close-black-18dp.svg"/>
                 </button>
-                <button class="stripe_button orange" type="submit" form="profile_form" shortcut="SHIFT+S">
-                    <p>Save Profile</p>
-                    <img src="../assets/icons/save-black-18dp.svg"/>
-                </button>
+                <form id="fileToUpload" action="../profile_pics/uploads.php?id=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
+                    <button name="submit" class="stripe_button orange" type="submit" shortcut="SHIFT+S">
+                        <p>Save Profile</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/>
+                    </button>
+                </form>
             </div>
         </div>
         <div id="panel_main">
-            <form class="form_wrapper" id="profile_form">
+            <div class="form_wrapper">
                 <div>
                     <label for="name">NAME</label>
-                    <p>{your name}</p>
-                </div>
-                <div>
-                    <label for="name">ROLE</label>
-                    <p>{role}</p>
+                    <p><?php echo $username ?></p>
                 </div>
                 <div>
                     <label for="name">EMAIL ADDRESS</label>
@@ -44,10 +56,10 @@
                     <label for="name">PROFILE PICTURE</label>
                     <img src="../assets/icons/profile_picture.svg"  class="profile_picture not_icon">
                     <label for="file" class="file_label">Upload File</label>
-                    <input type="file" id="file">
+                    <input form="fileToUpload" type="file" name="fileToUpload" id="file">
                     <p id="fileText">File name</p>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <script src="../js/main.js"></script>
