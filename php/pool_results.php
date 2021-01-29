@@ -179,7 +179,7 @@ if($score1 != NULL && $score2 != NULL){
                                         ?>
                                         
                                     </div>
-                                    <div class="table_row_wrapper">
+                                    <div class="table_row_wrapper alt">
                                     <?php
                                     for ($n=0; $n < $pool_f_in; $n++) { 
                                             $fx = $f[$n];

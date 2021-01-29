@@ -1193,7 +1193,7 @@ elseif($exist != 0 && $exist2 == 0){
                                                 </div>
             
                                             </div>
-                                            <div class="table_row_wrapper" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
+                                            <div class="table_row_wrapper alt" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
                                                 <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php
 
@@ -1332,7 +1332,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         ?>
                                         
                                     </div>
-                                    <div class="table_row_wrapper">
+                                    <div class="table_row_wrapper alt">
                                     <?php
                                     for ($n=0; $n < $pool_f_in; $n++) { 
                                             $fx = $f[$n];

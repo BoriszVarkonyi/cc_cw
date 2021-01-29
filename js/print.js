@@ -3,7 +3,7 @@ var zoomNumber = 0.5;
 
 function zoomOut(){
     zoomNumber = zoomNumber - 0.1
-    papertWrapper.style.transform = "scale(" + zoomNumber + ")";
+    paperWrapper.style.transform = "scale(" + zoomNumber + ")";
     zoomButtonDisabler();
 }
 function zoomIn(){
