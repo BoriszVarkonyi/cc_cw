@@ -154,7 +154,7 @@
                             <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
-                            <div class="table_row cheked_out" onclick="selectRow(this)" id="" tabindex="0">
+                            <div class="table_row checked_out" onclick="selectRow(this)" id="" tabindex="0">
                                 <div class="table_item"><p>NAME</p></div>
                                 <div class="table_item"><p>NATION / CLUB</p></div>
                                 <div class="table_item"><p>Checked In</p></div>
@@ -162,7 +162,7 @@
                                 <div class="table_item"><p>Checked Out</p></div>
                                 <div class="small_status_item green"></div>
                             </div>
-                            <div class="table_row not_cheked_out" onclick="selectRow(this)" id="" tabindex="0">
+                            <div class="table_row not_checked_out" onclick="selectRow(this)" id="" tabindex="0">
                                 <div class="table_item"><p>NAME</p></div>
                                 <div class="table_item"><p>NATION / CLUB</p></div>
                                 <div class="table_item"><p>Checked In</p></div>
