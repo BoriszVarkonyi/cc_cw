@@ -10,20 +10,8 @@
         public $title;
         public $body;
 
-        function __constructor($title, $body) {
+        function __construct ($title, $body) {
             $this -> title = $title;
-            $this -> body = $body;
-        }
-
-        function get_title() {
-            return $this -> title;
-        }
-
-        function get_body() {
-            return $this -> body;
-        }
-
-        function update_body($body) {
             $this -> body = $body;
         }
     }
@@ -42,7 +30,9 @@
         $json_table = [];
         foreach ($json_table_temp as $values) {
             print_r($values);
-            $object_to_push = new announcement($values -> title, $values -> body);
+            $title = $values -> title;
+            $body = $values -> body;
+            $object_to_push = new announcement($title, $body);
             array_push($json_table, $object_to_push);
         }
         print_r($json_table);
@@ -59,7 +49,7 @@
     if (isset($_POST['input_submit'])) {
         //get data from form
         $title = $_POST['input_title'];
-        $announcement = new announcement($title, "");
+        $announcement = new announcement($title, NULL);
 
         //push
         array_push($json_table, $announcement);
@@ -80,7 +70,7 @@
         $body = $_POST['text_body'];
         $id_to_change = $_POST['text_title_to_change'];
 
-        $json_table[$id_to_change] -> update_body($body);
+        $json_table[$id_to_change] -> body = $body;
         $json_string = json_encode($json_table);
 
         //update in db
