@@ -27,8 +27,8 @@
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
                     <button name="" class="stripe_button orange" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
-                        <p>Check Out</p>
-                        <img src="../assets/icons/check_circle-black-18dp.svg"/>
+                        <p>Save Check Out</p>
+                        <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 <div class="paper_wrapper">
                     <div class="paper">
                         <div class="title_container">
-                            <div><p class="title">{Fencer's name}'S CHECKING CERTIFICATE</p></div>
+                            <div><p class="title">{Fencer's name}'S CHECKING OUT CERTIFICATE</p></div>
                             <div class="comp_info small">
                                 <p class="info_label"><?php echo $comp_name ?></p>
                                 <div>
@@ -50,7 +50,7 @@
                             <div class="bag_content">
                                 <div class="grid_table">
                                     <div class="grid_header">
-                                        <div class="grid_header_text">NAME</div>
+                                        <div class="grid_header_text">EQIPMENT</div>
                                         <div class="grid_header_text">QUANTITY</div>
                                     </div>
                                     <div class="grid_row_wrapper">
@@ -96,7 +96,7 @@
                             <div class="issues">
                                 <div class="grid_table">
                                     <div class="grid_header">
-                                        <div class="grid_header_text">NAME</div>
+                                        <div class="grid_header_text">ISSUE</div>
                                         <div class="grid_header_text">QUANTITY</div>
                                     </div>
                                     <div class="grid_row_wrapper">
@@ -145,7 +145,19 @@
                                 </div>
                             </div>
                             <div class="signatures">
-                            
+                                <div class="grid_table">
+                                        <div class="grid_header">
+                                            <div class="grid_header_text">NAME</div>
+                                            <div class="grid_header_text signature">SIGNATURE</div>
+                                        </div>
+                                        <div class="grid_row_wrapper">
+                                            <div class="grid_row">
+                                                <div class="grid_item">Name</div>
+                                                <div class="grid_item signature"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -176,93 +176,84 @@ checkComp($connection);
                             <img src="../assets/icons/send-black-18dp.svg"/>
                         </button>
                     </div>
-                </div
+                </div>
 
                 <!-- dashboard body -->  
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
-
-                        <!-- blank panel top-->
-                        <div class="full_width_flex">
-                            <div class="db_panel">
-                                <div>
-                                    <p style="font-size: var(--f-xxxxlarge)">xxxxlarge</p>
-                                    <p style="font-size: var(--f-xxxlarge)">xxxlarge</p>
-                                    <p style="font-size: var(--f-xxlarge)">xxlarge</p>
-                                    <p style="font-size: var(--f-xlarge)">xlarge</p>
-                                    <p style="font-size: var(--f-large)">large</p>
-                                    <p style="font-size: var(--f-medium)">medium</p>
-                                    <p style="font-size: var(--f-small)">small</p>
-                                    <p style="font-size: var(--f-xsmall)">xsmall</p>
-                                    <p style="font-size: var(--f-xxsmall)">xxsmall</p>
-                                    <p><?php echo $enLines[0];?> // This text is read from en.txt line 1</p>
-                                    <p><?php echo $huLines[0];?> // This text is read from hu.txt line 1</p>
-                                </div>
+                        <div class="db_panel main">
+                            <div>
+                                <p style="font-size: var(--f-xxxxlarge)">xxxxlarge</p>
+                                <p style="font-size: var(--f-xxxlarge)">xxxlarge</p>
+                                <p style="font-size: var(--f-xxlarge)">xxlarge</p>
+                                <p style="font-size: var(--f-xlarge)">xlarge</p>
+                                <p style="font-size: var(--f-large)">large</p>
+                                <p style="font-size: var(--f-medium)">medium</p>
+                                <p style="font-size: var(--f-small)">small</p>
+                                <p style="font-size: var(--f-xsmall)">xsmall</p>
+                                <p style="font-size: var(--f-xxsmall)">xxsmall</p>
+                                <p><?php echo $enLines[0];?> // This text is read from en.txt line 1</p>
+                                <p><?php echo $huLines[0];?> // This text is read from hu.txt line 1</p>
                             </div>
                         </div>
-
 
                         <!-- competition status -->
-                        <div class="half_width_flex">
-                            <div class="db_panel">
-                                
-                                <!-- competition status panel header -->
+                        <div class="db_panel status">
+                            
+                            <!-- competition status panel header -->
 
-                                <?php //egyan az mint index.php elejen a comp_name lekérés
-                                    $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
-                                    $check_comp_query = mysqli_query($connection, $query);
+                            <?php //egyan az mint index.php elejen a comp_name lekérés
+                                $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
+                                $check_comp_query = mysqli_query($connection, $query);
 
-                                    if($row = mysqli_fetch_assoc($check_comp_query)){
+                                if($row = mysqli_fetch_assoc($check_comp_query)){
 
-                                        $comp_status = $row["comp_status"];
+                                    $comp_status = $row["comp_status"];
 
-                                    }
-                                ?>  
+                                }
+                            ?>  
 
-                                <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/beenhere-black-18dp.svg" >
-                                    <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
-                                </div>
+                            <div class="db_panel_title_stripe">
+                                <img src="../assets/icons/beenhere-black-18dp.svg" >
+                                <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
+                            </div>
 
-                                <!-- competiton status table -->
-                                <div class="db_panel_main">
+                            <!-- competiton status table -->
+                            <div class="db_panel_main">
 
-                                    <div id="sheduled_to_do_list">
+                                <div id="sheduled_to_do_list">
 
-                                        <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
-                                            
-                                            <div id="general_to_do" class="sheduled_to_do_sublist">
-
-                                                <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
-                                                <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" ></li>
-                                                <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" ></li>
-                                                <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" ></li>
-
-                                            </div>
-
-                                        <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
+                                    <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
                                         
-                                            <div id="technical_to_do" class="sheduled_to_do_sublist">
-                                                
-                                                <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
-                                                <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
+                                        <div id="general_to_do" class="sheduled_to_do_sublist">
+
+                                            <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
+                                            <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" ></li>
+                                            <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" ></li>
+                                            <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" ></li>
+
+                                        </div>
+
+                                    <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
+                                    
+                                        <div id="technical_to_do" class="sheduled_to_do_sublist">
                                             
-                                            </div>
+                                            <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
+                                            <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
+                                        
+                                        </div>
 
-                                        <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
+                                    <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
 
-                                        <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" ></a>
-                                    </div>
+                                    <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" ></a>
                                 </div>
                             </div>
                         </div>
-                        <!-- chat panel -->
-                        <div class="half_width_flex">
-                            <div class="db_panel">
-                                <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/chat-black-18dp.svg" >
-                                    <p>Chat</p>
-                                </div>
+                    <!-- chat panel -->
+                        <div class="db_panel chat">
+                            <div class="db_panel_title_stripe">
+                                <img src="../assets/icons/chat-black-18dp.svg" >
+                                <p>Chat</p>
                             </div>
                         </div>
                     </div>

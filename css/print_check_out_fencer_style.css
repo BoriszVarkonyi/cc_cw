@@ -41,8 +41,21 @@
 }
 
 .grid_item, .grid_row_wrapper {
-    border: 1pt solid black !important;
+    border: solid #000 !important;
     box-sizing: border-box;
+}
+
+.grid_item {
+    border: solid #000 !important;
+    border-width: 1.5pt 0 0 1.5pt !important;   
+}
+
+.grid_row_wrapper {
+    border-width: 0 1.5pt 1.5pt 0 !important;
+}
+
+.grid_item.signature, .grid_header_text.signature {
+    flex: 0 0 25% !important;
 }
 
 .paper_content > div {
@@ -53,7 +66,7 @@
 }
 
 .notes > div {
-    border: 2pt solid black !important;
+    border: 1.5pt solid black !important;
     padding: 20pt;
     width: 100%;
     box-sizing: border-box;
@@ -62,10 +75,21 @@
 
 @media print {
 
-	@page {
-		margin: 0 !important;
+    .grid_item {
+        border:solid #000 !important;
+        border-width: 1pt 0 0 1pt !important;   
+    }
+    
+    .grid_row_wrapper {
+        border-width: 0 1pt 1pt 0 !important;
+    }
+    
+    .grid_item.signature, .grid_header_text.signature {
+        flex: 0 0 25% !important;
     }
 
-
-    
+    .notes > div {
+        border: .75pt solid black !important;
+    }
+  
 }

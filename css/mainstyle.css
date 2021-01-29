@@ -1688,32 +1688,26 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 /* ///DASHBOARD ELEMENTS/// */
 
 #db_panel_wrapper {
-	display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-	align-self: stretch;
-	flex: 1 1 auto;
-	margin: calc(1.8vw - 10px);
-}
-
-.full_width_flex {
 	width: 100%;
-	flex: 1 1 auto;
-	align-self: stretch;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	max-height: 50vh;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 1vw;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 1vw;
+   	grid-template-areas:
+    "main main"
+    "status chat";
 }
 
-.half_width_flex {
-	width: 50%;
-	flex: 1 1 auto;
-	align-self: stretch;
-	display: flex;
-	justify-content: center;
-	align-content: center;
+#db_panel_wrapper > div {
+	margin: 0 !important;
 }
+
+.main { grid-area: main; }
+.status { grid-area: status; }
+.chat { grid-area: chat; }
 
 .form_page_flex {
 	max-width: 80%;
