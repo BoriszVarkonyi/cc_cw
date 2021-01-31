@@ -38,6 +38,8 @@ echo $existance;
                 <?php
                  if($existance == 0){
                 ?>
+                <form id="">
+                </form>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button orange" type="button">
                         <p>Generate Table</p>
@@ -225,11 +227,16 @@ echo $existance;
                 </div>
             <div id="page_content_panel_main">
                 <!-- State 0 -->
-                
+                <?php
+                 if($existance == 0){
+                ?>
                 <div id="no_something_panel">
                     <p>You have no table generated!</p>
                 </div>
-                <!-- State 1 --><!--
+
+                <?php }
+                else{ ?>
+                <!-- State 1 -->
                 <div id="call_room" class="cc">
                     <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg" >
@@ -1325,11 +1332,14 @@ echo $existance;
                         </div>
                     </div>
                 </div>
+
+                <?php } ?>
+
                 <div class="color_legend">
                     <div class="green">Finished</div>
                     <div class="yellow">Ongoing</div>
                     <div class="red">Haven't started</div>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>
