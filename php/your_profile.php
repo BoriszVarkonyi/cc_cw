@@ -2,22 +2,31 @@
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/username_checker.php"; ?>
 
-<?php 
+<?php
 
-    $qry_get_data = "SELECT * FROM organisers WHERE username = '$username'";
-    $do_get_data = mysqli_query($connection, $qry_get_data);
+    $role = $_SESSION['role'];
 
-    if ($row = mysqli_fetch_assoc($do_get_data)) {
-        $id = $row['id'];
+    if ($role == "organisers") {
+        $qry_get_data = "SELECT * FROM organisers WHERE username = '$username'";
+        $do_get_data = mysqli_query($connection, $qry_get_data);
+
+        if ($row = mysqli_fetch_assoc($do_get_data)) {
+            $id = $row['id'];
+        }
+
+        //profile pic if not set by user
+        $profile_pic = "../assets/icons/profile_picture.svg";
+                
+        //test for uploaded profil pic
+        if (file_exists("../profile_pics/$id.png")) {
+            $profile_pic = "../profile_pics/$id.png";
+        }
+
+        $needed_profile_pic = TRUE;
+    } else {
+        $needed_profile_pic = FALSE;
     }
-
-    //profile pic if not set by user
-    $profile_pic = "../assets/icons/profile_picture.svg";
-            
-    //test for uploaded profil pic
-    if (file_exists("../profile_pics/$id.png")) {
-        $profile_pic = "../profile_pics/$id.png";
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +69,7 @@
                     <label for="name">EMAIL ADDRESS</label>
                     <p>{your email address}</p>
                 </div>
+                <?php if ($needed_profile_pic) { ?>
                 <div class="separate_column">
                     <label for="name">PROFILE PICTURE</label>
                     <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
@@ -67,6 +77,7 @@
                     <input form="fileToUpload" type="file" name="fileToUpload" id="file">
                     <p id="fileText">File name</p>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>

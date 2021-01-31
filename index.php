@@ -65,6 +65,7 @@ if (isset($_POST["submit"])) {
 
                 session_start();
                 $_SESSION['username'] = $db_user;
+                $_SESSION['role'] = "organisers";
                 header("Location: php/choose_competition.php");
             } else {
 
@@ -138,6 +139,7 @@ if (isset($_POST["submit"])) {
             } else {
                 session_start();
                 $_SESSION['username'] = $username;
+                $_SESSION['role'] = "technicians";
                 header("Location: php/set_new_pass_first.php?where=$where");
             }
         } else {
