@@ -29,3 +29,7 @@ function zoomButtonDisabler(){
         zoomInButton.disabled = false;
     }
 }
+
+function printPage() {
+    window.print();
+}

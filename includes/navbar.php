@@ -23,6 +23,13 @@ setcookie("today",$test,time()+31556926);
                 <p>Dashboard</p>
             </a>
 
+            <p id="communications_text" class="nav_bar_title">C</p> 
+            <!-- chat -->
+            <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
+                <img src="../assets/icons/chat-black-18dp.svg">
+                <p>Chat</p>
+            </a>
+
             <p id="controls_text" class="nav_bar_title">C</p>
             <!-- DT -->
             <button type="button" <?php echo $assoc_array_functions['dt'] ?> >

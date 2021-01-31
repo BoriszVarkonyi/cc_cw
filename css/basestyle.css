@@ -476,7 +476,6 @@ input[type="text"].search.cc:focus + div {
 
 .overlay_panel_form .search_results {
 	width: 313px;
-	top: calc( var(--f-medium) + 15px );
 }
 
 .overlay_panel_form .search_wrapper .search.cc {
@@ -492,6 +491,7 @@ input[type="text"].search.cc:focus + div {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
+	top: 100%;
 	z-index: 3;
 	max-height: 0;
 	opacity: 0;
@@ -526,10 +526,6 @@ input[type="text"].search.cc:focus + div {
 
 .search_results > a:hover {
 	background-color: var(--c-lightergray);
-}
-
-.search_results > a:last-of-type {
-	margin-bottom: 10px;
 }
 
 .clear_search_button {
@@ -783,6 +779,10 @@ input:focus ~ .clear_search_button {
 	filter: brightness(.9) !important;
 }
 
+.table_row.selected:hover {
+	filter: brightness(1.1) !important;
+}
+
 .table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
 	background-color: var(--c-lightestgray);
 }
@@ -806,14 +806,6 @@ input:focus ~ .clear_search_button {
 
 .entry > .table_row {
 	background-color: var(--c-white);
-}
-
-.entry > .table_row:hover {
-	background-color: var(--c-lightergray);
-}
-
-.table_row_wrapper.alt > .entry > .table_row:hover {
-	background-color: var(--c-lightgray);
 }
 
 .table_row_wrapper .entry:nth-of-type(even) > .table_row, .table_row_wrapper > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {

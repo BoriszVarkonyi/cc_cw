@@ -1187,6 +1187,7 @@ header {
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: relative;
+	will-change: auto;
 }
 
 #page_content_panel_main.no_scroll {
@@ -1226,15 +1227,11 @@ header {
 	transition: all ease-out .2s;
 	border-radius: 5px;
 	overflow: hidden;
-	backface-visibility: hidden;
-	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .comp_logo:hover {
 	transform: scale(1.05);
 	border-radius: 0;
-	backface-visibility: hidden;
-	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .page_title {		/* The page's title fills the login panel and page_content */

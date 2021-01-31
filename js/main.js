@@ -2,6 +2,7 @@
 status = "closed";
 
 var cotext = document.getElementById("controls_text");
+var cmtext = document.getElementById("communications_text");
 var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
 var navBar = document.getElementById("nav_bar");
@@ -29,11 +30,13 @@ function toggle_nav_bar() {
 
     if (status == "closed") {
         ovtext.innerHTML = "OVERVIEW";
+        cmtext.innerHTML = "COMMUNICATIONS";
         cotext.innerHTML = "CONTROLS";
         setext.innerHTML = "SETUP";
         status = "opened";
     }
     else if (status == "opened"){
+        cmtext.innerHTML = "C";
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
         setext.innerHTML = "S";
@@ -75,6 +78,7 @@ function opened_nav_bar(){
     gnDropIcon.classList.remove("close");
     thDropIcon.classList.remove("close");
     ovtext.innerHTML = "OVERVIEW";
+    cmtext.innerHTML = "COMMUNICATIONS";
     cotext.innerHTML = "CONTROLS";
     setext.innerHTML = "SETUP";
     status = "opened";

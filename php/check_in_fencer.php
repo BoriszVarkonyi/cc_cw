@@ -177,14 +177,11 @@
     </div>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/print.js"></script>
 <script src="../js/check_fencer.js"></script>
 <script>
     var panelView = document.querySelector(".wrapper");
     var printView = document.querySelector(".paper_wrapper");
-
-    function printPage() {
-        window.print();
-    }
 </script>
 </body>
 </html>
