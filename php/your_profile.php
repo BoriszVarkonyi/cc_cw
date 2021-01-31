@@ -10,6 +10,14 @@
     if ($row = mysqli_fetch_assoc($do_get_data)) {
         $id = $row['id'];
     }
+
+    //profile pic if not set by user
+    $profile_pic = "../assets/icons/profile_picture.svg";
+            
+    //test for uploaded profil pic
+    if (file_exists("../profile_pics/$id.png")) {
+        $profile_pic = "../profile_pics/$id.png";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +62,7 @@
                 </div>
                 <div class="separate_column">
                     <label for="name">PROFILE PICTURE</label>
-                    <img src="../assets/icons/profile_picture.svg"  class="profile_picture not_icon">
+                    <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
                     <label for="file" class="file_label">Upload File</label>
                     <input form="fileToUpload" type="file" name="fileToUpload" id="file">
                     <p id="fileText">File name</p>

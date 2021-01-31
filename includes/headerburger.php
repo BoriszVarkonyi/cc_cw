@@ -157,7 +157,17 @@ if (isset($_POST["logout"])) {
         </div>
 
         <!-- profile pic -->
-        <img src="https://thispersondoesnotexist.com/image" id="profile_picture" onclick="toggle_profile_panel()"/>
+        <?php 
+            //profile pic if not set by user
+            $profile_pic = "../assets/icons/profile_picture.svg";
+            
+            //test for uploaded profil pic
+            if (file_exists("../profile_pics/$id.png")) {
+                $profile_pic = "../profile_pics/$id.png";
+            }
+        
+        ?>
+        <img src="<?php echo $profile_pic ?>" id="profile_picture" onclick="toggle_profile_panel()"/>
         
         <!-- profile data -->
         <div class="identity_section" onclick="toggle_profile_panel()">
@@ -173,7 +183,7 @@ if (isset($_POST["logout"])) {
             <a class="panel_button left" href="your_profile.php" target="_blank">
                 <img src="../assets/icons/edit-black-18dp.svg"/>
             </a>
-            <img src="https://thispersondoesnotexist.com/image" class="profile_picture_big">
+            <img src="<?php echo $profile_pic ?>" class="profile_picture_big">
             <p class="username_big"><?php echo $username; ?></p>
             <p class="role_big"><?php echo $role; ?></p>
             <form action="" method="POST" id="logout_form">
