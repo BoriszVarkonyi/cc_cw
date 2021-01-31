@@ -133,7 +133,6 @@
 
                                     <?php
 
-                                        if (isset($json_table[0])) {
                                             for ($i = 0; $i < count($json_table); $i++) {
                                         
                                             ?>
@@ -160,9 +159,6 @@
                                                     <!-- eddig mondjuk -->
                                 <?php
                                                 }   
-                                        } else {
-                                            ?><p>You have no announcement set up!</p><?php
-                                        }
                                             
                                 ?>
     
