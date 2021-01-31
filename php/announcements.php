@@ -111,13 +111,7 @@
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
-                <!-- new announcement button top -->
-                <div class="stripe_button_wrapper">
-                    <button class="stripe_button orange" id="new_announcement_top" type="button" onclick="hideNshow()">
-                        <p>New Announcement</p>
-                        <img src="../assets/icons/add-black-18dp.svg"/>
-                    </button>
-                </div>
+
             </div>
             
             <div id="page_content_panel_main">
@@ -129,6 +123,9 @@
                         </div>
                         <div class="db_panel_main ">
                             <div class="table t_c_0">
+                                <div class="table_heade">
+                                    <div class="table_header_text">TITLE</div>
+                                </div>
                                 <div class="table_row_wrapper alt">
 
                                     <?php
@@ -138,35 +135,43 @@
                                         
                                             ?>
         
-                                                    <!-- ezt kell whileozni csorom -->
-                                                    <div class="entry">
-        
-                                                        <!-- csak a cim kell -->
-                                                        <div class="table_row" onclick="toggleEntry(this)">
-                                                            <div class="table_item invitation"><p><?php echo $json_table[$i] -> title; ?></p></div>
-                                                        </div>
-        
-                                                        <!-- updateing entry -->
-                                                        <form class="entry_panel collapsed" id="update" method="POST" action="">
-                                                            <button class="panel_button" type="submit" name="submit_delete" id="update" >
-                                                                <img src="../assets/icons/delete-black-18dp.svg">
-                                                            </button>
-                                                            <textarea id="update" name="text_body" ><?php echo $json_table[$i] -> body ?></textarea>
-                                                            <input id="update" name="text_title_to_change" type="text" value="<?php echo $i ?>" class="hidden">
-                                                            <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                                        </form>
-        
-                                                    </div>
-                                                    <!-- eddig mondjuk -->
+                                            <!-- ezt kell whileozni csorom -->
+                                            <div class="entry">
+
+                                                <!-- csak a cim kell -->
+                                                <div class="table_row" onclick="toggleEntry(this)">
+                                                    <div class="table_item invitation"><p><?php echo $json_table[$i] -> title; ?></p></div>
+                                                </div>
+
+                                                <!-- updateing entry -->
+                                                <form class="entry_panel collapsed" id="update" method="POST" action="">
+                                                    <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                        <img src="../assets/icons/delete-black-18dp.svg">
+                                                    </button>
+                                                    <textarea id="update" name="text_body" ><?php echo $json_table[$i] -> body ?></textarea>
+                                                    <input id="update" name="text_title_to_change" type="text" value="<?php echo $i ?>" class="hidden">
+                                                    <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                                </form>
+
+                                            </div>
+                                            <!-- eddig mondjuk -->
                                 <?php
                                                 }   
                                         } else {
-                                            ?><p>You have no announcement set up!</p><?php
+                                            ?><p class="missing_text">You have no announcement set up!</p><?php
                                         }
                                             
                                 ?>
     
                                     <!-- adding entry by title -->
+                                    <div id="add_entry" onclick="hideNshow()">
+                                        <div class="table_row" onclick="">
+                                            <div class="table_item">
+                                                Add information
+                                                <img src="../assets/icons/add-black-18dp.svg" >
+                                            </div>
+                                        </div>
+                                    </div>
                                     <form action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
                                         <div class="table_row">
                                             <div class="table_item">

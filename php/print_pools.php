@@ -41,7 +41,7 @@
                         </button>
                     </div>
 
-                    <div class="view_button_wrapper">
+                    <div class="view_button_wrapper zoom">
                         <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
                             <img src="../assets/icons/zoom_out-black-18dp.svg"/>
                         </button>
