@@ -31,7 +31,7 @@
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper">
+                <div class="view_button_wrapper zoom">
                     <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out-black-18dp.svg"/>
                     </button>
@@ -39,8 +39,62 @@
                         <img src="../assets/icons/zoom_in-black-18dp.svg"/>
                     </button>                      
                 </div>
+                <div class="view_button_wrapper view">
+                    <button class="view_button" onclick="panelView.style.display = 'flex';
+  printView.style.display = 'none';" id="panelViewButton">
+                        <img src="../assets/icons/view_grid-black-18dp.svg"/>
+                    </button>
+                    <button class="view_button" onclick="panelView.style.display = 'none';
+  printView.style.display = 'flex';" id="printViewButton">
+                        <img src="../assets/icons/print-black-18dp.svg"/>
+                    </button>                      
+                </div>
             </div>
             <div id="page_content_panel_main" class="scroll">
+                <div class="wrapper">
+                    <form action="" id="" method="POST" class="db_panel">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/backpack-black-18dp.svg"/>
+                            Contents of fencer's bag
+                        </div>
+                        <div class="db_panel_main">
+                            <div class="table">
+                                <div class="table_header">
+                                    <div class="table_header_text">ISSUE</div>
+                                    <div class="table_header_text">QUANTITY</div>
+                                    <div class="big_status_header"></div>
+                                </div>
+                                <div class="table_row_wrapper alt">
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
+                                        <div class="big_status_item">
+                                            <input type="checkbox" name="bag_content" id="epee" value=""/>
+                                            <label for="epee"></label>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
+                                        <div class="big_status_item">
+                                            <input type="checkbox" name="bag_content" id="foil" value=""/>
+                                            <label for="foil"></label>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
+                                        <div class="big_status_item">
+                                            <input type="checkbox" name="bag_content" id="sabre" value=""/>
+                                            <label for="sabre"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                    </form>
+                </div>
+
                 <div class="paper_wrapper">
                     <div class="paper">
                         <div class="title_container">
@@ -56,6 +110,7 @@
                         </div>
                         <div class="paper_content">
                             <div class="bag_content">
+                                <p class="label">BAG CONTENT</p>
                                 <div class="grid_table">
                                     <div class="grid_header">
                                         <div class="grid_header_text">EQIPMENT</div>
@@ -102,6 +157,7 @@
                                 </div>
                             </div>
                             <div class="issues">
+                                <p class="label">REPORTED ISSUES</p>
                                 <div class="grid_table">
                                     <div class="grid_header">
                                         <div class="grid_header_text">ISSUE</div>
@@ -148,11 +204,13 @@
                                 </div>
                             </div>
                             <div class="notes">
+                                <p class="label">NOTES</p>
                                 <div>
                                     <p>Sziaaaa</p>
                                 </div>
                             </div>
                             <div class="signatures">
+                                <p class="label">SIGNATURES</p>
                                 <div class="grid_table">
                                         <div class="grid_header">
                                             <div class="grid_header_text">NAME</div>
@@ -177,5 +235,9 @@
 <script src="../js/list.js"></script>
 <script src="../js/print.js"></script>
 <script src="../js/check_fencer.js"></script>
+<script>
+    var panelView = document.querySelector(".wrapper");
+    var printView = document.querySelector(".paper_wrapper");
+</script>
 </body>
 </html>

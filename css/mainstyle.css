@@ -420,7 +420,6 @@ header {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	flex-grow: 1;
-	margin-right: 15px;
 	align-items: center;
 }
 
@@ -543,13 +542,20 @@ header {
 .view_button_wrapper {
 	position: absolute;
 	top: 100%;
-	left: 40px;
 	background-color: var(--c-gray);
 	border-radius: 0 0 5px 5px;
 	display: flex;
 	width: auto;
 	overflow: hidden;
 	padding: 0 1px;
+}
+
+.view_button_wrapper.zoom {
+	left: 40px;
+}
+
+.view_button_wrapper.view {
+	right: 40px;
 }
 
 .view_button_wrapper button {
@@ -818,7 +824,7 @@ header {
 	transition: transform var(--t-basic);
 }
 
-#nav_bar.closed > #nav_bar_wrapper > .nav_bar_title {
+#nav_bar.closed .nav_bar_title {
 	white-space: nowrap;
 	width: 100%;
 	text-align: center;
@@ -1231,6 +1237,7 @@ header {
 	font-family: var(--bold);
 	font-size: var(--f-xxlarge);
 	line-height: 1.25;
+	flex: 0 1 20%;
 }
 
 /* Legends */
@@ -1918,6 +1925,13 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	font-family: var(--bold);
 }
 
+.missing_text {
+	font-size: var(--f-large) !important;
+	font-family: var(--bold);
+	color: var(--c-darkgray);
+	text-align: center;
+}
+
 #add_technician_panel {
 	right: 40px;
 	top: calc(50px + 3vh);
@@ -2210,7 +2224,7 @@ input[type="file"] {
 	background-color: var(--c-orange);
 	font-family: var(--bold);
 	border-radius: 5px;
-	margin: 0 20px 0 auto;
+	margin: 0 0 0 auto;
 	width: auto;
 	cursor: pointer;
 }

@@ -58,6 +58,10 @@
     flex: 0 0 25% !important;
 }
 
+.label {
+    font-size: 12pt;
+}
+
 .paper_content > div {
     width: 100%;
     padding: 0 50pt;
