@@ -43,12 +43,31 @@
                     </div>
                 </div>
                 <div id="competition_info">
+                        <?php
+                            $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
+                            $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
+
+                            if ($row = mysqli_fetch_assoc($do_get_announcements)) {
+                                $string_json = $row['data'];
+
+                                $json_table = json_decode($string_json);
+                            }
+                            
+                            if (count($json_table) != 0 ) {
+                        ?>
                     <div id="announcements" class="column_panel breakpoint">
-                        <p>Announcement Title</p>
-                        <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p>
-                        <p>Announcement Title</p>
-                        <p>Needed Quantity Needed Quantity  Needed Quantity Needed Quantity Needed Quantity Needed Quantity Needed Quantity</p> 
+                        
+                        <?php
+                            foreach ($json_table as $ann_objects) {
+
+                            $title = $ann_objects -> title;
+                            $body = $ann_objects -> body;
+                        ?>
+                        <p><?php echo $title ?></p>
+                        <p><?php echo $body ?></p>
+                        <?php } ?>
                     </div>
+                    <?php } ?>
                     <div id="basic_information_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Basic Information:</p>
                         <div>
