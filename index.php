@@ -17,72 +17,63 @@ if (isset($_POST["submit"])) {
     $test = date("m");
     $test1 = date("Y");
 
-if(strlen($test, 1) == 0){
+    if (strlen($test, 1) == 0) {
 
-    $testuse = ltrim($test, $test[0]);
+        $testuse = ltrim($test, $test[0]);
+    } else {
 
-}else{
-    
-    $testuse = $test;
-
-}
+        $testuse = $test;
+    }
 
     $choose = $_POST["role"];
 
     if (!$choose) {
 
         header("Location: index.php?roleerror=3");
-
     }
 
 
-    if ($choose == 1){ // organiser
+    if ($choose == 1) { // organiser
 
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-
-    
-            $username = mysqli_real_escape_string($connection, $username);
-            $password = mysqli_real_escape_string($connection, $password);
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
 
-            $query = "SELECT * FROM organisers WHERE username = '$username'";
-            $select_organisers_query = mysqli_query($connection, $query);
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
 
-            while($row = mysqli_fetch_assoc($select_organisers_query)) {
+
+        $query = "SELECT * FROM organisers WHERE username = '$username'";
+        $select_organisers_query = mysqli_query($connection, $query);
+
+        while ($row = mysqli_fetch_assoc($select_organisers_query)) {
 
             $db_id = $row["id"];
             $db_user = $row["username"];
             $db_pass = $row["password"];
-
         }
 
 
-        if ($username != "" && $password != ""){
+        if ($username != "" && $password != "") {
 
-            if($username == $db_user && password_verify($password, $db_pass)) {
+            if ($username == $db_user && password_verify($password, $db_pass)) {
 
                 setcookie("org_id", $db_id, time() + 31536000);
                 setcookie("lastlogin", 1, time() + 31536000);
-                setcookie("year",$test1,time()+31556926);
-                setcookie("month",$test,time()+31556926);
+                setcookie("year", $test1, time() + 31556926);
+                setcookie("month", $test, time() + 31556926);
 
                 session_start();
                 $_SESSION['username'] = $db_user;
                 header("Location: php/choose_competition.php");
-
-            }
-            else{
+            } else {
 
                 header("Location: index.php?loginerror=4");
-
             }
-        }
-        else{
+        } else {
             $errors = $user_error . $pass_error;
             header("Location: index.php?$errors");
         }
-
     } elseif ($choose == 2) { //technician
 
         $db_user = "";
@@ -110,79 +101,79 @@ if(strlen($test, 1) == 0){
 
             $query = "SELECT * FROM `$table_name` WHERE `name` = '$username'";
             $select_technicians_query = mysqli_query($connection, $query);
-                
 
-                if ($row = mysqli_fetch_assoc($select_technicians_query)) {
 
-                    $db_id = $row["id"];
-                    $db_pass = $row["pass"];
-                    $role = $row['role'];
-                    $where .= $value . "_";
-                    array_push($feedback, "ok!");
+            if ($row = mysqli_fetch_assoc($select_technicians_query)) {
 
-                } else {
-                    array_push($feedback, mysqli_error($connection) . "aight but nope");
-                }
-            
+                $db_id = $row["id"];
+                $db_pass = $row["pass"];
+                $role = $row['role'];
+                $where .= $value . "_";
+                array_push($feedback, "ok!");
+            } else {
+                array_push($feedback, mysqli_error($connection) . "aight but nope");
+            }
         }
-        
 
 
-        if($username != ""){
+
+        if ($username != "") {
 
             if ($password != "") {
 
-                if($username == $db_user && password_verify($password, $db_pass)) {
+                if ($username == $db_user && password_verify($password, $db_pass)) {
 
                     setcookie("tech_id", $db_id, time() + 31536000);
                     setcookie("lastlogin", 2, time() + 31536000);
-                    setcookie("year",$test1,time()+31556926);
-                    setcookie("month",$test,time()+31556926);
+                    setcookie("year", $test1, time() + 31556926);
+                    setcookie("month", $test, time() + 31556926);
 
                     session_start();
                     $_SESSION['username'] = $db_user;
                     header("Location: php/choose_competition.php");
-
                 } else {
 
                     header("Location: index.php?loginerror=4");
                 }
-
             } else {
                 session_start();
                 $_SESSION['username'] = $username;
                 header("Location: php/set_new_pass_first.php?where=$where");
             }
-
-        } 
-        else {
+        } else {
             $errors = $user_error . $pass_error;
             header("Location: index.php?$errors");
         }
-
-
-    }   
+    }
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico" />
     <link rel="stylesheet" href="/css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
+
 <body id="illustration_bg">
     <div id="login_panel" class="panel">
-        <div id="title_stripe"><div class="stripe_section"><p class="page_title">Login</p></div></div>
+        <div id="title_stripe">
+            <div class="stripe_section">
+                <p class="page_title">Login</p>
+            </div>
+        </div>
         <div id="panel_main">
             <!-- login form -->
-            <form action="index.php" method="POST" class="overlay_panel_form <?php if($_GET["loginerror"] == 4){echo "error";} ?>">
+            <form action="index.php" method="POST" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
+                                                                                    echo "error";
+                                                                                } ?>">
                 <label for="username">LOGIN ID</label>
                 <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 
@@ -191,16 +182,16 @@ if(strlen($test, 1) == 0){
 
                 <label for="password">ROLE</label>
                 <div class="option_container">
-                    <input type="radio" name="role" id="a" value="1"/>
+                    <input type="radio" name="role" id="a" value="1" />
                     <label for="a">I am an organiser</label>
-                    <input type="radio" name="role" id="b" value="2"/>
+                    <input type="radio" name="role" id="b" value="2" />
                     <label for="b">I am a technician</label>
                 </div>
                 <input type="submit" name="submit" value="Login" class="login_button">
             </form>
         </div>
     </div>
-    <div id="login_links_wrapper"> 
+    <div id="login_links_wrapper">
         <div id="program_news">
             <a type="button" class="other_apps_button">News and updates</a>
         </div>
@@ -217,12 +208,12 @@ if(strlen($test, 1) == 0){
 
     <div id="apps">
         <div>
-            <input type="radio" name="app" id="cc" value="cc" checked/>
+            <input type="radio" name="app" id="cc" value="cc" checked />
             <label for="cc">Competition Control</label>
         </div>
 
         <div>
-            <input type="radio" name="app" id="ccw" value="ccw"/>
+            <input type="radio" name="app" id="ccw" value="ccw" />
             <label for="ccw" other>Competition Control Wheelchair</label>
             <button>OPEN</button>
         </div>
@@ -231,4 +222,5 @@ if(strlen($test, 1) == 0){
     <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
     <script src="/js/login.js"></script>
 </body>
+
 </html>
