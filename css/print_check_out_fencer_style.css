@@ -77,6 +77,14 @@
     font-size: 10pt;
 }
 
+.wrapper.hidden {
+    display: none;
+}
+
+.paper_wrapper.hidden {
+    display: none;
+}
+
 @media print {
 
     .grid_item {

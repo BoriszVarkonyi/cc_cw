@@ -1226,11 +1226,15 @@ header {
 	transition: all ease-out .2s;
 	border-radius: 5px;
 	overflow: hidden;
+	backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .comp_logo:hover {
 	transform: scale(1.05);
 	border-radius: 0;
+	backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .page_title {		/* The page's title fills the login panel and page_content */
@@ -2491,6 +2495,13 @@ input[type="file"] {
 #issues_panel {
 	height: 100%;
 	width: 65%;
+}
+
+.notes_wrapper {
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	box-sizing: border-box;
 }
 
 #notes_panel {
@@ -4155,7 +4166,6 @@ input {
 }
 
 .match > div > p {
-	
 	font-family: var(--bold);
 	text-overflow: ellipsis;
 }

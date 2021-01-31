@@ -174,8 +174,8 @@ if (isset($_POST["submit"])) {
         <div id="panel_main">
             <!-- login form -->
             <form action="index.php" method="POST" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
-                                                                                    echo "error";
-                                                                                } ?>">
+                    echo "error";
+                } ?>">
                 <label for="username">LOGIN ID</label>
                 <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 

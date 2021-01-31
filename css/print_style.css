@@ -133,5 +133,9 @@
 	.paper_content {
 		height: 90vh !important;
     }
+
+    .wrapper {
+        display: none;
+    }
     
 }

@@ -40,62 +40,87 @@
                     </button>                      
                 </div>
                 <div class="view_button_wrapper view">
-                    <button class="view_button" onclick="panelView.style.display = 'flex';
-  printView.style.display = 'none';" id="panelViewButton">
+                    <button class="view_button" onclick="panelView.classList.toggle('hidden');printView.classList.toggle('hidden');" id="panelViewButton">
                         <img src="../assets/icons/view_grid-black-18dp.svg"/>
                     </button>
-                    <button class="view_button" onclick="panelView.style.display = 'none';
-  printView.style.display = 'flex';" id="printViewButton">
+                    <button class="view_button" onclick="panelView.classList.toggle('hidden');printView.classList.toggle('hidden');" id="printViewButton">
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>                      
                 </div>
             </div>
             <div id="page_content_panel_main" class="scroll">
                 <div class="wrapper">
-                    <form action="" id="" method="POST" class="db_panel">
+                    <div class="db_panel other">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/backpack-black-18dp.svg"/>
-                            Contents of fencer's bag
+                            Contents of Fencer's bag
                         </div>
                         <div class="db_panel_main">
-                            <div class="table">
+                            <div class="table no_interaction">
                                 <div class="table_header">
                                     <div class="table_header_text">ISSUE</div>
                                     <div class="table_header_text">QUANTITY</div>
-                                    <div class="big_status_header"></div>
                                 </div>
                                 <div class="table_row_wrapper alt">
                                     <div class="table_row">
                                         <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
-                                        <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="epee" value=""/>
-                                            <label for="epee"></label>
-                                        </div>
+                                        <div class="table_item"><p>1</p></div>
                                     </div>
                                     <div class="table_row">
                                         <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
-                                        <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="foil" value=""/>
-                                            <label for="foil"></label>
-                                        </div>
+                                        <div class="table_item"><p>1</p></div>
                                     </div>
                                     <div class="table_row">
                                         <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
-                                        <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="sabre" value=""/>
-                                            <label for="sabre"></label>
-                                        </div>
+                                        <div class="table_item"><p>1</p></div>
                                     </div>
                                 </div>
                             </div>   
                         </div>
-                    </form>
+                    </div>
+                    <div class="db_panel other">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/report_problem-black-18dp.svg"/>
+                            Issues of Fencers's equipment
+                        </div>
+                        <div class="db_panel_main">
+                            <div class="table no_interaction">
+                                <div class="table_header">
+                                    <div class="table_header_text">ISSUE</div>
+                                    <div class="table_header_text">QUANTITY</div>
+                                </div>
+                                <div class="table_row_wrapper alt">
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><p>1</p></div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><p>1</p></div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_item"><p>Epee</p></div>
+                                        <div class="table_item"><p>1</p></div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="db_panel other">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/notes-black-18dp.svg"/>
+                            Notes of Fencers's equipment
+                        </div>
+                        <div class="db_panel_main">
+                            <div class="notes_wrapper">
+                                <p>Note</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
 
-                <div class="paper_wrapper">
+                <div class="paper_wrapper hidden">
                     <div class="paper">
                         <div class="title_container">
                             <div><p class="title">{Fencer's name}'S CHECKING OUT CERTIFICATE</p></div>
@@ -238,6 +263,10 @@
 <script>
     var panelView = document.querySelector(".wrapper");
     var printView = document.querySelector(".paper_wrapper");
+
+    function printPage() {
+        window.print();
+    }
 </script>
 </body>
 </html>

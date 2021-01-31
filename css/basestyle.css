@@ -283,6 +283,10 @@ label.error::after  {
 	margin-left: 10px;
 }
 
+label.error.username::after  {
+	content: 'THIS USERNAME IS ALREADY IN USE' !important;
+}
+
 label.error + input  {
 	border-bottom: 2px solid var(--c-red);
 }
@@ -698,7 +702,11 @@ input:focus ~ .clear_search_button {
 }
 
 .table.no_interaction * {		/* Whole table, primarly cw */
-	cursor: default;
+	/*cursor: default;*/
+}
+
+.table.no_interaction .table_row:hover {		/* Whole table, primarly cw */
+	filter: brightness(1) !important;
 }
 
 .table_row_wrapper {	/* Wraps table_row elements */
@@ -771,8 +779,8 @@ input:focus ~ .clear_search_button {
 	background-color: var(--c-white);
 }
 
-.table_row_wrapper > .table_row:hover, .table_row_wrapper > .table_row:nth-child(even):hover  { /* Hover */
-	background-color: var(--c-lightergray);
+.table_row:hover {
+	filter: brightness(.9) !important;
 }
 
 .table_row_wrapper > .table_row:nth-child(even) {	/* Coloring of rows */
@@ -782,10 +790,6 @@ input:focus ~ .clear_search_button {
 /* Alternative Coloring of row, Mostly CW */
 .table_row_wrapper.alt > .table_row {
 	background-color: var(--c-lightestgray);
-}
-
-.table_row_wrapper.alt > .table_row:hover, .table_row_wrapper.alt > .table_row:nth-child(even):hover {
-	background-color: var(--c-lightgray);
 }
 
 .table_row_wrapper.alt > .table_row:nth-child(even) {	/* Coloring of rows */
