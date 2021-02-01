@@ -255,6 +255,40 @@ function setToDark() {
     }
 }
 
+//Page color changer
+var colorButtons = document.querySelectorAll(".color_square")
+
+function classRemover(){
+    for(i=0; i<colorButtons.length; i++){
+        colorButtons[i].classList.remove("selected")
+    }
+}
+
+function setToDanube(x){
+    var danubeColorButton = document.querySelector(".color_square.danube")
+    classRemover();
+    danubeColorButton.classList.add("selected") 
+    document.documentElement.setAttribute('data-content-theme', 'danube');
+    localStorage.setItem('colorMode', 'danube');
+}
+
+function setToVanilla(x){
+    var vanillaColorButton = document.querySelector(".color_square.vanilla")
+    classRemover();
+    vanillaColorButton.classList.add("selected")
+    document.documentElement.setAttribute('data-content-theme', 'vanilla');
+    localStorage.setItem('colorMode', 'vanilla');
+}
+
+const colorMode = localStorage.getItem('colorMode');
+
+if(colorMode == "danube"){
+    setToDanube();
+}
+else{
+    setToVanilla();
+}
+
 //If technician, Disable setup section
 
 var suti = document.cookie;
