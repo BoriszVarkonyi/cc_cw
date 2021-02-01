@@ -1,5 +1,15 @@
 /* 	Universal */
 
+:root {
+	--c-primary:  #FF9700;
+	--c-lightprimary:  #FF9700;
+	--c-secondary:  #FF9700;
+	--c-lightsecondary:  #FF9700;
+	--c-tertiary:  #FF9700;
+	--c-lighttertiary:  #FF9700;
+}
+
+
 body, html {
 	background: var(--c-lightestgray) !important;
 	overflow-y: auto;

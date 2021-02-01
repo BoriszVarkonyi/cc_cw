@@ -120,8 +120,6 @@
 	--c-lightestgray: #2A2A2A;
 	--c-white: #252525;
 	--c-transparent-white: #FFFFFF20;
-	--c-secondary:  #444;
-	--c-tertiary: #3C3C3C;
 	--c-yellow: #393939;
 	--c-red: #393939;
 	--c-green: #393939;
@@ -173,6 +171,10 @@ body * {	/* Gives placeholder background and default font */
 
 .preload * {
 	transition: none !important;
+}
+
+input[type="button"] {
+	cursor: pointer;
 }
 
 button {
