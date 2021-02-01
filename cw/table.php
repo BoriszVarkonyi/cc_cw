@@ -34,7 +34,6 @@
                 <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                     <img src="../assets/icons/arrow_forward_ios-black-18dp.svg" >
                 </div>
-                <!--
                 <div id="e_1" class="elimination">
                     <div class="elimination_label">Table of __</div>
                     <div class="table_round_wrapper finished blue">
@@ -1067,7 +1066,6 @@
                         </div>
                     </div>
                 </div>
-                -->
                 <div id="e_5" class="elimination">
                     <div class="elimination_label">Table of __</div>
                     <div class="table_round_wrapper finished purple">

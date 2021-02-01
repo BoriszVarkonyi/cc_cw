@@ -850,15 +850,15 @@ header {
 	cursor: default;
 	pointer-events: none;
 	-webkit-filter: contrast(50%);
-	        filter: contrast(50%);
+	filter: contrast(50%);
 }
 
 .nav_bar_item > p {
 	padding: 1.5px 0 1.5px 5px;
 	-webkit-animation: showNavTitles var(--t-basic);
-	        animation: showNavTitles var(--t-basic);
+	animation: showNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	        animation-fill-mode: forwards;  
+	animation-fill-mode: forwards;  
 }
 
 @-webkit-keyframes hideNavTitles {
@@ -1020,9 +1020,9 @@ header {
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_item > p {
 	-webkit-animation: hideNavTitles var(--t-basic);
-	        animation: hideNavTitles var(--t-basic);
+	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	        animation-fill-mode: forwards; 
+	animation-fill-mode: forwards; 
 }
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_item {
@@ -1137,9 +1137,9 @@ header {
 
 #need_help p {
 	-webkit-animation: showNavTitles var(--t-basic);
-	        animation: showNavTitles var(--t-basic);
+	animation: showNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	        animation-fill-mode: forwards;  
+	animation-fill-mode: forwards;  
 }
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help {
@@ -1148,9 +1148,9 @@ header {
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help > p {
 	-webkit-animation: hideNavTitles var(--t-basic);
-	        animation: hideNavTitles var(--t-basic);
+	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	        animation-fill-mode: forwards; 
+	animation-fill-mode: forwards; 
 }
 
 #need_help > img {

@@ -142,6 +142,9 @@ body, html {	/* Gives placeholder background and default font */
 }
 
 body * {	/* Gives placeholder background and default font */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
@@ -702,6 +705,7 @@ input:focus ~ .clear_search_button {
 }
 
 .table.no_interaction .table_row:hover {		/* Whole table, primarly cw */
+	-webkit-filter: brightness(1) !important;
 	filter: brightness(1) !important;
 }
 
@@ -776,10 +780,12 @@ input:focus ~ .clear_search_button {
 }
 
 .table_row:hover {
+	-webkit-filter: brightness(.9) !important;
 	filter: brightness(.9) !important;
 }
 
 .table_row.selected:hover {
+	-webkit-filter: brightness(1.1) !important;
 	filter: brightness(1.1) !important;
 }
 
@@ -1179,7 +1185,7 @@ p.wc_time {
 
 .elimination_slider_button.disabled {
 	-webkit-filter: contrast(50%);
-	        filter: contrast(50%);
+	filter: contrast(50%);
 	pointer-events: none;
 }
 
@@ -1255,7 +1261,6 @@ p.wc_time {
 #call_room.cw  .table_round_wrapper:hover {
 	transform: scale(1.01);
 }
-
 
 .table_round_wrapper > div:not(.table_round){
 	display: flex;
@@ -1382,12 +1387,12 @@ p.wc_time {
 
 .table_fencer_name::-webkit-backdrop {
 	-webkit-filter: brightness(125%);
-	        filter: brightness(125%);
+	filter: brightness(125%);
 }
 
 .table_fencer_name::backdrop {
 	-webkit-filter: brightness(125%);
-	        filter: brightness(125%);
+	filter: brightness(125%);
 }
 
 .table_fencer_name > p {
