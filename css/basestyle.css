@@ -16,12 +16,6 @@
 	--c-secondary: #F19A3E;
 	--c-tertiary: #F4AE65;
 	*/
-	--c-primary: #00768b;
-	--c-lightprimary: #3391a2;
-	--c-secondary: #2CAA58;
-	--c-lightsecondary: #56bb79;
-	--c-tertiary: #001333;
-	--c-lighttertiary: #33425c;
 	--c-red: #F84F4F;
 	--c-lightred: #F97272;
 	--c-green: #8DFFB7;
@@ -77,6 +71,24 @@
 	--light: Poppins-Light;
 	--regular: Poppins-Regular;
 	--bold: Poppins-SemiBold;
+}
+
+[data-content-theme="danube"]:root {
+	--c-primary: #00768b;
+	--c-lightprimary: #3391a2;
+	--c-secondary: #2CAA58;
+	--c-lightsecondary: #56bb79;
+	--c-tertiary: #001333;
+	--c-lighttertiary: #33425c;
+}
+
+[data-content-theme="vanilla"]:root {
+	--c-primary:  #FF9700;
+	--c-lightprimary:  #FF9700;
+	--c-secondary:  #FF9700;
+	--c-lightsecondary:  #FF9700;
+	--c-tertiary:  #FF9700;
+	--c-lighttertiary:  #FF9700;
 }
 
 [data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */

@@ -155,8 +155,8 @@ if (isset($_POST["logout"])) {
                 </div>
             </div>
             <div class="color_variations">
-                <div class="color_square danube" name="danube"></div>
-                <div class="color_square vanilla" name="vanilla"></div>
+                <button class="color_square danube" name="danube"></button>
+                <button class="color_square vanilla" name="vanilla"></button>
             </div>
         </div>
 
