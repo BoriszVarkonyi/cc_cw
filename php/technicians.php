@@ -31,7 +31,7 @@
     if ($num_rows = mysqli_num_rows($do_get_techs) == 1) {
         if ($row = mysqli_fetch_assoc($do_get_techs)) {
             $json_string = $row['data'];
-            $json_table = json_decode($json_string, FALSE, 512, JSON_UNESCAPED_UNICODE);
+            $json_table = json_decode($json_string);
         }
     } else {
         $qry_new_row = "INSERT INTO technicians (assoc_comp_id) VALUES ('$comp_id');";
@@ -46,6 +46,7 @@
         $role = $_POST["role"];
         $username = $_POST["username"];
         $name = $_POST['name'];
+
         
         $existing_username = TRUE;
         foreach ($json_table as $json_object) {
@@ -59,8 +60,9 @@
             $new_tech = new tech($name, $role, $username);
             array_push($json_table, $new_tech);
 
-            $json_string = json_encode($json_table);
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
+            echo $json_string;
             $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
             $do_update_data = mysqli_query($connection, $qry_update_data);
             header("Refresh: 0");
@@ -71,9 +73,10 @@
         }
     }
 
-
-
     
+
+
+    header('charset=utf-8');
 ?>
 
 <!DOCTYPE html>
