@@ -103,7 +103,7 @@
                         <p>Remove Technician</p>
                         <img src="../assets/icons/delete-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button orange" onclick="toggle_add_technician()" shortcut="SHIFT+A">
+                    <button class="stripe_button primary" onclick="toggle_add_technician()" shortcut="SHIFT+A">
                         <p>Add Technicians</p>
                         <img src="../assets/icons/add-black-18dp.svg"/>
                     </button>

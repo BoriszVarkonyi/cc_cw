@@ -26,7 +26,7 @@
                         <p>Print Check Out</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
-                    <button name="" class="stripe_button orange" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
+                    <button name="" class="stripe_button primary" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Save Check Out</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>

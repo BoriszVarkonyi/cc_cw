@@ -228,7 +228,7 @@ if($query_do){
                 <div id="title_stripe">
                     <p class="page_title">Timetable</p>
                     <div class="stripe_button_wrapper">
-                        <button class="stripe_button orange" type="submit">
+                        <button class="stripe_button primary" type="submit">
                             <p>Save Timetable</p>
                             <img src="../assets/icons/save-black-18dp.svg"/>
                         </button>

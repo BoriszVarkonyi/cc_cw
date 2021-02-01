@@ -175,7 +175,7 @@
                             <p>Cancel</p>
                             <img src="../assets/icons/close-black-18dp.svg"/>
                         </button>
-                        <button name="submit_wc" class="stripe_button orange" type="submit" form="fencers_weapon_control_wrapper">
+                        <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
                             <p>Save weapon control</p>
                             <img src="../assets/icons/save-black-18dp.svg"/>
                         </button>

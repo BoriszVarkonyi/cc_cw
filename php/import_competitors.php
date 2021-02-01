@@ -28,7 +28,7 @@
             <div id="title_stripe">
                 <p class="page_title">Import Competitiors from XML</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button orange" type="submit" form="import_competitors_from_xml_form" id="import_button">
+                    <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">
                         <p>Import</p>
                         <img src="../assets/icons/get_app-black-18dp.svg"/>
                     </button>

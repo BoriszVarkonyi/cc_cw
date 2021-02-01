@@ -124,7 +124,7 @@ if(mysqli_num_rows($query_do) == 0){
                             <img src="../assets/icons/delete-black-18dp.svg"/>
                         </button>
 
-                        <button class="stripe_button orange" type="submit" onclick="toggleAddFencer()">
+                        <button class="stripe_button primary" type="submit" onclick="toggleAddFencer()">
                             <p>Add fencer</p>
                             <img src="../assets/icons/add-black-18dp.svg"/>
                         </button>

@@ -2,6 +2,7 @@
 status = "closed";
 
 var cotext = document.getElementById("controls_text");
+//var cmtext = document.getElementById("communications_text");
 var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
 var navBar = document.getElementById("nav_bar");
@@ -29,11 +30,13 @@ function toggle_nav_bar() {
 
     if (status == "closed") {
         ovtext.innerHTML = "OVERVIEW";
+        //cmtext.innerHTML = "COMMUNICATIONS";
         cotext.innerHTML = "CONTROLS";
         setext.innerHTML = "SETUP";
         status = "opened";
     }
     else if (status == "opened"){
+        //cmtext.innerHTML = "C";
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
         setext.innerHTML = "S";
@@ -75,6 +78,7 @@ function opened_nav_bar(){
     gnDropIcon.classList.remove("close");
     thDropIcon.classList.remove("close");
     ovtext.innerHTML = "OVERVIEW";
+    //cmtext.innerHTML = "COMMUNICATIONS";
     cotext.innerHTML = "CONTROLS";
     setext.innerHTML = "SETUP";
     status = "opened";
@@ -216,7 +220,8 @@ function setToLight() {
     colorModes[0].checked = true;
 
     for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "contrast(71%)";
+        //icons[i].style.filter = "contrast(71%)";
+        //icons[i].style.filter = "invert()";
     }
 
     for (var i = 1; i < hasBackgroundIcon.length; i++) {
@@ -521,6 +526,7 @@ document.addEventListener('DOMContentLoaded', function(){
         loadingBar.classList.add("loaded");
         setTimeout(function(){ loadingBar.classList.remove("loading"); loadingBar.classList.add("finished")}, 1000);
         setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.classList.add("hidden")}, 1200);
+        setTimeout(function(){ loadingBar.remove() }, 1500);
     }
 })
 /*

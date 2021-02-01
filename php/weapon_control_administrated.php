@@ -91,11 +91,11 @@
                             <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
                         </button>
-                        <a name="" class="stripe_button orange" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
+                        <a name="" class="stripe_button primary" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check In</p>
                             <img src="../assets/icons/check_circle_outline-black-18dp.svg"/>
                         </a>
-                        <a name="" class="stripe_button orange" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
+                        <a name="" class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Add Weapon Control</p>
                             <img src="../assets/icons/add-black-18dp.svg"/>
                         </a>
@@ -104,7 +104,7 @@
                             <img src="../assets/icons/edit-black-18dp.svg"/>
                         </a>
 
-                        <a name="" class="stripe_button orange" id="checkOutButton" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
+                        <a name="" class="stripe_button primary" id="checkOutButton" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check Out</p>
                             <img src="../assets/icons/check_circle-black-18dp.svg"/>
                         </a>

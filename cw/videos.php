@@ -41,7 +41,7 @@
                             
                     ?>
                             <!-- latest video placeholder -->
-                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
+                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'" loading="lazy">
                                 <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" >
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>

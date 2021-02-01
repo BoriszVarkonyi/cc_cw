@@ -26,7 +26,7 @@
                         <p>Print Check In</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
-                    <button name="" class="stripe_button orange" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
+                    <button name="" class="stripe_button primary" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Save Check In</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
@@ -177,14 +177,11 @@
     </div>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/print.js"></script>
 <script src="../js/check_fencer.js"></script>
 <script>
     var panelView = document.querySelector(".wrapper");
     var printView = document.querySelector(".paper_wrapper");
-
-    function printPage() {
-        window.print();
-    }
 </script>
 </body>
 </html>
