@@ -60,7 +60,6 @@ header {
 	box-shadow: var(--s-black);
 	display: flex;
 	align-items: center;
-	flex-wrap: nowrap;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -71,14 +70,19 @@ header {
 
 .header_button {
 	background: var(--c-lightgray);
-	height: 35px;
-	width: 35px;
+	height: 32px;
+	width: 32px;
 	border: 0;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin: 0 2px;
+}
+
+.header_button img {
+	height: 18px;
+	width: 18px;
 }
 
 .header_button:hover {
@@ -2231,8 +2235,6 @@ input[type="file"] {
 	flex-basis: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
-	justify-content: center;
-	align-items: center;
 }
 
 #plus_info_wrapper > * {

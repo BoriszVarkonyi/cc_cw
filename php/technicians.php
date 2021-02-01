@@ -3,103 +3,80 @@
 <?php ob_start(); ?>
 <?php
 
-    //feedback array
-    $feedback = array(
-        "fencer_data" => "no",
-        "create_table" => "no",
-        "ttest" => "no",
-        "update" => "no",
-        "rtest" => "no",
-        "insert" => "no",
-        "delete" => "no",
-        "get_wc_data" => "no",
-        "misc" => "no"
-    );
+    class tech {
+        public $username;
+        public $name;
+        public $role;
+        public $pass;
+        public $online;
 
-    //create table 
-    $table_name = "tech_" . $comp_id;
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`$table_name` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `pass` VARCHAR(255) NOT NULL , `role` INT(1) NOT NULL , `online` INT(1) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_table_create = mysqli_query($connection, $qry_create_table);
+        function __construct($name, $role, $username) {
+            $this -> role = $role;
+            $this -> name = $name;
+            $this -> username = $username;
+            $this -> pass = NULL;
+            $this -> online = 0;
+        }
+    }
 
-    if ($do_table_create) {
-        $feedback['create_table'] = "ok!";
+    //create table
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`technicians` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);
+    echo mysqli_error($connection);
+
+    //get technicians
+    $qry_get_techs = "SELECT data FROM technicians WHERE assoc_comp_id = '$comp_id'";
+    $do_get_techs = mysqli_query($connection, $qry_get_techs); 
+
+    if ($num_rows = mysqli_num_rows($do_get_techs) == 1) {
+        if ($row = mysqli_fetch_assoc($do_get_techs)) {
+            $json_string = $row['data'];
+            $json_table = json_decode($json_string);
+        }
     } else {
-        $feedback['create_table'] = "ERROR " . mysqli_error($connection);
+        $qry_new_row = "INSERT INTO technicians (assoc_comp_id) VALUES ('$comp_id');";
+        $do_new_row = mysqli_query($connection, $qry_new_row);
+
+        $json_table = [];
     }
 
-    if (isset($_POST['submit_import'])) {
-        $selected_comp_id = $_POST['selected_comp_id'];
 
-        $qry_import = "SELECT * FROM `tech_$selected_comp_id`";
-        $do_import = mysqli_query($connection, $qry_import);
-        echo mysqli_error($connection);
-        echo "<br>";
-        echo "selected comp id: ";
-        echo $selected_comp_id;
-        echo ";";
+    //set up new technician
+    if (isset($_POST['submit_tech'])) {
+        $role = $_POST["role"];
+        $username = $_POST["username"];
+        $name = $_POST['name'];
 
-        while ($row = mysqli_fetch_assoc($do_import)) {
-            $name = $row['name'];
-            $pass = $row['pass'];
-            $role = $row['role'];
-            $online = $row['online'];
-
-            //test for existing techs
-            $test_for_dupli = "SELECT * FROM $table_name WHERE name = '$name'";
-            $do_test_for_dupli = mysqli_query($connection, $test_for_dupli);
-            $test_num_rows = mysqli_num_rows($do_test_for_dupli);
-
-            if ($test_num_rows == FALSE) {
-                //update current comps tach table with imported tecch
-                $qry_insert_import = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$name', '$pass', '$role', '$online')";
-                $do_insert_import = mysqli_query($connection, $qry_insert_import);
-                echo mysqli_error($connection);
+        
+        $existing_username = TRUE;
+        foreach ($json_table as $json_object) {
+            if ($json_object -> username == $username){
+                $existing_username = FALSE;
             }
         }
-        
-    }
 
-    if(isset($_POST["remove_technician"])) {
-        $id = $_POST['id'];
+        //username csak angol karakter lehet mert a json nem szereti 
+        if ($existing_username){
+            $new_tech = new tech($name, $role, $username);
+            array_push($json_table, $new_tech);
 
-        $qry_delete = "DELETE FROM $table_name WHERE id = '$id'";
-        if ($do_delete = mysqli_query($connection, $qry_delete)) {
-            $feedback['delete'] = 'ok!';
-        
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+            echo $json_string;
+            $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+            $do_update_data = mysqli_query($connection, $qry_update_data);
+            header("Refresh: 0");
         } else {
-            $feedback['delete'] = 'ERROR ' . mysqli_error($connection);
-        
+            //add error 1 to get, when duplicant usernames
+            $_GET['set_up_error'] = 1;
+            header("Location: ../php/technicians.php?comp_id=$comp_id&set_up_error=1");
         }
-
     }
 
-        if (isset($_POST['submit_tech'])) {
-            //get data from form
-            $tech_name = $_POST['username'];
+    
 
-            $tech_role = $_POST['role'];
 
-            if ($tech_name != "" && $tech_role != "") {
-            
-                $feedback['misc'] = "okokokok";
-                $_POST['password'] = "";
-                $qry_scheck_row = "SELECT * FROM $table_name WHERE name = '$tech_name'";
-                $do_check_row = mysqli_query($connection, $qry_scheck_row);
-                $row_num = mysqli_num_rows($do_check_row);
-
-                if ($row_num == FALSE) {
-                    $feedback['rtest'] = "ok!";
-                    $qry_insert = "INSERT INTO $table_name (name, pass, role, online) VALUES ('$tech_name', '', '$tech_role', '0')";
-                    if ($do_insert = mysqli_query($connection, $qry_insert)) {
-                        $feedback['insert'] = "ok!";
-                    } else {
-                        $feedback['insert'] = "ERROR " . mysqli_error($connection);
-                    }
-                } else {
-                    $feedback['rtest'] = "ERROR " . mysqli_error($connection);
-                }
-            }
-        }
+    header('charset=utf-8');
 ?>
 
 <!DOCTYPE html>
@@ -147,6 +124,7 @@
                             <div class="select_competition_wrapper table_row_wrapper">
                                 <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
                                 <?php
+                                //IMPORT NEED TO BE REDONE 
                                     //get oragasniser id
                                     $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
                                     $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
@@ -182,8 +160,11 @@
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
-                        <label for="username" >NAME</label>
-                        <input type="text" placeholder="Type the technician's name" class="username_input" name="username">
+                        <label for="name" >NAME</label>
+                        <input type="text" placeholder="Type the technician's name" class="username_input" name="name">
+
+                        <label for="username" >USERNAME</label>
+                        <input type="text" placeholder="Type the technician's username" class="username_input error username" name="username">
 
                         <label for="">ROLE</label>
                         <div class="option_container">
@@ -219,27 +200,23 @@
                     </div>
                 </div>
             </div>
-            <?php echo $selected_comp_id ?>
             <div id="page_content_panel_main">
                 <div class="table wrapper">
-                    <?php
 
-                        $query = "SELECT * FROM $table_name";
-                        $query_do = mysqli_query($connection, $query);
+                    <?php if(count($json_table) == 0){ ?>
 
-                    if(mysqli_num_rows($query_do) == 0){
-                    ?>
                         <div id="no_something_panel">
                             <p>You have no technicians set up!</p>
                         </div>
-                    <?php
-                    } else {
-                        ?>
+
+                    <?php } else { ?>
+
                         <div class="table_header">
                             <div class="table_header_text" id="drag-left">
                                 <p>NAME</p>
                                 <button class="sort_button"><img src="" alt=""></button>
                             </div>
+                                <div class="table_header_text" id="drag-right"><p>USERNAME</p></div>
                                 <div class="table_header_text" id="drag-right"><p>ROLE</p></div>
                                 <div class="table_header_text"><p>STATUS</p></div>
                                 <div class="small_status_header">
@@ -247,27 +224,23 @@
                         </div>
                         <div class="table_row_wrapper" id="table">
                             <?php  
-                                $qry = "SELECT * FROM $table_name";
-                                $qry_do = mysqli_query($connection, $qry);
-                                $feedback['misc'] = "ERROR " . mysqli_error($connection);
+                                    foreach ($json_table as $json_object) {
 
-                            while($row = mysqli_fetch_assoc($query_do)){ 
-                                $tech_id = $row["id"];
-                                $tech_name = $row["name"];
-                                $tech_pass = $row["pass"];
-                                $tech_role = $row["role"];
-                                $tech_online = $row["online"];
+                                    $username = $json_object -> username;
+                                    $name = $json_object -> name;
+                                    $role = $json_object -> role;
+                                    $online  = $json_object -> online;
 
-                                $tech_online = 0;
+
                                 ?>
-                                <div class="table_row" id="<?php echo $tech_id; ?>" onclick="selectRow(this)" tabindex="0">
-                                    <div class="table_item"><p><?php echo $tech_name; ?></p></div>
-                                    <!--<div class="table_item"><p class="password_table_item"><?php echo $tech_pass; ?></p></div>-->
-                                    <div class="table_item"><p><?php echo roleConverter($tech_role); ?></p></div>
+                                <div class="table_row" id="<?php echo $username; ?>" onclick="selectRow(this)" tabindex="0">
+                                    <div class="table_item"><p><?php echo $name; ?></p></div>
+                                    <div class="table_item"><p><?php echo $username; ?></p></div>
+                                    <div class="table_item"><p><?php echo roleConverter($role); ?></p></div>
                                     <div class="table_item">
                                         <p>
                                         <?php
-                                        if($tech_online == 0){
+                                        if($online == 0){
                                             echo "Offline";
                                         }
                                         else{
@@ -277,7 +250,7 @@
                                         </p>
                                     </div>
                                     <div class="small_status_item <?php
-                                        if($tech_online == 0){
+                                        if($online == 0){
                                             echo "red";
                                         }
                                         else{
