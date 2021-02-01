@@ -32,7 +32,7 @@
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message-black-18dp.svg"/>
                         </button>
-                        <button class="stripe_button orange" type="submit">
+                        <button class="stripe_button primary" type="submit">
                             <p>Pass Fencer</p>
                             <img src="../assets/icons/send-black-18dp.svg"/>
                         </button>

@@ -1,5 +1,5 @@
 #cw_preview {
-    background-color: var(--c-white);
+    background: var(--c-white);
     box-shadow: var(--s-black);
     border-radius: 5px;
     margin: 0 10px;
@@ -9,7 +9,7 @@
 
 #invitation_title_stripe {
     padding: 30px 100px;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -64,13 +64,13 @@
 	box-sizing: border-box;
 	margin: 25px 0;
 	width: 100%;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	display: flex;
     flex-direction: column;
 }
 
 .column_panel_title {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	font-family: var(--bold);
 	width: 100%;
 	padding: 5px 40px;
@@ -200,7 +200,7 @@
 
 	body, * {
 		box-shadow: none !important;
-		background-color: transparent !important;
+		background: transparent !important;
         overflow: visible !important;
 	}
 	

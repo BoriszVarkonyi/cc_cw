@@ -1,7 +1,7 @@
 /* 	Universal */
 
 body, html {
-	background-color: var(--c-lightestgray) !important;
+	background: var(--c-lightestgray) !important;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -30,7 +30,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	margin: auto;
-	background-color: var(--c-white);
+	background: var(--c-white);
 	box-shadow: 0 3px 6px #25252530;
 }
 
@@ -328,7 +328,7 @@ footer {
 /* Header */
 
 header {
-	background-color: var(--c-white);
+	background: var(--c-white);
 	display: flex;
 	align-items: stretch;
 	position: fixed;
@@ -341,16 +341,16 @@ body.home header {
 }
 
 body.home #main {
-	background-color: white;
+	background: white;
 }
 
 body.home #content {
-	background-color: white;
+	background: white;
 	box-shadow: none;
 }
 
 body.home {
-	background-color: white !important;
+	background: white !important;
 }
 
 header > div {
@@ -377,12 +377,12 @@ header > div {
 }
 
 #navigation > div:hover {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 }
 
 #navigation > div.current > a, #mobile_navigation a.current, #navigation > div.current button {
 	font-family: var(--bold);
-	color: var(--c-orange);
+	color: var(--c-primary);
 }
 
 #navigation > div > * {
@@ -397,7 +397,7 @@ header > div {
 }
 
 #navigation > div > button.opened {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 }
 
 #navigation > div > div {
@@ -410,7 +410,7 @@ header > div {
 	width: 100%;
 	overflow: hidden;
 	transition: all var(--t-basic);
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	position: absolute;
 	top: 50px;
 	left: 0;
@@ -436,7 +436,7 @@ header > div {
 }
 
 #navigation > div > div a:hover {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 }
 
 #change_language {
@@ -444,7 +444,7 @@ header > div {
 }
 
 #change_language > div > button {
-	background: linear-gradient(90deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
+	background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-lightprimary) 100%);
 	height: 30px;
 	width: 60px;
 	border-radius: 20px;
@@ -455,6 +455,7 @@ header > div {
 	font-size: 15px;
 	transition: all var(--t-basic);
 	white-space: nowrap;
+	color: var(--c-white);
 }
 
 #change_language > div {
@@ -467,6 +468,7 @@ header > div {
 	margin-right: -5px;
 	transform: rotate(0deg);
 	transition: all var(--t-basic);
+	filter: invert();
 }
 
 #change_language > div > button.opened {
@@ -485,7 +487,7 @@ header > div {
 	right: 0;
 	position: absolute;
 	width: 0;
-	background: linear-gradient(180deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
+	background: linear-gradient(180deg, var(--c-tertiary) 0%, var(--c-secondary) 100%);
 	border-radius: 0 0 5px 5px;
 	transition: all var(--t-basic);
 	overflow: hidden;
@@ -512,7 +514,7 @@ header > div {
 
 #change_language_panel button {
 	width: 100%;
-	background-color: #FFFFFF50;
+	background: #FFFFFF50;
 	border-radius: 3px;
 	border: 1px solid var(--c-gray);
 	padding: 2px;
@@ -520,11 +522,11 @@ header > div {
 }
 
 #change_language_panel button.selected {
-	background-color: #FFFFFF90 !important;
+	background: #FFFFFF90 !important;
 }
 
 #change_language_panel button:hover {
-	background-color: #FFFFFF70;
+	background: #FFFFFF70;
 }
 
 /* Mobile */
@@ -560,7 +562,7 @@ header > div {
 	width: 100vw;
 	position: absolute;
 	top: 50px;
-	background-color: #25252595;
+	background: #25252595;
 	height: 0;
 	transition: all var(--t-basic);
 	overflow: hidden;
@@ -604,7 +606,7 @@ header > div {
 /* Footer */
 
 footer {
-	background-color: var(--c-black);
+	background: var(--c-black);
 	color: var(--c-white);
 	display: flex;
 	justify-content: center;
@@ -675,14 +677,14 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 #slide_nav > button {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	border-radius: 50%;
 	height: 20px;
 	width: 20px;
 }
 
 #slide_nav > button.active {
-	background-color: var(--c-darkgray);
+	background: var(--c-darkgray);
 }
 
 #slideshow_title {
@@ -702,7 +704,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	left: -5px;
 	position: absolute;
 	font-size: 5vw;
-	color: var(--c-orange);
+	color: var(--c-primary);
 	text-transform: uppercase;
 	font-family: var(--bold);
 	white-space: nowrap;
@@ -715,7 +717,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	justify-content: center;
 	align-items: flex-start;
 	flex-direction: column;
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	position: absolute;
 	opacity: 1;
 	left: 0;
@@ -744,7 +746,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .slide button {
-	background-color: var(--c-orange);
+	background: var(--c-secondary);
 	padding: 5px 10px;
 	font-family: var(--bold);
 	font-size: var(--f-large);
@@ -827,7 +829,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 input[value="Search"] {
 	color: var(--c-black);
-	background-color: var(--c-orange);
+	background: var(--c-secondary);
 	font-family: var(--bold);
 	border-radius: 5px;
 	padding: 2px 25px;
@@ -873,7 +875,7 @@ input[value="Search"] {
 
 #title_stripe {
 	padding: 30px 5%;
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -899,7 +901,7 @@ input[value="Search"] {
 	padding: 100px 50px 50px;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--c-white);
+	background: var(--c-white);
 	min-height: 80vh;
 }
 
@@ -907,7 +909,7 @@ input[value="Search"] {
 	padding: 100px 150px 50px;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--c-white);
+	background: var(--c-white);
 }
 
 /* Listing inputs and similars */
@@ -941,7 +943,7 @@ input[value="Search"] {
 	min-width: 35px;
 	border: 0;
 	border-radius: 50%;
-	background-color: var(--c-lightgray);
+	background: var(--c-lightgray);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -954,7 +956,7 @@ input[value="Search"] {
 }
 
 .back_button:hover {
-	background-color: var(--c-gray);
+	background: var(--c-gray);
 }
 
 /* Ongoing competitions */
@@ -977,23 +979,23 @@ input[value="Search"] {
 }
 
 #registration_lengend, #fencing_lengend {
-	background-color: var(--c-yellow);
+	background: var(--c-yellow);
 }
 
 #pools_lengend {
-	background-color: var(--c-blue);
+	background: var(--c-blue);
 }
 
 #table_lengend {
-	background-color: var(--c-purple);
+	background: var(--c-purple);
 }
 
 #eliminated_lengend {
-	background-color: var(--c-red);
+	background: var(--c-red);
 }
 
 #passed_lengend {
-	background-color: var(--c-green);
+	background: var(--c-green);
 }
 
 /* Competitions page*/
@@ -1038,7 +1040,7 @@ input[value="Search"] {
 	box-sizing: border-box;
 	margin: 25px 0;
 	width: 100%;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	display: flex;
 	flex-direction: column;
 }
@@ -1051,7 +1053,7 @@ input[value="Search"] {
 }
 
 .column_panel_title {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	font-family: var(--bold);
 	width: 100%;
 	padding: 5px 40px;
@@ -1146,15 +1148,15 @@ input[value="Search"] {
 	box-shadow: var(--s-black);
 	margin: 5px;
 	padding: 5px 15px;
-	background-color: var(--c-orange);
+	background: var(--c-secondary);
 }
 
 #competition_controls button:last-of-type {
-	background-color: var(--c-red);
+	background: var(--c-red);
 }
 
 #competition_controls button:disabled {
-	background-color: var(--c-gray) !important;
+	background: var(--c-gray) !important;
 	pointer-events: none;
 }
 
@@ -1182,7 +1184,7 @@ input[value="Search"] {
 }
 
 .video_wrapper:hover {
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 .video_wrapper > img {
@@ -1229,7 +1231,7 @@ input[value="Search"] {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 #needed_information_panel > div {
@@ -1247,7 +1249,7 @@ input[value="Search"] {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	margin: 0 50px 50px;
 }
 
@@ -1264,7 +1266,7 @@ input[value="Search"] {
 }
 
 #select_fencers_panel > div > .table_row:nth-child(even) {
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 }
 
 #selected_fencers_wrapper {
@@ -1282,7 +1284,7 @@ input[value="Search"] {
 #selected_fencers_wrapper > div {
 	display: flex;
 	align-items: center;
-	background-color: var(--c-white);
+	background: var(--c-white);
 	padding: 7.5px 20px;
 	border-radius: 20px;
 	margin-left: 15px;
@@ -1330,7 +1332,7 @@ input[value="Search"] {
 }
 
 #round_livestream_wrapper {
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	flex-grow: 1;
 	margin-right: 50px;
 	display: flex;
@@ -1355,13 +1357,13 @@ input[value="Search"] {
 
 #machine_wrapper {
 	width: 100%;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	margin-bottom: 20px;
 }
 
 #machine_wrapper > div:first-of-type {
 	max-width: 100%;
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	display: flex;
 	border-style: inset;
 	border: none;
@@ -1393,7 +1395,7 @@ input[value="Search"] {
 
 #round_info {
 	width: 100%;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
@@ -1408,7 +1410,7 @@ input[value="Search"] {
 #machine {
 	width: 100%;
 	position: relative;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1422,16 +1424,16 @@ input[value="Search"] {
 .fencer_color {
 	width: 35px;
 	height: 35px;
-	background-color: var(--c-lightergray);
+	background: var(--c-lightergray);
 	position: absolute;
 }
 
 .fencer_color.red {
-	background-color: var(--c-red);
+	background: var(--c-red);
 }
 
 .fencer_color.green {
-	background-color: var(--c-green);
+	background: var(--c-green);
 }
 
 #red_fencer {
@@ -1546,7 +1548,7 @@ input[value="Search"] {
 }
 
 .blog_article:hover {
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 .article_title {
@@ -1634,7 +1636,7 @@ input[value="Search"] {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-color: var(--c-transparent-black);
+	background: var(--c-transparent-black);
 	z-index: 10;
 	display: flex;
 	justify-content: center;
@@ -1648,7 +1650,7 @@ input[value="Search"] {
 #cw_confirmation > div {
 	position: relative;
 	padding: 50px;
-	background-color: var(--c-white);
+	background: var(--c-white);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	max-width: 40vw;
@@ -1663,7 +1665,7 @@ input[value="Search"] {
 
 #basic_body {
 	display: flex;
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 	justify-content: center;
 	align-items: center;
 }
@@ -1675,7 +1677,7 @@ input[value="Search"] {
 	width: 100vw;
 	top: 0;
 	background: rgb(255, 188, 92);
-	background: linear-gradient(190deg, var(--c-lightorange) 0%, var(--c-orange) 100%);
+	background: linear-gradient(190deg, var(--c-tertiary) 0%, var(--c-secondary) 100%);
 }
 
 #basic_body::before {
@@ -1692,7 +1694,7 @@ input[value="Search"] {
 	align-items: center;
 	flex-direction: column;
 	padding: 50px;
-	background-color: var(--c-white);
+	background: var(--c-white);
 	border-radius: 5px;
 	border-top: 2px solid var(--c-darkgray);
 	border-left: 2px solid var(--c-darkgray);
@@ -1713,13 +1715,13 @@ input[value="Search"] {
 .go_back {
 	font-family: var(--bold);
 	text-decoration: underline;
-	color: var(--c-orange);
+	color: var(--c-secondary);
 	padding: 5px;
 	margin: 5px 0;
 }
 
 .go_back:hover {
-	background-color: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 b.red {

@@ -52,7 +52,7 @@
                     <img src="../assets/icons/close-black-18dp.svg"/>
                 </button>
                 <form id="fileToUpload" action="../profile_pics/uploads.php?id=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
-                    <button name="submit" class="stripe_button orange" type="submit" shortcut="SHIFT+S">
+                    <button name="submit" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save Profile</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>

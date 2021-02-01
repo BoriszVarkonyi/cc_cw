@@ -171,7 +171,7 @@ checkComp($connection);
 
                     <form id="publishcomp" class="hidden" ></form>
                     <div class="stripe_button_wrapper">
-                        <button class="stripe_button orange only <?php echo $publish_comp_disabled ?>" id="publishcomp">
+                        <button class="stripe_button primary only <?php echo $publish_comp_disabled ?>" id="publishcomp">
                             <p>Publish Competition</p>
                             <img src="../assets/icons/send-black-18dp.svg"/>
                         </button>

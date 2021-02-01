@@ -187,7 +187,7 @@ if (isset($_POST["generate_table"])) {
                     <form id="generate_table" method="POST" action="">
                     </form>
                     <div class="stripe_button_wrapper">
-                        <button class="stripe_button orange" type="submit" name="generate_table" form="generate_table">
+                        <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
                             <img src="../assets/icons/add_box-black-18dp.svg" />
                         </button>
@@ -207,7 +207,7 @@ if (isset($_POST["generate_table"])) {
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot-black-18dp.svg" />
                         </button>
-                        <button class="stripe_button orange" type="submit">
+                        <button class="stripe_button primary" type="submit">
                             <p>Start next Round</p>
                             <img src="../assets/icons/next_plan-black-18dp.svg" />
                         </button>

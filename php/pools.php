@@ -804,7 +804,7 @@ if($exist == 0){
 
                 STATE: 0
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button orange" onclick="generatePanel()" type="submit">
+                    <button class="stripe_button primary" onclick="generatePanel()" type="submit">
                         <p>Generate Pools</p>
                         <img src="../assets/icons/add_box-black-18dp.svg" />
                     </button>
@@ -885,7 +885,7 @@ elseif ($exist != 0 && $exist2 == 0)
                     </button>
 
                     <form action="" method="POST">
-                        <button class="stripe_button orange" type="submit" name="start_pools">
+                        <button class="stripe_button primary" type="submit" name="start_pools">
                             <p>Start Pools</p>
                             <img src="../assets/icons/outlined_flag-black-18dp.svg" />
                         </button>
@@ -893,7 +893,7 @@ elseif ($exist != 0 && $exist2 == 0)
 
                     <form class="title_stripe_form" method="POST" action="">
                         <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
-                        <button class="stripe_button orange" name="save_pools" onclick="savePools()" type="submit">
+                        <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
                             <p>Save Pools</p>
                             <img src="../assets/icons/save-black-18dp.svg" />
                         </button>
@@ -1049,11 +1049,11 @@ elseif ($exist != 0 && $exist2 == 0)
 
     ?>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button orange" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
+                    <a class="stripe_button primary" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
                         <p>Print Pools</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </a>
-                    <a  class="stripe_button orange <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                    <a  class="stripe_button primary <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
                         <p>Finish Pools</p>
                         <img src="../assets/icons/save-black-18dp.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>

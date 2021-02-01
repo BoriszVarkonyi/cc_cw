@@ -91,7 +91,7 @@
                             <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
                         </button>
-                        <button name="add_wc" class="stripe_button orange" id="wcButton" type="submit">
+                        <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
                             <p>Add weapon control</p>
                             <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
                         </button>

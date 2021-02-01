@@ -39,7 +39,7 @@ $query_do = mysqli_query($connection, $query);
         <div class="page_content_flex">
                 <div id="title_stripe">
                     <p class="page_title">Basic Information</p>
-                    <button class="stripe_button orange" type="submit" name="submit" form="basic_information_form">
+                    <button class="stripe_button primary" type="submit" name="submit" form="basic_information_form">
                         <p id="save_text">Save Information</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
