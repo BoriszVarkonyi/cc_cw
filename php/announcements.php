@@ -40,7 +40,7 @@
         $test_row = FALSE;
         //make template row
         $json_table = [];
-        $json_string = json_encode($json_table);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
         $qry_make_template = "INSERT INTO `announcements` (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
         $do_make_template = mysqli_query($connection, $qry_make_template);
     }
@@ -55,7 +55,7 @@
         array_push($json_table, $announcement);
 
         //json -> string
-        $json_string = json_encode($json_table);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         //send data to db
         if ($title != "") {
@@ -71,7 +71,7 @@
         $id_to_change = $_POST['text_title_to_change'];
 
         $json_table[$id_to_change] -> body = $body;
-        $json_string = json_encode($json_table);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         //update in db
         $qry_update_body = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
@@ -85,7 +85,7 @@
         $id_to_change = $_POST['text_title_to_change'];
         unset($json_table[$id_to_change]);
 
-        $json_string = json_encode($json_table);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         $qry_update_delete = "UPDATE announcements SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update_delete = mysqli_query($connection, $qry_update_delete);
