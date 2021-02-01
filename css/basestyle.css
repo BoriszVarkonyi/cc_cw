@@ -11,8 +11,12 @@
 	--c-transparent-white: #FFFFFF20;
 	--c-yellow: #FFC914;
 	/* --c-orange: #FF9700; --c-lightorange: #FFBE5C; */
+	/*
 	--c-orange: #F19A3E;
 	--c-lightorange: #F4AE65;
+	*/
+	--c-lightorange: #2CAA58;
+	--c-orange: #001333;
 	--c-red: #F84F4F;
 	--c-lightred: #F97272;
 	--c-green: #8DFFB7;

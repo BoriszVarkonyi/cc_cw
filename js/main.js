@@ -220,7 +220,8 @@ function setToLight() {
     colorModes[0].checked = true;
 
     for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "contrast(71%)";
+        //icons[i].style.filter = "contrast(71%)";
+        icons[i].style.filter = "invert()";
     }
 
     for (var i = 1; i < hasBackgroundIcon.length; i++) {

@@ -806,7 +806,7 @@ header {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	height: 100%;
-	color: var(--c-black);
+	color: var(--c-white);
 }
 
 #nav_bar.closed > #nav_bar_wrapper {
