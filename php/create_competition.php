@@ -100,7 +100,7 @@ $query = "";
                     <p>Cancel</p>
                     <img src="../assets/icons/close-black-18dp.svg"/>
                 </button>
-                <button type="submit" name="submit" form="create_new_comp" class="stripe_button orange">
+                <button type="submit" name="submit" form="create_new_comp" class="stripe_button primary">
                     <p>Create</p>
                     <img src="../assets/icons/add-black-18dp.svg"/>
                 </button>

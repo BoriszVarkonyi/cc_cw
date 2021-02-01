@@ -22,7 +22,7 @@ $query_do = mysqli_query($connection, $query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-content-theme="danube">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,7 +45,7 @@ $query_do = mysqli_query($connection, $query);
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message-black-18dp.svg"/>
                     </button>
-                    <a class="stripe_button orange" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
                         <p>Import Competitors from XML</p>
                         <img src="../assets/icons/get_app-black-18dp.svg"/>
                     </a>

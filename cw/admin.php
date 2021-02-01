@@ -18,20 +18,20 @@
 img {
   width: 200px;
   height: 200px;
-  background-color: red;
+  background: red;
   animation: example 4s infinite;
 }
 
 @keyframes example {
-  0%   {background-color: red;
+  0%   {background: red;
         transform: rotate(0deg);
         margin-left: 0px;
         margin-top: 0px}
-  25%  {background-color: yellow;}
-  50%  {background-color: blue;
+  25%  {background: yellow;}
+  50%  {background: blue;
         margin-left: 800px;
         margin-top: 200px}
-  100% {background-color: green;
+  100% {background: green;
         transform: rotate(360deg);
         margin-left: 0px;
         margin-top: 0px}

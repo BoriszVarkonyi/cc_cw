@@ -149,7 +149,7 @@
                                 <p>Remove Referee</p>
                                 <img src="../assets/icons/delete-black-18dp.svg"/>
                             </button>
-                            <button class="stripe_button orange" onclick="toggle_add_technician()">
+                            <button class="stripe_button primary" onclick="toggle_add_technician()">
                                 <p>Add Referees</p>
                                 <img src="../assets/icons/add-black-18dp.svg"/>
                             </button>

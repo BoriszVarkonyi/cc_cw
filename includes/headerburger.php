@@ -127,7 +127,7 @@ if (isset($_POST["logout"])) {
         </div>
 
         <!-- colormode select drop-down -->
-        <div id="colormode_panel" class="small overlay_panel hidden">
+        <div id="colormode_panel" class="small tall overlay_panel hidden">
             <button class="panel_button" onclick="toggle_colormode_panel()">
                 <img src="../assets/icons/close-black-18dp.svg"/>
             </button>
@@ -153,6 +153,10 @@ if (isset($_POST["logout"])) {
                         <label for="dark" onclick="setToDark()">Dark</label>
                     </div>
                 </div>
+            </div>
+            <div class="color_variations">
+                <button class="color_square danube" name="danube"></button>
+                <button class="color_square vanilla" name="vanilla"></button>
             </div>
         </div>
 

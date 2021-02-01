@@ -65,7 +65,7 @@ if($score1 != NULL && $score2 != NULL){
                         <img src="../assets/icons/highlight_off-black-18dp.svg"/>
                     </button>
 
-                    <button class="stripe_button orange" type="submit">
+                    <button class="stripe_button primary" type="submit">
                         <p>Save Pool</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>

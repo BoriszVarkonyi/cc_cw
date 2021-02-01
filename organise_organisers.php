@@ -72,7 +72,7 @@
                             <td><?php echo $username ?></td>
                             <td><?php echo $License_end ?></td>
                             <td><?php echo $Lincense_valid ?></td>
-                            <td style="background-color:<?php echo $warning_color  ?>"></td>
+                            <td style="background:<?php echo $warning_color  ?>"></td>
                         </tr>
 
                     <?php

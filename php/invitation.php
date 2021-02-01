@@ -169,7 +169,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                         <p>Print Invitation</p>
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
-                    <button class="stripe_button orange" type="button" shortcut="SHIFT+S">
+                    <button class="stripe_button primary" type="button" shortcut="SHIFT+S">
                         <p>Save Invitation</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>

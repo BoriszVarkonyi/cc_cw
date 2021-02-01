@@ -221,7 +221,7 @@ function setToLight() {
 
     for (var i = 0; i < icons.length; i++) {
         //icons[i].style.filter = "contrast(71%)";
-        icons[i].style.filter = "invert()";
+        //icons[i].style.filter = "invert()";
     }
 
     for (var i = 1; i < hasBackgroundIcon.length; i++) {
@@ -526,6 +526,7 @@ document.addEventListener('DOMContentLoaded', function(){
         loadingBar.classList.add("loaded");
         setTimeout(function(){ loadingBar.classList.remove("loading"); loadingBar.classList.add("finished")}, 1000);
         setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.classList.add("hidden")}, 1200);
+        setTimeout(function(){ loadingBar.remove() }, 1500);
     }
 })
 /*

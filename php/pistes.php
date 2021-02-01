@@ -151,7 +151,7 @@ if(isset($_POST["create_piste"])){
                 <div id="title_stripe">
                     <p class="page_title">Pistes</p>
                     <div class="stripe_button_wrapper">
-                    <button class="stripe_button orange" onclick="toggleAddPistePanel()">
+                    <button class="stripe_button primary" onclick="toggleAddPistePanel()">
                             <p>Add Piste</p>
                             <img src="../assets/icons/add-black-18dp.svg"/>
                         </button>
