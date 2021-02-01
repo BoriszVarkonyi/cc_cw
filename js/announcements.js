@@ -8,6 +8,22 @@ function hideNshow () {
   addingEntryPanel.classList.toggle("hidden");
 }
 
+var addInformationInput = addingEntryPanel.querySelector("input")
+var addInformationButton = addingEntryPanel.querySelector(".save_entry")
+
+addInformationButton.classList.add("disabled")
+
+addingEntryPanel.addEventListener("input", entryformvalidation)
+//Entry form validation
+function entryformvalidation(){
+    if(addInformationInput.value == ""){
+        addInformationButton.classList.add("disabled")
+    }
+    else{
+        addInformationButton.classList.remove("disabled")
+    }
+}
+
 var oldentry;
 function toggleEntry(x) {
     var tableRow = x;
@@ -45,25 +61,6 @@ function toggleEntry(x) {
     }
 }
 
-//NewAnnouncementsButton and addingEntryPanel.
-var addingEntryPanel = document.getElementById("adding_entry");
-var newAnnouncementsButton = document.getElementById("new_announcement_top");
-//console.log(newAnnouncementsButton)
-
-//Toggles the class.
-function hideNshow() {   
-    addingEntryPanel.classList.toggle("hidden")
-    //Checking the addingEnzryPanel classlist.
-    if(addingEntryPanel.classList.contains("hidden")) {
-        //If it contains hidden, it sets the button enabled.
-        newAnnouncementsButton.disabled = false;
-    }
-    else{
-        //If it isn't contains hidden, it sets the button disabled.
-        newAnnouncementsButton.disabled = true;
-    }
-    
-}
 document.onkeyup=function(e){
     var newAnn = document.getElementById("new_announcement_top")
     var titleBar = document.querySelector(".title_input")

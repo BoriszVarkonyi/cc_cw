@@ -311,4 +311,28 @@ function tableArrays($tableid){
 
 
 }
+
+function tablecolor($colorcode){
+
+    switch ($colorcode) {
+
+        case 1:
+        $colorwrite = "Blue";
+        break;
+        case 2:
+        $colorwrite = "Yellow";
+        break;
+        case 3:
+        $colorwrite = "Green";
+        break;
+        case 4:
+        $colorwrite = "Red";
+        break;
+    
+    }
+
+    return $colorwrite;
+
+
+}
 ?>

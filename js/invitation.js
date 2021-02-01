@@ -22,6 +22,22 @@ function hideNshow () {
   addingEntryPanel.classList.toggle("hidden");
 }
 
+var addInformationInput = addingEntryPanel.querySelector("input")
+var addInformationButton = addingEntryPanel.querySelector(".save_entry")
+
+addInformationButton.classList.add("disabled")
+
+addingEntryPanel.addEventListener("input", entryformvalidation)
+//Entry form validation
+function entryformvalidation(){
+    if(addInformationInput.value == ""){
+        addInformationButton.classList.add("disabled")
+    }
+    else{
+        addInformationButton.classList.remove("disabled")
+    }
+}
+
 //Image upload
 var input = document.getElementById("fileToUpload");
 var uploadButton = document.getElementById("uploadButton");
