@@ -61,89 +61,81 @@ if (isset($_POST["generate_table"])) {
 
     $isfirst = 0;
 
-    while($tablesize > 1){
+    while ($tablesize > 1) {
 
-    $tableorder = tableArrays($tablesize);
+        $tableorder = tableArrays($tablesize);
 
-    $namevariable = "t_" . $tablesize;
+        $namevariable = "t_" . $tablesize;
 
-    $match = 1;
-    $h_counter = 0;
-
-    for ($i=0; $i < count($tableorder); $i++) { 
-        
-    if ($h_counter == 2) {
-        
-        $match++;
+        $match = 1;
         $h_counter = 0;
 
-    }
-    
-    $postoplace = $tableorder[$i];
-    $matchname = "m_" . $match;
+        for ($i = 0; $i < count($tableorder); $i++) {
 
-    if ($isfirst == 0) {
-        $table_object->$namevariable->$matchname->$postoplace = $fencer_ids[$postoplace - 1];
-    }
-    else
-    {
-        $table_object->$namevariable->$matchname->$postoplace = "";
-    }
+            if ($h_counter == 2) {
+
+                $match++;
+                $h_counter = 0;
+            }
+
+            $postoplace = $tableorder[$i];
+            $matchname = "m_" . $match;
+
+            if ($isfirst == 0) {
+                $table_object->$namevariable->$matchname->$postoplace = $fencer_ids[$postoplace - 1];
+            } else {
+                $table_object->$namevariable->$matchname->$postoplace = "";
+            }
 
 
-    $h_counter++;
+            $h_counter++;
+        }
 
-    }
-
-    $tablesize = $tablesize / 2;
-    $isfirst++;
+        $tablesize = $tablesize / 2;
+        $isfirst++;
     }
 
     print_r($fencer_ids);
 
-    foreach($table_object as $mainkey=>$tableturn){
+    foreach ($table_object as $mainkey => $tableturn) {
 
-        foreach($tableturn as $matches){
+        foreach ($tableturn as $matches) {
 
             $fencers = [];
             $keys = [];
 
-            foreach($matches as $key=>$fecner){
+            foreach ($matches as $key => $fecner) {
 
-            //var_dump($key);
-            //var_dump($fecner);
+                //var_dump($key);
+                //var_dump($fecner);
 
-            if ($fecner != NULL) {
-                array_push($fencers, $fecner);
-                array_push($keys, $key);
-            }
+                if ($fecner != NULL) {
+                    array_push($fencers, $fecner);
+                    array_push($keys, $key);
+                }
 
-            //HA AZ ARRAY NEM KÉT ELEMŰ AKKOR MEGJEGYZI A KEY-T, ÉS A KÖVI TÁBLÁN BERAKJA ARRA A HELYRE
+                //HA AZ ARRAY NEM KÉT ELEMŰ AKKOR MEGJEGYZI A KEY-T, ÉS A KÖVI TÁBLÁN BERAKJA ARRA A HELYRE
             }
 
             if (count($fencers) < 2) {
-                
+
                 $oldtalbe = ltrim($mainkey, "t_");
                 $newtable = $oldtalbe / 2;
                 $newtable_write = "t_" . $newtable;
 
-                foreach($table_object->$newtable_write as $matchkey=>$m_change){
+                foreach ($table_object->$newtable_write as $matchkey => $m_change) {
 
-                    foreach($m_change as $down_key=>$useless){
+                    foreach ($m_change as $down_key => $useless) {
 
                         if ($down_key == $keys[0]) {
 
-                            var_dump($table_object->$newtable_write->$matchkey->$down_key = $fencers[0]);  
-
+                            var_dump($table_object->$newtable_write->$matchkey->$down_key = $fencers[0]);
                         }
-
                     }
-
                 }
-
             }
-//print_r($keys);
-//print_r($fencers);
+            //print_r($keys);
+            //print_r($fencers);
         }
         break;
     }
@@ -155,7 +147,6 @@ if (isset($_POST["generate_table"])) {
     $insert_table_query_do = mysqli_query($connection, $insert_table_query);
 
     header("Location: table.php?comp_id=$comp_id");
-
 }
 
 ?>
@@ -390,7 +381,7 @@ if (isset($_POST["generate_table"])) {
                         <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                             <img src="../assets/icons/arrow_forward_ios-black-18dp.svg">
                         </div>
-                        <div id="e_1" class="elimination">
+                        <!-- <div id="e_1" class="elimination">
                             <div class="elimination_label">Table of __</div>
                             <div class="table_round_wrapper finished blue">
                                 <div>
@@ -1421,30 +1412,75 @@ if (isset($_POST["generate_table"])) {
                                     <p>Piste: Red</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
+                        <?php
 
+                        $qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
+                        $qry_get_table_do = mysqli_query($connection, $qry_get_table);
 
-                        <div id="e_5" class="elimination">
-                            <div class="elimination_label">Table of __</div>
-                            <div class="table_round_wrapper finished purple">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
+                        if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
+
+                            $out_table = json_decode($row["data"]);
+                        }
+                        $r_counter = 1;
+                        foreach ($out_table as $key => $tablerounds) { ?>
+
+                            <div id="e_<?php echo $r_counter ?>" class="elimination">
+                                <div class="elimination_label">Table of <?php echo ltrim($key, "t_") ?></div>
+                                <?php
+
+                                $check = ltrim($key, "t_");
+
+                                if ($check >= 8) {
+
+                                    $change_every = $check / 8;
+                                }
+                                $innercounter = 0;
+                                $changecounter = 1;
+                                foreach ($tablerounds as $tablematches) {
+
+                                    if ($innercounter == $change_every) {
+
+                                        $changecounter++;
+                                        $innercounter = 0;
+                                    }
+                                    if ($check >= 8) {
+
+                                        $writecolor = tablecolor($changecounter);
+                                    } else {
+
+                                        $writecolor = "Purple";
+                                    }
+                                ?>
+
+                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>">
+                                        <div>
+                                            <p>Ref: {Referee's Name}</p>
+                                            <p>12:00</p>
                                         </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
+                                        <div class="table_round" onclick="tableRoundConfig(this)">
+
+                                            <?php
+
+                                            foreach ($tablematches as $fencerkey => $tablefencer) {
+
+                                            ?>
+
+                                                <div class="table_fencer">
+                                                    <div class="table_fencer_number">
+                                                        <p><?php echo $fencerkey ?></p>
+                                                    </div>
+                                                    <div class="table_fencer_name">
+                                                        <p><?php echo $tablefencer ?></p>
+                                                    </div>
+                                                    <div class="table_fencer_nat">
+                                                        <p>rus</p>
+                                                    </div>
+                                                </div>
+
+                                            <?php } ?>
+                                            <!-- <div class="table_fencer">
                                         <div class="table_fencer_number">
                                             <p>25</p>
                                         </div>
@@ -1454,18 +1490,27 @@ if (isset($_POST["generate_table"])) {
                                         <div class="table_fencer_nat">
                                             <p>rus</p>
                                         </div>
+                                    </div> -->
+
+
+                                        </div>
+                                        <div>
+                                            <p>VRef: {Referee's Name}</p>
+                                            <p>Piste: Red</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
+                                <?php $innercounter++;
+                                } ?>
+
+
+
+
                             </div>
-                        </div>
 
-
-
-
+                        <?php
+                            $r_counter++;
+                        }
+                        ?>
 
 
                         <div id="e_5" class="elimination">
