@@ -404,4 +404,5 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
     </body>
 <script src="../js/main.js"></script>
 <script src="../js/invitation.js"></script>
+<script src="../js/entry_controls.js"></script>
 </html>

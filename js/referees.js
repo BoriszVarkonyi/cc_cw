@@ -101,11 +101,31 @@ function hidePasswords(x) {
 }
 
 //Selects the competition that the technicians will be imported from
-
+var importTechHiddenInput = document.getElementById("selected_comp_input")
+var oldSelectedTechImport;
 function importTechnicians(x) {
-    var selectedComp = x;
-    var selectedCompInput = document.getElementById("selected_comp_input")
-    selectedCompInput.value= selectedComp.id;
+    var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
+    var clickedImportTechrow = x
+    if(oldSelectedTechImport != clickedImportTechrow){
+            //removes selected class from every row
+    for(i = 0; i < importTechTablerows.length; i++){
+        importTechTablerows[i].classList.remove("selected");
+    }
+    //Adds selected class
+    clickedImportTechrow.classList.add("selected")
+    //Saves the id into the hidden input
+    importTechHiddenInput.value = clickedImportTechrow.id
+    //Saves the clicked row
+    oldSelectedTechImport = clickedImportTechrow;
+    }
+    else{
+    //Adds selected class
+    clickedImportTechrow.classList.remove("selected")
+    //Saves the id into the hidden input
+    importTechHiddenInput.value = ""
+    //Saves the clicked row
+    oldSelectedTechImport = undefined;
+    }
 }
 
 var setNationInput = document.getElementById("set_nation_input");
@@ -113,66 +133,66 @@ var setNationInput = document.getElementById("set_nation_input");
     setNationInput.value = x.innerHTML;
 }
 //Table resizer
-var table = document.querySelector(' .table');
-var rows = document.querySelectorAll(".table_row")
-for(k=0; k<rows.length; k++){
-    resizableGrid(table);
-}
-resizableGrid(table);
-function resizableGrid(table) {
-    var row = table.querySelectorAll(".table_row")[k],
-    cols = row ? row.children : undefined;
-    console.log(table.getElementsByTagName('div'))
-    if (!cols) return;
-    for (var i=0;i<cols.length-2;i++){
-        var div = createDiv(table.offsetHeight);
-        cols[i].appendChild(div);
-        cols[i].style.position = 'relative';
-        setListeners(div);
-    }
-    function createDiv(height){
-        var div = document.createElement('div');
-        div.style.top = 0;
-        div.style.right = 0;
-        div.style.width = '5px';
-        div.style.position = 'absolute';
-        div.style.cursor = 'col-resize';
-        /* remove backGroundColor later */
-        div.style.backgroundColor = 'red';
-        div.style.userSelect = 'none';
-        /* table height */
-        div.style.height = height+'px';
-        return div;
-    }
-    function setListeners(div){
-        var pageX,curCol,nxtCol,curColWidth,nxtColWidth;
-        div.addEventListener('mousedown', function (e) {
-        curCol = e.target.parentElement;
-        nxtCol = curCol.nextElementSibling;
-        pageX = e.pageX;
-        curColWidth = curCol.offsetWidth
-        if (nxtCol)
-        nxtColWidth = nxtCol.offsetWidth
-        });
-    
-        document.addEventListener('mousemove', function (e) {
-        if (curCol) {
-        var diffX = e.pageX - pageX;
-        
-        if (nxtCol)
-        nxtCol.style.width = (nxtColWidth - (diffX))+'px';
-    
-        curCol.style.width = (curColWidth + diffX)+'px';
-        }
-       
-        });
-    
-    document.addEventListener('mouseup', function (e) { 
-        curCol = undefined;
-        nxtCol = undefined;
-        pageX = undefined;
-        nxtColWidth = undefined;
-        curColWidth = undefined;
-        });
-    }  
-}  
+
+//var table = document.querySelector(' .table');
+//var rows = document.querySelectorAll(".table_row")
+//for(k=0; k<rows.length; k++){
+//    resizableGrid(table);
+//}
+//resizableGrid(table);
+//function resizableGrid(table) {
+//    var row = table.querySelectorAll(".table_row")[k],
+//    cols = row ? row.children : undefined;
+//    if (!cols) return;
+//    for (var i=0;i<cols.length-2;i++){
+//        var div = createDiv(table.offsetHeight);
+//        cols[i].appendChild(div);
+//        cols[i].style.position = 'relative';
+//        setListeners(div);
+//    }
+//    function createDiv(height){
+//        var div = document.createElement('div');
+//        div.style.top = 0;
+//        div.style.right = 0;
+//        div.style.width = '5px';
+//        div.style.position = 'absolute';
+//        div.style.cursor = 'col-resize';
+//        /* remove backGroundColor later */
+//        div.style.backgroundColor = 'red';
+//        div.style.userSelect = 'none';
+//        /* table height */
+//        div.style.height = height+'px';
+//        return div;
+//    }
+//    function setListeners(div){
+//        var pageX,curCol,nxtCol,curColWidth,nxtColWidth;
+//        div.addEventListener('mousedown', function (e) {
+//        curCol = e.target.parentElement;
+//        nxtCol = curCol.nextElementSibling;
+//        pageX = e.pageX;
+//        curColWidth = curCol.offsetWidth
+//        if (nxtCol)
+//        nxtColWidth = nxtCol.offsetWidth
+//        });
+//    
+//        document.addEventListener('mousemove', function (e) {
+//        if (curCol) {
+//        var diffX = e.pageX - pageX;
+//        
+//        if (nxtCol)
+//        nxtCol.style.width = (nxtColWidth - (diffX))+'px';
+//    
+//        curCol.style.width = (curColWidth + diffX)+'px';
+//        }
+//       
+//        });
+//    
+//    document.addEventListener('mouseup', function (e) { 
+//        curCol = undefined;
+//        nxtCol = undefined;
+//        pageX = undefined;
+//        nxtColWidth = undefined;
+//        curColWidth = undefined;
+//        });
+//    }  
+//}  

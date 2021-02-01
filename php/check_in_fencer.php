@@ -40,10 +40,10 @@
                     </button>                      
                 </div>
                 <div class="view_button_wrapper view">
-                    <button class="view_button" onclick="panelView.classList.toggle('hidden');printView.classList.toggle('hidden');" id="panelViewButton">
+                    <button class="view_button" onclick="viewButton(this)" id="panelViewButton">
                         <img src="../assets/icons/view_grid-black-18dp.svg"/>
                     </button>
-                    <button class="view_button" onclick="panelView.classList.toggle('hidden');printView.classList.toggle('hidden');" id="printViewButton">
+                    <button class="view_button" onclick="viewButton(this)" id="printViewButton">
                         <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>                      
                 </div>
@@ -179,9 +179,5 @@
 <script src="../js/list.js"></script>
 <script src="../js/print.js"></script>
 <script src="../js/check_fencer.js"></script>
-<script>
-    var panelView = document.querySelector(".wrapper");
-    var printView = document.querySelector(".paper_wrapper");
-</script>
 </body>
 </html>
