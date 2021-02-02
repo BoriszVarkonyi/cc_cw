@@ -1,5 +1,4 @@
 <?php include "../includes/db.php" ?>
-<?php session_start(); ?>
 <?php ob_start(); ?>
 
 <?php
@@ -13,6 +12,10 @@ if (isset($_POST["create_tournament"])) {
 
     $qry_create_tournament = "INSERT INTO `tournaments`(`tournament_name`, `organiser_id`) VALUES ('$t_name',$org_id)";
     $qry_create_tournament_do = mysqli_query($connection, $qry_create_tournament);
+
+    if (!$qry_create_tournament_do) {
+        echo mysqli_error($connection);
+    }
 
     header("Location: choose_tournament.php");
 
