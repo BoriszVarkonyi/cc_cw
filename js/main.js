@@ -605,3 +605,9 @@ function iconChanger(){
 
 window.addEventListener("resize", iconChanger);
 */
+
+var compSelect = document.getElementById("competition_select")
+
+function toggleCompSelect(){
+    compSelect.classList.toggle("opened")
+}

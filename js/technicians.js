@@ -124,6 +124,7 @@ function importTechnicians(x) {
     //Saves the clicked row
     oldSelectedTechImport = undefined;
     }
+    console.log(importTechHiddenInput.value)
 }
 
 //Technicians formvalidation
