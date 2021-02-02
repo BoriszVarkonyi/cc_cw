@@ -130,7 +130,7 @@ header {
 
 #competition_select.opened + div {
 	top: 30px;
-	max-height: 0;
+	max-height: 20vh;
 	overflow: hidden;
 }
 
