@@ -73,9 +73,54 @@
         }
     }
 
-    
+    //delete technicians
+    if (isset($_POST['remove_technician'])){
+        $username_to_remove = $_POST['id'];
 
+        for ($i = 0; $i < count($json_table); $i++) {
+            if ($username_to_remove == $json_table[$i] -> username) {
+                break;
+            }
+        }
+        echo $i;
+        unset($json_table[$i]);
+        print_r($json_table);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
+        $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+        $do_update_data = mysqli_query($connection, $qry_update_data);
+        //header("Refresh: 0");
+
+    }
+
+    //import technicians
+    if (isset($_POST['submit_import'])) {
+        $id_to_import = $_POST['id'];
+
+        $qry_select_ipmorted_techs = "SELECT `data` FROM `technicians` WHERE `assoc_comp_id` = '$id_to_import'";
+        $do_get_imported_techs = mysqli_query($connection, $qry_select_ipmorted_techs);
+
+        if ($row = mysqli_fetch_assoc($do_get_imported_techs)) {
+            $json_string_import = $row['data'];
+        }
+        $json_table_import = json_decode($json_string_import);
+
+        foreach ($json_table_import as $json_object_import)  {
+            $to_import = TRUE;
+            foreach ($json_table as $json_object) {
+                if ($json_object -> username == $json_object_import -> username) {
+                    $to_import = FALSE;
+                }
+
+                if ($to_import) {
+                    array_push($json_table, $json_object_import);
+                }
+            }
+        }
+
+        //header("Refresh: 0");
+        print_r($json_table);
+    }
     header('charset=utf-8');
 ?>
 
@@ -123,29 +168,29 @@
                             </div>
                             <div class="select_competition_wrapper table_row_wrapper">
                                 <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
+                                <input type="text" name="id" form="import_technician" class="selected_list_item_input hidden" id="selected_row_input">
                                 <?php
-                                //IMPORT NEED TO BE REDONE 
-                                    //get oragasniser id
-                                    $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
-                                    $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
+                                    //qry
+                                    $qry_get_tables = "SELECT assoc_comp_id FROM technicians;";
+                                    $do_get_tables = mysqli_query($connection, $qry_get_tables);
 
-                                    if ($row = mysqli_fetch_assoc($do_get_org_id)) {
-                                        $org_id = $row['id'];
-                                    } else {
-                                        echo mysqli_error($connection);
+                                    while ($row = mysqli_fetch_assoc($do_get_tables)) {
+                                        $id_to_get = $row['assoc_comp_id'];
+
+                                        if ($id_to_get != $comp_id) {
+                                            $get_comp_data = "SELECT comp_name FROM competitions WHERE comp_id = '$id_to_get';";
+                                            $do_get_comp_data = mysqli_query($connection, $get_comp_data);
+
+                                            if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
+                                                $comp_name = $row['comp_name'];
+                                            }
+                                    ?>
+                                        <div class="table_row" id="<?php echo $id_to_get; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $id_to_get; ?>"><p><?php echo $comp_name; ?></p></div></div>
+                                                
+                                    <?php 
+                                        }
                                     }
-
-                                    $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id'";
-                                    $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
-
-                                    while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
-                                        $import_comp_name = $row['comp_name'];
-                                        $import_comp_id = $row['comp_id'];
-                                ?>
-                                                <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p></div></div>
-                                            
-                                <?php 
-                                    }
+                                        
                                 ?>
                             </div>
                         </div>
@@ -186,14 +231,12 @@
                     <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                     <div class="search_results">
                         <?php
-                        $query = "SELECT * FROM $table_name";
-                        $query_do = mysqli_query($connection, $query);
-
-                        while($row = mysqli_fetch_assoc($query_do)){
-                            $idke = $row["id"];
-                            $nevecske = $row["name"];
+                        foreach ($json_table as $json_object) {
+                            $username = $json_object -> username;
+                            $name = $json_object -> name;
+                        
                             ?>
-                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $nevecske ?></a>
+                            <a id="<?php echo $username ?>A" href="#<?php echo $username ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
                             <?php
                         }
                             ?>
