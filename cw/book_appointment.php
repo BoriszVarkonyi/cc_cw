@@ -38,7 +38,7 @@
                                 <div>
                                     <div>
                                         <p class="data_label">COUNTRY / FENCING CLUB:</p>
-                                        <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
+                                        <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
                                     </div>
                                     <div>
                                         <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>

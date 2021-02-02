@@ -72,6 +72,26 @@ if (isset($_POST["logout"])) {
                 <?php
             }
         ?>
+        <div id="competition_select_wrapper">
+            <div id="competition_select">
+                <p>2020 Absolute Fencing Gear FIE WC par equipe</p>
+                <button>
+                    <img src="../assets/icons/arrow_drop_down-black-18dp.svg" id="">
+                </button>
+            </div>
+            <div>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button selected">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+                <button class="competition_button">2020 Absolute Fencing Gear FIE WC par equipe</button>
+            </div>          
+        </div>
+
         <!-- colormode and language buttons -->
         <div class="settings_section">
             <!--

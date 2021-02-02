@@ -66,6 +66,73 @@ header {
 	z-index: 5;
 }
 
+/* Comp Changers */
+
+#competition_select_wrapper {
+	margin: auto;
+	font-size: var(--f-small);
+	width: 50vw;
+}
+
+#competition_select {
+	justify-self: center;
+	background-color: var(--c-white);
+	border-radius: 5px;
+	border: 2px solid var(--c-lightgray);
+	height: 30px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 10;
+	font-family: var(--bold);
+}
+
+#competition_select.opened {
+	background-color: var(--c-lightestgray);
+	border: 2px solid var(--c-gray);
+}
+
+#competition_select button {
+	position: absolute;
+	right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#competition_select + div {
+	font-size: var(--f-small);
+	border: 2px solid var(--c-lightgray);
+	box-sizing: border-box;
+	position: absolute;
+	width: 50vw;
+	top: 30px;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--c-white);
+	border-radius:  0 0 5px 5px;
+	z-index: 9;
+	padding: 5px 0;
+	max-height: 10vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.competition_button {
+	font-size: var(--f-small);
+	padding: 3px 0;
+}
+
+.competition_button:hover {
+	background-color: var(--c-lightestgray);
+}
+
+.competition_button.selected {
+	font-family: var(--bold);
+}
+
 /* Header Bar Buttons */
 
 .header_button {
@@ -117,7 +184,6 @@ header {
 }
 
 .settings_section {
-	margin: 0 0 0 auto;
 	display: flex;
 }
 
