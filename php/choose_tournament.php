@@ -27,6 +27,9 @@
                     <div class="table_header_text">STATUS</div>
                 </div>
                 <div class="table_row_wrapper">
+                
+                
+
 
                 <div id="no_something_panel">
                     <p>You have no competitions yet!</p>
