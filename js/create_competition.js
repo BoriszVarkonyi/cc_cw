@@ -13,8 +13,8 @@ function crtTformValidation(){
         valid1 = true;
     }
     for(i=0; i<optionContainers.length; i++){
-        var options = optionContainers[i].querySelectorAll("imput")
-        console.log(options)
+        var options = optionContainers[i].querySelectorAll("input")
+        
     }
 }
 form.addEventListener("input", crtTformValidation)
