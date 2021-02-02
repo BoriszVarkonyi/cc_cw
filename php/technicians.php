@@ -168,7 +168,7 @@
                             </div>
                             <div class="select_competition_wrapper table_row_wrapper">
                                 <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
-                                <input type="text" name="id" form="import_technician" class="selected_list_item_input hidden" id="selected_row_input">
+                                <input type="text" name="id" form="import_technician" class="selected_list_item_input hidden" id="selected_row_input_import">
                                 <?php
                                     //qry
                                     $qry_get_tables = "SELECT assoc_comp_id FROM technicians;";

@@ -99,7 +99,7 @@ function hidePasswords(x) {
 }
 
 //Selects the competition that the technicians will be imported from
-var importTechHiddenInput = document.getElementById("selected_row_input")
+var importTechHiddenInput = document.getElementById("selected_row_input_import")
 var oldSelectedTechImport;
 function importTechnicians(x) {
     var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
