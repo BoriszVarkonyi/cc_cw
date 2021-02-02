@@ -184,7 +184,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Plus information</p>
                         </div>
-                        <div class="db_panel_main">
+                        <div class="db_panel_main table">
                             <div class="table t_c_0" id="plus_info_wrapper">
                                 <div class="table t_c_0">
                                     <div class="table_header">

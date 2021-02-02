@@ -22,7 +22,7 @@ $query_do = mysqli_query($connection, $query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-content-theme="danube">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

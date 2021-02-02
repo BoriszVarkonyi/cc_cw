@@ -80,15 +80,17 @@
 	--c-lightsecondary: #56bb79;
 	--c-tertiary: #001333;
 	--c-lighttertiary: #33425c;
+	--cd-primarycontrast: #FFF;
 }
 
 [data-content-theme="vanilla"]:root {
 	--c-primary:  #FF9700;
 	--c-lightprimary:  #FF9700;
-	--c-secondary:  #FF9700;
+	--c-secondary:  #FFBE5C;
 	--c-lightsecondary:  #FF9700;
 	--c-tertiary:  #FF9700;
 	--c-lighttertiary:  #FF9700;
+	--cd-primarycontrast: #252;
 }
 
 [data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */

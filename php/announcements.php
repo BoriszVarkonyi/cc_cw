@@ -121,7 +121,7 @@
                             <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Manage Announcements</p>
                         </div>
-                        <div class="db_panel_main ">
+                        <div class="db_panel_main table">
                             <div class="table t_c_0">
                                 <div class="table_heade">
                                     <div class="table_header_text">TITLE</div>

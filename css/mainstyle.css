@@ -1828,11 +1828,24 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	width: 100%;
 	flex: 1 1 auto;
 	height: 100%;
+	position: relative;
+	background: var(--c-white);
+	padding: 50px 100px;
+	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.db_panel_main.table {
+	width: 100%;
+	flex: 1 1 auto;
+	height: 100%;
 	position: relative;
 	background: var(--c-white);
+	display: block;
+	padding: 50px 100px;
+	box-sizing: border-box;
 }
 
 .db_panel_main.not_centered {
@@ -1842,8 +1855,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 .db_panel_main .table {
-	min-width: 80%;
-	padding: 50px 0;
+	min-width: 100%;
 }
 
 #sheduled_to_do_list {
@@ -2239,16 +2251,6 @@ input[type="file"] {
 
 #plus_info_wrapper > * {
 	z-index: 2;
-}
-
-#plus_info_wrapper::after {
-	content: "You have no announcements yet!";
-	color: var(--c-darkgray);
-	position: absolute;
-	z-index: 1;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 .entry_panel > textarea {
