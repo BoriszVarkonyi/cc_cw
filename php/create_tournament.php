@@ -53,12 +53,13 @@ if (isset($_POST["create_tournament"])) {
             <form id="create_tournament" class="column_form_wrapper" action="" method="POST">
                 <div class="form_column">
                     <label for="comp_name">NAME</label>
-                    <input type="text" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input">
+                    <input type="text" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input" onblur="errorChecker(this)">
                 </div>
             </form>
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script src="../js/create_tournament.js"></script>
 </body>
 
 </html>

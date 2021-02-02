@@ -63,7 +63,7 @@ $maximum = 255;
                 <div class="form_column">
 
                     <label for="comp_name" >NAME</label>
-                    <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input">
+                    <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input" onblur="errorChecker(this)">
                         <?php
 
                             if(in_array(1, $_GET)) {
@@ -139,6 +139,7 @@ $maximum = 255;
         </div>
     </div>
 <script src="../js/main.js"></script>
+<script src="../js/create_competition.js"></script>
 </body>
 </html>
 

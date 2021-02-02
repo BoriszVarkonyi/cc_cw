@@ -68,7 +68,7 @@ if (isset($_POST["logout"])) {
             <div id="competition_select_wrapper">
                 <div id="competition_select">
                     <p><?php echo $comp_name ?></p>
-                    <button>
+                    <button onclick="toggleCompSelect()">
                         <img src="../assets/icons/arrow_drop_down-black-18dp.svg" id="">
                     </button>
                 </div>
