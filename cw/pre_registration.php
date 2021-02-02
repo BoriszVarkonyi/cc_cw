@@ -54,21 +54,21 @@ if(isset($_POST["send_pre"])){
                 <div id="needed_information_panel">
                     <div>
                         <p class="data_label">FEDERATION'S NAME:</p>
-                        <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input">
+                        <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input alt">
                         <p class="data_label">COUNTRY / FENCING CLUB:</p>
-                        <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input">
+                        <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
                         <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
-                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input">
+                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                         <p class="data_label">FEDERATION'S PHONE NUMBER:</p>
-                        <input type="number" name="f_phone" class="number_input phone_number_input" placeholder="Type in the phone number">
+                        <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">
                     </div>
                     <div>
                         <p class="data_label">CONTACT KEEPER'S FULL NAME:</p>
-                        <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input">
+                        <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">
                         <p class="data_label">CONTACT KEEPER'S EMAIL ADDRESS:</p>
-                        <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input">
+                        <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">
                         <p class="data_label">CONTACT KEEPER'S PHONE NUMBER:</p>
-                        <input type="number" name="c_phone"  class="number_input phone_number_contact_input" placeholder="Type in the phone number">
+                        <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">
 
                         <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
                         <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">

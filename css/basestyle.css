@@ -293,6 +293,10 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	border-radius: 5px;
 }
 
+input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt {		/* Sets basic look of text and password inputs*/
+	background-color: var(--c-white);
+}
+
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="number"].number_input:focus, input[type="time"]:focus {		/* Sets basic look of text and password inputs*/
 	border-bottom: 2px solid var(--c-primary);
 }

@@ -44,7 +44,7 @@ $query_comps = mysqli_query($connection, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CC Competitions</title>
+    <title>T: Your Competitions O: Competitions of {Tournamnet's name}</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
@@ -52,7 +52,7 @@ $query_comps = mysqli_query($connection, $query);
     <?php include "../includes/headerburger.php" ?>
     <div id="your_competitions_panel" class="panel">
         <div id="title_stripe">
-            <p class="page_title">Your competitions</p>
+            <p class="page_title">T: Your Competitions O: Competitions of {Tournamnet's name}</p>
             <div class="stripe_button_wrapper">
                 <button class="stripe_button primary" onclick="location.href='create_competition.php'">
                     <p>Create Competition</p>

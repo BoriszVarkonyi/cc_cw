@@ -28,13 +28,13 @@
                     <div id="needed_information_panel">
                         <div>
                             <p class="data_label">COUNTRY / FENCING CLUB:</p>
-                            <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input">
+                            <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
                             <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
-                            <input type="email" name="f_email" placeholder="Type in the email address" class="email_input">
+                            <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                         </div>
                         <div>
                             <p class="data_label">NUMBER OF FENCERS:</p>
-                            <input type="number" name="c_phone"  class="number_input centered" placeholder="#">
+                            <input type="number" name="c_phone"  class="number_input centered alt" placeholder="#">
                         </div>
                     </div>
                     <p class="column_title centered">SELECT AND BOOK APPOINTMENT: (STEP 2 / 2)</p>
