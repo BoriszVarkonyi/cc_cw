@@ -81,16 +81,18 @@
 	--c-tertiary: #001333;
 	--c-lighttertiary: #33425c;
 	--cd-primarycontrast: #FFF;
+	--i-fencers-bg: url(../assets/img/fencers_bg_d.svg);
 }
 
 [data-content-theme="vanilla"]:root {
 	--c-primary:  #FF9700;
-	--c-lightprimary:  #FF9700;
+	--c-lightprimary:  #FFBE5C;
 	--c-secondary:  #FFBE5C;
 	--c-lightsecondary:  #FF9700;
 	--c-tertiary:  #FF9700;
 	--c-lighttertiary:  #FF9700;
-	--cd-primarycontrast: #252;
+	--cd-primarycontrast: #252252;
+	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
 [data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */
@@ -260,6 +262,12 @@ img[src$=".svg"].not_icon {
 ::placeholder {
 	font-size: var(--f-medium);
 	color: var(--cs-darkgray) !important;
+}
+
+.bg_fencers {
+	background-image: var(--i-fencers-bg);
+	background-size: cover;
+	background-position: center center;
 }
 
 /* ///INPUTS/// */

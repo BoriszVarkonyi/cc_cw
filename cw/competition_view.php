@@ -2,7 +2,7 @@
 <?php include "../includes/cw_fav_button_list.php" ?>
 <?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-content-theme="vanilla">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
                     </div>
                     <!-- slide1 -->
                     <div class="slide">
-                        <img src="../assets/img/fencers_bg.svg" >
+                        <img class="bg_fencers">
                     </div>
 
                     <!-- slide2 -->
@@ -36,12 +36,12 @@
 
                     <!-- slide3 -->
                     <div class="slide">
-                        <img src="../assets/img/fencers_bg.svg" >
+                        <img class="bg_fencers">
                     </div>
                     
                     <!-- slide4 -->
                     <div class="slide">
-                        <img src="../assets/img/fencers_bg.svg" >
+                        <img class="bg_fencers">
                     </div>
                 </div>
             </div>

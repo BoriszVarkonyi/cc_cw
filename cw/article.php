@@ -42,7 +42,7 @@
                         <p><?php echo $date ?></p>
                     </div>
                     <!--<img src="<?php echo $pic ?>">-->
-                    <img src="../assets/img/fencers_bg.svg" >
+                    <img class="bg_fencers">
                     <p class="paragraph"><?php echo $body ?></p>
                 </div> 
             </div>

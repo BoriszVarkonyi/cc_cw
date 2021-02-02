@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body id="illustration_bg">
+<body class="bg_fencers">
 
     <?php include "../includes/headerburger.php" ?>
 

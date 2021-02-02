@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body id="illustration_bg">
+<body class="bg_fencers">
     <?php include "../includes/headerburger.php" ?>
     <div id="your_competitions_panel" class="panel">
         <div id="title_stripe">
@@ -28,10 +28,15 @@
                 </div>
                 <div class="table_row_wrapper">
 
+                <div class="table_row" onclick="location.href='choose_comeptition.php">
+                    <div class="table_item"><p>NAme</div>
+                    <div class="table_item"><p>Status</p></div>
+                </div>
+                <!--
                 <div id="no_something_panel">
                     <p>You have no competitions yet!</p>
                 </div>
-
+                -->
                 </div>
             </div>
         </div>
