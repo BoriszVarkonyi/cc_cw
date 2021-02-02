@@ -15,11 +15,13 @@ function printPage() {
 //Add entry button.
 var addEntryPanel = document.getElementById("add_entry")
 var addingEntryPanel = document.getElementById("adding_entry");
+var textArea = document.querySelector(".title_input")
 
 //Toggles the classes.
 function hideNshow () {
   addEntryPanel.classList.toggle("hidden");
   addingEntryPanel.classList.toggle("hidden");
+  textArea.focus()
 }
 
 var addInformationInput = addingEntryPanel.querySelector("input")
