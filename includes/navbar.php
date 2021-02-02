@@ -1,13 +1,7 @@
-<?php include "compid.php" ?>
+<?php $comp_id = $_GET["comp_id"] ?>
 <?php include "db.php" ?>
 <?php include "navbar_btn_checker.php" ?>
 <?php setOnline($connection); ?>
-<?php
-
-$test = date("Y-m-d");
-setcookie("today",$test,time()+31556926);
-
-?>
 
 <!-- navbar -->
 <div class="nav_bar_flex">

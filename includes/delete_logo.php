@@ -1,4 +1,4 @@
-<?php include "compid.php"; ?>
+<?php $comp_id = $_GET["comp_id"] ?>
 
 <?php
     //deletes file with comp_id name
