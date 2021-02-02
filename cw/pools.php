@@ -13,7 +13,7 @@
     <div id="wrapper">
             <?php include "cw_header.php"; ?>
             <div id="main">
-                <div id="content" class="list">
+                <div id="content">
                     <div id="title_stripe">
                         <p class="stripe_title">
                             <button type="button" class="back_button" onclick="window.history.back();">

@@ -747,6 +747,10 @@ input:focus ~ .clear_search_button {
     box-sizing: border-box;
 }
 
+.table.full {		/* 100% width no ppading */
+    width: 100%;
+}
+
 .table.cw.middle {		/* Whole table, primarly cw */
 	width: 90%;
 	margin: 100px auto;

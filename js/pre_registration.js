@@ -38,7 +38,7 @@ toremove.parentElement.remove();
 
 
 }
-var panel = document.getElementById("cw_confirmation");
+var panel = document.getElementById("confirmation");
 var fenceridto = document.getElementById("fencer_ids");
 var finalids = [];
 
