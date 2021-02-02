@@ -1124,6 +1124,12 @@ input:focus ~ .clear_search_button {
 
 /* ///SCROLL BAR// */
 
+*.small_scroll::-webkit-scrollbar { /* Width */
+    width: 6px;
+	height: 6px;
+}
+
+
 ::-webkit-scrollbar { /* Width */
     width: 10px;
 	height: 10px;
