@@ -1361,10 +1361,7 @@ header {
 /* Background */
 
 #illustration_bg {		/* Background used on login page and choose competition*/
-	background-image: url(../assets/img/fencers_bg.svg);
 	width: 100vw;
-	background-size: cover;
-	background-position: center center;
 	position: absolute;
 	top: 0;
 	left: 0;

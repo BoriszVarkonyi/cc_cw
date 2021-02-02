@@ -55,7 +55,7 @@
                             
                             if (count($json_table) != 0 ) {
                         ?>
-                    <div id="announcements" class="column_panel breakpoint">
+                    <div id="announcements" class="column_panel">
                         
                         <?php
                             foreach ($json_table as $ann_objects) {
@@ -63,8 +63,10 @@
                             $title = $ann_objects -> title;
                             $body = $ann_objects -> body;
                         ?>
-                        <p><?php echo $title ?></p>
-                        <p><?php echo $body ?></p>
+                        <div class="breakpoint">
+                            <p><?php echo $title ?></p>
+                            <p><?php echo $body ?></p>
+                        </div>
                         <?php } ?>
                     </div>
                     <?php } ?>
