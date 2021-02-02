@@ -163,7 +163,7 @@ checkComp($connection);
 
                 <!-- dashboard header -->  
                 <div id="title_stripe">
-                    <button type="button" class="back_button" onclick="location.href='choose_competition.php'">
+                    <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
                     </button>
                     <img src="<?php echo $logo ?>" class="comp_logo"/>

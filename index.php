@@ -66,7 +66,7 @@ if (isset($_POST["submit"])) {
                 session_start();
                 $_SESSION['username'] = $db_user;
                 $_SESSION['role'] = "organisers";
-                header("Location: php/choose_competition.php");
+                header("Location: php/choose_tournament.php");
             } else {
 
                 header("Location: index.php?loginerror=4");
