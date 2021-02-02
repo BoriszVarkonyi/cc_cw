@@ -111,15 +111,19 @@
                 if ($json_object -> username == $json_object_import -> username) {
                     $to_import = FALSE;
                 }
-
-                if ($to_import) {
-                    array_push($json_table, $json_object_import);
-                }
             }
+            if ($to_import) {
+                array_push($json_table, $json_object_import);
+            }
+        
         }
 
-        //header("Refresh: 0");
-        print_r($json_table);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+        $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+        $do_update_data = mysqli_query($connection, $qry_update_data);
+
+        header("Refresh: 0");
     }
     header('charset=utf-8');
 ?>
