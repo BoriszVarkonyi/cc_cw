@@ -1,3 +1,16 @@
+<?php include "../includes/db.php" ?>
+<?php session_start(); ?>
+<?php ob_start(); ?>
+
+<?php
+
+$org_id = $_COOKIE["org_id"];
+
+$select_tournaments_query = "SELECT * FROM tournaments WHERE organiser_id = $org_id";
+$select_tournaments_query_do = mysqli_query($connection, $select_tournaments_query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,17 +34,28 @@
             </div>
         </div>
         <div id="panel_main">
-            <div class="table wrapper t_c_2">
+            <div class="table wrapper t_c_0">
                 <div class="table_header">
                     <div class="table_header_text">NAME</div>
-                    <div class="table_header_text">STATUS</div>
                 </div>
                 <div class="table_row_wrapper">
 
-                <div class="table_row" onclick="location.href='choose_comeptition.php">
-                    <div class="table_item"><p>NAme</div>
-                    <div class="table_item"><p>Status</p></div>
+                <?php
+                
+                while($row = mysqli_fetch_assoc($select_tournaments_query_do)){
+
+                $t_name = $row["tournament_name"];
+                $t_id = $row["id"];
+
+                
+                
+                ?>
+
+                <div class="table_row" onclick="location.href='choose_competition.php?t_id=<?php echo $t_id ?>'">
+                    <div class="table_item"><p><?php echo $t_name?></div>
                 </div>
+
+            <?php } ?>
                 <!--
                 <div id="no_something_panel">
                     <p>You have no competitions yet!</p>
