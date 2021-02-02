@@ -14,7 +14,7 @@ function removeButtonDisabler(){
     }
 }
 //An event listener to class change
-var wcRows = document.querySelectorAll(".table_row_wrapper .table_row")
+var wcRows = document.querySelectorAll("#page_content_panel_main .table_row_wrapper .table_row")
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {

@@ -14,6 +14,8 @@ document.addEventListener("keyup", function(e){
 
 var panelView = document.querySelector(".wrapper");
 var printView = document.querySelector(".paper_wrapper");
+var panelViewButton = document.getElementById("panelViewButton");
+var printViewButton = document.getElementById("printViewButton")
 
 function panelView() {
   panelView.style.display = "flex";
@@ -23,4 +25,22 @@ function panelView() {
 function printView() {
   panelView.style.display = "none";
   printView.style.display = "flex";
+}
+panelViewButton.disabled = true;
+function viewButton(x){
+  panelView.classList.toggle('hidden');
+  printView.classList.toggle('hidden');
+  var clickedButton = x
+  if(clickedButton.id == "panelViewButton"){
+    clickedButton.disabled = true;
+    printViewButton.disabled = false;
+  }
+  else{
+    clickedButton.disabled = true;
+    panelViewButton.disabled = false;
+  }
+}
+
+function printPage() {
+    window.print();
 }

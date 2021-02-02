@@ -99,19 +99,32 @@ function hidePasswords(x) {
 }
 
 //Selects the competition that the technicians will be imported from
+var importTechHiddenInput = document.getElementById("selected_row_input")
+var oldSelectedTechImport;
 function importTechnicians(x) {
-    var remclass = document.getElementsByClassName("selected");
-    var i;
-    for(i = 0; i < remclass.length; i++){
-        remclass[i].classList.remove("selected");
+    var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
+    var clickedImportTechrow = x
+    if(oldSelectedTechImport != clickedImportTechrow){
+            //removes selected class from every row
+    for(i = 0; i < importTechTablerows.length; i++){
+        importTechTablerows[i].classList.remove("selected");
     }
-    var y = x.id;
-    var z = document.getElementById(y);
-    z.classList.add("selected");
-    document.cookie="selected=" + y;
+    //Adds selected class
+    clickedImportTechrow.classList.add("selected")
+    //Saves the id into the hidden input
+    importTechHiddenInput.value = clickedImportTechrow.id
+    //Saves the clicked row
+    oldSelectedTechImport = clickedImportTechrow;
+    }
+    else{
+    //Adds selected class
+    clickedImportTechrow.classList.remove("selected")
+    //Saves the id into the hidden input
+    importTechHiddenInput.value = ""
+    //Saves the clicked row
+    oldSelectedTechImport = undefined;
+    }
 }
-
-//document.cookie="techtoremove=" + null;
 
 //Technicians formvalidation
 var valid1 = false, valid2 = false;

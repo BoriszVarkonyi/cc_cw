@@ -349,6 +349,6 @@
         </div>
     </div>
 <script src="../js/cw_main.js"></script>
-<script src="../js/list.js"></script>
 <script src="../js/cw_pools.js"></script>
+<script src="../js/entry_controls.js"></script>
 </html>

@@ -257,31 +257,33 @@ function setToDark() {
 
 //Page color changer
 var colorButtons = document.querySelectorAll(".color_square")
-
+//Removes selected class from the buttons
 function classRemover(){
     for(i=0; i<colorButtons.length; i++){
         colorButtons[i].classList.remove("selected")
     }
 }
-
+//Sets the colormode to danube
 function setToDanube(x){
     var danubeColorButton = document.querySelector(".color_square.danube")
     classRemover();
     danubeColorButton.classList.add("selected") 
     document.documentElement.setAttribute('data-content-theme', 'danube');
+    //Saves the colormode
     localStorage.setItem('colorMode', 'danube');
 }
-
+//Sets the colormode to vanilla
 function setToVanilla(x){
     var vanillaColorButton = document.querySelector(".color_square.vanilla")
     classRemover();
     vanillaColorButton.classList.add("selected")
     document.documentElement.setAttribute('data-content-theme', 'vanilla');
+    //Saves the colormode
     localStorage.setItem('colorMode', 'vanilla');
 }
 
 const colorMode = localStorage.getItem('colorMode');
-
+//Sets the saved colormode
 if(colorMode == "danube"){
     setToDanube();
 }
