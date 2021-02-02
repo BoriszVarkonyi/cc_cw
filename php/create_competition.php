@@ -5,6 +5,8 @@
 
 if(isset($_POST["submit"])) {
 
+$ass_tourn_id = $_GET["t_id"];
+
 $comp_name = $_POST["comp_name"];
 //$comp_wc_type = $_POST["wc_type"];
 //$comp_sex = $_POST["sex"];
@@ -13,51 +15,8 @@ $org_id = $_COOKIE["org_id"];
 $minimum = 3;
 $maximum = 255;
 
-  
-    if(!$comp_name){
 
-        $comp_name_error = "compnameerror=1&";
-        
-    }
-    else{
-        $comp_name_error = "";
-    }
-    if(!isset($_POST['sex'])){
-
-        $comp_sex_error = "compsexerror=2&";
-
-    }
-    else{
-
-        $comp_sex_error = "";
-        $comp_sex = $_POST["sex"];
-    }
-    if(!isset($_POST['w_type'])){
-
-        $comp_w_type_error = "compwtypeerror=3&";
-
-    }
-    else{
-
-        $comp_w_type_error = "";
-        $comp_w_type = $_POST["w_type"];
-    }
-    if(!isset($_POST['wc_type'])){
-
-        $comp_wc_type_error = "compwctyperror=4&";
-
-    }
-    else{
-
-        $comp_wc_type_error = "";
-        $comp_wc_type = $_POST["wc_type"];
-    }
-    $errors = $comp_name_error . $comp_sex_error . $comp_w_type_error . $comp_wc_type_error ;
-    header("Location: create_competition.php?$errors");
-
-    if(!in_array(1,$_GET) && !in_array(2,$_GET) && !in_array(3,$_GET) && !in_array(4,$_GET)){
-
-        $query = "INSERT INTO competitions (comp_name, comp_wc_type, comp_sex, comp_status, comp_weapon, comp_organiser_id) VALUES ('$comp_name',$comp_wc_type,$comp_sex,1,$comp_w_type, $org_id)";
+        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id) VALUES ('$comp_name', 1, $org_id, '$ass_tourn_id')";
         $query_create = mysqli_query($connection, $query);
         
         if (!$query_create) {
@@ -65,16 +24,9 @@ $maximum = 255;
             die("ERROR" . mysqli_error($connection));
         }
     
-        header("Location: choose_competition.php");
-
-    }
-
-
-
+        header("Location: choose_competition.php?t_id=$ass_tourn_id");
 
 }
-
-$query = "";
 
 
 ?>
