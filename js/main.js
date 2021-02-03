@@ -224,9 +224,6 @@ function setToLight() {
         //icons[i].style.filter = "invert()";
     }
 
-    for (var i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "";
-    }
 }
 
 function setToHighContrast() {
@@ -246,13 +243,6 @@ function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
     colorModes[2].checked = true;
-
-    for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "invert(100%)";
-    }
-    for (i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "invert(100%)";
-    }
 }
 
 //Page color changer
