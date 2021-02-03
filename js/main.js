@@ -226,9 +226,6 @@ function setToLight() {
         //icons[i].style.filter = "invert()";
     }
 
-    for (var i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "";
-    }
 }
 
 var clrVariations = document.querySelector(".color_variations")
@@ -252,6 +249,7 @@ function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
     colorModes[2].checked = true;
+<<<<<<< HEAD
 
     clrVariations.style.visibility = "visible";
 
@@ -261,6 +259,8 @@ function setToDark() {
     for (i = 1; i < hasBackgroundIcon.length; i++) {
         hasBackgroundIcon[i].style.filter = "invert(100%)";
     }
+=======
+>>>>>>> 315c22b681750950e8eb01d71cb56b83fb91ceec
 }
 
 //Page color changer
