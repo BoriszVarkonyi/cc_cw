@@ -94,6 +94,7 @@ header {
 #competition_select.opened {
 	background-color: var(--c-lightestgray);
 	border: 2px solid var(--c-gray);
+	transition: all var(--t-basic);
 }
 
 #competition_select.opened button {
@@ -438,7 +439,7 @@ header {
 }
 
 .color_square.selected {
-	border: 3px solid var(--c-gray);
+	border: 3px solid var(--c-darkgray);
 }
 
 .color_square::after {
@@ -462,7 +463,7 @@ header {
 }
 
 .color_square.danube {
-	background: linear-gradient(90deg, var(--c-secondary) 0%, var(--c-tertiary) 100%);
+	background: linear-gradient(90deg, #2CAA58 0%, #001333 100%);
 }
 
 .color_square.vanilla {
@@ -956,7 +957,7 @@ header {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	height: 100%;
-	color: var(--cs-white);
+	color: var(--cd-primarycontrast);
 }
 
 #nav_bar.closed > #nav_bar_wrapper {
@@ -1817,6 +1818,10 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 .column_form_wrapper {
 	width: auto;
 	display: flex;
+}
+
+.column_form_wrapper.top_border {
+	border-top: 2px solid var(--c-gray);
 }
 
 .form_wrapper {
