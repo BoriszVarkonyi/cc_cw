@@ -62,21 +62,21 @@
                         <div class="column">
                             <b>Available times:</b>
                             <div id="availabe_times_wrapper">
-                                <div class="appointment">
+                                <div class="appointment" onclick="selectAppointment(this)">
                                     <p>11:00 - 12:00</p>
                                     <button type="button">Choose</button>
                                 </div>                                
-                                <div class="appointment">
+                                <div class="appointment" onclick="selectAppointment(this)">
                                     <p>13:30 - 14:00</p>
                                     <button type="button">Choose</button>
                                 </div>
-                                <div class="appointment disabled">
+                                <div class="appointment" onclick="selectAppointment(this)">
                                     <p>15:20 - 16:00</p>
                                     <button type="button">Choose</button>
                                 </div>
-                                <div class="appointment selected">
+                                <div class="appointment" onclick="selectAppointment(this)">
                                     <p>16:30 - 17:00</p>
-                                    <button type="button">Selected</button>
+                                    <button type="button">Choose</button>
                                 </div>                              
                             </div>
                         </div>
@@ -92,5 +92,6 @@
 <script src="../js/cw_main.js"></script>
 <script src="../js/pre_registration.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/cw_book_appointment.js"></script>
 </body>
 </html>
