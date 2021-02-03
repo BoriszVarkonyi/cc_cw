@@ -225,6 +225,7 @@ function setToLight() {
         //icons[i].style.filter = "contrast(71%)";
         //icons[i].style.filter = "invert()";
     }
+    contentThemeSetter();
 
 }
 
@@ -236,6 +237,7 @@ function setToHighContrast() {
     colorModes[1].checked = true;
 
     clrVariations.style.visibility = "hidden";
+    document.documentElement.removeAttribute('data-content-theme');
 
     for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
@@ -258,6 +260,7 @@ function setToDark() {
     for (i = 1; i < hasBackgroundIcon.length; i++) {
         hasBackgroundIcon[i].style.filter = "invert(100%)";
     }
+    contentThemeSetter();
 }
 
 //Page color changer
@@ -276,6 +279,7 @@ function setToDanube(x){
     document.documentElement.setAttribute('data-content-theme', 'danube');
     //Saves the colormode
     localStorage.setItem('colorMode', 'danube');
+    colorMode = localStorage.getItem('colorMode');
 }
 //Sets the colormode to vanilla
 function setToVanilla(x){
@@ -285,16 +289,20 @@ function setToVanilla(x){
     document.documentElement.setAttribute('data-content-theme', 'vanilla');
     //Saves the colormode
     localStorage.setItem('colorMode', 'vanilla');
+    colorMode = localStorage.getItem('colorMode');
 }
 
-const colorMode = localStorage.getItem('colorMode');
+var colorMode = localStorage.getItem('colorMode');
 //Sets the saved colormode
-if(colorMode == "danube"){
-    setToDanube();
+function contentThemeSetter(){
+    if(colorMode == "danube"){
+        setToDanube();
+    }
+    else{
+        setToVanilla();
+    }
 }
-else{
-    setToVanilla();
-}
+contentThemeSetter();
 
 //If technician, Disable setup section
 
