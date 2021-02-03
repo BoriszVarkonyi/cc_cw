@@ -219,6 +219,8 @@ function setToLight() {
     localStorage.setItem('theme', '');
     colorModes[0].checked = true;
 
+    clrVariations.style.visibility = "visible";
+
     for (var i = 0; i < icons.length; i++) {
         //icons[i].style.filter = "contrast(71%)";
         //icons[i].style.filter = "invert()";
@@ -229,10 +231,14 @@ function setToLight() {
     }
 }
 
+var clrVariations = document.querySelector(".color_variations")
+
 function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
     colorModes[1].checked = true;
+
+    clrVariations.style.visibility = "hidden";
 
     for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
@@ -246,6 +252,8 @@ function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
     colorModes[2].checked = true;
+
+    clrVariations.style.visibility = "visible";
 
     for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%)";
