@@ -170,6 +170,7 @@ header {
 .header_button img {
 	height: 18px;
 	width: 18px;
+	filter: var(--ci-staticblack) !important;
 }
 
 .header_button:hover {
@@ -589,6 +590,7 @@ header {
 .stripe_button img {
 	height: 1.2rem;
 	width: 1.2rem;
+	filter: saturate(71%) !important;
 }
 
 .stripe_button:hover {
@@ -638,7 +640,7 @@ header {
 	background: var(--c-primary);
 	box-shadow: var(--s-orange);
 	font-family: var(--bold);
-	color: var(--cs-white);
+	color: var(--cd-primarycontrast);
 }
 
 .stripe_button.primary:hover {
@@ -907,7 +909,7 @@ header {
 }
 
 #nav_bar img {
-	filter: invert() !important;
+	filter: var(--ci-primarycontrast);
 }
 
 #nav_bar_pin:hover {
@@ -1909,6 +1911,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	padding: 0 5px 0 0;
 	width: 20px;
 	height: 20px;
+	filter: var(--ci-secondarycontrast) !important;
 }
 
 .db_panel_main {

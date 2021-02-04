@@ -238,13 +238,14 @@ function setToHighContrast() {
 
     clrVariations.style.visibility = "hidden";
     document.documentElement.removeAttribute('data-content-theme');
-
+    /*
     for (var i = 0; i < icons.length; i++) {
         icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
     }
     for (i = 1; i < hasBackgroundIcon.length; i++) {
         hasBackgroundIcon[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
     }
+    */
 }
 
 function setToDark() {
@@ -621,6 +622,6 @@ window.addEventListener("resize", iconChanger);
 
 var compSelect = document.getElementById("competition_select")
 
-function toggleCompSelect(){
+function toggleCompSelect() {
     compSelect.classList.toggle("opened")
 }

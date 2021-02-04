@@ -1091,6 +1091,21 @@ input[value="Search"] {
 	background: var(--c-lightestgray);
 	display: flex;
 	flex-direction: column;
+	transition: height var(--t-basic);
+}
+
+.column_panel.collapsed {
+	filter: brightness(.9);
+}
+
+.column_panel.collapsed > div {
+	filter: blur(2px);
+	height: 200px;
+	overflow: hidden;
+}
+
+.column_panel.collapsed *:not(button.edit_button) {
+	pointer-events: none;
 }
 
 .column_panel.no_top {
@@ -1789,14 +1804,17 @@ b.green {
 	display: flex;
 	align-items: center;
 	margin: 3px 0;
+	transition: all var(--t-basic);
 }
 
 .appointment.selected {
 	transform: scale(1.05);
+	transition: all var(--t-basic);
 }
 
 .appointment.disabled {
 	filter: saturate(0);
+	transition: all var(--t-basic);
 }
 
 .appointment p {

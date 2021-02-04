@@ -123,7 +123,7 @@
                         </div>
                         <div class="db_panel_main table">
                             <div class="table t_c_0">
-                                <div class="table_heade">
+                                <div class="table_header">
                                     <div class="table_header_text">TITLE</div>
                                 </div>
                                 <div class="table_row_wrapper alt">

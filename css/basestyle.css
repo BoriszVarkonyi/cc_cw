@@ -71,6 +71,9 @@
 	--light: Poppins-Light;
 	--regular: Poppins-Regular;
 	--bold: Poppins-SemiBold;
+	/*Icons*/
+	--ci-staticblack: saturation(71%);
+	--ci-staticwhite: invert();
 }
 
 [data-content-theme="danube"]:root {
@@ -81,6 +84,8 @@
 	--c-tertiary: #001333;
 	--c-lighttertiary: #33425c;
 	--cd-primarycontrast: #FFF;
+	--ci-primarycontrast: invert();
+	--ci-secondarycontrast: contrast(71%);
 	--i-fencers-bg: url(../assets/img/fencers_bg_d.svg);
 }
 
@@ -92,6 +97,8 @@
 	--c-tertiary:  #FF9700;
 	--c-lighttertiary:  #FF9700;
 	--cd-primarycontrast: #252252;
+	--ci-primarycontrast: contrast(71%);
+	--ci-secondarycontrast: invert();
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
@@ -111,7 +118,9 @@
 	--c-green: #8DFFB7;
 	--c-blue: #42CAFD;
 	--c-purple: #7765E3;
-
+	--ci-primarycontrast: invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1);
+	--ci-staticblack: invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1);
+	--ci-staticwhite: invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1);
 }
 
 [data-theme="dark"]:root {	/* Dark Mode */
@@ -138,6 +147,9 @@
 	--s-orange: 0 3px 6px #FF970010;
 	--s-red: 0 3px 6px #F84F4F10;
 	--s-green: 0 3px 6px #8DFFB710;
+	/*Icons*/
+	--ci-staticblack: invert();
+	--ci-staticwhite: saturation(71%);
 }
 
 @font-face {	
@@ -228,15 +240,15 @@ textarea {
 }
 
 img[src$=".svg"] {
-	filter: contrast(71%);
+	filter: var(--ci-primarycontrast);
 }
 
-img[src$=".svg"].white {
-	filter: invert();
+img[src$=".svg"].secondary {
+	filter: var(--ci-secondarycontrast);
 }
 
 img[src$=".svg"].not_icon {
-	filter: contrast(1);
+	filter: contrast(1) !important;
 }
 
 ::-webkit-input-placeholder {

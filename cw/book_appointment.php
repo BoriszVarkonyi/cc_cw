@@ -32,7 +32,7 @@
                 </div>
                 <form id="content_wrapper" method="POST" action="process_pre.php">
                     <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
-                    <div id="" class="column_panel no_top">
+                    <div id="" class="column_panel no_top collapsed">
                         <div>
                             <div class="form_wrapper">
                                 <div>

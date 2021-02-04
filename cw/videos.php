@@ -57,10 +57,7 @@
                     </div>
                     </div>
                 </div>
-            </div>
-            </div>
-            <?php include "cw_footer.php"; ?>
-        </div>
+        <?php include "cw_footer.php"; ?>
     </div>
 <script src="../js/cw_main.js"></script>
 </body>

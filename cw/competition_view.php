@@ -25,24 +25,16 @@
                         <button class="slideButtons" onclick="toggleButton(this)"></button>
                     </div>
                     <!-- slide1 -->
-                    <div class="slide">
-                        <img class="bg_fencers">
-                    </div>
+                    <div class="slide bg_fencers"></div>
 
                     <!-- slide2 -->
-                    <div class="slide blurred">
-                        <img src="../assets/img/call_room_bg.svg" >
-                    </div>
+                    <div class="slide bg_fencers"></div>
 
                     <!-- slide3 -->
-                    <div class="slide">
-                        <img class="bg_fencers">
-                    </div>
+                    <div class="slide bg_fencers"></div>
                     
                     <!-- slide4 -->
-                    <div class="slide">
-                        <img class="bg_fencers">
-                    </div>
+                    <div class="slide bg_fencers"></div>
                 </div>
             </div>
             <div id="content">
@@ -121,8 +113,8 @@
                     
                 </div>
             </div>
+            </div>
         <?php include "cw_footer.php"; ?>
-        </div>
     </div>
 </body>
 <script src="../js/cw_main.js"></script>

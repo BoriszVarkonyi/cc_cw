@@ -23,40 +23,60 @@
                     <p>Cancel</p>
                     <img src="../assets/icons/close-black-18dp.svg" />
                 </button>
-                <button type="submit" name="create_tournament" form="panel_main" class="stripe_button primary">
-                    <p>Create</p>
-                    <img src="../assets/icons/add-black-18dp.svg"/>
+                <button type="submit" name="" form="tournament_timetable" class="stripe_button primary">
+                    <p>Save</p>
+                    <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
             </div>
         </div>
-        <form id="panel_main">
-            <div id="tournament_timetable" class="column_form_wrapper" action="" method="POST">
+        <div id="panel_main">
+            <form id="tournament_timetable" class="column_form_wrapper" action="" method="POST">
                 <div class="form_column">
-                    <label for="comp_name">STARTING DATE</label>
-                    <input type="date" placeholder="Type in the title" class="start_date_input" name="tournament_name" class="name_input">
-                    <label for="comp_name">ENDING DATE</label>
-                    <input type="date" placeholder="Type in the title" class="end_date_input" name="tournament_name" class="name_input">
+                    <label for="">STARTING DATE</label>
+                    <input type="date" class="start_date_input" name="">
+                    <label for="">ENDING DATE</label>
+                    <input type="date" class="end_date_input" name="">
                 </div>
+            </form>
+            <form id="tournament_weapon control" class="column_form_wrapper" action="" method="POST">
+                <button>Add New Weapon Control</button>
                 <div class="form_column">
-                    <label for="comp_name">STARTING DATE</label>
-                    <input type="date" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input">
+                    <label for="">DATE</label>
+                    <input type="date" class="start_date_input" name="">
+                    <label for="">STARTING TIME</label>
+                    <input type="time" class="" name="" step="3600000">
+                    <label for="">ENDING TIME</label>
+                    <input type="time" class="" name="" step="3600000">
+                    <label for="">MINUTE / FENCER</label>
+                    <input type="number" class="number_input centered" placeholder="#" name="" step="3600000">
+                    <input type="button" value="Add" class="panel_submit">
+                    <div class="table">
+                        <div class="table_header">
+                            <div class="table_header_text">DATE</div>
+                            <div class="table_header_text">STARTING TIME</div>
+                            <div class="table_header_text">ENDING TIME</div>
+                            <div class="table_header_text">MIN. / FENCER</div>
+                        </div>
+                        <div class="table_row_wrapper">
+                            <div class="table_row">
+                                <div class="table_item">2050 04 25</div>
+                                <div class="table_item">16:30</div>
+                                <div class="table_item">18:00</div>
+                                <div class="table_item">5</div>
+                            </div>
+                            <div class="table_row">
+                                <div class="table_item">2050 04 25</div>
+                                <div class="table_item">16:30</div>
+                                <div class="table_item">18:00</div>
+                                <div class="table_item">5</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div id="tournament_timetable" class="column_form_wrapper top_border" action="" method="POST">
-                <div class="form_column">
-                    <label for="comp_name">STARTING DATE</label>
-                    <input type="date" placeholder="Type in the title" class="start_date_input" name="tournament_name" class="name_input">
-                    <label for="comp_name">ENDING DATE</label>
-                    <input type="date" placeholder="Type in the title" class="end_date_input" name="tournament_name" class="name_input">
-                </div>
-                <div class="form_column">
-                    <label for="comp_name">STARTING DATE</label>
-                    <input type="date" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input">
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
     <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
 </body>
-
 </html>
