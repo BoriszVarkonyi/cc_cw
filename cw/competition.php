@@ -76,30 +76,30 @@
                             <div class="form_wrapper">
                                 <div>
                                     <div>
-                                        <p class="data_label">HOST COUNTRY:</p>
+                                        <label>HOST COUNTRY:</label>
                                         <p><?php echo $comp_host ?></p>                                
                                     </div>
                                     <div>
-                                        <p class="data_label">LOCATION AND ADDRESS:</p>
+                                        <label>LOCATION AND ADDRESS:</label>
                                         <p><?php echo $comp_location ?></p>
                                         <p><?php echo $comp_postal ?></p>                                
                                     </div>
                                     <div>
-                                        <p class="data_label">ENTRY-FEE:</p>
+                                        <label>ENTRY-FEE:</label>
                                         <p><?php echo $comp_entry ?></p>
                                     </div>                                
                                 </div>
                                 <div>
                                     <div>
-                                        <p class="data_label">STARTING DATE:</p>
+                                        <label>STARTING DATE:<label>
                                         <p><?php echo $comp_start ?></p>                                
                                     </div>
                                     <div>
-                                        <p class="data_label">ENDING DATE:</p>
+                                        <label>ENDING DATE:</label>
                                         <p><?php echo $comp_end ?></p>                                
                                     </div>
                                     <div>
-                                        <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                        <label>END OF PRE-REGISTRTATION:</label>
                                         <p><?php echo $comp_pre_end ?></p>                                
                                     </div>
                                 </div>

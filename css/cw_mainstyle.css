@@ -962,27 +962,6 @@ input[value="Search"] {
 
 /* Listing inputs and similars */
 
-.form_wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-}
-
-.form_wrapper > div {
-	display: flex;
-	flex-direction: column;
-	flex: 1 1 50%;
-}
-
-.form_wrapper > div > div {
-	display: flex;
-	flex-direction: column;
-	margin: 15px 0;
-}
-
 /* Back Button used in CC Dasboard And CW Competition's page and subpages */
 
 .back_button {
@@ -1092,6 +1071,8 @@ input[value="Search"] {
 	display: flex;
 	flex-direction: column;
 	transition: height var(--t-basic);
+	border: 2px solid var(--c-gray);
+    border-radius: 5px;
 }
 
 .column_panel.collapsed {
@@ -1156,16 +1137,6 @@ input[value="Search"] {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.data_label {
-	font-family: var(--bold);
-	text-transform: uppercase;
-	margin-top: 10px;
-}
-
-.data_label:first-child {
-	margin-top: 0;
 }
 
 #equipment_panel {

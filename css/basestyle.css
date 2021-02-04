@@ -282,6 +282,71 @@ img[src$=".svg"].not_icon {
 	background-position: center center;
 }
 
+/* ///FORMS AND INPUTS/// */
+
+label {	/* Used in forms, all caps, thin font    NO option buttons*/
+	font-family: var(--bold);
+	text-transform: uppercase;
+	color: var(--c-black);
+	padding: 0;
+}
+
+label.hidden {
+	display: none;
+}
+
+label > p {
+	display: none;
+}
+
+label:hover > p {
+	color: var(--c-white);
+	display: block;
+	position: absolute;
+	padding: 5px 10px;
+	font-size: var(--f-small);
+	background: #25252590;
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	text-transform: none;
+}
+
+label.small {
+	text-transform: initial;
+	font-size: var(--f-small);
+}
+
+.form_wrapper {
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	align-items: stretch;
+}
+
+.form_wrapper p:last-of-type {
+	margin-bottom: 30px;
+}
+
+.form_wrapper > div {
+	flex: 1 1 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form_wrapper > div > div {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.separate_column {
+	margin: 50px 0;
+}
+
+
 /* ///INPUTS/// */
 
 /* Text Based inputs */
@@ -305,9 +370,9 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	box-sizing: border-box;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
-	width: 313px;
+	width: 300px;
 	height: 37px;
-	padding-left: 35px;
+	padding: 0 10px 0 35px;
 	background-repeat: no-repeat;
 	background-position: 10px;
 	border-radius: 5px;
@@ -434,8 +499,8 @@ input[type="number"] {
 
 input[type="number"].number_input.centered {
 	width: 100px;
-	padding-left: 0;
 	text-align: center;
+	padding: 0;
 }
 
 input[type="number"].wc_time {
@@ -447,8 +512,8 @@ input[type="number"].wc_time {
 
 input[type="time"] {
 	width: 120px;
-	padding: 0;
 	text-align: center;
+	padding: 0 10px;
 }
 
 /* Search Input */

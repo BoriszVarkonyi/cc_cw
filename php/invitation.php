@@ -311,25 +311,25 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                     <div class="invitation_form_wrapper">
                                         <div>
                                             <div>
-                                                <p class="data_label">HOST COUNTRY:</p>
+                                                <label>HOST COUNTRY:</p>
                                                 <p><?php echo $assoc_array_data['comp_host'] ?></p>
                                             </div>
                                             <div>
-                                                <p class="data_label">LOCATION AND ADDRESS:</p>
+                                                <label>LOCATION AND ADDRESS:</p>
                                                 <p><?php echo $assoc_array_data['comp_location'] ?></p>                                                
                                             </div>
                                             <div>
-                                                <p class="data_label">ENTRY-FEE:</p>
+                                                <label>ENTRY-FEE:</p>
                                                 <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>                                                
                                             </div>
                                         </div>
                                         <div>
                                             <div>
-                                                <p class="data_label">STARTING DATE:</p>
+                                                <label>STARTING DATE:</p>
                                                 <p><?php echo $assoc_array_data['comp_start'] ?></p>                                                
                                             </div>
                                             <div>
-                                                <p class="data_label">ENDING DATE:</p>
+                                                <label>ENDING DATE:</p>
                                                 <p><?php echo $assoc_array_data['comp_end'] ?></p>                                                
                                             </div>
                                             <div>

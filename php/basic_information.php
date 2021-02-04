@@ -37,23 +37,22 @@ $query_do = mysqli_query($connection, $query);
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-                <div id="title_stripe">
-                    <p class="page_title">Basic Information</p>
+            <div id="title_stripe">
+                <p class="page_title">Basic Information</p>
+                <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="submit" name="submit" form="basic_information_form">
                         <p id="save_text">Save Information</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
-                    </button>
+                    </button>                    
                 </div>
-
-                <div id="page_content_panel_main">
-
-                    <div id="basic_information_wrapper" class="db_panel form_page_flex">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg" >
-                            <p>Set basic information</p>
-                        </div>
-                        <form action="" id="basic_information_form" class="column_form_wrapper" method="POST">
-
+            </div>
+            <div id="page_content_panel_main">
+                <div id="basic_information_wrapper" class="db_panel form_page_flex">
+                    <div class="db_panel_title_stripe">
+                        <img src="../assets/icons/build-black-18dp.svg" >
+                        <p>Set basic information</p>
+                    </div>
+                    <form class="db_panel_main" action="" id="basic_information_form" method="POST">
                         <?php
                         
                         $query_get_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
@@ -70,129 +69,135 @@ $query_do = mysqli_query($connection, $query);
                             $end_pre_reg_get = $row["comp_pre_end"];
 
                         }
-                        
-                        
                         ?>
-                    <div class="db_panel_main">
-                        <div class="form_column">
-                            <label for="host_country">HOST COUNTRY</label>
-                            <input type="text" placeholder="Type the name of the country" name="host_country" class="country_input" id="country_input" value="<?php
-                            
-                            if($host_country_get == ""){
+                        <div class="form_wrapper">
+                            <div>
+                                <div>
+                                    <label for="host_country">HOST COUNTRY</label>
+                                    <input type="text" placeholder="Type the name of the country" name="host_country" class="country_input" id="country_input" value="<?php
+                                    
+                                    if($host_country_get == ""){
 
-                                echo "";
+                                        echo "";
 
-                            }
-                            else{
+                                    }
+                                    else{
 
-                                echo $host_country_get;
+                                        echo $host_country_get;
 
-                            }
-                            
-                            ?>">
+                                    }
+                                    
+                                    ?>">                                
+                                </div>
+                                <div>
+                                    <label for="location">LOCATION AND ADDRESS</label>
+                                    <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin location_input" id="location_input" value="<?php
+                                    
+                                    if($location_get == ""){
 
-                            <label for="location">LOCATION AND ADDRESS</label>
-                            <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin location_input" id="location_input" value="<?php
-                            
-                            if($location_get == ""){
+                                        echo "";
 
-                                echo "";
+                                    }
+                                    else{
 
-                            }
-                            else{
+                                        echo $location_get;
 
-                                echo $location_get;
+                                    }
+                                    
+                                    ?>">
+                                    <input type="number" placeholder="Zip Code" name="postal" class="number_input centered" id="postal_input" value="<?php
+                                    
+                                    if($postal_get == 0){
 
-                            }
-                            
-                            ?>">
-                            <input type="number" placeholder="Zip Code" name="postal" class="number_input centered" id="postal_input" value="<?php
-                            
-                            if($postal_get == 0){
+                                        echo "";
 
-                                echo "";
+                                    }
+                                    else{
 
-                            }
-                            else{
+                                        echo $postal_get;
 
-                                echo $postal_get;
+                                    }
+                                    
+                                    ?>">                                
+                                </div>
+                                <div>
+                                    <label for="entry_fee">ENTRY-FEE</label>
+                                    <input type="text" placeholder="Type in the amount" name="entry_fee" class="number_input money_input" value="<?php
+                                    
+                                    if($entry_fee_get == ''){
 
-                            }
-                            
-                            ?>">
+                                        echo "";
 
-                            <label for="entry_fee">ENTRY-FEE</label>
-                            <input type="text" placeholder="Type in the amount" name="entry_fee" class="number_input money_input" value="<?php
-                            
-                            if($entry_fee_get == ''){
+                                    }
+                                    else{
 
-                                echo "";
+                                        echo $entry_fee_get;
 
-                            }
-                            else{
+                                    }
+                                    
+                                    ?>">                                
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="start_date">STARTING DATE</label>
+                                    <input type="date" name="start_date" class="start_date_input" id="start_date_input" value="<?php
+                                    
+                                    if($start_date_get == ""){
 
-                                echo $entry_fee_get;
+                                        echo "";
 
-                            }
-                            
-                            ?>">
+                                    }
+                                    else{
+
+                                        echo $start_date_get;
+
+                                    }
+                                    
+                                    ?>">                                
+                                </div>
+                                <div>
+                                    <label for="end_date">ENDING DATE</label>
+                                    <input type="date" name="end_date" class="end_date_input" value="<?php
+                                    
+                                    if($end_date_get == ""){
+
+                                        echo "";
+
+                                    }
+                                    else{
+
+                                        echo $end_date_get;
+
+                                    }
+                                    
+                                    ?>">                                
+                                </div>
+                                <div>
+                                    <label for="end_pre_reg">END OF PRE-REGISTRATION</label>
+                                    <input type="date" name="end_pre_reg" class="end_date_pre_reg" value="<?php
+                                    
+                                    if($end_pre_reg_get == ""){
+
+                                        echo "";
+
+                                    }
+                                    else{
+
+                                        echo $end_pre_reg_get;
+
+                                    }
+                                    
+                                    ?>">                                
+                                </div>
+                            </div>                            
                         </div>
-                        <div class="form_column">
-
-                            <label for="start_date">STARTING DATE</label>
-                            <input type="date" name="start_date" class="start_date_input" id="start_date_input" value="<?php
-                            
-                            if($start_date_get == ""){
-
-                                echo "";
-
-                            }
-                            else{
-
-                                echo $start_date_get;
-
-                            }
-                            
-                            ?>">
-
-                            <label for="end_date">ENDING DATE</label>
-                            <input type="date" name="end_date" class="end_date_input" value="<?php
-                            
-                            if($end_date_get == ""){
-
-                                echo "";
-
-                            }
-                            else{
-
-                                echo $end_date_get;
-
-                            }
-                            
-                            ?>">
-
-                            <label for="end_pre_reg">END OF PRE-REGISTRATION</label>
-                            <input type="date" name="end_pre_reg" class="end_date_pre_reg" value="<?php
-                            
-                            if($end_pre_reg_get == ""){
-
-                                echo "";
-
-                            }
-                            else{
-
-                                echo $end_pre_reg_get;
-
-                            }
-                            
-                            ?>">
-                        </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
 <script src="../js/main.js"></script>
 <script src="../js/basic_information.js"></script>
+</body>
 </html>

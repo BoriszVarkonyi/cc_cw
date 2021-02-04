@@ -30,17 +30,17 @@
             </div>
         </div>
         <div id="panel_main">
-            <form id="tournament_timetable" class="column_form_wrapper" action="" method="POST">
-                <div class="form_column">
+            <form id="tournament_timetable" class="form_wrapper" action="" method="POST">
+                <div>
                     <label for="">STARTING DATE</label>
                     <input type="date" class="start_date_input" name="">
                     <label for="">ENDING DATE</label>
                     <input type="date" class="end_date_input" name="">
                 </div>
             </form>
-            <form id="tournament_weapon control" class="column_form_wrapper" action="" method="POST">
+            <form id="tournament_weapon control" class="form_wrapper" action="" method="POST">
                 <button>Add New Weapon Control</button>
-                <div class="form_column">
+                <div>
                     <label for="">DATE</label>
                     <input type="date" class="start_date_input" name="">
                     <label for="">STARTING TIME</label>

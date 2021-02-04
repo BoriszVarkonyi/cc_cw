@@ -59,65 +59,43 @@ $maximum = 255;
             </div>
         </div>
         <div id="panel_main">
-            <form id="create_new_comp" class="column_form_wrapper" action="" method="POST">
-                <div class="form_column">
-
-                    <label for="comp_name" >NAME</label>
-                    <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input" onblur="errorChecker(this)">
-                        <?php
-
-                            if(in_array(1, $_GET)) {
-
-                                echo '<p class="error_text_option">Missing competition name.</p>';
-                                    }
-                            ?>
-
-
+            <form id="create_new_comp" class="form_wrapper" action="" method="POST">
+                <div>
+                    <div>
+                        <label for="comp_name" >NAME</label>
+                        <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input" onblur="errorChecker(this)">                        
+                    </div>
+                    <div>
                         <label for="wc_type" >TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immediate</label>
-
                             <input type="radio" name="wc_type" id="adm" value="2"/>
                             <label for="adm">Administrated</label>
-                        </div>
-                        
+                        </div>                        
+                    </div>
+                    <div>
                         <label for="competition_type" >TYPE OF COMPETITIORS</label>
                         <div class="option_container">
                             <input type="radio" name="comp_type" id="individual" value="" checked/>
                             <label for="individual">Individual</label>
                             <input type="radio" name="comp_type" id="team" value="" disabled/>
                             <label for="team">Team</label>
-                        </div>
-                        <?php
-
-                            if(in_array(4, $_GET)) {
-
-                                echo '<p class="error_text_option">Missing type of weapon control.</p>';
-                                }
-                        ?>
-
-                            </div>
-
-                    <div class="form_column">
+                        </div>                        
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <label for="sex" >SEX</label>
-
                         <div class="option_container">
                             <input type="radio" name="sex" id="mal" value="1"/>
                             <label for="mal">Male</label>
                             <input type="radio" name="sex" id="fem" value="2"/>
                             <label for="fem">Female</label>
                         </div>
-                            <?php
-                            if(in_array(2, $_GET)) {
-
-                                echo '<p class="error_text_option">Missing competition sex.</p>';
-                                
-                                }
-                            ?>
-
+                    </div>
+                    <div>
                         <label for="w_type" >WEAPON TYPE</label>
-
                         <div class="option_container">
                             <input type="radio" class="option_button" name="w_type" id="epee" value="1"/>
                             <label for="epee" class="option_label">Epee</label>
@@ -125,15 +103,8 @@ $maximum = 255;
                             <label for="foil" class="option_label">Foil</label>
                             <input type="radio" class="option_button" name="w_type" id="sabre" value="3"/>
                             <label for="sabre" class="option_label">Sabre</label>
-                        </div>
-                        <?php
-                        if(in_array(3, $_GET)) {
-
-                            echo '<p class="error_text_option">Missing competition weapon type.</p>';
-                            
-                            }
-                        ?>
-
+                        </div>                            
+                    </div>                    
                 </div>
             </form>
         </div>

@@ -37,17 +37,17 @@
                             <div class="form_wrapper">
                                 <div>
                                     <div>
-                                        <p class="data_label">COUNTRY / FENCING CLUB:</p>
+                                        <label>COUNTRY / FENCING CLUB:</label>
                                         <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
                                     </div>
                                     <div>
-                                        <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
+                                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
                                         <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">                                
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <p class="data_label">NUMBER OF FENCERS:</p>
+                                        <label>NUMBER OF FENCERS:</label>
                                         <input type="number" name="c_phone"  class="number_input centered alt" placeholder="#">                                
                                     </div>
                                     <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">

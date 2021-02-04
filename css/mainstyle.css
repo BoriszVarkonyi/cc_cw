@@ -55,7 +55,7 @@ html {
 
 header {
 	width: 100%;
-	max-height: 40px;
+	height: 40px;
 	background: var(--c-white);
 	box-shadow: var(--s-black);
 	display: flex;
@@ -1499,7 +1499,8 @@ header {
     flex-grow: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    position: relative;
+	position: relative;
+	padding: 50px;
 }
 
 /* ///FORMS AND INPUTS/// */
@@ -1509,7 +1510,6 @@ label {	/* Used in forms, all caps, thin font    NO option buttons*/
 	text-transform: uppercase;
 	color: var(--c-black);
 	padding: 0;
-	align-self: flex-start;
 }
 
 label.hidden {
@@ -1528,7 +1528,7 @@ label:hover > p {
 	font-size: var(--f-small);
 	background: #25252590;
 	-webkit-backdrop-filter: blur(1px);
-	        backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
 	text-transform: none;
 }
 
@@ -1808,50 +1808,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 /* ///FORMS WRAPPER ELEMENTS/// */
-
-.form_column {
-	padding: 50px;
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	max-width: 350px;
-}
-
-.column_form_wrapper {
-	width: auto;
-	display: flex;
-}
-
-.column_form_wrapper.top_border {
-	border-top: 2px solid var(--c-gray);
-}
-
-.form_wrapper {
-	padding: 50px;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-}
-
-.form_wrapper p {
-	margin-bottom: 30px;
-}
-
-.form_wrapper div {
-	display: flex;
-	flex-direction: column;
-	min-width: 300px;
-	max-width: 300px;
-}
-
-.separate_column {
-	margin: 50px 0;
-}
 
 /* ///DASHBOARD ELEMENTS/// */
 

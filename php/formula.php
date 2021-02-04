@@ -99,48 +99,55 @@
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
                         <img src="../assets/icons/build-black-18dp.svg" >
-                        <p>Set basic information</p>
+                        <p>Set Formula of Pools</p>
                     </div>
                     <div class="db_panel_main">
 
-                    <form id="save_form" action="" class="column_form_wrapper" method="POST">
-                        <div class="form_column">
-                            <label for="points_pools" >POINTS IN POOLS</label>
-                            <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">
-
-                            <label for="points_table" >POINTS IN TABLE</label>
-                            <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">
-                        
-                            <label for="nb_qualifier" >NUMBER OF QUALIFIERS AFTER POOLS</label>
-                            <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">
-
-                            <label for="elimnation_type" >ELIMINATION TYPE</label>
-                            <div class="option_container">
-                                <input type="radio" name="elimnation_type" id="direct_et" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
-                                <label for="direct_et">Direct-Elimination Tournament</label>
-
-                                <input type="radio" name="elimnation_type" id="double_et" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
-                                <label for="double_et">Double-Elimination Tournament</label>
+                    <form id="save_form" action="" class="form_wrapper" method="POST">
+                        <div>
+                            <div>
+                                <label for="points_pools" >POINTS IN POOLS</label>
+                                <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">                                
                             </div>
-
+                            <div>
+                                <label for="points_table" >POINTS IN TABLE</label>
+                                <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">                                
+                            </div>
+                            <div>
+                                <label for="nb_qualifier" >NUMBER OF QUALIFIERS AFTER POOLS</label>
+                                <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">                                
+                            </div>
+                            <div>
+                                <label for="elimnation_type" >ELIMINATION TYPE</label>
+                                <div class="option_container">
+                                    <input type="radio" name="elimnation_type" id="direct_et" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
+                                    <label for="direct_et">Direct-Elimination Tournament</label>
+                                    <input type="radio" name="elimnation_type" id="double_et" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
+                                    <label for="double_et">Double-Elimination Tournament</label>
+                                </div>                                
+                            </div>
                         </div>
-                        <div class="form_column">
-                            <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>
-                            <div class="option_container">
-                                <input type="radio" name="type_of_elimination" id="one_phase_table" value="1" <?php echo $is_checked = ($json_table -> isOnePhase == 1) ? "checked" : "" ?> />
-                                <label for="one_phase_table">One Phase Table</label>
+                        <div>
 
-                                <input type="radio" name="type_of_elimination" id="two_phase_table" value="0" <?php echo $is_checked = ($json_table -> isOnePhase == 0) ? "checked" : "" ?> />
-                                <label for="two_phase_table">Two Phase Table</label>
+                            <div>
+                                <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>                                
+                                <div class="option_container">
+                                    <input type="radio" name="type_of_elimination" id="one_phase_table" value="1" <?php echo $is_checked = ($json_table -> isOnePhase == 1) ? "checked" : "" ?> />
+                                    <label for="one_phase_table">One Phase Table</label>
+
+                                    <input type="radio" name="type_of_elimination" id="two_phase_table" value="0" <?php echo $is_checked = ($json_table -> isOnePhase == 0) ? "checked" : "" ?> />
+                                    <label for="two_phase_table">Two Phase Table</label>
+                                </div>
                             </div>
+                            <div>
+                                <label for="third_place" >FENCING FOR 3RD PLACE</label>
+                                <div class="option_container">
+                                    <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
+                                    <label for="third_place_no">Yes</label>
 
-                            <label for="third_place" >FENCING FOR 3RD PLACE</label>
-                            <div class="option_container">
-                                <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
-                                <label for="third_place_no">Yes</label>
-
-                                <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> /> 
-                                <label for="third_place_no">No</label>
+                                    <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> /> 
+                                    <label for="third_place_no">No</label>
+                                </div>                                
                             </div>
                         </div>
                     </form>

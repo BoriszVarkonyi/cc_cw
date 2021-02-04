@@ -55,33 +55,33 @@ if(isset($_POST["send_pre"])){
                             <div class="form_wrapper">
                                 <div>
                                     <div>
-                                        <p class="data_label">FEDERATION'S NAME:</p>
+                                        <label>FEDERATION'S NAME:</label>
                                         <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input alt">                                
                                     </div>
                                     <div>
-                                        <p class="data_label">COUNTRY / FENCING CLUB:</p>
+                                        <label>COUNTRY / FENCING CLUB:</label>
                                         <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
                                     </div>
                                     <div>
-                                        <p class="data_label">FEDERATION'S OFFICAL EMAIL ADDRESS:</p>
+                                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
                                         <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">                                
                                     </div>
                                     <div>
-                                        <p class="data_label">FEDERATION'S PHONE NUMBER:</p>
+                                        <label>FEDERATION'S PHONE NUMBER:</label>
                                         <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">                                
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <p class="data_label">CONTACT KEEPER'S FULL NAME:</p>
+                                        <label>CONTACT KEEPER'S FULL NAME:</label>
                                         <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">                                
                                     </div>
                                     <div>
-                                        <p class="data_label">CONTACT KEEPER'S EMAIL ADDRESS:</p>
+                                        <label>CONTACT KEEPER'S EMAIL ADDRESS:</label>
                                         <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">                                
                                     </div>
                                     <div>
-                                        <p class="data_label">CONTACT KEEPER'S PHONE NUMBER:</p>
+                                        <label>CONTACT KEEPER'S PHONE NUMBER:</label>
                                         <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">                                
                                     </div>
                                     <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
