@@ -47,7 +47,7 @@
                         </button>
                         <button class="view_button" onclick="zoomIn()" id="zoomInButton">
                             <img src="../assets/icons/zoom_in-black-18dp.svg"/>
-                        </button>                      
+                        </button>
                     </div>
                 </div>
                 <div id="page_content_panel_main" class="loose">
@@ -64,7 +64,7 @@
                                 $ref2 = $row['ref2'];
                                 $piste = $row['piste'];
                                 $time = $row['time'];
-                                
+
 
                                 if ($ref1 != 0) {
 
@@ -132,7 +132,7 @@
 
                                                 $m_id_array = explode("-", $m_id);
 
-                                                
+
                                                 //get fencer data by id
                                                 $qry_get_fencer_data1 = "SELECT `name` FROM cptrs_$comp_id WHERE id = '$f1_id'";
                                                 $do_get_fencer_data1 = mysqli_query($connection, $qry_get_fencer_data1);
@@ -154,7 +154,7 @@
                                                 $fencer_signiture = array_unique($fencer_signiture);
                                                 $fencer_grid[$m_id_array[0]] = $f1_name;
                                                 $fencer_grid[$m_id_array[1]] = $f2_name;
-                                                
+
 
                                         ?>
                                         <div class="pool_match">
@@ -175,8 +175,8 @@
                                             </div>
                                         </div>
 
-                                        <?php 
-                                        } 
+                                        <?php
+                                        }
                                         ?>
                                     </div>
                                     <div class="signatures">
@@ -184,7 +184,7 @@
                                             <div class="grid_header">
                                                 <div class="grid_header_text">NAME</div>
                                                 <div class="grid_header_text square">No.</div>
-                                                <?php 
+                                                <?php
                                                 for ($i = 1; $i <= $pool_of; $i++) {
                                                 ?>
                                                 <div class="grid_header_text square"><?php echo $i ?></div>
@@ -196,7 +196,7 @@
                                                     ksort($fencer_grid);
                                                     foreach ($fencer_grid as $key => $value) {
 
-                                                    
+
 
 
                                                 ?>
@@ -205,7 +205,7 @@
                                                 <div class="grid_row">
                                                     <div class="grid_item"><?php echo $value ?></div>
                                                     <div class="grid_item square header"><?php echo $key . "." ?></div>
-                                                    <?php 
+                                                    <?php
                                                         for ($i = 1; $i <= $pool_of; $i++ ) {
 
                                                             if ($i == $key){
@@ -218,7 +218,7 @@
                                                     <div class="grid_item signature"></div>
                                                 </div>
                                                 <?php
-                                                    } 
+                                                    }
                                                 ?>
                                             </div>
                                         </div>
@@ -232,7 +232,7 @@
                                                     <div class="grid_item"><?php echo $ref1_name ?></div>
                                                     <div class="grid_item signature"></div>
                                                 </div>
-                                                <?php 
+                                                <?php
                                                     if ($ref2_name != "") {
                                                 ?>
                                                 <div class="grid_row">

@@ -292,7 +292,7 @@ footer {
 		order: 2;
 		width: calc(65% - 75px);
 	}
-	
+
 	#competition_controls {
 		order: 3;
 		width: calc(35% - 75px);
@@ -508,6 +508,7 @@ header > div {
 	margin-right: -5px;
 	transform: rotate(0deg);
 	transition: all var(--t-basic);
+	-webkit-filter: invert();
 	filter: invert();
 }
 
@@ -1076,13 +1077,23 @@ input[value="Search"] {
 }
 
 .column_panel.collapsed {
+	-webkit-filter: brightness(.9);
 	filter: brightness(.9);
 }
 
 .column_panel.collapsed > div {
+	-webkit-filter: blur(2px);
 	filter: blur(2px);
 	height: 200px;
 	overflow: hidden;
+}
+
+.column_panel .edit_button {
+	display: none;
+}
+
+.column_panel.collapsed .edit_button {
+	display: block;
 }
 
 .column_panel.collapsed *:not(button.edit_button) {
@@ -1113,6 +1124,20 @@ input[value="Search"] {
 	padding: 5px 40px;
 	box-sizing: border-box;
 	text-align: center;
+}
+
+.edit_button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: var(--c-white);
+	padding: 5px 10px;
+	border: 3px solid var(--c-primary);
+	border-radius: 5px;
+	font-family: var(--bold);
+	-webkit-filter: brightness(1.1);
+	filter: brightness(1.1);
 }
 
 #announcements {
@@ -1260,7 +1285,7 @@ input[value="Search"] {
 
 .video_wrapper_info p {
 	display: -webkit-box;
-	-webkit-box-orient: vertical;  
+	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
 
@@ -1559,7 +1584,7 @@ input[value="Search"] {
 	margin-bottom: 5px;
 	-webkit-line-clamp: 4;
 	display: -webkit-box;
-	-webkit-box-orient: vertical;  
+	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
 
@@ -1576,7 +1601,7 @@ input[value="Search"] {
 .article_brief {
 	-webkit-line-clamp: 4;
 	display: -webkit-box;
-	-webkit-box-orient: vertical;  
+	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
 
@@ -1784,7 +1809,8 @@ b.green {
 }
 
 .appointment.disabled {
-	filter: saturate(0);
+	-webkit-filter: saturate(0);
+	        filter: saturate(0);
 	transition: all var(--t-basic);
 }
 

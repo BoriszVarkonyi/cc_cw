@@ -1,10 +1,10 @@
 <?php include "../includes/db.php" ?>
-<?php 
+<?php
     $id = $_GET['vid_id'];
 
     $get_video_data = "SELECT * FROM cw_videos WHERE id = '$id'";
     $do_get_video_data = mysqli_query($connection, $get_video_data);
-    
+
     if ($row = mysqli_fetch_assoc($do_get_video_data)) {
         $title = $row['title'];
         $comp_name = $row['comp_name'];

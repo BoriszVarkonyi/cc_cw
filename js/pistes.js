@@ -16,7 +16,7 @@ function togglePisteSettings(x) {
         clickedPiste.classList.add("focused");
 
     }
-    
+
     clickedPiste.classList.toggle("focused");
     //Checking if we clicked the same piste.
     if (clickedPiste.classList.contains("focused")){
@@ -27,7 +27,7 @@ function togglePisteSettings(x) {
     //If no it sets the oldclickedPiste var. undifened
     oldclickedPiste = undefined;
 
-    }  
+    }
 }
 //It is a var from main.js
 canAutoValidate = false;
@@ -63,16 +63,16 @@ function mainPiste(){
 
 for (let index = 0; index < main_group.length; index++) {
     main_group[index].classList.remove("hidden");
-    
+
 }
 
 for (let index = 0; index < colored_group.length; index++) {
     colored_group[index].classList.add("hidden");
-    
+
 }
 for (let index = 0; index < numbered_group.length; index++) {
     numbered_group[index].classList.add("hidden");
-    
+
 }
 
 
@@ -82,16 +82,16 @@ function coloredPiste() {
 
     for (let index = 0; index < main_group.length; index++) {
         main_group[index].classList.add("hidden");
-        
+
     }
-    
+
     for (let index = 0; index < colored_group.length; index++) {
         colored_group[index].classList.remove("hidden");
-        
+
     }
     for (let index = 0; index < numbered_group.length; index++) {
         numbered_group[index].classList.add("hidden");
-        
+
     }
 
 }
@@ -100,16 +100,16 @@ function numberedPiste(){
 
     for (let index = 0; index < main_group.length; index++) {
         main_group[index].classList.add("hidden");
-        
+
     }
-    
+
     for (let index = 0; index < colored_group.length; index++) {
         colored_group[index].classList.add("hidden");
-        
+
     }
     for (let index = 0; index < numbered_group.length; index++) {
         numbered_group[index].classList.remove("hidden");
-        
+
     }
 
 }

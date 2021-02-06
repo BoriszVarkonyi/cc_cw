@@ -128,7 +128,7 @@
 
     .title_container {
 		height: 10vh !important;
-    }  
+    }
 
 	.paper_content {
 		height: 90vh !important;
@@ -137,5 +137,5 @@
     .wrapper {
         display: none;
     }
-    
+
 }

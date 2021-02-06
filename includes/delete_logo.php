@@ -12,6 +12,6 @@
         echo "There was a problem deleting your logo picture!";
     }
 
-    
+
 ?>
 

@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
 
     ?>
 
-    <!-- outputting the table -->    
+    <!-- outputting the table -->
     <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
         <div class="table_item">
             <p>

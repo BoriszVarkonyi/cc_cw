@@ -31,7 +31,7 @@
                     }
                 } else {
                     $feedback = 3;
-                }   
+                }
 
             } else {
                 $feedback = 2;

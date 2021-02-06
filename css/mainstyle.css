@@ -1011,7 +1011,7 @@ header {
 	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;  
+	animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes hideNavTitles {
@@ -1175,7 +1175,7 @@ header {
 	-webkit-animation: hideNavTitles var(--t-basic);
 	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards; 
+	animation-fill-mode: forwards;
 }
 
 #nav_bar.closed > #nav_bar_wrapper > .nav_bar_item {
@@ -1205,7 +1205,7 @@ header {
 	-webkit-animation: showDropdown var(--t-basic);
 	animation: showDropdown var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards; 
+	animation-fill-mode: forwards;
 }
 
 .dropdown_icon.close {
@@ -1216,7 +1216,7 @@ header {
 	-webkit-animation: hideDropdown var(--t-basic);
 	animation: hideDropdown var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	 animation-fill-mode: forwards; 
+	 animation-fill-mode: forwards;
 }
 
 .dropdown_menu {
@@ -1293,7 +1293,7 @@ header {
 	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;  
+	animation-fill-mode: forwards;
 }
 
 #nav_bar.closed > #nav_bar_wrapper > #need_help {
@@ -1304,7 +1304,7 @@ header {
 	-webkit-animation: hideNavTitles var(--t-basic);
 	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards; 
+	animation-fill-mode: forwards;
 }
 
 #need_help > img {
@@ -1485,7 +1485,7 @@ header {
 	height: 50vh;
     top: 50%;
     left: 50%;
-	transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 }
 
@@ -1590,7 +1590,7 @@ label.small {
 	opacity: 1;
 	transition: opacity var(--t-basic);
 	width: 350px;
-	max-width: 330px;	
+	max-width: 330px;
 }
 
 .option_container.grid.piste_select.disabled {
@@ -1652,18 +1652,18 @@ input[type=checkbox] + label:before {
 input[type=checkbox] + label:active:before, input[type=radio] + label:active:before {
 	transform: scale(0);
 }
-  
+
 input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before  {
 	background: var(--c-black);
 	border-color: var(--c-black);
 	color: transparent;
 }
-  
+
 input[type=checkbox]:disabled + label:before, input[type=radio]:disabled + label:before {
 	transform: scale(1);
 	border-color:var(--c-darkgray);
 }
-  
+
 input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:disabled + label:before {
 	transform: scale(1);
 	background: var(--c-darkgray);
@@ -2275,7 +2275,7 @@ input[type="file"] {
 	display: none;
 }
 
-.invitation_file_wrapper > label, .file_label {	
+.invitation_file_wrapper > label, .file_label {
 	font-family: var(--bold);
 	text-decoration: underline;
 	cursor: pointer;
@@ -2363,7 +2363,7 @@ input[type="file"] {
 
 #fileText {
 	font-size: var(--f-small);
-	
+
 }
 
 /* ///INVITION IN SEPARATE FILE/// */
@@ -2447,7 +2447,7 @@ input[type="file"] {
 	align-items: center;
 	justify-content: center;
 	font-family: var(--bold);
-	
+
 }
 
 #timetable {
@@ -2490,7 +2490,7 @@ input[type="file"] {
 
 #timetable > div.disabled > a > p {
 	color: var(--c-darkgray);
-	
+
 }
 
 #timetable > div > a > button {
@@ -2637,31 +2637,31 @@ input[type="file"] {
 
 #wc_notes::-webkit-input-placeholder {
 	font-size: var(--f-small);
-	
+
 	color: var(--c-black);
 }
 
 #wc_notes::-moz-placeholder {
 	font-size: var(--f-small);
-	
+
 	color: var(--c-black);
 }
 
 #wc_notes:-ms-input-placeholder {
 	font-size: var(--f-small);
-	
+
 	color: var(--c-black);
 }
 
 #wc_notes::-ms-input-placeholder {
 	font-size: var(--f-small);
-	
+
 	color: var(--c-black);
 }
 
 #wc_notes::placeholder {
 	font-size: var(--f-small);
-	
+
 	color: var(--c-black);
 }
 
@@ -2803,8 +2803,8 @@ div.desc_box > p:nth-child(1) {
 }
 
 div.desc_box > p:nth-child(2) {
-	
-	
+
+
 	padding-left: 20px;
 }
 
@@ -2887,7 +2887,7 @@ div.title_box > button {
 	border: 3px solid var(--c-primary);
 	background: var(--c-secondary);
 	border-radius: 5px;
-	
+
 	font-family: var(--bold);
 	cursor: pointer;
 	width: auto;
@@ -3018,7 +3018,7 @@ div.title_box > button {
 
 #ranking_info_panel > div > p {
 	font-family: var(--bold);
-	
+
 }
 
 #ranking_info_panel > div > div {
@@ -3028,7 +3028,7 @@ div.title_box > button {
 
 #ranking_info_panel > div > div > p {
 	font-family: var(--bold);
-	
+
 }
 
 /* ///REFEREES/// */
@@ -3066,7 +3066,7 @@ div.title_box > button {
 
 #new_entries_panel:after, #managed_entries_panel:after {
 	content: "There are no new entries";
-	
+
 	font-family: var(--bold);
 	color: var(--c-gray);
 	white-space: nowrap;
@@ -3278,8 +3278,8 @@ input {
 }
 
 #confirmation_form > p:nth-of-type(2), #create_ranking_form > p:nth-of-type(2) {
-	
-	
+
+
 	margin-bottom: 10px;
 	border-bottom: 2.5px solid var(--c-red);
 }
@@ -3295,8 +3295,8 @@ input {
 #confirmation_button_section > button {
 	margin-right: 15px;
 	padding: 6.5px;
-	
-	
+
+
 	border-radius: 5px;
 	background: var(--c-lightgray);
 }
@@ -3352,15 +3352,15 @@ input {
 }
 
 .period > div:first-child > p:first-child {
-	
+
 	padding: 10px 0;
-} 
+}
 
 .period > div:first-child > p:last-child {
 	font-size: var(--f-large);
 	font-family: var(--bold);
 	display: none;
-} 
+}
 
 .period > div:nth-child(2) {
 	flex: 1 1 0;
@@ -3449,8 +3449,8 @@ input {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div > p {
-	
-	
+
+
 	text-align: center;
 	padding: 5px 0;
 	width: 50%;
@@ -3462,8 +3462,8 @@ input {
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div:last-child > p {
 	width: 100%;
-	
-	
+
+
 	text-align: center;
 	padding: 10px 0;
 }
@@ -3508,8 +3508,8 @@ input {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(3) > p { /* Period buttons */
-	
-	font-family: var(--bold);  
+
+	font-family: var(--bold);
 	width: 50%;
 	text-align: center;
 }
@@ -3890,7 +3890,7 @@ input {
 #pools_drag_panel > div:before {
 	width: 100%;
 	align-self: center;
-	
+
 	font-family: var(--bold);
 	position: absolute;
 	left: 50%;
@@ -4144,7 +4144,7 @@ input {
 }
 
 .winner_text {
-	
+
 	text-transform: uppercase;
 	color: var(--c-red);
 	font-family: var(--bold);
@@ -4163,7 +4163,7 @@ input {
 	display: flex;
 	flex-direction: column;
 	font-family: var(--bold);
-	
+
 	align-items: center;
 }
 
@@ -4193,7 +4193,7 @@ input {
 }
 
 .disqualify_button {
-	
+
 	margin: 10px 5px 5px 5px;
 	padding: 5px 10px;
 	color: var(--c-red);

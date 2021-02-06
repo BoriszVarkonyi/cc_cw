@@ -9,7 +9,7 @@ function hideAllButton(){
     checkInButton.style.display = "none";
     checkOutButton.style.display = "none";
     addwcButton.style.display = "none";
-    editWcButton.style.display = "none";  
+    editWcButton.style.display = "none";
 }
 hideAllButton();
 //Shows the correct button
@@ -23,7 +23,7 @@ function buttonShower(x){
         case "not_cheked_out" :
             hideAllButton();
             editWcButton.style.display = "";
-            checkOutButton.style.display = ""; 
+            checkOutButton.style.display = "";
         break;
         case "not_ready" :
             hideAllButton();

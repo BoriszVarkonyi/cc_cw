@@ -2,10 +2,10 @@
 function removeEquipmentValues(){
 
     for (let index = 0; index < 13; index++) {
-        
+
         var removefrom = document.getElementById("input_" + index);
         removefrom.value = "";
-    
+
     }
 }
 
@@ -13,9 +13,9 @@ function removeEquipmentValues(){
 //Copies the content of an editable div and pastes to an input
 
 function copyContent(){
-    
+
     var from = document.getElementById("additional");
-    
+
     var to = document.getElementById("additional_info_input");
 
     to.value = from.innerHTML;
@@ -37,7 +37,7 @@ console.log(tofocus);
 tofocus.focus();
 
 }
- 
+
 
 //PATRIK INNENTŐL
 //Maximum 0-5 numbers, max 1 lenght number input
@@ -58,14 +58,14 @@ baloldal.addEventListener("keyup", event => {
 
     }
   });
-  function isNumberKey(evt)//You can olny write numbers as inputs 
+  function isNumberKey(evt)//You can olny write numbers as inputs
       {
          var inp =document.getElementById("needed_equipment_panel") (evt.which) ? evt.which : event.keyCode
-    
+
          if (inp > 0 && (inp <= 5  || inp > 0)) //inupt can't be higher than 5
-    
+
          return false;
 
          return true;
       }
-    
+

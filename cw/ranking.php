@@ -47,11 +47,11 @@
                         <div class="table_header_text">POINTS</div>
                     </div>
                     <div class="table_row_wrapper alt">
-                    <?php     
+                    <?php
                         //echo out rankings fencers
                         $qry_get_fencer = "SELECT * FROM rk_$ranking_id ORDER BY position ASC";
                         $do_get_fencer = mysqli_query($connection, $qry_get_fencer);
-                        
+
                         while ($row = mysqli_fetch_assoc($do_get_fencer)) {
 
                             $fencer_name = $row['name'];
@@ -59,7 +59,7 @@
                             $fencer_dob = $row['dob'];
                             $fencer_position = $row['position'];
                             $fencer_points = $row['points'];
-                        
+
                     ?>
                         <div class="table_row">
                             <div class="table_item"><p><?php echo $fencer_position ?></p></div>

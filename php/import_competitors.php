@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 
 

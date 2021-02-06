@@ -42,17 +42,17 @@
                         <div class="table_item">
                             <p>
                                 1.
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 Néve
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 HUN
-                            </p> 
+                            </p>
                         </div>
                         <div class="big_status_item gold">
                             <img src="../assets/icons/emoji_events-black-18dp.svg">
@@ -62,17 +62,17 @@
                         <div class="table_item">
                             <p>
                                 1.
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 Néve
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 HUN
-                            </p> 
+                            </p>
                         </div>
                         <div class="big_status_item silver">
                         </div>
@@ -81,17 +81,17 @@
                         <div class="table_item">
                             <p>
                                 1.
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 Néve
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 HUN
-                            </p> 
+                            </p>
                         </div>
                         <div class="big_status_item bronze">
                         </div>
@@ -100,17 +100,17 @@
                         <div class="table_item">
                             <p>
                                 1.
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 Néve
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 HUN
-                            </p> 
+                            </p>
                         </div>
                         <div class="big_status_item bronze">
                         </div>
@@ -119,17 +119,17 @@
                         <div class="table_item">
                             <p>
                                 1.
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 Néve
-                            </p> 
+                            </p>
                         </div>
                         <div class="table_item">
                             <p>
                                 HUN
-                            </p> 
+                            </p>
                         </div>
                         <div class="big_status_item">
                         </div>

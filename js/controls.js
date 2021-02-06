@@ -61,7 +61,7 @@ document.onkeydown = (keyDownEvent) => {
             }
         }
         localStorage.setItem('elementIndex', selectedElementIndexAr);
-    } 
+    }
     //Selects to enter
     //importOverlayClosed is a var. from importoverlay.js
     if(!searchBarClosed && importOverlayClosed) {
@@ -89,14 +89,14 @@ document.onkeydown = (keyDownEvent) => {
             selected.classList.add("selected")
             keyDownEvent.target.value = selected.innerHTML;
             keyDownEvent.preventDefault();
-            //It is a function from main.js 
+            //It is a function from main.js
             formvariableDeclaration();
         }
-    } 
-    if(keyDownEvent.key == "Tab"){
-        keyDownEvent.preventDefault(); 
     }
-}    
+    if(keyDownEvent.key == "Tab"){
+        keyDownEvent.preventDefault();
+    }
+}
 var searchBarClosed = true;
 function isOpen() {
     searchBarClosed = false;
@@ -117,7 +117,7 @@ document.onkeyup=function(e){
             var searchBar = document.getElementById("inputs")
             searchBar.focus()
         }
-    }    
+    }
 }
 function test(){
     /*

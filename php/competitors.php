@@ -3,10 +3,10 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
-$query = "SELECT * 
+<?php
+$query = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'cptrs_$comp_id'
 LIMIT 1;";
 $query_do = mysqli_query($connection, $query);
@@ -66,7 +66,7 @@ $query_do = mysqli_query($connection, $query);
                         <?php
                         $query = "SELECT * FROM cptrs_$comp_id ORDER BY rank";
                         $query_do = mysqli_query($connection, $query);
-                        
+
                         while($row = mysqli_fetch_assoc($query_do)){
 
                             $pos = $row["rank"];
@@ -82,7 +82,7 @@ $query_do = mysqli_query($connection, $query);
                                 <div class="table_item">
                                     <p>
                                     <?php
-                                        
+
                                         if($reg == 0){
 
                                             echo "Not ready";

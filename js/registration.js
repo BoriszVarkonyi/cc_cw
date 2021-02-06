@@ -20,7 +20,7 @@ function callback(mutationsList, observer) {
         }
     })
 }
-    
+
 const mutationObserver3 = new MutationObserver(callback)
 for(i=0; i<tableRows.length; i++){
 mutationObserver3.observe(tableRows[i], { attributes: true })
@@ -62,7 +62,7 @@ document.addEventListener("keyup", function(e){
             if(e.shiftKey && e.which == 73) {
                 regInButton = document.getElementById("regIn")
                 regInButton.click()
-            } 
+            }
         }
     }
 })

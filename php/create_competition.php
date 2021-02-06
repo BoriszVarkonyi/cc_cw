@@ -18,12 +18,12 @@ $maximum = 255;
 
         $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id) VALUES ('$comp_name', 1, $org_id, '$ass_tourn_id')";
         $query_create = mysqli_query($connection, $query);
-        
+
         if (!$query_create) {
-        
+
             die("ERROR" . mysqli_error($connection));
         }
-    
+
         header("Location: choose_competition.php?t_id=$ass_tourn_id");
 
 }
@@ -63,7 +63,7 @@ $maximum = 255;
                 <div>
                     <div>
                         <label for="comp_name" >NAME</label>
-                        <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input" onblur="errorChecker(this)">                        
+                        <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input" onblur="errorChecker(this)">
                     </div>
                     <div>
                         <label for="wc_type" >TYPE OF WEAPON CONTROL</label>
@@ -72,7 +72,7 @@ $maximum = 255;
                             <label for="imm">Immediate</label>
                             <input type="radio" name="wc_type" id="adm" value="2"/>
                             <label for="adm">Administrated</label>
-                        </div>                        
+                        </div>
                     </div>
                     <div>
                         <label for="competition_type" >TYPE OF COMPETITIORS</label>
@@ -81,7 +81,7 @@ $maximum = 255;
                             <label for="individual">Individual</label>
                             <input type="radio" name="comp_type" id="team" value="" disabled/>
                             <label for="team">Team</label>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -103,8 +103,8 @@ $maximum = 255;
                             <label for="foil" class="option_label">Foil</label>
                             <input type="radio" class="option_button" name="w_type" id="sabre" value="3"/>
                             <label for="sabre" class="option_label">Sabre</label>
-                        </div>                            
-                    </div>                    
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

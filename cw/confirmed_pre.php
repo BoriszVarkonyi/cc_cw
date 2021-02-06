@@ -19,9 +19,9 @@ echo $compet_id = $_GET["compet_id"];
 
 
 
-$query = "SELECT * 
+$query = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'pre_$compet_id'
 LIMIT 1;";
 

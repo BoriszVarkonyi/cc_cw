@@ -50,7 +50,7 @@
                 <td>License Valid</td>
                 <td>Warning</td>
             </tr>
-            <?php 
+            <?php
                 //get organisers
                 $qry_get_org = "SELECT * FROM `organisers`";
                 $do_get_org = mysqli_query($connection, $qry_get_org);
@@ -65,7 +65,7 @@
                     } else {
                         $warning_color = "red";
                     }
-                    
+
                     ?>
                         <tr>
                             <td><?php echo $id ?></td>

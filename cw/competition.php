@@ -52,11 +52,11 @@
 
                                 $json_table = json_decode($string_json);
                             }
-                            
+
                             if (count($json_table) != 0 ) {
                         ?>
                     <div id="announcements" class="column_panel">
-                        
+
                         <?php
                             foreach ($json_table as $ann_objects) {
 
@@ -77,33 +77,33 @@
                                 <div>
                                     <div>
                                         <label>HOST COUNTRY:</label>
-                                        <p><?php echo $comp_host ?></p>                                
+                                        <p><?php echo $comp_host ?></p>
                                     </div>
                                     <div>
                                         <label>LOCATION AND ADDRESS:</label>
                                         <p><?php echo $comp_location ?></p>
-                                        <p><?php echo $comp_postal ?></p>                                
+                                        <p><?php echo $comp_postal ?></p>
                                     </div>
                                     <div>
                                         <label>ENTRY-FEE:</label>
                                         <p><?php echo $comp_entry ?></p>
-                                    </div>                                
+                                    </div>
                                 </div>
                                 <div>
                                     <div>
                                         <label>STARTING DATE:<label>
-                                        <p><?php echo $comp_start ?></p>                                
+                                        <p><?php echo $comp_start ?></p>
                                     </div>
                                     <div>
                                         <label>ENDING DATE:</label>
-                                        <p><?php echo $comp_end ?></p>                                
+                                        <p><?php echo $comp_end ?></p>
                                     </div>
                                     <div>
                                         <label>END OF PRE-REGISTRTATION:</label>
-                                        <p><?php echo $comp_pre_end ?></p>                                
+                                        <p><?php echo $comp_pre_end ?></p>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
 
@@ -117,13 +117,13 @@
                                 <div class="table_header_text">Needed Quantity</div>
                             </div>
                             <div class="table_row_wrapper">
-                                <?php 
+                                <?php
                                     $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
                                     $array_equipment = explode(",", $comp_equipment);
 
                                     for ($i = 0; $i < count($equipment); $i++) {
-                                        
+
                                         if ($array_equipment[$i] != 0) {
                                             ?>
                                                 <div class="table_row">
@@ -145,7 +145,7 @@
                             <p><?php echo $comp_info ?></p>
                         </div>
                     </div>
-                    
+
                     <!-- weapon control panel -->
                     <div id="weapon_control_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Weapon Control appointments and bookings:</p>
@@ -161,14 +161,14 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div id="plus_information_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Plus Information:</p>
                         <div>
                             <?php
-                            
+
                                 //display plus info from DB
-                                
+
                                 $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
                                 if (!$get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry)) {
                                     $feedback = "ERROR: " . mysqli_error($connection);
@@ -183,14 +183,14 @@
 
                                         <div class="breakpoint">
                                             <p><?php echo $info_title ?></p>
-                                            <p><?php echo $info_body ?></p>                                            
+                                            <p><?php echo $info_body ?></p>
                                         </div>
 
                             <?php
                                     }
                                 } else  { // displayed when there are no plus infos for comp_id
                             ?>
-                                
+
                                 <p>This competition has no plus information!</p>
 
                             <?php
@@ -211,7 +211,7 @@
                             <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
                             <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
                             <button onclick="printPage()">Print</a>
-                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>                            
+                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
                         </div>
                     </div>
                 </div>

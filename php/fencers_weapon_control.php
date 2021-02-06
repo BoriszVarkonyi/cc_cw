@@ -3,10 +3,10 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
     // array of all issues
-    $array_issues = array( 
+    $array_issues = array(
         "FIE mark on blade",
         "Arm gap and weight",
         "Arm lenght",
@@ -64,7 +64,7 @@
     $issue = "did not set yet";
     $old_notes = "";
 
- 
+
 
 
     //get fencer data from cptrs_$comp_id
@@ -78,7 +78,7 @@
     } else {
         $feedback['fencer_data'] = "ERROR " . mysqli_error($connection);
     }
-    
+
 
 
     if (isset($_POST['submit_wc'])) {
@@ -91,9 +91,9 @@
             } else {
                 $issue = $_POST["issue_n_$i"];
             }
-            
+
             $array_real_issues[$i] = $issue;
-            
+
         }
 
         $string_real_issues = implode(",", $array_real_issues);
@@ -118,7 +118,7 @@
 
         } else {
             //updateing weapon_errors from array_real_issues
-            $qry_update = "UPDATE $table_name SET name = '$fencer_name', nat = '$fencer_nat', weapon_errors = '$string_real_issues', notes = '$notes' WHERE id = '$fencer_id'"; 
+            $qry_update = "UPDATE $table_name SET name = '$fencer_name', nat = '$fencer_nat', weapon_errors = '$string_real_issues', notes = '$notes' WHERE id = '$fencer_id'";
 
             if ($do_qry_update = mysqli_query($connection, $qry_update)) {
                 $feedback['update'] = "ok!";
@@ -146,7 +146,7 @@
     } else {
         $feedback['get_cw_data'] = "ERROR " . mysqli_error($connection);
     }
-    
+
 
 
 ?>
@@ -167,7 +167,7 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-                
+
                 <div id="title_stripe">
                     <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
                     <div class="stripe_button_wrapper">
@@ -191,7 +191,7 @@
                             </div>
                             <div class="table_row_wrapper">
 
-                                <?php 
+                                <?php
                                     foreach ($array_issues as $issue) {
 
                                     $issue_id = array_search($issue, $array_issues);
@@ -199,7 +199,7 @@
                                 ?>
 
                                 <div class="table_row">
-                                    <div class="table_item"><p><?php echo $issue ?></p></div>
+                                    <div class="table_item capitalize"><p><?php echo $issue ?></p></div>
                                     <div class="table_item"><input value="<?php echo $array_weapon_errors[$issue_id] ?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
                                     <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
                                         <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
@@ -207,7 +207,7 @@
                                     </div>
                                 </div>
 
-                                <?php 
+                                <?php
                                     }
                                 ?>
                             </div>

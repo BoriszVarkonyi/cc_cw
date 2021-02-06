@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 $poolnum = $_GET["poolid"];
 
@@ -100,7 +100,7 @@ if($score1 != NULL && $score2 != NULL){
 
 
                     <?php
-                    
+
                     $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $poolnum";
                         $inside_query_do = mysqli_query($connection,$inside_query);
 
@@ -150,9 +150,9 @@ if($score1 != NULL && $score2 != NULL){
                                 <div class="table_item bold">No. <?php echo $poolnum ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: <?php if (isset($refname)) {
-                                        
+
                                         echo $refname;
-                                        echo "(" . $refnat . ")"; 
+                                        echo "(" . $refnat . ")";
                                     } else {
                                         echo "No ref assigned!";
                                     } ?></div>
@@ -169,7 +169,7 @@ if($score1 != NULL && $score2 != NULL){
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-                                        <?php 
+                                        <?php
                                         for ($k=0; $k < $pool_f_in; $k++) { ?>
                                             <div class="table_header_text square">
                                             <?php echo $k +1; ?>
@@ -177,11 +177,11 @@ if($score1 != NULL && $score2 != NULL){
                                         <?php
                                         }
                                         ?>
-                                        
+
                                     </div>
                                     <div class="table_row_wrapper alt">
                                     <?php
-                                    for ($n=0; $n < $pool_f_in; $n++) { 
+                                    for ($n=0; $n < $pool_f_in; $n++) {
                                             $fx = $f[$n];
                                             $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
                                             $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
@@ -189,27 +189,27 @@ if($score1 != NULL && $score2 != NULL){
                                             if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
                                                 $fencer_name = $row['name'];
                                             }?>
-                                            
+
                                     <div id="<?php echo $n ?>" class="table_row" onclick="selectRow(this)">
                                         <div class="table_item"><?php echo $fencer_name ?></div>
                                         <div class="table_item square row_title"><?php echo $n+1 ?></div>
                                         <?php
                                         $filled = "";
-                                        for ($l=0; $l < $pool_f_in; $l++) { 
-                                            
+                                        for ($l=0; $l < $pool_f_in; $l++) {
+
                                         if($l == $n){
 
                                         $filled = "filled";
 
                                         }?>
-                                        
+
                                         <div class="table_item square <?php echo $filled ?>">
-                                    
+
                                         <?php
                                         $front = 0;
                                         $back = 0;
                                             if($l > $n){
-                                        
+
                                                 $front = $n+1;
                                                 $back = $l+1;
 
@@ -230,7 +230,7 @@ if($score1 != NULL && $score2 != NULL){
                                                 while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
 
                                                     $scorenow = $row4["f1_sc"];
-                                                    
+
                                                 }
                                                 echo $scorenow;
 
@@ -242,7 +242,7 @@ if($score1 != NULL && $score2 != NULL){
                                                 while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
 
                                                     $scorenow = $row4["f2_sc"];
-                                                    
+
                                                 }
                                                 echo $scorenow;
                                             }
@@ -250,9 +250,9 @@ if($score1 != NULL && $score2 != NULL){
                                             }
 
                                         ?>
-                                        
+
                                         </div>
-                                        
+
                                         <?php
                                         $filled = "";
                                         }
@@ -277,7 +277,7 @@ if($score1 != NULL && $score2 != NULL){
                     <div id="pool_matches">
 
                         <?php
-                        
+
                         $get_matches_query = "SELECT * FROM pool_matches_$comp_id WHERE p_in = $poolnum ORDER BY oip ASC";
                         $get_matches_query_do = mysqli_query($connection, $get_matches_query);
 
@@ -289,13 +289,13 @@ if($score1 != NULL && $score2 != NULL){
                         $f2_sc = $row["f2_sc"];
                         $oip = $row["oip"];
 
-                        
+
                         $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id = '$f1_id'";
                         $get_fencer_names_do = mysqli_query($connection, $get_fencer_names);
 
                         $get_fencer_names2 = "SELECT * FROM cptrs_$comp_id WHERE id = '$f2_id'";
                         $get_fencer_names_do2 = mysqli_query($connection, $get_fencer_names2);
-                        
+
 
 
                         if($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
@@ -307,11 +307,11 @@ if($score1 != NULL && $score2 != NULL){
                         if($row3 = mysqli_fetch_assoc($get_fencer_names_do2)){
 
                             $f2_n = $row3["name"];
-    
-    
+
+
                             }
 
-                        
+
                         ?>
 
 
@@ -334,7 +334,7 @@ if($score1 != NULL && $score2 != NULL){
 
 
                         <?php
-                        
+
                     }
 
                         ?>

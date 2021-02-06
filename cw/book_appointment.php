@@ -42,20 +42,21 @@
                                     </div>
                                     <div>
                                         <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
-                                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">                                
+                                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                                     </div>
                                 </div>
                                 <div>
                                     <div>
                                         <label>NUMBER OF FENCERS:</label>
-                                        <input type="number" name="c_phone"  class="number_input centered alt" placeholder="#">                                
+                                        <input type="number" name="c_phone"  class="number_input centered alt" placeholder="#">
                                     </div>
                                     <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
                                     <input type="text" name="compet_id" class="disabled" id="compet_id" value="">
                                 </div>
-                            </div> 
-                            <button class="send_button center" onclick="">Find Appointments</button>                           
+                            </div>
+                            <button class="send_button center" onclick="">Find Appointments</button>
                         </div>
+                        <button class="edit_button" onclick="">Edit Information</button>
                     </div>
                     <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
                     <div class="column_panel no_top">
@@ -65,7 +66,7 @@
                                 <div class="appointment" onclick="selectAppointment(this)">
                                     <p>11:00 - 12:00</p>
                                     <button type="button">Choose</button>
-                                </div>                                
+                                </div>
                                 <div class="appointment" onclick="selectAppointment(this)">
                                     <p>13:30 - 14:00</p>
                                     <button type="button">Choose</button>
@@ -77,7 +78,7 @@
                                 <div class="appointment" onclick="selectAppointment(this)">
                                     <p>16:30 - 17:00</p>
                                     <button type="button">Choose</button>
-                                </div>                              
+                                </div>
                             </div>
                         </div>
                     </div>

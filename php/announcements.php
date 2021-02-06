@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 
     class announcement {
@@ -16,7 +16,7 @@
         }
     }
 
-    //make announcements table 
+    //make announcements table
     $qry_make_table = "CREATE TABLE `ccdatabase`.`announcements` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_make_table = mysqli_query($connection, $qry_make_table);
 
@@ -113,7 +113,7 @@
                 <p class="page_title">Announcements</p>
 
             </div>
-            
+
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
                     <div class="db_panel  other">
@@ -131,9 +131,9 @@
                                     <?php
 
                                             for ($i = 0; $i < count($json_table); $i++) {
-                                        
+
                                             ?>
-        
+
                                             <!-- ezt kell whileozni csorom -->
                                             <div class="entry">
 
@@ -155,10 +155,10 @@
                                             </div>
                                             <!-- eddig mondjuk -->
                                 <?php
-                                                }   
-                                            
+                                                }
+
                                 ?>
-    
+
                                     <!-- adding entry by title -->
                                     <div id="add_entry" onclick="hideNshow()">
                                         <div class="table_row" onclick="">

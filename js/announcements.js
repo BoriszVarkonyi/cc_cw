@@ -41,7 +41,7 @@ function toggleEntry(x) {
             selectedElementIndexAnn = i;
         }
 
-    } 
+    }
     //Checking if the oldentry var. equals the entry.
     if(entry == oldentry){
         //If yes then it adds opened, and remove collapsed.
@@ -72,11 +72,11 @@ document.onkeyup=function(e){
             newAnn.click()
             titleBar.focus()
         }
-    }    
+    }
 }
 var IsNotFocused = true;
 var openedForm =  document.querySelectorAll(".db_panel_main .entry_panel textarea")
-openedForm.forEach(item => { 
+openedForm.forEach(item => {
     item.addEventListener("focus", function(){
         IsNotFocused = false;
     })
@@ -84,7 +84,7 @@ openedForm.forEach(item => {
         IsNotFocused = true;
     })
 })
-   
+
 
 
 

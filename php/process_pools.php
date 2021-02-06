@@ -86,7 +86,7 @@
         echo mysqli_error($connection);
         $got_giv_dif = $given_points - $gotten_points;
 
-        
+
         foreach ($ARRAY_fencers as $key_of_a => $value) {
             if (in_array($fencer_id, $value)) {
                 $ARRAY_fencers[$key_of_a]['ratio'] = $won_per_played_game_ratio;
@@ -104,7 +104,7 @@
      //start sorting the array array
     if (!array_multisort($ratio_column, SORT_DESC, SORT_NUMERIC, $point_diff_column, SORT_DESC, SORT_NUMERIC, $given_points_column, SORT_DESC, SORT_NUMERIC, $ARRAY_fencers)) {
         echo "CRITICAL ERROR: array_multisort could not complete the sort!";
-    } 
+    }
 
     //do this because stack overflow said so
     $ARRAY_fencers = array_column($ARRAY_fencers, null, "id");

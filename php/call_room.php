@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 
 
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div id="page_content_panel_main">
-                
+
                 </div>
         </div>
     </body>

@@ -37,14 +37,14 @@
                     <p class="stripe_title"><?php echo $title ?></p>
                 </div>
                 <div id="article_wrapper">
-                    <div class="article_info">                  
+                    <div class="article_info">
                         <p><?php echo "By:" . $author ?></p>
                         <p><?php echo $date ?></p>
                     </div>
                     <!--<img src="<?php echo $pic ?>">-->
                     <img class="bg_fencers">
                     <p class="paragraph"><?php echo $body ?></p>
-                </div> 
+                </div>
             </div>
             </div>
             <?php include "cw_footer.php"; ?>

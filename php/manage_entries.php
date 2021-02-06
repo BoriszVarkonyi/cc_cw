@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 $get_assigned_ranking_id = "SELECT * FROM competitions WHERE comp_id = $comp_id";
 $get_assigned_ranking_id_do = mysqli_query($connection, $get_assigned_ranking_id);
@@ -24,9 +24,9 @@ if(isset($_POST["approve"])){
 
 $ids_to_cp = $_POST["hidden_apporove"];
 
-$query = "SELECT * 
+$query = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'cptrs_$comp_id'
 LIMIT 1;";
 $query_do = mysqli_query($connection, $query);
@@ -68,11 +68,11 @@ header("Location: manage_entries.php?comp_id=$comp_id");
         $f_country = $_POST["f_country"];
         $f_email = $_POST["f_email"];
         $f_phone = $_POST["f_phone"];
-        
+
         $c_name = $_POST["c_name"];
         $c_email = $_POST["c_email"];
         $c_phone = $_POST["c_phone"];
-        
+
         $fencer_ids = $_POST["fencer_ids"];
 
         $compet_id = $_POST["compet_id"];
@@ -114,9 +114,9 @@ header("Location: manage_entries.php?comp_id=$comp_id");
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Please confirm your pre registration';
         $mail->Body    = '
-        
+
         <a style="color:red;" href="http://localhost/php/manage_entries.php?comp_id='. $comp_id . '&f_name='. $f_name .'&f_country='. $f_country  .'&f_email='. $f_email .'&f_phone='. $f_phone .'&c_name='. $c_name .'&c_email='.$c_email.'&c_phone='.$c_phone.'&fencer_ids='.$fencer_ids.'&compet_id='.$compet_id.'">Confirm</a>
-        
+
         ';
 
         $mail->send();
@@ -162,7 +162,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                 </div>
                 <div id="page_content_panel_main">
                     <div id="manage_entries_wrapper">
-                    
+
                     <div id="new_entries_panel">
                         <p>New Entries</p>
                         <div class="table">
@@ -175,8 +175,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                             <div class="table_row_wrapper">
 
                                 <?php
-                                
-                                
+
+
                                 $query = "SELECT * FROM pre_$comp_id WHERE stat = 0";
                                 $query_do = mysqli_query($connection, $query);
 
@@ -194,7 +194,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     $ids = $row["reg_fencers"];
 
                                     $entry_id = $row["id"];
-                                    
+
 
 
                                     //$ids = substr($ids, 0, -1);
@@ -206,12 +206,12 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                         echo mysqli_error($connection);
                                     }
 
-                                    
-                                    
-                                    
+
+
+
                                     ?>
 
-                                
+
                                     <div class="entry" id="<?php echo $ids ?>">
                                         <div class="table_row" id="<?php echo $entry_id ?>" onclick="toggleEntry(this)">
                                             <div class="table_item"><?php echo $f_name ?></div>
@@ -231,7 +231,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                                 </div>
                                                 <div class="table_row_wrapper">
                                                     <?php
-                                                    
+
                                                     while($rowtwo = mysqli_fetch_assoc($get_fencers_query_do)){
 
                                                         $fen_name = $rowtwo["name"];
@@ -239,8 +239,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                                         $fen_dob = $rowtwo["dob"];
 
 
-                                                        ?>  
-                                                    
+                                                        ?>
+
                                                         <div class="table_row">
                                                             <div class="table_item"><?php echo $fen_name ?></div>
                                                             <div class="table_item"><?php echo $fen_nat ?></div>
@@ -306,8 +306,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     <div class="table_header_text">CONTACT KEEPER'S NAME</div>
                                 </div>
                                     <?php
-                                
-                                
+
+
                                 $query = "SELECT * FROM pre_$comp_id WHERE stat in (1,2)";
                                 $query_do = mysqli_query($connection, $query);
 
@@ -325,8 +325,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     $ids = $row["reg_fencers"];
 
                                     $status = $row["stat"];
-                                    
-                                    
+
+
                                     $get_assigned_ranking_id = "SELECT * FROM competitions WHERE comp_id = $comp_id";
                                     $get_assigned_ranking_id_do = mysqli_query($connection, $get_assigned_ranking_id);
 
@@ -339,19 +339,19 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                     $get_fencers_query = "SELECT * FROM rk_$rkid WHERE id IN ($ids)";
                                     $get_fencers_query_do = mysqli_query($connection, $get_fencers_query);
 
-                                    
-                                    
-                                    
+
+
+
                                     ?>
 
-                                
+
                                     <div class="entry" id="entry_1">
                                         <div class="table_row" onclick="toggleEntry(this)">
                                             <div class="table_item"><?php echo $f_name ?></div>
                                             <div class="table_item"><?php echo $f_mail ?></div>
                                             <div class="table_item"><?php echo $f_country ?></div>
-                                            <div class="big_status_item <?php 
-                                            
+                                            <div class="big_status_item <?php
+
                                             if($status == 1){
 
                                                 echo "green";
@@ -377,7 +377,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                                 </div>
                                                 <div class="table_row_wrapper">
                                                     <?php
-                                                    
+
                                                     while($rowtwo = mysqli_fetch_assoc($get_fencers_query_do)){
 
                                                         $fen_name = $rowtwo["name"];
@@ -385,8 +385,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                                         $fen_dob = $rowtwo["dob"];
 
 
-                                                        ?>  
-                                                    
+                                                        ?>
+
                                                     <div class="table_row">
                                                         <div class="table_item"><p><?php echo $fen_name ?></p></div>
                                                         <div class="table_item"><p><?php echo $fen_nat ?></p></div>

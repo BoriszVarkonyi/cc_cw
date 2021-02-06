@@ -16,7 +16,7 @@
             <!-- navbar -->
         <div class="page_content_flex">
 
-        <?php 
+        <?php
 
             if(isset($_POST["reg_in"])){
 
@@ -32,12 +32,12 @@
             if(isset($_POST["reg_out"])){
 
                 $idtoregin = $_POST["fencer_ids"];
-    
+
                 $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = '$idtoregin'";
                 $query_do = mysqli_query($connection, $query);
-    
+
                 header("Location: registration.php?comp_id=$comp_id");
-    
+
                 }
 
             if(isset($_POST["add_fencer"])){
@@ -130,11 +130,11 @@
                     <div class="table wrapper">
 
                <?php
-               
+
                $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
                $query_do = mysqli_query($connection, $query);
-               
-               
+
+
                ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
@@ -146,16 +146,16 @@
                         </div>
                         <div class="table_row_wrapper">
                         <?php
-                        
+
                         while($row = mysqli_fetch_assoc($query_do)){
 
                         $name = $row["name"];
                         $nat = $row["nationality"];
                         $stat = $row["reg"];
                         $id = $row["id"];
-                        
+
                         ?>
-                        
+
                         <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
                             <div class="table_item"><p><?php echo $name ?></p></div>
                             <div class="table_item"><p><?php echo $nat ?></p></div>

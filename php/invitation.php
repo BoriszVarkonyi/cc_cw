@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 $feedback = array(
 "delete" => "",
 "update" => "",
@@ -31,12 +31,12 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                 $assoc_array_data = [$array_getdata[$i] => $row[$array_getdata[$i]]];
             } else {
                 $assoc_array_data[$array_getdata[$i]] = $row[$array_getdata[$i]];
-                
+
             }
         }
 
     } else { //error branch
-       $feedback['getdata'] = "ERROR: " . mysqli_error($connection); 
+       $feedback['getdata'] = "ERROR: " . mysqli_error($connection);
     }
 
     //get logo image
@@ -50,7 +50,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
         $logo = "../assets/icons/no_image-black-18dp.svg";
         $delete_btn_class = "panel_button disabled";
     }
-    
+
 
 
 
@@ -65,7 +65,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
 
             $create_table_qry = "CREATE TABLE `info_$comp_id` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `info_title` VARCHAR(255) NOT NULL , `info_body` TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB";
 
-            
+
             if (mysqli_query($connection, $create_table_qry)){
                 $feedback['create'] = "Minden fasza!";
             } else {
@@ -101,7 +101,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
             $feedback['insert_info'] = "You already have info with the same title!";
         }
     }
-    
+
 
     //updateing info_body from text areas
     if (isset($_POST['submit_body'])) {
@@ -216,8 +216,8 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                                         <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
                                                     </form>
                                             </div>
-                                    <?php        
-                                            } 
+                                    <?php
+                                            }
                                         }
                                     ?>
                                     <div id="add_entry" onclick="hideNshow()">
@@ -275,7 +275,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 <p><?php echo date('Y', strtotime($assoc_array_data['comp_start'])) ?></p>
                             </div>
                         </div>
-                        
+
                         <div id="competition_info">
                             <?php
                                 $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
@@ -286,11 +286,11 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
 
                                     $json_table = json_decode($string_json);
                                 }
-                                
+
                                 if (count($json_table) != 0 ) {
                             ?>
                             <div id="announcements" class="breakpoint">
-                                  
+
                                 <?php
                                     foreach ($json_table as $ann_objects) {
 
@@ -301,7 +301,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                     <p><?php echo $title ?></p>
                                     <p><?php echo $body ?></p>
                                 </div>
-                                <?php } ?> 
+                                <?php } ?>
                             </div>
                             <?php } ?>
                             <!-- basic info panel -->
@@ -316,28 +316,28 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                             </div>
                                             <div>
                                                 <label>LOCATION AND ADDRESS:</p>
-                                                <p><?php echo $assoc_array_data['comp_location'] ?></p>                                                
+                                                <p><?php echo $assoc_array_data['comp_location'] ?></p>
                                             </div>
                                             <div>
                                                 <label>ENTRY-FEE:</p>
-                                                <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>                                                
+                                                <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>
                                             </div>
                                         </div>
                                         <div>
                                             <div>
                                                 <label>STARTING DATE:</p>
-                                                <p><?php echo $assoc_array_data['comp_start'] ?></p>                                                
+                                                <p><?php echo $assoc_array_data['comp_start'] ?></p>
                                             </div>
                                             <div>
                                                 <label>ENDING DATE:</p>
-                                                <p><?php echo $assoc_array_data['comp_end'] ?></p>                                                
+                                                <p><?php echo $assoc_array_data['comp_end'] ?></p>
                                             </div>
                                             <div>
                                                 <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                                                <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>                                                
+                                                <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>
                                             </div>
                                         </div>
-                                    </div>                                   
+                                    </div>
                                 </div>
                             </div>
 
@@ -348,7 +348,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                     <!-- weapons check table rows -->
                                     <div class="table">
                                         <div class="table_row_wrapper">
-                                        <?php 
+                                        <?php
                                             $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
                                             $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
@@ -395,7 +395,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                     <p class="column_panel_title">Plus Information:</p>
                                     <div>
                                         <?php
-                                        
+
                                             //display plus info from DB
                                             $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
                                             $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
@@ -407,7 +407,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                         ?>
                                         <div class="breakpoint">
                                             <p><?php echo $info_title ?></p>
-                                            <p><?php echo $info_body ?></p>                                            
+                                            <p><?php echo $info_body ?></p>
                                         </div>
 
                                         <?php

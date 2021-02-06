@@ -2,7 +2,7 @@
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
 <?php
-    //get article by id 
+    //get article by id
     $id = $_GET['article_id'];
 
     $qry_get_article = "SELECT * FROM `cw_articles` WHERE `id` = '$id'";
@@ -18,7 +18,7 @@
     }
 
 
-    //delete existinf article 
+    //delete existinf article
     if (isset($_POST['delete'])) {
         $qry_delete = "DELETE FROM `cw_articles` WHERE `id` = '$id'";
         $do_delete = mysqli_query($connection, $qry_delete);
@@ -27,7 +27,7 @@
     }
 
 
-    //upadte existing article 
+    //upadte existing article
     if (isset($_POST['update'])) {
         $title = $_POST['title'];
         $body = $_POST['body'];
@@ -55,7 +55,7 @@
                     }
                 }
 
-                
+
                 // Check if file already exists
                 if (file_exists($target_file)) {
 
@@ -94,12 +94,12 @@
                 } else {
 
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                        
-                    
+
+
                         echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 
-                        
-                    
+
+
                         if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
 
                             echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";

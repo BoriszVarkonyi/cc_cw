@@ -52,7 +52,7 @@
                         <button class="panel_button" onclick="closeWcPanel()">
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
-                            
+
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
                                 <p id="panel_text" class="panel_title"></p>
                                 <input type="text" id="save_date" name="save_date" class="hidden">
@@ -81,7 +81,7 @@
                                      <button type="button" onclick="removePeriod()" class="close_add_peroid">
                                         <img src="../assets/icons/close-black-18dp.svg" >
                                     </button>
-                                </div>  
+                                </div>
                                 <div class="add_peroid_container">
                                     <button type="button" id="add_period" onclick="addPeriod()">
                                         <img src="../assets/icons/more_time-black-18dp.svg" >
@@ -124,7 +124,7 @@
                             <div class="day"></div>
                             <div class="day"></div>
                             <div class="day"></div>
-                               
+
                             </div>
                         </div>
                         <div class="color_legend">

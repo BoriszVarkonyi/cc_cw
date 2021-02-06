@@ -55,7 +55,7 @@ input.addEventListener("input", function() {
   else {
     //If yes it enables the uploadButton
     uploadButton.disabled = false;
-    //Deletes file parth. 
+    //Deletes file parth.
     document.getElementById("fileText").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
   }
 })
@@ -76,7 +76,7 @@ function toggleEntry(x) {
           selectedElementIndexAnn = i;
       }
 
-  } 
+  }
   //Checking if the oldentry var. equals the entry.
   if(entry == oldentry){
       //If yes then it adds opened, and remove collapsed.
@@ -112,7 +112,7 @@ document.addEventListener("keyup", function(e){
 
 var IsNotFocused = true;
 var openedForm =  document.querySelectorAll(".db_panel_main .entry_panel textarea")
-openedForm.forEach(item => { 
+openedForm.forEach(item => {
     item.addEventListener("focus", function(){
         IsNotFocused = false;
     })
