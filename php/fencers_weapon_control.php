@@ -6,12 +6,15 @@
 <?php
 
     class wc {
+        public $id;
         public $array_of_issues;
         public $notes;
 
-        function  __construct($array_of_issues, $notes) {
+
+        function  __construct($id, $array_of_issues, $notes) {
             $this -> array_of_issues = $array_of_issues;
             $this -> notes = $notes;
+            $this -> id = $id;
         }
     }
 
@@ -22,7 +25,7 @@
         "Arm lenght",
         "Blade lenght",
         "Grip lenght",
-        "Form and depthof the guard",
+        "Form and depth of the guard",
         "Guard oxydation/ deformation",
         "Excentricity of the blade",
         "Blade flexibility",
@@ -75,15 +78,15 @@
 
         $json_table = json_decode($json_string);
 
-        if (isset($json_table -> $fencer_id)) {
-            $notes = $json_table[$fencer_id] -> notes;
-            $array_of_issues = $json_table[$fencer_id] -> array_of_issues;
-        } else {
-            $notes = "";
-            $array_of_issues = [];
+        $notes = "";
+        $array_of_real_issues = [];
+
+        foreach ($json_table as $json_object) {
+            if ( $json_object -> id == $fencer_id) {
+                $notes = $json_object -> notes;
+                $array_of_real_issues = $json_object -> array_of_issues;
+            }
         }
-
-
     }
 
 
@@ -94,9 +97,6 @@
 
     if (isset($_POST['submit_wc'])) {
 
-        if (isset($json_table[$fencer_id])) {
-            unset($json_table[$fencer_id]);
-        }
 
         $notes = $_POST['wc_notes'];
         $array_to_push = [];
@@ -110,13 +110,23 @@
             }
         }
 
-        $json_object = new wc($array_to_push, $notes);
-        $json_table[$fencer_id] = $json_object;
+        $json_object = new wc($fencer_id, $array_to_push, $notes);
+        //delete existing object
+        foreach ($json_table as $json_object_to_delete) {
+            if ($json_object_to_delete -> id == $fencer_id) {
+                $id_to_delete = array_search($json_object_to_delete, $json_table);
+            }
+        }
+        unset($json_table[$id_to_delete]);
+
+        array_push($json_table, $json_object);
+
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = $comp_id";
         $do_update = mysqli_query($connection, $qry_update);
         echo mysqli_error($connection);
+        header("Refresh: 0");
     }
 
 
@@ -166,12 +176,16 @@
                                     foreach ($array_issues as $issue) {
 
                                     $issue_id = array_search($issue, $array_issues);
-
+                                    if (isset($array_of_real_issues[$issue_id]) && $array_of_real_issues[$issue_id] != 0) {
+                                        $issue_numbers = $array_of_real_issues[$issue_id];
+                                    } else {
+                                        $issue_numbers = "";
+                                    }
                                 ?>
 
                                 <div class="table_row">
                                     <div class="table_item"><p><?php echo $issue ?></p></div>
-                                    <div class="table_item"><input value="<?php echo $test = (isset($json_table[$fencer_id] -> array_of_issues)) ? $json_table[$fencer_id] -> array_of_issues : '';?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
+                                    <div class="table_item"><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
                                     <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
                                         <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
                                         <label for="<?php echo $issue_id ?>"></label>
@@ -193,6 +207,6 @@
                 </div>
         </div>
     </body>
-    <script src="../js/main.js"></script>
+    <!--<script src="../js/main.js"></script>-->
     <script src="../js/list.js"></script>
 </html>
