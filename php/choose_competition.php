@@ -56,7 +56,7 @@ $query_comps = mysqli_query($connection, $query);
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='tournament_timetable.php?t_id=<?php echo $ass_tourn_id ?>'">
                     <p>Manage Timetable</p>
-                    <img src="../assets/icons/timetable-black-18dp.svg"/>
+                    <img src="../assets/icons/calendar_today-black-18dp.svg"/>
                 </button>
                 <button class="stripe_button primary" onclick="location.href='create_competition.php?t_id=<?php echo $ass_tourn_id ?>'">
                     <p>Create Competition</p>

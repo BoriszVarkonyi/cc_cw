@@ -1,6 +1,6 @@
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	/* Changes throughout colormodes */
-	--c-black: #252525; 
+	--c-black: #252525;
 	--c-transparent-black: #25252530;
 	--c-darkgray: #9B9A9A;
 	--c-gray: #CCC;
@@ -27,7 +27,7 @@
 	--c-purple: #7765E3;
 	--c-bronze :#E58955;
 	/* Static throughout colormodes */
-	--cs-black: #252525; 
+	--cs-black: #252525;
 	--cs-transparent-black: #25252520;
 	--cs-darkgray: #9B9A9A;
 	--cs-gray: #CCC;
@@ -35,7 +35,7 @@
 	--cs-lightergray: #ECECEC;
 	--cs-lightestgray: #F6F6F6;
 	--cs-white: #FFF;
-	--cs-navbar: #252525; 
+	--cs-navbar: #252525;
 	--cs-transparent-white: #FFFFFF20;
 	--cs-yellow: #FFC914;
 	--cs-orange: #F19A3E;
@@ -44,7 +44,7 @@
 	--cs-green: #8DFFB7;
 	--cs-blue: #42CAFD;
 	--cs-purple: #7765E3;
-	--cs-input: #252525; 
+	--cs-input: #252525;
 	--cs-bronze :#E58955;
 	/* Unique */
 	--csd-orange: transparent;
@@ -103,12 +103,12 @@
 }
 
 [data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */
-	--c-black: #FFFC00; 
+	--c-black: #FFFC00;
 	--c-transparent-black: #25252530;
-	--c-darkgray: #1A1A1A; 
-	--c-gray: #141414; 
-	--c-lightgray: #0F0F0F; 
-	--c-lightergray: #0A0A0A; 
+	--c-darkgray: #1A1A1A;
+	--c-gray: #141414;
+	--c-lightgray: #0F0F0F;
+	--c-lightergray: #0A0A0A;
 	--c-lightestgray: #050505;
 	--c-white: #000;
 	--c-transparent-white: #25252530;
@@ -124,7 +124,7 @@
 }
 
 [data-theme="dark"]:root {	/* Dark Mode */
-	--c-black: #F1F1F1; 
+	--c-black: #F1F1F1;
 	--c-transparent-black: #25252530;
 	--c-darkgray: #3F3F3F;
 	--c-gray: #393939;
@@ -152,7 +152,7 @@
 	--ci-staticwhite: saturation(71%);
 }
 
-@font-face {	
+@font-face {
 	font-family: Poppins-Light;
 	src: url(../assets/fonts/Poppins-Light.ttf);
 }
@@ -360,7 +360,7 @@ input[type="text"].hidden {
 }
 
 input, input:focus {
-    color: var(--cs-black);
+    color: var(--cd-sedondarycontrast);
 	outline: none;
 	border: none;
 }
@@ -373,9 +373,9 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	width: 300px;
 	height: 37px;
 	padding: 0 10px 0 35px;
+	border-radius: 5px;
 	background-repeat: no-repeat;
 	background-position: 10px;
-	border-radius: 5px;
 }
 
 input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt {		/* Sets basic look of text and password inputs*/
@@ -990,7 +990,6 @@ input:focus ~ .clear_search_button {
 	font-family: var(--bold);
 	border-radius: 2.5px;
 	overflow: hidden;
-	color: var(--cs-white)
 }
 
 .table_row.selected .table_item {
@@ -1000,6 +999,7 @@ input:focus ~ .clear_search_button {
 .table_row.selected p {
 	overflow: visible !important;
 	text-overflow: clip !important;
+	color: var(--ci-secondarycontrast)
 }
 
 .table_row_drop {
@@ -1146,6 +1146,10 @@ input:focus ~ .clear_search_button {
 	overflow: hidden;
 }
 
+.table_item.capitalize p::first-letter {
+	text-transform: capitalize;
+}
+
 .table_item p {
 	padding: 0 20px;
 	overflow: hidden;
@@ -1217,12 +1221,12 @@ input:focus ~ .clear_search_button {
 }
 
 ::-webkit-scrollbar-thumb { /* Handle */
-	background: var(--c-darkgray); 
+	background: var(--c-darkgray);
 	border-radius: 10px;
 }
-  
+
 ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
-    background: var(--c-gray); 
+    background: var(--c-gray);
 }
 
 input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking"] {
@@ -1338,7 +1342,7 @@ p.wc_time {
 
 .elimination_slider_button.left {
 	left: 0;
-	
+
 }
 .elimination_slider_button.right {
 	right: 0;
@@ -1635,5 +1639,5 @@ p.wc_time {
 .table_round_wrapper.purple .table_fencer_number, .table_round_wrapper.purple .table_fencer_name {
 	background: var(--cs-purple);
 	color: var(--cs-white);
-	
+
 }

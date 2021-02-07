@@ -87,7 +87,7 @@ $query_do = mysqli_query($connection, $query);
 
                                     }
                                     
-                                    ?>">                                
+                                    ?>">
                                 </div>
                                 <div>
                                     <label for="location">LOCATION AND ADDRESS</label>
@@ -118,11 +118,11 @@ $query_do = mysqli_query($connection, $query);
 
                                     }
                                     
-                                    ?>">                                
+                                    ?>">
                                 </div>
                                 <div>
                                     <label for="entry_fee">ENTRY-FEE</label>
-                                    <input type="text" placeholder="Type in the amount" name="entry_fee" class="number_input money_input" value="<?php
+                                    <input type="text" placeholder="Type in the amount and currency" name="entry_fee" class="number_input money_input" value="<?php
                                     
                                     if($entry_fee_get == ''){
 
@@ -135,7 +135,7 @@ $query_do = mysqli_query($connection, $query);
 
                                     }
                                     
-                                    ?>">                                
+                                    ?>">
                                 </div>
                             </div>
                             <div>
@@ -154,7 +154,7 @@ $query_do = mysqli_query($connection, $query);
 
                                     }
                                     
-                                    ?>">                                
+                                    ?>">
                                 </div>
                                 <div>
                                     <label for="end_date">ENDING DATE</label>
@@ -171,7 +171,7 @@ $query_do = mysqli_query($connection, $query);
 
                                     }
                                     
-                                    ?>">                                
+                                    ?>">
                                 </div>
                                 <div>
                                     <label for="end_pre_reg">END OF PRE-REGISTRATION</label>
@@ -188,7 +188,7 @@ $query_do = mysqli_query($connection, $query);
 
                                     }
                                     
-                                    ?>">                                
+                                    ?>">
                                 </div>
                             </div>                            
                         </div>

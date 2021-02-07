@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 
 
@@ -32,7 +32,7 @@
                 <div id="guide_choose">
                     <div class="guide_option">
                         <div>
-                            <img src="../assets/icons/directions-black-18dp.svg" >  
+                            <img src="../assets/icons/directions-black-18dp.svg" >
                         </div>
                         <div>
                             <p>Getting Started</p>

@@ -4,7 +4,7 @@
 <?php
 
 if (isset($_POST["create_tournament"])) {
-    
+
     $org_id = $_COOKIE["org_id"];
     $t_name = $_POST["tournament_name"];
 
@@ -55,9 +55,9 @@ if (isset($_POST["create_tournament"])) {
                 <div>
                     <div>
                         <label for="comp_name">NAME</label>
-                        <input type="text" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input" onblur="errorChecker(this)">                        
+                        <input type="text" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input" onblur="errorChecker(this)">
                     </div>
-                    
+
                 </div>
             </form>
         </div>

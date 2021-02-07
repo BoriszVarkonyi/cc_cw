@@ -1,7 +1,7 @@
 var appointments = document.querySelectorAll(".appointment")
 var oldClickedAppointment
 function selectAppointment(x){
-    var clickedAppointment = x 
+    var clickedAppointment = x
     if(oldClickedAppointment != clickedAppointment){
         //Removes all class, sets the innertext
         for(i=0; i<appointments.length; i++){
@@ -17,7 +17,7 @@ function selectAppointment(x){
             }
             else{
                 //Adds disabled class
-                appointments[i].classList.add("disabled") 
+                appointments[i].classList.add("disabled")
             }
         }
         //Add selected class to the clicked one

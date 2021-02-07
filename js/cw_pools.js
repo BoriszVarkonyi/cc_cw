@@ -13,7 +13,7 @@ function togglePool(x) {
             selectedElementIndexAnn = i;
         }
 
-    } 
+    }
     //Checking if the oldentry var. equals the entry.
     if(entry == oldentry){
         //If yes then it adds opened, and remove collapsed.
@@ -33,4 +33,4 @@ function togglePool(x) {
         //If no it sets the oldentry var. undifened
         oldentry = undefined
     }
-}    
+}

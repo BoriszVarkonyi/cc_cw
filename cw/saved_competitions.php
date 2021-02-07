@@ -1,8 +1,8 @@
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
 <?php $statusofpage = 4; ?>
-<?php 
-    
+<?php
+
 
     $cookie_expires = time() + 31556926;
     $cookie_name = "fav_comp";
@@ -54,7 +54,7 @@
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper alt">
-                        <?php 
+                        <?php
                         $qry_get_data = "SELECT * FROM competitions WHERE comp_id IN ($saved_comps);";
                         $do_get_data =  mysqli_query($connection, $qry_get_data);
                         echo mysqli_error($connection);
@@ -86,7 +86,7 @@
                                     </button>
                                 </form>
                             </div>
-                        <?php 
+                        <?php
                         }
                         ?>
                         </div>

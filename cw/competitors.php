@@ -1,5 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php 
+<?php
     $WHERE_CLAUSE = "";
 
     if (isset($_POST['submit_search'])) {
@@ -62,9 +62,9 @@
                         <div id="year_select_dropdown">
                             <?php
                                 for ($i = +3; $i <= 100; $i++) {
-                                    
-                                    $year = date("Y") - $i; 
-                                    
+
+                                    $year = date("Y") - $i;
+
                                     ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
                                 }
                             ?>
@@ -75,7 +75,7 @@
 
                 <div class="table cw">
 
-                    <?php 
+                    <?php
                         $qry = "SELECT * FROM `cptrs_$comp_id` " . $WHERE_CLAUSE . " ORDER BY `rank` ASC";
                         $do = mysqli_query($connection, $qry);
                         if ($do == FALSE || mysqli_num_rows($do) == 0) {
@@ -110,9 +110,9 @@
                                         <p><?php echo $nat ?></p>
                                     </div>
                                 </div>
-                                
+
                                 <?php
-                            } 
+                            }
                         }
                     ?>
                 </div>

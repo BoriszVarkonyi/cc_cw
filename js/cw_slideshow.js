@@ -10,7 +10,7 @@ function toggleButton(x) {
   var activeButtonNumber;
   //Hide all slides.
   for (i=0; i<slides.length; i++) {
-    slides[i].classList.add("hidden") 
+    slides[i].classList.add("hidden")
   }
   //Removes active class from all buttom
   for(i=0; i<slidesButtons.length; i++) {
@@ -37,17 +37,17 @@ function toggleButton(x) {
   setTimeout(function(){
     for(i=0; i<slidesButtons.length; i++){
       slidesButtons[i].disabled = false;
-  
+
     }
   }, 1000)
-  
+
 }
 
 //Showslide automatic
 
 //Hide all slides.
 for (i=0; i<slides.length; i++) {
-  slides[i].classList.add("hidden") 
+  slides[i].classList.add("hidden")
 }
 
 //Shows the current slide.
@@ -56,7 +56,7 @@ slides[slidesNumber].classList.remove("hidden");
 function showSlides() {
   //Hide all slides.
   for (i=0; i<slides.length; i++) {
-    slides[i].classList.add("hidden") 
+    slides[i].classList.add("hidden")
   }
 
   slidesNumber++;

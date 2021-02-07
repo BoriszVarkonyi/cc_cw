@@ -29,7 +29,7 @@ function automaticWidthTest(){
             for(i = 0; i<column.length; i++) {
                 if(column[i].style.width !== biggestWidth || column[i].style.width !== biggestWidth -1 || column[i].style.width !== biggestWidth +1){
                     column[i].style.width = biggestWidth + "px";
-                }   
+                }
                 widthArray.pop();
             }
         }
@@ -45,7 +45,7 @@ function selectRow(x){
         x.classList.remove("selected");
         x.blur()
         selectedRowInput.value = "";
-        //It is a var. from control.js 
+        //It is a var. from control.js
         selectedElementIndexAr = 0;
     }
     //Select the clicked table row
@@ -60,7 +60,7 @@ function selectRow(x){
         //Counts the selected table row index
         for(i=0; i<rows.length; i++){
             if(rows[i].classList.contains("selected")){
-                //It is a var. from control.js 
+                //It is a var. from control.js
                 selectedElementIndexAr = i;
                 break;
             }
@@ -81,12 +81,12 @@ function selectSearch(x) {
     //Gets the tablerow by id
     var selectedTableElement = document.getElementById(selectedElementId)
     //Adds selected class
-    selectedTableElement.classList.add("selected") 
+    selectedTableElement.classList.add("selected")
     //Counts the selected table row index
     var rows = document.querySelectorAll(".table .table_row");
     for(i=0; i<rows.length; i++){
         if(rows[i].classList.contains("selected")){
-            //It is a var. from control.js 
+            //It is a var. from control.js
             selectedElementIndexAr = i;
             break;
         }

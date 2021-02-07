@@ -22,7 +22,7 @@ function callback(mutationsList, observer) {
         }
     })
 }
-    
+
 const mutationObserver3 = new MutationObserver(callback)
 for(i=0; i<wcRows.length; i++){
 mutationObserver3.observe(wcRows[i], { attributes: true })
@@ -90,5 +90,5 @@ document.addEventListener("keyup", function(keyDownEvent){
         if(keyDownEvent.shiftKey && keyDownEvent.which == 82){
             removeButton.click()
         }
-    }     
+    }
 })

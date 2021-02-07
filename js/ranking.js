@@ -32,10 +32,10 @@ form.addEventListener("input", function(){
   if(points.value < 0) {
     //If its grather than 10 or less than 0, it sets the value "" (0).
     points.value = "";
-  } 
+  }
   //Checking every input.
   for(i=0; i<inputs.length; i++){
-    
+
     if(inputs[i].value == ""){
       //If it finds an empty input, then it disable the "Save" button.
       saveButton.disabled = true;
@@ -44,7 +44,7 @@ form.addEventListener("input", function(){
     }
     else {
       //If everything has a value then it enable the "Save" Button. The user can save.
-      saveButton.disabled = false;  
+      saveButton.disabled = false;
 
     }
   }
@@ -68,7 +68,7 @@ if(toselect.length > 0){
 
     for (let index = 0; index < toselect.length; index++) {
         toselect[index].classList.remove("selected")
-        
+
     }
 
 

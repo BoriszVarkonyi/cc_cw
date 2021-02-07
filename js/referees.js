@@ -25,15 +25,15 @@ function randomPassword(){
 
     var alphabet = "abcdefghijklmnopqrstuvwxyz" + 'abcdefghijklmnopqrstuvwxyz'.toUpperCase() + "0123456789";
     var randompasswordarray = [];
-    
+
     for (i = 0;i < 10; i++) {
-        
+
         var randomnumber = Math.floor(Math.random() * 62);
         var randomletter = alphabet.charAt(randomnumber);
         randompasswordarray.push(randomletter);
-    
+
     }
-    
+
     randompassword = randompasswordarray.join("");
     var passfield = document.getElementById("password_input");
     passfield.value = randompassword;
@@ -60,7 +60,7 @@ var star = "*";
     for(i = 0; i < change_id.length; i++) {
 
         change_id.item(i).innerHTML = star.repeat(test[i]);
- 
+
      }
 
 
@@ -73,13 +73,13 @@ function hidePasswords(x) {
     buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
     if (visib == 1){
-    
+
         buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
     for(i = 0; i < change_id.length; i++) {
 
         change_id.item(i).innerHTML = sajtos[i];
-     
+
     }
 
     visib = 2;
@@ -91,7 +91,7 @@ function hidePasswords(x) {
         for(i = 0; i < change_id.length; i++) {
 
             change_id.item(i).innerHTML = star.repeat(test[i]);
-     
+
          }
 
          buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
@@ -174,25 +174,25 @@ var setNationInput = document.getElementById("set_nation_input");
 //        if (nxtCol)
 //        nxtColWidth = nxtCol.offsetWidth
 //        });
-//    
+//
 //        document.addEventListener('mousemove', function (e) {
 //        if (curCol) {
 //        var diffX = e.pageX - pageX;
-//        
+//
 //        if (nxtCol)
 //        nxtCol.style.width = (nxtColWidth - (diffX))+'px';
-//    
+//
 //        curCol.style.width = (curColWidth + diffX)+'px';
 //        }
-//       
+//
 //        });
-//    
-//    document.addEventListener('mouseup', function (e) { 
+//
+//    document.addEventListener('mouseup', function (e) {
 //        curCol = undefined;
 //        nxtCol = undefined;
 //        pageX = undefined;
 //        nxtColWidth = undefined;
 //        curColWidth = undefined;
 //        });
-//    }  
-//}  
+//    }
+//}

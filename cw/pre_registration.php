@@ -56,7 +56,7 @@ if(isset($_POST["send_pre"])){
                                 <div>
                                     <div>
                                         <label>FEDERATION'S NAME:</label>
-                                        <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input alt">                                
+                                        <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input alt">
                                     </div>
                                     <div>
                                         <label>COUNTRY / FENCING CLUB:</label>
@@ -64,30 +64,30 @@ if(isset($_POST["send_pre"])){
                                     </div>
                                     <div>
                                         <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
-                                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">                                
+                                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                                     </div>
                                     <div>
                                         <label>FEDERATION'S PHONE NUMBER:</label>
-                                        <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">                                
+                                        <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">
                                     </div>
                                 </div>
                                 <div>
                                     <div>
                                         <label>CONTACT KEEPER'S FULL NAME:</label>
-                                        <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">                                
+                                        <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">
                                     </div>
                                     <div>
                                         <label>CONTACT KEEPER'S EMAIL ADDRESS:</label>
-                                        <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">                                
+                                        <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">
                                     </div>
                                     <div>
                                         <label>CONTACT KEEPER'S PHONE NUMBER:</label>
-                                        <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">                                
+                                        <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">
                                     </div>
                                     <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
                                     <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                     <p class="column_title centered">SELECT FENCERS FROM THE COMPEITION'S RANKING: (STEP 2 / 2)</p>
@@ -114,7 +114,7 @@ if(isset($_POST["send_pre"])){
                                 </div>
                                 <div class="table_row_wrapper">
                                 <?php
-                                
+
                                 $query_actual_ranking = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
                                 $query_actual_ranking_do = mysqli_query($connection, $query_actual_ranking);
 
@@ -144,7 +144,7 @@ if(isset($_POST["send_pre"])){
                                 <?php
                                 }
                                 ?>
-                                </div>                        
+                                </div>
                             </div>
                         </div>
                     </div>

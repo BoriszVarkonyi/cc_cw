@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     $WHERE_CLAUSE = "WHERE `comp_status` = '$statusofpage' ";
 

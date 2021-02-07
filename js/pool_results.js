@@ -11,7 +11,7 @@ function selectRow(x){
             }
         }
         hiddenInput.value = "";
-        oldClickedRow = undefined; 
+        oldClickedRow = undefined;
     }
     else{
         var tableRows = document.querySelectorAll(".table_row");
@@ -21,7 +21,7 @@ function selectRow(x){
             if(selectedElements.length > 0){
                 selectedElements[i].classList.remove("selected")
             }
-        } 
+        }
         //Adds selected class to the clicked row
         var selectedRow = x
         selectedRow.classList.add("selected")

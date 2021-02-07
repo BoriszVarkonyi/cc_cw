@@ -16,7 +16,7 @@
 
         //profile pic if not set by user
         $profile_pic = "../assets/icons/profile_picture.svg";
-                
+
         //test for uploaded profil pic
         if (file_exists("../profile_pics/$id.png")) {
             $profile_pic = "../profile_pics/$id.png";
@@ -26,7 +26,7 @@
     } else {
         $needed_profile_pic = FALSE;
     }
-    
+
 ?>
 
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
     $table_name = "wc_$comp_id";
     //feedback
@@ -29,11 +29,11 @@
         $fencer_id = $_POST['fencer_id'];
         header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&rankid=$ranking_id");
     }
-    
+
     //checking for dupli tables
     $check_d_table_qry = "SELECT COUNT(*)
-    FROM information_schema.tables 
-    WHERE table_schema = 'ccdatabase' 
+    FROM information_schema.tables
+    WHERE table_schema = 'ccdatabase'
     AND table_name = '$table_name';";
 
     if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
@@ -42,11 +42,11 @@
 
         if ($num_rows != 0) {
             //creating weapon control  table
-            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL , 
-                                                                `name` VARCHAR(255) NOT NULL , 
-                                                                `nat` VARCHAR(255) NOT NULL , 
-                                                                `weapon_errors` VARCHAR(255) NOT NULL , 
-                                                                `notes` TEXT NOT NULL ) 
+            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL ,
+                                                                `name` VARCHAR(255) NOT NULL ,
+                                                                `nat` VARCHAR(255) NOT NULL ,
+                                                                `weapon_errors` VARCHAR(255) NOT NULL ,
+                                                                `notes` TEXT NOT NULL )
                                                                 ENGINE = InnoDB;";
 
             if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
@@ -141,7 +141,7 @@
                             } else {
                                 $feedback['getcompdata'] = "ERROR " . mysqli_error($connection);
                             }
-                            
+
                             //get fencers from competitors by comp id :D
                             $qry_get_fencers = "SELECT * FROM cptrs_$comp_id";
 

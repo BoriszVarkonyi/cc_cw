@@ -3,11 +3,11 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
     $comp_id = $_GET['comp_id'];
 
-    //make formulas table 
+    //make formulas table
     $qry_create_table = "CREATE TABLE `ccdatabase`.`formulas` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_create_table = mysqli_query($connection, $qry_create_table);
 
@@ -107,15 +107,15 @@
                         <div>
                             <div>
                                 <label for="points_pools" >POINTS IN POOLS</label>
-                                <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">                                
+                                <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">
                             </div>
                             <div>
                                 <label for="points_table" >POINTS IN TABLE</label>
-                                <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">                                
+                                <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">
                             </div>
                             <div>
                                 <label for="nb_qualifier" >NUMBER OF QUALIFIERS AFTER POOLS</label>
-                                <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">                                
+                                <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">
                             </div>
                             <div>
                                 <label for="elimnation_type" >ELIMINATION TYPE</label>
@@ -124,13 +124,13 @@
                                     <label for="direct_et">Direct-Elimination Tournament</label>
                                     <input type="radio" name="elimnation_type" id="double_et" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
                                     <label for="double_et">Double-Elimination Tournament</label>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                         <div>
 
                             <div>
-                                <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>                                
+                                <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>
                                 <div class="option_container">
                                     <input type="radio" name="type_of_elimination" id="one_phase_table" value="1" <?php echo $is_checked = ($json_table -> isOnePhase == 1) ? "checked" : "" ?> />
                                     <label for="one_phase_table">One Phase Table</label>
@@ -145,9 +145,9 @@
                                     <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
                                     <label for="third_place_no">Yes</label>
 
-                                    <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> /> 
+                                    <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> />
                                     <label for="third_place_no">No</label>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </form>

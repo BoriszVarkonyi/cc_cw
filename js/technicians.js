@@ -23,15 +23,15 @@ function randomPassword(){
 
     var alphabet = "abcdefghijklmnopqrstuvwxyz" + 'abcdefghijklmnopqrstuvwxyz'.toUpperCase() + "0123456789";
     var randompasswordarray = [];
-    
+
     for (i = 0;i < 10; i++) {
-        
+
         var randomnumber = Math.floor(Math.random() * 62);
         var randomletter = alphabet.charAt(randomnumber);
         randompasswordarray.push(randomletter);
-    
+
     }
-    
+
     randompassword = randompasswordarray.join("");
     var passfield = document.getElementById("password_input");
     passfield.value = randompassword;
@@ -58,7 +58,7 @@ var star = "*";
     for(i = 0; i < change_id.length; i++) {
 
         change_id.item(i).innerHTML = star.repeat(test[i]);
- 
+
      }
 
 
@@ -71,13 +71,13 @@ function hidePasswords(x) {
     buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
     if (visib == 1){
-    
+
         buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
     for(i = 0; i < change_id.length; i++) {
 
         change_id.item(i).innerHTML = sajtos[i];
-     
+
     }
 
     visib = 2;
@@ -89,7 +89,7 @@ function hidePasswords(x) {
         for(i = 0; i < change_id.length; i++) {
 
             change_id.item(i).innerHTML = star.repeat(test[i]);
-     
+
          }
 
          buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
@@ -154,7 +154,7 @@ function technisiansValidation(){
         }
     }
     if(valid1 && valid2){
-        techSaveButton.disabled = false;    
+        techSaveButton.disabled = false;
     }
     else{
         techSaveButton.disabled = true;

@@ -49,7 +49,7 @@
     foreach ($assoc_array_functions as $key => $value) {
         $assoc_array_functions[$key] = $value . NORMAL_CLASS;
     }
-    
+
     switch ($comp_status) {
 
         case 1: /* scheduled */

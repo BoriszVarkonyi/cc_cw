@@ -9,26 +9,26 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
+    <?php
         $qry_get_data = "SELECT * FROM cw_videos";
         $do_get_data = mysqli_query($connection, $qry_get_data);
 
         while ($row = mysqli_fetch_assoc($do_get_data)) {
 
             $title = $row['title'];
-    
-    
-    
-    
+
+
+
+
     ?>
 
     <a href="../cw/cw_modify_video.php?title=<?php echo $title ?>"><?php echo $title ?></a>
 
 
-    <?php 
+    <?php
         }
-    
-    
+
+
     ?>
 </body>
 </html>

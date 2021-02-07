@@ -19,7 +19,7 @@ function toggleCreateRankingPanel() {
     rankingCreate.classList.add("closed");
 }
 
-// 
+//
 function chooseRankingCreate() {
     rankingCreate.classList.toggle("closed");
 }
@@ -32,7 +32,7 @@ function selectRanking(x) {
 
     var toselect = document.getElementsByClassName("selected");
     var input = document.getElementById("ranking_id_hidden");
-    
+
     if (toselect.length > 0) {
         for (let index = 0; index < toselect.length; index++) {
             toselect[index].classList.remove("selected");
@@ -42,9 +42,9 @@ function selectRanking(x) {
     }
     else {
         x.classList.add("selected");
-    
+
         input.value = x.id;
-    
+
         console.log(input.value)
     }
 }
@@ -58,7 +58,7 @@ function getName() {
 
     useThisRanking.classList.remove("hidden");
     rankingSearch.classList.add("hidden");
-} 
+}
 
 function cancelName() {
     useThisRanking.classList.add("hidden");

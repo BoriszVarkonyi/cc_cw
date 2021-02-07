@@ -29,7 +29,7 @@
                 </form>
 
                 <div>
-                    <?php 
+                    <?php
                     $qry_get_data = "SELECT * FROM `cw_articles`";
                     $do_get_data = mysqli_query($connection, $qry_get_data);
 
@@ -40,9 +40,9 @@
                         $date = $row['date'];
                         $id = $row['id'];
                         $pic = "../article_pics/" . $id . ".png";
-                    
+
                         $brief = substr($body, 0, 400);
-                    
+
                     ?>
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
@@ -52,11 +52,11 @@
                         <p class="article_post_date">POSTED: <?php echo $date ?></p>
                         <p class="article_post_date">BY: <?php echo $author ?></p> <!-- ennek nem biztos date nek kene lennie de csak ez volt na -->
                     </div>
-                    <?php 
+                    <?php
                         }
                     ?>
                     </div>
-                </div> 
+                </div>
             </div>
             <?php include "cw_footer.php"; ?>
         </div>

@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 $comp_org = $_COOKIE["org_id"];
 
@@ -157,7 +157,7 @@ if(isset($_POST["submit"]) ){
                                                 $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
 
                                                 while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
-                                                    
+
                                                     $ranking_name = $row['name'];
                                                     $ranking_id = $row['id'];
 
@@ -190,7 +190,7 @@ if(isset($_POST["submit"]) ){
                             </div>
                             <div class="icon_box">
                                 <svg>
-                                    <circle cx="50%" cy="50%" r="47.5%"/>   
+                                    <circle cx="50%" cy="50%" r="47.5%"/>
                                 </svg>
                                 <img src="../assets/icons/cloud_download-black-18dp.svg" >
                             </div>
@@ -198,7 +198,7 @@ if(isset($_POST["submit"]) ){
                                 <button value="Choose Ranking" id="choose_ranking_button" onclick="chooseRankingSearch()">Choose Ranking</button>
                             </div>
                         </div>
-                    
+
                         <div id="create_ranking_panel">
                             <button onclick="toggleCreateRankingPanel()" class="open_panel_button"></button>
                             <button class="panel_button" onclick="toggleCreateRankingPanel()">

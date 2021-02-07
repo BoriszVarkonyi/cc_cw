@@ -8,7 +8,7 @@ function toggleWcPanel(x){
     setWcPanel.classList.add("hidden")
     if(clickedDate == oldClickedDate) {
         setWcPanel.classList.remove("hidden");
-        
+
     }
     setWcPanel.classList.toggle("hidden");
     //If setwcPanel contains hidden
@@ -43,16 +43,16 @@ function toggleWcPanel(x){
             setWcPanel.style.left = clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width
         }
         else{
-            setWcPanel.style.left = clickedDateBounding.right-navbar.width 
-        }    
+            setWcPanel.style.left = clickedDateBounding.right-navbar.width
+        }
     }
     if(page.height > clickedDateBounding.top - clickedDateBounding.height/2 - setWcPanelBounding.height/2 - headerbar.height + setWcPanelBounding.height){
         setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height
     }
     else{
         setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height - (clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height + setWcPanelBounding.height - page.height) -10;
-    }    
-    
+    }
+
 }
 
 function closeWcPanel() {
@@ -121,11 +121,11 @@ if(datesarray[0] != ""){
 
         var addwc = document.getElementById(datesarray[index]);
         addwc.classList.add("has_wc");
-    
+
         addwc.onclick = "removeWcDay(this)";
-    
+
         //addwc.removeAttribute("onclick");
-        
+
     }
 
 
@@ -135,7 +135,7 @@ if(datesarray[0] != ""){
 //Removes onclick attribute from dates which has already weapon control
 
 /*for (let index = 0; index < datesarray; index++) {
-    
+
     var noonclick = document.getElementById(datesarray[index]);
     noonclick.onclick = "";
 
@@ -182,10 +182,10 @@ document.addEventListener("input", function checkInput(){
             //If its grather than 24 or less than 0, it sets the value "" (0).
             wcTime[i].value = "";
         }
-    }   
+    }
     //Checking every input.
     for(i=0; i<wcTime.length; i++){
-        
+
         if(wcInput.value == "" || wcTime[i].value == ""){
         //If it finds an empty input, then it disable the "Save" button.
         saveButton.disabled = true;

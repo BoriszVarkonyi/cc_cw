@@ -255,12 +255,6 @@ function setToDark() {
 
     clrVariations.style.visibility = "visible";
 
-    for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "invert(100%)";
-    }
-    for (i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "invert(100%)";
-    }
     contentThemeSetter();
 }
 
