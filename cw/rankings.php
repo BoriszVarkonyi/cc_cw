@@ -31,7 +31,7 @@
                     </div>
                     <div class="table_row_wrapper alt">
 
-                        <?php 
+                        <?php
                             //get comp_
                             $qry_get_rankings = "SELECT * FROM `ranking` WHERE `ass_comp_id` <> '0'";
                             $do_get_rankings = mysqli_query($connection, $qry_get_rankings);
@@ -42,15 +42,15 @@
                             $ranking_id = $row['id'];
                             $ass_comp_id = $row['ass_comp_id'];
                             $ranking_password = $row['password'];
-                        
+
                         ?>
 
                             <div class="table_row" onclick="window.location.href='ranking.php?comp_id=<?php echo $ass_comp_id ?>'">
                                 <div class="table_item"><p><?php echo $ranking_name ?></p></div>
                                 <div class="table_item"><p><?php echo $ranking_id ?></p></div>
                             </div>
-                        
-                        <?php 
+
+                        <?php
                             }
                         ?>
 

@@ -29,9 +29,9 @@
                         <div id="year_select_dropdown" class="closed">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
-                                    
-                                    $year = date("Y") - $i; 
-                                    
+
+                                    $year = date("Y") - $i;
+
                                     ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
                                 }
                             ?>

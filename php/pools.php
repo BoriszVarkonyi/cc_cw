@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 $query_get_fencers = "SELECT * FROM cptrs_$comp_id";
 $query_get_fencers_do = mysqli_query($connection, $query_get_fencers);
@@ -61,7 +61,7 @@ $query_get_fencers = "SELECT * FROM cptrs_$comp_id";
 $query_get_fencers_do = mysqli_query($connection, $query_get_fencers);
 
 while($row = mysqli_fetch_assoc($query_get_fencers_do)){
-    
+
 $fid = $row["id"];
 $fname = $row["name"];
 $fnat = $row["nationality"];
@@ -86,7 +86,7 @@ if(!in_array($all_fencers_n[$x], ${$y . "_group_n"})){
 
 
 }else {
-    
+
     array_push($savefencerarray, $x);
     array_push($savegrouparray, $y);
 
@@ -124,18 +124,18 @@ $change = 0;
 }
 
 for ($l=0; $l < count($savegrouparray); $l++) {
-    
+
 $doit = 0;
 
-    for ($k=0; $k < count($savefencerarray); $k++) { 
-        
+    for ($k=0; $k < count($savefencerarray); $k++) {
+
         if(!in_array($all_fencers_n[$savefencerarray[$k]], ${$savegrouparray[$l] . "_group_n"}) && $doit == 0 && $savefencerarray[$k] != "OFF"){
 
             array_push(${$savegrouparray[$l] . "_group_id"}, $all_fencers_id[$savefencerarray[$k]]);
             array_push(${$savegrouparray[$l] . "_group_f"}, $all_fencers_f[$savefencerarray[$k]]);
             array_push(${$savegrouparray[$l] . "_group_n"}, $all_fencers_n[$savefencerarray[$k]]);
             $savefencerarray[$k] = "OFF";
-        
+
             $doit = 1;
         }
 
@@ -145,8 +145,8 @@ $doit = 0;
 
 
 //$szamolo = 0;
-// for ($s=0; $s < count($savefencerarray) + 1 ; $s++) { 
-    
+// for ($s=0; $s < count($savefencerarray) + 1 ; $s++) {
+
 //     if($savefencerarray[$s] == "OFF"){
 //         unset($savefencerarray[$s]);
 //         //$szamolo++;
@@ -173,7 +173,7 @@ if($doornot != 0){
 //print_r($savefencerarray);
 
 foreach ($savefencerarray as $key) {
-    
+
 echo $key;
 
 $getrekt = 0;
@@ -190,25 +190,25 @@ else{
     $h = array_search($key, $savefencerarray);
 
     echo($h);
-    
+
     $annalkisebb = count(${$xd . "_group_n"});
     $toplace = 0;
-    
-    for ($c=0; $c < $poolsnum; $c++) { 
-        
+
+    for ($c=0; $c < $poolsnum; $c++) {
+
     if($annalkisebb > count(${$c . "_group_n"})){
-    
+
         $annalkisebb = count(${$c . "_group_n"});
-    
+
         $toplace = $c;
-    
+
     }
-    
+
     $fencertoplace = array_search($savefencerarray[$h], $all_fencers_n);
 
     }
     //print_r($savefencerarray);
-    
+
         array_push(${$toplace . "_group_id"}, $all_fencers_id[$key]);
         array_push(${$toplace . "_group_f"}, $all_fencers_f[$key]);
         array_push(${$toplace . "_group_n"}, $all_fencers_n[$key]);
@@ -228,7 +228,7 @@ echo $toplace;
 // $temp = count($savefencerarray);
 
 
-// for ($h=0; $h < $temp; $h++) { 
+// for ($h=0; $h < $temp; $h++) {
 
 // if(!isset($savefencerarray[$h]) || $savefencerarray[$h] == "OFF"){
 
@@ -243,14 +243,14 @@ echo $toplace;
 // $xd = 0;
 // if(count($savefencerarray) > 0){
 
-// for ($h=0; $h < count($savefencerarray); $h++) { 
+// for ($h=0; $h < count($savefencerarray); $h++) {
 
 
 
 //     $annalkisebb = count(${$xd . "_group_n"});
 
-// for ($c=0; $c < $poolsnum; $c++) { 
-    
+// for ($c=0; $c < $poolsnum; $c++) {
+
 // if($annalkisebb > count(${$c . "_group_n"})){
 
 //     $annalkisebb = count(${$c . "_group_n"});
@@ -270,14 +270,14 @@ echo $toplace;
 // }
 // if(count($savefencerarray) > 0){
 
-// for ($h=0; $h < count($savefencerarray); $h++) { 
+// for ($h=0; $h < count($savefencerarray); $h++) {
 
 
 
 //     $annalkisebb = count(${$xd . "_group_n"});
 
-// for ($c=0; $c < $poolsnum; $c++) { 
-    
+// for ($c=0; $c < $poolsnum; $c++) {
+
 // if($annalkisebb > count(${$c . "_group_n"})){
 
 //     $annalkisebb = count(${$c . "_group_n"});
@@ -300,7 +300,7 @@ echo $toplace;
 //print_r($all_fencers_id);
 //print_r($all_fencers_n);
 
-for ($i=0; $i < $poolsnum; $i++) { 
+for ($i=0; $i < $poolsnum; $i++) {
   //print_r(${$i . "_group_id"});
   //print_r(${$i . "_group_f"});
   //print_r(${$i . "_group_n"});
@@ -315,32 +315,32 @@ $poolserial = 1;
 $comma = 0;
 
 for ($n=0; $n < $poolsnum; $n++) {
-    
+
     //print_r(${$n . "_group_id"});
 
     $poolof = count(${$n . "_group_id"});
 
-    for ($z=0; $z < $poolof; $z++) { 
+    for ($z=0; $z < $poolof; $z++) {
 
         ${"id_" . $z} = ${$n . "_group_id"}[$z];
 
     }
-    
-    for ($r=0; $r <= 6 - $poolof; $r++) { 
-        
+
+    for ($r=0; $r <= 6 - $poolof; $r++) {
+
             $cunterka = $poolof + $r;
-    
+
             //echo $cunterka;
-    
+
             ${"id_" . $cunterka} = "";
 
     }
-    for ($u=0; $u < $poolsnum; $u++) { 
-        
-        for ($q=0; $q < count(${$n . "_group_id"}); $q++) { 
+    for ($u=0; $u < $poolsnum; $u++) {
+
+        for ($q=0; $q < count(${$n . "_group_id"}); $q++) {
 
             if (${$u . "_group_id"}[$q] == "") {
-                
+
                 unset(${$u . "_group_id"}[$q]);
 
             }
@@ -350,7 +350,7 @@ for ($n=0; $n < $poolsnum; $n++) {
     }
 
 
-    
+
 
     if($comma == 1){
 
@@ -444,7 +444,7 @@ else {
     $cou = 0;
     $rec++;
 
-    
+
 $timevar = strtotime($start) + $rec * 60 * $interval;
 $timevarend = date('H:i', $timevar);
 
@@ -517,7 +517,7 @@ if(isset($_POST["draw_ref"])){
         while($row =  mysqli_fetch_assoc($ref_query_do)) {
 
             $refid = $row["id"];
-            
+
             if (isset($_POST["ref_$refid"])) {
                 $where .= $refid . ",";
             }
@@ -548,7 +548,7 @@ if(isset($_POST["draw_ref"])){
     for ($i = 1; $i <= $pool_num; $i++) {
         $ref_assigned_pools["pool_" . $i] = ['ref_1' => "", 'ref_2' => ""];
     }
-    
+
     //assign ref to the pools based on nat and pool nat
     foreach ($ref_assigned_pools as $pool => $assigned_ref) {
 
@@ -565,7 +565,7 @@ if(isset($_POST["draw_ref"])){
     }
     unset($pool, $current_ref_id, $assigned_ref);
 
-    
+
     //assign ref and second ref to pools where there is no ref
     foreach ($ref_assigned_pools as $pool => $assigned_ref){
         if ($assigned_ref['ref_1'] == "") {
@@ -619,24 +619,24 @@ if(isset($_POST["draw_ref"])){
                 echo mysqli_error($connection);
             }
         }
-        
+
         foreach ($ref_assigned_pools as $value){
             foreach ($value as $key => $refs) {
                 if ($refs != "") {
-                    //upadte ref statzs in ref_compid 
+                    //upadte ref statzs in ref_compid
                     $qry_update_ref_status = "UPDATE ref_$comp_id SET `online` = 1 WHERE id = '$refs'";
                     $do_update_ref_status = mysqli_query($connection, $qry_update_ref_status);
                     echo mysqli_error($connection);
                 }
             }
         }
-        
+
         //print_r($ref_assigned_pools);
     }
     header("Refresh:0");
 }
 
-    
+
 
 print_r($ARRAY_pool_nat);
 print_r($array_ref_nat);
@@ -716,15 +716,15 @@ while($row = mysqli_fetch_assoc($get_fencers_for_matches_do)){
     $fencersinpool = $row["pool_of"];
 
     $order = poolOrder($fencersinpool);
-    
-    for ($i=1; $i <= $fencersinpool ; $i++) { 
-        
+
+    for ($i=1; $i <= $fencersinpool ; $i++) {
+
         array_push($actualfencers, $row["f" . $i]);
 
     }
-    
-    for ($i=0; $i < count($order) ; $i++) { 
-        
+
+    for ($i=0; $i < count($order) ; $i++) {
+
         echo $first = substr($order[$i],0,1);
         echo $second = substr($order[$i],2,1);
 
@@ -735,7 +735,7 @@ while($row = mysqli_fetch_assoc($get_fencers_for_matches_do)){
 
         $query_create_matches .= "('" . $order[$i] . "','" . $inpool . "','" . $first_id . "','" . $second_id . "','" . $repl . "'),";
     }
-    
+
 
     print_r($actualfencers);
     $actualfencers = [];
@@ -779,9 +779,9 @@ mysqli_error($connection);
 <?php
 
 
-$query_ex = "SELECT * 
+$query_ex = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'pools_$comp_id'
 LIMIT 1;";
 $query_ex_do = mysqli_query($connection, $query_ex);
@@ -789,9 +789,9 @@ $query_ex_do = mysqli_query($connection, $query_ex);
 $exist = mysqli_num_rows($query_ex_do);
 
 
-$query_fex = "SELECT * 
+$query_fex = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'pool_matches_$comp_id'
 LIMIT 1;";
 $query_fex_do = mysqli_query($connection, $query_fex);
@@ -867,7 +867,7 @@ elseif ($exist != 0 && $exist2 == 0)
 
 ?>
 
-                STATE: 1 
+                STATE: 1
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
@@ -920,29 +920,29 @@ elseif ($exist != 0 && $exist2 == 0)
                         </div>
 
                         <div class="option_container grid piste_select disabled" id="select_referees_panel" >
-                                
+
                         <?php
-                                
+
                                 $ref_query = "SELECT * FROM ref_$comp_id WHERE online = 1";
                                 $ref_query_do = mysqli_query($connection, $ref_query);
-                            
+
                                 while($row =  mysqli_fetch_assoc($ref_query_do)){
 
                                 $refid = $row["id"];
                                 $fullname = $row["full_name"];
 
-                                
+
                                 ?>
-                                
+
                                 <div class="piste_select">
                                     <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="value1"/>
                                     <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
                                 </div>
 
                                 <?php
-                                
+
                                 }
-                                
+
                                 ?>
                         </div>
                         <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
@@ -976,12 +976,12 @@ elseif ($exist != 0 && $exist2 == 0)
                         </div>
 
                         <div class="option_container grid piste_select disabled" id="select_pistes_panel" >
-                                
+
                                 <?php
-                                
+
                                 $pistes_query = "SELECT * FROM pistes_$comp_id EXCEPT SELECT * FROM pistes_$comp_id WHERE piste_activity = 1";
                                 $pistes_query_do = mysqli_query($connection, $pistes_query);
-                                
+
                                 $r = 1;
                                 while($row =  mysqli_fetch_assoc($pistes_query_do)){
 
@@ -989,14 +989,14 @@ elseif ($exist != 0 && $exist2 == 0)
                                 $pistetype = $row["piste_type"];
                                 $pistecolor = $row["piste_color"];
 
-                                
+
                                 ?>
-                                
+
 
                                 <div class="piste_select">
                                     <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value="1"/>
-                                    <label for="piste_<?php echo $r ?>">Piste <?php 
-                                    
+                                    <label for="piste_<?php echo $r ?>">Piste <?php
+
                                     if($pistetype == 1){
 
                                         echo "main";
@@ -1009,8 +1009,8 @@ elseif ($exist != 0 && $exist2 == 0)
                                     else {
                                         echo $pistenum;
                                     }
-                                    
-                                    
+
+
                                      ?></label>
                                 </div>
 
@@ -1018,8 +1018,8 @@ elseif ($exist != 0 && $exist2 == 0)
                                 $r++;
                                 }
                                 ?>
-                            
-                                
+
+
                         </div>
 
                         <button type="submit" name="piste_time" value="Save" class="panel_submit" id="pNtSaveButton">Save</button>
@@ -1031,8 +1031,8 @@ elseif ($exist != 0 && $exist2 == 0)
 
 
 
-<?php 
-}else{ 
+<?php
+}else{
 
     //determine if finsih pools is disabled
     $qry_fin_pools = "SELECT * FROM `pool_matches_$comp_id` WHERE `f1_sc` = NULL OR `f2_sc` = NULL;";
@@ -1058,17 +1058,17 @@ elseif ($exist != 0 && $exist2 == 0)
                         <img src="../assets/icons/save-black-18dp.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>
                 </div>
-                
+
 
      <?php
     }
-    ?>           
+    ?>
 
             </div>
             <div id="page_content_panel_main">
 
              <?php
-             
+
              if($exist == 0){
              ?>
 
@@ -1085,10 +1085,10 @@ elseif($exist != 0 && $exist2 == 0){
                 <div id="pools_wrapper">
 
                     nem finális verzió anim á ci ó
-                    <div id="pool_listing" class="with_drag"> 
+                    <div id="pool_listing" class="with_drag">
 
 
-                        <?php   
+                        <?php
                             $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
                             $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
                             if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
@@ -1096,8 +1096,8 @@ elseif($exist != 0 && $exist2 == 0){
                             }
 
                             $f = [];
-                        for ($i=1; $i <= $pool_of; $i++) { 
-                            
+                        for ($i=1; $i <= $pool_of; $i++) {
+
                             $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
                             $inside_query_do = mysqli_query($connection,$inside_query);
 
@@ -1140,7 +1140,7 @@ elseif($exist != 0 && $exist2 == 0){
                                 $ref2nat = $refrow["nat"];
 
                             }
-                        
+
                         ?>
 
                         <div>
@@ -1148,24 +1148,24 @@ elseif($exist != 0 && $exist2 == 0){
                                 <div class="table_row">
                                     <div class="table_item bold">No.<?php echo $i ?></div>
                                     <div class="table_item">Piste <?php echo $piste ?></div>
-                                    <div class="table_item">Ref 1: <?php 
+                                    <div class="table_item">Ref 1: <?php
                                     if (isset($refname)) {
-                                        
+
                                         echo $refname;
-                                        echo "(" . $refnat . ")"; 
+                                        echo "(" . $refnat . ")";
                                     } else {
                                         echo "No ref assigned!";
                                     }
 
-                                    
+
                                     ?></div>
 
                                         <?php
                                             if ($ref2name != "") {
                                         ?>
                                         <div class="table_item">Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</div>
-                                        <?php 
-                                            } 
+                                        <?php
+                                            }
                                         ?>
                                         <div class="table_item"><?php echo $time ?></div>
                                         <div class="big_status_item">
@@ -1191,14 +1191,14 @@ elseif($exist != 0 && $exist2 == 0){
                                                 <div class="table_header_text square">
                                                     rp
                                                 </div>
-            
+
                                             </div>
                                             <div class="table_row_wrapper alt" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
                                                 <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php
 
                                                 //for loop for fencers in pool (name id nation)
-                                                for ($n=0; $n < $pool_f_in; $n++) { 
+                                                for ($n=0; $n < $pool_f_in; $n++) {
                                                     $fx = $f[$n];
                                                     $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
                                                     $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
@@ -1211,7 +1211,7 @@ elseif($exist != 0 && $exist2 == 0){
                                                     }
 
                                                     ?>
-                                                    
+
                                                     <div class="table_row">
                                                         <div class="table_item"><p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fx ?>"><?php echo $fencer_name ?></p></div>
                                                         <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
@@ -1240,11 +1240,11 @@ elseif($exist != 0 && $exist2 == 0){
                     </div>
 
                     <?php }else{ ?>
-                    STATE: 2 
-                    <div id="pool_listing" class="state_2 wrapper"> 
+                    STATE: 2
+                    <div id="pool_listing" class="state_2 wrapper">
 
 
-                    
+
                     <?php
 
                     $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
@@ -1254,8 +1254,8 @@ elseif($exist != 0 && $exist2 == 0){
                     }
 
                     $f = [];
-                    for ($i=1; $i <= $pool_of; $i++) { 
-                            
+                    for ($i=1; $i <= $pool_of; $i++) {
+
                         $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
                         $inside_query_do = mysqli_query($connection,$inside_query);
 
@@ -1322,7 +1322,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-                                        <?php 
+                                        <?php
                                         for ($k=0; $k < $pool_f_in; $k++) { ?>
                                             <div class="table_header_text square">
                                             <?php echo $k +1; ?>
@@ -1330,11 +1330,11 @@ elseif($exist != 0 && $exist2 == 0){
                                         <?php
                                         }
                                         ?>
-                                        
+
                                     </div>
                                     <div class="table_row_wrapper alt">
                                     <?php
-                                    for ($n=0; $n < $pool_f_in; $n++) { 
+                                    for ($n=0; $n < $pool_f_in; $n++) {
                                             $fx = $f[$n];
                                             $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
                                             $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
@@ -1343,7 +1343,7 @@ elseif($exist != 0 && $exist2 == 0){
                                                 $fencer_nat = $row['nationality'];
                                                 $fencer_name = $row['name'];
                                             }?>
-                                            
+
 
                                     <div class="table_row">
                                         <div class="table_item"><?php echo $fencer_name ?></div>
@@ -1351,21 +1351,21 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square row_title"><?php echo $n+1 ?></div>
                                         <?php
                                         $filled = "";
-                                        for ($l=0; $l < $pool_f_in; $l++) { 
-                                            
+                                        for ($l=0; $l < $pool_f_in; $l++) {
+
                                         if($l == $n){
 
                                         $filled = "filled";
 
                                         }?>
-                                        
+
                                         <div class="table_item square <?php echo $filled ?>">
-                                    
+
                                         <?php
                                         $front = 0;
                                         $back = 0;
                                             if($l > $n){
-                                        
+
                                                 $front = $n+1;
                                                 $back = $l+1;
 
@@ -1387,7 +1387,7 @@ elseif($exist != 0 && $exist2 == 0){
                                                 while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
 
                                                     $scorenow = $row4["f1_sc"];
-                                                    
+
                                                 }
                                                 echo $scorenow;
 
@@ -1400,7 +1400,7 @@ elseif($exist != 0 && $exist2 == 0){
                                                 while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
 
                                                     $scorenow = $row4["f2_sc"];
-                                                    
+
                                                 }
                                                 echo $scorenow;
                                             }
@@ -1408,9 +1408,9 @@ elseif($exist != 0 && $exist2 == 0){
                                             }
 
                                         ?>
-                                        
+
                                         </div>
-                                        
+
                                         <?php
                                         $filled = "";
                                         }
@@ -1490,7 +1490,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-                                        
+
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
@@ -1551,7 +1551,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-                                    
+
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1562,7 +1562,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">ge</div>
                                         <div class="table_item square  filled"></div>
-                                        
+
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
@@ -1630,7 +1630,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-                                        
+
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
@@ -1691,7 +1691,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-                                    
+
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1702,7 +1702,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">ge</div>
                                         <div class="table_item square  filled"></div>
-                                        
+
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
@@ -1770,7 +1770,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
-                                        
+
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
@@ -1831,7 +1831,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                     </div>
-                                    
+
                                     <div class="table_row">
                                         <div class="table_item">Name</div>
                                         <div class="table_item">Name</div>
@@ -1842,7 +1842,7 @@ elseif($exist != 0 && $exist2 == 0){
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">ge</div>
                                         <div class="table_item square  filled"></div>
-                                        
+
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
                                         <div class="table_item square">5a</div>
@@ -1855,13 +1855,13 @@ elseif($exist != 0 && $exist2 == 0){
                         </div>
                     </div>
 
-                    
+
                 </div>
 
             </div>
         </div>
     </body>
-    
+
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/pools.js"></script>

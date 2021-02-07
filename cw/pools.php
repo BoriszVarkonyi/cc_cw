@@ -178,7 +178,7 @@
                                                 <div class="table_item square">5a</div>
                                                 <div class="table_item square">ge</div>
                                                 <div class="table_item square  filled"></div>
-                                                
+
                                                 <div class="table_item square">5a</div>
                                                 <div class="table_item square">5a</div>
                                                 <div class="table_item square">5a</div>
@@ -321,7 +321,7 @@
                                                 <div class="table_item square">5a</div>
                                             </div>
 
-                                            
+
                                             <div class="table_row">
                                                 <div class="table_item">Name</div>
                                                 <div class="table_item">Name</div>
@@ -332,7 +332,7 @@
                                                 <div class="table_item square">5a</div>
                                                 <div class="table_item square">ge</div>
                                                 <div class="table_item square  filled"></div>
-                                                
+
                                                 <div class="table_item square">5a</div>
                                                 <div class="table_item square">5a</div>
                                                 <div class="table_item square">5a</div>

@@ -13,11 +13,11 @@ function loginFormValidation(){
         if(inputs[i].value == ""){
             //If it finds an empty input, then it disable the "Save" button.
             valid1 = false;
-            break;      
+            break;
         }
         else {
             //If everything has a value then it enable the "Save" Button. The user can save.
-            valid1 = true;       
+            valid1 = true;
         }
     }
     for(i=0; i<opitons.length; i++){
@@ -30,7 +30,7 @@ function loginFormValidation(){
         }
     }
     if(valid1 && valid2){
-        loginButton.classList.remove("disabled")     
+        loginButton.classList.remove("disabled")
     }
     else{
         loginButton.classList.add("disabled")

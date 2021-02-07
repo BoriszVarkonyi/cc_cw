@@ -40,14 +40,14 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
                 <div class="table_row_wrapper">
 
                 <?php
-                
+
                 while($row = mysqli_fetch_assoc($select_tournaments_query_do)){
 
                 $t_name = $row["tournament_name"];
                 $t_id = $row["id"];
 
-                
-                
+
+
                 ?>
 
                 <div class="table_row" onclick="location.href='choose_competition.php?t_id=<?php echo $t_id ?>'">

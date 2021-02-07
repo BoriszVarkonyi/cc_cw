@@ -1,7 +1,7 @@
 <?php include '../includes/db.php'; ?>
 <?php include '../includes/cw_username_checker.php'; ?>
 
-<?php 
+<?php
     $title = $_GET['title'];
     $date = date("Y/m/d");
 

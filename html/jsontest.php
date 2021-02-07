@@ -26,26 +26,26 @@ foreach($tables as $x){
 
 //     $midc = 0;
 
-//     for ($i=0; $i < count($table); $i++) { 
-        
+//     for ($i=0; $i < count($table); $i++) {
+
 //         if($midc == 0){
-    
+
 //             if($i != 0){
 //                 echo "<br><br><br>";
 //             }
-    
-       
+
+
 //         echo $table[$i] . "-----------------------";
 //         echo "<br>" . "VS" . "<br>";
-    
+
 //         $midc++;
-    
+
 //         }
 //         else{
 //         echo $table[$i] . "-----------------------";
 //         $midc = 0;
 //         }
-    
+
 //     }
 
 //     $tablesize = $tablesize / 2;
@@ -62,10 +62,10 @@ $namevariable = "t_" . $tablesize;
 
 $matchcounter = 1;
 $midc = 0;
-for ($i=0; $i < count($table); $i++) { 
-    
+for ($i=0; $i < count($table); $i++) {
+
     if($midc == 2){
-    
+
     $matchcounter++;
     $midc = 0;
 
@@ -116,7 +116,7 @@ $tablesize = $tablesize/2;
 <body>
 <div class="row">
     <?php
-    
+
 
     foreach($jsontest as $key=>$tableturn){
 
@@ -138,21 +138,21 @@ $tablesize = $tablesize/2;
         echo "VS" . "<br>";
         echo $matches->{$ac_table[$m_counter]};
         $m_counter++;
-        
 
-        
+
+
 
       }
-    
+
 
 
     echo "</div>";
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     ?>
 </div>
 </body>

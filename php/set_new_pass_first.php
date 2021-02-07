@@ -1,14 +1,14 @@
 <?php include '../includes/db.php' ?>
 <?php include '../includes/username_checker.php' ?>
 
-<?php 
-    
+<?php
+
     print_r($_POST);
-    
+
     $where = $_GET['where'];
     $where = rtrim($where, "_");
     $array_where = explode("_", $where);
-    
+
         if (isset($_POST['r_submit'])) {
             $password = $_POST['r_pass'];
             $passworda = $_POST['r_passa'];
@@ -22,7 +22,7 @@
                         $qry_update_pass = "UPDATE `tech_$value` SET `pass` = '$password' WHERE `name` = '$username'";
                         $do_uodate_pass = mysqli_query($connection, $qry_update_pass);
                     }
-                    
+
                 }
             }
         }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
-<body class="videos">    
+<body class="videos">
 <div id="wrapper">
         <?php include "cw_header.php"; ?>
         <div id="main">
@@ -38,7 +38,7 @@
                             $title = $row['title'];
                             parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
                             $video_id = $my_array_of_vars['v'];
-                            
+
                     ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'" loading="lazy">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
 
-                    <?php 
+                    <?php
                         }
                     ?>
                     <div class="video_wrapper ghost"></div>

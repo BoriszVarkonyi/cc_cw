@@ -19,8 +19,8 @@
 
     //checking for dupli tables
     $check_d_table_qry = "SELECT COUNT(*)
-    FROM information_schema.tables 
-    WHERE table_schema = 'ccdatabase' 
+    FROM information_schema.tables
+    WHERE table_schema = 'ccdatabase'
     AND table_name = '$table_name';";
 
     if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
@@ -93,12 +93,12 @@
         $ref_full_name = $_POST['full_name'];
 
 
-        
+
 
         $ref_nat = $_POST['f_nat'];
 
         if ($ref_name != "" && $ref_full_name != "" && $ref_nat != "") {
-            
+
             //test for existing row
             $qry_row_test = "SELECT * FROM $table_name WHERE name = '$ref_name'";
             $do_row_test = mysqli_query($connection, $qry_row_test);
@@ -184,7 +184,7 @@
                                             $import_comp_name = $row['comp_name'];
                                             $import_comp_id = $row['comp_id'];
                                         ?>
-                                    
+
                                     <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p></div></div>
 
                                     <?php
@@ -205,7 +205,7 @@
                             <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
                                 <label for="username" >NAME</label>
                                 <input type="text" placeholder="Type the referees's name" class="username_input" name="username">
-                                
+
                                 <label for="full_name" >FULL NAME</label>
                                 <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
                                 <label>NATION / CLUB</label>
@@ -226,20 +226,20 @@
                             <?php
                                 $ref_list_query = "SELECT * FROM $table_name";
                                 $ref_list_query_do = mysqli_query($connection, $ref_list_query);
-                                while($row = mysqli_fetch_assoc($ref_list_query_do)){ 
+                                while($row = mysqli_fetch_assoc($ref_list_query_do)){
 
                                     $ref_id = $row['id'];
                                     $ref_name = $row['name'];
-                                
-                                
-        
-                            
+
+
+
+
                             ?>
 
                             <a id="<?php echo $ref_id ?>" href="#"  onclick="selectSearch(this), autoFill(this)"><?php echo $ref_name ?></a>
 
-                            <?php 
-                            
+                            <?php
+
                                 }
                             ?>
                         </div>
@@ -248,8 +248,8 @@
                 <div id="page_content_panel_main">
                     <div class="wrapper table">
 
-                    <?php 
-                    
+                    <?php
+
                     $ref_list_query = "SELECT * FROM $table_name";
                     $ref_list_query_do = mysqli_query($connection, $ref_list_query);
 
@@ -265,8 +265,8 @@
                             </div>
                     <?php
                     } else {
-                    ?>       
-                    
+                    ?>
+
                         <div class="table_header">
                             <div class="table_header_text">FULL NAME</div>
                             <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
@@ -278,15 +278,15 @@
                             <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
-                        <?php  
-                        while($row = mysqli_fetch_assoc($ref_list_query_do)){ 
-                            
+                        <?php
+                        while($row = mysqli_fetch_assoc($ref_list_query_do)){
+
                             $ref_id = $row["id"];
                             $ref_name = $row["name"];
                             $ref_online = $row["online"];
                             $ref_full_name = $row["full_name"];
                             $ref_nat = $row['nat'];
-                            
+
                             ?>
 
                             <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectRow(this)">
@@ -294,7 +294,7 @@
                                 <div class="table_item"><p><?php echo $ref_nat ?></p></div>
                                 <div class="table_item"><p><?php echo $ref_name; ?></p></div>
                                 <div class="table_item"><p><?php
-                                
+
                                 if($ref_online == 0){
 
                                     echo "Offline";
@@ -303,12 +303,12 @@
                                 else{
                                     echo "Online";
                                 }
-                                
+
                                 ?>
                                 </p>
                             </div>
                             <div class="small_status_item <?php
-                            
+
                             if($ref_online == 0){
 
                                 echo "red";
@@ -317,7 +317,7 @@
                             else{
                                 echo "green";
                             }
-                            
+
                             ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
                         <?php
@@ -325,7 +325,7 @@
                     }
                     //Check,read,display technicians END
                         ?>
-                        
+
                     </div>
                 </div>
             </div>

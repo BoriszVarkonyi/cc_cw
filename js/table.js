@@ -62,7 +62,7 @@ function buttonLeft(){
     //Shows eleminiations by index
     for(i=firstIndex; i<secondIndex; i++){
         eleminitaions[i].classList.remove("hidden")
-    
+
     }
     disabler();
 }
@@ -78,7 +78,7 @@ function buttonRight(){
     //Shows eleminiations by index
     for(i=firstIndex; i<secondIndex; i++){
         eleminitaions[i].classList.remove("hidden")
-    
+
     }
     disabler();
 }
@@ -105,7 +105,7 @@ function windowSize(){
         secondIndex = firstIndex + 4;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
-        
+
         }
     }
     else if(vw > 1100 && vw < 1600 && eleminitaions.length>=3){
@@ -115,7 +115,7 @@ function windowSize(){
         secondIndex = firstIndex + 3;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
-        
+
         }
     }
     else if(vw > 700 && vw < 1100 && eleminitaions.length>=2){
@@ -125,7 +125,7 @@ function windowSize(){
         secondIndex = firstIndex + 2;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
-        
+
         }
     }
     else if(vw < 700){
@@ -135,7 +135,7 @@ function windowSize(){
         secondIndex = firstIndex + 1;
         for(i=firstIndex; i<secondIndex; i++){
             eleminitaions[i].classList.remove("hidden")
-        
+
         }
     }
     var shownEliminations = document.querySelectorAll(".elimination:not(.hidden)")

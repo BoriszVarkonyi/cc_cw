@@ -1,7 +1,7 @@
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
 <?php include "../includes/cw_username_checker.php" ?>
-<?php 
+<?php
 
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         //check for dupli articles
         $qry_test = "SELECT * FROM `cw_articles` WHERE `body` = '$body' AND `title` = '$title'";
         $do_test = mysqli_query($connection, $qry_test);
-        
+
 
         $row_num = mysqli_num_rows($do_test);
 
@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $qry_create_article = "INSERT INTO `cw_articles` (`id`, `title`, `body`, `author`, `last_edit_by`) VALUES (NULL, '$title', '$body', '$username', '$username')";
                 $do_create_articel = mysqli_query($connection, $qry_create_article);
-            
+
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 
                 $qry_get_id = "SELECT `id` FROM `cw_articles` WHERE `title` = '$title'";
@@ -72,19 +72,19 @@ if (isset($_POST['submit'])) {
                 if ($row = mysqli_fetch_assoc($do_get_id)) {
                     $id = $row['id'];
                 }
-                
-            
+
+
                 if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
 
                     echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
-                    
+
                 } else {
 
                     echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
 
                 }
-            
-               
+
+
 
                 header("Location: ../cw/admin.php");
             } else {
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
     }
 
 }
-    
+
 if (isset($_POST['cancel'])) {
     header("Location: ../cw/admin.php");
 }
@@ -117,7 +117,7 @@ if (isset($_POST['cancel'])) {
     <title>CW Admin</title>
 </head>
 <body>
-    
+
 <h1>New article</h1>
 
 <form action="" id="new_article" method="POST" enctype="multipart/form-data">

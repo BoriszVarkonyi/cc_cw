@@ -15,7 +15,7 @@ function removeSelection(x) {
     for (let index = 0; index < toshow.length; index++) {
         var element = toshow[index];
 
-        if(element.id == x.id){   
+        if(element.id == x.id){
             element.classList.remove("hidden")
         }
     }

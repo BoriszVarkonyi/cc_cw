@@ -37,7 +37,7 @@
                     </button>
                     <button class="view_button" onclick="zoomIn()" id="zoomInButton">
                         <img src="../assets/icons/zoom_in-black-18dp.svg"/>
-                    </button>                      
+                    </button>
                 </div>
                 <div class="view_button_wrapper view">
                     <button class="view_button" onclick="viewButton(this)" id="panelViewButton">
@@ -45,7 +45,7 @@
                     </button>
                     <button class="view_button" onclick="viewButton(this)" id="printViewButton">
                         <img src="../assets/icons/print-black-18dp.svg"/>
-                    </button>                      
+                    </button>
                 </div>
             </div>
             <div id="page_content_panel_main" class="scroll">
@@ -75,7 +75,7 @@
                                         <div class="table_item"><p>1</p></div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                     <div class="db_panel other">
@@ -103,7 +103,7 @@
                                         <div class="table_item"><p>1</p></div>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                     <div class="db_panel other">
@@ -118,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div class="paper_wrapper hidden">
                     <div class="paper">

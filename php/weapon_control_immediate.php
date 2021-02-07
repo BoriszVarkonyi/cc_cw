@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
     $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_create_table = mysqli_query($connection, $qry_create_table);
@@ -106,7 +106,7 @@
                             } else {
                                 $feedback['getcompdata'] = "ERROR " . mysqli_error($connection);
                             }
-                            
+
                             //get fencers from competitors by comp id :D
                             $qry_get_fencers = "SELECT * FROM cptrs_$comp_id";
 

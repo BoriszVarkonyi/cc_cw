@@ -12,13 +12,13 @@
         } else {
             $cookie_value = "%";
         }
-    
+
         $contains = strrpos($cookie_value, $comp_id . "%");
-    
+
         if ($contains != FALSE) {
             $contains = TRUE;
         }
-    
+
         if ($contains) {
             $star = "../assets/icons/star-black-18dp.svg";
         } else {

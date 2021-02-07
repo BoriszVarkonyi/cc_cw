@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 $controlon ="`". "wc_" . $_GET["date"] . "_" . $comp_id . "`";
 $title = $_GET["date"];
@@ -43,7 +43,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                     <div id="dates_weapon_control_wrapper">
 
                         <?php
-                        
+
                         $query = "SELECT * FROM $controlon";
                         $query_do = mysqli_query($connection, $query);
 
@@ -59,22 +59,22 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
 
                             }
                             if($rowsave != $ora){
-                                
+
                                 $rowsave = $ora;
 
 
                                 $query_in = "SELECT * FROM $controlon WHERE hour = $ora";
                                 $query_in_do = mysqli_query($connection, $query_in);
-                                        
+
                                 $foroneperiod = array();
-                                
+
                                 $actual = 0;
 
                                 while($row = mysqli_fetch_assoc($query_in_do)){
 
                                 $actual = $actual + (strlen($row["ids"]) / 2);
 
-                                
+
                                 array_push($foroneperiod, strlen($row["ids"]) / 2);
                                 }
 
@@ -96,7 +96,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                         $oraig = $ora + 6;
                                         $perc = 0;
 
-                                        for ($i=$ora; $i < $oraig ; $i++) { 
+                                        for ($i=$ora; $i < $oraig ; $i++) {
 
                                             ?>
 
@@ -117,15 +117,15 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                     <p>Ember</p>
                                     <p>Ember</p>
                                     <p>Ember</p>
- 
+
                                 </div>
 
-                                
+
                                         <?php
                                         }
                                         ?>
 
-                                                
+
                                 </div>
                                 <div>
                                     <button type="button">
@@ -135,7 +135,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                         <img src="../assets/icons/person_remove-black-18dp.svg" >
                                     </button>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -150,10 +150,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
 
 
                         }
-                        
+
                         ?>
 
-                        
+
 
 
 
@@ -471,7 +471,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                             </div>
                         </div>-->
                     </div>
-            </div> 
+            </div>
         </div>
     </body>
 <script src="../js/main.js"></script>

@@ -22,10 +22,10 @@
             <div id="page_content_panel_main">
                 <div class="table wrapper first_column_centered">
                <?php
-            
+
                $query = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank";
                $query_do = mysqli_query($connection, $query);
-               
+
                ?>
                 <div class="table_header">
                     <div class="table_header_text">TEMPORARY RANK</div>
@@ -36,15 +36,15 @@
                 </div>
                         <div class="table_row_wrapper">
                         <?php
-                        
+
                         while($row = mysqli_fetch_assoc($query_do)){
 
                         $name = $row["name"];
                         $nat = $row["nationality"];
                         $temp = $row["temporary_rank"];
-                        
+
                         ?>
-                        
+
                         <div class="table_row" id="<?php echo $temp ?>" onclick="selectRow(this)" tabindex="0">
                             <div class="table_item"><p><?php echo $temp ?></p></div>
                             <div class="table_item"><p><?php echo $name ?></p></div>

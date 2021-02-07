@@ -14,7 +14,7 @@ input.addEventListener("input", function() {
   else {
     //If yes it enables the uploadButton
     uploadButton.disabled = false;
-    //Deletes file parth. 
+    //Deletes file parth.
     document.getElementById("fileText").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
   }
   //Check if its an xml file.

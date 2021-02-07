@@ -4,7 +4,7 @@ function selectSystem(x) {
     var clickedOption = x
     var inputClass = x.parentNode.parentNode
     var dropDown = inputClass.firstElementChild.nextElementSibling
-    var selectInput = x.parentNode.parentNode.firstElementChild 
+    var selectInput = x.parentNode.parentNode.firstElementChild
     //Fill the input value
     selectInput.value = clickedOption.textContent
     selectInput.nextElementSibling.value = clickedOption.innerHTML

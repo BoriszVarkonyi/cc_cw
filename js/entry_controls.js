@@ -52,5 +52,5 @@ document.onkeydown = (keyDownEvent) => {
                 tableRows[selectedElementIndexAnn].focus()
             }
         }
-    }    
-} 
+    }
+}

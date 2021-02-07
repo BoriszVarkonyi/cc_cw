@@ -16,7 +16,7 @@
     }
 
     // array of all issues
-    $array_issues = array( 
+    $array_issues = array(
         "FIE mark on blade",
         "Arm gap and weight",
         "Arm lenght",
@@ -57,7 +57,7 @@
 
     $fencer_id = $_GET['fencer_id'];
 
-    //get fencer data 
+    //get fencer data
     $qry_get_fencer_data = "SELECT `name` FROM cptrs_$comp_id WHERE id = '$fencer_id'";
     $do_get_fencer_data = mysqli_query($connection, $qry_get_fencer_data);
 
@@ -83,13 +83,13 @@
             $array_of_issues = [];
         }
 
-        
+
     }
 
 
 
-    
-    
+
+
 
 
     if (isset($_POST['submit_wc'])) {
@@ -119,7 +119,7 @@
         echo mysqli_error($connection);
     }
 
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +138,7 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-                
+
                 <div id="title_stripe">
                     <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
                     <div class="stripe_button_wrapper">
@@ -162,7 +162,7 @@
                             </div>
                             <div class="table_row_wrapper">
 
-                                <?php 
+                                <?php
                                     foreach ($array_issues as $issue) {
 
                                     $issue_id = array_search($issue, $array_issues);
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
 
-                                <?php 
+                                <?php
                                     }
                                 ?>
                             </div>

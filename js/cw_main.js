@@ -36,41 +36,41 @@ for(i=0; i<navigationButtons.length; i++){
 //adds current class to the appropirate navigation button
 switch(className){
     case "home" :
-        mobileNavihationButtons[0].classList.add("current"); 
+        mobileNavihationButtons[0].classList.add("current");
         navigationButtons[0].classList.add("current");
     break;
-    case "competitions" : 
+    case "competitions" :
         navigationButtons[1].classList.add("current");
     break;
-    case "upcoming_competitions" : 
-        mobileNavihationButtons[1].classList.add("current"); 
+    case "upcoming_competitions" :
+        mobileNavihationButtons[1].classList.add("current");
         navigationButtons[1].classList.add("current");
         navigationButtons[1].querySelectorAll("a")[0].classList.add("current")
     break;
-    case "ongoing_competitions" : 
-        mobileNavihationButtons[2].classList.add("current"); 
+    case "ongoing_competitions" :
+        mobileNavihationButtons[2].classList.add("current");
         navigationButtons[1].classList.add("current");
         navigationButtons[1].querySelectorAll("a")[1].classList.add("current")
     break;
-    case "finished_competitions" : 
-        mobileNavihationButtons[3].classList.add("current"); 
+    case "finished_competitions" :
+        mobileNavihationButtons[3].classList.add("current");
         navigationButtons[1].classList.add("current");
         navigationButtons[1].querySelectorAll("a")[2].classList.add("current")
     break;
-    case "blog" : 
-        mobileNavihationButtons[4].classList.add("current"); 
+    case "blog" :
+        mobileNavihationButtons[4].classList.add("current");
         navigationButtons[2].classList.add("current");
     break;
-    case "videos" : 
-        mobileNavihationButtons[5].classList.add("current"); 
+    case "videos" :
+        mobileNavihationButtons[5].classList.add("current");
         navigationButtons[3].classList.add("current");
     break;
-    case "rankings" : 
-        mobileNavihationButtons[6].classList.add("current"); 
+    case "rankings" :
+        mobileNavihationButtons[6].classList.add("current");
         navigationButtons[4].classList.add("current");
     break;
-    case "saved_competitions" : 
-        mobileNavihationButtons[7].classList.add("current"); 
+    case "saved_competitions" :
+        mobileNavihationButtons[7].classList.add("current");
         navigationButtons[5].classList.add("current");
     break;
 }
@@ -78,7 +78,7 @@ switch(className){
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
-numberInputs.forEach(item => { 
+numberInputs.forEach(item => {
     item.addEventListener("keydown", function(e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();

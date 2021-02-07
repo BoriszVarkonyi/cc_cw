@@ -26,7 +26,7 @@
         $uploadOk = 0;
 
     }
-    
+
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 500000) {
 
@@ -51,19 +51,19 @@
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 
-        
+
             echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-        
+
             if (rename($_FILES["fileToUpload"]["name"], $id . ".png")) {
 
                 echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
-                
+
             } else {
 
                 echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
 
             }
-        
+
             header("Location: ../php/your_profile.php?");
 
         } else {

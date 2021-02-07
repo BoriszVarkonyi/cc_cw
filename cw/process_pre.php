@@ -6,11 +6,11 @@ if(isset($_POST["send_pre"])){
     $f_country = $_POST["f_country"];
     $f_email = $_POST["f_email"];
     $f_phone = $_POST["f_phone"];
-    
+
     $c_name = $_POST["c_name"];
     $c_email = $_POST["c_email"];
     $c_phone = $_POST["c_phone"];
-    
+
     $fencer_ids = $_POST["fencer_ids"];
 
     $compet_id = $_POST["compet_id"];
@@ -52,9 +52,9 @@ try {
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Please confirm your pre registration';
     $mail->Body    = '
-    
+
     <a style="color:red;" href="http://localhost/cw/confirmed_pre.php?f_name='. $f_name .'&f_country='. $f_country  .'&f_email='. $f_email .'&f_phone='. $f_phone .'&c_name='. $c_name .'&c_email='.$c_email.'&c_phone='.$c_phone.'&fencer_ids='.$fencer_ids.'&compet_id='.$compet_id.'">Confirm</a>
-    
+
     ';
 
     $mail->send();

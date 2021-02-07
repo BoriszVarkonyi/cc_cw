@@ -32,9 +32,9 @@ return $statusout;
 function roleConverter($rolein) {
 
     $roleout = "";
-    
+
     switch ($rolein) {
-    
+
         case 1:
         $roleout = "Semi";
         break;
@@ -47,15 +47,15 @@ function roleConverter($rolein) {
         case 4:
         $roleout = "Registration";
         break;
-    
+
     }
-    
+
     return $roleout;
-    
+
 }
 
 
-//check competition 
+//check competition
 function checkComp($connectionin){
 
     $lastlogin = $_COOKIE["lastlogin"];
@@ -71,44 +71,44 @@ function checkComp($connectionin){
 
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connectionin, $query);
-    
+
     if($row = mysqli_fetch_assoc($check_comp_query)){
-    
+
     $check_id = $row["comp_organiser_id"];
     $comp_name = $row["comp_name"];
-    
+
     }
-    
+
     if($lastlogin == "2"){
     $query_tech = "SELECT * FROM technicians WHERE id = '$tech_id'";
     $check_comp_tech_query = mysqli_query($connectionin, $query_tech);
-    
+
     if($row = mysqli_fetch_assoc($check_comp_tech_query)){
-    
+
         $check_tech_id = $row["ass_comp_id"];
         $tech_name = $row["username"];
         $tech_role = $row["role"];
-    
+
         $check_tech_id_list = explode(" ",$check_tech_id);
-        
+
     }
 }
-    
-    
+
+
     if($check_id != $org_id && $lastlogin == 1){
-    
+
         header("Location: ../index.php");
-    
+
     }
     elseif ($lastlogin == 2 && !in_array($comp_id, $check_tech_id_list)){
-    
+
         header("Location: ../index.php");
-    
+
     }
     else{
-    
+
     echo "MINDEN JÓ";
-    
+
     }
 
 }
@@ -119,12 +119,12 @@ function setOnline($connectionin) {
 
     if($lastlogin == 2){
         $tech_id = $_COOKIE["tech_id"];
-        
+
 
 $querysetonline = "UPDATE technicians SET online = 1 WHERE id = $tech_id";
 $querysetonline_do = mysqli_query($connectionin, $querysetonline);
 
-    }    
+    }
 
 }
 
@@ -138,18 +138,18 @@ function sexConverter($sexin) {
     } else {
         $sexout = "Women";
     }
-    
+
     return $sexout;
-    
+
 }
 
 //weapon type converter nem tom melyik melyik kell borsiz
 function weaponConverter($weaponin) {
 
     $weaponout = "";
-    
+
     switch ($weaponin) {
-        
+
         case 1:
             $weaponout = "Epee";
         break;
@@ -162,11 +162,11 @@ function weaponConverter($weaponin) {
         default:
             $weaponout = "Unidentified weapon";
         break;
-    
+
     }
-    
+
     return $weaponout;
-    
+
 }
 
 
@@ -248,7 +248,7 @@ function pisteColor($color_id) {
         case 4:
         $colortext = "red";
         break;
-    
+
     }
 
     return $colortext;
@@ -271,7 +271,7 @@ function pisteColorLetter($color_id) {
         case 4:
         $colortext = "R";
         break;
-    
+
     }
 
     return $colortext;
@@ -279,7 +279,7 @@ function pisteColorLetter($color_id) {
 }
 
 function tableArrays($tableid){
-    
+
     switch ($tableid) {
 
         case 128:
@@ -303,7 +303,7 @@ function tableArrays($tableid){
         case 2:
         $tablearray = [1,2];
         break;
-    
+
     }
 
     return $tablearray;
@@ -328,7 +328,7 @@ function tablecolor($colorcode){
         case 4:
         $colorwrite = "Red";
         break;
-    
+
     }
 
     return $colorwrite;

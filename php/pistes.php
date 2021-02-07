@@ -3,11 +3,11 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
-$query = "SELECT * 
+$query = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'pistes_$comp_id'
 LIMIT 1;";
 $query_do = mysqli_query($connection, $query);
@@ -25,7 +25,7 @@ echo mysqli_error($connection);
 
 echo "ALREADY";
 
-    
+
 }
 
 
@@ -64,13 +64,13 @@ if(isset($_POST["create_piste"])){
 
             $query_add_colored = "INSERT INTO `pistes_$comp_id`(`piste_number`, `piste_type`, `piste_color`) VALUES ($colored_pistenum,2,$piste_add_color)";
             $query_add_colored_do = mysqli_query($connection, $query_add_colored);
-    
+
             header("Location: pistes.php?comp_id=$comp_id");
 
         }
     }
     if($piste_type == "numbered"){
-        
+
         $piste_start_num = $_POST["start_num"];
         $piste_quantity_to_add = $_POST["quantity"];
 
@@ -79,8 +79,8 @@ if(isset($_POST["create_piste"])){
         $okay = 0;
 
 
-        for ($i=0; $i < $piste_quantity_to_add ; $i++) { 
-            
+        for ($i=0; $i < $piste_quantity_to_add ; $i++) {
+
             if($okay == 0){
 
             $query_get_pistes = "SELECT * FROM pistes_$comp_id WHERE piste_number = $sn";
@@ -101,18 +101,18 @@ if(isset($_POST["create_piste"])){
             $sn = $piste_start_num;
 
             $query_add_numbered_piste = "INSERT INTO `pistes_$comp_id`(`piste_number`, `piste_type`) VALUES";
-    
+
             $query_add_numbered_piste .= " ($sn,3)";
-    
-            for ($i=1; $i < $piste_quantity_to_add; $i++) { 
-    
+
+            for ($i=1; $i < $piste_quantity_to_add; $i++) {
+
                 $sn++;
-    
+
                 $query_add_numbered_piste .= ",($sn,3)";
             }
-    
+
             $query_add_numbered_piste_do = mysqli_query($connection, $query_add_numbered_piste);
-    
+
             header("Location: pistes.php?comp_id=$comp_id");
 
         }
@@ -178,7 +178,7 @@ if(isset($_POST["create_piste"])){
                                 <!--Main-->
                                 <label for="piste_number" id="mainpiste_num_label" class="label_text hidden main_group">PISTE NUMBER</label>
                                 <input type="number" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="e.g. 2" name="piste_number_main">
-                                
+
                                 <!--Colored-->
                                 <label for="piste_number" class="label_text hidden colored_group">PISTE COLOR</label>
                                 <div class="color_select hidden colored_group" id="colored_color_select">
@@ -213,16 +213,16 @@ if(isset($_POST["create_piste"])){
                     <div id="main_pistes_wrapper" class="piste_wrapper">
 
                         <?php
-                        
+
                         $query_main = "SELECT * FROM pistes_$comp_id WHERE piste_type = 1";
                         $query_main_do = mysqli_query($connection, $query_main);
 
                         while($row = mysqli_fetch_assoc($query_main_do)){
-                            
+
                             $piste_id = $row["id"];
                             $piste_number = $row["piste_number"];
                             $piste_activity = $row["piste_activity"];
-                            
+
                             ?>
 
                             <div id="<?php echo $piste_id ?>" class="piste main">
@@ -230,8 +230,8 @@ if(isset($_POST["create_piste"])){
                             <div>
                                 <p>Main Piste</p>
                                 <p>No.: <?php echo $piste_number ?></p>
-                                <div class="piste_status_indicator <?php 
-                                
+                                <div class="piste_status_indicator <?php
+
                                 if($piste_activity == 0){
 
                                     echo "green";
@@ -241,7 +241,7 @@ if(isset($_POST["create_piste"])){
                                     echo "red";
 
                                 }
-                                
+
                                 ?>"></div>
                             </div>
                             <div>
@@ -278,7 +278,7 @@ if(isset($_POST["create_piste"])){
 
 
                         <?php
-                        }  
+                        }
                         ?>
 
                         <div class="piste ghost"></div>
@@ -290,19 +290,19 @@ if(isset($_POST["create_piste"])){
                     <div id="colored_pistes_wrapper" class="piste_wrapper">
 
                         <?php
-                        
+
                         $query_colored = "SELECT * FROM pistes_$comp_id WHERE piste_type = 2 ORDER BY piste_number";
                         $query_colored_do = mysqli_query($connection, $query_colored);
 
                         while($row = mysqli_fetch_assoc($query_colored_do)){
-                            
+
                             $piste_id = $row["id"];
                             $piste_number = $row["piste_number"];
                             $piste_activity = $row["piste_activity"];
                             $piste_color = $row["piste_color"];
-                            
-                            
-                            
+
+
+
                             ?>
 
                         <div id="<?php echo $piste_id ?>" class="piste <?php echo pisteColor($piste_color); ?>">
@@ -310,8 +310,8 @@ if(isset($_POST["create_piste"])){
                             <div>
                                 <p>Piste</p>
                                 <p>No.: <?php echo $piste_number ?></p>
-                                <div class="piste_status_indicator <?php 
-                                
+                                <div class="piste_status_indicator <?php
+
                                 if($piste_activity == 0){
 
                                     echo "green";
@@ -321,8 +321,8 @@ if(isset($_POST["create_piste"])){
                                     echo "red";
 
                                 }
-                                
-                                
+
+
                                 ?>"></div>
                             </div>
                             <div>
@@ -356,7 +356,7 @@ if(isset($_POST["create_piste"])){
                             </form>
                         </div>
 
-                        <?php   
+                        <?php
                         }
                         ?>
 
@@ -371,12 +371,12 @@ if(isset($_POST["create_piste"])){
 
 
                     <?php
-                    
+
                     $query_numbered = "SELECT * FROM pistes_$comp_id WHERE piste_type = 3 ORDER BY piste_number";
                     $query_numbered_do = mysqli_query($connection, $query_numbered);
-                    
+
                     while($row = mysqli_fetch_assoc($query_numbered_do)){
-                        
+
                             $piste_id = $row["id"];
                             $piste_number = $row["piste_number"];
                             $piste_activity = $row["piste_activity"];
@@ -388,8 +388,8 @@ if(isset($_POST["create_piste"])){
                             <div>
                                 <p>Piste</p>
                                 <p>No.: <?php echo $piste_number ?></p>
-                                <div class="piste_status_indicator <?php 
-                                
+                                <div class="piste_status_indicator <?php
+
                                 if($piste_activity == 0){
 
                                     echo "green";
@@ -399,8 +399,8 @@ if(isset($_POST["create_piste"])){
                                     echo "red";
 
                                 }
-                                
-                                
+
+
                                 ?>"></div>
                             </div>
                             <div>

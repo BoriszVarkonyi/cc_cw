@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
 $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 $hasequipment = array();
@@ -70,7 +70,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
 
                     <div id="information_for_fencers_wrapper" class="wrapper full">
 
-                    <div id="needed_equipment_panel" class="info_panel"> 
+                    <div id="needed_equipment_panel" class="info_panel">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/beenhere-black-18dp.svg" >
                             <p>Equipment needed to be checked</p>
@@ -98,7 +98,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                 <div class="table_row" id="<?php echo $i ?>" onclick="takeToField(this)">
                                     <div class="table_item"><?php echo $equipment[$i]?></div>
                                     <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
-                                    
+
                                     if($assocdatapost[$i] == 0){
 
                                         echo "";
@@ -125,16 +125,16 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                             <input name="additional" type="text" class="hidden" id="additional_info_input">
                             <div class="additional_info_wrapper" id="add_info_wrap">
                             <?php
-                            
+
                             $query_get_info = "SELECT comp_info FROM competitions WHERE comp_id = $comp_id";
                                 $query_get_info_do = mysqli_query($connection, $query_get_info);
 
                                 $associnfoget = mysqli_fetch_assoc($query_get_info_do);
                                 $associnfopost = implode(",", $associnfoget);
-                            
+
                             ?>
                                 <div class="additional_info_text" contenteditable placeholder="Start typing here" id="additional"><?php
-                                
+
                                 if($associnfopost == ""){
 
                                         echo "";
@@ -144,7 +144,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                         echo $associnfopost;
 
                                     }
-                                
+
                                 ?></div>
                             </div>
                         </form>

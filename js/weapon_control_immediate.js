@@ -30,13 +30,13 @@ function callback(mutationsList, observer) {
         }
     })
 }
-    
+
 const mutationObserver2 = new MutationObserver(callback)
 for(i=0; i<wcRows.length; i++){
 mutationObserver2.observe(wcRows[i], { attributes: true })
 }
 
-wctable.addEventListener("click", buttonDisabler)    
+wctable.addEventListener("click", buttonDisabler)
 
 document.addEventListener("keyup", function(e){
     //searchBarClosed is a var. from control.js
@@ -45,5 +45,5 @@ document.addEventListener("keyup", function(e){
             addWeaponControlButton.click()
         }
     }
-        
+
 })

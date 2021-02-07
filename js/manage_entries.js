@@ -5,13 +5,13 @@ function toggleEntry(x) {
     var entry = tableRow.parentNode;
     var entryPanel = tableRow.nextElementSibling;
     var entrys =  document.querySelectorAll(".entry");
-    
+
     //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
         entrys[i].lastElementChild.classList.add("collapsed")
         entrys[i].classList.remove("opened")
 
-    } 
+    }
      //Checking if the oldentry var. equals the entry.
     if(entry == oldentry){
         //If yes then it adds opened, and remove collapsed.
@@ -40,9 +40,9 @@ function toggleEntry(x) {
     var secretinput = document.getElementById("hidden_approve_" + x.id);
     secretinput.form = "appdisapp" + x.id;
     secretinput.value = x.parentNode.id;
-    
-    
-    
+
+
+
 
 }
 
@@ -51,7 +51,7 @@ function toggleEntryInfo(x) {
     var button = x;
     var entryPanel = button.parentNode;
     var infoPanel = entryPanel.lastElementChild;
-    
+
     infoPanel.classList.toggle("hidden")
 }
 

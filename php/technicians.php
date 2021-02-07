@@ -26,7 +26,7 @@
 
     //get technicians
     $qry_get_techs = "SELECT data FROM technicians WHERE assoc_comp_id = '$comp_id'";
-    $do_get_techs = mysqli_query($connection, $qry_get_techs); 
+    $do_get_techs = mysqli_query($connection, $qry_get_techs);
 
     if ($num_rows = mysqli_num_rows($do_get_techs) == 1) {
         if ($row = mysqli_fetch_assoc($do_get_techs)) {
@@ -47,7 +47,7 @@
         $username = $_POST["username"];
         $name = $_POST['name'];
 
-        
+
         $existing_username = TRUE;
         foreach ($json_table as $json_object) {
             if ($json_object -> username == $username){
@@ -55,7 +55,7 @@
             }
         }
 
-        //username csak angol karakter lehet mert a json nem szereti 
+        //username csak angol karakter lehet mert a json nem szereti
         if ($existing_username){
             $new_tech = new tech($name, $role, $username);
             array_push($json_table, $new_tech);
@@ -115,7 +115,7 @@
             if ($to_import) {
                 array_push($json_table, $json_object_import);
             }
-        
+
         }
 
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
@@ -190,11 +190,11 @@
                                             }
                                     ?>
                                         <div class="table_row" id="<?php echo $id_to_get; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $id_to_get; ?>"><p><?php echo $comp_name; ?></p></div></div>
-                                                
-                                    <?php 
+
+                                    <?php
                                         }
                                     }
-                                        
+
                                 ?>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                 </div>
 
                 <form action="" method="POST" id="remove_technician"></form>
-                     
+
                 <div id="add_technician_panel" class="overlay_panel hidden" >
                     <button class="panel_button" onclick="toggle_add_technician()">
                         <img src="../assets/icons/close-black-18dp.svg" >
@@ -238,7 +238,7 @@
                         foreach ($json_table as $json_object) {
                             $username = $json_object -> username;
                             $name = $json_object -> name;
-                        
+
                             ?>
                             <a id="<?php echo $username ?>A" href="#<?php echo $username ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
                             <?php
@@ -270,7 +270,7 @@
                             </div>
                         </div>
                         <div class="table_row_wrapper" id="table">
-                            <?php  
+                            <?php
                                     foreach ($json_table as $json_object) {
 
                                     $username = $json_object -> username;

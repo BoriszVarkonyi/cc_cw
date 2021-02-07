@@ -32,7 +32,7 @@
 
                     <!-- slide3 -->
                     <div class="slide bg_fencers"></div>
-                    
+
                     <!-- slide4 -->
                     <div class="slide bg_fencers"></div>
                 </div>
@@ -84,12 +84,12 @@
                 <div class="column">
                     <p class="column_title">Latest Videos</p>
 
-                    
 
-                        <?php 
+
+                        <?php
                             $qry_get_videos = "SELECT * FROM cw_videos ORDER BY Date_of_creation ASC LIMIT 5;";
                             $do_get_videos = mysqli_query($connection, $qry_get_videos);
-    
+
                             while ($row = mysqli_fetch_assoc($do_get_videos)) {
                                 $video_id = "asd";
                                 $url = $row['URL'];
@@ -98,7 +98,7 @@
                                 $title = $row['title'];
                                 parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
                                 $video_id = $my_array_of_vars['v'];
-                                
+
                             ?>
                                 <!-- latest video placeholder -->
                                 <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
@@ -110,7 +110,7 @@
                                 </div>
                         <?php } ?>
 
-                    
+
                 </div>
             </div>
             </div>

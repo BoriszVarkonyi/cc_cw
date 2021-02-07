@@ -10,7 +10,7 @@
             <img src="../assets/icons/push_pin-black-18dp.svg">
         </button>
         <div id="nav_bar_wrapper">
-            <p id="overview_text" class="nav_bar_title">O</p> 
+            <p id="overview_text" class="nav_bar_title">O</p>
             <!-- dashboard -->
             <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
                 <img src="../assets/icons/dashboard-black-18dp.svg">
@@ -21,7 +21,7 @@
                 <p>Chat</p>
             </a>
             <!--
-            <p id="communications_text" class="nav_bar_title">C</p> 
+            <p id="communications_text" class="nav_bar_title">C</p>
             chat
             <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
                 <img src="../assets/icons/chat-black-18dp.svg">

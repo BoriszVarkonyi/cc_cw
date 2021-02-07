@@ -3,15 +3,15 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php 
+<?php
 
-    $ranking_id = $_GET["rankid"]; 
+    $ranking_id = $_GET["rankid"];
     $drop_row_feedback = "";
     $drop_table_feedback = "";
     $insert_feedback = "";
     $last_row_fencer_dob = NULL;
     $last_row_fencer_name = NULL;
-    //jelenlegi tábla neve 
+    //jelenlegi tábla neve
     $table_name = "rk_" . $ranking_id;
 
 
@@ -53,7 +53,7 @@
             echo mysqli_error($connection);
         }
 
-        header("Refresh:0");    
+        header("Refresh:0");
     }
 
 ?>
@@ -72,11 +72,11 @@
 </head>
 <body>
 
-<?php 
+<?php
 
-$query = "SELECT * 
+$query = "SELECT *
 FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase' 
+WHERE table_schema = 'ccdatabase'
     AND table_name = 'rk_$ranking_id'
 LIMIT 1;";
 $query_do = mysqli_query($connection, $query);
@@ -111,7 +111,7 @@ if(mysqli_num_rows($query_do) == 0){
                             <p>Ranking Information</p>
                             <img src="../assets/icons/info-black-18dp.svg"/>
                         </button>
-                    
+
                         <!-- delete ranking button -->
                         <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="hidden"></form>
                         <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
@@ -130,7 +130,7 @@ if(mysqli_num_rows($query_do) == 0){
                         </button>
                     </div>
 
-                
+
                     <?php
 
                         if (isset($_POST['drop_table'])) {
@@ -139,7 +139,7 @@ if(mysqli_num_rows($query_do) == 0){
                             $change_comp_rank_id = "UPDATE competitions SET comp_ranking_id = 0";
                             $drop_table = "DROP TABLE $table_name";
                             $drop_row = "DELETE FROM ranking WHERE id = '$ranking_id'";
-                            
+
                             //drop table feedback
                             if (mysqli_query($connection, $drop_table)) {
                                 $drop_table_feedback = $table_name . " has been dropped!";
@@ -162,7 +162,7 @@ if(mysqli_num_rows($query_do) == 0){
                             }
 
                             header("Location: http://localhost/php/choose_ranking.php?comp_id=52");
-                        }  
+                        }
                     ?>
                 <form id="delete_fencer_form" class="hidden" method="POST">
                 <input class="hidden" id="id_to_delete" type="text" name="id_to_delete">
@@ -197,7 +197,7 @@ if(mysqli_num_rows($query_do) == 0){
                         //ranking info hidden box
                         $get_ranking_info = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
                         $get_ranking_info_do = mysqli_query($connection, $get_ranking_info);
-                        
+
                         if($row = mysqli_fetch_assoc($get_ranking_info_do)){
 
                            $name = $row["name"];
@@ -219,7 +219,7 @@ if(mysqli_num_rows($query_do) == 0){
                         </div>
                     </div>
 
-                        
+
                 </div>
                 <div id="page_content_panel_main">
 
@@ -232,13 +232,13 @@ if(mysqli_num_rows($query_do) == 0){
                         $result = mysqli_query($connection, $query_get_last_row);
 
                         if($row = mysqli_fetch_assoc($result)){
-                            
+
                             $last_row_fencer_name = $row["name"];
                             $last_row_fencer_nationality = $row["nationality"];
                             $last_row_fencer_points = $row["points"];
                             $last_row_fencer_dob = $row["dob"];
                         }
-                        
+
 
                         //testing for duplicate lines & insertin new fencer to DB
                         if (isset($_POST['submit'])) {
@@ -251,7 +251,7 @@ if(mysqli_num_rows($query_do) == 0){
                             $query_insert_data = "INSERT INTO $table_name (name, nationality, points, dob) VALUES ('$fencer_name', '$fencers_nationality', '$fencer_points', '$fencer_dob')";
 
                             if ($last_row_fencer_name != $fencer_name && $last_row_fencer_dob != $fencer_dob || $row_cnt == 0) {
-                                
+
                                 if (mysqli_query($connection, $query_insert_data)) {
                                     $insert_feedback = "New record created successfully";
 
@@ -271,7 +271,7 @@ if(mysqli_num_rows($query_do) == 0){
 
                     <div class="wrapper w90 table">
 
-                        <?php 
+                        <?php
                             if ($row_cnt == 0) {
                         ?>
 
@@ -280,7 +280,7 @@ if(mysqli_num_rows($query_do) == 0){
                                     <p>You have no fencers set up!</p>
                                 </div>
 
-                        <?php 
+                        <?php
                             }
                         ?>
 
@@ -297,12 +297,12 @@ if(mysqli_num_rows($query_do) == 0){
                                 <div class="table_row_wrapper">
                         <?php
 
-                            } 
-                    
+                            }
+
                     $query = "SELECT * FROM $table_name ORDER BY points DESC";
                     $query_do = mysqli_query($connection, $query);
                     $pos = 1;
-                
+
                 // fencers dinamic table
                 while($row = mysqli_fetch_assoc($query_do)) {
 
@@ -311,7 +311,7 @@ if(mysqli_num_rows($query_do) == 0){
                     $nat = $row["nationality"];
                     $points = $row["points"];
                     $dob = $row["dob"];
-                              
+
                     //postion changing in database and dinamic table
                     $query_pos = "UPDATE $table_name SET position = $pos WHERE id = $id";
 
@@ -333,12 +333,12 @@ if(mysqli_num_rows($query_do) == 0){
                             <div class="table_item"><p><?php echo $dob ?></p></div>
 
                         </div>
-                                            
-                   <?php 
+
+                   <?php
 
                    $pos += 1;
                 }
-                   ?> 
+                   ?>
                     </div>
                     </div>
                 </div>

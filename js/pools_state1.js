@@ -74,7 +74,7 @@ function drag(ev, x) {
         //Gets the dragged Element innerHTML
         for(i=0; i<rowToSave.length; i++){
             if(rowToSave[i].indexOf(x.outerHTML) > -1){
-               //Saves the dragged element 
+               //Saves the dragged element
                draggedElement = rowToSave[i]
                //Saves the index
                index = i;
@@ -127,10 +127,10 @@ function drop(ev) {
         //Saves the dragged element innerHTML
         if(dragStart.parentNode.id !== "pools_drag_panel"){
             rowToSave.push(draggedElement)
-        }    
+        }
         //Deletes the dragged row if we dropped down.
         if(rowToDelete !== undefined && !dragStart.classList.contains("holder") && !dragStart.classList.contains("deleter")){
-            rowToDelete.remove();  
+            rowToDelete.remove();
         }
         //Deletes the Dragged row, bottom drag place
         if(dragPlaceTodelete !== undefined){
@@ -141,15 +141,15 @@ function drop(ev) {
         if(canRegenerate){
             regenerate();
         }
-    } 
-    idloader();   
+    }
+    idloader();
 }
 function regenerate() {
     var table = regenerateTable;
     var tableElements = table.querySelectorAll(".table_row")
     if(tableElements.length == 0){
         var dropAreas = table.querySelector(".table_row_drop")
-        dropAreas.outerHTML = '<div class="table_row_drop opened" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondrop="drop2(event, this)"></div>'   
+        dropAreas.outerHTML = '<div class="table_row_drop opened" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondrop="drop2(event, this)"></div>'
     }
     /*
     var tableheader = table.previousElementSibling
@@ -170,11 +170,11 @@ function regenerate() {
     for(i=0; i<rows.length; i++){
         var tableItems = rows[i].querySelectorAll(".table_item")
         for(c=2; c<rows.length+3; c++){
-            
+
             if(c == 2){
                 rows[i].innerHTML = rows[i].innerHTML + '<div class="table_item square row_title"><p>' + (i + 1) +'</p></div>'
             }
-            else if(c == i + 3){ 
+            else if(c == i + 3){
                 rows[i].innerHTML = rows[i].innerHTML + '<div class="table_item square filled"></div>'
             }
             else{
@@ -202,7 +202,7 @@ function tableWrapperHoverOff(x){
         for(i=0; i<dropAreas.length; i++){
         dropAreas[i].classList.remove("collapsed")
         }
-    }     
+    }
 }
 //Adds class to the droparea
 function dropAreaHoverOn(x){
@@ -231,7 +231,7 @@ function drop2(ev, x){
     }
     //Delertes the dragged row if we dropped down.
     if(rowToDelete !== undefined){
-        rowToDelete.remove();  
+        rowToDelete.remove();
     }
     //Deletes the saved droparea
     if(dragPlaceTodelete !== undefined){
@@ -273,13 +273,13 @@ function idloader(){
         }
     }
     hiddenInput = document.getElementById("savePoolsHiddenInput")
-    hiddenInput.value = poolsId  
+    hiddenInput.value = poolsId
     hiddenInput.classList.remove("hidden")
 }
 idloader()
 
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
-hiddenInput.value = poolsId  
+hiddenInput.value = poolsId
 hiddenInput.classList.remove("hidden")
 function tableChecker(x){
     console.log(x)
@@ -304,7 +304,7 @@ function pNtValidation(){
         if(inputs[i].value == ""){
             //If it finds an empty input, then it disable the "Save" button.
             valid1 = false;
-            break;      
+            break;
         }
         else {
             //If everything has a value then it enable the "Save" Button. The user can save.
@@ -356,12 +356,12 @@ function rfrsValidation(){
     }
     else{
         rfrsSaveButton.disabled = true;
-    }  
+    }
 }
 refereesForm.addEventListener("input", rfrsValidation)
 
-    
-    
+
+
 function generatePanel(){
 
     var f_number_input = document.getElementById("fencer_quantity");
@@ -369,7 +369,7 @@ function generatePanel(){
 
 
     for (let index = 7; index > 3; index--) {
-        
+
         var torekves = index;
 
         var szoveg = document.getElementById("p_" + torekves);
@@ -377,39 +377,39 @@ function generatePanel(){
         inputka = document.getElementById(index);
 
         var fullpool = f_number / torekves;
-        
+
         if(f_number % torekves == 0){
 
             szoveg.innerHTML = fullpool + " pool of " + torekves;
             inputka.value = fullpool;
-        
+
             }
         else
             {
 
                 var teljescsop = Math.floor(f_number / torekves);
-                
-            
+
+
                 var maradek = f_number % torekves;
-            
+
                 var ennyikell = (torekves - 1) - maradek;
-            
+
                 var nagyobb = teljescsop - ennyikell;
                 var kisebb = 1 + ennyikell;
-            
+
                 var torekvesalatt = torekves - 1;
-            
+
                 if(nagyobb <= 0){
-            
+
                     szoveg.innerHTML = "NEM LEHETSÉGES";
-            
+
                 }else{
-            
+
                     szoveg.innerHTML = nagyobb + " pool of " + torekves + " and " + kisebb + " pool of " + torekvesalatt;
                     inputka.value = nagyobb + kisebb;
-            
+
                 }
-            
+
                 }
     }
 

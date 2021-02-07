@@ -34,6 +34,6 @@ echo rtrim($query_text, ",");
     <title></title>
 </head>
 <body>
-    
+
 </body>
 </html>

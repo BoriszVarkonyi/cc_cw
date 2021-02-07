@@ -1,6 +1,6 @@
 <?php include "../includes/headerburger.php"; ?>
 <?php include "../includes/db.php"; ?>
-<?php 
+<?php
 
 $enLang = "../assets/languages/en.txt";
 $enLines = file($enLang);
@@ -12,27 +12,27 @@ checkComp($connection);
 
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connection, $query);
-    
+
     if($row = mysqli_fetch_assoc($check_comp_query)){
-    
+
     $comp_name = $row["comp_name"];
-    
+
     }
 
 
-    
+
     //comp_status_table
 
     define("TICK", "../assets/icons/done-black-18dp.svg");
     define("CROSS", "../assets/icons/close-black-18dp.svg");
 
     //még nincsenek
-    
+
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connection, $query);
-        
+
      if($row = mysqli_fetch_assoc($check_comp_query)){
-        
+
         $comp_host = $row["comp_host"];
         $comp_info = $row["comp_info"];
         $comp_wc_info = $row["comp_wc_info"];
@@ -49,7 +49,7 @@ checkComp($connection);
         "ranking" => "",
         "pre_entries" => "",
     ];
-    
+
     $assoc_comp_table_elements['g_invitations'] = CROSS;
     $assoc_comp_table_elements['pre_entries'] = CROSS;
 
@@ -73,7 +73,7 @@ checkComp($connection);
     } else {
         $assoc_comp_table_elements['g_timetable'] = CROSS;
     }
-    
+
     //TESTING GENERAL___________________________________________________________________________________________
 
     if ($assoc_comp_table_elements['g_basic_info'] == TICK && $assoc_comp_table_elements['g_basic_info'] == TICK && $assoc_comp_table_elements['g_timetable'] == TICK && $assoc_comp_table_elements['g_invitations'] == TICK) {
@@ -125,7 +125,7 @@ checkComp($connection);
     }
 
     //majd testing pre-entries ha kész lesz
-    
+
     //if all of the above are TICK then the publish competition button will NOT be disabled
     $publish_comp_disabled = "";
     if (array_search(CROSS, $assoc_comp_table_elements, FALSE) !== FALSE) {
@@ -158,10 +158,10 @@ checkComp($connection);
 
         <!-- left navigation bar -->
         <?php include "../includes/navbar.php"; ?>
-        
+
         <div class="page_content_flex">
 
-                <!-- dashboard header -->  
+                <!-- dashboard header -->
                 <div id="title_stripe">
                     <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
@@ -178,7 +178,7 @@ checkComp($connection);
                     </div>
                 </div>
 
-                <!-- dashboard body -->  
+                <!-- dashboard body -->
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
                         <div class="db_panel main">
@@ -199,7 +199,7 @@ checkComp($connection);
 
                         <!-- competition status -->
                         <div class="db_panel status">
-                            
+
                             <!-- competition status panel header -->
 
                             <?php //egyan az mint index.php elejen a comp_name lekérés
@@ -211,7 +211,7 @@ checkComp($connection);
                                     $comp_status = $row["comp_status"];
 
                                 }
-                            ?>  
+                            ?>
 
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/beenhere-black-18dp.svg" >
@@ -224,7 +224,7 @@ checkComp($connection);
                                 <div id="sheduled_to_do_list">
 
                                     <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
-                                        
+
                                         <div id="general_to_do" class="sheduled_to_do_sublist">
 
                                             <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
@@ -235,12 +235,12 @@ checkComp($connection);
                                         </div>
 
                                     <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
-                                    
+
                                         <div id="technical_to_do" class="sheduled_to_do_sublist">
-                                            
+
                                             <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
                                             <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
-                                        
+
                                         </div>
 
                                     <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
@@ -259,7 +259,7 @@ checkComp($connection);
                     </div>
             </div>
         </div>
-    </div>    
+    </div>
     <script src="../js/main.js"></script>
     <script src="../js/dashboard.js"></script>
 </body>

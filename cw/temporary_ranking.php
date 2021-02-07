@@ -43,7 +43,7 @@
                         <div class="small_status_header"></div>
                     </div>
                     <div class="table_row_wrapper alt">
-                        <?php 
+                        <?php
                             //get competitors sorted by temp rank
                             $qry = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank ASC";
                             $qry_do = mysqli_query($connection, $qry);
@@ -59,17 +59,17 @@
                             <div class="table_item">
                                     <p>
                                         <?php echo $fencer_temp_rank ?>
-                                    </p> 
+                                    </p>
                                 </div>
                                 <div class="table_item">
                                     <p>
                                         <?php echo $fencer_name ?>
-                                    </p> 
+                                    </p>
                                 </div>
                                 <div class="table_item">
                                     <p>
                                         <?php echo $fencer_nat ?>
-                                    </p> 
+                                    </p>
                                 </div>
                                 <div class="small_status_item red"></div>
                             </div>
