@@ -170,7 +170,7 @@ if (isset($_POST["submit"])) {
                 <p class="page_title">Login</p>
             </div>
         </div>
-        <div id="panel_main">
+        <div id="panel_main" class="no_padding">
             <!-- login form -->
             <form action="index.php" method="POST" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
                     echo "error";

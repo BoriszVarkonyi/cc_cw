@@ -1503,6 +1503,10 @@ header {
 	padding: 50px;
 }
 
+#panel_main.no_padding {		/* The main part of the panel it is under the title_stripe*/
+	padding: 0px;
+}
+
 /* ///FORMS AND INPUTS/// */
 
 label {	/* Used in forms, all caps, thin font    NO option buttons*/
