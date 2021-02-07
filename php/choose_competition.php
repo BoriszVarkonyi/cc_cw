@@ -54,7 +54,7 @@ $query_comps = mysqli_query($connection, $query);
         <div id="title_stripe">
             <p class="page_title">T: Your Competitions O: Competitions of {Tournamnet's name}</p>
             <div class="stripe_button_wrapper">
-                <button class="stripe_button" onclick="location.href='timetable.php?t_id=<?php echo $ass_tourn_id ?>'">
+                <button class="stripe_button" onclick="location.href='tournament_timetable.php?t_id=<?php echo $ass_tourn_id ?>'">
                     <p>Manage Timetable</p>
                     <img src="../assets/icons/timetable-black-18dp.svg"/>
                 </button>

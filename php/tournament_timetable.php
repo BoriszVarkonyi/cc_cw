@@ -1,5 +1,20 @@
 <?php include "../includes/db.php" ?>
 <?php ob_start(); ?>
+
+<?php
+
+if (isset($_POST[""])) {
+    # code...
+}
+
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,9 +48,9 @@
             <form id="tournament_timetable" class="form_wrapper" action="" method="POST">
                 <div>
                     <label for="">STARTING DATE</label>
-                    <input type="date" class="start_date_input" name="">
+                    <input type="date" class="start_date_input" name="start_date_input">
                     <label for="">ENDING DATE</label>
-                    <input type="date" class="end_date_input" name="">
+                    <input type="date" class="end_date_input" name="end_date_input">
                 </div>
             </form>
             <form id="tournament_weapon control" class="form_wrapper" action="" method="POST">

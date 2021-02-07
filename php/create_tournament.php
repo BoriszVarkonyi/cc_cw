@@ -3,8 +3,6 @@
 
 <?php
 
-
-
 if (isset($_POST["create_tournament"])) {
     
     $org_id = $_COOKIE["org_id"];
