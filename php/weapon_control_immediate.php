@@ -5,63 +5,28 @@
 
 <?php 
 
-    $table_name = "wc_$comp_id";
-    //feedback
-    $feedback = array(
-        "getrankid" => "no",
-        "getfencers" => "no",
-        "getcompdata" => "no"
-    );
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);
 
+    $test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_test = mysqli_query($connection, $test_for_row_qry);
 
-    //get ranking id by comp_id
-    $qry_getrankid = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
-
-    $qry_getrankid_do = mysqli_query($connection, $qry_getrankid);
-    if ($row = mysqli_fetch_assoc($qry_getrankid_do)) {
-        $feedback['getrankid'] = "ok!";
-        $ranking_id = $row['id'];
+    if ($row = mysqli_fetch_assoc($do_test)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
     } else {
-        $feedback['getrankid'] = "ERROR " . mysqli_error($connection);
+        $qry_insert_new_row = "INSERT INTO weapon_control (assoc_comp_id) VALUES ($comp_id);";
+        $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
+        $json_table = [];
     }
 
     if (isset($_POST['add_wc'])) {
         $fencer_id = $_POST['fencer_id'];
-        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&rankid=$ranking_id");
+        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
-    
-    //checking for dupli tables
-    $check_d_table_qry = "SELECT COUNT(*)
-    FROM information_schema.tables 
-    WHERE table_schema = 'ccdatabase' 
-    AND table_name = '$table_name';";
 
-    if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-        $num_rows = mysqli_num_rows($check_d_table_do);
-        $feedback['ttest'] = "ok!";
 
-        if ($num_rows != 0) {
-            //creating weapon control  table
-            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL , 
-                                                                `name` VARCHAR(255) NOT NULL , 
-                                                                `nat` VARCHAR(255) NOT NULL , 
-                                                                `weapon_errors` VARCHAR(255) NOT NULL , 
-                                                                `notes` TEXT NOT NULL ) 
-                                                                ENGINE = InnoDB;";
 
-            if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
-                $feedback['create_table'] = "ok!";
-            } else {
-                $feedback['create_table'] = "ERROR " . mysqli_error($connection);
-            }
-
-        } else {
-            $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
-        }
-
-    } else {
-        $feedback['ttest'] = "ERROR " . mysqli_error($connection);
-    }
 ?>
 
 <!DOCTYPE html>
@@ -153,26 +118,13 @@
                                 $fencer_name = $row['name'];
                                 $fencer_id = $row['id'];
                                 $fencer_nat = $row['nationality'];
-
-                                //test for wc
-                                $qry_get_wc_data = "SELECT * FROM `wc_$comp_id` WHERE id = '$fencer_id'";
-                                $do_get_wc_data = mysqli_query($connection, $qry_get_wc_data);
-                                $num_rows = mysqli_num_rows($do_get_wc_data);
-
-                                if ($num_rows == 1) {
-                                    $wc_test_style = "green";
-                                    $wc_test = "Ready";
-                                } else {
-                                    $wc_test_style = "red";
-                                    $wc_test = "Not ready";
-                                }
                         ?>
                         <!-- while -->
                         <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">
                             <div class="table_item"><p><?php echo $fencer_name ?></p></div>
                             <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
-                            <div class="table_item"><p><?php echo $wc_test ?></p></div>
-                            <div class="big_status_item <?php echo $wc_test_style ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
+                            <div class="table_item"><p><?php echo "placeholder!" ?></p></div>
+                            <div class="big_status_item <?php echo "red" ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
                         </div>
                         <?php
                             }
