@@ -37,6 +37,9 @@ body, html {
 	background: var(--c-lightestgray) !important;
 	overflow-y: auto;
 	overflow-x: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 html {
@@ -49,12 +52,6 @@ input.disabled {
 }
 */
 /* Basic layout */
-
-#wrapper {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
 
 header {
 	width: 100%;
@@ -1795,7 +1792,7 @@ b.green {
 }
 
 #availabe_times_wrapper input {
-	/*display: none;*/
+	display: none;
 }
 
 #availabe_times_wrapper > p {
