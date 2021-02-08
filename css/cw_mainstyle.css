@@ -33,7 +33,6 @@
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
-
 body, html {
 	background: var(--c-lightestgray) !important;
 	overflow-y: auto;
@@ -88,8 +87,6 @@ header {
 footer {
 	width: 100%;
 }
-
-
 
 .column {
 	width: 100%;
@@ -1798,7 +1795,7 @@ b.green {
 }
 
 #availabe_times_wrapper input {
-	display: none;
+	/*display: none;*/
 }
 
 #availabe_times_wrapper > p {
