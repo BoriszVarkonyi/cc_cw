@@ -3,17 +3,30 @@
 
 <?php
 
+$t_id = $_GET["t_id"];
+
 if (isset($_POST["save"])) {
 
+    $get_timet_info = "SELECT * FROM tournaments WHERE id = $t_id";
+    $get_timet_info_do = mysqli_query($connection, $get_timet_info);
 
+    if ($row = mysqli_fetch_assoc($get_timet_info_do)) {
 
+        $dates = json_decode($row["timetable"]);
+
+    }
+
+    $start_date = $_POST["start_date_input"];
+    $end_date = $_POST["end_date_input"];
+
+    $dates->start_date = $start_date;
+    $dates->end_date = $end_date;
+
+    $dates = json_encode($dates);
+
+    $qry_update_dates = "UPDATE tournaments SET timetable = '$dates' WHERE id = $t_id";
+    $qry_update_dates_do = mysqli_query($connection, $qry_update_dates);
 }
-
-
-
-
-
-
 
 ?>
 
@@ -49,24 +62,39 @@ if (isset($_POST["save"])) {
         <div id="panel_main">
             <form id="tournament_timetable" class="form_wrapper" action="" method="POST">
                 <div>
-                    <label for="">STARTING DATE</label>
-                    <input type="date" class="start_date_input" name="start_date_input">
-                    <label for="">ENDING DATE</label>
-                    <input type="date" class="end_date_input" name="end_date_input">
+                    <div>
+                        <label for="">STARTING DATE</label>
+                        <input type="date" class="start_date_input" name="start_date_input">
+                    </div>
+                    <div>
+                        <label for="">ENDING DATE</label>
+                        <input type="date" class="end_date_input" name="end_date_input">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="">TYPE OF APOINTMENT BOOKING</label>
+                        <div class="option_container">
+                            <input type="radio" class="option_button" name="type_of_booking" id="teams" value=""/>
+                            <label for="teams" class="option_label">Book appointment as teams</label>
+                            <input type="radio" class="option_button" name="type_of_booking" id="fencers" value=""/>
+                            <label for="fencers" class="option_label">Book appointment as fencers</label>
+                        </div>
+                    </div>
                 </div>
             </form>
-            <form id="tournament_weapon control" class="form_wrapper" action="" method="POST">
+            <form id="tournament_weapon_control" class="form_wrapper" action="" method="POST">
                 <button>Add New Weapon Control</button>
                 <div>
                     <label for="">DATE</label>
-                    <input type="date" class="start_date_input" name="start_date">
+                    <input type="date" class="start_date_input" name="">
                     <label for="">STARTING TIME</label>
                     <input type="time" class="" name="" step="3600000">
                     <label for="">ENDING TIME</label>
                     <input type="time" class="" name="" step="3600000">
                     <label for="">MINUTE / FENCER</label>
                     <input type="number" class="number_input centered" placeholder="#" name="" step="3600000">
-                    <input type="button" value="Add" class="panel_submit">
+                    <input type="submit" value="Add" class="panel_submit">
                     <div class="table">
                         <div class="table_header">
                             <div class="table_header_text">DATE</div>

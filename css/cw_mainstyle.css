@@ -33,11 +33,13 @@
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
-
 body, html {
 	background: var(--c-lightestgray) !important;
 	overflow-y: auto;
 	overflow-x: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 html {
@@ -81,12 +83,6 @@ header {
 
 footer {
 	width: 100%;
-}
-
-#wrapper {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
 }
 
 .column {
@@ -1835,5 +1831,4 @@ input[type="radio"]:checked + label .appointment {
 	color: var(--cd-primarycontrast);
 	font-family: var(--bold);
 	text-transform: none;
-
 }

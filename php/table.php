@@ -161,6 +161,7 @@ if (isset($_POST["generate_table"])) {
     <title>Table of {Comp's name}</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/table.css">
 </head>
 
 <body>
