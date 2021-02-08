@@ -5,6 +5,19 @@
 
 <?php
 
+    class wc {
+        public $id;
+        public $array_of_issues;
+        public $notes;
+
+
+        function  __construct($id, $array_of_issues, $notes) {
+            $this -> array_of_issues = $array_of_issues;
+            $this -> notes = $notes;
+            $this -> id = $id;
+        }
+    }
+
     // array of all issues
     $array_issues = array(
         "FIE mark on blade",
@@ -12,7 +25,7 @@
         "Arm lenght",
         "Blade lenght",
         "Grip lenght",
-        "Form and depthof the guard",
+        "Form and depth of the guard",
         "Guard oxydation/ deformation",
         "Excentricity of the blade",
         "Blade flexibility",
@@ -45,108 +58,76 @@
         "other items",
     );
 
-    //feedback array
-    $feedback = array(
-        "fencer_data" => "no",
-        "create_table" => "no",
-        "ttest" => "no",
-        "update" => "no",
-        "rtest" => "no",
-        "insert" => "no",
-        "get_wc_data" => "no",
-        "misc" => "no"
-    );
-
-    $table_name = "wc_$comp_id";
     $fencer_id = $_GET['fencer_id'];
-    $ranking_id = $_GET['rankid'];
-    $array_real_issues = array();
-    $issue = "did not set yet";
-    $old_notes = "";
 
+    //get fencer data
+    $qry_get_fencer_data = "SELECT `name` FROM cptrs_$comp_id WHERE id = '$fencer_id'";
+    $do_get_fencer_data = mysqli_query($connection, $qry_get_fencer_data);
 
-
-
-    //get fencer data from cptrs_$comp_id
-    $qry_get_fencer_data = "SELECT * FROM `cptrs_$comp_id` WHERE id = '$fencer_id'";
-    $qry_get_fencer_data_do = mysqli_query($connection, $qry_get_fencer_data);
-
-    if ($row = mysqli_fetch_assoc($qry_get_fencer_data_do)) {
-        $feedback['fencer_data'] = "ok!";
+    if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
         $fencer_name = $row['name'];
-        $fencer_nat = $row['nationality'];
-    } else {
-        $feedback['fencer_data'] = "ERROR " . mysqli_error($connection);
     }
+
+
+    //check wc
+    $qry_wc = "SELECT data FROM weapon_control WHERE assoc_comp_id = $comp_id";
+    $do_wc = mysqli_query($connection, $qry_wc);
+
+    if ($row = mysqli_fetch_assoc($do_wc)) {
+        $json_string = $row['data'];
+
+        $json_table = json_decode($json_string);
+
+        $notes = "";
+        $array_of_real_issues = [];
+
+        foreach ($json_table as $json_object) {
+            if ( $json_object -> id == $fencer_id) {
+                $notes = $json_object -> notes;
+                $array_of_real_issues = $json_object -> array_of_issues;
+            }
+        }
+    }
+
+
+
+
 
 
 
     if (isset($_POST['submit_wc'])) {
 
-        //get issues into a string
-        for ($i = 0; $i < count($array_issues); $i++) {
 
-            if ($_POST["issue_n_$i"] == "") {
-               $issue = "0";
-            } else {
-                $issue = $_POST["issue_n_$i"];
-            }
-
-            $array_real_issues[$i] = $issue;
-
-        }
-
-        $string_real_issues = implode(",", $array_real_issues);
-
-        //get notes from post
         $notes = $_POST['wc_notes'];
+        $array_to_push = [];
+        for ($i = 0; $i < count($array_issues); $i++) {
+            $error_count = $_POST["issue_n_$i"];
 
-
-        //test for existing row
-        $qry_rtest = "SELECT * FROM $table_name WHERE id = '$fencer_id'";
-        $do_qry_rtest = mysqli_query($connection, $qry_rtest);
-        $row_cnt = mysqli_num_rows($do_qry_rtest);
-
-        if ($row_cnt == 0) {
-            //insert new row into table_name
-            $qry_insert = "INSERT INTO $table_name (id, name, nat, weapon_errors, notes) VALUE ('$fencer_id', '$fencer_name', '$fencer_nat', '$string_real_issues', '$notes')";
-            if ($do_qry_insert = mysqli_query($connection, $qry_insert)) {
-                $feedback['insert'] = "ok!";
+            if ($error_count == "") {
+                $array_to_push[$i] = 0;
             } else {
-                $feedback['insert'] = "ERROR " . mysqli_error($connection);
-            }
-
-        } else {
-            //updateing weapon_errors from array_real_issues
-            $qry_update = "UPDATE $table_name SET name = '$fencer_name', nat = '$fencer_nat', weapon_errors = '$string_real_issues', notes = '$notes' WHERE id = '$fencer_id'";
-
-            if ($do_qry_update = mysqli_query($connection, $qry_update)) {
-                $feedback['update'] = "ok!";
-            } else {
-                $feedback['update'] = "ERROR " . mysqli_error($connection);
+                $array_to_push[$i] = $error_count;
             }
         }
 
-        header("Location: ../php/weapon_control.php?comp_id=$comp_id");
+        $json_object = new wc($fencer_id, $array_to_push, $notes);
+        //delete existing object
+        foreach ($json_table as $json_object_to_delete) {
+            if ($json_object_to_delete -> id == $fencer_id) {
+                $id_to_delete = array_search($json_object_to_delete, $json_table);
+            }
+        }
+        unset($json_table[$id_to_delete]);
+
+        array_push($json_table, $json_object);
+
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+        $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = $comp_id";
+        $do_update = mysqli_query($connection, $qry_update);
+        echo mysqli_error($connection);
+        header("Refresh: 0");
     }
-
-    //check for wc for fencer
-    $qry_chck_f_row = "SELECT * FROM `$table_name` WHERE id = '$fencer_id'";
-    $do_chck_f_row = mysqli_query();
-
-    //get fencer data with fencer_id from $table_name
-    $qry_get_wc_data = "SELECT * FROM $table_name WHERE id = '$fencer_id'";
-    $do_qry_get_wc_data = mysqli_query($connection, $qry_get_wc_data);
-
-    if ($row = mysqli_fetch_assoc($do_qry_get_wc_data)) {
-        $string_weapon_errors = $row['weapon_errors'];
-        $array_weapon_errors = explode(",", $string_weapon_errors);
-        $old_notes = $row['notes'];
-        $feedback['get_cw_data'] = "ok!";
-    } else {
-        $feedback['get_cw_data'] = "ERROR " . mysqli_error($connection);
-    }
-
 
 
 ?>
@@ -195,12 +176,16 @@
                                     foreach ($array_issues as $issue) {
 
                                     $issue_id = array_search($issue, $array_issues);
-
+                                    if (isset($array_of_real_issues[$issue_id]) && $array_of_real_issues[$issue_id] != 0) {
+                                        $issue_numbers = $array_of_real_issues[$issue_id];
+                                    } else {
+                                        $issue_numbers = "";
+                                    }
                                 ?>
 
                                 <div class="table_row">
-                                    <div class="table_item capitalize"><p><?php echo $issue ?></p></div>
-                                    <div class="table_item"><input value="<?php echo $array_weapon_errors[$issue_id] ?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
+                                    <div class="table_item"><p><?php echo $issue ?></p></div>
+                                    <div class="table_item"><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
                                     <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
                                         <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
                                         <label for="<?php echo $issue_id ?>"></label>
@@ -216,12 +201,12 @@
                             <div class="table_header">
                                 <div class="table_header_text title">NOTES</div>
                             </div>
-                            <textarea name="wc_notes" id="wc_notes" placeholder="Type the notes here"><?php echo $old_notes ?></textarea>
+                            <textarea name="wc_notes" id="wc_notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
                         </div>
                     </form>
                 </div>
         </div>
     </body>
-    <script src="../js/main.js"></script>
+    <!--<script src="../js/main.js"></script>-->
     <script src="../js/list.js"></script>
 </html>
