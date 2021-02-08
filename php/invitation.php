@@ -242,7 +242,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             </div>
                         </div>
                     </div>
-                    <div class="db_panel  other">
+                    <div class="db_panel other">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg" >
                             <p>Add competition logo</p>
@@ -255,7 +255,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                             </form>
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-                                <label for="fileToUpload">Upload Image</label>
+                                <label for="fileToUpload">Upload Image (max. 0.5MB)</label>
                                 <p id="fileText">Fájl neve ide</p>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" id="uploadButton" disabled>
                             </form>

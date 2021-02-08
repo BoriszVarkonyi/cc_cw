@@ -62,10 +62,25 @@ if (isset($_POST["save"])) {
         <div id="panel_main">
             <form id="tournament_timetable" class="form_wrapper" action="" method="POST">
                 <div>
-                    <label for="">STARTING DATE</label>
-                    <input type="date" class="start_date_input" name="start_date_input">
-                    <label for="">ENDING DATE</label>
-                    <input type="date" class="end_date_input" name="end_date_input">
+                    <div>
+                        <label for="">STARTING DATE</label>
+                        <input type="date" class="start_date_input" name="start_date_input">
+                    </div>
+                    <div>
+                        <label for="">ENDING DATE</label>
+                        <input type="date" class="end_date_input" name="end_date_input">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="">TYPE OF APOINTMENT BOOKING</label>
+                        <div class="option_container">
+                            <input type="radio" class="option_button" name="type_of_booking" id="teams" value=""/>
+                            <label for="teams" class="option_label">Book appointment as teams</label>
+                            <input type="radio" class="option_button" name="type_of_booking" id="fencers" value=""/>
+                            <label for="fencers" class="option_label">Book appointment as fencers</label>
+                        </div>
+                    </div>
                 </div>
             </form>
             <form id="tournament_weapon_control" class="form_wrapper" action="" method="POST">

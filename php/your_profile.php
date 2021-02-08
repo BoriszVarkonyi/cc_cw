@@ -62,22 +62,26 @@
         <div id="panel_main">
             <div class="form_wrapper">
                 <div>
-                    <label for="name">NAME</label>
-                    <p><?php echo $username ?></p>
+                    <div>
+                        <label for="name">NAME</label>
+                        <p><?php echo $username ?></p>
+                    </div>
+                    <div>
+                        <label for="name">EMAIL ADDRESS</label>
+                        <p>{your email address}</p>
+                    </div>
                 </div>
                 <div>
-                    <label for="name">EMAIL ADDRESS</label>
-                    <p>{your email address}</p>
+                    <?php if ($needed_profile_pic) { ?>
+                    <div class="separate_column">
+                        <label for="name">PROFILE PICTURE</label>
+                        <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
+                        <label for="file" class="file_label">Upload File (max. 0.5MB)</label>
+                        <input form="fileToUpload" type="file" name="fileToUpload" id="file">
+                        <p id="fileText">File name</p>
+                    </div>
+                    <?php } ?>
                 </div>
-                <?php if ($needed_profile_pic) { ?>
-                <div class="separate_column">
-                    <label for="name">PROFILE PICTURE</label>
-                    <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
-                    <label for="file" class="file_label">Upload File</label>
-                    <input form="fileToUpload" type="file" name="fileToUpload" id="file">
-                    <p id="fileText">File name</p>
-                </div>
-                <?php } ?>
             </div>
         </div>
     </div>

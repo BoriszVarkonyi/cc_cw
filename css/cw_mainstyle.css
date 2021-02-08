@@ -51,6 +51,12 @@ input.disabled {
 */
 /* Basic layout */
 
+#wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 header {
 	width: 100%;
 	max-width: 100vw;
@@ -83,11 +89,7 @@ footer {
 	width: 100%;
 }
 
-#wrapper {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
+
 
 .column {
 	width: 100%;
@@ -1835,5 +1837,4 @@ input[type="radio"]:checked + label .appointment {
 	color: var(--cd-primarycontrast);
 	font-family: var(--bold);
 	text-transform: none;
-
 }
