@@ -40,7 +40,7 @@
                 </div>
                 <form id="content_wrapper" method="POST" action="process_pre.php">
                     <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
-                    <div id="" class="column_panel no_top">
+                    <div id="step1" class="column_panel no_top">
                         <div>
                             <div class="form_wrapper">
                                 <div>
@@ -66,40 +66,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="send_button center" onclick="">Find Appointments</button>
+                            <button type="button" class="send_button center" onclick="findAppointmentsButton()">Find Appointments</button>
                         </div>
-                        <button class="edit_button" onclick="">Edit Information</button>
+                        <button class="edit_button" onclick="editButton()" type="button" onclick="">Edit Information</button>
                     </div>
                     <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
-                    <div class="column_panel no_top collapsed">
+                    <div class="column_panel no_top collapsed" id="step2">
                         <div class="column">
                             <b>Available times:</b>
                             <div id="availabe_times_wrapper">
                                 <p>DATE 1</p>
                                 <input type="radio" name="appointments" id="appointment1" value=""/>
                                 <label for="appointment1">
-                                    <div class="appointment">
+                                    <div class="appointment" onclick="selectAppointment(this)">
                                         <p>11:00 - 12:00</p>
                                         <div>Choose</div>
                                     </div>
                                 </label>
                                 <input type="radio" name="appointments" id="appointment2" value=""/>
                                 <label for="appointment2">
-                                    <div class="appointment">
+                                    <div class="appointment" onclick="selectAppointment(this)">
                                         <p>11:00 - 12:00</p>
                                         <div>Choose</div>
                                     </div>
                                 </label>
                                 <input type="radio" name="appointments" id="appointment3" value=""/>
                                 <label for="appointment3">
-                                    <div class="appointment">
+                                    <div class="appointment" onclick="selectAppointment(this)">
                                         <p>11:00 - 12:00</p>
                                         <div>Choose</div>
                                     </div>
                                 </label>
                                 <input type="radio" name="appointments" id="appointment4" value=""/>
                                 <label for="appointment4">
-                                    <div class="appointment">
+                                    <div class="appointment" onclick="selectAppointment(this)">
                                         <p>11:00 - 12:00</p>
                                         <div>Choose</div>
                                     </div>
@@ -107,7 +107,7 @@
                                 <p>DATE 2</p>
                                 <input type="radio" name="appointments" id="appointment5" value=""/>
                                 <label for="appointment5">
-                                    <div class="appointment">
+                                    <div class="appointment" onclick="selectAppointment(this)">
                                         <p>11:00 - 12:00</p>
                                         <div>Choose</div>
                                     </div>
