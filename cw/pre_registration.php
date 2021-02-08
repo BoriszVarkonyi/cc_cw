@@ -88,10 +88,11 @@ if(isset($_POST["send_pre"])){
                                     <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
                                 </div>
                             </div>
+                            <button class="send_button center" onclick="">Find Appointments</button>
                         </div>
                     </div>
                     <p class="column_title centered">SELECT FENCERS FROM THE COMPEITION'S RANKING: (STEP 2 / 2)</p>
-                    <div class="column_panel no_top">
+                    <div class="column_panel no_top collapsed">
                         <div class="column">
                             <b>Selected fencers:</b>
                             <div id="selected_fencers_wrapper">
@@ -157,7 +158,7 @@ if(isset($_POST["send_pre"])){
         <?php include "cw_footer.php"; ?>
     </div>
 <script src="../js/cw_main.js"></script>
-<script src="../js/pre_registration.js"></script>
+<script src="../js/cw_pre_registration.js"></script>
 <script src="../js/list.js"></script>
 </body>
 </html>
