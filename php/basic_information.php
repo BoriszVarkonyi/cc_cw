@@ -4,21 +4,73 @@
 <?php checkComp($connection); ?>
 <?php
 
-if(isset($_POST["submit"])){
+    class basic_info {
+        public $host_country;
+        public $city_street;
+        public $zip_code;
+        public $entry_fee;
+        public $starting_date;
+        public $ending_date;
+        public $end_of_pre_reg;
 
-$host_country = $_POST["host_country"];
-$location = $_POST["location"];
-$postal = $_POST["postal"];
-$entry_fee = $_POST["entry_fee"];
-$start_date = $_POST["start_date"];
-$end_date = $_POST["end_date"];
-$end_pre_reg = $_POST["end_pre_reg"];
+        function __construct($host_country, $location, $zip_code, $entry_fee, $starting_date, $ending_date, $end_of_pre_reg) {
+            $this -> host_country = $host_country;
+            $this -> city_street = $location;
+            $this -> zip_code = $zip_code;
+            $this -> entry_fee = $entry_fee;
+            $this -> starting_date = $starting_date;
+            $this -> ending_date = $ending_date;
+            $this -> end_of_pre_reg = $end_of_pre_reg;
+        }
 
-$query = "UPDATE competitions SET comp_host = '$host_country', comp_location = '$location', comp_postal = $postal, comp_entry = '$entry_fee', comp_start = '$start_date', comp_end = '$end_date', comp_pre_end = '$end_pre_reg' WHERE comp_id = $comp_id";
-$query_do = mysqli_query($connection, $query);
+        function get_somethin($something) {
+            return $this -> $something;
+        }
 
-//header("Location: basic_information.php?comp_id=$comp_id");
-}
+
+    }
+
+
+    //make table "basic_info";
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`basic_info` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_make_table = mysqli_query($connection, $qry_make_table);
+
+    //get data from table
+    $qry_get_data = "SELECT `data` FROM `basic_info` WHERE `assoc_comp_id` = '$comp_id';";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $json_string = $row['data'];
+
+        $json_table = json_decode($json_string);
+        echo "fasz";
+    } else {
+        $json_table = "";
+
+        $qry_new_row = "INSERT INTO `basic_info` (`assoc_comp_id`) VALUES ('$comp_id')";
+        $do_new_row = mysqli_query($connection, $qry_new_row);
+        echo mysqli_error($connection);
+    }
+
+    //upload data
+    if (isset($_POST['submit'])) {
+        $host_country = $_POST['host_country'];
+        $city_street = $_POST['location'];
+        $zip_code = $_POST['postal'];
+        $entry_fee = $_POST['entry_fee'];
+        $starting_date = $_POST['start_date'];
+        $ending_date = $_POST['end_date'];
+        $end_of_pre_reg = $_POST['end_pre_reg'];
+
+        $json_table = new basic_info($host_country, $city_street, $zip_code, $entry_fee, $starting_date, $ending_date, $end_of_pre_reg);
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+        $qry_update_row = "UPDATE basic_info SET  data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        $do_update_row = mysqli_query($connection, $qry_update_row);
+        echo mysqli_error($connection);
+        header("Refresh:0");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +95,7 @@ $query_do = mysqli_query($connection, $query);
                     <button class="stripe_button primary" type="submit" name="submit" form="basic_information_form">
                         <p id="save_text">Save Information</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
-                    </button>                    
+                    </button>
                 </div>
             </div>
             <div id="page_content_panel_main">
@@ -54,87 +106,59 @@ $query_do = mysqli_query($connection, $query);
                     </div>
                     <form class="db_panel_main" action="" id="basic_information_form" method="POST">
                         <?php
-                        
-                        $query_get_data = "SELECT * FROM competitions WHERE comp_id = $comp_id";
-                        $query_get_data_do = mysqli_query($connection, $query_get_data);
 
-                        while($row = mysqli_fetch_assoc($query_get_data_do)){
 
-                            $host_country_get = $row["comp_host"];
-                            $location_get = $row["comp_location"];
-                            $postal_get = $row["comp_postal"];
-                            $entry_fee_get = $row["comp_entry"];
-                            $start_date_get = $row["comp_start"];
-                            $end_date_get = $row["comp_end"];
-                            $end_pre_reg_get = $row["comp_pre_end"];
 
-                        }
+                            if ($json_table != "") {
+                                $host_country = $json_table -> host_country;
+                                $city_street = $json_table -> city_street;
+                                $zip_code = $json_table -> zip_code;
+                                $entry_fee = $json_table -> entry_fee;
+                                $starting_date = $json_table -> starting_date;
+                                $ending_date = $json_table -> ending_date;
+                                $end_of_pre_reg = $json_table -> end_of_pre_reg;
+
+                            } else {
+                                $host_country = "";
+                                $city_street = "";
+                                $zip_code = "";
+                                $entry_fee = "";
+                                $starting_date = "";
+                                $ending_date = "";
+                                $end_of_pre_reg = "";
+                            }
+
+
+
+
                         ?>
                         <div class="form_wrapper">
                             <div>
                                 <div>
                                     <label for="host_country">HOST COUNTRY</label>
                                     <input type="text" placeholder="Type the name of the country" name="host_country" class="country_input" id="country_input" value="<?php
-                                    
-                                    if($host_country_get == ""){
+                                        echo $host_country;
 
-                                        echo "";
-
-                                    }
-                                    else{
-
-                                        echo $host_country_get;
-
-                                    }
-                                    
                                     ?>">
                                 </div>
                                 <div>
                                     <label for="location">LOCATION AND ADDRESS</label>
                                     <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin location_input" id="location_input" value="<?php
-                                    
-                                    if($location_get == ""){
+                                        echo $city_street;
 
-                                        echo "";
 
-                                    }
-                                    else{
-
-                                        echo $location_get;
-
-                                    }
-                                    
                                     ?>">
                                     <input type="number" placeholder="Zip Code" name="postal" class="number_input centered" id="postal_input" value="<?php
-                                    
-                                    if($postal_get == 0){
+                                        echo $zip_code;
 
-                                        echo "";
-
-                                    }
-                                    else{
-
-                                        echo $postal_get;
-
-                                    }
-                                    
                                     ?>">
                                 </div>
                                 <div>
                                     <label for="entry_fee">ENTRY-FEE</label>
                                     <input type="text" placeholder="Type in the amount and currency" name="entry_fee" class="number_input money_input" value="<?php
-                                    
-                                    if($entry_fee_get == ''){
 
-                                        echo "";
+                                    echo $entry_fee;
 
-                                    }
-                                    else{
-
-                                        echo $entry_fee_get;
-
-                                    }
-                                    
                                     ?>">
                                 </div>
                             </div>
@@ -142,55 +166,28 @@ $query_do = mysqli_query($connection, $query);
                                 <div>
                                     <label for="start_date">STARTING DATE</label>
                                     <input type="date" name="start_date" class="start_date_input" id="start_date_input" value="<?php
-                                    
-                                    if($start_date_get == ""){
 
-                                        echo "";
+                                        echo $starting_date;
 
-                                    }
-                                    else{
-
-                                        echo $start_date_get;
-
-                                    }
-                                    
                                     ?>">
                                 </div>
                                 <div>
                                     <label for="end_date">ENDING DATE</label>
                                     <input type="date" name="end_date" class="end_date_input" value="<?php
-                                    
-                                    if($end_date_get == ""){
 
-                                        echo "";
+                                        echo $ending_date;
 
-                                    }
-                                    else{
-
-                                        echo $end_date_get;
-
-                                    }
-                                    
                                     ?>">
                                 </div>
                                 <div>
                                     <label for="end_pre_reg">END OF PRE-REGISTRATION</label>
                                     <input type="date" name="end_pre_reg" class="end_date_pre_reg" value="<?php
-                                    
-                                    if($end_pre_reg_get == ""){
 
-                                        echo "";
+                                    echo $end_of_pre_reg;
 
-                                    }
-                                    else{
-
-                                        echo $end_pre_reg_get;
-
-                                    }
-                                    
                                     ?>">
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </form>
                 </div>
