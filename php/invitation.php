@@ -309,32 +309,62 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 <p class="column_panel_title">Basic Information:</p>
                                 <div>
                                     <div class="invitation_form_wrapper">
+                                        <?php
+                                            $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
+                                            $do_get_basic_info = mysqli_query($connection, $qry_get_basic_info);
+
+                                            if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
+                                                $json_string = $row['data'];
+
+                                                $json_table = json_decode($json_string);
+                                                var_dump($json_table);
+
+                                                if ($json_table != "") {
+                                                    $host_country = $json_table -> host_country;
+                                                    $city_street = $json_table -> city_street;
+                                                    $zip_code = $json_table -> zip_code;
+                                                    $entry_fee = $json_table -> entry_fee;
+                                                    $starting_date = $json_table -> starting_date;
+                                                    $ending_date = $json_table -> ending_date;
+                                                    $end_of_pre_reg = $json_table -> end_of_pre_reg;
+
+                                                } else {
+                                                    $host_country = "";
+                                                    $city_street = "";
+                                                    $zip_code = "";
+                                                    $entry_fee = "";
+                                                    $starting_date = "";
+                                                    $ending_date = "";
+                                                    $end_of_pre_reg = "";
+                                                }
+                                            }
+                                        ?>
                                         <div>
                                             <div>
                                                 <label>HOST COUNTRY:</p>
-                                                <p><?php echo $assoc_array_data['comp_host'] ?></p>
+                                                <p><?php echo $host_country  ?></p>
                                             </div>
                                             <div>
                                                 <label>LOCATION AND ADDRESS:</p>
-                                                <p><?php echo $assoc_array_data['comp_location'] ?></p>
+                                                <p><?php echo $city_street . $zip_code ?></p>
                                             </div>
                                             <div>
                                                 <label>ENTRY-FEE:</p>
-                                                <p><?php echo $assoc_array_data['comp_entry'] . " Ft"; ?></p>
+                                                <p><?php echo  $entry_fee . " Ft"; ?></p>
                                             </div>
                                         </div>
                                         <div>
                                             <div>
                                                 <label>STARTING DATE:</p>
-                                                <p><?php echo $assoc_array_data['comp_start'] ?></p>
+                                                <p><?php echo $starting_date ?></p>
                                             </div>
                                             <div>
                                                 <label>ENDING DATE:</p>
-                                                <p><?php echo $assoc_array_data['comp_end'] ?></p>
+                                                <p><?php echo $ending_date ?></p>
                                             </div>
                                             <div>
                                                 <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
-                                                <p><?php echo $assoc_array_data['comp_pre_end'] ?></p>
+                                                <p><?php echo $end_of_pre_reg ?></p>
                                             </div>
                                         </div>
                                     </div>
