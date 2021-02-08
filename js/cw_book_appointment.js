@@ -72,6 +72,7 @@ var step2 = document.getElementById("step2")
 function findAppointmentsButton(){
     step2.classList.remove("collapsed")
     step1.classList.add("collapsed")
+    bookAppointmentsFormValidation();
 }
 
 function editButton(){
@@ -83,5 +84,6 @@ function editButton(){
         appointments[i].classList.remove("select")
         appointments[i].parentElement.previousElementSibling.checked = false
         appointments[i].querySelector("div").innerText = "Choose"
+        sendButton.disabled = true;
     }
 }
