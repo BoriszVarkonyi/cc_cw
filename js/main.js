@@ -497,7 +497,7 @@ clearButton.forEach(item => {
 
 //FORM VALIDATION
 
-function formvariableDeclaration(overlayForm, inputs, saveButton) {
+function formvariableDeclaration() {
     if(overlayPanelsOepened.length == 1) {
      var formelement = overlayPanelsOepened[0].firstChild.nextElementSibling.nextElementSibling;
         if(formelement.classList.contains("overlay_panel_form")){

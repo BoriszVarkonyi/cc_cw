@@ -87,3 +87,9 @@ function editButton(){
         sendButton.disabled = true;
     }
 }
+
+function setNation(x){
+    var field = document.getElementById("inputs");
+    field.value = x.innerHTML;
+    bookAppointmentsFormValidation();
+}
