@@ -392,7 +392,7 @@ mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => { 
-    item.removeEventListener("keydown", function(e) {
+    item.addEventListener("keydown", function(e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
         }
@@ -408,7 +408,7 @@ function searchEngine(x) {
     var filter = input.value.toUpperCase();
     var ul = input.nextElementSibling;
     var li = ul.getElementsByTagName('a');
-    ul.classList.add("empty")
+    ul.classList.remove("empty")
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
       a = li[i];
@@ -447,7 +447,7 @@ function searchEngine(x) {
                     selectedElementIndex++
                 }
                 selectedElementIndex--
-                li[selectedElementIndex + 1].classList.add("selected")
+                li[selectedElementIndex + 1].classList.remove("selected")
                 li[selectedElementIndex].classList.add("selected")
             }
             if(keyDownEvent.key == "ArrowDown"){
@@ -455,7 +455,7 @@ function searchEngine(x) {
                     selectedElementIndex--
                 }
                 selectedElementIndex++
-                li[selectedElementIndex - 1].classList.add("selected")
+                li[selectedElementIndex - 1].classList.remove("selected")
                 li[selectedElementIndex].classList.add("selected")
             }
         }       
@@ -478,7 +478,7 @@ function resultChecker(x){
     }
     else {
         for(i=0; i<li.length; i++){
-            li[i].classList.add("selected")
+            li[i].classList.remove("selected")
         }
         selectedElementIndex = 0;
         li[selectedElementIndex].classList.add("selected")
@@ -488,7 +488,7 @@ function resultChecker(x){
 //Clears the search 
 var clearButton = document.querySelectorAll(".clear_search_button")
 clearButton.forEach(item => {
-    item.removeEventListener("click", function(event){
+    item.addEventListener("click", function(event){
         var targetElement = event.target || event.srcElement;
         var searchBar = targetElement.parentNode.nextElementSibling;
         searchBar.value = ""
@@ -529,7 +529,7 @@ function formValidation(overlayForm, inputs, saveButton){
 
         }
         validation();
-        overlayForm.removeEventListener("input", validation)
+        overlayForm.addEventListener("input", validation)
     }    
 
 }

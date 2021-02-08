@@ -37,3 +37,5 @@ function selectAppointment(x){
         oldClickedAppointment = undefined;
     }
 }
+
+
