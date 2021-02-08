@@ -3,8 +3,10 @@
 
 <?php
 
-if (isset($_POST[""])) {
-    # code...
+if (isset($_POST["save"])) {
+
+
+
 }
 
 
@@ -38,7 +40,7 @@ if (isset($_POST[""])) {
                     <p>Cancel</p>
                     <img src="../assets/icons/close-black-18dp.svg" />
                 </button>
-                <button type="submit" name="" form="tournament_timetable" class="stripe_button primary">
+                <button type="submit" name="save" form="tournament_timetable" class="stripe_button primary">
                     <p>Save</p>
                     <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
@@ -57,7 +59,7 @@ if (isset($_POST[""])) {
                 <button>Add New Weapon Control</button>
                 <div>
                     <label for="">DATE</label>
-                    <input type="date" class="start_date_input" name="">
+                    <input type="date" class="start_date_input" name="start_date">
                     <label for="">STARTING TIME</label>
                     <input type="time" class="" name="" step="3600000">
                     <label for="">ENDING TIME</label>
