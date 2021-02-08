@@ -78,14 +78,6 @@ function findAppointmentsButton(){
 function editButton(){
     step1.classList.remove("collapsed")
     step2.classList.add("collapsed")
-    //Removes all class, sets the innertext
-    for(i=0; i<appointments.length; i++){
-        appointments[i].classList.remove("disabled")
-        appointments[i].classList.remove("select")
-        appointments[i].parentElement.previousElementSibling.checked = false
-        appointments[i].querySelector("div").innerText = "Choose"
-        sendButton.disabled = true;
-    }
 }
 
 function setNation(x){
