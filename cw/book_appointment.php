@@ -27,18 +27,32 @@
                             <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
                         </button>
                         <p>Are you sure you want to send this Pre-Registration with these informations?</p>
+                        <label>COUNTRY / FENCING CLUB:</label>
+                        <p>BEBGUWE</p>
+                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                        <p>BEBGUWE</p>
+                        <label>NUMBER OF FENCERS:</label>
+                        <p>7</p>
+                        <label>SELECTED APPOINTMENT:</label>
+                        <p>2014.05.07 14:20</p>
                         <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
                     </div>
                 </div>
                 <form id="content_wrapper" method="POST" action="process_pre.php">
                     <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
-                    <div id="" class="column_panel no_top collapsed">
+                    <div id="" class="column_panel no_top">
                         <div>
                             <div class="form_wrapper">
                                 <div>
                                     <div>
                                         <label>COUNTRY / FENCING CLUB:</label>
-                                        <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                        <div class="search_wrapper">
+                                            <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                            <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                            <div class="search_results">
+                                                <?php include "../includes/nations.php"; ?>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div>
                                         <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
@@ -50,35 +64,54 @@
                                         <label>NUMBER OF FENCERS:</label>
                                         <input type="number" name="c_phone"  class="number_input centered alt" placeholder="#">
                                     </div>
-                                    <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
-                                    <input type="text" name="compet_id" class="disabled" id="compet_id" value="">
                                 </div>
                             </div>
-                            <button class="send_button center" onclick="">Find Appointments</button>
+                            <button type="button" class="send_button center" onclick="">Find Appointments</button>
                         </div>
                         <button class="edit_button" onclick="">Edit Information</button>
                     </div>
                     <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
-                    <div class="column_panel no_top">
+                    <div class="column_panel no_top collapsed">
                         <div class="column">
                             <b>Available times:</b>
                             <div id="availabe_times_wrapper">
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>11:00 - 12:00</p>
-                                    <button type="button">Choose</button>
-                                </div>
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>13:30 - 14:00</p>
-                                    <button type="button">Choose</button>
-                                </div>
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>15:20 - 16:00</p>
-                                    <button type="button">Choose</button>
-                                </div>
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>16:30 - 17:00</p>
-                                    <button type="button">Choose</button>
-                                </div>
+                                <p>DATE 1</p>
+                                <input type="radio" name="appointments" id="appointment1" value=""/>
+                                <label for="appointment1">
+                                    <div class="appointment">
+                                        <p>11:00 - 12:00</p>
+                                        <div>Choose</div>
+                                    </div>
+                                </label>
+                                <input type="radio" name="appointments" id="appointment2" value=""/>
+                                <label for="appointment2">
+                                    <div class="appointment">
+                                        <p>11:00 - 12:00</p>
+                                        <div>Choose</div>
+                                    </div>
+                                </label>
+                                <input type="radio" name="appointments" id="appointment3" value=""/>
+                                <label for="appointment3">
+                                    <div class="appointment">
+                                        <p>11:00 - 12:00</p>
+                                        <div>Choose</div>
+                                    </div>
+                                </label>
+                                <input type="radio" name="appointments" id="appointment4" value=""/>
+                                <label for="appointment4">
+                                    <div class="appointment">
+                                        <p>11:00 - 12:00</p>
+                                        <div>Choose</div>
+                                    </div>
+                                </label>
+                                <p>DATE 2</p>
+                                <input type="radio" name="appointments" id="appointment5" value=""/>
+                                <label for="appointment5">
+                                    <div class="appointment">
+                                        <p>11:00 - 12:00</p>
+                                        <div>Choose</div>
+                                    </div>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -91,7 +124,7 @@
         <?php include "cw_footer.php"; ?>
     </div>
 <script src="../js/cw_main.js"></script>
-<script src="../js/pre_registration.js"></script>
+<script src="../js/cw_pre_registration.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/cw_book_appointment.js"></script>
 </body>

@@ -27,7 +27,7 @@
     }
 
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 524288) {
 
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
@@ -50,19 +50,19 @@
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 
-        
+
             echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-        
+
             if (rename($_FILES["fileToUpload"]["name"], $comp_id . ".png")) {
 
                 echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
-                
+
             } else {
 
                 echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
 
             }
-        
+
             header("Location: ../php/invitation.php?comp_id=$comp_id");
 
         } else {
