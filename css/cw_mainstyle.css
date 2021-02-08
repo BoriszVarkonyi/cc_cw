@@ -707,7 +707,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	height: 500px;
 	width: 100%;
 	-webkit-clip-path: ellipse( 100% 100% at 100% 100%);
-	        clip-path: ellipse( 100% 100% at 100% 100%);
+	clip-path: ellipse( 100% 100% at 100% 100%);
 }
 
 #slide_nav {
@@ -775,7 +775,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 .slide.blurred > img {
 	-webkit-filter: blur(5px) brightness(75%);
-	        filter: blur(5px) brightness(75%);
+	filter: blur(5px) brightness(75%);
 }
 
 .slide > p {
@@ -1086,6 +1086,7 @@ input[value="Search"] {
 	filter: blur(2px);
 	height: 200px;
 	overflow: hidden;
+	transition: height var(--t-basic);
 }
 
 .column_panel .edit_button {
@@ -1653,7 +1654,7 @@ input[value="Search"] {
 	font-family: var(--bold);
 }
 
-/*Cofirmatio */
+/* Cofirmation */
 
 .panel_button {
 	position: absolute;
@@ -1794,6 +1795,14 @@ b.green {
 	align-items: center;
 }
 
+#availabe_times_wrapper input {
+	display: none;
+}
+
+#availabe_times_wrapper > p {
+	margin-top: 10px;
+}
+
 .appointment {
 	background-color: var(--c-white);
 	box-shadow: var(--s-black);
@@ -1801,16 +1810,17 @@ b.green {
 	align-items: center;
 	margin: 3px 0;
 	transition: all var(--t-basic);
+	cursor: pointer;
 }
 
-.appointment.selected {
+input[type="radio"]:checked + label .appointment {
 	transform: scale(1.05);
 	transition: all var(--t-basic);
 }
 
 .appointment.disabled {
 	-webkit-filter: saturate(0);
-	        filter: saturate(0);
+	filter: saturate(0);
 	transition: all var(--t-basic);
 }
 
@@ -1818,10 +1828,12 @@ b.green {
 	padding: 0 10px;
 }
 
-.appointment button {
+.appointment div {
 	height: 100%;
 	padding: 10px 15px;
 	background: var(--c-primary);
 	color: var(--cd-primarycontrast);
-	font-family: var(--bold)
+	font-family: var(--bold);
+	text-transform: none;
+
 }
