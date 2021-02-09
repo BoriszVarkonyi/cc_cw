@@ -17,14 +17,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     $comp_status = $row['comp_status'];
     $comp_organiser_id = $row['comp_organiser_id'];
     $comp_ranking_id = $row['comp_ranking_id'];
-    $comp_host = $row['comp_host'];
-    $comp_location = $row['comp_location'];
-    $comp_postal = $row['comp_postal'];
-    $comp_start = $row['comp_start'];
-    $comp_entry = $row['comp_entry'];
-    $comp_end = $row['comp_end'];
-    $comp_pre_end = $row['comp_pre_end'];
-    $comp_wc_info = $row['comp_wc_info'];
+    //$comp_wc_info = $row['comp_wc_info'];
     $comp_name = $row['comp_name'];
 } else {
     echo mysqli_error($connection);

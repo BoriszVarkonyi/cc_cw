@@ -9,6 +9,44 @@
         $logo_path = "../uploads/$comp_id.png";
     }
 
+
+    $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
+    $do_get_basic_info = mysqli_query($connection, $qry_get_basic_info);
+
+    if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
+        $json_string = $row['data'];
+
+        $json_table = json_decode($json_string);
+        var_dump($json_table);
+
+        if ($json_table != "") {
+            $host_country = $json_table -> host_country;
+            $city_street = $json_table -> city_street;
+            $zip_code = $json_table -> zip_code;
+            $entry_fee = $json_table -> entry_fee;
+            $starting_date = $json_table -> starting_date;
+            $ending_date = $json_table -> ending_date;
+            $end_of_pre_reg = $json_table -> end_of_pre_reg;
+
+        } else {
+            $host_country = "";
+            $city_street = "";
+            $zip_code = "";
+            $entry_fee = "";
+            $starting_date = "";
+            $ending_date = "";
+            $end_of_pre_reg = "";
+        }
+    } else {
+            $host_country = "No info";
+            $city_street = "No info";
+            $zip_code = "No info";
+            $entry_fee = "No info";
+            $starting_date = "No info";
+            $ending_date = "No info";
+            $end_of_pre_reg = "No info";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +76,7 @@
                 <div>
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
-                    <p><?php echo date('Y', strtotime($comp_start)) ?></p>
+                    <p><?php echo $starting_date ?></p>
                 </div>
             </div>
             <div id="content_wrapper">
@@ -76,30 +114,30 @@
                             <div>
                                 <div>
                                     <label>HOST COUNTRY:</label>
-                                    <p><?php echo $comp_host ?></p>
+                                    <p><?php echo $host_country ?></p>
                                 </div>
                                 <div>
                                     <label>LOCATION AND ADDRESS:</label>
-                                    <p><?php echo $comp_location ?></p>
-                                    <p><?php echo $comp_postal ?></p>
+                                    <p><?php echo $city_street ?></p>
+                                    <p><?php echo $zip_code ?></p>
                                 </div>
                                 <div>
                                     <label>ENTRY-FEE:</label>
-                                    <p><?php echo $comp_entry ?></p>
+                                    <p><?php echo $entry_fee ?></p>
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <label>STARTING DATE:<label>
-                                    <p><?php echo $comp_start ?></p>
+                                    <p><?php echo $starting_date ?></p>
                                 </div>
                                 <div>
                                     <label>ENDING DATE:</label>
-                                    <p><?php echo $comp_end ?></p>
+                                    <p><?php echo $ending_date ?></p>
                                 </div>
                                 <div>
                                     <label>END OF PRE-REGISTRTATION:</label>
-                                    <p><?php echo $comp_pre_end ?></p>
+                                    <p><?php echo $end_of_pre_reg ?></p>
                                 </div>
                             </div>
                         </div>
