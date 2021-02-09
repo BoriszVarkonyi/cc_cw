@@ -79,8 +79,9 @@
                     <p><?php echo $starting_date ?></p>
                 </div>
             </div>
-            <div id="content_wrapper">
-                <?php
+            <div id="content_wrapper" class="reverse_wrap">
+                <div class="column no_top">
+                    <?php
                     $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
                     $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
 
@@ -106,156 +107,155 @@
                             </div>
                             <?php } ?>
                         </div>
-                <?php } ?>
-                <div id="basic_information_panel" class="column_panel breakpoint">
-                    <p class="column_panel_title">Basic Information:</p>
-                    <div>
-                        <div class="form_wrapper">
+                    <?php } ?>
+                        <div id="basic_information_panel" class="column_panel breakpoint">
+                            <p class="column_panel_title">Basic Information:</p>
                             <div>
-                                <div>
-                                    <label>HOST COUNTRY:</label>
-                                    <p><?php echo $host_country ?></p>
-                                </div>
-                                <div>
-                                    <label>LOCATION AND ADDRESS:</label>
-                                    <p><?php echo $city_street ?></p>
-                                    <p><?php echo $zip_code ?></p>
-                                </div>
-                                <div>
-                                    <label>ENTRY-FEE:</label>
-                                    <p><?php echo $entry_fee ?></p>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <label>STARTING DATE:<label>
-                                    <p><?php echo $starting_date ?></p>
-                                </div>
-                                <div>
-                                    <label>ENDING DATE:</label>
-                                    <p><?php echo $ending_date ?></p>
-                                </div>
-                                <div>
-                                    <label>END OF PRE-REGISTRTATION:</label>
-                                    <p><?php echo $end_of_pre_reg ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- equipment panel -->
-                <div id="equipment_panel" class="column_panel breakpoint">
-                    <p class="column_panel_title">Equipment needed to be checked:</p>
-                    <!-- weapons check table rows -->
-                    <div class="table no_interaction">
-                        <div class="table_header">
-                            <div class="table_header_text">Equipment's name</div>
-                            <div class="table_header_text">Needed Quantity</div>
-                        </div>
-                        <div class="table_row_wrapper">
-                            <?php
-                                $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
-
-                                $array_equipment = explode(",", $comp_equipment);
-
-                                for ($i = 0; $i < count($equipment); $i++) {
-
-                                    if ($array_equipment[$i] != 0) {
-                                        ?>
-                                            <div class="table_row">
-                                                <div class="table_item"><?php echo $equipment[$i] ?></div>
-                                                <div class="table_item"><?php echo $array_equipment[$i] ?></div>
-                                            </div>
-                                        <?php
-                                    }
-                                }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- additional info panel -->
-                <div id="additional_panel" class="column_panel breakpoint">
-                    <p class="column_panel_title">Additional information for Fencers:</p>
-                    <div>
-                        <p><?php echo $comp_info ?></p>
-                    </div>
-                </div>
-
-                <!-- weapon control panel -->
-                <div id="weapon_control_panel" class="column_panel breakpoint">
-                    <p class="column_panel_title">Weapon Control appointments and bookings:</p>
-                    <div>
-                        <div class="weapon_control_day">
-                            <p>{Weapon Control Date}</p>
-                            <a href="book_appointment.php">Book appointment</a>
-                        </div>
-
-                        <div class="weapon_control_day">
-                            <p>{Weapon Control Date}</p>
-                            <a href="book_appointment.php">Book appointment</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="plus_information_panel" class="column_panel breakpoint">
-                    <p class="column_panel_title">Plus Information:</p>
-                    <div>
-                        <?php
-
-                            //display plus info from DB
-
-                            $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
-                            if (!$get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry)) {
-                                $feedback = "ERROR: " . mysqli_error($connection);
-                            }
-
-                            if ($get_plsuinfo_do !== FALSE) {//checks whether table exists
-                                while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
-
-                                    $info_title = $row['info_title'];
-                                    $info_body = $row['info_body'];
-                        ?>
-                                    <div class="breakpoint">
-                                        <p><?php echo $info_title ?></p>
-                                        <p><?php echo $info_body ?></p>
+                                <div class="form_wrapper">
+                                    <div>
+                                        <div>
+                                            <label>HOST COUNTRY:</label>
+                                            <p><?php echo $host_country ?></p>
+                                        </div>
+                                        <div>
+                                            <label>LOCATION AND ADDRESS:</label>
+                                            <p><?php echo $city_street ?></p>
+                                            <p><?php echo $zip_code ?></p>
+                                        </div>
+                                        <div>
+                                            <label>ENTRY-FEE:</label>
+                                            <p><?php echo $entry_fee ?></p>
+                                        </div>
                                     </div>
-                        <?php
-                                }
-                            } else  { // displayed when there are no plus infos for comp_id
-                        ?>
+                                    <div>
+                                        <div>
+                                            <label>STARTING DATE:<label>
+                                            <p><?php echo $starting_date ?></p>
+                                        </div>
+                                        <div>
+                                            <label>ENDING DATE:</label>
+                                            <p><?php echo $ending_date ?></p>
+                                        </div>
+                                        <div>
+                                            <label>END OF PRE-REGISTRTATION:</label>
+                                            <p><?php echo $end_of_pre_reg ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <p>This competition has no plus information!</p>
+                        <!-- equipment panel -->
+                        <div id="equipment_panel" class="column_panel breakpoint">
+                            <p class="column_panel_title">Equipment needed to be checked:</p>
+                            <!-- weapons check table rows -->
+                            <div class="table no_interaction">
+                                <div class="table_header">
+                                    <div class="table_header_text">Equipment's name</div>
+                                    <div class="table_header_text">Needed Quantity</div>
+                                </div>
+                                <div class="table_row_wrapper">
+                                    <?php
+                                        $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
-                        <?php
-                            }
-                        ?>
+                                        $array_equipment = explode(",", $comp_equipment);
+
+                                        for ($i = 0; $i < count($equipment); $i++) {
+
+                                            if ($array_equipment[$i] != 0) {
+                                                ?>
+                                                    <div class="table_row">
+                                                        <div class="table_item"><?php echo $equipment[$i] ?></div>
+                                                        <div class="table_item"><?php echo $array_equipment[$i] ?></div>
+                                                    </div>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- additional info panel -->
+                        <div id="additional_panel" class="column_panel breakpoint">
+                            <p class="column_panel_title">Additional information for Fencers:</p>
+                            <div>
+                                <p><?php echo $comp_info ?></p>
+                            </div>
+                        </div>
+
+                        <!-- weapon control panel -->
+                        <div id="weapon_control_panel" class="column_panel breakpoint">
+                            <p class="column_panel_title">Weapon Control appointments and bookings:</p>
+                            <div>
+                                <div class="weapon_control_day">
+                                    <p>{Weapon Control Date}</p>
+                                    <a href="book_appointment.php">Book appointment</a>
+                                </div>
+
+                                <div class="weapon_control_day">
+                                    <p>{Weapon Control Date}</p>
+                                    <a href="book_appointment.php">Book appointment</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="plus_information_panel" class="column_panel breakpoint">
+                            <p class="column_panel_title">Plus Information:</p>
+                            <div>
+                                <?php
+
+                                    //display plus info from DB
+
+                                    $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
+                                    if (!$get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry)) {
+                                        $feedback = "ERROR: " . mysqli_error($connection);
+                                    }
+
+                                    if ($get_plsuinfo_do !== FALSE) {//checks whether table exists
+                                        while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
+
+                                            $info_title = $row['info_title'];
+                                            $info_body = $row['info_body'];
+                                ?>
+                                            <div class="breakpoint">
+                                                <p><?php echo $info_title ?></p>
+                                                <p><?php echo $info_body ?></p>
+                                            </div>
+                                <?php
+                                        }
+                                    } else  { // displayed when there are no plus infos for comp_id
+                                ?>
+
+                                    <p>This competition has no plus information!</p>
+
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column no_top">
+                        <div id="competition_controls">
+                            <div class="column_panel no_bottom">
+                                <p class="column_panel_title">Competition Controls:</p>
+                                <div class="competition_controls_wrapper">
+                                    <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
+                                    <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                                    <button onclick="printPage()">Print</a>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="competition_controls">
-                <div class="column_panel">
-                    <p class="column_panel_title">Competition Controls:</p>
-                    <div class="competition_controls_wrapper">
-                        <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
-                        <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
-                        <button onclick="printPage()">Print</a>
-                        <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        <?php include "cw_footer.php"; ?>
+    <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
-    <script>
-        function printPage() {
-            window.print();
-        }
-    </script>
 </body>
 </html>

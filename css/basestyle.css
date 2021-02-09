@@ -421,7 +421,6 @@ label.error + input  {
 	border-bottom: 2px solid var(--c-red);
 }
 
-
 /* Input Background Directory */
 
 .username_input {
@@ -1211,7 +1210,6 @@ input:focus ~ .clear_search_button {
     width: 6px;
 	height: 6px;
 }
-
 
 ::-webkit-scrollbar { /* Width */
     width: 10px;

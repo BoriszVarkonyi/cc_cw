@@ -78,7 +78,7 @@ switch(className){
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
-numberInputs.forEach(item => { 
+numberInputs.forEach(item => {
     item.addEventListener("keydown", function(e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
@@ -146,9 +146,9 @@ function searchEngine(x) {
                 li[selectedElementIndex - 1].classList.remove("selected")
                 li[selectedElementIndex].classList.add("selected")
             }
-        }       
+        }
     }
-    
+
 }
 function resultChecker(x){
     var input = x
@@ -173,7 +173,7 @@ function resultChecker(x){
     }
 }
 
-//Clears the search 
+//Clears the search
 var clearButton = document.querySelectorAll(".clear_search_button")
 clearButton.forEach(item => {
     item.addEventListener("click", function(event){
@@ -205,4 +205,8 @@ function selectSearch(x) {
             break;
         }
     }
+}
+
+function printPage() {
+    window.print();
 }
