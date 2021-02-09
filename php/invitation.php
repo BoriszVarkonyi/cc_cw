@@ -341,29 +341,29 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                         ?>
                                         <div>
                                             <div>
-                                                <label>HOST COUNTRY:</p>
+                                                <label>HOST COUNTRY:</label>
                                                 <p><?php echo $host_country  ?></p>
                                             </div>
                                             <div>
-                                                <label>LOCATION AND ADDRESS:</p>
+                                                <label>LOCATION AND ADDRESS:</label>
                                                 <p><?php echo $city_street . $zip_code ?></p>
                                             </div>
                                             <div>
-                                                <label>ENTRY-FEE:</p>
+                                                <label>ENTRY-FEE:</label>
                                                 <p><?php echo  $entry_fee . " Ft"; ?></p>
                                             </div>
                                         </div>
                                         <div>
                                             <div>
-                                                <label>STARTING DATE:</p>
+                                                <label>STARTING DATE:</label>
                                                 <p><?php echo $starting_date ?></p>
                                             </div>
                                             <div>
-                                                <label>ENDING DATE:</p>
+                                                <label>ENDING DATE:</label>
                                                 <p><?php echo $ending_date ?></p>
                                             </div>
                                             <div>
-                                                <p class="data_label pre_reg">END OF PRE-REGISTRTATION:</p>
+                                                <label>END OF PRE-REGISTRTATION:</label>
                                                 <p><?php echo $end_of_pre_reg ?></p>
                                             </div>
                                         </div>
