@@ -1080,9 +1080,7 @@ input[value="Search"] {
 .column_panel.collapsed > div {
 	-webkit-filter: blur(2px);
 	filter: blur(2px);
-	height: 200px;
 	overflow: hidden;
-	transition: height var(--t-basic);
 }
 
 .column_panel .edit_button {
