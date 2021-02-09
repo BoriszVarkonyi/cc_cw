@@ -82,7 +82,6 @@
             <div id="general_dropdown_menu" class="dropdown_menu hidden">
                 <a <?php echo $assoc_array_functions['basic_info'] ?>>Basic Information</a>
                 <a <?php echo $assoc_array_functions['info_for_fencers'] ?>>Information for fencers</a></li>
-                <a <?php echo $assoc_array_functions['timetable'] ?>>Timetable</a>
                 <a <?php echo $assoc_array_functions['invitation'] ?>>Invitation</a>
             </div>
 

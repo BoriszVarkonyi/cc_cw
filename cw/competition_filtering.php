@@ -1,5 +1,4 @@
 <?php
-
     $WHERE_CLAUSE = "WHERE `comp_status` = '$statusofpage' ";
 
     if (isset($_POST['submit_search'])) {
@@ -8,7 +7,6 @@
         $weapont_type = $_POST['wt'];
         $sex = $_POST['sex'];
         $name = $_POST['name'];
-
 
         if ($name != "") {
             $WHERE_CLAUSE .= " AND `comp_name` LIKE '%$name%'";

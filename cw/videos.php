@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="videos">
-<div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <div id="main">
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title">Videos</p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title">Videos</p>
+            </div>
+            <div id="content_wrapper">
                 <form id="browsing_bar">
                     <div>
                         <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
@@ -48,17 +48,16 @@
                                     <p><?php echo $comp_name ?></p>
                                 </div>
                             </div>
-
                     <?php
                         }
                     ?>
                     <div class="video_wrapper ghost"></div>
                     <div class="video_wrapper ghost"></div>
-                    </div>
-                    </div>
                 </div>
-        <?php include "cw_footer.php"; ?>
+            </div>
+        </div>
     </div>
-<script src="../js/cw_main.js"></script>
+    <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
 </body>
 </html>

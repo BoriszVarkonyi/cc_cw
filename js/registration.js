@@ -9,6 +9,7 @@ function toggleAddFencerPanel() {
 function setNation(x){
     var field = document.getElementById("inputs");
     field.value = x.innerHTML;
+    formvariableDeclaration()
 }
 
 var tableRows = document.querySelectorAll(".table_row_wrapper .table_row")

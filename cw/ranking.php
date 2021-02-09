@@ -25,13 +25,13 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body>
-    <div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <div id="main">
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title"><?php echo $comp_name . "'s ranking" ?></p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title"><?php echo $comp_name . "'s ranking" ?></p>
+            </div>
+            <div id="content_wrapper">
                 <form id="browsing_bar">
                     <div>
                         <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
@@ -71,17 +71,14 @@
                     <?php
                         }
                     ?>
-
-
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-        <?php include "cw_footer.php"; ?>
-        </div>
     </div>
-<script src="../js/cw_main.js"></script>
-<script src="../js/list.js"></script>
+    </div>
+    <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
+    <script src="../js/list.js"></script>
 </body>
 </html>
