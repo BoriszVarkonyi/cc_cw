@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="blog">
-    <div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <div id="main">
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title">Blog</p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title">Blog</p>
+            </div>
+            <div id="content_wrapper">
                 <form id="browsing_bar">
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
                     <div>
@@ -55,12 +55,11 @@
                     <?php
                         }
                     ?>
-                    </div>
                 </div>
             </div>
-            <?php include "cw_footer.php"; ?>
         </div>
     </div>
-<script src="../js/cw_main.js"></script>
+    <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
 </body>
 </html>

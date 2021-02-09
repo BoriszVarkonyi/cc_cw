@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="ongoing_competitions">
-    <div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <div id="main">
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title">Ongoing competitions</p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title">Ongoing competitions</p>
+            </div>
+            <div id="content_wrapper">
                 <form id="browsing_bar">
                     <!-- search by name box -->
                     <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
@@ -37,12 +37,11 @@
                 <?php include "../cw/comps_display.php" ?>
             </div>
         </div>
-        </div>
-        <?php include "cw_footer.php"; ?>
-        </div>
     </div>
-<script src="../js/cw_main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/cw_ongoing_competitions.js"></script>
+    </div>
+    <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/cw_ongoing_competitions.js"></script>
 </body>
 </html>

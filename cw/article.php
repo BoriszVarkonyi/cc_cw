@@ -29,27 +29,24 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="blog">
-    <div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <div id="main">
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title"><?php echo $title ?></p>
-                </div>
-                <div id="article_wrapper">
-                    <div class="article_info">
-                        <p><?php echo "By:" . $author ?></p>
-                        <p><?php echo $date ?></p>
-                    </div>
-                    <!--<img src="<?php echo $pic ?>">-->
-                    <img class="bg_fencers">
-                    <p class="paragraph"><?php echo $body ?></p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title"><?php echo $title ?></p>
             </div>
+            <div id="content_wrapper">
+                <div class="article_info">
+                    <p><?php echo "By:" . $author ?></p>
+                    <p><?php echo $date ?></p>
+                </div>
+                <!--<img src="<?php echo $pic ?>">-->
+                <img class="bg_fencers">
+                <p class="paragraph"><?php echo $body ?></p>
             </div>
-            <?php include "cw_footer.php"; ?>
         </div>
     </div>
+    <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>
 </html>

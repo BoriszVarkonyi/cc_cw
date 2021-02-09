@@ -39,13 +39,13 @@
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="saved_competitions">
-    <div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <div id="main">
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title">Saved competitions</p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <div id="main">
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title">Saved competitions</p>
+            </div>
+            <div id="content_wrapper">
                 <div class="table cw middle">
                     <div class="table_header">
                         <div class="table_header_text"><p>COMPETITION'S NAME</p></div>
@@ -93,10 +93,10 @@
                     </div>
                 </div>
             </div>
-            <?php include "cw_footer.php"; ?>
         </div>
     </div>
-<script src="../js/cw_main.js"></script>
-<script src="../js/list.js"></script>
+    <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
+    <script src="../js/list.js"></script>
 </body>
 </html>

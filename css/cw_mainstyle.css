@@ -696,6 +696,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	max-height: 40vh;
 	position: relative;
 	overflow: hidden;
+	width: 100vw;
 }
 
 #sildes {
@@ -921,7 +922,6 @@ input[value="Search"] {
 #title_stripe {
 	padding: 30px 5%;
 	background: var(--c-lightergray);
-	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
@@ -1533,31 +1533,6 @@ input[value="Search"] {
 .table_row:hover > .big_status_item > .favourite_button {
 	opacity: 1;
 	transition: opacity var(--t-basic);
-}
-
-@media print {
-
-	header {
-		display: none;
-	}
-
-	#content.competition {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-	}
-
-	#invitation_cw {
-		width: 100%;
-	}
-
-	#competition_controls {
-		display: none;
-		width: 0;
-		height: 0;
-		overflow: hidden;
-		visibility: hidden;
-	}
 }
 
 /* Blog */
