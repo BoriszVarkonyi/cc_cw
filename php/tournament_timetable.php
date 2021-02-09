@@ -107,14 +107,28 @@ if (isset($_POST["save"])) {
             <form id="tournament_weapon_control" class="form_wrapper" action="" method="POST">
                 <button>Add New Weapon Control</button>
                 <div>
-                    <label for="">DATE</label>
-                    <input type="date" class="start_date_input" name="">
-                    <label for="">STARTING TIME</label>
-                    <input type="time" class="" name="" step="3600000">
-                    <label for="">ENDING TIME</label>
-                    <input type="time" class="" name="" step="3600000">
-                    <label for="">MINUTE / FENCER</label>
-                    <input type="number" class="number_input centered" placeholder="#" name="" step="3600000">
+                    <div>
+                        <label for="">DATE</label>
+                        <div class="select_input">
+                            <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)" tabindex="3">
+                            <div id="sex_select_dropdown">
+                                <button type="button" onclick="selectSystem(this)">Date 1</button>
+                                <button type="button" onclick="selectSystem(this)">Date 2</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="">STARTING TIME</label>
+                        <input type="time" class="" name="" step="3600000">
+                    </div>
+                    <div>
+                        <label for="">ENDING TIME</label>
+                        <input type="time" class="" name="" step="3600000">
+                    </div>
+                    <div>
+                        <label for="">MINUTE / FENCER</label>
+                        <input type="number" class="number_input centered" placeholder="#" name="" step="3600000">
+                    </div>
                     <input type="submit" value="Add" class="panel_submit" name="new_weapon_control">
                     <div class="table">
                         <div class="table_header">
@@ -147,6 +161,7 @@ if (isset($_POST["save"])) {
     </div>
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/competitions.js"></script>
 </body>
 
 </html>

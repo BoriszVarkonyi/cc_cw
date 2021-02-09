@@ -519,7 +519,6 @@ input[type="time"] {
 input[type="text"].search {
 	background-color: var(--c-lightestgray);
 	border-radius: 5px;
-	box-shadow: var(--s-black);
 	padding: 7.5px 30px;
 	font-family: var(--bold);
 	background-image: url(../assets/icons/search-black-18dp.svg);
@@ -529,7 +528,7 @@ input[type="text"].search {
 	margin: 0;
 	height: 100%;
 	border: none;
-	width: 100%;
+	width: 300px;
 }
 
 input[type="text"].search.alt {
@@ -692,12 +691,12 @@ input:focus ~ .clear_search_button {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	z-index: 5;
 }
 
 .select_input > input {
 	width: 100%;
 	border-radius: 5px;
-	box-shadow: var(--s-black);
 	font-family: var(--bold);
 	color: var(--c-black);
 	background: var(--c-lightestgray);
@@ -824,7 +823,6 @@ input:focus ~ .clear_search_button {
 
 .table.cw {		/* Whole table */
     width: 100%;
-	padding: 0 50px;
 	margin-bottom: 50px;
     box-sizing: border-box;
 }
@@ -834,7 +832,6 @@ input:focus ~ .clear_search_button {
 }
 
 .table.cw.middle {		/* Whole table, primarly cw */
-	width: 90%;
 	margin: 100px auto;
 }
 

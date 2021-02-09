@@ -35,7 +35,6 @@
         "general" =>            'onclick="toggle_general_dropdown()"',
         "basic_info" =>         'href="basic_information.php?comp_id=' . $comp_id . '"',
         "info_for_fencers" =>   'href="information_for_fencers.php?comp_id=' . $comp_id . '"',
-        "timetable" =>          'href="timetable.php?comp_id=' . $comp_id . '"',
         "invitation" =>         'href="invitation.php?comp_id=' . $comp_id . '"',
         "technical" =>          'onclick="toggle_technical_dropdown()"',
         "technicians" =>        'href="technicians.php?comp_id=' . $comp_id . '"',
