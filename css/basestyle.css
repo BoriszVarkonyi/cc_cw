@@ -562,10 +562,6 @@ input[type="text"].search:focus {
 
 }
 
-.overlay_panel_form input[type="search"] {
-	margin: 3px 0 30px;
-}
-
 /* Extended Search Input */
 
 input[type="text"].search.page {
