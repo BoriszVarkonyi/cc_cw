@@ -111,40 +111,44 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
 
                                 <?php
-                                foreach ($dates as $hourkeys => $hours) {
 
-                                    if ($hourkeys == "min_fencer") {
-                                        continue;
-                                    }
+                                if ($appointments != "") {
 
-                                    $allfencersin = 0;
+                                    foreach ($dates as $hourkeys => $hours) {
 
-                                    foreach ($hours as $innerdata) {
+                                        if ($hourkeys == "min_fencer") {
+                                            continue;
+                                        }
 
-                                        $allfencersin += $innerdata->fencer;
-                                    }
+                                        $allfencersin = 0;
 
-                                    $talkentime = $allfencersin * $dates->min_fencer;
-                                    $minsleft = 60 - $talkentime;
+                                        foreach ($hours as $innerdata) {
 
-                                    $starttime = $hourkeys;
-                                    $availtime = strtotime("+$talkentime minutes", strtotime($starttime));
+                                            $allfencersin += $innerdata->fencer;
+                                        }
 
-                                    $selectedTime = $hourkeys;
-                                    $endTime = strtotime("+1 hours", strtotime($selectedTime));
+                                        $talkentime = $allfencersin * $dates->min_fencer;
+                                        $minsleft = 60 - $talkentime;
+
+                                        $starttime = $hourkeys;
+                                        $availtime = strtotime("+$talkentime minutes", strtotime($starttime));
+
+                                        $selectedTime = $hourkeys;
+                                        $endTime = strtotime("+1 hours", strtotime($selectedTime));
 
 
                                 ?>
-                                    <div minsleft="<?php echo $minsleft ?>">
-                                        <input type="radio" name="appointments" id="appointment1" value="" />
-                                        <label for="appointment1">
-                                            <div class="appointment" onclick="selectAppointment(this)">
-                                                <p><?php echo date('H:i', $availtime); ?> - lasts approximately xx minutes</p>
-                                                <div>Choose</div>
-                                            </div>
-                                        </label>
-                                    </div>
+                                        <div minsleft="<?php echo $minsleft ?>">
+                                            <input type="radio" name="appointments" id="appointment1" value="" />
+                                            <label for="appointment1">
+                                                <div class="appointment" onclick="selectAppointment(this)">
+                                                    <p><?php echo date('H:i', $availtime); ?> - lasts approximately xx minutes</p>
+                                                    <div>Choose</div>
+                                                </div>
+                                            </label>
+                                        </div>
                                 <?php
+                                    }
                                 }
                                 ?>
 
