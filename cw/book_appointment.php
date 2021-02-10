@@ -88,7 +88,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                             <div>
                                 <div>
                                     <label>NUMBER OF FENCERS:</label>
-                                    <input type="number" name="c_phone" class="number_input centered alt" placeholder="#">
+                                    <input type="number" name="c_phone" class="number_input centered alt" placeholder="#" id="fencerNumber">
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 foreach ($appointments as $datekey => $dates) {
 
                             ?>
-                                    <div>
+                                    <div> 
                                         <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
 
                                         <?php
@@ -137,12 +137,12 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
 
                                         ?>
-                                            <div minsleft="<?php echo $minsleft ?>">
+                                            <div class="appointment_wrapper" minsleft="<?php echo $minsleft ?>">
                                                 <input type="radio" name="appointments" id="appointment1" value="" />
                                                 <label for="appointment1">
                                                     <div class="appointment" onclick="selectAppointment(this)">
                                                         <p><?php echo date('H:i', $availtime); ?> - lasts approximately &nbsp</p>
-                                                        <p class="minute">xx</p>
+                                                        <p class="minute"></p>
                                                         <p>&nbsp minutes</p>
                                                         <div>Choose</div>
                                                     </div>
