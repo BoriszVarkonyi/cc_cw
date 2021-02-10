@@ -33,9 +33,9 @@
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
-                    <div>
-                        <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" placeholder="Search by Name" class="search">
+                    <div class="search_wrapper">
+                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
                 </form>
                 <div class="table cw">

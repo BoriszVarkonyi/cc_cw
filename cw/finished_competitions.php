@@ -21,8 +21,10 @@
             <div id="content_wrapper">
                 <form method="POST" id="browsing_bar">
                     <!-- search by name box -->
-                    <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <input type="text" name="name" placeholder="Search by Name" class="search">
+                    <div class="search_wrapper">
+                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                    </div>
                     <!-- year drop-down -->
                     <div class="select_input dense">
                         <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">

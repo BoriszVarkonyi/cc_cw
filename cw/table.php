@@ -24,9 +24,10 @@
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
-                    <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <input type="text" name="" placeholder="Search by Title" class="search">
-                    <input type="button" value="Search" onclick="giveClassToFirst()">
+                    <div class="search_wrapper">
+                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                    </div>
                 </form>
                 <div id="call_room" class="cw">
                     <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">

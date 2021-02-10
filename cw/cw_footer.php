@@ -2,7 +2,7 @@
     <div>
         <div>
             <p>CompetitionView &copy 2020</p>
-            <img src="../assets/img/favicon.svg"  class="footer_logo">
+            <img src="../assets/img/favicon.svg" class="footer_logo">
         </div>
         <div>
             <p>CONTACTS</p>

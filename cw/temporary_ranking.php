@@ -23,9 +23,10 @@
                     </p>
                 </div>
                 <form id="browsing_bar">
-                    <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <input type="text" name="" placeholder="Search by Name" class="search">
-                    <input type="button" value="Search" onclick="cwSearchEngine()">
+                    <div class="search_wrapper">
+                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                    </div>
                 </form>
                 <div id="competition_color_legend">
                     <button id="fencing_lengend" value="Registration Finished"></button>

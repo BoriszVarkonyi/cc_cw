@@ -111,7 +111,7 @@
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     <div class="search_wrapper">
-                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
                         <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
                         <div class="search_results">
                         <?php

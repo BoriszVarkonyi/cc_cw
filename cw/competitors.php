@@ -51,15 +51,15 @@
             </div>
             <div id="content_wrapper">
                 <form method="POST" id="browsing_bar">
-                    <input name="" type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                    <div>
-                        <button type="button" class="clear_search_button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="name" placeholder="Search by Name" class="search">
+                    <div class="search_wrapper">
+                        <input type="text" name="name" placeholder="Search by Name" class="search page alt">
+                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
 
-                    <div class="select_input dense">
-                        <input type="number" name="year" placeholder="-Year-Of-Birth-" onkeyup="selectSystemWithSearch(this)">
-                        <div>
+                    <div class="search_wrapper">
+                        <input type="number" name="year" class="search select alt" placeholder="-Year-Of-Birth-" onkeyup="selectSystemWithSearch(this)">
+                        <button type="button" ><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                        <div class="search_results">
                             <?php
                                 for ($i = +3; $i <= 100; $i++) {
                                     $year = date("Y") - $i;
