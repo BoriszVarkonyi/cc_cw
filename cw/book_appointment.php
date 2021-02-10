@@ -104,15 +104,16 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
                             <?php
 
-                            foreach ($appointments as $datekey => $dates) {
+                            if ($appointments != "") {
+                                foreach ($appointments as $datekey => $dates) {
 
                             ?>
 
-                                <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
+                                    <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
 
-                                <?php
+                                    <?php
 
-                                if ($appointments != "") {
+
 
                                     foreach ($dates as $hourkeys => $hours) {
 
@@ -137,7 +138,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                         $endTime = strtotime("+1 hours", strtotime($selectedTime));
 
 
-                                ?>
+                                    ?>
                                         <div minsleft="<?php echo $minsleft ?>">
                                             <input type="radio" name="appointments" id="appointment1" value="" />
                                             <label for="appointment1">
@@ -147,16 +148,17 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                                 </div>
                                             </label>
                                         </div>
-                                <?php
+                                    <?php
                                     }
-                                }
-                                ?>
+
+                                    ?>
 
 
 
 
 
                             <?php
+                                }
                             }
                             ?>
 
