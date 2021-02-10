@@ -1728,8 +1728,20 @@ input[type="radio"]:checked + label .appointment {
 	transition: all var(--t-basic);
 }
 
+.appointment p:first-of-type {
+	padding-left: 10px;
+}
+
+.appointment .minute {
+	text-decoration: underline;
+}
+
+.appointment p:last-of-type {
+	padding-right: 10px;
+}
+
 .appointment p {
-	padding: 0 10px;
+	text-transform: none;
 }
 
 .appointment div {
