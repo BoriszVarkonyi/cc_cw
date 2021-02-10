@@ -114,10 +114,9 @@
         //delete existing object
         foreach ($json_table as $json_object_to_delete) {
             if ($json_object_to_delete -> id == $fencer_id) {
-                $id_to_delete = array_search($json_object_to_delete, $json_table);
+                unset($json_object_to_delete);
             }
         }
-        unset($json_table[$id_to_delete]);
 
         array_push($json_table, $json_object);
 
@@ -152,10 +151,10 @@
                 <div id="title_stripe">
                     <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
                     <div class="stripe_button_wrapper">
-                        <button name="submit_cancel" id="buttonstop" class="stripe_button" type="submit" onclick="location.href='weapon_control.php?comp_id=<?php echo $comp_id ?>'">
-                            <p>Cancel</p>
+                        <a class="stripe_button" <?php echo $wc_page ?>>
+                            <p>Back</p>
                             <img src="../assets/icons/close-black-18dp.svg"/>
-                        </button>
+                        </a>
                         <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
                             <p>Save weapon control</p>
                             <img src="../assets/icons/save-black-18dp.svg"/>
@@ -207,6 +206,6 @@
                 </div>
         </div>
     </body>
-    <!--<script src="../js/main.js"></script>-->
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
 </html>
