@@ -366,6 +366,7 @@ input, input:focus {
 input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"].number_input, input[type="time"] {		/* Sets basic look of text and password inputs*/
 	background-color: var(--c-lightestgray);
 	box-sizing: border-box;
+	border-top: 1px solid transparent;
 	border-bottom: 1px solid var(--c-darkgray);
 	margin: 3px 0 30px;
 	width: 300px;
@@ -382,6 +383,7 @@ input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, inpu
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="number"].number_input:focus, input[type="time"]:focus {		/* Sets basic look of text and password inputs*/
 	border-bottom: 2px solid var(--c-primary);
+	border-top: 2px solid transparent;
 }
 
 input[type="text"].no_margin {
