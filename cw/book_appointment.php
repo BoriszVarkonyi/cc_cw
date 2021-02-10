@@ -77,15 +77,16 @@
 
                             <?php
 
-                            foreach ($appointments as $datekey => $dates) {
+                            if ($appointments != "") {
+                                foreach ($appointments as $datekey => $dates) {
 
                             ?>
 
-                                <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
+                                    <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
 
-                                <?php
+                                    <?php
 
-                                if ($appointments != "") {
+
 
                                     foreach ($dates as $hourkeys => $hours) {
 
@@ -110,7 +111,7 @@
                                         $endTime = strtotime("+1 hours", strtotime($selectedTime));
 
 
-                                ?>
+                                    ?>
                                         <div minsleft="<?php echo $minsleft ?>">
                                             <input type="radio" name="appointments" id="appointment1" value="" />
                                             <label for="appointment1">
@@ -120,16 +121,17 @@
                                                 </div>
                                             </label>
                                         </div>
-                                <?php
+                                    <?php
                                     }
-                                }
-                                ?>
+
+                                    ?>
 
 
 
 
 
                             <?php
+                                }
                             }
                             ?>
 
