@@ -273,6 +273,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                 <p><?php echo sexConverter($assoc_array_data['comp_name']) . "'s" ?></p>
                                 <p><?php echo weaponConverter($assoc_array_data['comp_weapon']) ?></p>
                                 <p><?php echo date('Y', strtotime($assoc_array_data['comp_start'])) ?></p>
+                                <p>INVIDIUDAL</p>
                             </div>
                         </div>
 
