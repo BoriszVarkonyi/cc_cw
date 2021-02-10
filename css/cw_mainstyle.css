@@ -37,7 +37,8 @@ body, html {
 	background: var(--c-lightestgray) !important;
 	overflow-y: auto;
 	overflow-x: hidden;
-	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 html {

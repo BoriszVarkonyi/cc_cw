@@ -114,10 +114,10 @@
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
                                 <label for="fencers_nationality">NATION / CLUB</label>
                                 <div class="search_wrapper">
-                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                    <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
+                                        <?php include "../includes/nations.php"; ?>
                                     </div>
                                 </div>
                                 <label for="fencers_points" >POSITION</label>

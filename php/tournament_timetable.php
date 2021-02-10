@@ -170,7 +170,7 @@ if (isset($_POST["new_weapon_control"])) {
                             <label for="">DATE</label>
                             <div class="select_input dense">
                                 <input type="text" name="date_to_select" placeholder="-Date-" onkeyup="selectSystemWithSearch(this)" tabindex="3">
-                                <div id="sex_select_dropdown">
+                                <div>
 
                                     <?php
 

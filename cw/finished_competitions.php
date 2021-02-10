@@ -26,7 +26,7 @@
                     <!-- year drop-down -->
                     <div class="select_input dense">
                         <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this)">
-                        <div id="year_select_dropdown" class="closed">
+                        <div class="closed">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
 
@@ -40,7 +40,7 @@
                     <!-- sex drop-down -->
                     <div class="select_input">
                         <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)">
-                        <div id="sex_select_dropdown" class="closed">
+                        <div class="closed">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
                         </div>
@@ -48,7 +48,7 @@
                     <!-- weapon type drop-down -->
                     <div class="select_input">
                         <input type="text" name="wt" placeholder="-Weapon type-" onkeyup="selectSystemWithSearch(this)">
-                        <div id="wt_select_dropdown" class="closed">
+                        <div class="closed">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
                             <button type="button"onclick="selectSystem(this)">Sabre</button>
