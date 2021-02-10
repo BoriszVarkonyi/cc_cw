@@ -74,15 +74,71 @@
                     <div class="column">
                         <b>Available times:</b>
                         <div id="availabe_times_wrapper">
-                            <p>DATE 1</p>
-                            <input type="radio" name="appointments" id="appointment1" value=""/>
-                            <label for="appointment1">
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>11:00 - 12:00</p>
-                                    <div>Choose</div>
-                                </div>
-                            </label>
-                            <input type="radio" name="appointments" id="appointment2" value=""/>
+
+                            <?php
+
+                            foreach ($appointments as $datekey => $dates) {
+
+                            ?>
+
+                                <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
+
+                                <?php
+
+                                if ($appointments != "") {
+
+                                    foreach ($dates as $hourkeys => $hours) {
+
+                                        if ($hourkeys == "min_fencer") {
+                                            continue;
+                                        }
+
+                                        $allfencersin = 0;
+
+                                        foreach ($hours as $innerdata) {
+
+                                            $allfencersin += $innerdata->fencer;
+                                        }
+
+                                        $talkentime = $allfencersin * $dates->min_fencer;
+                                        $minsleft = 60 - $talkentime;
+
+                                        $starttime = $hourkeys;
+                                        $availtime = strtotime("+$talkentime minutes", strtotime($starttime));
+
+                                        $selectedTime = $hourkeys;
+                                        $endTime = strtotime("+1 hours", strtotime($selectedTime));
+
+
+                                ?>
+                                        <div minsleft="<?php echo $minsleft ?>">
+                                            <input type="radio" name="appointments" id="appointment1" value="" />
+                                            <label for="appointment1">
+                                                <div class="appointment" onclick="selectAppointment(this)">
+                                                    <p><?php echo date('H:i', $availtime); ?> - lasts approximately xx minutes</p>
+                                                    <div>Choose</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                <?php
+                                    }
+                                }
+                                ?>
+
+
+
+
+
+                            <?php
+                            }
+                            ?>
+
+
+
+
+
+
+                            <!-- <input type="radio" name="appointments" id="appointment2" value="" />
                             <label for="appointment2">
                                 <div class="appointment" onclick="selectAppointment(this)">
                                     <p>11:00 - 12:00</p>
