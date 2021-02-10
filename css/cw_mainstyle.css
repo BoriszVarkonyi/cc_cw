@@ -38,8 +38,6 @@ body, html {
 	overflow-y: auto;
 	overflow-x: hidden;
 	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
 }
 
 html {
@@ -97,14 +95,6 @@ footer {
 
 .column.no_top {
 	padding: 10px;
-}
-
-#competition_info {
-	flex-grow: 1;
-}
-
-#competition_controls {
-	flex-grow: 1;
 }
 
 @media (min-width: 0) {
@@ -1006,7 +996,6 @@ input[value="Search"] {
 	background: var(--c-lightestgray);
 	display: flex;
 	flex-direction: column;
-	transition: height var(--t-basic);
 	border: 2px solid var(--c-gray);
     border-radius: 5px;
 }
@@ -1039,7 +1028,7 @@ input[value="Search"] {
 }
 
 .column_panel.no_bottom {
-	margin: 0;
+	margin-bottom: 0;
 }
 
 .column_panel > div {

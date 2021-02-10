@@ -190,12 +190,10 @@
                             <div>
                                 <div class="weapon_control_day">
                                     <p>{Weapon Control Date}</p>
-                                    <a href="book_appointment.php">Book appointment</a>
                                 </div>
 
                                 <div class="weapon_control_day">
                                     <p>{Weapon Control Date}</p>
-                                    <a href="book_appointment.php">Book appointment</a>
                                 </div>
                             </div>
                         </div>
@@ -236,19 +234,18 @@
                         </div>
                     </div>
                     <div class="column no_top">
-                        <div id="competition_controls">
-                            <div class="column_panel no_bottom">
-                                <p class="column_panel_title">Competition Controls:</p>
-                                <div class="competition_controls_wrapper">
-                                    <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
-                                    <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
-                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
-                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
-                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
-                                    <button onclick="printPage()">Print</a>
-                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
-                                </div>
+                        <div id="competition_controls" class="column_panel no_bottom">
+                            <p class="column_panel_title">Competition Controls:</p>
+                            <div class="competition_controls_wrapper">
+                                <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
+                                <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='book_appointment.php?comp_id=<?php echo $comp_id ?>'">Book Appointment</button>
+                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
+                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
+                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                                <button onclick="printPage()">Print</a>
+                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
                             </div>
                         </div>
                     </div>
