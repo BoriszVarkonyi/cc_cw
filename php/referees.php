@@ -3,123 +3,62 @@
 <?php ob_start(); ?>
 <?php
 
-    //feedback array
-    $feedback = array(
-        "fencer_data" => "no",
-        "create_table" => "no",
-        "ttest" => "no",
-        "update" => "no",
-        "rtest" => "no",
-        "insert" => "no",
-        "delete" => "no",
-        "get_wc_data" => "no",
-        "misc" => "no"
-    );
-    $table_name = "ref_" . $comp_id;
+    class referee {
+        public string $sexe;
+        public int $id;
+        public string $categorie;
+        public string $image;
+        public string $club;
+        public string $lateralite;
+        public string $dateNaissance;
+        public int $licence;
+        public string $nation;
+        public string $prenom;
+        public string $nom;
+        public $password = NULL;
+        public bool $isOnline;
 
-    //checking for dupli tables
-    $check_d_table_qry = "SELECT COUNT(*)
-    FROM information_schema.tables
-    WHERE table_schema = 'ccdatabase'
-    AND table_name = '$table_name';";
-
-    if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-        $num_rows = mysqli_num_rows($check_d_table_do);
-        $feedback['ttest'] = "ok!";
-
-        if ($num_rows != 0) {
-            //creating weapon control  table
-            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`.`$table_name` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `pass` VARCHAR(255) NOT NULL , `full_name` VARCHAR(255) NOT NULL , `nat` VARCHAR(255) NOT NULL , `online` INT(11) NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8;";
-
-            if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
-                $feedback['create_table'] = "ok!";
-            } else {
-                $feedback['create_table'] = "ERROR " . mysqli_error($connection);
-            }
-
-        } else {
-            $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
-        }
-
-    } else {
-        $feedback['ttest'] = "ERROR " . mysqli_error($connection);
-    }
-
-
-
-    if (isset($_POST['submit_import'])) {
-        $selected_comp_id = $_POST['selected_comp_id'];
-
-        $qry_import = "SELECT * FROM `ref_$selected_comp_id`";
-        $do_import = mysqli_query($connection, $qry_import);
-
-        while ($row = mysqli_fetch_assoc($do_import)) {
-            $name = $row['name'];
-            $pass = $row['pass'];
-            $full_name = $row['full_name'];
-            $nat = $row['nat'];
-            $online = $row['online'];
-
-            //test for existing techs
-            $test_for_dupli = "SELECT * FROM $table_name WHERE name = '$name'";
-            $do_test_for_dupli = mysqli_query($connection, $test_for_dupli);
-            $test_num_rows = mysqli_num_rows($do_test_for_dupli);
-
-            if ($test_num_rows == FALSE) {
-                //update current comps tach table with imported tecch
-                $qry_insert_import = "INSERT INTO $table_name (name, pass, full_name, nat, online) VALUES ('$name', '$pass', '$full_name', '$nat', '$online')";
-                $do_insert_import = mysqli_query($connection, $qry_insert_import);
-                echo mysqli_error($connection);
-            }
+        function __construct(string $sexe,int $id , string $categorie, string $image, string $club, string $lateralite, string $dateNaissance, int $licence, string $nation, string $prenom, string $nom) {
+        $this -> sexe = $sexe;
+        $this -> id = $id;
+        $this -> categorie = $categorie;
+        $this -> image = $image;
+        $this -> club = $club;
+        $this -> lateralite = $lateralite;
+        $this -> dateNaissance = $dateNaissance;
+        $this -> licence = $licence;
+        $this -> nation = $nation;
+        $this -> prenom = $prenom;
+        $this -> nom = $nom;
+        $this -> isOnline = false;
         }
     }
 
-    if(isset($_POST["remove_referee"])) {
-        $id = $_POST['id'];
-        echo "áááááááááááááááá";
-        echo $id ;
-        echo "asd";
-
-        $qry_delete = "DELETE FROM ref_$comp_id WHERE id = '$id'";
-        $do_delete = mysqli_query($connection, $qry_delete);
+    //make table
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`referees` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    if (!$do_make_table = mysqli_query($connection, $qry_make_table)) {
         echo mysqli_error($connection);
-        //header("Refresh:0");
     }
 
-    if(isset($_POST["new_technician"])){
+    //get data / make new row
+    $qry_get_data = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
 
-        //get data from form
-        $ref_name = $_POST['username'];
-        $ref_full_name = $_POST['full_name'];
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $data = $row['data'];
 
+        $json_table = json_decode($data);
+    } else {
+        $json_table = [];
 
-
-
-        $ref_nat = $_POST['f_nat'];
-
-        if ($ref_name != "" && $ref_full_name != "" && $ref_nat != "") {
-
-            //test for existing row
-            $qry_row_test = "SELECT * FROM $table_name WHERE name = '$ref_name'";
-            $do_row_test = mysqli_query($connection, $qry_row_test);
-
-            $row_num = mysqli_num_rows($do_row_test);
-            $feedback['rtest'] = "ok!";
-
-            if ($row_num == FALSE) {
-                $qry_insert = "INSERT INTO $table_name (name, full_name, pass, nat) VALUES ('$ref_name', '$ref_full_name', '', '$ref_nat')";
-                if (mysqli_query($connection, $qry_insert)) {
-                    $feedback['insert'] = "ok!";
-                } else {
-                    $feedback['insert'] = "ERROR " . mysqli_error($connection);
-                }
-
-            } else {
-                $feedback['rtest'] = "aaaa" . mysqli_error($connection);
-            }
+        $qry_new_row = "INSERT INTO referees (assoc_comp_id, data) VALUES ('$comp_id', '[ ]')";
+        if (!$do_new_row = mysqli_query($connection, $qry_new_row)) {
+            echo mysqli_error($connection);
         }
-
     }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -203,15 +142,41 @@
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
                             <form class="overlay_panel_form" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
-                                <label for="username" >NAME</label>
-                                <input type="text" placeholder="Type the referees's name" class="username_input" name="username">
+                                <label for="id" >ID</label>
+                                <input type="text" placeholder="Type the referees's id" class="username_input" name="id">
 
-                                <label for="full_name" >FULL NAME</label>
-                                <input type="text" placeholder="Type the referees's full name" id="full_name_input" class="full_name_input" name="full_name">
-                                <label>NATION / CLUB</label>
+                                <label for="prenom" >First name</label>
+                                <input type="text" placeholder="Type the referees's first name" id="full_name_input" class="full_name_input" name="prenom">
+
+                                <label for="nom" >Surname</label>
+                                <input type="text" placeholder="Type the referees's surname" id="full_name_input" class="full_name_input" name="nom">
+
+                                <label for="sexe" >Sex</label>
+                                <input type="text" placeholder="Type the referees's sex" id="full_name_input" class="full_name_input" name="sexe">
+
+                                <label for="categorie" >Categorie</label>
+                                <input type="text" placeholder="Type the referees's categorie" id="full_name_input" class="full_name_input" name="categorie">
+
+                                <label for="image" >Image link</label>
+                                <input type="text" placeholder="Type in the link to the referee's image" id="full_name_input" class="full_name_input" name="image">
+
+                                <label for="club" >Club</label>
+                                <input type="text" placeholder="Type the referees's club" id="full_name_input" class="full_name_input" name="club">
+
+                                <label for="lateralite" >Lateralite</label>
+                                <input type="text" placeholder="Type the referees's lateralite" id="full_name_input" class="full_name_input" name="lateralite">
+
+                                <label for="date_naissance" >Date of Birth</label>
+                                <input type="text" placeholder="Type the referees's date of birth" id="full_name_input" class="full_name_input" name="date_naissance">
+
+                                <label for="licence" >License</label>
+                                <input type="text" placeholder="Type the referees's license number" id="full_name_input" class="full_name_input" name="licence">
+
+
+                                <label>NATION</label>
                                 <div class="search_wrapper">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
+                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -250,16 +215,9 @@
 
                     <?php
 
-                    $ref_list_query = "SELECT * FROM $table_name";
-                    $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+                    if (!isset($json_table[0])) {
 
-                    if ($ref_list_query_do) {
-                        $feedback['fencer_data'] = 'ok!';
-                    } else {
-                        $feedback['fencer_data'] = 'ERROR ' . mysqli_error($connection);
-                    }
-
-                    if(0 == mysqli_num_rows($ref_list_query_do)){?>
+                   ?>
                             <div id="no_something_panel">
                                 <p>You have no referees set up!</p>
                             </div>
@@ -270,32 +228,27 @@
                         <div class="table_header">
                             <div class="table_header_text">FULL NAME</div>
                             <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
-                            <div class="table_header_text">NATION / CLUB</div>
+                            <div class="table_header_text">NATION</div>
                             <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
-                            <div class="table_header_text">USERNAME</div>
+                            <div class="table_header_text">CLUB</div>
                             <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
                         <?php
-                        while($row = mysqli_fetch_assoc($ref_list_query_do)){
 
-                            $ref_id = $row["id"];
-                            $ref_name = $row["name"];
-                            $ref_online = $row["online"];
-                            $ref_full_name = $row["full_name"];
-                            $ref_nat = $row['nat'];
+                                foreach ($json_table as $json_object) {
 
                             ?>
 
-                            <div class="table_row" id="<?php echo $ref_id; ?>" onclick="selectRow(this)">
-                                <div class="table_item"><p><?php echo $ref_full_name; ?></p></div>
-                                <div class="table_item"><p><?php echo $ref_nat ?></p></div>
-                                <div class="table_item"><p><?php echo $ref_name; ?></p></div>
+                            <div class="table_row" id="<?php echo $json_object -> id; ?>" onclick="selectRow(this)">
+                                <div class="table_item"><p><?php echo $json_object -> prenom . " " . $json_object -> nom; ?></p></div>
+                                <div class="table_item"><p><?php echo $json_object -> nation ?></p></div>
+                                <div class="table_item"><p><?php echo $json_object -> club; ?></p></div>
                                 <div class="table_item"><p><?php
 
-                                if($ref_online == 0){
+                                if($json_object -> isOnline == false){
 
                                     echo "Offline";
 
@@ -309,7 +262,7 @@
                             </div>
                             <div class="small_status_item <?php
 
-                            if($ref_online == 0){
+                            if($json_object -> isOnline == false){
 
                                 echo "red";
 
