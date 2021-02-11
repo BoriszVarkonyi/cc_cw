@@ -84,6 +84,7 @@
     if (isset($_POST['submit_delete'])) {
         $id_to_change = $_POST['text_title_to_change'];
         unset($json_table[$id_to_change]);
+        $json_table = array_values($json_table);
 
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
