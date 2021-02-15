@@ -3,6 +3,18 @@
 <?php ob_start(); ?>
 <?php
 
+    function updateData($data, $comp_id, $conn) {
+        $json_string = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+        $qry_update_data = "UPDATE `referees` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+        if ($do_update_row = mysqli_query($conn, $qry_update_data)) {
+            return TRUE;
+        } else {
+            echo mysqli_error($conn);
+            return FALSE;
+        }
+    }
+
     class referee {
         public string $sexe;
         public int $id;
@@ -18,7 +30,7 @@
         public $password = NULL;
         public bool $isOnline;
 
-        function __construct(string $sexe,int $id , string $categorie, string $image, string $club, string $lateralite, string $dateNaissance, int $licence, string $nation, string $prenom, string $nom) {
+        function __construct($sexe, $id, $categorie, $image, $club, $lateralite, $dateNaissance, $licence, $nation, $prenom, $nom) {
         $this -> sexe = $sexe;
         $this -> id = $id;
         $this -> categorie = $categorie;
@@ -57,7 +69,81 @@
         }
     }
 
+    //set up new ref with button
+    if (isset($_POST['new_technician'])) {
+        $id = $_POST['id'];
+        $prenom = $_POST['prenom'];
+        $nom = $_POST['nom'];
+        $sexe = $_POST['sexe'];
+        $categorie = $_POST['categorie'];
+        $image = $_POST['image'];
+        $club = $_POST['club'];
+        $lateralite = $_POST['lateralite'];
+        $date_naissance = $_POST['date_naissance'];
+        $licence = $_POST['licence'];
+        $nation = $_POST['nation'];
 
+        $referee_object = new referee($sexe, $id,$categorie, $image, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom);
+
+        //find ref with same id then delete
+        $id_to_delete = findObject($json_table, $id, "id"); //findObject() is on line 146 includes/functions.php
+        if ($id_to_delete !== false) {
+            unset($json_table[$id_to_delete]);
+            $json_table = array_values($json_table);
+        }
+
+        //update db with new referee object
+        array_push($json_table, $referee_object);
+
+        if (updateData($json_table, $comp_id, $connection)) {
+            header("Refresh: 0");
+        }
+    }
+
+    //remove referee by button
+    if (isset($_POST['remove_referee'])) {
+        $id = $_POST['id'];
+
+        $id_to_delete = findObject($json_table, $id, "id"); //findObject() is on line 146 includes/functions.php
+        if ($id_to_delete !== false) {
+            unset($json_table[$id_to_delete]);
+            $json_table = array_values($json_table);
+        }
+
+        //update_db with new data
+        if (updateData($json_table, $comp_id, $connection)) {
+            header("Refresh: 0");
+        }
+    }
+
+    if (isset($_POST['submit_import'])) {
+        $import_comp = $_POST['selected_comp_id'];
+
+        //get referees from selected comp
+        $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$import_comp'";
+        $do_get_refs = mysqli_query($connection, $qry_get_refs);
+
+        if ($row = mysqli_fetch_assoc($do_get_refs)) {
+            $import_json_string = $row['data'];
+            $import_json_table = json_decode($import_json_string);
+
+            foreach ($import_json_table as $import_object) {
+                $id = $import_object -> id;
+                if (FALSE === findObject($json_table, $id, "id")) {
+                    array_push($json_table, $import_object);
+                }
+            }
+            $json_table = array_values($json_table);
+
+            //update db with nre data
+            if (updateData($json_table, $comp_id, $connection)) {
+                header("Refresh: 0");
+            }
+
+        } else {
+            echo mysqli_error($connection);
+        }
+    }
 
 ?>
 
@@ -116,7 +202,7 @@
                                             echo mysqli_error($connection);
                                         }
 
-                                        $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id'";
+                                        $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id' AND comp_id != '$comp_id'";
                                         $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
 
                                         while ($row = mysqli_fetch_assoc($do_get_comp_names)) {

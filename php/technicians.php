@@ -48,21 +48,14 @@
         $name = $_POST['name'];
 
 
-        $existing_username = TRUE;
-        foreach ($json_table as $json_object) {
-            if ($json_object -> username == $username){
-                $existing_username = FALSE;
-            }
-        }
-
-        //username csak angol karakter lehet mert a json nem szereti
-        if ($existing_username){
+        $find = findObject($json_table, $username, "username");
+        if ($find === FALSE){
             $new_tech = new tech($name, $role, $username);
             array_push($json_table, $new_tech);
 
             $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
-            echo $json_string;
+
             $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
             $do_update_data = mysqli_query($connection, $qry_update_data);
             header("Refresh: 0");
@@ -77,14 +70,10 @@
     if (isset($_POST['remove_technician'])){
         $username_to_remove = $_POST['id'];
 
-        for ($i = 0; $i < count($json_table); $i++) {
-            if ($username_to_remove == $json_table[$i] -> username) {
-                break;
-            }
-        }
-        echo $i;
-        unset($json_table[$i]);
-        print_r($json_table);
+        $tech_to_delete = findObject($json_table, $username_to_remove, "username");
+        unset($json_table[$tech_to_delete]);
+        $json_table = array_values($json_table);
+
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
@@ -118,6 +107,8 @@
 
         }
 
+
+        $json_table = array_values($json_table);
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
