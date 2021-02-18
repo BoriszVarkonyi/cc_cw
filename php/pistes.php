@@ -250,11 +250,11 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form  method="POST" class="piste_settings_panel">
-                                <div class="link_wrapper">
+                                <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
-                                    <input type="text" class="name_input">
-                                    <button >
-                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                    <input type="text" class="link_input">
+                                    <button type="button" onclick="closeLinkWrapper(this)">
+                                        <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
                                 </div>
                                 <div class="settings_wrapper">
@@ -341,9 +341,9 @@ if(isset($_POST["create_piste"])){
                             <form method="POST" class="piste_settings_panel">
                                 <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
-                                    <input type="text" class="name_input">
+                                    <input type="text" class="link_input">
                                     <button type="button" onclick="closeLinkWrapper(this)">
-                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                        <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
                                 </div>
                                 <div class="settings_wrapper">
@@ -427,9 +427,9 @@ if(isset($_POST["create_piste"])){
                             <form method="POST" class="piste_settings_panel">
                                 <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
-                                    <input type="text" class="name_input">
+                                    <input type="text" class="link_input">
                                     <button type="button" onclick="closeLinkWrapper(this)">
-                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                        <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
                                 </div>
                                 <div class="settings_wrapper">

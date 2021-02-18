@@ -125,7 +125,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
-	border-radius:  0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
 	z-index: 9;
 	padding: 0 0 5px;
 	max-height: 0;
@@ -174,7 +174,8 @@ header {
 .header_button img {
 	height: 18px;
 	width: 18px;
-	filter: var(--ci-staticblack) !important;
+	-webkit-filter: var(--ci-staticblack) !important;
+	        filter: var(--ci-staticblack) !important;
 }
 
 .header_button:hover {
@@ -595,7 +596,8 @@ header {
 .stripe_button img {
 	height: 1.2rem;
 	width: 1.2rem;
-	filter: saturate(71%) !important;
+	-webkit-filter: saturate(71%) !important;
+	        filter: saturate(71%) !important;
 }
 
 .stripe_button:hover {
@@ -653,7 +655,8 @@ header {
 }
 
 .stripe_button.primary img {
-	filter: invert();
+	-webkit-filter: invert();
+	        filter: invert();
 }
 
 .stripe_button.red {
@@ -913,7 +916,8 @@ header {
 }
 
 #nav_bar img {
-	filter: var(--ci-primarycontrast);
+	-webkit-filter: var(--ci-primarycontrast);
+	        filter: var(--ci-primarycontrast);
 }
 
 #nav_bar_pin:hover {
@@ -1872,7 +1876,8 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	padding: 0 5px 0 0;
 	width: 20px;
 	height: 20px;
-	filter: var(--ci-secondarycontrast) !important;
+	-webkit-filter: var(--ci-secondarycontrast) !important;
+	        filter: var(--ci-secondarycontrast) !important;
 }
 
 .db_panel_main {
@@ -3513,7 +3518,6 @@ input {
 }
 
 .period.opened > div:nth-child(3) > div:nth-child(3) > p { /* Period buttons */
-
 	font-family: var(--bold);
 	width: 50%;
 	text-align: center;
@@ -3552,6 +3556,7 @@ input {
 	box-shadow: var(--s-black);
 	position: relative;
 	transition: transform var(--t-basic);
+	will-change: auto;
 }
 
 .piste.focused {
@@ -3674,6 +3679,13 @@ input {
 	opacity: 1;
 }
 
+.piste_settings_panel > div {
+	width: 100%;
+	display: flex;
+	box-sizing: border-box;
+	padding: 0 20px;
+}
+
 .link_wrapper {
 	display: flex;
 	justify-content: center;
@@ -3681,9 +3693,25 @@ input {
 }
 
 .link_wrapper input {
-	margin: 0;
-	width: 100%;
-	padding: 0 10px;
+	margin: 0 20px 0 0;
+	max-width: 100%;
+}
+
+.link_wrapper button {
+	width: 28px;
+	height: 28px;
+	background: var(--c-lightestgray);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.link_wrapper button img {
+	width: 20px;
+	height: 20px;
+	-webkit-filter: var(--ci-secondarycontrast);
+	        filter: var(--ci-secondarycontrast);
 }
 
 .link_wrapper.hidden {
@@ -3692,11 +3720,10 @@ input {
 
 .settings_wrapper {
 	display: flex;
-	width: 100%;
 }
 
 .settings_wrapper.hidden {
-	display: hidden !important;
+	display: none;
 }
 
 .settings_wrapper > div {
