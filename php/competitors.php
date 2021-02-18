@@ -4,19 +4,69 @@
 <?php checkComp($connection); ?>
 
 <?php
-$query = "SELECT *
-FROM `information_schema`.`tables`
-WHERE table_schema = 'ccdatabase'
-    AND table_name = 'cptrs_$comp_id'
-LIMIT 1;";
-$query_do = mysqli_query($connection, $query);
+    class tiruer{
+        public $sexe;
+        public $id;
+        public $image;
+        public $points;
+        public $classement;
+        public $club;
+        public $lateralite;
+        public $date_naissance;
+        public $licence;
+        public $nation;
+        public $prenom;
+        public $nom;
+        public $reg;
+        public $wc;
+        public $comp_rank;
+        public $temp_rank;
+        public $final_rank;
 
-if(mysqli_num_rows($query_do) == 0){
+        function __cunstruct($sexe,$id,$image,$points,$classement,$club,$lateralite,$date_naissance,$licence,$nation,$prenom,$nom,$reg,$wc,$comp_rank,$temp_rank,$final_rank) {
+            $this -> sexe = $sexe;
+            $this -> id = $id;
+            $this -> image = $image;
+            $this -> points = $points;
+            $this -> classement = $classement;
+            $this -> club = $club;
+            $this -> lateralite = $lateralite;
+            $this -> date_naissance = $date_naissance;
+            $this -> licence = $licence;
+            $this -> nation = $nation;
+            $this -> prenom = $prenom;
+            $this -> nom = $nom;
+            $this -> reg = $reg;
+            $this -> wc = $wc;
+            $this -> comp_rank = $comp_rank;
+            $this -> temp_rank = $temp_rank;
+            $this -> final_rank = $final_rank;
+        }
+    }
 
-$query = "CREATE TABLE cptrs_$comp_id ( `id` VARCHAR(255) NOT NULL , `name` VARCHAR(255) NOT NULL , `nationality` VARCHAR(255) NOT NULL , `reg` INT NOT NULL , `wc` INT NOT NULL , `rank` INT NOT NULL , `comp_rank` INT NOT NULL, `temporary_rank` INT NOT NULL, `final_rank` INT NOT NULL, `ass_match` INT NOT NULL ) ENGINE = InnoDB;";
-$query_do = mysqli_query($connection, $query);
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`competitors` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    if (!$do_create_table = mysqli_query($connection, $qry_create_table)) {
+        echo mysqli_error($connection);
+    }
 
-}
+    //check for existing row
+    $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+    if ($do_check_row = mysqli_query($connection, $qry_check_row)) {
+        if ($row = mysqli_fetch_assoc($do_check_row)) {
+            $json_string = $row['data'];
+            $json_table = json_decode($json_string);
+        } else {
+            echo mysqli_error($connection);
+        }
+    } else {
+        $json_table = [];
+
+        //make new row
+        $qry_new_row = "INSERT INTO competitors (assoc_comp_id) VALUES ('$comp_id')";
+        if (!$do_new_row = mysqli_query($connection, $qry_new_row)) {
+            echo mysqli_error($connection);
+        }
+    }
 
 
 ?>
@@ -27,7 +77,7 @@ $query_do = mysqli_query($connection, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{Comp name}'s Competitiors</title>
+    <title><?php echo $comp_name ?>'s Competitiors</title>
     <link rel="stylesheet" href="../css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
@@ -52,6 +102,8 @@ $query_do = mysqli_query($connection, $query);
                 </div>
             </div>
             <div id="page_content_panel_main">
+
+                <?php if (isset($json_table[0])) { ?>
                 <div class="wrapper table w90 first_column_centered">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
@@ -64,26 +116,17 @@ $query_do = mysqli_query($connection, $query);
                     </div>
                     <div class="table_row_wrapper">
                         <?php
-                        $query = "SELECT * FROM cptrs_$comp_id ORDER BY rank";
-                        $query_do = mysqli_query($connection, $query);
-
-                        while($row = mysqli_fetch_assoc($query_do)){
-
-                            $pos = $row["rank"];
-                            $name = $row["name"];
-                            $nat = $row["nationality"];
-                            $reg = $row["reg"];
-                            $wc = $row["wc"];?>
-
+                            foreach ($json_table as $json_obj) {
+                        ?>
                             <div class="table_row" onclick="selectRow(this)" tabindex="0">
-                                <div class="table_item"><p><?php echo $pos ?></p></div>
-                                <div class="table_item"><p><?php echo $name ?></p></div>
-                                <div class="table_item"><p><?php echo $nat ?></p></div>
+                                <div class="table_item"><p><?php echo $json_obj -> classement ?></p></div>
+                                <div class="table_item"><p><?php echo $json_obj -> prenom . " " . $json_obj -> nom ?></p></div>
+                                <div class="table_item"><p><?php echo $$json_obj -> nation ?></p></div>
                                 <div class="table_item">
                                     <p>
                                     <?php
 
-                                        if($reg == 0){
+                                        if($json_obj -> wc == 0){
 
                                             echo "Not ready";
                                         }else{
@@ -94,7 +137,7 @@ $query_do = mysqli_query($connection, $query);
                                     </p>
                                 </div>
                                 <div class="small_status_item <?php
-                                    if($reg == 0){
+                                    if($json_obj -> reg == 0){
 
                                         echo "red";
                                     }else{
@@ -126,6 +169,7 @@ $query_do = mysqli_query($connection, $query);
                             </div>
 
                         <?php
+                            }
                         }
                         ?>
                     </div>
