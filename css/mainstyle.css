@@ -29,6 +29,10 @@ html {
 	position: relative;
 }
 
+.nav_bar_flex::-webkit-scrollbar-thumb {
+	background: var(--cd-primarycontrast);
+}
+
 .nav_bar_flex::after {
 	content: "";
 	position: absolute;
@@ -526,7 +530,7 @@ header {
 
 #apps input:checked + label {
 	font-size: var(--f-xxxlarge);
-	border-right: 5px solid var(--c-secondary);
+	border-right: 5px solid var(--c-primary);
 }
 
 #apps div {
@@ -545,9 +549,10 @@ header {
 	transform: translateY(-50%);
 	font-size: var(--f-xxxlarge);
 	padding: 0;
-	background: var(--c-secondary);
+	background: var(--c-primary);
 	z-index: 1;
 	box-sizing: border-box;
+	color: var(--cd-primarycontrast);
 }
 
 #apps input:checked + label[other] + button {
@@ -881,7 +886,6 @@ header {
 	display: flex;
 	justify-content: center;
 	flex: 1 1 100%;
-	overflow: visible;
 	transition: all var(--t-basic);
 	position: relative;
 	font-size: var(--f-large);
@@ -1735,10 +1739,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	flex-direction: column;
 	width: 300px;
 	align-items: flex-start;
-}
-
-.overlay_panel_form.dense {
-	padding: 30px 50px;
 }
 
 .overlay_panel_form.dense > input {
@@ -3674,7 +3674,30 @@ input {
 	opacity: 1;
 }
 
-.piste_settings_panel > div {
+.link_wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.link_wrapper input {
+	margin: 0;
+}
+
+.link_wrapper.hidden {
+	display: none;
+}
+
+.settings_wrapper {
+	display: flex;
+	width: 100%;
+}
+
+.settings_wrapper.hidden {
+	display: hidden;
+}
+
+.settings_wrapper > div {
 	flex: 1 0 auto;
 	display: flex;
 	align-items: center;
@@ -3682,19 +3705,19 @@ input {
 	justify-content: center;
 }
 
-.piste_settings_panel > div:nth-of-type(2) {
+.settings_wrapper > div:nth-of-type(2) {
 	border-left: 2px solid var(--c-lightergray);
 	border-right: 2px solid var(--c-lightergray);
 }
 
-.piste_settings_panel > div > p:first-of-type {
+.settings_wrapper > div > p:first-of-type {
 	font-family: var(--bold);
 	font-size: var(--f-small);
 	position: absolute;
 	bottom: 60%;
 }
 
-.piste_settings_panel > div > button {
+.settings_wrapper > div > button {
 	width: 28px;
 	height: 28px;
 	background: transparent;
@@ -3702,15 +3725,15 @@ input {
 	border-radius: 50%;
 }
 
-.piste_settings_panel > div > button:hover {
+.settings_wrapper > div > button:hover {
 	background: var(--c-lightergray);
 }
 
-.piste_settings_panel > div > button.selected {
+.settings_wrapper > div > button.selected {
 	background: var(--c-secondary);
 }
 
-.piste_settings_panel > div > img {
+.settings_wrapper > div > img {
 	width: 80%;
 	height: 80%;
 }
@@ -4198,7 +4221,6 @@ input {
 }
 
 .disqualify_button {
-
 	margin: 10px 5px 5px 5px;
 	padding: 5px 10px;
 	color: var(--c-red);
@@ -4210,6 +4232,10 @@ input {
 .disqualify_button:hover {
 	color: var(--c-white);
 	background: var(--c-red);
+}
+
+.vs {
+	justify-content: center;
 }
 
 /* Pool Results */

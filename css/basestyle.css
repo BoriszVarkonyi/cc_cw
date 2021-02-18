@@ -604,10 +604,6 @@ input[type="text"].search.cc:focus + button + div {
 	height: 37px;
 }
 
-
-
-
-
 label + .search_wrapper {
 	margin: 3px 0 30px;
 	width: 300px;

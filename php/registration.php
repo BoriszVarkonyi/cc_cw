@@ -103,6 +103,23 @@
                         </button>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
+                    <div class="search_wrapper">
+                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search">
+                        <div class="search_results">
+                            <?php
+                            foreach ($json_table as $json_object) {
+                                $username = $json_object -> username;
+                                $name = $json_object -> name;
+
+                                ?>
+                                <a id="<?php echo $username ?>A" href="#<?php echo $username ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
+                                <?php
+                            }
+                                ?>
+                        </div>
+                    </div>
+
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencerPanel()">

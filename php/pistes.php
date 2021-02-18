@@ -250,27 +250,32 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form  method="POST" class="piste_settings_panel">
-                            <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"><input>
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" >
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" >
-                                    </button>
+                                <div class="link_wrapper">
+                                    <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
+                                    <input type="text" class="name_input">
                                 </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" >
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button name="delete_piste" id="delete_piste" type="submit">
-                                        <img src="../assets/icons/delete-black-18dp.svg" >
-                                    </button>
+                                <div class="settings_wrapper">
+                                    <div>
+                                        <p>Control</p>
+                                        <button class="selected">
+                                            <img src="../assets/icons/smartphone-black-18dp.svg" >
+                                        </button>
+                                        <button>
+                                            <img src="../assets/icons/laptop-black-18dp.svg" >
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p>Live</p>
+                                        <button>
+                                            <img src="../assets/icons/live_tv-black-18dp.svg" >
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p>Delete</p>
+                                        <button name="delete_piste" id="delete_piste" type="submit">
+                                            <img src="../assets/icons/delete-black-18dp.svg" >
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -331,27 +336,32 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form method="POST" class="piste_settings_panel">
-                                <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"><input>
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" >
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" >
-                                    </button>
+                                <div class="link_wrapper">
+                                    <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
+                                    <input type="text" class="name_input">
                                 </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" >
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button name="delete_piste" id="delete_piste" type="submit">
-                                        <img src="../assets/icons/delete-black-18dp.svg" >
-                                    </button>
+                                <div class="settings_wrapper">
+                                    <div>
+                                        <p>Control</p>
+                                        <button class="selected">
+                                            <img src="../assets/icons/smartphone-black-18dp.svg" >
+                                        </button>
+                                        <button>
+                                            <img src="../assets/icons/laptop-black-18dp.svg" >
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p>Live</p>
+                                        <button>
+                                            <img src="../assets/icons/live_tv-black-18dp.svg" >
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p>Delete</p>
+                                        <button name="delete_piste" id="delete_piste" type="submit">
+                                            <img src="../assets/icons/delete-black-18dp.svg" >
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -409,27 +419,32 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form method="POST" class="piste_settings_panel">
-                            <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"><input>
-                                <div>
-                                    <p>Control</p>
-                                    <button class="selected">
-                                        <img src="../assets/icons/smartphone-black-18dp.svg" >
-                                    </button>
-                                    <button>
-                                        <img src="../assets/icons/laptop-black-18dp.svg" >
-                                    </button>
+                                <div class="link_wrapper">
+                                    <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
+                                    <input type="text" class="name_input">
                                 </div>
-                                <div>
-                                    <p>Live</p>
-                                    <button>
-                                        <img src="../assets/icons/live_tv-black-18dp.svg" >
-                                    </button>
-                                </div>
-                                <div>
-                                    <p>Delete</p>
-                                    <button name="delete_piste" id="delete_piste" type="submit">
-                                        <img src="../assets/icons/delete-black-18dp.svg" >
-                                    </button>
+                                <div class="settings_wrapper">
+                                    <div>
+                                        <p>Control</p>
+                                        <button class="selected">
+                                            <img src="../assets/icons/smartphone-black-18dp.svg" >
+                                        </button>
+                                        <button>
+                                            <img src="../assets/icons/laptop-black-18dp.svg" >
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p>Live</p>
+                                        <button>
+                                            <img src="../assets/icons/live_tv-black-18dp.svg" >
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p>Delete</p>
+                                        <button name="delete_piste" id="delete_piste" type="submit">
+                                            <img src="../assets/icons/delete-black-18dp.svg" >
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
