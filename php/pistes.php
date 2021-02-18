@@ -266,7 +266,7 @@ if(isset($_POST["create_piste"])){
                                     </div>
                                     <div>
                                         <p>Live</p>
-                                        <button>
+                                        <button onclick="liveButton()">
                                             <img src="../assets/icons/live_tv-black-18dp.svg" >
                                         </button>
                                     </div>
@@ -352,7 +352,7 @@ if(isset($_POST["create_piste"])){
                                     </div>
                                     <div>
                                         <p>Live</p>
-                                        <button>
+                                        <button onclick="liveButton()">
                                             <img src="../assets/icons/live_tv-black-18dp.svg" >
                                         </button>
                                     </div>
@@ -435,7 +435,7 @@ if(isset($_POST["create_piste"])){
                                     </div>
                                     <div>
                                         <p>Live</p>
-                                        <button>
+                                        <button onclick="liveButton()">
                                             <img src="../assets/icons/live_tv-black-18dp.svg" >
                                         </button>
                                     </div>
