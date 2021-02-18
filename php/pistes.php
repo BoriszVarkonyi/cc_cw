@@ -256,6 +256,9 @@ if(isset($_POST["create_piste"])){
                                     <button type="button" onclick="closeLinkWrapper(this)">
                                         <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
+                                    <button type="submit">
+                                        <img src="../assets/icons/send-black-18dp.svg">
+                                    </button>
                                 </div>
                                 <div class="settings_wrapper">
                                     <div>
@@ -345,6 +348,9 @@ if(isset($_POST["create_piste"])){
                                     <button type="button" onclick="closeLinkWrapper(this)">
                                         <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
+                                    <button type="submit">
+                                        <img src="../assets/icons/send-black-18dp.svg">
+                                    </button>
                                 </div>
                                 <div class="settings_wrapper">
                                     <div>
@@ -430,6 +436,9 @@ if(isset($_POST["create_piste"])){
                                     <input type="text" class="link_input">
                                     <button type="button" onclick="closeLinkWrapper(this)">
                                         <img src="../assets/icons/close-black-18dp.svg">
+                                    </button>
+                                    <button type="submit">
+                                        <img src="../assets/icons/send-black-18dp.svg">
                                     </button>
                                 </div>
                                 <div class="settings_wrapper">
