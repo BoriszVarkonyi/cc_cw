@@ -489,6 +489,10 @@ label.error + input  {
 	background-image: url(../assets/icons/contact_phone-black-18dp.svg);
 }
 
+.link_input {
+	background-image: url(../assets/icons/contact_phone-black-18dp.svg);
+}
+
 /* Number inputs */
 
 input[type="number"] {

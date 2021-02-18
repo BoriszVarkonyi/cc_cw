@@ -3682,6 +3682,8 @@ input {
 
 .link_wrapper input {
 	margin: 0;
+	width: 100%;
+	padding: 0 10px;
 }
 
 .link_wrapper.hidden {

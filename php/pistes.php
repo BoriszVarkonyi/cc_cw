@@ -250,9 +250,12 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form  method="POST" class="piste_settings_panel">
-                                <div class="link_wrapper hidden">
+                                <div class="link_wrapper">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
+                                    <button>
+                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                    </button>
                                 </div>
                                 <div class="settings_wrapper">
                                     <div>
@@ -339,6 +342,9 @@ if(isset($_POST["create_piste"])){
                                 <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
+                                    <button>
+                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                    </button>
                                 </div>
                                 <div class="settings_wrapper">
                                     <div>
@@ -422,6 +428,9 @@ if(isset($_POST["create_piste"])){
                                 <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
+                                    <button>
+                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                    </button>
                                 </div>
                                 <div class="settings_wrapper">
                                     <div>
