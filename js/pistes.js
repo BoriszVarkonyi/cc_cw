@@ -120,3 +120,19 @@ document.addEventListener("keyup", function(e){
         orangeAddButton.click()
     }
 })
+//
+function liveButton(x){
+    var liveButton = x;
+    var settingsWrapper = liveButton.parentNode.parentNode;
+    var linkWrapper = settingsWrapper.previousElementSibling;
+    settingsWrapper.classList.add("hidden");
+    linkWrapper.classList.remove("hidden");
+}
+
+function closeLinkWrapper(x){
+    var closeButton = x;
+    var linkWrapper = closeButton.parentNode;
+    var settingsWrapper = linkWrapper.nextElementSibling;
+    settingsWrapper.classList.remove("hidden");
+    linkWrapper.classList.add("hidden")
+}

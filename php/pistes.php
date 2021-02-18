@@ -253,7 +253,7 @@ if(isset($_POST["create_piste"])){
                                 <div class="link_wrapper">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
-                                    <button>
+                                    <button >
                                         <img src="../assets/icons/settings-black-18dp.svg">
                                     </button>
                                 </div>
@@ -269,7 +269,7 @@ if(isset($_POST["create_piste"])){
                                     </div>
                                     <div>
                                         <p>Live</p>
-                                        <button onclick="liveButton()">
+                                        <button type="button" onclick="liveButton(this)">
                                             <img src="../assets/icons/live_tv-black-18dp.svg" >
                                         </button>
                                     </div>
@@ -342,7 +342,7 @@ if(isset($_POST["create_piste"])){
                                 <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
-                                    <button>
+                                    <button type="button" onclick="closeLinkWrapper(this)">
                                         <img src="../assets/icons/settings-black-18dp.svg">
                                     </button>
                                 </div>
@@ -358,7 +358,7 @@ if(isset($_POST["create_piste"])){
                                     </div>
                                     <div>
                                         <p>Live</p>
-                                        <button onclick="liveButton()">
+                                        <button type="button" onclick="liveButton(this)">
                                             <img src="../assets/icons/live_tv-black-18dp.svg" >
                                         </button>
                                     </div>
@@ -428,7 +428,7 @@ if(isset($_POST["create_piste"])){
                                 <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
-                                    <button>
+                                    <button type="button" onclick="closeLinkWrapper(this)">
                                         <img src="../assets/icons/settings-black-18dp.svg">
                                     </button>
                                 </div>
@@ -444,7 +444,7 @@ if(isset($_POST["create_piste"])){
                                     </div>
                                     <div>
                                         <p>Live</p>
-                                        <button onclick="liveButton()">
+                                        <button type="button" onclick="liveButton(this)">
                                             <img src="../assets/icons/live_tv-black-18dp.svg" >
                                         </button>
                                     </div>
