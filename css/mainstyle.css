@@ -3696,7 +3696,7 @@ input {
 }
 
 .settings_wrapper.hidden {
-	display: hidden;
+	display: hidden !important;
 }
 
 .settings_wrapper > div {
