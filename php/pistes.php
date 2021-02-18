@@ -250,7 +250,7 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form  method="POST" class="piste_settings_panel">
-                                <div class="link_wrapper">
+                                <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
                                 </div>
@@ -336,7 +336,7 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form method="POST" class="piste_settings_panel">
-                                <div class="link_wrapper">
+                                <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
                                 </div>
@@ -419,7 +419,7 @@ if(isset($_POST["create_piste"])){
                                 </button>
                             </div>
                             <form method="POST" class="piste_settings_panel">
-                                <div class="link_wrapper">
+                                <div class="link_wrapper hidden">
                                     <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                     <input type="text" class="name_input">
                                 </div>
