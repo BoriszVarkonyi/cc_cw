@@ -4,7 +4,7 @@
 <?php checkComp($connection); ?>
 
 <?php
-    class tiruer{
+    class tireur{
         public $sexe;
         public $id;
         public $image;
@@ -23,7 +23,7 @@
         public $temp_rank;
         public $final_rank;
 
-        function __cunstruct($sexe,$id,$image,$points,$classement,$club,$lateralite,$date_naissance,$licence,$nation,$prenom,$nom,$reg,$wc,$comp_rank,$temp_rank,$final_rank) {
+        function __construct($sexe,$id,$image,$points,$classement,$club,$lateralite,$date_naissance,$licence,$nation,$prenom,$nom,$reg,$wc,$comp_rank,$temp_rank,$final_rank) {
             $this -> sexe = $sexe;
             $this -> id = $id;
             $this -> image = $image;
@@ -144,7 +144,7 @@
                                     ?>">
                                 </div>
                                 <div class="table_item"><?php
-                                    if($wc == 0){
+                                    if($json_obj -> wc == 0){
 
                                         echo "Not ready";
                                     }else{
@@ -154,7 +154,7 @@
                                     ?>
                                 </div>
                                 <div class="small_status_item <?php
-                                    if($wc == 0){
+                                    if($json_obj -> wc == 0){
 
                                         echo "red";
                                     }else{
