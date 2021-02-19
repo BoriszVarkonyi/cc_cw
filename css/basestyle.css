@@ -90,12 +90,12 @@
 }
 
 [data-content-theme="vanilla"]:root {
-	--c-primary:  #FF9700;
-	--c-lightprimary:  #FFBE5C;
-	--c-secondary:  #FFBE5C;
-	--c-lightsecondary:  #FF9700;
-	--c-tertiary:  #FF9700;
-	--c-lighttertiary:  #FF9700;
+	--c-primary: #FF9700;
+	--c-lightprimary: #FFBE5C;
+	--c-secondary: #FFBE5C;
+	--c-lightsecondary: #FF9700;
+	--c-tertiary: #FF9700;
+	--c-lighttertiary: #FF9700;
 	--cd-primarycontrast: #252252;
 	--ci-primarycontrast: contrast(71%);
 	--ci-secondarycontrast: invert();
@@ -140,7 +140,7 @@
 	--c-purple: #393939;
 	--c-bronze : #393939;
 	/* Unique */
-	--csd-orange:  #F19A3E;
+	--csd-orange: #F19A3E;
 	--csd-lightorange: #f2a451;
 	/* Shadows */
 	--s-black: 0 3px 6px #25252510;
@@ -449,6 +449,10 @@ label.error + input  {
 	background-image: url(../assets/icons/payments-black-18dp.svg);
 }
 
+.link_input {
+	background-image: url(../assets/icons/link-black-18dp.svg);
+}
+
 .start_date_input {
 	background-image: url(../assets/icons/outlined_flag-black-18dp.svg);
 }
@@ -486,10 +490,6 @@ label.error + input  {
 }
 
 .phone_number_contact_input {
-	background-image: url(../assets/icons/contact_phone-black-18dp.svg);
-}
-
-.link_input {
 	background-image: url(../assets/icons/contact_phone-black-18dp.svg);
 }
 
@@ -563,7 +563,6 @@ input[type="text"].search.alt {
 }
 
 input[type="text"].search:focus {
-
 }
 
 /* Extended Search Input */

@@ -12,23 +12,23 @@
 }
 
 [data-content-theme="vanilla"]:root {
-	--c-primary:  #FF9700;
-	--c-lightprimary:  #FFBE5C;
-	--c-secondary:  #FFBE5C;
-	--c-lightsecondary:  #FF9700;
-	--c-tertiary:  #FF9700;
-	--c-lighttertiary:  #FF9700;
+	--c-primary: #FF9700;
+	--c-lightprimary: #FFBE5C;
+	--c-secondary: #FFBE5C;
+	--c-lightsecondary: #FF9700;
+	--c-tertiary: #FF9700;
+	--c-lighttertiary: #FF9700;
 	--cd-primarycontrast: #252252;
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 */
 :root {
-	--c-primary:  #FF9700;
-	--c-lightprimary:  #FFBE5C;
-	--c-secondary:  #FFBE5C;
-	--c-lightsecondary:  #FF9700;
-	--c-tertiary:  #FF9700;
-	--c-lighttertiary:  #FF9700;
+	--c-primary: #FF9700;
+	--c-lightprimary: #FFBE5C;
+	--c-secondary: #FFBE5C;
+	--c-lightsecondary: #FF9700;
+	--c-tertiary #FF9700;
+	--c-lighttertiary: #FF9700;
 	--cd-primarycontrast: #252252;
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }

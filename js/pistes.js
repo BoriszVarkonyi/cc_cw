@@ -28,6 +28,8 @@ function togglePisteSettings(x) {
     oldclickedPiste = undefined;
 
     }
+    var closeLinkButton = x.parentNode.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling;
+    closeLinkWrapper(closeLinkButton);
 }
 //It is a var from main.js
 canAutoValidate = false;
@@ -120,3 +122,21 @@ document.addEventListener("keyup", function(e){
         orangeAddButton.click()
     }
 })
+//
+function liveButton(x){
+    var liveButton = x;
+    var settingsWrapper = liveButton.parentNode.parentNode;
+    var linkWrapper = settingsWrapper.previousElementSibling; 
+    var textArea = linkWrapper.firstElementChild.nextElementSibling;
+    settingsWrapper.classList.add("hidden");
+    linkWrapper.classList.remove("hidden");
+    textArea.focus();
+}
+
+function closeLinkWrapper(x){
+    var closeButton = x;
+    var linkWrapper = closeButton.parentNode;
+    var settingsWrapper = linkWrapper.nextElementSibling;
+    settingsWrapper.classList.remove("hidden");
+    linkWrapper.classList.add("hidden")
+}
