@@ -1,3 +1,7 @@
+<?php include "../includes/db.php" ?>
+<?php session_start();?>
+<?php ob_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,15 +46,21 @@
                     <div class="table_header_text">NATION / FENCING CLUB</div>
                     <div class="table_header_text">FEDERATION'S EMAIL ADDRESS</div>
                     <div class="table_header_text">NUMBER OF FENCERS</div>
+                    <div class="table_header_text">TIME BOOKED</div>
                     <div class="big_status_header"></div>
                 </div>
                 <div class="table_row_wrapper">
+
+
                     <div class="table_row" onclick="selectRow(this)" id="">
-                        <div class="table_item">NATION / FENCING CLUB</div>
-                        <div class="table_item">FEDERATION'S EMAIL ADDRESS</div>
-                        <div class="table_item">NUMBER OF FENCERS</div>
+                        <div class="table_item">Hungary</div>
+                        <div class="table_item">hunfencing@hfenc.hu</div>
+                        <div class="table_item">12</div>
+                        <div class="table_item">10:00-10:30</div>
                         <div class="big_status_item gray"></div>
                     </div>
+
+
                 </div>
             </div>
         </div>
