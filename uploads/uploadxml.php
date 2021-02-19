@@ -146,7 +146,7 @@ if ($uploadOk == 0) {
             $do_update_data = mysqli_query($connection, $qry_update_data);
 
 
-        //header("Location: ../php/competitors.php?comp_id=$comp_id");
+        header("Location: ../php/competitors.php?comp_id=$comp_id");
     } else {
 
         echo "Sorry, there was an error uploading your file.";
