@@ -38,13 +38,13 @@
             $end_of_pre_reg = "";
         }
     } else {
-            $host_country = "No info";
-            $city_street = "No info";
-            $zip_code = "No info";
-            $entry_fee = "No info";
-            $starting_date = "No info";
-            $ending_date = "No info";
-            $end_of_pre_reg = "No info";
+            $host_country = "No information given";
+            $city_street = "No information given";
+            $zip_code = "No information given";
+            $entry_fee = "No information given";
+            $starting_date = "No information given";
+            $ending_date = "No information given";
+            $end_of_pre_reg = "No information given";
     }
 
 ?>
@@ -130,7 +130,7 @@
                                     </div>
                                     <div>
                                         <div>
-                                            <label>STARTING DATE:<label>
+                                            <label>STARTING DATE:</label>
                                             <p><?php echo $starting_date ?></p>
                                         </div>
                                         <div>
