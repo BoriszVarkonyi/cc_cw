@@ -19,44 +19,51 @@
                 <p class="stripe_title">Upcoming competitions</p>
             </div>
             <div id="content_wrapper">
-                <form method="POST" id="browsing_bar">
+            <form method="POST" id="browsing_bar">
                     <!-- search by name box -->
-                    <div class="search_wrapper">
+                    <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
                     <!-- year drop-down -->
-                    <div class="select_input dense">
-                        <input type="number" name="year" placeholder="-Year-" onkeyup="selectSystemWithSearch(this, event)" tabindex="2">
-                        <div class="closed">
+                    <div class="search_wrapper narrow">
+                        <input type="text" name="" placeholder="-Year-" class="search select alt" onkeyup="selectSystemWithSearch(this)">
+                        <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                        <div class="search_results">
                             <?php
-                            for ($i = -1; $i <= 10; $i++) {
+                                for ($i = -1; $i <= 10; $i++) {
 
-                                $year = date("Y") - $i;
+                                    $year = date("Y") - $i;
 
-                                ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
-                            }
+                                    ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
+                                }
                             ?>
                         </div>
                     </div>
                     <!-- sex drop-down -->
-                    <div class="select_input">
-                        <input type="text" name="sex" placeholder="-Sex-" onkeyup="selectSystemWithSearch(this)" tabindex="3">
-                        <div>
+                    <div class="search_wrapper narrow">
+                        <button type="button" class="search select alt" onkeyup="selectSystemWithSearch(this)">
+                            <input type="text" name="" placeholder="-Sex-">
+                        </button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                        <div class="search_results">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
                         </div>
                     </div>
                     <!-- weapon type drop-down -->
-                    <div class="select_input">
-                        <input type="text" name="wt" placeholder="-Weapon type-" onkeyup="selectSystemWithSearch(this)" tabindex="4">
-                        <div>
+                    <div class="search_wrapper narrow">
+                        <button type="button" class="search select alt" onkeyup="selectSystemWithSearch(this)">
+                            <input type="text" name="" placeholder="-Weapon Type-">
+                        </button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                        <div class="search_results">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
-                            <button type="button" onclick="selectSystem(this)">Sabre</button>
+                            <button type="button"onclick="selectSystem(this)">Sabre</button>
                         </div>
                     </div>
-                    <input name="submit_search" type="submit" value="Search" tabindex="5">
+                    <input name="submit_search" type="submit" value="Search">
                 </form>
                 <?php include "../cw/comps_display.php" ?>
             </div>
@@ -67,5 +74,6 @@
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

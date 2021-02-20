@@ -200,10 +200,10 @@
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
                     <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
-                        <label for="name" >NAME</label>
+                        <label for="name">NAME</label>
                         <input type="text" placeholder="Type the technician's name" class="username_input" name="name">
 
-                        <label for="username" >USERNAME</label>
+                        <label for="username">USERNAME</label>
                         <input type="text" placeholder="Type the technician's username" class="username_input error username" name="username">
 
                         <label for="">ROLE</label>
@@ -222,8 +222,8 @@
                 </div>
 
                 <div class="search_wrapper">
-                    <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
+                    <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                     <div class="search_results">
                         <?php
                         foreach ($json_table as $json_object) {
@@ -313,5 +313,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/importoverlay.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

@@ -111,8 +111,8 @@
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     <div class="search_wrapper">
-                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
+                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <div class="search_results">
                         <?php
                         $query = "SELECT * FROM cptrs_$comp_id";

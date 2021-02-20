@@ -1764,7 +1764,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	z-index: 5;
 	opacity: 1;
 	transition: opacity var(--t-basic);
-	overflow: auto;
 }
 
 .overlay_panel.hidden, .overlay_panel_single.hidden {

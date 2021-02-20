@@ -23,7 +23,7 @@
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
-                    <div class="search_wrapper">
+                    <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
                         <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
@@ -143,5 +143,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
     <script src="../js/cw_temporary_ranking.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

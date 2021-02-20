@@ -260,9 +260,9 @@
 
 
                                 <label>NATION</label>
-                                <div class="search_wrapper">
+                                <div class="search_wrapper wide">
+                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                     <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search cc">
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -271,8 +271,8 @@
                         </form>
                     </div>
                     <div class="search_wrapper">
-                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search cc">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search input">
+                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
                                 $ref_list_query = "SELECT * FROM $table_name";
@@ -370,10 +370,11 @@
             </div>
         </div>
     </div>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/referees.js"></script>
-<script src="../js/controls.js"></script>
-<script src="../js/importoverlay.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/referees.js"></script>
+    <script src="../js/controls.js"></script>
+    <script src="../js/importoverlay.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

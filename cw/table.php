@@ -8,7 +8,7 @@
     <title><?php echo $comp_name ?>'s table</title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
-    <link rel="stylesheet" href="../css/">
+    <link rel="stylesheet" href="../css/table_style.css">
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
@@ -24,7 +24,7 @@
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
-                    <div class="search_wrapper">
+                    <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
                         <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
@@ -1129,6 +1129,7 @@
     </div>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
-    <script src="../js/cw_table.js"></script>
+    <script src="../js/cw_table.js"></script
+    <script src="../js/search.js"></script>>
 </body>
 </html>

@@ -168,9 +168,12 @@ if (isset($_POST["new_weapon_control"])) {
                     <div>
                         <div>
                             <label for="">DATE</label>
-                            <div class="select_input dense">
-                                <input type="text" name="date_to_select" placeholder="-Date-" onkeyup="selectSystemWithSearch(this)" tabindex="3">
-                                <div>
+                            <div class="search_wrapper narrow">
+                                <button type="button" class="search select input" onkeyup="selectSystemWithSearch(this)" tabindex="3">
+                                    <input type="text" name="date_to_select" placeholder="Select Date">
+                                </button>
+                                <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                                <div class="search_results">
 
                                     <?php
 
@@ -281,6 +284,6 @@ if (isset($_POST["new_weapon_control"])) {
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
+    <script src="../js/search.js"></script>
 </body>
-
 </html>

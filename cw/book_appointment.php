@@ -72,9 +72,9 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                             <div>
                                 <div>
                                     <label>COUNTRY / FENCING CLUB:</label>
-                                    <div class="search_wrapper">
+                                    <div class="search_wrapper wide">
                                         <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
-                                        <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
+                                        <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search page">
                                         <div class="search_results">
                                             <?php include "../includes/nations.php"; ?>
                                         </div>
@@ -213,6 +213,6 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/cw_book_appointment.js"></script>
+    <script src="../js/search.js"></script>
 </body>
-
 </html>

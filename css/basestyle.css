@@ -363,7 +363,7 @@ input, input:focus {
 	border: none;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"].number_input, input[type="time"], input.search.input, button.search.input {		/* Sets basic look of text and password inputs*/
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"].number_input, input[type="time"] {		/* Sets basic look of text and password inputs*/
 	background-color: var(--c-lightestgray);
 	box-sizing: border-box;
 	border-top: 1px solid transparent;
@@ -377,11 +377,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	background-position: 10px;
 }
 
-input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt, input.search.input.alt, button.search.input.alt {		/* Sets basic look of text and password inputs*/
+input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt {		/* Sets basic look of text and password inputs*/
 	background-color: var(--c-white);
 }
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="number"].number_input:focus, input[type="time"]:focus, input.search.input:focus, button.search.input:focus {		/* Sets basic look of text and password inputs*/
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="number"].number_input:focus, input[type="time"]:focus {		/* Sets basic look of text and password inputs*/
 	border-bottom: 2px solid var(--c-primary);
 	border-top: 2px solid transparent;
 }
@@ -523,24 +523,35 @@ input[type="time"] {
 
 .search_wrapper {
 	position: relative;
+	z-index: +10;
 }
 
-input[type="text"].search {
-	background-color: var(--c-lightestgray);
+#title_stripe .search_wrapper {
+	margin-left: 20px;
+	width: 250px;
+}
+
+.search_wrapper.wide {
+	width: 300px;
+}
+
+.search_wrapper.narrow {
+	width: 200px;
+}
+
+.search {
 	border-radius: 5px;
-	padding: 7.5px 30px;
-	font-family: var(--bold);
-	background-image: url(../assets/icons/search-black-18dp.svg);
 	background-repeat: no-repeat;
 	background-position: 10px;
 	color: var(--c-black);
-	border: none;
-	width: 300px;
 	position: relative;
 	z-index: +1;
+	width: 100%;
+	box-sizing: border-box;
+	height: 37px;
 }
 
-input[type="text"].search + button {
+.search + button {	/* Clear or dropdown button */
 	width: 1rem;
 	height: 1rem;
 	position: absolute;
@@ -553,84 +564,124 @@ input[type="text"].search + button {
 	align-items: center;
 }
 
-input[type="text"].search + button img {
+.search + button img {
 	width: 1rem;
 	height: 1rem;
+	filter: var(--ci-staticblack);
 }
 
-input[type="text"].search.alt {
-	background: var(--c-white);
+/* Clearbutton visbility */
+
+.search.input:not(.select) + button, .search.page + button {
+	opacity: 0;
 }
 
-input[type="text"].search:focus {
+.search.input:focus + button, .search.page:focus + button {
+	opacity: 1;
 }
 
-/* Extended Search Input */
+/* Search when input style */
 
-input[type="text"].search.page {
-	background-color: var(--c-white);
-	border-radius: 5px;
-	padding: 0 30px;
-	font-family: var(--bold);
-	z-index: +1;
-	position: relative;
-	border: 3px solid var(--cs-lightergray);
-	box-sizing: border-box;
-	background-image: url(../assets/icons/search-black-18dp.svg);
-	background-repeat: no-repeat;
-	background-position: 10px;
+.search.input {
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid var(--c-darkgray);
 	margin: 0;
-	height: 37px;
-}
-
-input[type="text"].search.page.alt {
 	background-color: var(--c-lightestgray);
 }
 
-input[type="text"].search.cc:focus + button + div {
+.search.input.alt {
+	background-color: var(--c-white);
+}
+
+.search.input:focus {
+	border-bottom: 2px solid var(--c-primary) !important;
+	border-top: 2px solid transparent !important;
+}
+
+/* Search on Page */
+
+.search.page {	/* Normal coloring and style */
+	background-color: var(--c-white);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-lightergray) !important;
+	background-image: url(../assets/icons/search-black-18dp.svg);
+	margin: 0;
+	width: 100%;
+}
+
+.search.page.alt {	/* Alternatove coloring and style */
+	background-color: var(--c-lightestgray);
+}
+
+.search.page:focus {	/* Normal coloring and style */
+	border: 3px solid var(--c-primary) !important;
+}
+
+/* Search select */
+
+.search.select {
+	margin: 0;
+	width: 100%;
+	padding: 0;
+}
+
+.search.select.alt {
+	background-color: var(--c-lightestgray);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-lightergray);
+	text-align: center;
+}
+
+.search.select input {
+	width: 100% !important;
+	background-color: transparent !important;
+	text-align: center !important;
+	border: none !important;
+	height: 100% !important;
+	padding: 0 !important;
+	pointer-events: none;
+	margin: 0 !important;
+}
+
+.search.select input::placeholder {
+	color: var(--c-darkgray);
+}
+
+.search.select + button {
+	user-select: none;
+	pointer-events: none;
+}
+
+/* Searches in forms */
+
+label + .search_wrapper {
+	margin: 3px 0 30px;
+}
+
+label + .search_wrapper.wide .search {
+	background-image: url(../assets/icons/search-black-18dp.svg);
+}
+
+/* Search Result */
+
+.search:focus + button + div {	/* Search opener */
 	max-height: 40vh;
 	opacity: 1;
 	overflow-y: auto;
 }
 
-.search.select {
-	background-color: var(--c-white);
-	border-radius: 5px;
-	padding: 0 30px;
-	font-family: var(--bold);
-	z-index: +1;
-	position: relative;
-	border: 3px solid var(--cs-lightergray);
-	box-sizing: border-box;
-	margin: 0;
-	width: 200px;
-	height: 37px;
-}
-
-label + .search_wrapper {
-	margin: 3px 0 30px;
-	width: 300px;
-}
-
-label + .search_wrapper .search_results {
-	width: 300px;
-}
-
-label + .search_wrapper .search.cc {
-	width: 300px;
-	margin: 0;
-}
-
 .search_results {
+	padding: 3px 0;
 	border: 3px solid var(--cs-lightergray);
+	border-top: 3px solid var(--cs-white);
 	border-top: none;
 	box-sizing: border-box;
-	width: 225px;
+	width: 100%;
 	background: var(--c-white);
 	box-shadow: var(--s-black);
 	position: absolute;
-	top: 100%;
-	z-index: 3;
+	top: 34px;
+	z-index: -1;
 	max-height: 0;
 	opacity: 0;
 	overflow: hidden;
@@ -649,7 +700,7 @@ label + .search_wrapper .search.cc {
 	font-family: var(--bold);
 }
 
-.search_results > a {
+.search_results > * {
 	padding: 5px;
 	position: relative;
 	text-align: center;
@@ -658,87 +709,12 @@ label + .search_wrapper .search.cc {
 	display: block;
 }
 
-.search_results > a.selected {
+.search_results > *.selected {
 	background: var(--c-lightgray);
 }
 
-.search_results > a:hover {
+.search_results > *:hover {
 	background: var(--c-lightergray);
-}
-
-/* Custom Select Input */
-
-.select_input {
-	width: 200px;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	z-index: 5;
-}
-
-.select_input > input {
-	width: 100%;
-	border-radius: 5px;
-	font-family: var(--bold);
-	color: var(--c-black);
-	background: var(--c-lightestgray);
-	padding: 7.5px 0;
-	text-align: center;
-	border: none !important;
-	margin: 0;
-}
-
-.select_input > input:focus + div {
-	max-height: 40vh;
-	opacity: 1;
-}
-
-.select_input > div {
-	position: absolute;
-	top: 100%;
-	background: var(--c-white);
-	width: 100%;
-	z-index: 1;
-	box-shadow: var(--s-black);
-	display: flex;
-	flex-direction: column;
-	transition: all var(--t-basic);
-	opacity: 1;
-	overflow: hidden;
-	padding: 15px 0 10px;
-	max-height: 0;
-	opacity: 0;
-	z-index: -1;
-}
-
-.select_input > div.empty::after  {
-	content: "No results";
-	position: relative;
-	text-align: center;
-	padding: 30px 0;
-	font-family: var(--bold);
-}
-
-.select_input > div > button {
-	background: var(--c-white);
-	width: 100%;
-	padding: 5px 0;
-}
-
-.select_input > div > button:hover {
-	background: var(--c-lightestgray);
-}
-
-.select_input > div > button.selected {
-	background: var(--c-lightestgray);
-}
-
-.select_input.dense > div {
-	overflow-y: auto;
-}
-
-.select_input.dense > div > button {
-	padding: 2px 0;
 }
 
 /* Loading Screen */

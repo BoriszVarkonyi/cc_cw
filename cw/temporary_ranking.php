@@ -23,7 +23,7 @@
                     </p>
                 </div>
                 <form id="browsing_bar">
-                    <div class="search_wrapper">
+                    <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
                         <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
@@ -82,8 +82,9 @@
             <?php include "cw_footer.php"; ?>
         </div>
     </div>
-<script src="../js/cw_main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/competitions.js"></script>
-<script src="../js/cw_temporary_ranking.js"></script>
+    <script src="../js/cw_main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/competitions.js"></script>
+    <script src="../js/cw_temporary_ranking.js"></script>
+    <script src="../js/search.js"></script>
 </html>

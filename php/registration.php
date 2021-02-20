@@ -104,8 +104,8 @@
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                     <div class="search_wrapper">
-                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
+                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
                             foreach ($json_table as $json_object) {
@@ -130,9 +130,9 @@
                                 <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
                                 <label for="fencers_nationality">NATION / CLUB</label>
-                                <div class="search_wrapper">
-                                    <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search cc">
-                                    <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                <div class="search_wrapper wide">
+                                    <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input">
+                                    <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
                                         <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -192,5 +192,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

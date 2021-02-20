@@ -843,12 +843,6 @@ input[value="Search"] {
 	position: relative;
 }
 
-#browsing_bar > div .clear_search_button {
-	top: 10px;
-	height: var(--f-medium);
-	width: var(--f-medium);
-}
-
 #title_stripe {
 	padding: 30px 5%;
 	background: var(--c-lightergray);

@@ -51,14 +51,14 @@
             </div>
             <div id="content_wrapper">
                 <form method="POST" id="browsing_bar">
-                    <div class="search_wrapper">
+                    <div class="search_wrapper wide">
                         <input type="text" name="name" placeholder="Search by Name" class="search page alt">
-                        <button type="button" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
 
-                    <div class="search_wrapper">
+                    <div class="search_wrapper narrow">
                         <input type="number" name="year" class="search select alt" placeholder="-Year-Of-Birth-" onkeyup="selectSystemWithSearch(this)">
-                        <button type="button" ><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
                                 for ($i = +3; $i <= 100; $i++) {
@@ -120,5 +120,6 @@
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>
