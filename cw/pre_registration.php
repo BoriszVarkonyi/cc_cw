@@ -87,7 +87,6 @@ if(isset($_POST["send_pre"])){
                                 <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
                             </div>
                         </div>
-                        <button type="button" class="send_button center" onclick="">Select Fencers</button>
                     </div>
                 </div>
                 <p class="column_title centered">SELECT FENCERS FROM THE COMPEITION'S RANKING: (STEP 2 / 2)</p>

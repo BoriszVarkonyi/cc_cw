@@ -92,7 +92,6 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="send_button center" onclick="findAppointmentsButton()">Find Appointments</button>
                     </div>
                 </div>
                 <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
@@ -106,7 +105,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 foreach ($appointments as $datekey => $dates) {
 
                             ?>
-                                    <div> 
+                                    <div>
                                         <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
 
                                         <?php

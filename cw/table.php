@@ -8,7 +8,7 @@
     <title><?php echo $comp_name ?>'s table</title>
     <link rel="stylesheet" href="../css/cw_mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
-    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/">
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
