@@ -49,7 +49,7 @@ if(isset($_POST["send_pre"])){
             </div>
             <form id="content_wrapper" method="POST" action="process_pre.php">
                 <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
-                <div id="" class="column_panel no_top">
+                <div id="step1" class="column_panel no_top">
                     <div>
                         <div class="form_wrapper">
                             <div>
@@ -90,7 +90,7 @@ if(isset($_POST["send_pre"])){
                     </div>
                 </div>
                 <p class="column_title centered">SELECT FENCERS FROM THE COMPEITION'S RANKING: (STEP 2 / 2)</p>
-                <div class="column_panel no_top collapsed">
+                <div id="step2" class="column_panel no_top collapsed">
                     <div class="column">
                         <b>Selected fencers:</b>
                         <div id="selected_fencers_wrapper">
