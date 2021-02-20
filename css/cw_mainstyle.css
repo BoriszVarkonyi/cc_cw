@@ -1030,8 +1030,6 @@ input[value="Search"] {
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	overflow-y: hidden;
-	overflow-x: scroll;
 }
 
 .column_panel > div.column {

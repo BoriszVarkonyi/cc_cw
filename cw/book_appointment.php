@@ -73,8 +73,8 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 <div>
                                     <label>COUNTRY / FENCING CLUB:</label>
                                     <div class="search_wrapper wide">
-                                        <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
-                                        <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search page">
+                                        <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
+                                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                         <div class="search_results">
                                             <?php include "../includes/nations.php"; ?>
                                         </div>
