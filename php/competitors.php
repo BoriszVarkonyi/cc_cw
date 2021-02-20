@@ -4,7 +4,7 @@
 <?php checkComp($connection); ?>
 
 <?php
-    class tiruer{
+    class tireur{
         public $sexe;
         public $id;
         public $image;
@@ -23,7 +23,7 @@
         public $temp_rank;
         public $final_rank;
 
-        function __cunstruct($sexe,$id,$image,$points,$classement,$club,$lateralite,$date_naissance,$licence,$nation,$prenom,$nom,$reg,$wc,$comp_rank,$temp_rank,$final_rank) {
+        function __construct($sexe,$id,$image,$points,$classement,$club,$lateralite,$date_naissance,$licence,$nation,$prenom,$nom,$reg,$wc,$comp_rank,$temp_rank,$final_rank) {
             $this -> sexe = $sexe;
             $this -> id = $id;
             $this -> image = $image;
@@ -51,18 +51,15 @@
 
     //check for existing row
     $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-    if ($do_check_row = mysqli_query($connection, $qry_check_row)) {
-        if ($row = mysqli_fetch_assoc($do_check_row)) {
-            $json_string = $row['data'];
-            $json_table = json_decode($json_string);
-        } else {
-            echo mysqli_error($connection);
-        }
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
     } else {
         $json_table = [];
 
         //make new row
-        $qry_new_row = "INSERT INTO competitors (assoc_comp_id) VALUES ('$comp_id')";
+        $qry_new_row = "INSERT INTO competitors (assoc_comp_id, data) VALUES ('$comp_id', '[ ]')";
         if (!$do_new_row = mysqli_query($connection, $qry_new_row)) {
             echo mysqli_error($connection);
         }
@@ -121,7 +118,7 @@
                             <div class="table_row" onclick="selectRow(this)" tabindex="0">
                                 <div class="table_item"><p><?php echo $json_obj -> classement ?></p></div>
                                 <div class="table_item"><p><?php echo $json_obj -> prenom . " " . $json_obj -> nom ?></p></div>
-                                <div class="table_item"><p><?php echo $$json_obj -> nation ?></p></div>
+                                <div class="table_item"><p><?php echo $json_obj -> nation ?></p></div>
                                 <div class="table_item">
                                     <p>
                                     <?php
@@ -147,7 +144,7 @@
                                     ?>">
                                 </div>
                                 <div class="table_item"><?php
-                                    if($wc == 0){
+                                    if($json_obj -> wc == 0){
 
                                         echo "Not ready";
                                     }else{
@@ -157,7 +154,7 @@
                                     ?>
                                 </div>
                                 <div class="small_status_item <?php
-                                    if($wc == 0){
+                                    if($json_obj -> wc == 0){
 
                                         echo "red";
                                     }else{
