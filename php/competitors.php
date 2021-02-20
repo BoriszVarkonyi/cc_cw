@@ -103,7 +103,8 @@
                 <?php if (isset($json_table[0])) { ?>
                 <div class="wrapper table w90 first_column_centered">
                     <div class="table_header">
-                        <div class="table_header_text">POSITION</div>
+                        <div class="table_header_text">C. POS</div>
+                        <div class="table_header_text">R. POS</div>
                         <div class="table_header_text">NAME</div>
                         <div class="table_header_text">NATION / CLUB</div>
                         <div class="table_header_text">REGISTRATION</div>
@@ -116,6 +117,7 @@
                             foreach ($json_table as $json_obj) {
                         ?>
                             <div class="table_row" onclick="selectRow(this)" tabindex="0">
+                                <div class="table_item"><p><?php echo $json_obj -> comp_rank ?></p></div>
                                 <div class="table_item"><p><?php echo $json_obj -> classement ?></p></div>
                                 <div class="table_item"><p><?php echo $json_obj -> prenom . " " . $json_obj -> nom ?></p></div>
                                 <div class="table_item"><p><?php echo $json_obj -> nation ?></p></div>
