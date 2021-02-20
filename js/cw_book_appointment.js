@@ -31,9 +31,12 @@ var findAppsButton = form.querySelector(".send_button.center")
 var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
 var valid1 = false, valid2 = false;
-findAppsButton.disabled = true;
 sendButton.disabled = true;
 function bookAppointmentsFormValidation(){
+    var fencNumber = document.getElementById("fencerNumber");
+    if(fencNumber.value > 100 || fencNumber.value == 0){
+        fencNumber.value = ""
+    }
     for(i=0; i<inputs.length; i++){
         if(inputs[i].value == ""){
             //If it finds an empty input, then it disable the "Save" button.
