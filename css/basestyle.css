@@ -526,7 +526,7 @@ input[type="time"] {
 	z-index: +10;
 }
 
-#title_stripe .search_wrapper {
+#title_stripe > .search_wrapper {
 	margin-left: 20px;
 	width: 250px;
 }
