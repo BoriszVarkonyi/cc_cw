@@ -156,7 +156,7 @@
                     <button class="panel_button" onclick="toggle_import_technician()">
                         <img src="../assets/icons/close-black-18dp.svg">
                     </button>
-                    <form action="" id="import_technician" method="POST" class="overlay_panel_form">
+                    <form action="" id="import_technician" method="POST" class="overlay_panel_form" autocomplete="off">
                         <div class="table t_c_0">
                             <div class="table_header">
                                 <div class="table_header_text"><p>NAME</p></div>
@@ -199,7 +199,7 @@
                     <button class="panel_button" onclick="toggle_add_technician()">
                         <img src="../assets/icons/close-black-18dp.svg" >
                     </button>
-                    <form class="overlay_panel_form" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
+                    <form class="overlay_panel_form" autocomplete="off" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
                         <label for="name">NAME</label>
                         <input type="text" placeholder="Type the technician's name" class="username_input" name="name">
 

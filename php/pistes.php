@@ -162,7 +162,7 @@ if(isset($_POST["create_piste"])){
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
 
-                            <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" class="overlay_panel_form flex" method="POST">
+                            <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" autocomplete="off" class="overlay_panel_form flex" method="POST">
                                 <label for="username" >TYPE</label>
                                 <div class="option_container row">
                                     <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main"/>

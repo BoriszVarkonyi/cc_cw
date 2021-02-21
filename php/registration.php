@@ -126,7 +126,7 @@
                                 <img src="../assets/icons/close-black-18dp.svg" >
                             </button>
                             <!-- add fencers drop-down -->
-                            <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form">
+                            <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
                                 <label for="fencers_name" >NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
                                 <label for="fencers_nationality">NATION / CLUB</label>

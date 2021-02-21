@@ -172,7 +172,7 @@ if (isset($_POST["submit"])) {
         </div>
         <div id="panel_main" class="no_padding">
             <!-- login form -->
-            <form action="index.php" method="POST" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
+            <form action="index.php" method="POST" autocomplete="off" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
                     echo "error";
                 } ?>">
                 <label for="username">LOGIN ID</label>
