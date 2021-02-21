@@ -57,13 +57,13 @@
                     </div>
 
                     <div class="search_wrapper narrow">
-                        <input type="number" name="year" class="search select alt" placeholder="-Year-Of-Birth-" onkeyup="selectSystemWithSearch(this)">
+                        <input type="number" name="year" class="search select alt" placeholder="-Year-Of-Birth-" onkeyup="searchEngine(this)">
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
                                 for ($i = +3; $i <= 100; $i++) {
                                     $year = date("Y") - $i;
-                                    ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
+                                    ?><button type="button" onclick="autoFill(this)"><?php echo $year ?></button><?php
                                 }
                             ?>
                         </div>

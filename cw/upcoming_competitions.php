@@ -27,7 +27,7 @@
                     </div>
                     <!-- year drop-down -->
                     <div class="search_wrapper narrow">
-                        <input type="text" name="" placeholder="-Year-" class="search select alt" onkeyup="selectSystemWithSearch(this)">
+                        <input type="text" name="" placeholder="-Year-" class="search select alt" onkeyup="searchEngine(this)" onfocus="resultChecker(this)">
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
@@ -35,14 +35,14 @@
 
                                     $year = date("Y") - $i;
 
-                                    ?><button type="button" onclick="selectSystem(this)"><?php echo $year ?></button><?php
+                                    ?><button type="button" onclick="autoFill(this)"><?php echo $year ?></button><?php
                                 }
                             ?>
                         </div>
                     </div>
                     <!-- sex drop-down -->
                     <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt" onkeyup="selectSystemWithSearch(this)">
+                        <button type="button" class="search select alt">
                             <input type="text" name="" placeholder="-Sex-">
                         </button>
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
@@ -53,7 +53,7 @@
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt" onkeyup="selectSystemWithSearch(this)">
+                        <button type="button" class="search select alt">
                             <input type="text" name="" placeholder="-Weapon Type-">
                         </button>
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
@@ -73,7 +73,6 @@
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
     <script src="../js/search.js"></script>
 </body>
 </html>

@@ -92,8 +92,3 @@ function selectSearch(x) {
         }
     }
 }
-//Auto fills the searchresult
-function autoFill(x){
-    var input = x.parentNode.previousElementSibling
-    input.value = x.innerHTML;
-}
