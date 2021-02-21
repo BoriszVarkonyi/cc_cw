@@ -169,7 +169,7 @@ if (isset($_POST["new_weapon_control"])) {
                         <div>
                             <label for="">DATE</label>
                             <div class="search_wrapper narrow">
-                                <button type="button" class="search select input" onkeyup="searchEngine(this)" tabindex="3">
+                                <button type="button" class="search select input" tabindex="3">
                                     <input type="text" name="date_to_select" placeholder="Select Date">
                                 </button>
                                 <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
@@ -208,7 +208,7 @@ if (isset($_POST["new_weapon_control"])) {
                                         if ($checker == 0) {
                                     ?>
 
-                                            <button type="button" onclick="autoFill(this)"><?php echo $dateshow; ?></button>
+                                            <button type="button" onclick="selectSystem(this)"><?php echo $dateshow; ?></button>
 
                                     <?php }
                                     } ?>
