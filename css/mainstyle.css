@@ -1796,9 +1796,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 /* ///LOGIN PAGE ELEMENTS/// */
 
 #login_panel {		/* Login panel used on login page */
-	min-width: 400px;
-	max-width: 500px;
-	width: 30vw;
 	position: absolute;
 	left: 2em;
 	top: 2em;

@@ -16,10 +16,10 @@
                 <img src="../assets/icons/dashboard-black-18dp.svg">
                 <p>Dashboard</p>
             </a>
-            <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
+            <button href="chat.php" class="nav_bar_item" onclick="window.open('chat.php', 'newwindow', 'width=800,height=450'); return false;">
                 <img src="../assets/icons/chat-black-18dp.svg">
                 <p>Chat</p>
-            </a>
+            </button>
             <!--
             <p id="communications_text" class="nav_bar_title">C</p>
             chat
