@@ -181,7 +181,7 @@ if (isset($_POST["submit"])) {
                 <label for="password">PASSWORD</label>
                 <input type="password" placeholder="Type in your password" name="password" class="password_input" onblur="errorChecker(this)">
 
-                <label for="password">ROLE</label>
+                <label>ROLE</label>
                 <div class="option_container">
                     <input type="radio" name="role" id="a" value="1" />
                     <label for="a">I am an organiser</label>

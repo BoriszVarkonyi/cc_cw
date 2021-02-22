@@ -238,27 +238,43 @@
                                 <label for="id">USERNAME</label>
                                 <input type="text" placeholder="Type the referees's id" class="username_input" name="id">
                                 <label for="prenom">First name</label>
-                                <input type="text" placeholder="Type the referees's first name" id="full_name_input" class="full_name_input" name="prenom">
+                                <input type="text" placeholder="Type the referees's first name" class="full_name_input" name="prenom">
                                 <label for="nom">Surname</label>
-                                <input type="text" placeholder="Type the referees's surname" id="full_name_input" class="full_name_input" name="nom">
+                                <input type="text" placeholder="Type the referees's surname" class="full_name_input" name="nom">
                             </div>
                             <div class="overlay_panel_division" overlay_division_title="Identification 2">
-                                <label for="sexe">Sex</label>
-                                <input type="text" placeholder="Type the referees's sex" id="full_name_input" class="full_name_input" name="sexe">
+                                <label>SEX</label>
+                                <div class="option_container row">
+                                    <input type="radio" name="sexe" id="male" value="m"/>
+                                    <label for="male">Male</label>
+                                    <input type="radio" name="sexe" id="female" value="f"/>
+                                    <label for="female">Female</label>
+                                </div>
                                 <label for="date_naissance">Date of Birth</label>
-                                <input type="text" placeholder="Type the referees's date of birth" id="full_name_input" class="full_name_input" name="date_naissance">
+                                <input type="date" class="date_input" name="date_naissance">
                                 <label for="licence">License</label>
-                                <input type="text" placeholder="Type the referees's license number" id="full_name_input" class="full_name_input" name="licence">
+                                <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence">
                                 <label for="image">Image link</label>
-                                <input type="text" placeholder="Type in the link to the referee's image" id="full_name_input" class="full_name_input" name="image">
+                                <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image">
                             </div>
                             <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                                 <label for="club">Club</label>
-                                <input type="text" placeholder="Type the referees's club" id="full_name_input" class="full_name_input" name="club">
+                                <div class="search_wrapper wide">
+                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Club by Name" class="search input">
+                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <div class="search_results">
+                                    <?php include "../includes/nations.php"; ?>
+                                    </div>
+                                </div>
                                 <label for="categorie">Categorie</label>
-                                <input type="text" placeholder="Type the referees's categorie" id="full_name_input" class="full_name_input" name="categorie">
-                                <label for="lateralite">Lateralite</label>
-                                <input type="text" placeholder="Type the referees's lateralite" id="full_name_input" class="full_name_input" name="lateralite">
+                                <input type="text" placeholder="Type the referees's categorie" class="full_name_input" name="categorie">
+                                <label>Lateralite</label>
+                                <div class="option_container row">
+                                    <input type="radio" name="lateralite" id="g" value="g" />
+                                    <label for="g">Left</label>
+                                    <input type="radio" name="lateralite" id="d" value="d" />
+                                    <label for="d">Right</label>
+                                </div>
                                 <label>NATION</label>
                                 <div class="search_wrapper wide">
                                     <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
