@@ -47,23 +47,26 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                     Book Appointment for Weapon Control of {Comp's name}
                 </p>
             </div>
-            <div id="confirmation" class="disabled model">
-                <div>
-                    <button class="panel_button" onclick="toggle_add_technician()">
-                        <img src="../assets/icons/close-black-18dp.svg" onclick="closeConf()">
-                    </button>
-                    <p>Are you sure you want to send this Pre-Registration with these informations?</p>
-                    <label>COUNTRY / FENCING CLUB:</label>
-                    <p>BEBGUWE</p>
-                    <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
-                    <p>BEBGUWE</p>
-                    <label>NUMBER OF FENCERS:</label>
-                    <p>7</p>
-                    <label>SELECTED APPOINTMENT:</label>
-                    <p>2014.05.07 14:20</p>
-                    <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
+            <div class="modal_wrapper hidden" id="confirmation">
+                <div class="modal">
+                    <div>
+                        <button class="panel_button" onclick="toggleConf()">
+                            <img src="../assets/icons/close-black-18dp.svg">
+                        </button>
+                        <p class="title">Are you sure you want to send this Pre-Registration with these informations?</p>
+                        <label>COUNTRY / FENCING CLUB:</label>
+                        <p>BEBGUWE</p>
+                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                        <p>BEBGUWE</p>
+                        <label>NUMBER OF FENCERS:</label>
+                        <p>7</p>
+                        <label>SELECTED APPOINTMENT:</label>
+                        <p>2014.05.07 14:20</p>
+                        <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
+                    </div>
                 </div>
             </div>
+
             <form id="content_wrapper" method="POST" action="process_pre.php">
                 <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
                 <div id="step1" class="column_panel no_top">
@@ -157,54 +160,11 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 }
                             }
                             ?>
-
-
-
-
-
-
-                            <!-- <input type="radio" name="appointments" id="appointment2" value="" />
-                            <label for="appointment2">
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>11:00 - 12:00</p>
-                                    <div>Choose</div>
-                                </div>
-                            </label>
-
-
-                            <input type="radio" name="appointments" id="appointment3" value="" />
-                            <label for="appointment3">
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>11:00 - 12:00</p>
-                                    <div>Choose</div>
-                                </div>
-                            </label>
-                            <input type="radio" name="appointments" id="appointment4" value="" />
-                            <label for="appointment4">
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>11:00 - 12:00</p>
-                                    <div>Choose</div>
-                                </div>
-                            </label>
-
-
-
-                            <p>DATE 2</p>
-                            <input type="radio" name="appointments" id="appointment5" value="" />
-                            <label for="appointment5">
-                                <div class="appointment" onclick="selectAppointment(this)">
-                                    <p>11:00 - 12:00</p>
-                                    <div>Choose</div>
-                                </div>
-                            </label>
- -->
-
-
                         </div>
                     </div>
                 </div>
                 <div class="send_panel">
-                    <button type="button" onclick="openConf()" class="send_button">Send Appointment Booking</button>
+                    <button type="button" onclick="toggleConf()" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>
         </div>

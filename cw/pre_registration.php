@@ -30,8 +30,8 @@ if(isset($_POST["send_pre"])){
             <div class="modal_wrapper hidden" id="confirmation">
                 <div class="modal">
                     <div>
-                        <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
+                        <button class="panel_button" onclick="toggleConf()">
+                            <img src="../assets/icons/close-black-18dp.svg">
                         </button>
                         <p class="title">Are you sure you want to send this Pre-Registration with the following informations?</p>
                         <label>FEDERATION'S NAME:</label>
@@ -131,7 +131,7 @@ if(isset($_POST["send_pre"])){
                     </div>
                 </div>
                 <div class="send_panel">
-                    <button type="button" onclick="openConf()" class="send_button">Send Pre-Registartion</button>
+                    <button type="button" onclick="toggleConf()" class="send_button">Send Pre-Registartion</button>
                 </div>
             </form>
         </div>

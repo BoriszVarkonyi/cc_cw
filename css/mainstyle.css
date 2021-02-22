@@ -128,7 +128,7 @@ header {
 	background-color: var(--c-white);
 	border-radius: 0 0 5px 5px;
 	z-index: 9;
-	padding: 0 0 5px;
+	padding: 5px 0;
 	max-height: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -176,7 +176,7 @@ header {
 	height: 18px;
 	width: 18px;
 	-webkit-filter: var(--ci-staticblack) !important;
-	        filter: var(--ci-staticblack) !important;
+	filter: var(--ci-staticblack) !important;
 }
 
 .header_button:hover {
@@ -1246,7 +1246,7 @@ header {
 	position: absolute;
 	background: var(--c-secondary);
 	width: 2px;
-	height: 89%;
+	height: calc(100% - 11px);
 	top: 0;
 	left: 40px;
 }

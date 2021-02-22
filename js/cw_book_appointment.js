@@ -121,3 +121,10 @@ function setNation(x){
     field.value = x.innerHTML;
     bookAppointmentsFormValidation();
 }
+
+
+var panel = document.getElementById("confirmation");
+
+function toggleConf() {
+    panel.classList.toggle("hidden");
+}

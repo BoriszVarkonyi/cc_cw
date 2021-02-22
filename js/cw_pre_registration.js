@@ -23,15 +23,9 @@ function removeSelection(x) {
 }
 
 var panel = document.getElementById("confirmation");
-var fenceridto = document.getElementById("fencer_ids");
-var finalids = [];
 
-function openConf() {
-    panel.classList.remove("hidden");
-}
-
-function closeConf() {
-    panel.classList.add("hidden");
+function toggleConf() {
+    panel.classList.toggle("hidden");
 }
 
 //Search engine
