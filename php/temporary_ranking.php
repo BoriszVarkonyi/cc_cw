@@ -1,3 +1,38 @@
+<?php include '../includes/db.php' ?>
+<?php include '../includes/sortfunction.php' ?>
+<?php
+
+$comp_id = $_GET["comp_id"];
+
+$qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+$do_check_row = mysqli_query($connection, $qry_check_row);
+if ($row = mysqli_fetch_assoc($do_check_row)) {
+    $json_string = $row['data'];
+    $json_table = json_decode($json_string);
+} else {
+    echo mysqli_error($connection);
+}
+
+
+//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA
+
+$objects = new ObjSorter($json_table,'classement');
+//if ($objects->sorted)
+//{
+$objects_array  = $objects->sorted;
+
+echo count($objects_array) . " VÍVÓ";
+
+//CHECK//CHECK//CHECK//CHECK//CHECK//CHECK
+
+//foreach ($objects_array as $key=>$object) { print_r($object); echo "<br />"; }
+//CHECK//CHECK//CHECK//CHECK//CHECK//CHECK
+//}
+
+//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +56,6 @@
             </form>
             <div id="page_content_panel_main">
                 <div class="table wrapper first_column_centered">
-               <?php
-
-               $query = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank";
-               $query_do = mysqli_query($connection, $query);
-
-               ?>
                 <div class="table_header">
                     <div class="table_header_text">TEMPORARY RANK</div>
                     <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"></button>
@@ -37,18 +66,14 @@
                         <div class="table_row_wrapper">
                         <?php
 
-                        while($row = mysqli_fetch_assoc($query_do)){
-
-                        $name = $row["name"];
-                        $nat = $row["nationality"];
-                        $temp = $row["temporary_rank"];
+                        foreach ($objects_array as $key => $value) {
 
                         ?>
 
-                        <div class="table_row" id="<?php echo $temp ?>" onclick="selectRow(this)" tabindex="0">
-                            <div class="table_item"><p><?php echo $temp ?></p></div>
-                            <div class="table_item"><p><?php echo $name ?></p></div>
-                            <div class="table_item"><p><?php echo $nat ?></p></div>
+                        <div class="table_row" id="<?php echo $value->temp_rank ?>" onclick="selectRow(this)" tabindex="0">
+                            <div class="table_item"><p><?php echo $value->temp_rank ?></p></div>
+                            <div class="table_item"><p><?php echo $value->prenom . " " . $value->nom ?></p></div>
+                            <div class="table_item"><p><?php echo $value->nation ?></p></div>
                         </div>
                         <?php
                         }
