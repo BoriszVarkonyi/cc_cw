@@ -239,6 +239,7 @@ textarea {
 	font-family: var(--regular);
 }
 
+/*
 img[src$=".svg"] {
 	-webkit-filter: var(--ci-primarycontrast);
 	filter: var(--ci-primarycontrast);
@@ -254,6 +255,7 @@ img[src$=".svg"].not_icon {
 	filter: contrast(1) !important;
 }
 
+*/
 ::-webkit-input-placeholder {
 	font-size: var(--f-medium);
 	color: var(--cs-darkgray) !important;

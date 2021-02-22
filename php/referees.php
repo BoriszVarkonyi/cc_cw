@@ -224,41 +224,41 @@
                         <form action="" method="POST" id="remove_technician" class="hidden"></form>
 
                     <div id="add_technician_panel" class="overlay_panel hidden">
+                        <div class="overlay_panel_controls">
+                            <button type="button"><img src="../assets/icons/arrow_back_ios-black-18dp.svg"></button>
+                            <p>Identification</p>
+                            <button type="button"><img src="../assets/icons/arrow_forward_ios-black-18dp.svg"></button>
+                            <p class="overlay_panel_controls_counter">3 / 3</p>
+                        </div>
                         <button class="panel_button" onclick="toggle_add_technician()">
                             <img src="../assets/icons/close-black-18dp.svg" >
                         </button>
-                            <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
-                                <label for="id" >ID</label>
+                        <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
+                            <div class="overlay_panel_division visible" overlay_division_number="1" overlay_division_title="Identification">
+                                <label for="id">USERNAME</label>
                                 <input type="text" placeholder="Type the referees's id" class="username_input" name="id">
-
-                                <label for="prenom" >First name</label>
+                                <label for="prenom">First name</label>
                                 <input type="text" placeholder="Type the referees's first name" id="full_name_input" class="full_name_input" name="prenom">
-
-                                <label for="nom" >Surname</label>
+                                <label for="nom">Surname</label>
                                 <input type="text" placeholder="Type the referees's surname" id="full_name_input" class="full_name_input" name="nom">
-
-                                <label for="sexe" >Sex</label>
+                            </div>
+                            <div class="overlay_panel_division" overlay_division_number="2" overlay_division_title="Identification 2">
+                                <label for="sexe">Sex</label>
                                 <input type="text" placeholder="Type the referees's sex" id="full_name_input" class="full_name_input" name="sexe">
-
-                                <label for="categorie" >Categorie</label>
-                                <input type="text" placeholder="Type the referees's categorie" id="full_name_input" class="full_name_input" name="categorie">
-
-                                <label for="image" >Image link</label>
-                                <input type="text" placeholder="Type in the link to the referee's image" id="full_name_input" class="full_name_input" name="image">
-
-                                <label for="club" >Club</label>
-                                <input type="text" placeholder="Type the referees's club" id="full_name_input" class="full_name_input" name="club">
-
-                                <label for="lateralite" >Lateralite</label>
-                                <input type="text" placeholder="Type the referees's lateralite" id="full_name_input" class="full_name_input" name="lateralite">
-
-                                <label for="date_naissance" >Date of Birth</label>
+                                <label for="date_naissance">Date of Birth</label>
                                 <input type="text" placeholder="Type the referees's date of birth" id="full_name_input" class="full_name_input" name="date_naissance">
-
-                                <label for="licence" >License</label>
+                                <label for="licence">License</label>
                                 <input type="text" placeholder="Type the referees's license number" id="full_name_input" class="full_name_input" name="licence">
-
-
+                                <label for="image">Image link</label>
+                                <input type="text" placeholder="Type in the link to the referee's image" id="full_name_input" class="full_name_input" name="image">
+                            </div>
+                            <div class="overlay_panel_division" overlay_division_number="3" overlay_division_title="Categoriaztion">
+                                <label for="club">Club</label>
+                                <input type="text" placeholder="Type the referees's club" id="full_name_input" class="full_name_input" name="club">
+                                <label for="categorie">Categorie</label>
+                                <input type="text" placeholder="Type the referees's categorie" id="full_name_input" class="full_name_input" name="categorie">
+                                <label for="lateralite">Lateralite</label>
+                                <input type="text" placeholder="Type the referees's lateralite" id="full_name_input" class="full_name_input" name="lateralite">
                                 <label>NATION</label>
                                 <div class="search_wrapper wide">
                                     <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
@@ -267,6 +267,7 @@
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
                                 </div>
+                            </div>
                             <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
                         </form>
                     </div>

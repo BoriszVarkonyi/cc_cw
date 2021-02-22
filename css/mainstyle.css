@@ -112,6 +112,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	transform: rotate(0deg);
+	filter: var(--ci-secondarycontrast);
 }
 
 #competition_select + div {
@@ -815,6 +816,7 @@ header {
 .panel_button > img {
 	width: 20px;
 	height: 20px;
+	filter: var(--ci-secondarycontrast);
 }
 
 .panel_button:hover {
@@ -1793,6 +1795,63 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	max-height: 250px;
 }
 
+/* Overlay panel controls */
+
+.overlay_panel_controls {
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%) translateY(-100%);
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.overlay_panel_controls p {
+	font-family: var(--bold);
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay_panel_controls button {
+	border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	background-color: var(--c-lightestgray);
+}
+
+.overlay_panel_controls button:hover {
+	background-color: var(--c-lightergray);
+}
+
+.overlay_panel_controls button img {
+	height: 16px;
+	width: 16px;
+}
+
+.overlay_panel_controls_counter {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: var(--f-xsmall);
+	color: var(--c-darkgray);
+}
+
+.overlay_panel_division {
+	display: none;
+}
+
+.overlay_panel_division.visible {
+	display: block;
+}
+
+.overlay_panel_division > input {
+
+}
+
 /* ///LOGIN PAGE ELEMENTS/// */
 
 #login_panel {		/* Login panel used on login page */
@@ -2158,10 +2217,9 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	flex: 1 1 auto;
 	min-height: 50%;
 	display: flex;
-	flex-wrap: wrap;
+	flex-flow: column wrap;
 	align-items: center;
 	align-content: center;
-	flex-direction: column;
 	align-self: center;
 }
 
@@ -2261,9 +2319,8 @@ input:focus::placeholder {
 
 #invitation_wrapper {
 	display: flex;
-	flex-wrap: wrap;
+	flex-flow: column wrap;
 	justify-content: flex-start;
-	flex-direction: column;
 }
 
 .invitation_file_wrapper {
@@ -3189,9 +3246,8 @@ div.title_box > button {
 	height: 100%;
 	background: var(--c-lightestgray);
 	display: flex;
-	flex-direction: column;
+	flex-flow: column wrap;
 	justify-content: center;
-	flex-wrap: wrap;
 	opacity: 1;
 	transition: opacity var(--t-basic), width var(--t-basic);
 	overflow: visible;
