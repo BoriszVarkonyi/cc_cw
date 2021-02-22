@@ -1577,7 +1577,7 @@ input[value="Search"] {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background: var(--c-transparent-black);
+	background: rgba(0, 0, 0, .40);
 	z-index: 4;
 	-webkit-backdrop-filter: blur(1px);
 	backdrop-filter: blur(1px);
@@ -1585,6 +1585,10 @@ input[value="Search"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.modal_wrapper.hidden {
+	display: none;
 }
 
 .modal {
@@ -1602,41 +1606,17 @@ input[value="Search"] {
 
 .modal .title {
 	font-family: var(--bold);
+	margin-bottom: 20px;
 }
 
-
-/*
-#confirmation {
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: var(--c-transparent-black);
-	z-index: 10;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.modal label ~ p {
+	margin-bottom: 20px;
 }
 
-#confirmation.disabled {
-	display: none;
+.modal button {
+	margin: 0;
 }
 
-#confirmation > div {
-	position: relative;
-	padding: 50px;
-	background: var(--c-white);
-	border-radius: 5px;
-	box-shadow: var(--s-black);
-	max-width: 40vw;
-}
-
-#confirmation p {
-	font-family: var(--bold);
-	margin: 35px 0;
-}
-*/
 /* Please confirm */
 
 #basic_body {

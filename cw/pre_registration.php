@@ -27,7 +27,7 @@ if(isset($_POST["send_pre"])){
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="competitions">
-            <div class="modal_wrapper" id="confirmation">
+            <div class="modal_wrapper hidden" id="confirmation">
                 <div class="modal">
                     <div>
                         <button class="panel_button" onclick="toggle_add_technician()">
@@ -42,7 +42,12 @@ if(isset($_POST["send_pre"])){
                         <p>g</p>
                         <label>FEDERATION'S PHONE NUMBER:</label>
                         <p>grg</p>
-
+                        <label>CONTACT KEEPER'S FULL NAME:</label>
+                        <p>grg</p>
+                        <label>CONTACT KEEPER'S EMAIL ADDRESS:</label>
+                        <p>grg</p>
+                        <label>CONTACT KEEPER'S PHONE NUMBER:</label>
+                        <p>grg</p>
                         <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
                     </div>
                 </div>
