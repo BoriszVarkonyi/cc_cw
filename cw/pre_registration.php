@@ -27,6 +27,27 @@ if(isset($_POST["send_pre"])){
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
 <body class="competitions">
+            <div class="modal_wrapper" id="confirmation">
+                <div class="modal">
+                    <div>
+                        <button class="panel_button" onclick="toggle_add_technician()">
+                            <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
+                        </button>
+                        <p class="title">Are you sure you want to send this Pre-Registration with the following informations?</p>
+                        <label>FEDERATION'S NAME:</label>
+                        <p>FED NAME</p>
+                        <label>COUNTRY / FENCING CLUB:</label>
+                        <P>GER</P>
+                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                        <p>g</p>
+                        <label>FEDERATION'S PHONE NUMBER:</label>
+                        <p>grg</p>
+
+                        <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
+                    </div>
+                </div>
+            </div>
+
     <?php include "cw_header.php"; ?>
     <div id="main">
         <div id="content">
@@ -37,15 +58,6 @@ if(isset($_POST["send_pre"])){
                     </button>
                     PRE-REGISTER FENCERS FOR <?php echo $comp_name ?>
                 </p>
-            </div>
-            <div id="confirmation" class="disabled">
-                <div>
-                    <button class="panel_button" onclick="toggle_add_technician()">
-                        <img src="../assets/icons/close-black-18dp.svg"  onclick="closeConf()">
-                    </button>
-                    <p>Are you sure you want to send this Pre-Registration with these informations?</p>
-                    <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
-                </div>
             </div>
             <form id="content_wrapper" method="POST" action="process_pre.php">
                 <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>

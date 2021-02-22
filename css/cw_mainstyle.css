@@ -1569,6 +1569,43 @@ input[value="Search"] {
 	height: 20px;
 }
 
+/* Modals */
+
+.modal_wrapper {
+	top: 0;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: var(--c-transparent-black);
+	z-index: 4;
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	z-index: 99;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal {
+	z-index: 100;
+	overflow: visible;
+	background: var(--c-white);
+	border-radius: 5px;
+	border: 2px solid var(--c-gray);
+}
+
+.modal > div {
+	position: relative;
+	padding: 50px;
+}
+
+.modal .title {
+	font-family: var(--bold);
+}
+
+
+/*
 #confirmation {
 	width: 100vw;
 	height: 100vh;
@@ -1599,7 +1636,7 @@ input[value="Search"] {
 	font-family: var(--bold);
 	margin: 35px 0;
 }
-
+*/
 /* Please confirm */
 
 #basic_body {

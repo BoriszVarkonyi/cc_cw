@@ -47,7 +47,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                     Book Appointment for Weapon Control of {Comp's name}
                 </p>
             </div>
-            <div id="confirmation" class="disabled">
+            <div id="confirmation" class="disabled model">
                 <div>
                     <button class="panel_button" onclick="toggle_add_technician()">
                         <img src="../assets/icons/close-black-18dp.svg" onclick="closeConf()">

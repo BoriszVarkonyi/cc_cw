@@ -1747,12 +1747,8 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	align-items: flex-start;
 }
 
-.overlay_panel_form.dense > input {
-	margin-bottom: 15px;
-}
-
-.overlay_panel_form.dense > div {
-	margin: 10px 0;
+.overlay_panel_form > *:last-child {
+	margin-bottom: 0;
 }
 
 .overlay_panel, .overlay_panel_single {
@@ -1820,10 +1816,17 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	height: 25px;
 	width: 25px;
 	background-color: var(--c-lightestgray);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .overlay_panel_controls button:hover {
 	background-color: var(--c-lightergray);
+}
+
+.overlay_panel_controls button:disabled {
+	filter: contrast(80%);
 }
 
 .overlay_panel_controls button img {
@@ -1842,14 +1845,15 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 
 .overlay_panel_division {
 	display: none;
+	margin: 20px 0;
 }
 
 .overlay_panel_division.visible {
 	display: block;
 }
 
-.overlay_panel_division > input {
-
+.overlay_panel_division > *:last-child  {
+	margin-bottom: 0;
 }
 
 /* ///LOGIN PAGE ELEMENTS/// */
@@ -3280,19 +3284,27 @@ input {
 
 /* Confirmation */
 
-#confirmation {
+.modal {
 	position: absolute;
-	top: 40;
-	left: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.modal::before {
+	position: fixed;
+	transform: translateX(50%), translateY(50%);
 	width: 100vw;
 	height: 100vh;
 	background: var(--c-transparent-black);
 	z-index: 4;
 	-webkit-backdrop-filter: blur(1px);
 	backdrop-filter: blur(1px);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	content: "";
+}
+
+#confirmation {
+
 }
 
 #confirmation.hidden {
