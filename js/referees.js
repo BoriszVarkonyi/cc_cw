@@ -196,3 +196,50 @@ var setNationInput = document.getElementById("set_nation_input");
 //        });
 //    }
 //}
+
+//Add fencer overlay button and title system
+var leftDivisionButton = document.getElementById("overlayPanelButtonLeft");
+var rightDivisionButton = document.getElementById("overlayPanelButtonRight");
+var currentTitle = document.querySelector(".overlay_panel_controls p");
+var overlayPanelDivisions = document.querySelectorAll(".overlay_panel_division");
+var controlsCounter = document.querySelector(".overlay_panel_controls_counter");
+var maxNumber = overlayPanelDivisions.length;
+var currentDivision = 0;
+
+leftDivisionButton.disabled = true;
+currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
+controlsCounter.innerHTML = (currentDivision + 1) + " / "  + maxNumber;
+
+function leftButton(x){
+    currentDivision--
+    overlayPanelDivisions[currentDivision + 1].classList.remove("visible")
+    overlayPanelDivisions[currentDivision].classList.add("visible")
+    currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
+    controlsCounter.innerHTML = (currentDivision + 1) + " / "  + maxNumber;
+    divisionButtonDisabler();
+}
+
+function rightButton(x){
+    currentDivision++
+    overlayPanelDivisions[currentDivision - 1].classList.remove("visible");
+    overlayPanelDivisions[currentDivision].classList.add("visible");
+    currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title");
+    controlsCounter.innerHTML = (currentDivision + 1) + " / "  + maxNumber;
+    divisionButtonDisabler();
+}
+
+function divisionButtonDisabler(){
+    if(currentDivision == 0){
+        leftDivisionButton.disabled = true;
+    }
+    else{
+        leftDivisionButton.disabled = false;
+    }
+
+    if(currentDivision == maxNumber - 1){
+        rightDivisionButton.disabled = true;
+    }
+    else{
+        rightDivisionButton.disabled = false;
+    }
+}
