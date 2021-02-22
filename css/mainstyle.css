@@ -1826,7 +1826,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 .overlay_panel_controls button:disabled {
-	filter: contrast(80%);
+	filter: contrast(70%);
 }
 
 .overlay_panel_controls button img {

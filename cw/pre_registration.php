@@ -100,8 +100,6 @@ if(isset($_POST["send_pre"])){
                                     <label>CONTACT KEEPER'S PHONE NUMBER:</label>
                                     <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">
                                 </div>
-                                <input type="text" name="fencer_ids" class="disabled" id="fencer_ids">
-                                <input type="text" name="compet_id" class="disabled" id="compet_id" value="<?php echo $_GET["comp_id"] ?>">
                             </div>
                         </div>
                     </div>
@@ -111,16 +109,10 @@ if(isset($_POST["send_pre"])){
                     <div class="column">
                         <b>Selected fencers:</b>
                         <div id="selected_fencers_wrapper">
-                        <!-- <div>
-                                <input type="number" name=""  class="hidden">
-                                <p>Fencer's Name</p>
-                                <button onclick="" type="button">
-                                    <img src="../assets/icons/close-black-18dp.svg" >
-                                </button>
-                            </div> -->
+                            <input type="text" placeholder="selected fencer ids">
                         </div>
                         <div id="browsing_bar" class="single">
-                            <input type="text" name="" placeholder="Search by Name" class="search alt" onkeyup="cwSearchEngine(this)">
+                            <input type="text" name="" placeholder="Search by Name" class="search alt" onkeyup="">
                         </div>
                         <div class="table full">
                             <div class="table_header">
@@ -129,37 +121,11 @@ if(isset($_POST["send_pre"])){
                                 <div class="table_header_text">DATE OF BIRTH</div>
                             </div>
                             <div class="table_row_wrapper">
-                            <?php
-
-                            $query_actual_ranking = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
-                            $query_actual_ranking_do = mysqli_query($connection, $query_actual_ranking);
-
-                            if($row = mysqli_fetch_assoc($query_actual_ranking_do)){
-
-                                $rk_id = $row["id"];
-
-                            }
-
-                            $query_ranking = "SELECT * FROM rk_$rk_id";
-                            $query_ranking_do = mysqli_query($connection, $query_ranking);
-
-                            while($row = mysqli_fetch_assoc($query_ranking_do)){
-
-                                $fencer_position = $row["position"];
-                                $fencer_name = $row["name"];
-                                $fencer_dob = $row["dob"];
-                                $fencer_id = $row["id"];
-                                ?>
-
-                                <div class="table_row" id="<?php echo $fencer_id ?>" onclick="selectFencer(this)">
-                                    <div class="table_item"><?php echo $fencer_position ?></div>
-                                    <div class="table_item" id="fencername"><?php echo $fencer_name ?></div>
-                                    <div class="table_item"><?php echo $fencer_dob ?></div>
+                                <div class="table_row" id="" onclick="selectFencer(this)">
+                                    <div class="table_item">pos</div>
+                                    <div class="table_item" id="">name</div>
+                                    <div class="table_item">dob</div>
                                 </div>
-
-                            <?php
-                            }
-                            ?>
                             </div>
                         </div>
                     </div>
