@@ -1578,12 +1578,12 @@ label.small {
 
 .option_container.row {
 	display: flex;
-	margin: 20px 0;
 	flex-direction: row;
+	margin: 3px 0 20px;
 }
 
 .option_container.row > label {
-	margin: 0 10px;
+	margin: 0 10px 0 0;
 }
 
 .option_container.grid {

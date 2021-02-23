@@ -260,8 +260,8 @@
                             <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                                 <label for="club">Club</label>
                                 <div class="search_wrapper wide">
-                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Club by Name" class="search input">
-                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
