@@ -40,69 +40,78 @@ if (isset($_POST["generate_table"])) {
         echo mysqli_error($connection);
     }
 
-    $objects = new ObjSorter($json_table,'classement');
+    $objects = new ObjSorter($json_table, 'classement');
 
     $objects_array  = $objects->sorted;
 
     echo count($objects_array) . " VÍVÓ";
 
-    class tablefencer {
+    class tablefencer
+    {
 
         public $name;
         public $nation;
         public $id;
         public $isWinner;
 
-        function __construct($fencer_obj){
-            $this -> name = $fencer_obj->prenom . " " . $fencer_obj->nom;
-            $this -> nation = $fencer_obj->nation;
-            $this -> id = $fencer_obj->id;
-            $this -> isWinner = false;
+        function __construct($fencer_obj)
+        {
+            $this->name = $fencer_obj->prenom . " " . $fencer_obj->nom;
+            $this->nation = $fencer_obj->nation;
+            $this->id = $fencer_obj->id;
+            $this->isWinner = false;
         }
     }
 
-    class referees {
+    class referees
+    {
 
         public $name;
         public $nation;
         public $id;
 
-        function __construct(){
-            $this -> name = "";
-            $this -> nation = "";
-            $this -> id = NULL;
+        function __construct()
+        {
+            $this->name = "";
+            $this->nation = "";
+            $this->id = NULL;
         }
     }
 
-    class pistetime {
+    class pistetime
+    {
 
         public $id;
         public $pistename;
         public $time;
 
-        function __construct(){
-            $this -> id = NULL;
-            $this -> pistename = "";
-            $this -> time = "";
+        function __construct()
+        {
+            $this->id = NULL;
+            $this->pistename = "";
+            $this->time = "";
+        }
+    }
+
+    class emptyfencer
+    {
+
+        public $name;
+        public $nation;
+        public $id;
+        public $isWinner;
+
+        function __construct()
+        {
+            $this->name = "";
+            $this->nation = "";
+            $this->id = NULL;
+            $this->isWinner = false;
         }
     }
 
 
-    $f_count = 0;
-    foreach ($objects_array as $key => $value) {
 
-        $actualfencer = new tablefencer($value);
-
-        array_push($fencer_objects, $actualfencer);
-
-        if ($f_count >= $formula_json->qualifiers) {
-            break;
-        }
-
-    $f_count++;
-    }
-
-    print_r($fencer_ids);
 
     //CHECK WHICH TABLE WILL PROGRAM USE
 
@@ -117,6 +126,33 @@ if (isset($_POST["generate_table"])) {
             break;
         }
     }
+
+    $f_count = 0;
+    foreach ($objects_array as $key => $value) {
+
+        if ($f_count >= $fencernum) {
+            break;
+        }
+
+        $actualfencer = new tablefencer($value);
+
+        array_push($fencer_objects, $actualfencer);
+
+        $f_count++;
+    }
+
+    print_r($fencer_ids);
+
+    $remaining = $tablesize - $fencernum;
+
+    $fencer_empty = new emptyfencer();
+
+    for ($i=0; $i < $remaining; $i++) {
+
+        array_push($fencer_objects, $fencer_empty);
+
+    }
+
 
     //CREATING THE TABLE OBJECT WITH FENCERS
     //INCLUDING: FENCERS(IDS), POINTS(EMPTY), REFREES(EMPTY), PISTE(EMPTY), TIME(EMPTY), WINNER(EMPTY)
@@ -155,6 +191,9 @@ if (isset($_POST["generate_table"])) {
                 $table_object->$namevariable->$matchname->pistetime = $pistetime_empty;
             } else {
                 $table_object->$namevariable->$matchname->$postoplace = "";
+                $table_object->$namevariable->$matchname->referees->ref = $ref_empty;
+                $table_object->$namevariable->$matchname->referees->vref = $ref_empty;
+                $table_object->$namevariable->$matchname->pistetime = $pistetime_empty;;
             }
 
 
@@ -174,13 +213,17 @@ if (isset($_POST["generate_table"])) {
             $fencers = [];
             $keys = [];
 
-            foreach ($matches as $key => $fecner) {
+            foreach ($matches as $key => $fencer) {
+
+                if ($key == "referees" || $key == "pistetime") {
+                    continue;
+                }
 
                 //var_dump($key);
-                //var_dump($fecner);
+                //var_dump($fencer);
 
-                if ($fecner != NULL) {
-                    array_push($fencers, $fecner);
+                if ($fencer->name != "") {
+                    array_push($fencers, $fencer);
                     array_push($keys, $key);
                 }
 
@@ -1527,14 +1570,19 @@ if (isset($_POST["generate_table"])) {
 
                                     <div class="table_round_wrapper finished <?php echo $writecolor ?>">
                                         <div>
-                                            <p>Ref: {Referee's Name}</p>
-                                            <p>12:00</p>
+                                            <p>Ref: <?php echo $tablematches->referees->ref->name ?> (<?php echo $tablematches->referees->ref->nation ?>)</p>
+                                            <p><?php echo $tablematches->pistetime->time ?></p>
                                         </div>
                                         <div class="table_round" onclick="tableRoundConfig(this)">
 
                                             <?php
 
+                                            $only2 = 0;
                                             foreach ($tablematches as $fencerkey => $tablefencer) {
+
+                                                if ($fencerkey == "referees" || $fencerkey == "pistetime") {
+                                                    continue;
+                                                }
 
                                             ?>
 
@@ -1542,15 +1590,18 @@ if (isset($_POST["generate_table"])) {
                                                     <div class="table_fencer_number">
                                                         <p><?php echo $fencerkey ?></p>
                                                     </div>
+
                                                     <div class="table_fencer_name">
-                                                        <p><?php echo $tablefencer ?></p>
+                                                        <p><?php echo $tablefencer->name ?></p>
                                                     </div>
                                                     <div class="table_fencer_nat">
-                                                        <p>rus</p>
+                                                        <p><?php echo $tablefencer->nation ?></p>
                                                     </div>
+
                                                 </div>
 
-                                            <?php } ?>
+                                            <?php
+                                            } ?>
                                             <!-- <div class="table_fencer">
                                         <div class="table_fencer_number">
                                             <p>25</p>
@@ -1566,8 +1617,8 @@ if (isset($_POST["generate_table"])) {
 
                                         </div>
                                         <div>
-                                            <p>VRef: {Referee's Name}</p>
-                                            <p>Piste: Red</p>
+                                            <p>VRef: <?php echo $tablematches->referees->vref->name ?> (<?php echo $tablematches->referees->vref->nation ?>)</p>
+                                            <p>Piste: <?php echo $tablematches->pistetime->pistename ?></p>
                                         </div>
                                     </div>
                                 <?php $innercounter++;
