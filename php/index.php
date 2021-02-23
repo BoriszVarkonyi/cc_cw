@@ -245,7 +245,7 @@ checkComp($connection);
 
                                     <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>"></a>
 
-                                    <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>"></a>
+                                    <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>"></
                                 </div>
                             </div>
                         </div>
