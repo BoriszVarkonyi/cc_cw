@@ -80,7 +80,7 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <div class="page_content_flex">
-                <form id="title_stripe" method="POST" action="" >
+                <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Administrated Weapon Control</p>
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>">

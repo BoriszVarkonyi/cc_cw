@@ -7,3 +7,14 @@ We advise using Google Chrome, Micrsoft Edge or Mozilla Firefox for maximum comp
 Some features might not work on different platforms.
 
 We strongly advise using Competition Control on a desktop.
+
+
+
+Supported browsers:
+
+Google Chrome
+Microsoft Edge
+Mozilla Firefox
+
+
+

@@ -158,7 +158,7 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico" />
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
     <link rel="stylesheet" href="/css/mainstyle.css">
     <link rel="stylesheet" href="../css/basestyle.css">
 </head>
@@ -183,9 +183,9 @@ if (isset($_POST["submit"])) {
 
                 <label>ROLE</label>
                 <div class="option_container">
-                    <input type="radio" name="role" id="a" value="1" />
+                    <input type="radio" name="role" id="a" value="1"/>
                     <label for="a">I am an organiser</label>
-                    <input type="radio" name="role" id="b" value="2" />
+                    <input type="radio" name="role" id="b" value="2"/>
                     <label for="b">I am a technician</label>
                 </div>
                 <input type="submit" name="submit" value="Login" class="login_button">
@@ -214,7 +214,7 @@ if (isset($_POST["submit"])) {
         </div>
 
         <div>
-            <input type="radio" name="app" id="ccw" value="ccw" />
+            <input type="radio" name="app" id="ccw" value="ccw"/>
             <label for="ccw" other>Competition Control Wheelchair</label>
             <button>OPEN</button>
         </div>

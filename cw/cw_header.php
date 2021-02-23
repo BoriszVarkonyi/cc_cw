@@ -46,7 +46,7 @@
     </div>
     <div id="navigation_mobile">
         <button onclick="toggleMobileNavigation(this)">
-            <img src="../assets/icons/menu-black-18dp.svg" >
+            <img src="../assets/icons/menu-black-18dp.svg">
         </button>
         <div id="mobile_navigation">
             <div>

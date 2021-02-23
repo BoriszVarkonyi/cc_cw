@@ -21,7 +21,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                     </div>
                 </form>
                 <div id="videos_wrapper">
@@ -42,7 +42,7 @@
                     ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'" loading="lazy">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" >
+                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg">
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>
                                     <p><?php echo $comp_name ?></p>

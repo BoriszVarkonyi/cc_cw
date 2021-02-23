@@ -32,12 +32,12 @@
                         <div>
                             <div class="fencer_live_info">
                                 <p>József</p>
-                                <img src="../assets/icons/english.svg" >
+                                <img src="../assets/icons/english.svg">
                                 <p>NAT</p>
                             </div>
                             <div class="fencer_live_info">
                                 <p>József</p>
-                                <img src="../assets/icons/english.svg" >
+                                <img src="../assets/icons/english.svg">
                                 <p>NAT</p>
                             </div>
                         </div>
@@ -48,18 +48,18 @@
                             <div class="fencer_score_wrapper">
                                 <div id="machine_fencer_1" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-black-18dp.svg" >
-                                        <img src="../assets/icons/card-gray-18dp.svg" >
-                                        <img src="../assets/icons/card-yellow-18dp.svg" >
+                                        <img src="../assets/icons/priority-black-18dp.svg">
+                                        <img src="../assets/icons/card-gray-18dp.svg">
+                                        <img src="../assets/icons/card-yellow-18dp.svg">
                                     </div>
                                     <p id="machine_fencer_1_score">5</p>
                                 </div>
                                 <p id="machine_period">5</p>
                                 <div id="machine_fencer_2" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-gray-18dp.svg" >
-                                        <img src="../assets/icons/card-red-18dp.svg" >
-                                        <img src="../assets/icons/card-yellow-18dp.svg" >
+                                        <img src="../assets/icons/priority-gray-18dp.svg">
+                                        <img src="../assets/icons/card-red-18dp.svg">
+                                        <img src="../assets/icons/card-yellow-18dp.svg">
                                     </div>
                                     <p id="machine_fencer_2_score">5</p>
                                 </div>

@@ -62,11 +62,11 @@ $maximum = 255;
             <form id="create_new_comp" class="form_wrapper" action="" method="POST">
                 <div>
                     <div>
-                        <label for="comp_name" >NAME</label>
+                        <label for="comp_name">NAME</label>
                         <input type="text" placeholder="Type in the title" class="title_input" name="comp_name" class="name_input" onblur="errorChecker(this)">
                     </div>
                     <div>
-                        <label for="wc_type" >TYPE OF WEAPON CONTROL</label>
+                        <label for="wc_type">TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immediate</label>
@@ -75,7 +75,7 @@ $maximum = 255;
                         </div>
                     </div>
                     <div>
-                        <label for="competition_type" >TYPE OF COMPETITIORS</label>
+                        <label for="competition_type">TYPE OF COMPETITIORS</label>
                         <div class="option_container">
                             <input type="radio" name="comp_type" id="individual" value="" checked/>
                             <label for="individual">Individual</label>
@@ -86,7 +86,7 @@ $maximum = 255;
                 </div>
                 <div>
                     <div>
-                        <label for="sex" >SEX</label>
+                        <label for="sex">SEX</label>
                         <div class="option_container">
                             <input type="radio" name="sex" id="mal" value="1"/>
                             <label for="mal">Male</label>
@@ -95,7 +95,7 @@ $maximum = 255;
                         </div>
                     </div>
                     <div>
-                        <label for="w_type" >WEAPON TYPE</label>
+                        <label for="w_type">WEAPON TYPE</label>
                         <div class="option_container">
                             <input type="radio" class="option_button" name="w_type" id="epee" value="1"/>
                             <label for="epee" class="option_label">Epee</label>

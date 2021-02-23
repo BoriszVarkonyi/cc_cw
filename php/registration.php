@@ -123,11 +123,11 @@
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencerPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg" >
+                                <img src="../assets/icons/close-black-18dp.svg">
                             </button>
                             <!-- add fencers drop-down -->
                             <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
-                                <label for="fencers_name" >NAME</label>
+                                <label for="fencers_name">NAME</label>
                                 <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
                                 <label for="fencers_nationality">NATION / CLUB</label>
                                 <div class="search_wrapper wide">
@@ -137,7 +137,7 @@
                                         <?php include "../includes/nations.php"; ?>
                                     </div>
                                 </div>
-                                <label for="fencers_points" >POSITION</label>
+                                <label for="fencers_points">POSITION</label>
                                 <input type="number" placeholder="##" id="ranking_points" class="number_input centered" name="fencer_position">
                                 <button type="submit" name="add_fencer" class="panel_submit">Save</button>
                             </form>
@@ -155,7 +155,7 @@
                ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)" ></button>
+                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"></button>
                             <div class="table_header_text">NATION / CLUB</div>
                             <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>

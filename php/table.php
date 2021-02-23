@@ -294,7 +294,7 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
-                            <img src="../assets/icons/add_box-black-18dp.svg" />
+                            <img src="../assets/icons/add_box-black-18dp.svg"/>
                         </button>
                     </div>
 
@@ -302,19 +302,19 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg" />
+                            <img src="../assets/icons/message-black-18dp.svg"/>
                         </button>
                         <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
                             <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </button>
                         <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </button>
                         <button class="stripe_button primary" type="submit">
                             <p>Start next Round</p>
-                            <img src="../assets/icons/next_plan-black-18dp.svg" />
+                            <img src="../assets/icons/next_plan-black-18dp.svg"/>
                         </button>
                     </div>
                 <?php } ?>
@@ -327,15 +327,15 @@ if (isset($_POST["generate_table"])) {
                 <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                     <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
                     <div class="option_container row">
-                        <input type="checkbox" name="pistes_type" checked id="true" value="" />
+                        <input type="checkbox" name="pistes_type" checked id="true" value=""/>
                         <label for="true">True</label>
                     </div>
                     <label for="pistes_type">SELECT REFEREES</label>
                     <div class="option_container row">
-                        <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value="" />
+                        <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value=""/>
                         <label for="all_ref">Use all</label>
 
-                        <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value="" />
+                        <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value=""/>
                         <label for="manual_select_ref">Select manually</label>
                     </div>
 
@@ -379,96 +379,96 @@ if (isset($_POST["generate_table"])) {
 
                     <label for="pistes_type">PISTES</label>
                     <div class="option_container row">
-                        <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value="" />
+                        <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value=""/>
                         <label for="all">Use all</label>
 
-                        <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value="" />
+                        <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>
                         <label for="manual_select">Select manually</label>
                     </div>
 
                     <div class="option_container grid piste_select disabled" id="select_pistes_panel">
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
+                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
                             <label for="piste_1">Piste 1</label>
                         </div>
 

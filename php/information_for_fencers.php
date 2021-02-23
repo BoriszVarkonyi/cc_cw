@@ -72,7 +72,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
 
                     <div id="needed_equipment_panel" class="info_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/beenhere-black-18dp.svg" >
+                            <img src="../assets/icons/beenhere-black-18dp.svg">
                             <p>Equipment needed to be checked</p>
                         </div>
                         <div class="db_panel_main">
@@ -81,7 +81,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                     <div class="table_header_text">EQUIPMENT</div>
                                     <div class="table_header_text">QUANTITY
                                         <button onclick="removeEquipmentValues()" type="button" id="reset_button">
-                                            <img src="../assets/icons/cached-black-18dp.svg" >
+                                            <img src="../assets/icons/cached-black-18dp.svg">
                                         </button>
                                     </div>
                                 </div>
@@ -118,10 +118,10 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                     </div>
                     <div id="additional_info_panel" class="info_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/rule-black-18dp.svg" >
+                            <img src="../assets/icons/rule-black-18dp.svg">
                             <p>Additional Information</p>
                         </div>
-                        <div class="db_panel_main not_centered" >
+                        <div class="db_panel_main not_centered">
                             <input name="additional" type="text" class="hidden" id="additional_info_input">
                             <div class="additional_info_wrapper" id="add_info_wrap">
                             <?php

@@ -54,7 +54,7 @@ $fencers = count($json_table);
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" onclick="generatePanel()" type="submit">
                             <p>Generate Pools</p>
-                            <img src="../assets/icons/add_box-black-18dp.svg" />
+                            <img src="../assets/icons/add_box-black-18dp.svg"/>
                         </button>
                     </div>
 
@@ -75,16 +75,16 @@ $fencers = count($json_table);
                             <label for="starting_time">STRIVE FOR</label>
                             <div class="option_container">
                                 <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $fencers ?>">
-                                <input type="radio" class="option_button" name="pools_of" id="7" value="" onclick="" />
+                                <input type="radio" class="option_button" name="pools_of" id="7" value="" onclick=""/>
                                 <label for="7" class="option_label">Pools of 7</label>
                                 <p id="p_7"></p>
-                                <input type="radio" class="option_button" name="pools_of" id="6" value="" onclick="" />
+                                <input type="radio" class="option_button" name="pools_of" id="6" value="" onclick=""/>
                                 <label for="6" class="option_label">Pools of 6</label>
                                 <p id="p_6"></p>
-                                <input type="radio" class="option_button" name="pools_of" id="5" value="" onclick="" />
+                                <input type="radio" class="option_button" name="pools_of" id="5" value="" onclick=""/>
                                 <label for="5" class="option_label">Pools of 5</label>
                                 <p id="p_5"></p>
-                                <input type="radio" class="option_button" name="pools_of" id="4" value="" onclick="" />
+                                <input type="radio" class="option_button" name="pools_of" id="4" value="" onclick=""/>
                                 <label for="4" class="option_label">Pools of 4</label>
                                 <p id="p_4"></p>
                             </div>
@@ -125,23 +125,23 @@ $fencers = count($json_table);
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg" />
+                            <img src="../assets/icons/message-black-18dp.svg"/>
                         </button>
 
                         <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
                             <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </button>
 
                         <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </button>
 
                         <form action="" method="POST">
                             <button class="stripe_button primary" type="submit" name="start_pools">
                                 <p>Start Pools</p>
-                                <img src="../assets/icons/outlined_flag-black-18dp.svg" />
+                                <img src="../assets/icons/outlined_flag-black-18dp.svg"/>
                             </button>
                         </form>
 
@@ -149,7 +149,7 @@ $fencers = count($json_table);
                             <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
                             <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
                                 <p>Save Pools</p>
-                                <img src="../assets/icons/save-black-18dp.svg" />
+                                <img src="../assets/icons/save-black-18dp.svg"/>
                             </button>
                         </form>
                     </div>
@@ -161,15 +161,15 @@ $fencers = count($json_table);
                         <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                             <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
                             <div class="option_container row">
-                                <input type="checkbox" name="pistes_type" id="true" value="" />
+                                <input type="checkbox" name="pistes_type" id="true" value=""/>
                                 <label for="true">True</label>
                             </div>
                             <label for="all_ref">SELECT REFEREES</label>
                             <div class="option_container row">
-                                <input type="radio" name="ref_select" checked id="all_ref" onclick="useAllReferees()" value="all_ref" />
+                                <input type="radio" name="ref_select" checked id="all_ref" onclick="useAllReferees()" value="all_ref"/>
                                 <label for="all_ref">Use all</label>
 
-                                <input type="radio" name="ref_select" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref" />
+                                <input type="radio" name="ref_select" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref"/>
                                 <label for="manual_select_ref">Select manually</label>
                             </div>
 
@@ -189,7 +189,7 @@ $fencers = count($json_table);
                                 ?>
 
                                     <div class="piste_select">
-                                        <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="value1" />
+                                        <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="value1"/>
                                         <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
                                     </div>
 
@@ -222,10 +222,10 @@ $fencers = count($json_table);
 
                             <label for="pistes_type">PISTES</label>
                             <div class="option_container row">
-                                <input type="radio" name="pistes_usage_type" checked id="all" onclick="useAllPistes()" value="1" />
+                                <input type="radio" name="pistes_usage_type" checked id="all" onclick="useAllPistes()" value="1"/>
                                 <label for="all">Use all</label>
 
-                                <input type="radio" name="pistes_usage_type" id="manual_select" onclick="selectPistes()" value="2" />
+                                <input type="radio" name="pistes_usage_type" id="manual_select" onclick="selectPistes()" value="2"/>
                                 <label for="manual_select">Select manually</label>
                             </div>
 
@@ -248,7 +248,7 @@ $fencers = count($json_table);
 
 
                                     <div class="piste_select">
-                                        <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value="1" />
+                                        <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value="1"/>
                                         <label for="piste_<?php echo $r ?>">Piste <?php
 
                                                                                     if ($pistetype == 1) {
@@ -302,11 +302,11 @@ $fencers = count($json_table);
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button primary" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
                             <p>Print Pools</p>
-                            <img src="../assets/icons/print-black-18dp.svg" />
+                            <img src="../assets/icons/print-black-18dp.svg"/>
                         </a>
                         <a class="stripe_button primary <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
                             <p>Finish Pools</p>
-                            <img src="../assets/icons/save-black-18dp.svg" /><!-- ide kell majd egy másik icon pls krisz segits-->
+                            <img src="../assets/icons/save-black-18dp.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                         </a>
                     </div>
 
@@ -674,14 +674,14 @@ $fencers = count($json_table);
                             ?>
 
 
-                            <!-- <div class="entry" >
+                            <!-- <div class="entry">
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" >
+                                    <img src="../assets/icons/settings-black-18dp.svg">
                                 </button>
                             </div>
                             <div class="entry_panel">
@@ -814,14 +814,14 @@ $fencers = count($json_table);
                                 </div>
                             </div>
                         </div>
-                        <div class="entry" >
+                        <div class="entry">
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" >
+                                    <img src="../assets/icons/settings-black-18dp.svg">
                                 </button>
                             </div>
                             <div class="entry_panel">
@@ -954,14 +954,14 @@ $fencers = count($json_table);
                                 </div>
                             </div>
                         </div>
-                        <div class="entry" >
+                        <div class="entry">
                             <div class="table_row start">
                                 <div class="table_item bold">No. 1</div>
                                 <div class="table_item">Piste 1</div>
                                 <div class="table_item">Ref: Név</div>
                                 <div class="table_item">11:50</div>
                                 <button type="button" onclick="" class="pool_config">
-                                    <img src="../assets/icons/settings-black-18dp.svg" >
+                                    <img src="../assets/icons/settings-black-18dp.svg">
                                 </button>
                             </div>
                             <div class="entry_panel">

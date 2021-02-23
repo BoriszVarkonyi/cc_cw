@@ -38,13 +38,13 @@
                 <div class="wrapper">
                     <div class="inv_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg" >
+                            <img src="../assets/icons/build-black-18dp.svg">
                             <p>Import Competitors</p>
                         </div>
                         <div class="db_panel_main">
                             <form method="POST" id="delete_logo">
                                 <button id="delete_logo" class="panel_button">
-                                    <img src="../assets/icons/delete-black-18dp.svg" >
+                                    <img src="../assets/icons/delete-black-18dp.svg">
                                 </button>
                             </form>
                             <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">

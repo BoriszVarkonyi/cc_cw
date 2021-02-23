@@ -47,10 +47,10 @@
                 <div id="page_content_panel_main" class="no_scroll">
                     <div id="set_wc_panel" class="overlay_panel_single hidden">
                         <button class="panel_button drag">
-                            <img src="../assets/icons/drag_indicator-black-18dp.svg" >
+                            <img src="../assets/icons/drag_indicator-black-18dp.svg">
                         </button>
                         <button class="panel_button" onclick="closeWcPanel()">
-                            <img src="../assets/icons/close-black-18dp.svg" >
+                            <img src="../assets/icons/close-black-18dp.svg">
                         </button>
 
                             <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
@@ -72,19 +72,19 @@
                                     <div class="table_item" id="start_1"> <input type="number" name="wc_period_start_1"> <p>:00</p></div>
                                     <div class="table_item" id="end_1"> <input type="number" name="wc_period_end_1"> <p>:00</p></div>
                                      <button type="button" onclick="removePeriod()" class="close_add_peroid">
-                                        <img src="../assets/icons/close-black-18dp.svg" >
+                                        <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
                                 </div>
                                 <div class="table_row hidden" id="table_row_3">
                                     <div class="table_item" id="start_1"> <input type="number" name="wc_period_start_1"> <p>:00</p></div>
                                     <div class="table_item" id="end_1"> <input type="number" name="wc_period_end_1"> <p>:00</p></div>
                                      <button type="button" onclick="removePeriod()" class="close_add_peroid">
-                                        <img src="../assets/icons/close-black-18dp.svg" >
+                                        <img src="../assets/icons/close-black-18dp.svg">
                                     </button>
                                 </div>
                                 <div class="add_peroid_container">
                                     <button type="button" id="add_period" onclick="addPeriod()">
-                                        <img src="../assets/icons/more_time-black-18dp.svg" >
+                                        <img src="../assets/icons/more_time-black-18dp.svg">
                                     </button>
                                 </div>
                                 -->
@@ -98,11 +98,11 @@
                         <form action="" method="POST" id="calendar">
                         </form>
                             <button name="back" type="submit" form="calendar">
-                                <img src="../assets/icons/arrow_back_ios-black-18dp.svg" >
+                                <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
                             </button>
                             <div> <p></p> </div>
                             <button name="next" type="submit" form="calendar">
-                                <img src="../assets/icons/arrow_forward_ios-black-18dp.svg" >
+                                <img src="../assets/icons/arrow_forward_ios-black-18dp.svg">
                             </button>
                         </div>
                         <div id="timetable_container">

@@ -40,14 +40,14 @@
                         <div>
                             <p>{fencer nam e1 long name long namre fencer}</p>
                             <button>
-                                <img src="../assets/icons/message-black-18dp.svg" >
+                                <img src="../assets/icons/message-black-18dp.svg">
                             </button>
                         </div>
 
                         <div>
                             <p>{fencer nam e1 long name long namre fencer}</p>
                             <button>
-                                <img src="../assets/icons/message-black-18dp.svg" >
+                                <img src="../assets/icons/message-black-18dp.svg">
                             </button>
                         </div>
                     </div>
@@ -88,30 +88,30 @@
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg" >
+                                        <img src="../assets/icons/card-yellow-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg" >
+                                        <img src="../assets/icons/card-red-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg" >
+                                        <img src="../assets/icons/card-black-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                 </div>
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg" >
+                                        <img src="../assets/icons/card-yellow-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg" >
+                                        <img src="../assets/icons/card-red-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg" >
+                                        <img src="../assets/icons/card-black-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                 </div>
@@ -129,30 +129,30 @@
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg" >
+                                        <img src="../assets/icons/card-yellow-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg" >
+                                        <img src="../assets/icons/card-red-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg" >
+                                        <img src="../assets/icons/card-black-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                 </div>
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg" >
+                                        <img src="../assets/icons/card-yellow-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg" >
+                                        <img src="../assets/icons/card-red-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg" >
+                                        <img src="../assets/icons/card-black-18dp.svg">
                                         <input type="number" class="match_fencer_cards" placeholder="#">
                                     </div>
                                 </div>

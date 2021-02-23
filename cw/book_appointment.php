@@ -140,7 +140,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
                                         ?>
                                             <div class="appointment_wrapper" minsleft="<?php echo $minsleft ?>">
-                                                <input type="radio" name="appointments" id="appointment1" value="" />
+                                                <input type="radio" name="appointments" id="appointment1" value=""/>
                                                 <label for="appointment1">
                                                     <div class="appointment" onclick="selectAppointment(this)">
                                                         <p><?php echo date('H:i', $availtime); ?> - lasts approximately &nbsp</p>

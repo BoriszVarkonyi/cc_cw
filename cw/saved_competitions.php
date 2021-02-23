@@ -82,7 +82,7 @@
                                 <form method="POST" class="big_status_item">
 
                                     <button name="submit_button" type="submit" class="favourite_button" value="<?php echo $comp_id?>">
-                                        <img src="<?php echo $star ?>" >
+                                        <img src="<?php echo $star ?>">
                                     </button>
                                 </form>
                             </div>

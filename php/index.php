@@ -169,7 +169,7 @@ checkComp($connection);
                     <img src="<?php echo $logo ?>" class="comp_logo"/>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
-                    <form id="publishcomp" class="hidden" ></form>
+                    <form id="publishcomp" class="hidden"></form>
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary only <?php echo $publish_comp_disabled ?>" id="publishcomp">
                             <p>Publish Competition</p>
@@ -214,7 +214,7 @@ checkComp($connection);
                             ?>
 
                             <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/beenhere-black-18dp.svg" >
+                                <img src="../assets/icons/beenhere-black-18dp.svg">
                                 <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                             </div>
 
@@ -223,36 +223,36 @@ checkComp($connection);
 
                                 <div id="sheduled_to_do_list">
 
-                                    <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>" ></a>
+                                    <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>"></a>
 
                                         <div id="general_to_do" class="sheduled_to_do_sublist">
 
-                                            <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>" ></li>
-                                            <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>" ></li>
-                                            <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>" ></li>
-                                            <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>" ></li>
+                                            <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>"></li>
+                                            <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>"></li>
+                                            <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>"></li>
+                                            <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>"></li>
 
                                         </div>
 
-                                    <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>" ></a>
+                                    <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>"></a>
 
                                         <div id="technical_to_do" class="sheduled_to_do_sublist">
 
-                                            <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>" ></li>
-                                            <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>" ></li>
+                                            <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>"></li>
+                                            <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>"></li>
 
                                         </div>
 
-                                    <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>" ></a>
+                                    <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>"></a>
 
-                                    <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>" ></a>
+                                    <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>"></a>
                                 </div>
                             </div>
                         </div>
                     <!-- chat panel -->
                         <div class="db_panel chat">
                             <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/chat-black-18dp.svg" >
+                                <img src="../assets/icons/chat-black-18dp.svg">
                                 <p>Chat</p>
                             </div>
                         </div>

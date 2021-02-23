@@ -46,7 +46,7 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
         </div>
         <form method="POST" class="big_status_item">
             <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                <img src="<?php echo $star ?>" >
+                <img src="<?php echo $star ?>">
             </button>
         </form>
     </div>

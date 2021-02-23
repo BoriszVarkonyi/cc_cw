@@ -181,7 +181,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
 
                     <div class="db_panel  other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg" >
+                            <img src="../assets/icons/build-black-18dp.svg">
                             <p>Plus information</p>
                         </div>
                         <div class="db_panel_main table">
@@ -203,15 +203,15 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                                 $info_body = $row['info_body'];
                                     ?>
 
-                                            <div class="entry" >
+                                            <div class="entry">
                                                 <div class="table_row" onclick="toggleEntry(this)">
                                                     <div class="table_item invitation"><?php echo $info_title ?></div>
                                                 </div>
                                                     <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
-                                                        <button class="panel_button" type="submit" name="submit_delete" id="update" >
+                                                        <button class="panel_button" type="submit" name="submit_delete" id="update">
                                                             <img src="../assets/icons/delete-black-18dp.svg">
                                                         </button>
-                                                        <textarea id="update" name="text_body" ><?php echo $info_body ?></textarea>
+                                                        <textarea id="update" name="text_body"><?php echo $info_body ?></textarea>
                                                         <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
                                                         <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
                                                     </form>
@@ -224,7 +224,7 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
                                                 Add information
-                                                <img src="../assets/icons/add-black-18dp.svg" >
+                                                <img src="../assets/icons/add-black-18dp.svg">
                                             </div>
                                         </div>
                                     </div>
@@ -244,13 +244,13 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
                     </div>
                     <div class="db_panel other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg" >
+                            <img src="../assets/icons/build-black-18dp.svg">
                             <p>Add competition logo</p>
                         </div>
                         <div class="db_panel_main">
                             <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
                                 <button id="delete_logo" class="<?php echo $kuka_disable ?>">
-                                    <img src="../assets/icons/delete-black-18dp.svg" >
+                                    <img src="../assets/icons/delete-black-18dp.svg">
                                 </button>
                             </form>
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">

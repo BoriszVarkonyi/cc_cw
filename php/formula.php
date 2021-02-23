@@ -98,7 +98,7 @@
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/build-black-18dp.svg" >
+                        <img src="../assets/icons/build-black-18dp.svg">
                         <p>Set Formula of Pools</p>
                     </div>
                     <div class="db_panel_main">
@@ -106,19 +106,19 @@
                     <form id="save_form" action="" class="form_wrapper" method="POST">
                         <div>
                             <div>
-                                <label for="points_pools" >POINTS IN POOLS</label>
+                                <label for="points_pools">POINTS IN POOLS</label>
                                 <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">
                             </div>
                             <div>
-                                <label for="points_table" >POINTS IN TABLE</label>
+                                <label for="points_table">POINTS IN TABLE</label>
                                 <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">
                             </div>
                             <div>
-                                <label for="nb_qualifier" >NUMBER OF QUALIFIERS AFTER POOLS</label>
+                                <label for="nb_qualifier">NUMBER OF QUALIFIERS AFTER POOLS</label>
                                 <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">
                             </div>
                             <div>
-                                <label for="elimnation_type" >ELIMINATION TYPE</label>
+                                <label for="elimnation_type">ELIMINATION TYPE</label>
                                 <div class="option_container">
                                     <input type="radio" name="elimnation_type" id="direct_et" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
                                     <label for="direct_et">Direct-Elimination Tournament</label>
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="third_place" >FENCING FOR 3RD PLACE</label>
+                                <label for="third_place">FENCING FOR 3RD PLACE</label>
                                 <div class="option_container">
                                     <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
                                     <label for="third_place_no">Yes</label>

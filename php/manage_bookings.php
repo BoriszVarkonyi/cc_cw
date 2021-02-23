@@ -23,7 +23,7 @@
             <form class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_tournament.php'">
                     <p>Cancel</p>
-                    <img src="../assets/icons/close-black-18dp.svg" />
+                    <img src="../assets/icons/close-black-18dp.svg"/>
                 </button>
                 <button class="stripe_button red" onclick="" name="" id="" type="submit" shortcut="SHIFT+D">
                     <p>Disapprove</p>

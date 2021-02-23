@@ -67,7 +67,7 @@
                                     </div>
                                     <form method="POST" class="big_status_item">
                                         <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                                            <img src="<?php echo $star ?>" >
+                                            <img src="<?php echo $star ?>">
                                         </button>
                                     </form>
                                 </div>
@@ -96,7 +96,7 @@
                         ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" >
+                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg">
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>
                                     <p><?php echo $comp_name ?></p>

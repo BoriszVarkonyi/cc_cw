@@ -182,7 +182,7 @@
 
                         <div id="import_technician_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg" >
+                                <img src="../assets/icons/close-black-18dp.svg">
                             </button>
                             <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
                                 <div class="table t_c_0">
@@ -231,7 +231,7 @@
                             <p class="overlay_panel_controls_counter">3 / 3</p>
                         </div>
                         <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg" >
+                            <img src="../assets/icons/close-black-18dp.svg">
                         </button>
                         <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
                             <div class="overlay_panel_division visible" overlay_division_title="Identification">
@@ -270,15 +270,15 @@
                                 <input type="text" placeholder="Type the referees's categorie" class="full_name_input" name="categorie">
                                 <label>Lateralite</label>
                                 <div class="option_container row">
-                                    <input type="radio" name="lateralite" id="g" value="g" />
+                                    <input type="radio" name="lateralite" id="g" value="g"/>
                                     <label for="g">Left</label>
-                                    <input type="radio" name="lateralite" id="d" value="d" />
+                                    <input type="radio" name="lateralite" id="d" value="d"/>
                                     <label for="d">Right</label>
                                 </div>
                                 <label>NATION</label>
                                 <div class="search_wrapper wide">
                                     <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
-                                    <button type="button" class="clear_search_button" onclick="" ><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>

@@ -195,9 +195,9 @@
 
                 <form action="" method="POST" id="remove_technician"></form>
 
-                <div id="add_technician_panel" class="overlay_panel hidden" >
+                <div id="add_technician_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggle_add_technician()">
-                        <img src="../assets/icons/close-black-18dp.svg" >
+                        <img src="../assets/icons/close-black-18dp.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
                         <label for="name">NAME</label>

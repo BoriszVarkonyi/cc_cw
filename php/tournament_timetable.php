@@ -97,11 +97,11 @@ if (isset($_POST["new_weapon_control"])) {
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_tournament.php'">
                     <p>Cancel</p>
-                    <img src="../assets/icons/close-black-18dp.svg" />
+                    <img src="../assets/icons/close-black-18dp.svg"/>
                 </button>
                 <button type="submit" name="save" form="tournament_timetable" class="stripe_button primary">
                     <p>Save</p>
-                    <img src="../assets/icons/save-black-18dp.svg" />
+                    <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
             </div>
         </div>
@@ -146,11 +146,11 @@ if (isset($_POST["new_weapon_control"])) {
                         <div class="option_container">
                             <input type="radio" <?php if (isset($dates->type_of_booking) && $dates->type_of_booking == 'team') {
                                                     echo "checked";
-                                                } ?> class="option_button" name="type_of_booking" id="teams" value="team" />
+                                                } ?> class="option_button" name="type_of_booking" id="teams" value="team"/>
                             <label for="teams" class="option_label">Book appointment as teams</label>
                             <input type="radio" <?php if (isset($dates->type_of_booking) && $dates->type_of_booking == 'fencer') {
                                                     echo "checked";
-                                                } ?> class="option_button" name="type_of_booking" id="fencers" value="fencer" />
+                                                } ?> class="option_button" name="type_of_booking" id="fencers" value="fencer"/>
                             <label for="fencers" class="option_label">Book appointment as fencers</label>
                         </div>
                     </div>
