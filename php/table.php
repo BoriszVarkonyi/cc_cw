@@ -1,5 +1,6 @@
 <?php include "../includes/headerburger.php"; ?>
 <?php include "../includes/db.php" ?>
+<?php include '../includes/sortfunction.php' ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
@@ -30,12 +31,32 @@ if (isset($_POST["generate_table"])) {
 
     $fencer_ids = [];
 
-    echo $qry_get_fnum = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank ASC LIMIT $formula_json->qualifiers";
-    $qry_get_fnum_do = mysqli_query($connection, $qry_get_fnum);
+    $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
+    } else {
+        echo mysqli_error($connection);
+    }
 
-    while ($row = mysqli_fetch_assoc($qry_get_fnum_do)) {
+    $objects = new ObjSorter($json_table,'classement');
 
-        array_push($fencer_ids, $row["name"]);
+    $objects_array  = $objects->sorted;
+
+    echo count($objects_array) . " VÍVÓ";
+
+
+    $f_count = 0;
+    foreach ($objects_array as $key => $value) {
+
+        array_push($fencer_ids, $value->nom);
+
+        if ($f_count >= $formula_json->qualifiers) {
+            break;
+        }
+
+    $f_count++;
     }
 
     print_r($fencer_ids);
