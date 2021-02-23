@@ -29,7 +29,7 @@ if (isset($_POST["generate_table"])) {
 
     print_r($formula_json);
 
-    $fencer_ids = [];
+    $fencer_objects = [];
 
     $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
@@ -46,11 +46,54 @@ if (isset($_POST["generate_table"])) {
 
     echo count($objects_array) . " VÍVÓ";
 
+    class tablefencer {
+
+        public $name;
+        public $nation;
+        public $id;
+        public $isWinner;
+
+        function __construct($fencer_obj){
+            $this -> name = $fencer_obj->prenom . " " . $fencer_obj->nom;
+            $this -> nation = $fencer_obj->nation;
+            $this -> id = $fencer_obj->id;
+            $this -> isWinner = false;
+        }
+    }
+
+    class referees {
+
+        public $name;
+        public $nation;
+        public $id;
+
+        function __construct(){
+            $this -> name = "";
+            $this -> nation = "";
+            $this -> id = NULL;
+        }
+    }
+
+    class pistetime {
+
+        public $id;
+        public $pistename;
+        public $time;
+
+        function __construct(){
+            $this -> id = NULL;
+            $this -> pistename = "";
+            $this -> time = "";
+        }
+    }
+
 
     $f_count = 0;
     foreach ($objects_array as $key => $value) {
 
-        array_push($fencer_ids, $value->nom);
+        $actualfencer = new tablefencer($value);
+
+        array_push($fencer_objects, $actualfencer);
 
         if ($f_count >= $formula_json->qualifiers) {
             break;
@@ -102,8 +145,14 @@ if (isset($_POST["generate_table"])) {
             $postoplace = $tableorder[$i];
             $matchname = "m_" . $match;
 
+            $ref_empty = new referees();
+            $pistetime_empty = new pistetime();
+
             if ($isfirst == 0) {
-                $table_object->$namevariable->$matchname->$postoplace = $fencer_ids[$postoplace - 1];
+                $table_object->$namevariable->$matchname->$postoplace = $fencer_objects[$postoplace - 1];
+                $table_object->$namevariable->$matchname->referees->ref = $ref_empty;
+                $table_object->$namevariable->$matchname->referees->vref = $ref_empty;
+                $table_object->$namevariable->$matchname->pistetime = $pistetime_empty;
             } else {
                 $table_object->$namevariable->$matchname->$postoplace = "";
             }
