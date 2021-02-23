@@ -284,7 +284,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save">Save</button>
+                            <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save" id="newTechSaveButton">Save</button>
                         </form>
                     </div>
                     <div class="search_wrapper">
@@ -393,5 +393,6 @@
     <script src="../js/controls.js"></script>
     <script src="../js/importoverlay.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
 </html>

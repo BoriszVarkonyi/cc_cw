@@ -330,64 +330,6 @@ setuptext.classList.add("disabled");
 
 }
 
-// Overlay_panels
-
-var overlayPanelAll = document.querySelectorAll(".overlay_panel");
-var overlayPanelsOepened = [];
-var somethingisOpened = false;
-
-function overlayPanel() {
-    var overlayPanelsHidden = [];
-    //Push to appropriate array by class.
-    for(i=0; i<overlayPanelAll.length; i++) {
-        if(overlayPanelAll[i].classList.contains("hidden")) {
-            overlayPanelsHidden.push(overlayPanelAll[i]);
-        }
-        else {
-            overlayPanelsOepened.push(overlayPanelAll[i])
-        }
-    }
-    //It updates the overlayPanelsOepened array.
-    if(overlayPanelsOepened.length>1){
-        for(i=0; i<overlayPanelsOepened.length; i++) {
-            overlayPanelsOepened.pop()
-        }
-        overlayPanelsOepened[0].classList.add("hidden")
-        overlayPanelsOepened.pop()
-    }
-    //Check if the first array element contains hidden.
-    else {
-        for(i=0; i<overlayPanelsOepened.length; i++) {
-            //If yes it pops.
-            if(overlayPanelsOepened[i].classList.contains("hidden")) {
-                overlayPanelsOepened.pop()
-            }
-        }
-    }
-    if(overlayPanelsOepened.length == 1){
-        somethingisOpened = true;
-    }
-    else{
-        somethingisOpened = false;
-    }
-}
-var somethingisOpened = false;
-
-//Event listener to class change (overlay panels)
-function callback(mutationsList, observer) {
-    mutationsList.forEach(mutation => {
-        if (mutation.attributeName === 'class') {
-            overlayPanel()
-            formvariableDeclaration()
-        }
-    })
-}
-    
-const mutationObserver = new MutationObserver(callback)
-for(i=0; i<overlayPanelAll.length; i++){
-mutationObserver.observe(overlayPanelAll[i], { attributes: true })
-}
-
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
@@ -400,44 +342,6 @@ numberInputs.forEach(item => {
     );
 })
 
-//FORM VALIDATION
-
-function formvariableDeclaration() {
-    if(overlayPanelsOepened.length == 1) {
-     var formelement = overlayPanelsOepened[0].firstChild.nextElementSibling.nextElementSibling;
-        if(formelement.classList.contains("overlay_panel_form")){
-            return overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form"), 
-            inputs = document.querySelectorAll(".overlay_panel:not( .hidden) .overlay_panel_form input"), 
-            saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit"),
-            formValidation(overlayForm, inputs, saveButton);
-        }
-    }
-}
-var canAutoValidate = true;
-function formValidation(overlayForm, inputs, saveButton){
-    if(canAutoValidate){
-        saveButton.disabled = true;
-        //If the document values are changing, it runs the function.
-        function validation(){
-            //Checking every input.
-            for(i=0; i<inputs.length; i++){
-                if(inputs[i].value == ""){
-                    //If it finds an empty input, then it disable the "Save" button.
-                    saveButton.disabled = true;
-                    break;      
-                }
-                else {
-                    //If everything has a value then it enable the "Save" Button. The user can save.
-                    saveButton.disabled = false;       
-                }
-            }   
-
-        }
-        validation();
-        overlayForm.addEventListener("input", validation)
-    }    
-
-}
 var stripeButtons = document.querySelectorAll(".stripe_button")
 var canAddHoverClass = true;
 //searchBarClosed is a var. from control.js

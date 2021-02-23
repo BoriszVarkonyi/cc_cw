@@ -105,7 +105,7 @@ function importTechnicians(x) {
     var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
     var clickedImportTechrow = x
     if(oldSelectedTechImport != clickedImportTechrow){
-            //removes selected class from every row
+    //removes selected class from every row
     for(i = 0; i < importTechTablerows.length; i++){
         importTechTablerows[i].classList.remove("selected");
     }
@@ -124,40 +124,4 @@ function importTechnicians(x) {
     //Saves the clicked row
     oldSelectedTechImport = undefined;
     }
-    console.log(importTechHiddenInput.value)
 }
-
-//Technicians formvalidation
-var valid1 = false, valid2 = false;
-//It is a var from main.js
-canAutoValidate = false;
-var newTchForm = document.getElementById("new_technician");
-var techInput = newTchForm.querySelector("input:first-of-type")
-var techoptioncontainer = newTchForm.querySelector(".option_container")
-var techOptionButton = techoptioncontainer.querySelectorAll(".option_button")
-var techSaveButton = newTchForm.querySelector(".panel_submit")
-techSaveButton.disabled = true;
-function technisiansValidation(){
-    if(techInput.value == ""){
-        valid1 = false;
-    }
-    else{
-        valid1 = true;
-    }
-    for(i=0; i<techOptionButton.length; i++){
-        if(techOptionButton[i].checked){
-            valid2 = true;
-            break
-        }
-        else{
-            valid2 = false;
-        }
-    }
-    if(valid1 && valid2){
-        techSaveButton.disabled = false;
-    }
-    else{
-        techSaveButton.disabled = true;
-    }
-}
-newTchForm.addEventListener("input", technisiansValidation)

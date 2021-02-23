@@ -208,14 +208,14 @@ var currentDivision = 0;
 
 leftDivisionButton.disabled = true;
 currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
-controlsCounter.innerHTML = (currentDivision + 1) + " / "  + maxNumber;
+controlsCounter.innerHTML = maxNumber + " / "  + (currentDivision + 1);
 
 function leftButton(x){
     currentDivision--
     overlayPanelDivisions[currentDivision + 1].classList.remove("visible")
     overlayPanelDivisions[currentDivision].classList.add("visible")
     currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
-    controlsCounter.innerHTML = (currentDivision + 1) + " / "  + maxNumber;
+    controlsCounter.innerHTML = maxNumber + " / "  + (currentDivision + 1);
     divisionButtonDisabler();
 }
 
@@ -224,7 +224,7 @@ function rightButton(x){
     overlayPanelDivisions[currentDivision - 1].classList.remove("visible");
     overlayPanelDivisions[currentDivision].classList.add("visible");
     currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title");
-    controlsCounter.innerHTML = (currentDivision + 1) + " / "  + maxNumber;
+    controlsCounter.innerHTML = maxNumber + " / "  + (currentDivision + 1);
     divisionButtonDisabler();
 }
 
