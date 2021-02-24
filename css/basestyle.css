@@ -10,6 +10,7 @@
 	--c-white: #FFF;
 	--c-transparent-white: #FFFFFF20;
 	--c-yellow: #FFC914;
+	--c-lightyellow: #FFD443;
 	/*
 	--c-secondary: #FF9700;
 	--c-tertiary: #FFBE5C;
@@ -25,7 +26,8 @@
 	--c-orange: #FF9700;
 	--c-lightorange: #FFBE5C;
 	--c-purple: #7765E3;
-	--c-bronze :#E58955;
+	--c-lightpurple: #9284e9;
+	--c-bronze:#E58955;
 	/* Static throughout colormodes */
 	--cs-black: #252525;
 	--cs-transparent-black: #25252520;
@@ -403,12 +405,12 @@ form.error::before {
 	top: 30px;
 }
 
-label.error  {
+label.error {
 	display: flex;
 	align-items: center;
 }
 
-label.error::after  {
+label.error::after {
 	content: 'REQUIRED';
 	text-transform: uppercase;
 	color: var(--c-red);
@@ -417,11 +419,11 @@ label.error::after  {
 	margin-left: 10px;
 }
 
-label.error.username::after  {
+label.error.username::after {
 	content: 'THIS USERNAME IS ALREADY IN USE' !important;
 }
 
-label.error + input  {
+label.error + input {
 	border-bottom: 2px solid var(--c-red);
 }
 
@@ -698,7 +700,7 @@ label + .search_wrapper.wide .search {
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
-.search_results.empty::after  {
+.search_results.empty::after {
 	content: "No results";
 	position: relative;
 	text-align: center;
@@ -772,7 +774,7 @@ label + .search_wrapper.wide .search {
 
 /* These have flex display propety */
 
-.table, .table_row_wrapper, .table_header, .small_status_header, .big_status_header, .table_row, .big_status_item, .table_header_text, .table_item   {
+.table, .table_row_wrapper, .table_header, .small_status_header, .big_status_header, .table_row, .big_status_item, .table_header_text, .table_item  {
 	display: flex;
 }
 

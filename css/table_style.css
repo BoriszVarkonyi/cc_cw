@@ -67,19 +67,19 @@
 
 /* Coloring of Columns and column labels, both cc and cw */
 
-#call_room .elimination:nth-child(odd), #call_room .elimination:nth-child(even) .elimination_label {
+#call_room .elimination:nth-child(odd), #call_room .elimination:nth-child(even) .elimination_label, #call_room .elimination:nth-child(odd) .table_round_info {
 	background: var(--c-lightergray);
 }
 
-#call_room.cc .elimination:nth-child(odd), #call_room.cc .elimination:nth-child(even) .elimination_label {
+#call_room.cc .elimination:nth-child(odd), #call_room.cc .elimination:nth-child(even) .elimination_label, #call_room .elimination:nth-child(odd) .table_round_info {
 	background: var(--c-lightestgray);
 }
 
-#call_room .elimination:nth-child(even), #call_room  .elimination:nth-child(odd) .elimination_label {
+#call_room .elimination:nth-child(even), #call_room  .elimination:nth-child(odd) .elimination_label, #call_room .elimination:nth-child(even) .table_round_info {
 	background: var(--c-lightestgray);
 }
 
-#call_room.cc .elimination:nth-child(even), #call_room.cc  .elimination:nth-child(odd) .elimination_label {
+#call_room.cc .elimination:nth-child(even), #call_room.cc  .elimination:nth-child(odd) .elimination_label,  #call_room .elimination:nth-child(even) .table_round_info {
 	background: var(--c-white);
 }
 
@@ -102,6 +102,7 @@
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
+	z-index: 2;
 }
 
 /* cw specific, makes good looking hover */
@@ -109,22 +110,19 @@
 	transform: scale(1.01);
 }
 
-.table_round_wrapper > div:not(.table_round){
+.table_round_info {
 	display: flex;
-	justify-content: space-between;
-	margin: 0 25px;
+	flex-direction: column;
 	font-size: var(--f-small);
 	white-space: nowrap;
 	text-overflow: ellipsis;
     overflow: hidden;
+	margin: 2px 0;
 }
 
-.elimination > .table_round_wrapper:nth-child(2) {
-	margin-top: 15px;
-}
-
-.elimination > .table_round_wrapper:last-of-type {
-	margin-bottom: 15px;
+.table_round_info div {
+	display: flex;
+	justify-content: space-between;
 }
 
 .table_round {
@@ -132,64 +130,54 @@
 	display: flex;
 	flex-direction: column;
 	cursor: pointer;
-	box-shadow: var(--s-black);
-	overflow: hidden;
 	border-radius: 4px;
-	margin: 0 25px;
+	margin: 30px 25px;
+	z-index: 6;
 }
 
-.table_round_wrapper:before, .table_round_wrapper:after {
+.table_fencer::before, .table_round::after, .table_round_wrapper::before {
 	background: var(--c-darkgray);
-	z-index: 2;
+	z-index: -1;
 	content: "";
 	position: absolute;
 }
 
-.table_round_wrapper:before {
-	width: 100%;
+.table_fencer:before {
+	width: calc(100% + 25px);
 	height: 2px;
-	right: 0;
-	top: calc(50% - 1px);
 }
 
-.table_round_wrapper:after {
+.table_round:after {
 	width: 2px;
-	height: 50%;
-	right: -1px;
-	top: calc(50% - 1px);
+	height: 71%;
+	right: -25px;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-/* general */
-
-.elimination > .table_round_wrapper:nth-child(2n+3):after {
-	width: 2px;
+.table_round_wrapper::before {
+	width: 50%;
+	left: 0;
 	height: 50%;
-	right: -1px;
-	top: 0;
+	border: 2px solid var(--c-darkgray);
+	border-left: none;
+	background-color: transparent;
 }
 
 /* First column */
 
-#call_room > .elimination:nth-of-type(3) > .table_round_wrapper:before {
-	width: calc(100% - 25px);
-	right: 0;
-}
-
-/* 1 Before last column */
-
-.elimination:nth-last-of-type(2) > .table_round_wrapper:after {
-	display: none;
+#call_room .elimination:nth-child(3) .table_round_wrapper::before {
+	content: none !important;
 }
 
 /* Winner cloumn */
 
-.elimination:last-of-type > .table_round_wrapper:after {
-	display: none;
+.elimination:last-of-type .table_round_wrapper::before, .elimination:last-of-type .table_round::after {
+	content: none !important;
 }
 
-.elimination:last-of-type > .table_round_wrapper:before {
-	width: 25px;
-	left: 0;
+.elimination:last-of-type .table_fencer::before {
+	left: -25px;
 }
 
 .table_fencer {
@@ -199,6 +187,7 @@
 	background: var(--c-white);
 	transition: transform var(--t-basic);
 	color: var(--cs-black);
+	/*box-shadow: var(--s-black);*/
 }
 
 .table_fencer > div {
@@ -224,6 +213,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 5px 0 0 5px;
 }
 
 .table_fencer_name {
@@ -257,6 +247,7 @@
 	align-items: center;
 	justify-content: center;
 	font-family: var(--regular) !important;
+	border-radius: 0 5px 5px 0;
 }
 
 /* Coloring of natinon conatiners, both cc and cw */
@@ -281,63 +272,48 @@
 	max-height: var(--f-xxsmall);
 }
 
-.round_settings {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: none;
-}
-
-.settings_fencers {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 30px;
-}
-
-.settings_fencers > div {
-	flex-grow: 1;
-	white-space: normal;
-}
-
-.settings_fencers > div:first-of-type {
-	margin-right: 50px;
-}
-
-.round_settings_fencer {
-	font-size: var(--f-large);
-	font-family: var(--bold);
-}
-
-.settings_fencers > div:first-of-type > .round_settings_fencer {
-	text-align: start;
-}
-
-.settings_fencers > div:last-of-type > .round_settings_fencer {
-	text-align: end;
-}
-
 /* Coloring */
 
-.table_round_wrapper.red .table_fencer_number, .table_round_wrapper.red .table_fencer_name {
+.table_round_wrapper.red .table_fencer_number {
 	background: var(--cs-red);
 }
 
-.table_round_wrapper.green .table_fencer_number, .table_round_wrapper.green .table_fencer_name  {
+.table_round_wrapper.red .table_fencer_name {
+	background: var(--c-lightred);
+}
+
+.table_round_wrapper.green .table_fencer_number {
 	background: var(--cs-green);
 }
 
-.table_round_wrapper.yellow .table_fencer_number, .table_round_wrapper.yellow .table_fencer_name  {
+.table_round_wrapper.green .table_fencer_name {
+	background: var(--c-lightgreen);
+}
+
+.table_round_wrapper.yellow .table_fencer_number {
 	background: var(--cs-yellow);
 }
 
-.table_round_wrapper.blue .table_fencer_number, .table_round_wrapper.blue .table_fencer_name {
+.table_round_wrapper.yellow .table_fencer_name {
+	background: var(--c-lightyellow);
+}
+
+.table_round_wrapper.blue .table_fencer_number {
 	background: var(--cs-blue);
 }
 
+.table_round_wrapper.blue .table_fencer_name {
+	background: var(--c-lightblue);
+}
+
 .table_round_wrapper.purple .table_fencer_number, .table_round_wrapper.purple .table_fencer_name {
-	background: var(--cs-purple);
 	color: var(--cs-white);
+}
+
+.table_round_wrapper.purple .table_fencer_number {
+	background: var(--cs-purple);
+}
+
+.table_round_wrapper.purple .table_fencer_name {
+	background: var(--c-lightpurple);
 }

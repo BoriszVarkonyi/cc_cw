@@ -562,7 +562,7 @@ if (isset($_POST["generate_table"])) {
                                                 </div>
                                                 <?php
                                                 if ($firstrun == 0) { ?>
-
+                                                <div class="table_round_info">
                                                     <div>
                                                         <p>Ref: <?php echo $tablematches->referees->ref->name ?> (<?php echo $tablematches->referees->ref->nation ?>)</p>
                                                         <p><?php echo $tablematches->pistetime->time ?></p>
@@ -571,6 +571,7 @@ if (isset($_POST["generate_table"])) {
                                                         <p>VRef: <?php echo $tablematches->referees->vref->name ?> (<?php echo $tablematches->referees->vref->nation ?>)</p>
                                                         <p>Piste: <?php echo $tablematches->pistetime->pistename ?></p>
                                                     </div>
+                                                </div>
                                             <?php }
                                                 $firstrun++;
                                             } ?>
