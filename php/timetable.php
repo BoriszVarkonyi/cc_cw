@@ -139,5 +139,6 @@
         </div>
         <script src="../js/main.js"></script>
         <!--<script src="../js/timetable.js"></script>-->
+        <script src="../js/overlay_panel.js"></script>
     </body>
 </html>

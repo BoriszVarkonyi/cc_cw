@@ -1668,5 +1668,5 @@ if (isset($_POST["generate_table"])) {
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/table.js"></script>
-
+<script src="../js/overlay_panel.js"></script>
 </html>

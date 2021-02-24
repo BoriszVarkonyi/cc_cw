@@ -347,4 +347,5 @@ if(mysqli_num_rows($query_do) == 0){
 <script src="../js/ranking.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/overlay_panel.js"></script>
 </html>

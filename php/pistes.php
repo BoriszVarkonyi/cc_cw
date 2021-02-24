@@ -479,4 +479,5 @@ if(isset($_POST["create_piste"])){
     </body>
 <script src="../js/main.js"></script>
 <script src="../js/pistes.js"></script>
+<script src="../js/overlay_panel.js"></script>
 </html>

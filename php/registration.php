@@ -193,5 +193,6 @@
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
 </html>

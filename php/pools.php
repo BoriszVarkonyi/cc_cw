@@ -1109,5 +1109,5 @@ $fencers = count($json_table);
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
 <script src="../js/pools.js"></script>
-
+<script src="../js/overlay_panel.js"></script>
 </html>
