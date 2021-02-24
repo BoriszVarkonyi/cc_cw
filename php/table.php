@@ -319,10 +319,10 @@ if (isset($_POST["generate_table"])) {
                     </div>
                 <?php } ?>
                 <div class="view_button_wrapper zoom">
-                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
+                    <button class="view_button" onclick="tableZoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out-black-18dp.svg"/>
                     </button>
-                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
+                    <button class="view_button" onclick="tableZoomIn()" id="zoomInButton">
                         <img src="../assets/icons/zoom_in-black-18dp.svg"/>
                     </button>
                 </div>

@@ -162,3 +162,42 @@ for(i=eliminations.length-1; i>=0; i--){
     }
 
 }
+
+//Table zoom in/zzom out buttons
+var tableRounds = document.querySelectorAll(".table_round");
+var marginNumber = 30;
+
+function tableZoomOut(){
+    marginNumber -= 1;
+    for(i=0; i<tableRounds.length; i++){
+        tableRounds[i].style.marginTop = (marginNumber) + "px";
+        tableRounds[i].style.marginBottom = (marginNumber) + "px";
+    }
+    zoomButtonDisabler();
+}
+
+function tableZoomIn(){
+    marginNumber += 1;
+    for(i=0; i<tableRounds.length; i++){
+        tableRounds[i].style.marginTop = (marginNumber) + "px";
+        tableRounds[i].style.marginBottom = (marginNumber) + "px";
+    }
+    zoomButtonDisabler();
+}
+
+function zoomButtonDisabler(){
+    var zoomOutButton = document.getElementById("zoomOutButton");
+    var zoomInButton = document.getElementById("zoomInButton"); 
+    if(marginNumber <= 5){
+        zoomOutButton.disabled = true; 
+    }
+    else{
+        zoomOutButton.disabled = false; 
+    }
+    if(marginNumber >= 50){
+        zoomInButton.disabled = true;
+    }
+    else{
+        zoomInButton.disabled = false;
+    }
+}
