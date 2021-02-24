@@ -243,3 +243,19 @@ function divisionButtonDisabler(){
         rightDivisionButton.disabled = false;
     }
 }
+
+//Club Nation deleter
+var clubAndNationInput= document.querySelectorAll("#set_club_input, #set_nation_input")
+clubAndNationInput.forEach(item => { 
+    item.addEventListener("keyup", function(e) {
+        var ul = item.nextElementSibling.nextElementSibling;
+        if(ul.classList.contains("empty")){
+            item.value = "";
+            ul.classList.remove("empty")
+            ul.classList.add("error")
+        }
+        else{
+            ul.classList.remove("error")
+        }
+    })    
+})

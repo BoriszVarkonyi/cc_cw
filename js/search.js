@@ -43,7 +43,6 @@ function searchEngine(x) {
     //importOverlayClosed is a var. from importoverlay.js
     importOverlayClosed = true;
     input.onkeydown = (keyDownEvent) => {
-        console.log("a fasz van itt?")
         if(importOverlayClosed){
             if(keyDownEvent.key == "ArrowUp"){
                 if(selectedElementIndex == 0) {
