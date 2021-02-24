@@ -115,30 +115,30 @@
                                 <div class="form_wrapper">
                                     <div>
                                         <div>
-                                            <label>HOST COUNTRY:</label>
+                                            <label>HOST COUNTRY</label>
                                             <p><?php echo $host_country ?></p>
                                         </div>
                                         <div>
-                                            <label>LOCATION AND ADDRESS:</label>
+                                            <label>LOCATION AND ADDRESS</label>
                                             <p><?php echo $city_street ?></p>
                                             <p><?php echo $zip_code ?></p>
                                         </div>
                                         <div>
-                                            <label>ENTRY-FEE:</label>
+                                            <label>ENTRY-FEE</label>
                                             <p><?php echo $entry_fee ?></p>
                                         </div>
                                     </div>
                                     <div>
                                         <div>
-                                            <label>STARTING DATE:</label>
+                                            <label>STARTING DATE</label>
                                             <p><?php echo $starting_date ?></p>
                                         </div>
                                         <div>
-                                            <label>ENDING DATE:</label>
+                                            <label>ENDING DATE</label>
                                             <p><?php echo $ending_date ?></p>
                                         </div>
                                         <div>
-                                            <label>END OF PRE-REGISTRTATION:</label>
+                                            <label>END OF PRE-REGISTRTATION</label>
                                             <p><?php echo $end_of_pre_reg ?></p>
                                         </div>
                                     </div>

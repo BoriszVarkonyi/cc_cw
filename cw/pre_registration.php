@@ -34,19 +34,19 @@ if(isset($_POST["send_pre"])){
                             <img src="../assets/icons/close-black-18dp.svg">
                         </button>
                         <p class="title">Are you sure you want to send this Pre-Registration with the following informations?</p>
-                        <label>FEDERATION'S NAME:</label>
+                        <label>FEDERATION'S NAME</label>
                         <p>FED NAME</p>
-                        <label>COUNTRY / FENCING CLUB:</label>
+                        <label>COUNTRY / FENCING CLUB</label>
                         <P>GER</P>
-                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
                         <p>g</p>
-                        <label>FEDERATION'S PHONE NUMBER:</label>
+                        <label>FEDERATION'S PHONE NUMBER</label>
                         <p>grg</p>
-                        <label>CONTACT KEEPER'S FULL NAME:</label>
+                        <label>CONTACT KEEPER'S FULL NAME</label>
                         <p>grg</p>
-                        <label>CONTACT KEEPER'S EMAIL ADDRESS:</label>
+                        <label>CONTACT KEEPER'S EMAIL ADDRESS</label>
                         <p>grg</p>
-                        <label>CONTACT KEEPER'S PHONE NUMBER:</label>
+                        <label>CONTACT KEEPER'S PHONE NUMBER</label>
                         <p>grg</p>
                         <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
                     </div>
@@ -71,33 +71,33 @@ if(isset($_POST["send_pre"])){
                         <div class="form_wrapper">
                             <div>
                                 <div>
-                                    <label>FEDERATION'S NAME:</label>
+                                    <label>FEDERATION'S NAME</label>
                                     <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input alt">
                                 </div>
                                 <div>
-                                    <label>COUNTRY / FENCING CLUB:</label>
+                                    <label>COUNTRY / FENCING CLUB</label>
                                     <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
                                 </div>
                                 <div>
-                                    <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                                    <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
                                     <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                                 </div>
                                 <div>
-                                    <label>FEDERATION'S PHONE NUMBER:</label>
+                                    <label>FEDERATION'S PHONE NUMBER</label>
                                     <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <label>CONTACT KEEPER'S FULL NAME:</label>
+                                    <label>CONTACT KEEPER'S FULL NAME</label>
                                     <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">
                                 </div>
                                 <div>
-                                    <label>CONTACT KEEPER'S EMAIL ADDRESS:</label>
+                                    <label>CONTACT KEEPER'S EMAIL ADDRESS</label>
                                     <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">
                                 </div>
                                 <div>
-                                    <label>CONTACT KEEPER'S PHONE NUMBER:</label>
+                                    <label>CONTACT KEEPER'S PHONE NUMBER</label>
                                     <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">
                                 </div>
                             </div>

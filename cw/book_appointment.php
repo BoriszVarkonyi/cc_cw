@@ -54,13 +54,13 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                             <img src="../assets/icons/close-black-18dp.svg">
                         </button>
                         <p class="title">Are you sure you want to send this Pre-Registration with these informations?</p>
-                        <label>COUNTRY / FENCING CLUB:</label>
+                        <label>COUNTRY / FENCING CLUB</label>
                         <p>BEBGUWE</p>
-                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
                         <p>BEBGUWE</p>
-                        <label>NUMBER OF FENCERS:</label>
+                        <label>NUMBER OF FENCERS</label>
                         <p>7</p>
-                        <label>SELECTED APPOINTMENT:</label>
+                        <label>SELECTED APPOINTMENT</label>
                         <p>2014.05.07 14:20</p>
                         <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
                     </div>
@@ -74,7 +74,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                         <div class="form_wrapper">
                             <div>
                                 <div>
-                                    <label>COUNTRY / FENCING CLUB:</label>
+                                    <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
                                         <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
                                         <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
@@ -84,13 +84,13 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                     </div>
                                 </div>
                                 <div>
-                                    <label>FEDERATION'S OFFICAL EMAIL ADDRESS:</label>
+                                    <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
                                     <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <label>NUMBER OF FENCERS:</label>
+                                    <label>NUMBER OF FENCERS</label>
                                     <input type="number" name="c_phone" class="number_input centered alt" placeholder="#" id="fencerNumber">
                                 </div>
                             </div>
