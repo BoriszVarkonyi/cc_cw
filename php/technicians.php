@@ -126,8 +126,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Technicians</title>
-    <link rel="stylesheet" href="../css/mainstyle.css">
-    <link rel="stylesheet" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
 <body class="preload">
 <!-- header -->

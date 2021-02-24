@@ -133,6 +133,7 @@
 	border-radius: 4px;
 	margin: 30px 25px;
 	z-index: 6;
+	transition: margin var(--t-basic);
 }
 
 .table_fencer::before, .table_round::after, .table_round_wrapper::before {

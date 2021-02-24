@@ -150,10 +150,10 @@ $array_getdata = array ("comp_name", "comp_sex", "comp_weapon", "comp_equipment"
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $assoc_array_data['comp_name'] ?></title>
-    <link rel="stylesheet" href="../css/mainstyle.css">
-    <link rel="stylesheet" href="../css/basestyle.css">
-    <link rel="stylesheet" href="../css/print_invitation_style.css">
-    <link rel="stylesheet" href="../css/print_style.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/print_invitation_style.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css">
 </head>
 <body>
 <!-- header -->

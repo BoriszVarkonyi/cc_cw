@@ -25,8 +25,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $title ?></title>
-    <link rel="stylesheet" href="../css/cw_mainstyle.css">
-    <link rel="stylesheet" href="../css/basestyle.css">
+    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
 <body class="blog">
     <?php include "cw_header.php"; ?>
