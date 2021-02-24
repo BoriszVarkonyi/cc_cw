@@ -5,3 +5,23 @@ document.addEventListener("keyup", function(e){
         orangeSaveButton.click()
     }
 })
+
+//Form option Buttons
+var useOptionButton = document.getElementById("used");
+var useOptions = document.querySelectorAll("#useOptionContainer input");
+var dontUseOptionButton = document.getElementById("not_used");
+
+//Use option
+function useOption(){
+    for(i=0; i<useOptions.length; i++){
+        useOptions[i].disabled = false;
+    }
+}
+//Don't use option
+function dontUseOption(){
+    for(i=0; i<useOptions.length; i++){
+        useOptions[i].checked = false;
+        useOptions[i].disabled = true;
+    }
+}
+dontUseOption();

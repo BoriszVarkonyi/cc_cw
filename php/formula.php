@@ -152,13 +152,13 @@
                             <div>
                                 <label for="third_place">USAGE OF CALL ROOM</label>
                                 <div class="option_container row no_bottom">
-                                    <input type="radio" name="call_room_usage" id="used" value=""/>
+                                    <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value=""/>
                                     <label for="used">Use</label>
 
-                                    <input type="radio" name="call_room_usage" id="not_used" value="" checked/>
+                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="" checked/>
                                     <label for="not_used">Don't use</label>
                                 </div>
-                                <div class="option_container">
+                                <div class="option_container" id="useOptionContainer">
                                     <input type="checkbox" name="call_room" id="64" value="64"/>
                                     <label for="64">64</label>
                                     <input type="checkbox" name="call_room" id="32" value="32"/>
