@@ -319,7 +319,14 @@ if (isset($_POST["generate_table"])) {
                         </button>
                     </div>
                 <?php } ?>
-
+                <div class="view_button_wrapper zoom">
+                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
+                        <img src="../assets/icons/zoom_out-black-18dp.svg"/>
+                    </button>
+                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
+                        <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                    </button>
+                </div>
             </div>
             <div id="ref_panel" class="overlay_panel hidden">
                 <button class="panel_button" onclick="toggleRefPanel()">
