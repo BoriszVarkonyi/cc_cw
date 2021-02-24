@@ -52,6 +52,8 @@ if (isset($_POST["generate_table"])) {
         public $name;
         public $nation;
         public $id;
+        public $score;
+        public $cards;
         public $isWinner;
 
         function __construct($fencer_obj)
@@ -59,6 +61,8 @@ if (isset($_POST["generate_table"])) {
             $this->name = $fencer_obj->prenom . " " . $fencer_obj->nom;
             $this->nation = $fencer_obj->nation;
             $this->id = $fencer_obj->id;
+            $this->score = NULL;
+            $this->cards = [];
             $this->isWinner = false;
         }
     }
@@ -109,8 +113,6 @@ if (isset($_POST["generate_table"])) {
             $this->isWinner = false;
         }
     }
-
-
 
 
     //CHECK WHICH TABLE WILL PROGRAM USE
@@ -1670,3 +1672,9 @@ if (isset($_POST["generate_table"])) {
 <script src="../js/table.js"></script>
 
 </html>
+
+<?php
+
+
+
+?>
