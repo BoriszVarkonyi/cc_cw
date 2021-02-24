@@ -919,7 +919,9 @@ header {
 
 #nav_bar img {
 	-webkit-filter: var(--ci-primarycontrast);
-	        filter: var(--ci-primarycontrast);
+	filter: var(--ci-primarycontrast);
+	width: 1em;
+	height: 1em;
 }
 
 #nav_bar_pin:hover {
