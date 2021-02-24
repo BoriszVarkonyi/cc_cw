@@ -1495,8 +1495,8 @@ header {
 	height: 50vh;
     top: 50%;
     left: 50%;
-	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 #panel_main {		/* The main part of the panel it is under the title_stripe*/
@@ -1582,9 +1582,19 @@ label.small {
 	margin: 3px 0 20px;
 }
 
-.option_container.row > label {
-	margin: 0 10px 0 0;
+.option_container.no_bottom {
+	margin: 3px 0 0 !important;
+	border-bottom: 1px solid var(--c-gray);
 }
+
+.option_container.row > label {
+	margin: 0 20px 0 0;
+}
+
+.option_container + .option_container {
+	margin-top: 0;
+}
+
 
 .option_container.grid {
 	display: flex;

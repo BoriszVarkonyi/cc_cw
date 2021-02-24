@@ -347,5 +347,6 @@ if($score1 != NULL && $score2 != NULL){
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/pool_results.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
 </html>

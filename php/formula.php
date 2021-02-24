@@ -99,7 +99,7 @@
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
                         <img src="../assets/icons/build-black-18dp.svg">
-                        <p>Set Formula of Pools</p>
+                        <p>Set Formula of Pools and Table</p>
                     </div>
                     <div class="db_panel_main">
 
@@ -151,12 +151,26 @@
                             </div>
                             <div>
                                 <label for="third_place">USAGE OF CALL ROOM</label>
-                                <div class="option_container">
-                                    <input type="radio" name="call_room" id="" value=""/>
-                                    <label for="">Yes</label>
+                                <div class="option_container row no_bottom">
+                                    <input type="radio" name="call_room_usage" id="used" value=""/>
+                                    <label for="used">Use</label>
 
-                                    <input type="radio" name="" id="" value=""/>
-                                    <label for="">No</label>
+                                    <input type="radio" name="call_room_usage" id="not_used" value="" checked/>
+                                    <label for="not_used">Don't use</label>
+                                </div>
+                                <div class="option_container">
+                                    <input type="checkbox" name="call_room" id="64" value="64"/>
+                                    <label for="64">64</label>
+                                    <input type="checkbox" name="call_room" id="32" value="32"/>
+                                    <label for="32">32</label>
+                                    <input type="checkbox" name="call_room" id="16" value="16"/>
+                                    <label for="16">16</label>
+                                    <input type="checkbox" name="call_room" id="8" value="8"/>
+                                    <label for="8">8</label>
+                                    <input type="checkbox" name="call_room" id="4" value="4"/>
+                                    <label for="4">4</label>
+                                    <input type="checkbox" name="call_room" id="2" value="2"/>
+                                    <label for="2">2</label>
                                 </div>
                             </div>
                         </div>

@@ -149,10 +149,9 @@ if (isset($_POST["generate_table"])) {
 
     $fencer_empty = new emptyfencer();
 
-    for ($i=0; $i < $remaining; $i++) {
+    for ($i = 0; $i < $remaining; $i++) {
 
         array_push($fencer_objects, $fencer_empty);
-
     }
 
 
@@ -296,7 +295,7 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
-                            <img src="../assets/icons/add_box-black-18dp.svg"/>
+                            <img src="../assets/icons/add_box-black-18dp.svg" />
                         </button>
                     </div>
 
@@ -304,19 +303,19 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg"/>
+                            <img src="../assets/icons/message-black-18dp.svg" />
                         </button>
                         <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
                             <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg"/>
+                            <img src="../assets/icons/ballot-black-18dp.svg" />
                         </button>
                         <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg"/>
+                            <img src="../assets/icons/ballot-black-18dp.svg" />
                         </button>
                         <button class="stripe_button primary" type="submit">
                             <p>Start next Round</p>
-                            <img src="../assets/icons/next_plan-black-18dp.svg"/>
+                            <img src="../assets/icons/next_plan-black-18dp.svg" />
                         </button>
                     </div>
                 <?php } ?>
@@ -329,15 +328,15 @@ if (isset($_POST["generate_table"])) {
                 <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                     <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
                     <div class="option_container row">
-                        <input type="checkbox" name="pistes_type" checked id="true" value=""/>
+                        <input type="checkbox" name="pistes_type" checked id="true" value="" />
                         <label for="true">True</label>
                     </div>
                     <label for="pistes_type">SELECT REFEREES</label>
                     <div class="option_container row">
-                        <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value=""/>
+                        <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value="" />
                         <label for="all_ref">Use all</label>
 
-                        <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value=""/>
+                        <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value="" />
                         <label for="manual_select_ref">Select manually</label>
                     </div>
 
@@ -381,96 +380,96 @@ if (isset($_POST["generate_table"])) {
 
                     <label for="pistes_type">PISTES</label>
                     <div class="option_container row">
-                        <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value=""/>
+                        <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value="" />
                         <label for="all">Use all</label>
 
-                        <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value=""/>
+                        <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value="" />
                         <label for="manual_select">Select manually</label>
                     </div>
 
                     <div class="option_container grid piste_select disabled" id="select_pistes_panel">
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
                         <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value=""/>
+                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
                             <label for="piste_1">Piste 1</label>
                         </div>
 
@@ -497,1038 +496,6 @@ if (isset($_POST["generate_table"])) {
                         <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                             <img src="../assets/icons/arrow_forward_ios-black-18dp.svg">
                         </div>
-                        <!-- <div id="e_1" class="elimination">
-                            <div class="elimination_label">Table of __</div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="e_2" class="elimination">
-                            <div class="elimination_label">Table of __</div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="e_3" class="elimination">
-                            <div class="elimination_label">Table of __</div>
-                            <div class="table_round_wrapper finished blue">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished yellow">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished green">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished red">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="e_4" class="elimination">
-                            <div class="elimination_label">Table of __</div>
-                            <div class="table_round_wrapper finished purple">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                            <div class="table_round_wrapper finished purple">
-                                <div>
-                                    <p>Ref: {Referee's Name}</p>
-                                    <p>12:00</p>
-                                </div>
-                                <div class="table_round" onclick="tableRoundConfig(this)">
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                    <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
-                                        </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>VRef: {Referee's Name}</p>
-                                    <p>Piste: Red</p>
-                                </div>
-                            </div>
-                        </div> -->
 
                         <?php
 
@@ -1571,23 +538,15 @@ if (isset($_POST["generate_table"])) {
                                 ?>
 
                                     <div class="table_round_wrapper finished <?php echo $writecolor ?>">
-                                        <div>
-                                            <p>Ref: <?php echo $tablematches->referees->ref->name ?> (<?php echo $tablematches->referees->ref->nation ?>)</p>
-                                            <p><?php echo $tablematches->pistetime->time ?></p>
-                                        </div>
                                         <div class="table_round" onclick="tableRoundConfig(this)">
 
                                             <?php
-
-                                            $only2 = 0;
+                                            $firstrun = 0;
                                             foreach ($tablematches as $fencerkey => $tablefencer) {
-
                                                 if ($fencerkey == "referees" || $fencerkey == "pistetime") {
                                                     continue;
                                                 }
-
                                             ?>
-
                                                 <div class="table_fencer">
                                                     <div class="table_fencer_number">
                                                         <p><?php echo $fencerkey ?></p>
@@ -1601,34 +560,25 @@ if (isset($_POST["generate_table"])) {
                                                     </div>
 
                                                 </div>
+                                                <?php
+                                                if ($firstrun == 0) { ?>
 
-                                            <?php
+                                                    <div>
+                                                        <p>Ref: <?php echo $tablematches->referees->ref->name ?> (<?php echo $tablematches->referees->ref->nation ?>)</p>
+                                                        <p><?php echo $tablematches->pistetime->time ?></p>
+                                                    </div>
+                                                    <div>
+                                                        <p>VRef: <?php echo $tablematches->referees->vref->name ?> (<?php echo $tablematches->referees->vref->nation ?>)</p>
+                                                        <p>Piste: <?php echo $tablematches->pistetime->pistename ?></p>
+                                                    </div>
+                                            <?php }
+                                                $firstrun++;
                                             } ?>
-                                            <!-- <div class="table_fencer">
-                                        <div class="table_fencer_number">
-                                            <p>25</p>
                                         </div>
-                                        <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bidafrg</p>
-                                        </div>
-                                        <div class="table_fencer_nat">
-                                            <p>rus</p>
-                                        </div>
-                                    </div> -->
 
-
-                                        </div>
-                                        <div>
-                                            <p>VRef: <?php echo $tablematches->referees->vref->name ?> (<?php echo $tablematches->referees->vref->nation ?>)</p>
-                                            <p>Piste: <?php echo $tablematches->pistetime->pistename ?></p>
-                                        </div>
                                     </div>
                                 <?php $innercounter++;
                                 } ?>
-
-
-
-
                             </div>
 
                         <?php
@@ -1670,11 +620,6 @@ if (isset($_POST["generate_table"])) {
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/table.js"></script>
+<script src="../js/overlay_panel.js"></script>
 
 </html>
-
-<?php
-
-
-
-?>
