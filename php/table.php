@@ -527,7 +527,7 @@ if (isset($_POST["generate_table"])) {
                                 }
                                 $innercounter = 0;
                                 $changecounter = 1;
-                                foreach ($tablerounds as $tablematches) {
+                                foreach ($tablerounds as $keyofmatch => $tablematches) {
 
                                     if ($innercounter == $change_every) {
 
@@ -544,7 +544,7 @@ if (isset($_POST["generate_table"])) {
                                 ?>
 
                                     <div class="table_round_wrapper finished <?php echo $writecolor ?>">
-                                        <div class="table_round" onclick="tableRoundConfig(this)">
+                                        <div class="table_round" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
 
                                             <?php
                                             $firstrun = 0;

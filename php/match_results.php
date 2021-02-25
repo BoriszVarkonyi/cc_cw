@@ -5,6 +5,16 @@
 
 <?php
 
+$qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
+    } else {
+        echo mysqli_error($connection);
+    }
+
+
 
 
 ?>
