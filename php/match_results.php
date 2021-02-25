@@ -87,14 +87,15 @@ $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'"
                             </button>
                         </div>
                     </div>
-                    <div class="match_fencers_results">
+                    <form class="match_fencers_results">
                         <div id="fencer_1" class="fencer_wrapper">
                             <div>
                                 <p>Fencer 1 Name</p>
+                                <input type="number" class="" placeholder="fencers id">
                                 <input type="number" class="match_fencer_points" placeholder="#">
                                 <p class="winner_text">WINNER</p>
                             </div>
-                            <form class="fencers_cards_wrapper">
+                            <div class="fencers_cards_wrapper">
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
@@ -126,16 +127,17 @@ $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'"
                                     </div>
                                 </div>
                                 <button class="disqualify_button">Disqualify</button>
-                            </form>
+                            </div>
                         </div>
 
                         <div id="fencer_2" class="fencer_wrapper">
                             <div>
                                 <p>Fencer 2 Name</p>
+                                <input type="number" class="" placeholder="fencers id">
                                 <input type="number" class="match_fencer_points" placeholder="#">
                                 <p class="winner_text">WINNER</p>
                             </div>
-                            <form class="fencers_cards_wrapper">
+                            <div class="fencers_cards_wrapper">
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
@@ -167,9 +169,9 @@ $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'"
                                     </div>
                                 </div>
                                 <button class="disqualify_button">Disqualify</button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
