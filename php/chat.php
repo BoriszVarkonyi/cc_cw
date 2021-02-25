@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/chat_style.min.css">
 </head>
-<body class="preload">
+<body>
     <div id="header" class="white_glass to_r">
         <p id="app_name">CC CHAT APLHA</p>
         <div id="indentity_wrapper" class="white_glass base">
@@ -22,7 +22,7 @@
     <div id="content_wrapper">
         <div id="nav_bar" class="white_glass base">
             <div id="nav_bar_selector">
-                <button class="selected">individuals</button>
+                <button class="selected">Individuals</button>
                 <button>Groups</button>
             </div>
             <div id="nav_bar_main">
@@ -64,8 +64,88 @@
                     </div>
                 </div>
                 <div id="content_main" class="white_glass light">
-
-
+                    <div id="chat_wrapper">
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other last">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper me last">
+                            <div class="chat_bubble">pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</div>
+                            <div class="chat_info">
+                                <p>user_number_1&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspDT&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp19:10</p>
+                            </div>
+                        </div>
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                        <div class="chat_bubble_wrapper other last">
+                            <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
+                        </div>
+                    </div>
+                    <div id="chat_controls">
+                        <form id="">
+                            <textarea name="" id="" cols="30" rows="1" placeholder="Aa"></textarea>
+                            <button>
+                                <img src="../assets/icons/send-black-18dp.svg" alt="Send Button">
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
