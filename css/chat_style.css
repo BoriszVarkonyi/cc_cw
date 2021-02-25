@@ -240,6 +240,106 @@ body::after {
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
+    padding: 50px;
+    position: relative;
+}
+
+#chat_wrapper {
+    max-width: 100%;
+    width: 100%;
+}
+
+.chat_bubble_wrapper {
+    display: flex;
+    max-width: 40vw;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat_bubble_wrapper.me {
+   margin-left: auto;
+}
+
+.chat_bubble {
+    text-overflow: ellipsis;
+    padding: 10px 15px 30px;
+    margin-bottom: -15px;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 calc(100% - 20px));
+}
+
+.chat_bubble_wrapper.last {
+    margin-bottom: 10px;
+}
+
+.chat_bubble_wrapper.other.last .chat_bubble {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 20px calc(100% - 20px), 0 100%);
+    margin-bottom: 0;
+}
+
+.chat_bubble_wrapper.me.last .chat_bubble {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - 20px) calc(100% - 20px), 0 calc(100% - 20px));
+    margin-bottom: 0;
+}
+
+.chat_info {
+    position: absolute;
+    bottom: 0;
+    line-height: 1;
+    left: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#chat_controls {
+    position: absolute;
+    width: 50vw;
+    max-width: 100%;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 0;
+    position: static;
+}
+
+#chat_controls form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    flex: 1 1 100%;
+    border-radius: 10px;
+    min-height: 37px;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    padding: 8.5px 0 0 15px;
+    box-sizing: border-box;
+    transition: min-height var(--t-basic);
+}
+
+textarea:focus {
+    min-height: 100px;
+    transition: min-height var(--t-basic);
+}
+
+#chat_controls button {
+    flex: 0 0 auto;
+    width: 37px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    margin-left: 15px;
+    border-radius: 50%;
+}
+
+#chat_controls button img {
+    width: 20px;
+    height: 20px;
 }
 
 .white_glass {

@@ -184,20 +184,118 @@ function tableZoomIn(){
     }
     zoomButtonDisabler();
 }
-
-function zoomButtonDisabler(){
-    var zoomOutButton = document.getElementById("zoomOutButton");
-    var zoomInButton = document.getElementById("zoomInButton"); 
+var zoomOutButton = document.getElementById("zoomOutButton");
+var zoomInButton = document.getElementById("zoomInButton");
+function zoomButtonDisabler(){ 
     if(marginNumber <= 5){
+        holding = false;
         zoomOutButton.disabled = true; 
     }
     else{
         zoomOutButton.disabled = false; 
     }
     if(marginNumber >= 50){
+        holding = false;
         zoomInButton.disabled = true;
     }
     else{
         zoomInButton.disabled = false;
     }
 }
+
+//Check if zoom in/ zoom out butto is held down for x sec
+var buttons = [zoomInButton, zoomOutButton]
+var lastKeyUpAt = 0;
+var canAutoZoom = false;
+buttons.forEach(item => { 
+    item.addEventListener('mousedown', function() {
+        // Set key down time to the current time
+        var keyDownAt = new Date();
+        canAutoZoom = false;
+        // Use a timeout with 1000ms (this would be your X variable)
+        setTimeout(function() {
+            // Compare key down time with key up time
+            if (+keyDownAt > +lastKeyUpAt){
+                canAutoZoom = true;// Key has been held down for x seconds
+            }
+            else{
+                canAutoZoom = false;// Key has not been held down for x seconds
+            }
+        }, 1000);
+    });
+})
+
+buttons.forEach(item => { 
+    item.addEventListener('mouseup', function() {
+        // Set lastKeyUpAt to hold the time the last key up event was fired
+        lastKeyUpAt = new Date();
+    });
+})
+
+//Zoom out button hold
+function oGetCursorPosition(zoomOutButton, event) {
+  const rect = zoomOutButton.getBoundingClientRect()
+  const x = event.clientX - rect.left
+  const y = event.clientY - rect.top
+  if(!zoomOutButton.disabled && canAutoZoom){
+    tableZoomOut(); 
+  }
+}
+var omousePosition, oholding;
+
+function oMyInterval() {
+  var setIntervalId = setInterval(function() {
+    if (!holding) clearInterval(setIntervalId);
+    oGetCursorPosition(zoomOutButton, mousePosition);
+  }, 100); //set your wait time between consoles in milliseconds here
+}
+zoomOutButton.addEventListener('mousedown', function() {
+    holding = true;
+    oMyInterval();
+})
+zoomOutButton.addEventListener('mouseup', function() {
+    holding = false;
+    oMyInterval();
+})
+zoomOutButton.addEventListener('mouseleave', function() {
+    holding = false;
+})
+zoomOutButton.addEventListener('mousemove', function(e) {
+    mousePosition = e;
+})
+
+//Zoom in button hold
+function iGetCursorPosition(zoomInButton, event) {
+const rect = zoomInButton.getBoundingClientRect()
+const x = event.clientX - rect.left
+const y = event.clientY - rect.top
+if(!zoomInButton.disabled && canAutoZoom){
+    tableZoomIn(); 
+}
+}
+var imousePosition, iholding;
+
+function iMyInterval() {
+var setIntervalId = setInterval(function() {
+    if (!holding) clearInterval(setIntervalId);
+    iGetCursorPosition(zoomInButton, mousePosition);
+}, 100); //set your wait time between consoles in milliseconds here
+}
+zoomInButton.addEventListener('mousedown', function() {
+    holding = true;
+    iMyInterval();
+})
+zoomInButton.addEventListener('mouseup', function() {
+    holding = false;
+    iMyInterval();
+})
+zoomInButton.addEventListener('mouseleave', function() {
+    holding = false;
+})
+zoomInButton.addEventListener('mousemove', function(e) {
+    mousePosition = e;
+})
+
+  
+
+

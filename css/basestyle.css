@@ -700,12 +700,20 @@ label + .search_wrapper.wide .search {
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
-.search_results.empty::after {
-	content: "No results";
+.search_results::after {
 	position: relative;
 	text-align: center;
 	padding: 30px 0;
 	font-family: var(--bold);
+}
+
+.search_results.empty::after {
+	content: "No results";
+}
+
+.search_results.error::after {
+	content: "Incorrect";
+	color: var(--c-red);
 }
 
 .search_results > * {
