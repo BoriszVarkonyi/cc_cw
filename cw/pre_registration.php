@@ -71,8 +71,8 @@ if(isset($_POST["send_pre"])){
                         <div class="form_wrapper">
                             <div>
                                 <div>
-                                    <label>FEDERATION'S NAME</label>
-                                    <input type="text" name="f_name" placeholder="Type in the federation's name" class="name_input alt">
+                                    <label for="f_name">FEDERATION'S NAME</label>
+                                    <input type="text" name="f_name" id="f_name" placeholder="Type in the federation's name" class="name_input alt">
                                 </div>
                                 <div>
                                     <label>COUNTRY / FENCING CLUB</label>

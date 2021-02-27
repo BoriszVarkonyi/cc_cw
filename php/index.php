@@ -169,9 +169,8 @@ checkComp($connection);
                     <img src="<?php echo $logo ?>" class="comp_logo"/>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
-                    <form id="publishcomp" class="hidden"></form>
-                    <div class="stripe_button_wrapper">
-                        <button class="stripe_button primary only <?php echo $publish_comp_disabled ?>" id="publishcomp">
+                    <div id="publishcomp" class="stripe_button_wrapper">
+                        <button class="stripe_button primary <?php echo $publish_comp_disabled ?>">
                             <p>Publish Competition</p>
                             <img src="../assets/icons/send-black-18dp.svg"/>
                         </button>

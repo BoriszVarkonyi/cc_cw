@@ -93,6 +93,7 @@ header {
 	z-index: 10;
 	font-family: var(--bold);
 	transition: all var(--t-basic);
+	max-width: 50vw;
 }
 
 #competition_select.opened {
@@ -115,13 +116,19 @@ header {
 	filter: var(--ci-secondarycontrast);
 }
 
+#competition_select p {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
 #competition_select + div {
 	font-size: var(--f-small);
 	border: 2px solid var(--c-lightgray);
 	border-top: 5px solid var(--c-white);
 	box-sizing: border-box;
 	position: absolute;
-	width: 50vw;
+	width: 100%;
 	top: 10px;
 	display: flex;
 	flex-direction: column;
@@ -723,6 +730,10 @@ header {
 
 .view_button_wrapper button:hover {
 	background: var(--c-lightergray);
+}
+
+.view_button_wrapper button:active {
+	background: var(--c-lightestgray);
 }
 
 .view_button_wrapper button:disabled {
@@ -1630,6 +1641,10 @@ label.small {
 }
 
 /* Checkbox Input */
+
+input[type=checkbox], input[type=radio] {
+	display: none;
+}
 
 input[type=checkbox] + label:before {
 	border-radius: 5px;
