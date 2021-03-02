@@ -166,7 +166,7 @@ checkComp($connection);
                     <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
                         <img src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
                     </button>
-                    <img src="<?php echo $logo ?>" class="comp_logo"/>
+                    <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
                     <p class="comp_title"><?php echo $comp_name; ?></p>
 
                     <div id="publishcomp" class="stripe_button_wrapper">

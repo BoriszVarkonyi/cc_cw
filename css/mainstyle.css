@@ -76,7 +76,9 @@ header {
 #competition_select_wrapper {
 	margin: auto;
 	font-size: var(--f-small);
-	width: 50vw;
+	width: 100%;
+	max-width: 50vw;
+	position: relative;
 }
 
 #competition_select {
@@ -89,7 +91,6 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
 	z-index: 10;
 	font-family: var(--bold);
 	transition: all var(--t-basic);
@@ -113,6 +114,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	transform: rotate(0deg);
+	-webkit-filter: var(--ci-secondarycontrast);
 	filter: var(--ci-secondarycontrast);
 }
 
@@ -124,27 +126,28 @@ header {
 
 #competition_select + div {
 	font-size: var(--f-small);
-	border: 2px solid var(--c-lightgray);
-	border-top: 5px solid var(--c-white);
 	box-sizing: border-box;
 	position: absolute;
-	width: 100%;
-	top: 10px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--c-white);
 	border-radius: 0 0 5px 5px;
 	z-index: 9;
-	padding: 5px 0;
+	overflow: hidden;
+	width: 100%;
 	max-height: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
+	will-change: auto;
+	margin-top: -3px;
+	top: 30px;
 }
 
 #competition_select.opened + div {
-	top: 30px;
 	max-height: 20vh;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 2px solid var(--c-lightgray);
+	border-top: 5px solid var(--c-white);
+	z-index: 9;
 }
 
 .competition_button {
@@ -202,8 +205,8 @@ header {
 
 .profile_picture_big {
 	border-radius: 50%;
-	height: 30%;
-	width: 30%;
+	width: 55px;
+	height: 55px;
 	margin-top: 15px;
 }
 
@@ -255,8 +258,8 @@ header {
 }
 
 #menu_button > img {
-	width: 65%;
-	height: 65%;
+	width: 25px;
+	height: 25px;
 }
 
 #menu_button.closed {
@@ -325,6 +328,12 @@ header {
 	background: var(--c-lightergray);
 	font-family: var(--bold);
 }
+
+.language_button:disabled {
+	pointer-events: none;
+	filter: contrast(.3);
+}
+
 
 .language_button:hover {
 	background: var(--c-lightestgray);
@@ -664,7 +673,7 @@ header {
 
 .stripe_button.primary img {
 	-webkit-filter: invert();
-	        filter: invert();
+	filter: invert();
 }
 
 .stripe_button.red {
@@ -827,7 +836,8 @@ header {
 .panel_button > img {
 	width: 20px;
 	height: 20px;
-	filter: var(--ci-secondarycontrast);
+	-webkit-filter: var(--ci-secondarycontrast);
+	        filter: var(--ci-secondarycontrast);
 }
 
 .panel_button:hover {
@@ -1398,7 +1408,6 @@ header {
 
 .comp_logo {
 	width: 50px;
-	min-width: 50px;
 	height: 50px;
 	margin: 0 10px;
 	transition: all ease-out .2s;
@@ -1508,7 +1517,6 @@ header {
 	height: 50vh;
     top: 50%;
     left: 50%;
-	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 
@@ -1853,7 +1861,8 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 .overlay_panel_controls button:disabled {
-	filter: contrast(70%);
+	-webkit-filter: contrast(70%);
+	        filter: contrast(70%);
 }
 
 .overlay_panel_controls button img {

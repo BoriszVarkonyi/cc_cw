@@ -65,7 +65,7 @@
     <div id="main">
         <div id="content">
             <div id="title_stripe" class="big">
-                <img src="<?php echo $logo_path ?>">
+                <img src="<?php echo $logo_path ?>" width="50" height="50">
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                 <p class="stripe_title"><?php echo $comp_name ?></p>
                 <button form="fav_button" name="submit_button" class="favourite_button" type="submit">

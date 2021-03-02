@@ -114,31 +114,31 @@ if (isset($_POST["logout"])) {
             </button>
         </div>
         <div id="languages_wrapper">
-            <button id="language_english" class="language_button selected">
+            <button id="english" class="language_button selected">
                 <img src="../assets/icons/english.svg" class="not_icon"/>
                 <p class="language_label">English</p>
             </button>
-            <button id="language_english" class="language_button">
+            <button id="russian" class="language_button" disabled>
                 <img src="../assets/icons/russian.svg" class="not_icon"/>
                 <p class="language_label">Russian</p>
             </button>
-            <button id="language_english" class="language_button">
+            <button id="french" class="language_button" disabled>
                 <img src="../assets/icons/french.svg" class="not_icon"/>
                 <p class="language_label">French</p>
             </button>
-            <button id="language_english" class="language_button">
+            <button id="japanese" class="language_button" disabled>
                 <img src="../assets/icons/japanese.svg" class="not_icon"/>
                 <p class="language_label">Japanese</p>
             </button>
-            <button id="language_english" class="language_button">
+            <button id="korean" class="language_button" disabled>
                 <img src="../assets/icons/korean.svg" class="not_icon"/>
                 <p class="language_label">Korean</p>
             </button>
-            <button id="language_english" class="language_button">
+            <button id="hungarian" class="language_button" disabled>
                 <img src="../assets/icons/hungarian.svg" class="not_icon"/>
                 <p class="language_label">Hungarian</p>
             </button>
-            <button id="language_english" class="language_button">
+            <button id="romanian" class="language_button" disabled>
                 <img src="../assets/icons/romanian.svg" class="not_icon"/>
                 <p class="language_label">Romanian</p>
             </button>
@@ -190,7 +190,7 @@ if (isset($_POST["logout"])) {
     }
 
     ?>
-    <img src="<?php echo $profile_pic ?>" id="profile_picture" onclick="toggle_profile_panel()"/>
+    <img src="<?php echo $profile_pic ?>" id="profile_picture" onclick="toggle_profile_panel()" height="30" width="30"/>
 
     <!-- profile data -->
     <div class="identity_section" onclick="toggle_profile_panel()">
@@ -206,7 +206,7 @@ if (isset($_POST["logout"])) {
         <a class="panel_button left" href="your_profile.php" target="_blank">
             <img src="../assets/icons/edit-black-18dp.svg"/>
         </a>
-        <img src="<?php echo $profile_pic ?>" class="profile_picture_big">
+        <img src="<?php echo $profile_pic ?>" class="profile_picture_big" height="55" width="55">
         <p class="username_big"><?php echo $username; ?></p>
         <p class="role_big"><?php echo $role; ?></p>
         <form action="" method="POST" id="logout_form">
