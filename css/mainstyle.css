@@ -4338,6 +4338,10 @@ input {
 	font-family: var(--bold);
 }
 
+.result_advanced_choice {
+	height: 30px;
+}
+
 .fencers_cards_wrapper {
 	width: 90%;
 	display: flex;
@@ -4351,7 +4355,6 @@ input {
 	display: flex;
 	flex-direction: column;
 	font-family: var(--bold);
-
 	align-items: center;
 }
 
@@ -4359,7 +4362,8 @@ input {
 	width: 100%;
 	margin: 3px 0;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: center;
 }
 
 .card_wrapper > img {
@@ -4368,16 +4372,9 @@ input {
 
 .match_fencer_cards {
 	margin: 0 !important;
-	padding: 5px !important;
-	border: none !important;
-	min-width: 0 !important;
-	min-height: 0 !important;
+	padding: 0 !important;
 	width: 50px !important;
-	height: auto !important;
-	font-size: var(--f-small) !important;
-	overflow: visible !important;
 	text-align: center;
-	border-bottom: 2px solid var(--c-gray) !important;
 }
 
 .disqualify_button {
