@@ -4228,12 +4228,14 @@ input {
 .match_settings_form > div {
 	width: 100%;
 	display: flex;
-	transition: width var(--t-basic);
+	transition: width ease-in-out .2s .2s;
 	align-items: center;
+	overflow: visible;
 }
 
 .match_settings_form > div.collapsed {
 	width: 0;
+	transition: width ease-in-out .2s;
 	overflow: hidden;
 }
 
@@ -4262,6 +4264,15 @@ input {
 	font-family: var(--bold);
 	background: transparent;
 	padding: 3px 5px;
+	overflow: hidden;
+	max-width: calc(10ch + 15px);
+	transition: width ease-in-out .2s;
+}
+
+.underlined_button.hidden {
+	max-width: 0;
+	padding: 3px 0;
+	transition: width ease-in-out .2s .2s;
 }
 
 .change_back_button {
@@ -4281,10 +4292,6 @@ input {
 .change_back_button img {
 	width: 20px;
 	height: 20px;
-}
-
-.underlined_button.hidden {
-	display: none;
 }
 
 .underlined_button:hover {
