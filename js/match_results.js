@@ -33,8 +33,8 @@ function abandonment(x) {
 
 document.addEventListener('keyup', e => {
 
-    console.log("SC1:" + parseInt(score1.value))
-    console.log("SC2:" + parseInt(score2.value))
+    //console.log("SC1:" + parseInt(score1.value))
+    //console.log("SC2:" + parseInt(score2.value))
 
     if (score1.value == "" || score2.value == "") {
 
@@ -77,10 +77,66 @@ document.addEventListener('keyup', e => {
 
 /* Chnage match attributes */
 
+function collapser() {
+    var changeButtons = document.querySelectorAll(".underlined_button");
+    for (i = 0; i < changeButtons.length; i++) {
+        changeButtons[i].nextElementSibling.classList.add("collapsed")
+        changeButtons[i].classList.remove("hidden")
+    }
+}
+
+//Referees input deleter
+var refereesInputs = document.querySelectorAll("#rfrInput, #vdrfrInput")
+refereesInputs.forEach(item => {
+    var ul = item.nextElementSibling.nextElementSibling;
+    item.addEventListener("keyup", function () {
+        if (ul.classList.contains("empty")) {
+            item.value = "";
+            ul.classList.remove("empty")
+            ul.classList.add("error")
+        }
+        else {
+            ul.classList.remove("error")
+        }
+    })
+    item.addEventListener("input", function(){
+        var hiddenInput = item.parentNode.nextElementSibling;
+        var searchResults = ul.querySelectorAll("button")
+        for(i=0; i<searchResults.length; i++){
+            if(item.value == searchResults[i].innerHTML){
+                hiddenInput.value = searchResults[i].id
+            }
+        }
+    })
+})
+
 function changeThis(x) {
+    collapser();
     var changeThisWrapper = x.nextElementSibling;
+    var input = changeThisWrapper.firstElementChild.nextElementSibling.firstElementChild;
+    if (input != null) {
+        if (input.id == "rfrInput" || input.id == ("vdrfrInput")) {
+            input.focus();
+        }
+    }
     changeThisWrapper.classList.remove("collapsed");
     x.classList.add("hidden");
-
-    console.log(changeThisWrapper)
 }
+
+function setreferee(x){
+    var hiddenInput = x.parentNode.parentNode.nextElementSibling;
+    var input = x.parentNode.parentNode.querySelector("input")
+    input.value = x.innerHTML;
+    hiddenInput.value = x.id
+}
+
+function closeWrapper(x){
+    var input = x.nextElementSibling.firstElementChild;
+    input.value = ""
+    collapser();
+}
+
+
+
+
+

@@ -67,6 +67,7 @@ function searchEngine(x) {
 function resultChecker(x){
     var input = x
     var ul = input.nextElementSibling.nextElementSibling;
+    ul.classList.remove("error")
     var li = ul.getElementsByTagName('a');
     if(li.length == 0){
         li = ul.querySelectorAll("button");

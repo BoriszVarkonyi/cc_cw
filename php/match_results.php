@@ -211,17 +211,17 @@ if (isset($_POST["save_match"])) {
                                 <p>Change</p>
                             </button>
                             <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="">
+                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
                                     <img src="../assets/icons/close-black-18dp.svg">
                                 </button>
                                 <div class="search_wrapper wide">
-                                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="" placeholder="Search and Select referee" class="search input has_icon">
+                                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="rfrInput" placeholder="Search and Select referee" class="search input has_icon">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
-                                        <button id="r1">Ember 1</button>
-                                        <button id="r2">Ember 2</button>
-                                        <button id="r3">Ember 3</button>
-                                        <button id="r4">Ember 4</button>
+                                        <button type="button" id="r1" onclick="setreferee(this)">Ember 1</button>
+                                        <button type="button" id="r2" onclick="setreferee(this)">Ember 2</button>
+                                        <button type="button" id="r3" onclick="setreferee(this)">Ember 3</button>
+                                        <button type="button" id="r4" onclick="setreferee(this)">Ember 4</button>
                                     </div>
                                 </div>
                                 <input type="text">
@@ -235,17 +235,17 @@ if (isset($_POST["save_match"])) {
                                 <p>Change</p>
                             </button>
                             <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="">
+                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
                                     <img src="../assets/icons/close-black-18dp.svg">
                                 </button>
                                 <div class="search_wrapper wide">
-                                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="" placeholder="Search and Select referee" class="search input has_icon">
+                                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="vdrfrInput" placeholder="Search and Select referee" class="search input has_icon">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
-                                        <button id="vr1">v Ember 1</button>
-                                        <button id="vr2">v Ember 2</button>
-                                        <button id="vr3">v Ember 3</button>
-                                        <button id="vr4">v Ember 4</button>
+                                        <button type="button" id="vr1" onclick="setreferee(this)">v Ember 1</button>
+                                        <button type="button" id="vr2" onclick="setreferee(this)">v Ember 2</button>
+                                        <button type="button" id="vr3" onclick="setreferee(this)">v Ember 3</button>
+                                        <button type="button" id="vr4" onclick="setreferee(this)">v Ember 4</button>
                                     </div>
                                 </div>
                                 <input type="text">
@@ -259,7 +259,7 @@ if (isset($_POST["save_match"])) {
                                 <p>Change</p>
                             </button>
                             <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="">
+                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
                                     <img src="../assets/icons/close-black-18dp.svg">
                                 </button>
                                 <div class="search_wrapper narrow">
@@ -268,12 +268,12 @@ if (isset($_POST["save_match"])) {
                                     </button>
                                     <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                                     <div class="search_results">
-                                        <button type="button" onclick="selectSystem(this)">Main Piste</button>
-                                        <button type="button" onclick="selectSystem(this)">Piste Red</button>
-                                        <button type="button" onclick="selectSystem(this)">Piste Blue</button>
-                                        <button type="button" onclick="selectSystem(this)">Piste 1</button>
-                                        <button type="button" onclick="selectSystem(this)">Piste 2</button>
-                                        <button type="button" onclick="selectSystem(this)">Piste 3</button>
+                                        <button type="button" id="p1" onclick="setreferee(this)">Main Piste</button>
+                                        <button type="button" id="p2" onclick="setreferee(this)">Piste Red</button>
+                                        <button type="button" id="p3" onclick="setreferee(this)">Piste Blue</button>
+                                        <button type="button" id="p4" onclick="setreferee(this)">Piste 1</button>
+                                        <button type="button" id="p5" onclick="setreferee(this)">Piste 2</button>
+                                        <button type="button" id="p6" onclick="setreferee(this)">Piste 3</button>
                                     </div>
                                 </div>
                                 <input type="text">
@@ -287,7 +287,7 @@ if (isset($_POST["save_match"])) {
                                 <p>Change</p>
                             </button>
                             <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="">
+                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
                                     <img src="../assets/icons/close-black-18dp.svg">
                                 </button>
                                 <input type="time">
@@ -392,5 +392,6 @@ if (isset($_POST["save_match"])) {
     <script src="../js/match_results.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/controls.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
 </html>
