@@ -666,7 +666,7 @@ label + .search_wrapper {
 	margin: 3px 0 30px;
 }
 
-label + .search_wrapper.wide .search {
+label + .search_wrapper.wide .search, .search.has_icon  {
 	background-image: url(../assets/icons/search-black-18dp.svg);
 }
 

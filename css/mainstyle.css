@@ -4211,19 +4211,50 @@ input {
 	background: var(--c-lightgray);
 }
 
-.match_referees_wrapper {
+.match_settings_wrapper {
 	width: 100%;
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 }
 
-.match_referees_wrapper > div {
+.match_settings_form {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	height: 37px;
+}
+
+.match_settings_form > div {
+	width: 100%;
+	display: flex;
+	transition: width var(--t-basic);
+	align-items: center;
+}
+
+.match_settings_form > div.collapsed {
+	width: 0;
+	overflow: hidden;
+}
+
+.match_settings_form > div > input {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+.setting {
+	margin: 0 10px;
+}
+
+.save_change_button {
+	height: 37px;
+	background: var(--c-primary);
+	color: var(--cd-primarycontrast);
+	font-family: var(--bold);
+	padding: 0 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	margin-left: 10px;
 }
 
 .underlined_button {
@@ -4231,6 +4262,29 @@ input {
 	font-family: var(--bold);
 	background: transparent;
 	padding: 3px 5px;
+}
+
+.change_back_button {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+.change_back_button:hover {
+	background: var(--c-lightestgray);
+}
+
+.change_back_button img {
+	width: 20px;
+	height: 20px;
+}
+
+.underlined_button.hidden {
+	display: none;
 }
 
 .underlined_button:hover {

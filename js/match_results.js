@@ -1,8 +1,6 @@
 function getElements(id) {
-
     var element = document.getElementById(id)
     return element;
-
 }
 
 var winnertext1 = getElements('winner_f1')
@@ -54,7 +52,6 @@ document.addEventListener('keyup', e => {
         drawcheckbox2.style.display = 'flex'
 
     }
-
     else if (parseInt(score1.value) > parseInt(score2.value)) {
 
         winnertext1.innerHTML = "WINNER"
@@ -77,3 +74,13 @@ document.addEventListener('keyup', e => {
     }
 
 })
+
+/* Chnage match attributes */
+
+function changeThis(x) {
+    var changeThisWrapper = x.nextElementSibling;
+    changeThisWrapper.classList.remove("collapsed");
+    x.classList.add("hidden");
+
+    console.log(changeThisWrapper)
+}

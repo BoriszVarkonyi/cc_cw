@@ -187,7 +187,7 @@ if (isset($_POST["save_match"])) {
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper width_80" id="match_result_wrapper">
+                <div class="wrapper" id="match_result_wrapper">
                     <div class="match_fencers_wrapper">
                         <div>
                             <p><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?></p>
@@ -203,31 +203,98 @@ if (isset($_POST["save_match"])) {
                             </button>
                         </div>
                     </div>
-                    <div class="match_referees_wrapper">
-                        <div>
-                            Referee: <?php echo $actualobject->referees->ref->name . "(" . $actualobject->referees->ref->nation . ")"  ?>
-                            <button class="underlined_button" type="submit">
+                    <div class="match_settings_wrapper">
+                        <form class="match_settings_form">
+                            <p class="setting_title">Referee:</p>
+                            <p class="setting"><?php echo $actualobject->referees->ref->name . "(" . $actualobject->referees->ref->nation . ")"  ?></p>
+                            <button class="underlined_button" type="button" onclick="changeThis(this)">
                                 <p>Change</p>
                             </button>
-                        </div>
-                        <div>
-                            Video Referee: <?php echo $actualobject->referees->vref->name . "(" . $actualobject->referees->vref->nation . ")"  ?>
-                            <button class="underlined_button" type="submit">
+                            <div class="collapsed">
+                                <button class="change_back_button" type="button" onclick="">
+                                    <img src="../assets/icons/close-black-18dp.svg">
+                                </button>
+                                <div class="search_wrapper wide">
+                                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="" placeholder="Search and Select referee" class="search input has_icon">
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <div class="search_results">
+                                        <button id="r1">Ember 1</button>
+                                        <button id="r2">Ember 2</button>
+                                        <button id="r3">Ember 3</button>
+                                        <button id="r4">Ember 4</button>
+                                    </div>
+                                </div>
+                                <input type="text">
+                                <input type="button" class="save_change_button" value="Save">
+                            </div>
+                        </form>
+                        <form class="match_settings_form">
+                            <p class="setting_title">Video Referee:</p>
+                            <p class="setting"><?php echo $actualobject->referees->vref->name . "(" . $actualobject->referees->vref->nation . ")" ?></p>
+                            <button class="underlined_button" type="button" onclick="changeThis(this)">
                                 <p>Change</p>
                             </button>
-                        </div>
-                        <div>
-                            Piste: <?php echo $actualobject->pistetime->pistename ?>
-                            <button class="underlined_button" type="submit">
+                            <div class="collapsed">
+                                <button class="change_back_button" type="button" onclick="">
+                                    <img src="../assets/icons/close-black-18dp.svg">
+                                </button>
+                                <div class="search_wrapper wide">
+                                    <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="" placeholder="Search and Select referee" class="search input has_icon">
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <div class="search_results">
+                                        <button id="vr1">v Ember 1</button>
+                                        <button id="vr2">v Ember 2</button>
+                                        <button id="vr3">v Ember 3</button>
+                                        <button id="vr4">v Ember 4</button>
+                                    </div>
+                                </div>
+                                <input type="text">
+                                <input type="button" class="save_change_button" value="Save">
+                            </div>
+                        </form>
+                        <form class="match_settings_form">
+                            <p class="setting_title">Piste:</p>
+                            <p class="setting"><?php echo $actualobject->pistetime->pistename ?></p>
+                            <button class="underlined_button" type="button" onclick="changeThis(this)">
                                 <p>Change</p>
                             </button>
-                        </div>
-                        <div>
-                            Time: <?php echo $actualobject->pistetime->time ?>
-                            <button class="underlined_button" type="submit">
+                            <div class="collapsed">
+                                <button class="change_back_button" type="button" onclick="">
+                                    <img src="../assets/icons/close-black-18dp.svg">
+                                </button>
+                                <div class="search_wrapper narrow">
+                                    <button type="button" class="search select input" tabindex="3">
+                                        <input type="text" name="date_to_select" placeholder="Select Date">
+                                    </button>
+                                    <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                                    <div class="search_results">
+                                        <button type="button" onclick="selectSystem(this)">Main Piste</button>
+                                        <button type="button" onclick="selectSystem(this)">Piste Red</button>
+                                        <button type="button" onclick="selectSystem(this)">Piste Blue</button>
+                                        <button type="button" onclick="selectSystem(this)">Piste 1</button>
+                                        <button type="button" onclick="selectSystem(this)">Piste 2</button>
+                                        <button type="button" onclick="selectSystem(this)">Piste 3</button>
+                                    </div>
+                                </div>
+                                <input type="text">
+                                <input type="button" class="save_change_button" value="Save">
+                            </div>
+                        </form>
+                        <form class="match_settings_form">
+                            <p class="setting_title">Time:</p>
+                            <p class="setting"><?php echo $actualobject->pistetime->time ?></p>
+                            <button class="underlined_button" type="button" onclick="changeThis(this)">
                                 <p>Change</p>
                             </button>
-                        </div>
+                            <div class="collapsed">
+                                <button class="change_back_button" type="button" onclick="">
+                                    <img src="../assets/icons/close-black-18dp.svg">
+                                </button>
+                                <input type="time">
+                                <input type="text">
+                                <input type="button" class="save_change_button" value="Save">
+                            </div>
+                        </form>
                     </div>
                     <form class="match_fencers_results" id="save_match" method="POST">
                         <div id="fencer_1" class="fencer_wrapper">
@@ -321,8 +388,9 @@ if (isset($_POST["save_match"])) {
                 </div>
             </div>
         </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/match_results.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/controls.js"></script>
 </body>
-<script src="../js/main.js"></script>
-<script src="../js/match_results.js"></script>
-
 </html>
