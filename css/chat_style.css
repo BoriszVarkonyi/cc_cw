@@ -1,21 +1,15 @@
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
-    --c-white70: #FFFFFFB3;
-    --c-white60: #FFFFFF99;
-    --c-white50: #FFFFFF80;
-    --c-white40: #FFFFFF66;
+    --c-white90: rgba(255,255,255,.9);
+    --c-white80: rgba(255,255,255,.8);
+    --c-white70: rgba(255,255,255,.7);
+    --c-white60: rgba(255,255,255,.6);
+    --c-white50: rgba(255,255,255,.5);
+    --c-white40: rgba(255,255,255,.4);
+    --c-white30: rgba(255,255,255,.3);
+    --c-white20: rgba(255,255,255,.2);
+    --c-white10: rgba(255,255,255,.1);
     --bs-black: 0 1px 10px #2525254D;
     --b-basic: none;
-}
-
-@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
-    body {
-        --b-basic: blur(10px);
-    }
-
-    body::after {
-        -webkit-filter: blur(0) hue-rotate(5deg) !important;
-        filter: blur(0) hue-rotate(5deg) !important;
-    }
 }
 
 body {
@@ -23,22 +17,58 @@ body {
     max-height: 100vh;
     overflow: hidden;
     position: relative;
+    background: linear-gradient(-45deg, rgb(0,118,139), rgb(51,145,162), rgb(86,187,121), rgb(44,170,88));
+	background-size: 400% 400%;
+	-webkit-animation: gradient 10s ease infinite;
+	animation: gradient 10s ease infinite;
 }
 
-body::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    content: "";
-    -webkit-filter: blur(20px) hue-rotate(5deg);
-    filter: blur(20px) hue-rotate(5deg);
-    background-image: url(../assets/img/wavy_bg.jpg);
-	background-size: cover;
-	background-position: center center;
-    z-index: +1;
-    transform: scale(2);
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@-moz-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@-o-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 #header {
@@ -77,6 +107,10 @@ body::after {
     width: 100%;
 }
 
+#nav_bar_main {
+    cursor: pointer;
+}
+
 #nav_bar_selector {
     display: flex;
     flex-wrap: wrap;
@@ -101,15 +135,15 @@ body::after {
 }
 
 .chat_entry:hover, .chat_entry.current {
-    background: linear-gradient(to right bottom, rgba(255,255,255,.8), rgba(255,255,255,.2)) !important;
+    background: linear-gradient(to right bottom, var(--c-white70),  var(--c-white20)) !important;
 }
 
 .chat_entry:nth-child(odd){
-    background: linear-gradient(to right bottom, rgba(255,255,255,.5), rgba(255,255,255,.2));
+    background: linear-gradient(to right bottom, var(--c-white70), var(--c-white20));
 }
 
 .chat_entry:nth-child(even) {
-    background: linear-gradient(to right bottom, rgba(255,255,255,.2), rgba(255,255,255,.2));
+    background: linear-gradient(to right bottom, var(--c-white20), var(--c-white20));
 }
 
 .chat_entry img {
@@ -135,7 +169,15 @@ body::after {
 }
 
 #nav_bar_selector button.selected {
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    background: linear-gradient(to right bottom, var(--c-white80), var(--c-white20));
+}
+
+#nav_bar_selector button:hover {
+    background: linear-gradient(to right bottom, var(--c-white20), var(--c-white10));
+}
+
+#nav_bar_selector button.selected:hover {
+    background: linear-gradient(to right bottom, var(--c-white90), var(--c-white30));
 }
 
 #app_name {
@@ -143,16 +185,8 @@ body::after {
     margin: 0 auto 0 10px;
     font-size: var(--f-xxxlarge);
     font-family: var(--bold);
-    background: linear-gradient(to right, rgba(255,255,255,.8), rgba(255,255,255,0.7));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--c-white80);
     font-style: italic;
-}
-
-#app_name:hover {
-    background: linear-gradient(to right, rgba(0,0,0,.8), rgba(0,0,0,0.7));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 #indentity_wrapper {
@@ -242,11 +276,14 @@ body::after {
     box-sizing: border-box;
     padding: 50px;
     position: relative;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 #chat_wrapper {
     max-width: 100%;
     width: 100%;
+    padding-top: 50px;
 }
 
 .chat_bubble_wrapper {
@@ -265,7 +302,8 @@ body::after {
     text-overflow: ellipsis;
     padding: 10px 15px 30px;
     margin-bottom: -15px;
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    background: linear-gradient(to right bottom, var(--c-white80), var(--c-white20));
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 calc(100% - 20px));
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 calc(100% - 20px));
 }
 
@@ -274,11 +312,13 @@ body::after {
 }
 
 .chat_bubble_wrapper.other.last .chat_bubble {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 20px calc(100% - 20px), 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 20px calc(100% - 20px), 0 100%);
     margin-bottom: 0;
 }
 
 .chat_bubble_wrapper.me.last .chat_bubble {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - 20px) calc(100% - 20px), 0 calc(100% - 20px));
     clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - 20px) calc(100% - 20px), 0 calc(100% - 20px));
     margin-bottom: 0;
 }
@@ -294,14 +334,7 @@ body::after {
 }
 
 #chat_controls {
-    position: absolute;
-    width: 50vw;
-    max-width: 100%;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
     padding: 15px 0;
-    position: static;
 }
 
 #chat_controls form {
@@ -313,26 +346,33 @@ body::after {
 textarea {
     flex: 1 1 100%;
     border-radius: 10px;
-    min-height: 37px;
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
-    padding: 8.5px 0 0 15px;
+    min-height: 50px;
+    height: 50px;
+    background: linear-gradient(to right bottom, var(--c-white80), var(--c-white20));
+    padding: 13px 0 13px 15px;
     box-sizing: border-box;
     transition: min-height var(--t-basic);
+    font-size: var(--f-medium);
+}
+
+textarea::placeholder {
+    font-size: var(--f-medium);
 }
 
 textarea:focus {
     min-height: 100px;
+    height: auto;
     transition: min-height var(--t-basic);
 }
 
 #chat_controls button {
     flex: 0 0 auto;
-    width: 37px;
-    height: 37px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    background: linear-gradient(to right bottom, var(--c-white80), var(--c-white20));
     margin-left: 15px;
     border-radius: 50%;
 }
@@ -343,23 +383,23 @@ textarea:focus {
 }
 
 .white_glass {
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    background: linear-gradient(to right bottom, var(--c-white80), transparent);
 }
 
 .white_glass.to_r {
-    background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    background: linear-gradient(to right, var(--c-white80), transparent);
 }
 
 .white_glass.base {
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    background: linear-gradient(to right bottom, var(--c-white80), var(--c-white20));
 }
 
 .white_glass.light {
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+    background: linear-gradient(to right bottom, var(--c-white50), var(--c-white20));
 }
 
 .white_glass.content {
-    background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+    background: linear-gradient(to right bottom, var(--c-white70), var(--c-white30));
 }
 
 ::-webkit-scrollbar { /* Width */

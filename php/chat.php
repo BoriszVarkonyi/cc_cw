@@ -138,14 +138,14 @@
                             <div class="chat_bubble"><p>pppppp mmmmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmm</p></div>
                         </div>
                     </div>
-                    <div id="chat_controls">
-                        <form id="">
-                            <textarea name="" id="" cols="30" rows="1" placeholder="Aa"></textarea>
-                            <button>
-                                <img src="../assets/icons/send-black-18dp.svg" alt="Send Button">
-                            </button>
-                        </form>
-                    </div>
+                </div>
+                <div id="chat_controls">
+                    <form id="message_form">
+                        <textarea name="message" id="message" cols="30" rows="1" placeholder="Aa"></textarea>
+                        <button>
+                            <img src="../assets/icons/send-black-18dp.svg" alt="Send Button">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

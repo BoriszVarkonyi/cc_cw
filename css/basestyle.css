@@ -258,8 +258,8 @@ img[src$=".svg"].not_icon {
 	-webkit-filter: contrast(1) !important;
 	filter: contrast(1) !important;
 }
-
 */
+
 ::-webkit-input-placeholder {
 	font-size: var(--f-medium);
 	color: var(--cs-darkgray) !important;
