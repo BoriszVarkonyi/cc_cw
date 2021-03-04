@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	/* Changes throughout colormodes */
 	--c-black: #252525;
@@ -316,11 +318,6 @@ label:hover > p {
 	-webkit-backdrop-filter: blur(1px);
 	backdrop-filter: blur(1px);
 	text-transform: none;
-}
-
-label.small {
-	text-transform: initial;
-	font-size: var(--f-small);
 }
 
 .form_wrapper {
@@ -656,6 +653,9 @@ input[type="time"] {
 }
 
 .search.select + button {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	pointer-events: none;
 }
@@ -1224,8 +1224,6 @@ input::-webkit-inner-spin-button {
 p.wc_time {
 	font-size: var(--f-small);
 }
-
-/* ///ALL BUTTONS/// */
 
 /* Entry */
 

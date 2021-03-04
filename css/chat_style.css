@@ -13,8 +13,8 @@
     }
 
     body::after {
-        -webkit-filter: blur(0) !important;
-        filter: blur(0) !important;
+        -webkit-filter: blur(0) hue-rotate(5deg) !important;
+        filter: blur(0) hue-rotate(5deg) !important;
     }
 }
 
@@ -32,8 +32,8 @@ body::after {
     width: 100vw;
     height: 100vh;
     content: "";
-    -webkit-filter: blur(20px);
-    filter: blur(20px);
+    -webkit-filter: blur(20px) hue-rotate(5deg);
+    filter: blur(20px) hue-rotate(5deg);
     background-image: url(../assets/img/wavy_bg.jpg);
 	background-size: cover;
 	background-position: center center;

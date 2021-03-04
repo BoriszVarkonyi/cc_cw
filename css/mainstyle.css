@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* ///UNIVERSAL/// */
 
 body, html {	/* Gives placeholder background and default font*/
@@ -614,7 +616,7 @@ header {
 	height: 1.2rem;
 	width: 1.2rem;
 	-webkit-filter: saturate(71%) !important;
-	        filter: saturate(71%) !important;
+	filter: saturate(71%) !important;
 }
 
 .stripe_button:hover {
@@ -1540,38 +1542,6 @@ header {
 
 /* ///FORMS AND INPUTS/// */
 
-label {	/* Used in forms, all caps, thin font    NO option buttons*/
-	font-family: var(--bold);
-	text-transform: uppercase;
-	color: var(--c-black);
-	padding: 0;
-}
-
-label.hidden {
-	display: none;
-}
-
-label > p {
-	display: none;
-}
-
-label:hover > p {
-	color: var(--c-white);
-	display: block;
-	position: absolute;
-	padding: 5px 10px;
-	font-size: var(--f-small);
-	background: #25252590;
-	-webkit-backdrop-filter: blur(1px);
-	backdrop-filter: blur(1px);
-	text-transform: none;
-}
-
-label.small {
-	text-transform: initial;
-	font-size: var(--f-small);
-}
-
 .panel_title {
 	font-family: var(--bold);
 	text-transform: uppercase;
@@ -1615,7 +1585,6 @@ label.small {
 .option_container + .option_container {
 	margin-top: 0;
 }
-
 
 .option_container.grid {
 	display: flex;

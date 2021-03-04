@@ -186,13 +186,13 @@ function tableZoomIn(){
 }
 var zoomOutButton = document.getElementById("zoomOutButton");
 var zoomInButton = document.getElementById("zoomInButton");
-function zoomButtonDisabler(){ 
+function zoomButtonDisabler(){
     if(marginNumber <= 5){
         holding = false;
-        zoomOutButton.disabled = true; 
+        zoomOutButton.disabled = true;
     }
     else{
-        zoomOutButton.disabled = false; 
+        zoomOutButton.disabled = false;
     }
     if(marginNumber >= 50){
         holding = false;
@@ -207,7 +207,7 @@ function zoomButtonDisabler(){
 var buttons = [zoomInButton, zoomOutButton]
 var lastKeyUpAt = 0;
 var canAutoZoom = false;
-buttons.forEach(item => { 
+buttons.forEach(item => {
     item.addEventListener('mousedown', function() {
         // Set key down time to the current time
         var keyDownAt = new Date();
@@ -221,11 +221,11 @@ buttons.forEach(item => {
             else{
                 canAutoZoom = false;// Key has not been held down for x seconds
             }
-        }, 1000);
+        }, 250);
     });
 })
 
-buttons.forEach(item => { 
+buttons.forEach(item => {
     item.addEventListener('mouseup', function() {
         // Set lastKeyUpAt to hold the time the last key up event was fired
         lastKeyUpAt = new Date();
@@ -238,7 +238,7 @@ function oGetCursorPosition(zoomOutButton, event) {
   const x = event.clientX - rect.left
   const y = event.clientY - rect.top
   if(!zoomOutButton.disabled && canAutoZoom){
-    tableZoomOut(); 
+    tableZoomOut();
   }
 }
 var omousePosition, oholding;
@@ -270,7 +270,7 @@ const rect = zoomInButton.getBoundingClientRect()
 const x = event.clientX - rect.left
 const y = event.clientY - rect.top
 if(!zoomInButton.disabled && canAutoZoom){
-    tableZoomIn(); 
+    tableZoomIn();
 }
 }
 var imousePosition, iholding;
@@ -296,6 +296,6 @@ zoomInButton.addEventListener('mousemove', function(e) {
     mousePosition = e;
 })
 
-  
+
 
 
