@@ -4263,10 +4263,15 @@ input {
 	text-decoration: underline;
 	font-family: var(--bold);
 	background: transparent;
-	padding: 3px 5px;
+	padding: 5px 10px;
 	overflow: hidden;
 	max-width: calc(10ch + 15px);
 	transition: width ease-in-out .2s;
+	border-radius: 5px;
+}
+
+.underlined_button:hover {
+	background: var(--c-lightestgray);
 }
 
 .underlined_button.hidden {
@@ -4294,10 +4299,6 @@ input {
 	height: 20px;
 }
 
-.underlined_button:hover {
-	background: var(--c-lightestgray);
-}
-
 .match_fencers_results {
 	border-top: 1px solid var(--c-gray);
 	max-width: 100%;
@@ -4316,20 +4317,6 @@ input {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-.match_fencer_points {
-	margin: 0 !important;
-	padding: 5px !important;
-	border: none !important;
-	min-width: 0 !important;
-	min-height: 0 !important;
-	width: 50px !important;
-	height: auto !important;
-	font-size: var(--f-large) !important;
-	overflow: visible !important;
-	text-align: center;
-	border-bottom: 2px solid var(--c-gray) !important;
 }
 
 .winner_text {
@@ -4370,7 +4357,7 @@ input {
 	height: 40px;
 }
 
-.match_fencer_cards {
+.match_fencer_input {
 	margin: 0 !important;
 	padding: 0 !important;
 	width: 50px !important;
