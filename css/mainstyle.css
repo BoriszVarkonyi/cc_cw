@@ -4248,6 +4248,10 @@ input {
 	margin: 0 10px;
 }
 
+.setting.hidden {
+	display: none;
+}
+
 .save_change_button {
 	height: 37px;
 	background: var(--c-primary);
