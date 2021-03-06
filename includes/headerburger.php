@@ -72,7 +72,8 @@ if (isset($_POST["logout"])) {
                 </button>
             </div>
             <div>
-
+                <button class="competition_button separate" onclick="location.href=''">Tournament's timetable</button>
+                <button class="competition_button separate" onclick="location.href=''">Manage Weapon Control Bookings</button>
                 <?php
 
                 $get_comps_in_t = "SELECT * FROM competitions WHERE ass_tournament_id = $ass_tourn_id";
