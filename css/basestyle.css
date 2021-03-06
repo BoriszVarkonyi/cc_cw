@@ -346,6 +346,13 @@ label:hover > p {
 	align-items: flex-start;
 }
 
+.form_wrapper > div > div.row {
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
 /* ///INPUTS/// */
 
 /* Text Based inputs */
