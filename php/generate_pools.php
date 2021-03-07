@@ -5,7 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
-
 <body>
     <!-- header -->
     <div id="flexbox_container">
@@ -43,7 +41,7 @@
                             <div>
                                 <label for="starting_time">STRIVE FOR</label>
                                 <div class="option_container">
-                                    <input type="text" class="hidden" id="fencer_quantity" value="10">
+                                    <input type="text" class="hidden" id="fencer_quantity" value="">
 
                                     <input type="radio" class="option_button" name="pools_of" id="7" value=""/>
                                     <label for="7" class="complex">Pools of 7 <p id="p_7"></p></label>
@@ -70,19 +68,19 @@
                                 <table class="pools_stat_table">
                                     <thead>
                                         <th>Percent</th>
-                                        <th>Number of Fencers</th>
+                                        <th>{Number of Fencers}</th>
                                     </thead>
                                     <tr>
                                         <td>All</td>
-                                        <td>Fencer count</td>
+                                        <td>{Number of Fencers}</td>
                                     <tr>
                                     <tr>
                                         <td>80%</td>
-                                        <td>Fencer count * 0.8</td>
+                                        <td>{Number of Fencers} * 0.8</td>
                                     <tr>
                                     <tr>
                                         <td>70%</td>
-                                        <td>Fencer count * 0.7</td>
+                                        <td>{Number of Fencers} * 0.7</td>
                                     <tr>
                                 </table>
                             </div>

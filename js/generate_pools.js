@@ -1,48 +1,36 @@
-var f_number_input = document.getElementById("fencer_quantity");
-var f_number = f_number_input.value;
-
+var fencerQuantity = document.getElementById("fencer_quantity").value;
 
 for (let index = 7; index > 3; index--) {
 
-    var torekves = index;
+    var strive = index;
 
-    var szoveg = document.getElementById("p_" + torekves);
+    var radioLabelText = document.getElementById("p_" + strive);
 
-    inputka = document.getElementById(index);
+    radioInput = document.getElementById(index);
 
-    var fullpool = f_number / torekves;
+    var fullPool = fencerQuantity / strive;
 
-    if(f_number % torekves == 0){
-
-        szoveg.innerHTML = "(" + fullpool + " pool of " + torekves + ")";
-        inputka.value = inputka.id + ";" + fullpool;
-
-        }
+    if (fencerQuantity % strive == 0) {
+        radioLabelText.innerHTML = "(" + fullPool + " pool of " + strive + ")";
+        radioInput.value = radioInput.id + ";" + fullPool;
+    }
     else
+    {
+        var fullPool = Math.floor(fencerQuantity / strive);
+        var leftOver = fencerQuantity % strive;
+        var needed = (strive - 1) - leftOver;
+        var bigger = fullPool - needed;
+        var smaller = 1 + needed;
+        var belowStrive = strive - 1;
+
+        if (bigger <= 0) {
+            radioInput.disabled = "true";
+            radioLabelText.innerHTML = "(Not possible)";
+        }
+        else
         {
-
-            var teljescsop = Math.floor(f_number / torekves);
-
-
-            var maradek = f_number % torekves;
-
-            var ennyikell = (torekves - 1) - maradek;
-
-            var nagyobb = teljescsop - ennyikell;
-            var kisebb = 1 + ennyikell;
-
-            var torekvesalatt = torekves - 1;
-
-            if(nagyobb <= 0){
-
-                szoveg.innerHTML = "(Not possible)";
-
-            }else{
-
-                szoveg.innerHTML = "(" + nagyobb + " pool of " + torekves + " and " + kisebb + " pool of " + torekvesalatt + ")";
-                inputka.value = inputka.id + ";" + (nagyobb + kisebb);
-
-            }
-
-            }
+            radioLabelText.innerHTML = "(" + bigger + " pool of " + strive + " and " + smaller + " pool of " + belowStrive + ")";
+            radioInput.value = radioInput.id + ";" + (bigger + smaller);
+        }
+    }
 }
