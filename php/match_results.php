@@ -95,6 +95,22 @@ if (isset($_POST["save_match"])) {
 
     }
 
+    //Move winner fencer to next table
+    $nextplace = 1024;
+    foreach ($actualobject as $key => $value) {
+        if ($key == "referees" || $key == "pistetime") {
+            continue;
+        } else {
+
+            if($nextplace > $key){
+                $nextplace = $key;
+            }
+
+        }
+
+
+    }
+
     //searching and modifying fencer1 data
     foreach ($actualobject as $key => $value) {
 
@@ -106,6 +122,7 @@ if (isset($_POST["save_match"])) {
             if ($winnerfencer == 1) {
 
                 $json_table->$tableround->$matchid->$key->isWinner = true;
+                $objtomove = $json_table->$tableround->$matchid->$key;
 
             }
 
@@ -125,6 +142,7 @@ if (isset($_POST["save_match"])) {
             if ($winnerfencer == 2) {
 
                 $json_table->$tableround->$matchid->$key->isWinner = true;
+                $objtomove = $json_table->$tableround->$matchid->$key;
 
             }
 
@@ -133,7 +151,37 @@ if (isset($_POST["save_match"])) {
 
     }
 
-    echo json_encode($json_table);
+    $next_table =  "t_" . ltrim($tableround, "t_") / 2;
+
+    foreach($json_table->$next_table as $m_key => $nextmatch){
+        foreach($nextmatch as $key => $value){
+
+            if ($nextplace == $key) {
+                $json_table->$next_table->$m_key->$key->name = $objtomove->name;
+                $json_table->$next_table->$m_key->$key->nation = $objtomove->nation;
+                $json_table->$next_table->$m_key->$key->id = $objtomove->id;
+                $json_table->$next_table->$m_key->$key->score = "";
+                $json_table->$next_table->$m_key->$key->cards = [];
+                $json_table->$next_table->$m_key->$key->isWinner = false;
+            }
+
+        }
+
+
+    }
+
+    echo $table_upload = json_encode($json_table);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    if (!$qry_upload_table_do) {
+        echo mysqli_error($connection);
+    }
+
+    header("Location: table.php?comp_id=$comp_id");
+    
+
 
 }
 
@@ -300,7 +348,7 @@ if (isset($_POST["save_match"])) {
                             <div>
                                 <p><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?></p>
                                 <input type="number" name="fencid_1" class="" placeholder="fencers id" value="<?php echo $fencer_1->id ?>">
-                                <input type="text" class="match_fencer_input number_input" placeholder="#" name="points_f1" id="points_f1">
+                                <input type="text" class="match_fencer_input number_input" value="<?php if(isset($fencer_1->score)){echo $fencer_1->score;}else{echo "";} ?>" name="points_f1" id="points_f1">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f1"></p>
                                     <input type="radio" name="draw_winner" id="draw_winner_f11" value="1"/>
@@ -312,30 +360,30 @@ if (isset($_POST["save_match"])) {
                                     Regular
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-yellow-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f1_y">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[0] ?>" name="f1_y">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-red-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f1_r">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[1] ?>" name="f1_r">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f1_b">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[2] ?>" name="f1_b">
                                     </div>
                                 </div>
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-yellow-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f1_y_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[3] ?>" name="f1_y_p">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-red-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f1_r_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[4] ?>" name="f1_r_p">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f1_b_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[5] ?>" name="f1_b_p">
                                     </div>
                                 </div>
                                 <button type="button" name="1" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
@@ -346,7 +394,7 @@ if (isset($_POST["save_match"])) {
                             <div>
                                 <p><?php echo $fencer_2->name . "(" . $fencer_2->nation . ")" ?></p>
                                 <input type="number" name="fencid_2" class="" placeholder="fencers id" value="<?php echo $fencer_2->id ?>">
-                                <input type="text" class="match_fencer_input number_input" placeholder="#" name="points_f2" id="points_f2">
+                                <input type="text" class="match_fencer_input number_input" value="<?php if(isset($fencer_2->score)){echo $fencer_2->score;}else{echo "";} ?>" name="points_f2" id="points_f2">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f2"></p>
                                     <input type="radio" name="draw_winner" id="draw_winner_f22" value="2"/>
@@ -358,30 +406,30 @@ if (isset($_POST["save_match"])) {
                                     Regular
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-yellow-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f2_y">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[0] ?>" name="f2_y">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-red-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f2_r">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[1] ?>" name="f2_r">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f2_b">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[2] ?>" name="f2_b">
                                     </div>
                                 </div>
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-yellow-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f2_y_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[3] ?>" name="f2_y_p">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-red-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f2_r_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[4] ?>" name="f2_r_p">
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" placeholder="#" name="f2_b_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[5] ?>" name="f2_b_p">
                                     </div>
                                 </div>
                                 <button type="button" name="2" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
