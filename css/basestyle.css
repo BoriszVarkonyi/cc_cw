@@ -205,7 +205,7 @@ button {
 button, input {
 	padding: 0;
 	font-size: var(--f-medium);
-	font-family: var(--f-medium);
+	font-family: var(--regular);
 	color: var(--c-black);
     outline: none;
     border: none;
