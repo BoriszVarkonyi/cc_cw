@@ -141,6 +141,7 @@ if(isset($_POST["create_piste"])){
     <title><?php echo $comp_name ?>'s pistes</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/piste_style.min.css">
 </head>
 <body>
 <!-- header -->

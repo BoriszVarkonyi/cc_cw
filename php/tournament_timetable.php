@@ -142,7 +142,7 @@ if (isset($_POST["new_weapon_control"])) {
                 </div>
                 <div>
                     <div>
-                        <label for="">TYPE OF APOINTMENT BOOKING</label>
+                        <label for="">TYPE OF APPOINTMENT BOOKING</label>
                         <div class="option_container">
                             <input type="radio" <?php if (isset($dates->type_of_booking) && $dates->type_of_booking == 'team') {
                                                     echo "checked";
@@ -154,17 +154,140 @@ if (isset($_POST["new_weapon_control"])) {
                             <label for="fencers" class="option_label">Book appointment as fencers</label>
                         </div>
                     </div>
+                    <div>
+                        <button type="button" onclick="toggleWcPhase()" id="add_new_wc_button">Add New Weapon Control Phase</button>
+                    </div>
                 </div>
             </form>
+
+            <form id="tournament_weapon_control" class="form_wrapper hidden" action="" method="POST">
+                <div>
+                    <div>
+                        <label for="">DATE</label>
+                        <div class="search_wrapper narrow">
+                            <button type="button" class="search select input" tabindex="3">
+                                <input type="text" name="date_to_select" placeholder="Select Date">
+                            </button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                            <div class="search_results">
+
+                                <?php
+
+                                $period = new DatePeriod(
+
+                                    new DateTime($dates->start_date),
+                                    new DateInterval('P1D'),
+                                    new DateTime(date('Y-m-d', strtotime($dates->end_date . "+1 days")))
+                                );
+
+                                foreach ($period as $key => $value) {
+
+                                    if ($key == "min_fencer") {
+                                        continue;
+                                    }
+
+                                    $checker = 0;
+
+                                    $dateshow = $value->format('Y-m-d');
+
+                                    if ($appointments != "") {
+
+                                        foreach ($appointments as $keydate => $timevalue) {
+
+                                            if ($keydate == $dateshow) {
+
+                                                $checker++;
+                                            }
+                                        }
+                                    }
+
+                                    if ($checker == 0) {
+                                ?>
+
+                                        <button type="button" onclick="selectSystem(this)"><?php echo $dateshow; ?></button>
+
+                                <?php }
+                                } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="">STARTING TIME</label>
+                        <input type="time" class="" name="st_t" step="">
+                    </div>
+                    <div>
+                        <label for="">ENDING TIME</label>
+                        <input type="time" class="" name="ed_t" step="">
+                    </div>
+                    <div>
+                        <label for="">MINUTE / FENCER</label>
+                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="">
+                    </div>
+                    <div class="row">
+                        <button class="panel_submit secondary relative" type="button" onclick="toggleWcPhase()">Cancel</button>
+                        <input type="submit" value="Add" class="panel_submit relative" name="new_weapon_control">
+                    </div>
+                </div>
+            </form>
+            <div class="table_wrapper" id="wc_phases_table">
+                <label for="">WEAPON CONTROL PHASES</label>
+                <div class="table full" id="wc_phrases_table">
+                    <div class="table_header">
+                        <div class="table_header_text">DATE</div>
+                        <div class="table_header_text">STARTING TIME</div>
+                        <div class="table_header_text">ENDING TIME</div>
+                        <div class="table_header_text">MIN. / FENCER</div>
+                    </div>
+                    <div class="table_row_wrapper">
+
+                        <?php
+
+                        if ($appointments != "") {
+
+                            foreach ($appointments as $keydate => $timevalue) {
+
+                                if ($keydate == "min_fencer") {
+                                    continue;
+                                }
+
+                        ?>
+                                <div class="table_row">
+                                    <div class="table_item"><?php echo $keydate ?></div>
+
+                                    <?php
+
+                                    $timearray = [];
+                                    $valuearray = [];
+
+                                    foreach ($timevalue as $keyvalue => $empty) {
+
+                                        array_push($timearray, $keyvalue);
+                                        array_push($valuearray, $empty);
+                                    }
+                                    ?>
+                                    <div class="table_item"><?php echo $timearray[0]; ?></div>
+                                    <div class="table_item"><?php echo $timearray[count($timearray) - 2]; ?></div>
+
+                                    <div class="table_item"><?php echo end($valuearray) ?></div>
+                                </div>
+                        <?php
+                            }
+                        }
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+
 
             <?php
 
             if (isset($dates->start_date) && isset($dates->end_date) && isset($dates->type_of_booking)) {
 
             ?>
-
+                <!--
                 <form id="tournament_weapon_control" class="form_wrapper" action="" method="POST">
-                    <button>Add New Weapon Control</button>
                     <div>
                         <div>
                             <label for="">DATE</label>
@@ -228,55 +351,9 @@ if (isset($_POST["new_weapon_control"])) {
                             <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="">
                         </div>
                         <input type="submit" value="Add" class="panel_submit" name="new_weapon_control">
-                        <div class="table">
-                            <div class="table_header">
-                                <div class="table_header_text">DATE</div>
-                                <div class="table_header_text">STARTING TIME</div>
-                                <div class="table_header_text">ENDING TIME</div>
-                                <div class="table_header_text">MIN. / FENCER</div>
-                            </div>
-                            <div class="table_row_wrapper">
-
-                                <?php
-
-                                if ($appointments != "") {
-
-                                    foreach ($appointments as $keydate => $timevalue) {
-
-                                        if ($keydate == "min_fencer") {
-                                            continue;
-                                        }
-
-                                ?>
-                                        <div class="table_row">
-                                            <div class="table_item"><?php echo $keydate ?></div>
-
-                                            <?php
-
-                                            $timearray = [];
-                                            $valuearray = [];
-
-                                            foreach ($timevalue as $keyvalue => $empty) {
-
-                                                array_push($timearray, $keyvalue);
-                                                array_push($valuearray, $empty);
-                                            }
-                                            ?>
-                                            <div class="table_item"><?php echo $timearray[0]; ?></div>
-                                            <div class="table_item"><?php echo $timearray[count($timearray) - 2]; ?></div>
-
-                                            <div class="table_item"><?php echo end($valuearray) ?></div>
-                                        </div>
-                                <?php
-                                    }
-                                }
-
-                                ?>
-                            </div>
-                        </div>
                     </div>
                 </form>
-
+                                -->
             <?php } ?>
 
         </div>
@@ -285,5 +362,6 @@ if (isset($_POST["new_weapon_control"])) {
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/tournament_timetable.js"></script>
 </body>
 </html>

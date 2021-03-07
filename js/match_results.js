@@ -78,10 +78,14 @@ document.addEventListener('keyup', e => {
 /* Chnage match attributes */
 
 function collapser() {
+    var settings = document.querySelectorAll(".setting")
     var changeButtons = document.querySelectorAll(".underlined_button");
     for (i = 0; i < changeButtons.length; i++) {
         changeButtons[i].nextElementSibling.classList.add("collapsed")
         changeButtons[i].classList.remove("hidden")
+    }
+    for(i=0; i<settings.length; i++){
+        settings[i].classList.remove("hidden")
     }
 }
 
@@ -99,11 +103,11 @@ refereesInputs.forEach(item => {
             ul.classList.remove("error")
         }
     })
-    item.addEventListener("input", function(){
+    item.addEventListener("input", function () {
         var hiddenInput = item.parentNode.nextElementSibling;
         var searchResults = ul.querySelectorAll("button")
-        for(i=0; i<searchResults.length; i++){
-            if(item.value == searchResults[i].innerHTML){
+        for (i = 0; i < searchResults.length; i++) {
+            if (item.value == searchResults[i].innerHTML) {
                 hiddenInput.value = searchResults[i].id
             }
         }
@@ -121,20 +125,25 @@ function changeThis(x) {
     }
     changeThisWrapper.classList.remove("collapsed");
     x.classList.add("hidden");
+    var setting = x.parentNode.querySelector(".setting")
+    setting.classList.add("hidden")
 }
 
-function setreferee(x){
+function setreferee(x) {
     var hiddenInput = x.parentNode.parentNode.nextElementSibling;
     var input = x.parentNode.parentNode.querySelector("input")
     input.value = x.innerHTML;
     hiddenInput.value = x.id
 }
 
-function closeWrapper(x){
+function closeWrapper(x) {
     var input = x.nextElementSibling.firstElementChild;
-    input.value = ""
+    if (input != null) {
+        input.value = ""
+    }
     collapser();
 }
+
 
 
 

@@ -68,6 +68,7 @@ function resultChecker(x){
     var input = x
     var ul = input.nextElementSibling.nextElementSibling;
     ul.classList.remove("error")
+    ul.classList.remove("empty")
     var li = ul.getElementsByTagName('a');
     if(li.length == 0){
         li = ul.querySelectorAll("button");
@@ -96,7 +97,7 @@ var clearButton = document.querySelectorAll(".clear_search_button")
 clearButton.forEach(item => {
     item.addEventListener("click", function(event){
         var targetElement = event.target || event.srcElement;
-        var searchBar = targetElement.parentNode.nextElementSibling;
+        var searchBar = targetElement.parentNode.previousElementSibling
         searchBar.value = ""
     });
 })

@@ -16,7 +16,7 @@
                 <img src="../assets/icons/dashboard-black-18dp.svg">
                 <p>Dashboard</p>
             </a>
-            <a href="chat.php" class="nav_bar_item" href="chat.php">
+            <a href="login_chat.php" class="nav_bar_item" target="_blank">
                 <img src="../assets/icons/chat-black-18dp.svg">
                 <p>Chat</p>
             </a>
