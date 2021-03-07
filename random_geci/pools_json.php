@@ -128,8 +128,36 @@
                                     break;
                                 }
                             }
-                        } else if (!$forward -> isSaved()) { //ha van mar ilyen nat a poolban
-                            $forward -> savePos($x, $y);
+                        } else {
+                            if ($x == $n_pools  && $y == $fencers_in_pools) { //ha a vegere ertunk akkor pakoljuk be az eredeti pos ba
+                                if ($forward -> isSaved()) {
+                                    $x = $forward -> x;
+                                    $y = $forward -> y;
+                                    if ($y % 2 == 0) {
+                                        //even
+                                        $x--;
+                                    } else {
+                                        //odd
+                                        $x++;
+                                    }
+                                    $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer]);
+                                    $fencer++;
+                                    $forward -> reset();
+                                    if ($y % 2 != 0) {// ha y paratlan átlép a másik ágba
+                                        $y--;
+                                        break;
+                                    }
+                                } else {
+                                    $array_of_pools[$n_pools] -> add_fencer($fencers_in_pools, $array_of_fencers[$fencer]);
+                                    $fencer++;
+                                }
+                                //UTOLSO NEM CSAK PARATLAN LEHET LEHETNE PAROS IS
+
+                            } else { //elore leptetjuk a pointert meg az fw_countert
+                                if (!$forward -> isSaved()) {
+                                    $forward -> savePos($x, $y);
+                                }
+                            }
                         }
                     }
                 }
