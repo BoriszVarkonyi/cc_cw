@@ -75,17 +75,17 @@ $fencers = count($json_table);
                             <label for="starting_time">STRIVE FOR</label>
                             <div class="option_container">
                                 <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $fencers ?>">
-                                <input type="radio" class="option_button" name="pools_of" id="7" value="" onclick=""/>
-                                <label for="7" class="option_label">Pools of 7</label>
+                                <input type="radio" class="option_button" name="pools_of" id="7" value=""/>
+                                <label for="7">Pools of 7</label>
                                 <p id="p_7"></p>
-                                <input type="radio" class="option_button" name="pools_of" id="6" value="" onclick=""/>
-                                <label for="6" class="option_label">Pools of 6</label>
+                                <input type="radio" class="option_button" name="pools_of" id="6" value=""/>
+                                <label for="6">Pools of 6</label>
                                 <p id="p_6"></p>
-                                <input type="radio" class="option_button" name="pools_of" id="5" value="" onclick=""/>
-                                <label for="5" class="option_label">Pools of 5</label>
+                                <input type="radio" class="option_button" name="pools_of" id="5" value=""/>
+                                <label for="5">Pools of 5</label>
                                 <p id="p_5"></p>
-                                <input type="radio" class="option_button" name="pools_of" id="4" value="" onclick=""/>
-                                <label for="4" class="option_label">Pools of 4</label>
+                                <input type="radio" class="option_button" name="pools_of" id="4" value=""/>
+                                <label for="4">Pools of 4</label>
                                 <p id="p_4"></p>
                             </div>
 

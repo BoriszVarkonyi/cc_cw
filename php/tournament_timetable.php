@@ -147,11 +147,11 @@ if (isset($_POST["new_weapon_control"])) {
                             <input type="radio" <?php if (isset($dates->type_of_booking) && $dates->type_of_booking == 'team') {
                                                     echo "checked";
                                                 } ?> class="option_button" name="type_of_booking" id="teams" value="team"/>
-                            <label for="teams" class="option_label">Book appointment as teams</label>
+                            <label for="teams">Book appointment as teams</label>
                             <input type="radio" <?php if (isset($dates->type_of_booking) && $dates->type_of_booking == 'fencer') {
                                                     echo "checked";
                                                 } ?> class="option_button" name="type_of_booking" id="fencers" value="fencer"/>
-                            <label for="fencers" class="option_label">Book appointment as fencers</label>
+                            <label for="fencers">Book appointment as fencers</label>
                         </div>
                     </div>
                     <div>

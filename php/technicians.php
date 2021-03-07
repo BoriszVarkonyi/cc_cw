@@ -209,13 +209,13 @@
                         <label for="">ROLE</label>
                         <div class="option_container">
                             <input type="radio" class="option_button" name="role" id="a" value="1"/>
-                            <label for="a" class="option_label">Semi</label>
+                            <label for="a">Semi</label>
                             <input type="radio" class="option_button" name="role" id="b" value="2"/>
-                            <label for="b" class="option_label">DT</label>
+                            <label for="b">DT</label>
                             <input type="radio" class="option_button" name="role" id="c" value="3"/>
-                            <label for="c" class="option_label">Weapon Control</label>
+                            <label for="c">Weapon Control</label>
                             <input type="radio" class="option_button" name="role" id="d" value="4"/>
-                            <label for="d" class="option_label">Registration</label>
+                            <label for="d">Registration</label>
                         </div>
                         <button type="submit" name="submit_tech" class="panel_submit" form="new_technician">Save</button>
                     </form>

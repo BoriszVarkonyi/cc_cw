@@ -12,7 +12,5 @@ function selectSystem(x) {
     var selectedItem = x;
     dropdownInput.value = selectedItem.innerText;
     dropdownInputId.value = selectedItem.id;
-
-    dropdownButton.classList.toggle("focus");
-    dropdownMenu.classList.toggle("focus");
+    dropDown();
 }

@@ -1644,6 +1644,18 @@ input[type=radio] + label:before {
 	border-radius: 50%;
 }
 
+input[type=radio] + label.complex {
+	font-family: var(--bold);
+	white-space: nowrap;
+}
+
+input[type=radio] + label.complex > p {
+	white-space: nowrap;
+	font-family: var(--regular);
+	margin-bottom: 0 !important;
+	margin-left: 0.5rem;
+}
+
 /* Checkbox and Radiobutton */
 
 input[type=checkbox], input[type=radio] {

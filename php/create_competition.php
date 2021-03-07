@@ -98,11 +98,11 @@ $maximum = 255;
                         <label for="w_type">WEAPON TYPE</label>
                         <div class="option_container">
                             <input type="radio" class="option_button" name="w_type" id="epee" value="1"/>
-                            <label for="epee" class="option_label">Epee</label>
+                            <label for="epee">Epee</label>
                             <input type="radio" class="option_button" name="w_type" id="foil" value="2"/>
-                            <label for="foil" class="option_label">Foil</label>
+                            <label for="foil">Foil</label>
                             <input type="radio" class="option_button" name="w_type" id="sabre" value="3"/>
-                            <label for="sabre" class="option_label">Sabre</label>
+                            <label for="sabre">Sabre</label>
                         </div>
                     </div>
                 </div>
