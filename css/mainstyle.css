@@ -291,11 +291,7 @@ header {
 }
 
 #language_panel {
-	position: absolute;
 	right: 170px;
-	top: 40px;
-	display: flex;
-	flex-direction: column;
 	overflow: hidden;
 }
 
@@ -348,26 +344,18 @@ header {
 }
 
 #colormode_panel {
-	position: absolute;
 	right: 130px;
-	top: 40px;
 	justify-content: center;
 	align-items: center;
-	display: flex;
-	flex-direction: column;
+	min-height: 250px !important;
+	height: 10vw !important;
+	max-height: 250px !important;
 }
 
 #profile_panel {
-	position: absolute;
 	right: 10px;
-	top: 40px;
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	flex-wrap: nowrap;
-	background: var(--c-white);
-	box-shadow: var(--s-black);
-	flex-direction: column;
+	justify-content: center;
 }
 
 #logout_form {
@@ -852,7 +840,7 @@ header {
 	width: 20px;
 	height: 20px;
 	-webkit-filter: var(--ci-secondarycontrast);
-	        filter: var(--ci-secondarycontrast);
+	filter: var(--ci-secondarycontrast);
 }
 
 .panel_button:hover {
@@ -1762,7 +1750,27 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	background: var(--c-yellow);
 }
 
-/* Other Inputs */
+/* Header Overlaying Panel */
+
+.header_overlay_panel {
+	top: 40px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	background: var(--c-white);
+	box-shadow: var(--s-black);
+	min-width: 200px;
+	width: 10vw;
+	max-width: 300px;
+	min-height: 200px;
+	height: 10vw;
+	max-height: 300px;
+	/*z-index: 2;*/
+}
+
+.header_overlay_panel.hidden {
+	display: none !important;
+}
 
 /* Overlaying Panels */
 
@@ -1778,7 +1786,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	margin-bottom: 0;
 }
 
-.overlay_panel, .overlay_panel_single {
+.overlay_panel {
 	position: absolute;
 	background: var(--c-white);
 	box-shadow: var(--s-black);
@@ -1791,31 +1799,8 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	transition: opacity var(--t-basic);
 }
 
-.overlay_panel.hidden, .overlay_panel_single.hidden {
-	opacity: 0;
-	max-height: 0 !important;
-	overflow: hidden;
-	min-height: 0 !important;
-	margin: 0 !important;
-	padding: 0 !important;
-}
-
-.overlay_panel.small {
-	min-width: 200px;
-	width: 10vw;
-	max-width: 300px;
-	min-height: 200px;
-	height: 10vw;
-	max-height: 300px;
-	z-index: 2;
-	position: relative;
-	border-radius: 0;
-}
-
-.overlay_panel.small.tall {
-	min-height: 250px;
-	height: 10vw;
-	max-height: 250px;
+.overlay_panel.hidden {
+	display: none !important;
 }
 
 /* Overlay panel controls */

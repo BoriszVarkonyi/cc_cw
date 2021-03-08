@@ -108,7 +108,7 @@ if (isset($_POST["logout"])) {
     </div>
 
     <!-- language select drop-down -->
-    <div id="language_panel" class="small overlay_panel hidden">
+    <div id="language_panel" class="header_overlay_panel hidden">
         <div>
             <button id="close_lang_button" class="panel_button fixed" onclick="toggle_language_panel()">
                 <img src="../assets/icons/close-black-18dp.svg"/>
@@ -147,7 +147,7 @@ if (isset($_POST["logout"])) {
     </div>
 
     <!-- colormode select drop-down -->
-    <div id="colormode_panel" class="small tall overlay_panel hidden">
+    <div id="colormode_panel" class="header_overlay_panel tall hidden">
         <button class="panel_button" onclick="toggle_colormode_panel()">
             <img src="../assets/icons/close-black-18dp.svg"/>
         </button>
@@ -200,7 +200,7 @@ if (isset($_POST["logout"])) {
     </div>
 
     <!-- profile panel drop-down -->
-    <div id="profile_panel" class="small overlay_panel hidden">
+    <div id="profile_panel" class="header_overlay_panel hidden">
         <a class="panel_button left" href="your_profile.php" target="_blank" aria-label="Check and edit your profile">
             <img src="../assets/icons/edit-black-18dp.svg"/>
         </a>
