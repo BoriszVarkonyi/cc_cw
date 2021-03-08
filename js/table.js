@@ -29,27 +29,66 @@ function togglePistTimePanel() {
     timePistPanel.classList.toggle("hidden");
 }
 
+//MarginNumber Cookie
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+//Tableview cookies
+var firstIndex;
+var secondIndex;
 var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
+//If found da cookie
+if (document.cookie.split(';').some((item) => item.trim().startsWith('firstIndex='))) {
+    firstIndex = parseInt(getCookie("firstIndex"))
+    console.log(firstIndex)
+}
+//If not found da cookie
+else {
+    firstIndex = 0;
+    document.cookie = "firstIndex="
+}
+
+//If found da cookie
+if (document.cookie.split(';').some((item) => item.trim().startsWith('secondIndex='))) {
+    secondIndex = parseInt(getCookie("secondIndex"))
+}
+//If not found da cookie
+else {
+    if (eleminitaions.length > 4) {
+        secondIndex = 4;
+    }
+    else {
+        secondIndex = eleminitaions.length
+    }
+    document.cookie = "secondIndex="
+}
+
 //Hides all the eliminations
 for (i = 0; i < eleminitaions.length; i++) {
     eleminitaions[i].classList.add("hidden")
 }
 //Shows eleminiations by index
-var firstIndex = 0;
-var secondIndex;
-if (eleminitaions.length > 4) {
-    secondIndex = 4;
-}
-else {
-    secondIndex = eleminitaions.length
-}
-btLeft.classList.add("disabled")
+disabler();
 for (i = firstIndex; i < secondIndex; i++) {
     eleminitaions[i].classList.remove("hidden")
 
 }
+
 function buttonLeft() {
     btLeft.classList.remove("disabled")
     btRight.classList.remove("disabled")
@@ -64,6 +103,8 @@ function buttonLeft() {
         eleminitaions[i].classList.remove("hidden")
 
     }
+    document.cookie = "firstIndex=" + firstIndex
+    document.cookie = "secondIndex=" + secondIndex
     disabler();
 }
 function buttonRight() {
@@ -80,6 +121,8 @@ function buttonRight() {
         eleminitaions[i].classList.remove("hidden")
 
     }
+    document.cookie = "firstIndex=" + firstIndex
+    document.cookie = "secondIndex=" + secondIndex
     disabler();
 }
 function disabler() {
@@ -162,22 +205,6 @@ for (i = eliminations.length - 1; i >= 0; i--) {
     }
 
 }
-//MarginNumber Cookie
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
 
 var marginNumber;
 var tableRounds = document.querySelectorAll(".table_round");
@@ -194,8 +221,8 @@ else {
     marginNumber = 30;
     document.cookie = "marginNumber="
 }
-//Table zoom in/zoom out buttons
 
+//Table zoom in/zoom out buttons
 
 function tableZoomOut() {
     marginNumber -= 1;

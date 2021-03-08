@@ -114,7 +114,6 @@ var profile_panel = document.getElementById("profile_panel");
 
 //Getting every panel
 var elements = document.querySelectorAll(".header_overlay_panel");
-console.log(elements)
 var oldClickedelement;
 
 //Toggle language panel
@@ -127,7 +126,7 @@ function toggle_language_panel() {
     //Checking if the lang panel equals the oldClickedelement.
     if(lang_panel == oldClickedelement) {
         //If yes it removes the class.
-        lang_panel.classList.add("hidden");
+        lang_panel.classList.remove("hidden");
     }
     //Toggles the class.
     lang_panel.classList.toggle("hidden");
@@ -140,6 +139,7 @@ function toggle_language_panel() {
         //If not it sets the oldClickedelement to the lang panel.
         oldClickedelement = lang_panel;
     }
+    console.log(oldClickedelement)
     //lang_panel.classList.toggle("hidden");
 }
 
@@ -151,7 +151,7 @@ function toggle_colormode_panel() {
     }
 
     if(color_panel == oldClickedelement) {
-        color_panel.classList.add("hidden");
+        color_panel.classList.remove("hidden");
     }
 
     color_panel.classList.toggle("hidden");
@@ -172,7 +172,7 @@ function toggle_profile_panel() {
     }
 
     if(profile_panel == oldClickedelement) {
-        profile_panel.classList.add("hidden");
+        profile_panel.classList.remove("hidden");
     }
 
     profile_panel.classList.toggle("hidden");
