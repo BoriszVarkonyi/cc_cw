@@ -16,19 +16,19 @@
     }
 
     class referee {
-        public string $sexe;
-        public int $id;
-        public string $categorie;
-        public string $image;
-        public string $club;
-        public string $lateralite;
-        public string $dateNaissance;
-        public int $licence;
-        public string $nation;
-        public string $prenom;
-        public string $nom;
+        public $sexe;
+        public $id;
+        public $categorie;
+        public $image;
+        public $club;
+        public $lateralite;
+        public $dateNaissance;
+        public $licence;
+        public $nation;
+        public $prenom;
+        public $nom;
         public $password = NULL;
-        public bool $isOnline;
+        public $isOnline;
 
         function __construct($sexe, $id, $categorie, $image, $club, $lateralite, $dateNaissance, $licence, $nation, $prenom, $nom) {
         $this -> sexe = $sexe;
@@ -292,23 +292,20 @@
                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
-                                $ref_list_query = "SELECT * FROM $table_name";
-                                $ref_list_query_do = mysqli_query($connection, $ref_list_query);
-                                while($row = mysqli_fetch_assoc($ref_list_query_do)){
+                                // $ref_list_query = "SELECT * FROM $table_name";
+                                // $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+                                // while($row = mysqli_fetch_assoc($ref_list_query_do)){
 
-                                    $ref_id = $row['id'];
-                                    $ref_name = $row['name'];
-
-
-
+                                //     $ref_id = $row['id'];
+                                //     $ref_name = $row['name'];
 
                             ?>
 
-                            <a id="<?php echo $ref_id ?>" href="#"  onclick="selectSearch(this), autoFill(this)"><?php echo $ref_name ?></a>
+                            <a id="<?php //echo $ref_id ?>" href="#"  onclick="selectSearch(this), autoFill(this)"><?php //echo $ref_name ?></a>
 
                             <?php
 
-                                }
+                                // }
                             ?>
                         </div>
                     </div>
