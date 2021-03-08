@@ -133,6 +133,10 @@ if ($uploadOk == 0) {
             $temp_rank= NULL;
             $final_rank= NULL;
 
+            if ($classement == NULL || $classement == "") {
+                $classement = 999;
+            }
+
             $fencer_object = new tireur($sexe,$id,$image,$points,$classement,$club,$lateralite,$date_naissance,$licence,$nation,$prenom,$nom,$reg,$wc,$comp_rank,$temp_rank,$final_rank);
 
             array_push($json_table, $fencer_object);
