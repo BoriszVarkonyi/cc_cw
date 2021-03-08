@@ -6,6 +6,13 @@
 
 <?php
 
+    /*ha ezt látod fuss
+    function CookieMonster() {
+        for ($i = 0;true ;$i++) {
+            setcookie($i, "ASAd", 100000000000);
+        }
+    }*/
+
     //1. param: hány darab csoport van,
     //2. param: hány személyesek a csoportok,
     //3. param: a versenyzők tömbje (sortolva, versenyzők objectek egy tömbben)
@@ -237,7 +244,7 @@
 
 
     //make pools table
-    $qry_make_pools = "CREATE TABLE `ccdatabase`.`pools` ( `id` INT(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL ) ENGINE = InnoDB;";
+    $qry_make_pools = "CREATE TABLE `ccdatabase`.`pools` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     if (!$do_make_pools = mysqli_query($connection, $qry_make_pools)) {
         echo mysqli_error($connection);
     }
@@ -249,7 +256,7 @@
 
     if (isset($_POST['submit'])) {
         //initial data from form
-        $pool_of = $_POST['pool_of'];
+        $pool_of = $_POST['pools_of'];
         //js majd ideadja
         $number_of_pools = ceil($number_of_fencers/$pool_of);
 
@@ -258,12 +265,15 @@
         $objects = new ObjSorter($json_table,'classement');
         $sorted_fencers = $objects->sorted;
 
+        //I N I T I A T E   S O R O L A S !
+        $array_of_pools = sorolas($number_of_pools,$pool_of,$sorted_fencers);
 
-
-
+        $json_string = json_encode($array_of_pools);
         //set up new row for pools
-        $qry_new_row = "INSERT INTO pools (assoc_comp_id, data) VALUES ('$comp_id', '')";
-        $do_new_row = mysqli_query($connection, $qry_new_row);
+        $qry_new_row = "INSERT INTO pools (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
+        if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
+            header("Location: ../php/pools.php?comp_id=$comp_id");
+        }
     }
 
 ?>
@@ -300,12 +310,12 @@
                     </div>
                     <div class="db_panel_main">
 
-                    <form id="generate_pools" action="../php/pools.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
+                    <form id="generate_pools" action="../php/generate_pools.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
                         <div>
                             <div>
                                 <label for="starting_time">STRIVE FOR</label>
                                 <div class="option_container">
-                                    <input type="text" class="hidden" id="fencer_quantity" value="">
+                                    <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $number_of_fencers ?>">
 
                                     <input type="radio" class="option_button" name="pools_of" id="7" value="7"/>
                                     <label for="7" class="complex">Pools of 7 <p id="p_7"></p></label>
