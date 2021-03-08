@@ -182,7 +182,7 @@ body, html {	/* Gives placeholder background and default font */
 	font-size: var(--f-medium) !important;
 }
 
-body * {	/* Gives placeholder background and default font */
+body * {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
