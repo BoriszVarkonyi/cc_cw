@@ -148,7 +148,7 @@ if (isset($_POST["save_match"])) {
         }
     }
 
-    echo $table_upload = json_encode($json_table);
+    echo $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
@@ -163,13 +163,73 @@ if (isset($_POST["save_match"])) {
 
 //Get referee object for future use
 
-$ref_list_query = "SELECT (`id`, `name`, `nation`) FROM $table_name";
-$ref_list_query_do = mysqli_query($connection, $ref_list_query);
-while ($row = mysqli_fetch_assoc($ref_list_query_do)) {
+$qry_get_data = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+$do_get_data = mysqli_query($connection, $qry_get_data);
 
-    $ref_id = $row['id'];
-    $ref_name = $row['name'];
+if ($row = mysqli_fetch_assoc($do_get_data)) {
+    $data = $row['data'];
+
+    $refereearray = json_decode($data);
 }
+
+
+//Handle changes (ref, vref, piste, time)
+
+if (isset($_POST["ref_change"])) {
+
+    $refdatastring = $_POST["ref_change_data"];
+    $refdataarray = explode(",", $refdatastring);
+
+    $json_table->$tableround->$matchid->referees->ref->id = $refdataarray[0];
+    $json_table->$tableround->$matchid->referees->ref->name = $refdataarray[1];
+    $json_table->$tableround->$matchid->referees->ref->nation = $refdataarray[2];
+
+    $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    echo $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+}
+
+if (isset($_POST["vref_change"])) {
+
+    $refdatastring = $_POST["vref_change_data"];
+    $refdataarray = explode(",", $refdatastring);
+
+    $json_table->$tableround->$matchid->referees->vref->id = $refdataarray[0];
+    $json_table->$tableround->$matchid->referees->vref->name = $refdataarray[1];
+    $json_table->$tableround->$matchid->referees->vref->nation = $refdataarray[2];
+
+    $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+}
+
+// if (isset($_POST["piste_change"])){
+
+//Piste change system goes here when pistes are in new JSON system
+
+// }
+
+if (isset($_POST["time_change"])) {
+
+    $time = $_POST["time_change_data"];
+
+    $json_table->$tableround->$matchid->pistetime->time = $time;
+
+    $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+}
+
+
 
 ?>
 
@@ -251,14 +311,19 @@ while ($row = mysqli_fetch_assoc($ref_list_query_do)) {
                                     <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="rfrInput" placeholder="Search and Select referee" class="search input has_icon">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
-                                        <button type="button" id="r1" onclick="setreferee(this)">Ember 1</button>
-                                        <button type="button" id="r2" onclick="setreferee(this)">Ember 2</button>
-                                        <button type="button" id="r3" onclick="setreferee(this)">Ember 3</button>
-                                        <button type="button" id="r4" onclick="setreferee(this)">Ember 4</button>
+
+                                        <?php
+
+                                        foreach ($refereearray as $referee) {
+
+                                        ?>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                        <?php }
+                                        ?>
                                     </div>
                                 </div>
-                                <input type="text">
-                                <input type="button" class="save_change_button" value="Save">
+                                <input type="text" name="ref_change_data">
+                                <input type="submit" name="ref_change" class="save_change_button" value="Save">
                             </div>
                         </form>
                         <form class="match_settings_form" method="POST">
@@ -275,14 +340,18 @@ while ($row = mysqli_fetch_assoc($ref_list_query_do)) {
                                     <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="vdrfrInput" placeholder="Search and Select referee" class="search input has_icon">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
-                                        <button type="button" id="vr1" onclick="setreferee(this)">v Ember 1</button>
-                                        <button type="button" id="vr2" onclick="setreferee(this)">v Ember 2</button>
-                                        <button type="button" id="vr3" onclick="setreferee(this)">v Ember 3</button>
-                                        <button type="button" id="vr4" onclick="setreferee(this)">v Ember 4</button>
+                                        <?php
+
+                                        foreach ($refereearray as $referee) {
+
+                                        ?>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                        <?php }
+                                        ?>
                                     </div>
                                 </div>
-                                <input type="text">
-                                <input type="button" class="save_change_button" value="Save">
+                                <input type="text" name="vref_change_data">
+                                <input type="submit" name="vref_change" class="save_change_button" value="Save">
                             </div>
                         </form>
                         <form class="match_settings_form" method="POST">
@@ -323,8 +392,8 @@ while ($row = mysqli_fetch_assoc($ref_list_query_do)) {
                                 <button class="change_back_button" type="button" onclick="closeWrapper(this)">
                                     <img src="../assets/icons/close-black-18dp.svg">
                                 </button>
-                                <input type="time">
-                                <input type="button" class="save_change_button" value="Save">
+                                <input type="time" name="time_change_data">
+                                <input type="submit" name="time_change" class="save_change_button" value="Save">
                             </div>
                         </form>
                     </div>
