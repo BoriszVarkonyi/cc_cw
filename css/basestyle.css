@@ -724,6 +724,10 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	background: var(--c-lightergray);
 }
 
+.search_results > *:focus {
+	background: red !important;
+}
+
 /* Loading Screen */
 
 #loading_bar {

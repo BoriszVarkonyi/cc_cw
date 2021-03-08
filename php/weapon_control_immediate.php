@@ -74,7 +74,7 @@
                             $idke = $row["id"];
                             $nevecske = $row["name"];
                             ?>
-                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" tabindex="0"><?php echo $nevecske ?></a>
+                            <button id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" type="button"><?php echo $nevecske ?></button>
                             <?php
                         }
                             ?>

@@ -17,16 +17,16 @@ document.onkeydown = (keyDownEvent) => {
     if(searchBarClosed && importOverlayClosed) {
         if(keyDownEvent.key == "ArrowUp"){
             var table = document.querySelector(".table");
-            var tableRows = document.querySelectorAll(".table .table_row")
+            var tableRows = document.querySelectorAll(".table .table_row");
             if(selectedElementIndexAr == 0) {
                 selectedElementIndexAr++
             }
             selectedElementIndexAr--
-            tableRows[selectedElementIndexAr + 1].classList.remove("selected")
-            tableRows[selectedElementIndexAr + 1].blur()
-            tableRows[selectedElementIndexAr].classList.add("selected")
-            tableRows[selectedElementIndexAr].focus()
-            hiddenin.value = tableRows[selectedElementIndexAr].id
+            tableRows[selectedElementIndexAr + 1].classList.remove("selected");
+            tableRows[selectedElementIndexAr + 1].blur();
+            tableRows[selectedElementIndexAr].classList.add("selected");
+            tableRows[selectedElementIndexAr].focus();
+            hiddenin.value = tableRows[selectedElementIndexAr].id;
             keyDownEvent.preventDefault();
         }
 
@@ -38,7 +38,7 @@ document.onkeydown = (keyDownEvent) => {
             var tableRows = document.querySelectorAll(".table .table_row")
             for(i=0; i<tableRows.length; i++) {
                 if(tableRows[i].classList.contains("selected")){
-                    hasSelected = true
+                    hasSelected = true;
                     break;
                 }
             }
@@ -47,11 +47,11 @@ document.onkeydown = (keyDownEvent) => {
                     selectedElementIndexAr--
                 }
                 selectedElementIndexAr++
-                tableRows[selectedElementIndexAr - 1].classList.remove("selected")
-                tableRows[selectedElementIndexAr - 1].blur()
-                tableRows[selectedElementIndexAr].classList.add("selected")
-                tableRows[selectedElementIndexAr].focus()
-                hiddenin.value = tableRows[selectedElementIndexAr].id
+                tableRows[selectedElementIndexAr - 1].classList.remove("selected");
+                tableRows[selectedElementIndexAr - 1].blur();
+                tableRows[selectedElementIndexAr].classList.add("selected");
+                tableRows[selectedElementIndexAr].focus();
+                hiddenin.value = tableRows[selectedElementIndexAr].id;
                 keyDownEvent.preventDefault();
             }
             //If there is not a selected row than it selects the first row.
@@ -109,6 +109,7 @@ function isClosed() {
     }
     searchBarClosed = true;
 }
+/*
 //Opens the searchbar to Shift+F
 document.onkeyup=function(e){
     //somethingisOpened is a var. from main.js
@@ -119,6 +120,7 @@ document.onkeyup=function(e){
         }
     }
 }
+*/
 function test(){
     /*
     var tableRows = document.querySelectorAll(".table .table_row")

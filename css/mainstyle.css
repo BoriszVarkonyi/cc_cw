@@ -335,7 +335,8 @@ header {
 
 .language_button:disabled {
 	pointer-events: none;
-	filter: contrast(.3);
+	-webkit-filter: contrast(.3);
+	        filter: contrast(.3);
 }
 
 
@@ -345,13 +346,12 @@ header {
 
 #colormode_panel {
 	right: 130px;
-	justify-content: center;
 	align-items: center;
 }
 
 #profile_panel {
 	right: 10px;
-	justify-content: center;
+	align-items: center;
 }
 
 #logout_form {
@@ -1752,6 +1752,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	top: 40px;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	position: absolute;
 	background: var(--c-white);
 	box-shadow: var(--s-black);
@@ -2422,8 +2423,9 @@ input[type="file"] {
 
 .save_entry {
 	padding: 3px 10px;
-	background: var(--c-secondary);
+	background: var(--c-primary);
 	font-family: var(--bold);
+	color: var(--cd-primarycontrast);
 	border-radius: 5px;
 	margin: 0 0 0 auto;
 	width: auto;

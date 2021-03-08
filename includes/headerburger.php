@@ -147,7 +147,7 @@ if (isset($_POST["logout"])) {
     </div>
 
     <!-- colormode select drop-down -->
-    <div id="colormode_panel" class="header_overlay_panel tall hidden">
+    <div id="colormode_panel" class="header_overlay_panel hidden">
         <button class="panel_button" onclick="toggle_colormode_panel()">
             <img src="../assets/icons/close-black-18dp.svg"/>
         </button>
