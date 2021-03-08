@@ -8,11 +8,11 @@ function toggle_import_technician() {
     var element = document.getElementById("import_technician_panel");
     element.classList.toggle("hidden");
     //importOverlayClosed is a var. from importoverlay.js
-    if(element.classList.contains("hidden")){
+    if (element.classList.contains("hidden")) {
         importOverlayClosed = true;
         canAutoValidate = true;
     }
-    else{
+    else {
         importOverlayClosed = false;
         canAutoValidate = false;
     }
@@ -21,12 +21,12 @@ function toggle_import_technician() {
 
 //Generates a random password with 10 character to the password field of new technician
 
-function randomPassword(){
+function randomPassword() {
 
     var alphabet = "abcdefghijklmnopqrstuvwxyz" + 'abcdefghijklmnopqrstuvwxyz'.toUpperCase() + "0123456789";
     var randompasswordarray = [];
 
-    for (i = 0;i < 10; i++) {
+    for (i = 0; i < 10; i++) {
 
         var randomnumber = Math.floor(Math.random() * 62);
         var randomletter = alphabet.charAt(randomnumber);
@@ -37,7 +37,7 @@ function randomPassword(){
     randompassword = randompasswordarray.join("");
     var passfield = document.getElementById("password_input");
     passfield.value = randompassword;
-    }
+}
 
 
 //Counts the characters of technician's passwords and replaces with as many stars as many characters the password had
@@ -45,23 +45,23 @@ function randomPassword(){
 var visib = 1;
 var sajtos = [];
 var change_id = document.getElementsByClassName("password_table_item");
-for(i = 0; i < change_id.length; i++) {
+for (i = 0; i < change_id.length; i++) {
 
-   var sajt = change_id.item(i).innerHTML;
-   sajtos.push(sajt);
+    var sajt = change_id.item(i).innerHTML;
+    sajtos.push(sajt);
 
 }
 var test = [];
 
-    sajtos.forEach(element => test.push(element.length));
+sajtos.forEach(element => test.push(element.length));
 
 var star = "*";
 
-    for(i = 0; i < change_id.length; i++) {
+for (i = 0; i < change_id.length; i++) {
 
-        change_id.item(i).innerHTML = star.repeat(test[i]);
+    change_id.item(i).innerHTML = star.repeat(test[i]);
 
-     }
+}
 
 
 //Changes between the shown end the hidden password.
@@ -72,31 +72,31 @@ function hidePasswords(x) {
 
     buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
-    if (visib == 1){
+    if (visib == 1) {
 
         buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
 
-    for(i = 0; i < change_id.length; i++) {
+        for (i = 0; i < change_id.length; i++) {
 
-        change_id.item(i).innerHTML = sajtos[i];
+            change_id.item(i).innerHTML = sajtos[i];
+
+        }
+
+        visib = 2;
+
 
     }
+    else {
 
-    visib = 2;
-
-
-    }
-    else{
-
-        for(i = 0; i < change_id.length; i++) {
+        for (i = 0; i < change_id.length; i++) {
 
             change_id.item(i).innerHTML = star.repeat(test[i]);
 
-         }
+        }
 
-         buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
+        buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
 
-         visib = 1;
+        visib = 1;
     }
 }
 
@@ -106,31 +106,31 @@ var oldSelectedTechImport;
 function importTechnicians(x) {
     var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
     var clickedImportTechrow = x
-    if(oldSelectedTechImport != clickedImportTechrow){
-            //removes selected class from every row
-    for(i = 0; i < importTechTablerows.length; i++){
-        importTechTablerows[i].classList.remove("selected");
+    if (oldSelectedTechImport != clickedImportTechrow) {
+        //removes selected class from every row
+        for (i = 0; i < importTechTablerows.length; i++) {
+            importTechTablerows[i].classList.remove("selected");
+        }
+        //Adds selected class
+        clickedImportTechrow.classList.add("selected")
+        //Saves the id into the hidden input
+        importTechHiddenInput.value = clickedImportTechrow.id
+        //Saves the clicked row
+        oldSelectedTechImport = clickedImportTechrow;
     }
-    //Adds selected class
-    clickedImportTechrow.classList.add("selected")
-    //Saves the id into the hidden input
-    importTechHiddenInput.value = clickedImportTechrow.id
-    //Saves the clicked row
-    oldSelectedTechImport = clickedImportTechrow;
-    }
-    else{
-    //Adds selected class
-    clickedImportTechrow.classList.remove("selected")
-    //Saves the id into the hidden input
-    importTechHiddenInput.value = ""
-    //Saves the clicked row
-    oldSelectedTechImport = undefined;
+    else {
+        //Adds selected class
+        clickedImportTechrow.classList.remove("selected")
+        //Saves the id into the hidden input
+        importTechHiddenInput.value = ""
+        //Saves the clicked row
+        oldSelectedTechImport = undefined;
     }
 }
 
-var setNationInput = document.getElementById("set_nation_input");
- function setNation(x){
-    setNationInput.value = x.innerHTML;
+function setNation(x) {
+    var input = x.parentNode.previousElementSibling.previousElementSibling;
+    input.value = x.innerHTML;
 }
 //Table resizer
 
@@ -208,54 +208,54 @@ var currentDivision = 0;
 
 leftDivisionButton.disabled = true;
 currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
-controlsCounter.innerHTML = maxNumber + " / "  + (currentDivision + 1);
+controlsCounter.innerHTML = maxNumber + " / " + (currentDivision + 1);
 
-function leftButton(x){
+function leftButton(x) {
     currentDivision--
     overlayPanelDivisions[currentDivision + 1].classList.remove("visible")
     overlayPanelDivisions[currentDivision].classList.add("visible")
     currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
-    controlsCounter.innerHTML = maxNumber + " / "  + (currentDivision + 1);
+    controlsCounter.innerHTML = maxNumber + " / " + (currentDivision + 1);
     divisionButtonDisabler();
 }
 
-function rightButton(x){
+function rightButton(x) {
     currentDivision++
     overlayPanelDivisions[currentDivision - 1].classList.remove("visible");
     overlayPanelDivisions[currentDivision].classList.add("visible");
     currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title");
-    controlsCounter.innerHTML = maxNumber + " / "  + (currentDivision + 1);
+    controlsCounter.innerHTML = maxNumber + " / " + (currentDivision + 1);
     divisionButtonDisabler();
 }
 
-function divisionButtonDisabler(){
-    if(currentDivision == 0){
+function divisionButtonDisabler() {
+    if (currentDivision == 0) {
         leftDivisionButton.disabled = true;
     }
-    else{
+    else {
         leftDivisionButton.disabled = false;
     }
 
-    if(currentDivision == maxNumber - 1){
+    if (currentDivision == maxNumber - 1) {
         rightDivisionButton.disabled = true;
     }
-    else{
+    else {
         rightDivisionButton.disabled = false;
     }
 }
 
 //Club Nation deleter
-var clubAndNationInput= document.querySelectorAll("#set_club_input, #set_nation_input")
-clubAndNationInput.forEach(item => { 
-    item.addEventListener("keyup", function(e) {
+var clubAndNationInput = document.querySelectorAll("#set_nation_input")
+clubAndNationInput.forEach(item => {
+    item.addEventListener("keyup", function (e) {
         var ul = item.nextElementSibling.nextElementSibling;
-        if(ul.classList.contains("empty")){
+        if (ul.classList.contains("empty")) {
             item.value = "";
             ul.classList.remove("empty")
             ul.classList.add("error")
         }
-        else{
+        else {
             ul.classList.remove("error")
         }
-    })    
+    })
 })
