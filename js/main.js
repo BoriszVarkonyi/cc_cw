@@ -113,13 +113,14 @@ var color_panel = document.getElementById("colormode_panel");
 var profile_panel = document.getElementById("profile_panel");
 
 //Getting every panel
-var elements = document.querySelectorAll(".overlay_panel");
+var elements = document.querySelectorAll(".header_overlay_panel");
+console.log(elements)
 var oldClickedelement;
 
 //Toggle language panel
 
 function toggle_language_panel() {
-   /* //Making every panel hidden.
+   //Making every panel hidden.
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
@@ -138,13 +139,13 @@ function toggle_language_panel() {
     else {
         //If not it sets the oldClickedelement to the lang panel.
         oldClickedelement = lang_panel;
-    } */
-    lang_panel.classList.toggle("hidden");
+    }
+    //lang_panel.classList.toggle("hidden");
 }
 
 
 function toggle_colormode_panel() {
-   /* //Making every panel hidden
+    //Making every panel hidden
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
@@ -160,12 +161,12 @@ function toggle_colormode_panel() {
     }
     else {
         oldClickedelement = color_panel;
-    } */
-    color_panel.classList.toggle("hidden");
+    } 
+    //color_panel.classList.toggle("hidden");
 }
 
 function toggle_profile_panel() {
-   /* //Making every panel hidden
+    //Making every panel hidden
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
     }
@@ -181,8 +182,8 @@ function toggle_profile_panel() {
     }
     else {
         oldClickedelement = profile_panel;
-    } */
-    profile_panel.classList.toggle("hidden");
+    } 
+    //profile_panel.classList.toggle("hidden");
 }
 
 // Disables transition on Pageload

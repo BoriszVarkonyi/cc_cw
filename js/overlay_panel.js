@@ -33,6 +33,10 @@ function overlayPanel() {
     }
     if(overlayPanelsOepened.length == 1){
         somethingisOpened = true;
+        var firstInput = overlayPanelsOepened[0].querySelector("input:first-of-type:not(input[type=radio])")
+        if(firstInput != null && !firstInput.classList.contains("hidden")){
+            firstInput.focus();
+        }   
     }
     else{
         somethingisOpened = false;

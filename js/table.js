@@ -33,60 +33,60 @@ var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
 //Hides all the eliminations
-for(i=0; i<eleminitaions.length; i++){
+for (i = 0; i < eleminitaions.length; i++) {
     eleminitaions[i].classList.add("hidden")
 }
 //Shows eleminiations by index
 var firstIndex = 0;
 var secondIndex;
-if(eleminitaions.length > 4){
+if (eleminitaions.length > 4) {
     secondIndex = 4;
 }
-else{
+else {
     secondIndex = eleminitaions.length
 }
 btLeft.classList.add("disabled")
-for(i=firstIndex; i<secondIndex; i++){
+for (i = firstIndex; i < secondIndex; i++) {
     eleminitaions[i].classList.remove("hidden")
 
 }
-function buttonLeft(){
+function buttonLeft() {
     btLeft.classList.remove("disabled")
     btRight.classList.remove("disabled")
     firstIndex--
     secondIndex--
     //Hides all the eliminations
-    for(i=0; i<eleminitaions.length; i++){
+    for (i = 0; i < eleminitaions.length; i++) {
         eleminitaions[i].classList.add("hidden")
     }
     //Shows eleminiations by index
-    for(i=firstIndex; i<secondIndex; i++){
+    for (i = firstIndex; i < secondIndex; i++) {
         eleminitaions[i].classList.remove("hidden")
 
     }
     disabler();
 }
-function buttonRight(){
+function buttonRight() {
     btLeft.classList.remove("disabled")
     btRight.classList.remove("disabled")
     firstIndex++
     secondIndex++
     //Hides all the eliminations
-    for(i=0; i<eleminitaions.length; i++){
+    for (i = 0; i < eleminitaions.length; i++) {
         eleminitaions[i].classList.add("hidden")
     }
     //Shows eleminiations by index
-    for(i=firstIndex; i<secondIndex; i++){
+    for (i = firstIndex; i < secondIndex; i++) {
         eleminitaions[i].classList.remove("hidden")
 
     }
     disabler();
 }
-function disabler(){
-    if(firstIndex ==0) {
+function disabler() {
+    if (firstIndex == 0) {
         btLeft.classList.add("disabled")
     }
-    if(secondIndex == eleminitaions.length) {
+    if (secondIndex == eleminitaions.length) {
         btRight.classList.add("disabled")
     }
 }
@@ -96,129 +96,161 @@ window.addEventListener("resize", windowSize);
 window.addEventListener("DOMContentLoaded", windowSize);
 var vw;
 //Chagnes the shown table numbers by the window size
-function windowSize(){
+function windowSize() {
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    if(vw > 1600 && eleminitaions.length>=4){
-        for(i=0; i<eleminitaions.length; i++){
+    if (vw > 1600 && eleminitaions.length >= 4) {
+        for (i = 0; i < eleminitaions.length; i++) {
             eleminitaions[i].classList.add("hidden")
         }
         secondIndex = firstIndex + 4;
-        for(i=firstIndex; i<secondIndex; i++){
+        for (i = firstIndex; i < secondIndex; i++) {
             eleminitaions[i].classList.remove("hidden")
 
         }
     }
-    else if(vw > 1100 && vw < 1600 && eleminitaions.length>=3){
-        for(i=0; i<eleminitaions.length; i++){
+    else if (vw > 1100 && vw < 1600 && eleminitaions.length >= 3) {
+        for (i = 0; i < eleminitaions.length; i++) {
             eleminitaions[i].classList.add("hidden")
         }
         secondIndex = firstIndex + 3;
-        for(i=firstIndex; i<secondIndex; i++){
+        for (i = firstIndex; i < secondIndex; i++) {
             eleminitaions[i].classList.remove("hidden")
 
         }
     }
-    else if(vw > 700 && vw < 1100 && eleminitaions.length>=2){
-        for(i=0; i<eleminitaions.length; i++){
+    else if (vw > 700 && vw < 1100 && eleminitaions.length >= 2) {
+        for (i = 0; i < eleminitaions.length; i++) {
             eleminitaions[i].classList.add("hidden")
         }
         secondIndex = firstIndex + 2;
-        for(i=firstIndex; i<secondIndex; i++){
+        for (i = firstIndex; i < secondIndex; i++) {
             eleminitaions[i].classList.remove("hidden")
 
         }
     }
-    else if(vw < 700){
-        for(i=0; i<eleminitaions.length; i++){
+    else if (vw < 700) {
+        for (i = 0; i < eleminitaions.length; i++) {
             eleminitaions[i].classList.add("hidden")
         }
         secondIndex = firstIndex + 1;
-        for(i=firstIndex; i<secondIndex; i++){
+        for (i = firstIndex; i < secondIndex; i++) {
             eleminitaions[i].classList.remove("hidden")
 
         }
     }
     var shownEliminations = document.querySelectorAll(".elimination:not(.hidden)")
-    if(shownEliminations.length == eleminitaions.length){
+    if (shownEliminations.length == eleminitaions.length) {
         btRight.classList.add("disabled")
     }
 }
 //Automaticly sets the table title
 var eliminations = document.querySelectorAll(".elimination_label")
 var tableOfIndex = 8;
-for(i=eliminations.length-1; i>=0; i--){
-    if(i == eliminations.length-1){
+for (i = eliminations.length - 1; i >= 0; i--) {
+    if (i == eliminations.length - 1) {
         eliminations[i].innerHTML = "Winner"
     }
-    else if(i == eliminations.length-2){
+    else if (i == eliminations.length - 2) {
         eliminations[i].innerHTML = "Final"
     }
-    else if(i == eliminations.length-3){
+    else if (i == eliminations.length - 3) {
         eliminations[i].innerHTML = "Semi Final"
     }
-    else{
+    else {
         eliminations[i].innerHTML = "Table of " + tableOfIndex
-        tableOfIndex = tableOfIndex*2
+        tableOfIndex = tableOfIndex * 2
     }
 
 }
+//MarginNumber Cookie
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-//Table zoom in/zzom out buttons
+var marginNumber;
 var tableRounds = document.querySelectorAll(".table_round");
-var marginNumber = 30;
-
-function tableZoomOut(){
-    marginNumber -= 1;
-    for(i=0; i<tableRounds.length; i++){
+//If found da cookie
+if (document.cookie.split(';').some((item) => item.trim().startsWith('marginNumber='))) {
+    marginNumber = parseInt(getCookie("marginNumber"))
+    for (i = 0; i < tableRounds.length; i++) {
         tableRounds[i].style.marginTop = (marginNumber) + "px";
         tableRounds[i].style.marginBottom = (marginNumber) + "px";
     }
+}
+//If not found da cookie
+else {
+    marginNumber = 30;
+    document.cookie = "marginNumber="
+}
+//Table zoom in/zoom out buttons
+
+
+function tableZoomOut() {
+    marginNumber -= 1;
+    for (i = 0; i < tableRounds.length; i++) {
+        tableRounds[i].style.marginTop = (marginNumber) + "px";
+        tableRounds[i].style.marginBottom = (marginNumber) + "px";
+    }
+    document.cookie = "marginNumber=" + marginNumber
     zoomButtonDisabler();
 }
 
-function tableZoomIn(){
+function tableZoomIn() {
     marginNumber += 1;
-    for(i=0; i<tableRounds.length; i++){
+    for (i = 0; i < tableRounds.length; i++) {
         tableRounds[i].style.marginTop = (marginNumber) + "px";
         tableRounds[i].style.marginBottom = (marginNumber) + "px";
     }
+    document.cookie = "marginNumber=" + marginNumber
     zoomButtonDisabler();
 }
 var zoomOutButton = document.getElementById("zoomOutButton");
 var zoomInButton = document.getElementById("zoomInButton");
-function zoomButtonDisabler(){
-    if(marginNumber <= 5){
+function zoomButtonDisabler() {
+    if (marginNumber <= 5) {
         holding = false;
         zoomOutButton.disabled = true;
     }
-    else{
+    else {
         zoomOutButton.disabled = false;
     }
-    if(marginNumber >= 50){
+    if (marginNumber >= 50) {
         holding = false;
         zoomInButton.disabled = true;
     }
-    else{
+    else {
         zoomInButton.disabled = false;
     }
 }
-
+zoomButtonDisabler();
 //Check if zoom in/ zoom out butto is held down for x sec
 var buttons = [zoomInButton, zoomOutButton]
 var lastKeyUpAt = 0;
 var canAutoZoom = false;
 buttons.forEach(item => {
-    item.addEventListener('mousedown', function() {
+    item.addEventListener('mousedown', function () {
         // Set key down time to the current time
         var keyDownAt = new Date();
         canAutoZoom = false;
         // Use a timeout with 1000ms (this would be your X variable)
-        setTimeout(function() {
+        setTimeout(function () {
             // Compare key down time with key up time
-            if (+keyDownAt > +lastKeyUpAt){
+            if (+keyDownAt > +lastKeyUpAt) {
                 canAutoZoom = true;// Key has been held down for x seconds
             }
-            else{
+            else {
                 canAutoZoom = false;// Key has not been held down for x seconds
             }
         }, 250);
@@ -226,7 +258,7 @@ buttons.forEach(item => {
 })
 
 buttons.forEach(item => {
-    item.addEventListener('mouseup', function() {
+    item.addEventListener('mouseup', function () {
         // Set lastKeyUpAt to hold the time the last key up event was fired
         lastKeyUpAt = new Date();
     });
@@ -234,65 +266,65 @@ buttons.forEach(item => {
 
 //Zoom out button hold
 function oGetCursorPosition(zoomOutButton, event) {
-  const rect = zoomOutButton.getBoundingClientRect()
-  const x = event.clientX - rect.left
-  const y = event.clientY - rect.top
-  if(!zoomOutButton.disabled && canAutoZoom){
-    tableZoomOut();
-  }
+    const rect = zoomOutButton.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    if (!zoomOutButton.disabled && canAutoZoom) {
+        tableZoomOut();
+    }
 }
 var omousePosition, oholding;
 
 function oMyInterval() {
-  var setIntervalId = setInterval(function() {
-    if (!holding) clearInterval(setIntervalId);
-    oGetCursorPosition(zoomOutButton, mousePosition);
-  }, 100); //set your wait time between consoles in milliseconds here
+    var setIntervalId = setInterval(function () {
+        if (!holding) clearInterval(setIntervalId);
+        oGetCursorPosition(zoomOutButton, mousePosition);
+    }, 100); //set your wait time between consoles in milliseconds here
 }
-zoomOutButton.addEventListener('mousedown', function() {
+zoomOutButton.addEventListener('mousedown', function () {
     holding = true;
     oMyInterval();
 })
-zoomOutButton.addEventListener('mouseup', function() {
+zoomOutButton.addEventListener('mouseup', function () {
     holding = false;
     oMyInterval();
 })
-zoomOutButton.addEventListener('mouseleave', function() {
+zoomOutButton.addEventListener('mouseleave', function () {
     holding = false;
 })
-zoomOutButton.addEventListener('mousemove', function(e) {
+zoomOutButton.addEventListener('mousemove', function (e) {
     mousePosition = e;
 })
 
 //Zoom in button hold
 function iGetCursorPosition(zoomInButton, event) {
-const rect = zoomInButton.getBoundingClientRect()
-const x = event.clientX - rect.left
-const y = event.clientY - rect.top
-if(!zoomInButton.disabled && canAutoZoom){
-    tableZoomIn();
-}
+    const rect = zoomInButton.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    if (!zoomInButton.disabled && canAutoZoom) {
+        tableZoomIn();
+    }
 }
 var imousePosition, iholding;
 
 function iMyInterval() {
-var setIntervalId = setInterval(function() {
-    if (!holding) clearInterval(setIntervalId);
-    iGetCursorPosition(zoomInButton, mousePosition);
-}, 100); //set your wait time between consoles in milliseconds here
+    var setIntervalId = setInterval(function () {
+        if (!holding) clearInterval(setIntervalId);
+        iGetCursorPosition(zoomInButton, mousePosition);
+    }, 100); //set your wait time between consoles in milliseconds here
 }
-zoomInButton.addEventListener('mousedown', function() {
+zoomInButton.addEventListener('mousedown', function () {
     holding = true;
     iMyInterval();
 })
-zoomInButton.addEventListener('mouseup', function() {
+zoomInButton.addEventListener('mouseup', function () {
     holding = false;
     iMyInterval();
 })
-zoomInButton.addEventListener('mouseleave', function() {
+zoomInButton.addEventListener('mouseleave', function () {
     holding = false;
 })
-zoomInButton.addEventListener('mousemove', function(e) {
+zoomInButton.addEventListener('mousemove', function (e) {
     mousePosition = e;
 })
 
