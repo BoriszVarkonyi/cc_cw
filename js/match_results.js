@@ -138,7 +138,9 @@ function setreferee(x) {
 
 function closeWrapper(x) {
     var input = x.nextElementSibling.firstElementChild;
+    var hiddenInput = input.parentNode.nextElementSibling;
     if (input != null) {
+        hiddenInput.value = ""
         input.value = ""
     }
     collapser();
