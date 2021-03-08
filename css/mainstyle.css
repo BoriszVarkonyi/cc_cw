@@ -347,14 +347,10 @@ header {
 	right: 130px;
 	justify-content: center;
 	align-items: center;
-	min-height: 250px !important;
-	height: 10vw !important;
-	max-height: 250px !important;
 }
 
 #profile_panel {
 	right: 10px;
-	align-items: center;
 	justify-content: center;
 }
 
@@ -1765,10 +1761,16 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	min-height: 200px;
 	height: 10vw;
 	max-height: 300px;
-	/*z-index: 2;*/
+	z-index: 2;
 }
 
-.header_overlay_panel.hidden {
+.header_overlay_panel.tall {
+	min-height: 250px;
+	height: 10vw;
+	max-height: 250px;
+}
+
+.header_overlay_panel.hidden, .header_overlay_panel.tall.hidden {
 	display: none !important;
 }
 
