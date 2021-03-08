@@ -63,36 +63,24 @@ if (isset($_POST["save_match"])) {
     if ($fencer1_data->points == "ABD") {
 
         $winnerfencer = 2;
-
-    }
-    elseif ($fencer2_data->points == "ABD") {
+    } elseif ($fencer2_data->points == "ABD") {
 
         $winnerfencer = 1;
-
-    }
-    elseif ($fencer1_data->points > $fencer2_data->points) {
+    } elseif ($fencer1_data->points > $fencer2_data->points) {
 
         $winnerfencer = 1;
-
-    }
-    elseif ($fencer2_data->points > $fencer1_data->points) {
+    } elseif ($fencer2_data->points > $fencer1_data->points) {
 
         $winnerfencer = 2;
-
-    }
-    elseif ($fencer1_data->points == $fencer2_data->points) {
+    } elseif ($fencer1_data->points == $fencer2_data->points) {
 
         if ($_POST["draw_winner"] == 1) {
 
             $winnerfencer = 1;
-
-        }
-        elseif ($_POST["draw_winner"] == 2) {
+        } elseif ($_POST["draw_winner"] == 2) {
 
             $winnerfencer = 2;
-
         }
-
     }
 
     //Move winner fencer to next table
@@ -102,13 +90,10 @@ if (isset($_POST["save_match"])) {
             continue;
         } else {
 
-            if($nextplace > $key){
+            if ($nextplace > $key) {
                 $nextplace = $key;
             }
-
         }
-
-
     }
 
     //searching and modifying fencer1 data
@@ -123,12 +108,10 @@ if (isset($_POST["save_match"])) {
 
                 $json_table->$tableround->$matchid->$key->isWinner = true;
                 $objtomove = $json_table->$tableround->$matchid->$key;
-
             }
 
             break;
         }
-
     }
 
     //searching and modifying fencer2 data
@@ -143,18 +126,16 @@ if (isset($_POST["save_match"])) {
 
                 $json_table->$tableround->$matchid->$key->isWinner = true;
                 $objtomove = $json_table->$tableround->$matchid->$key;
-
             }
 
             break;
         }
-
     }
 
     $next_table =  "t_" . ltrim($tableround, "t_") / 2;
 
-    foreach($json_table->$next_table as $m_key => $nextmatch){
-        foreach($nextmatch as $key => $value){
+    foreach ($json_table->$next_table as $m_key => $nextmatch) {
+        foreach ($nextmatch as $key => $value) {
 
             if ($nextplace == $key) {
                 $json_table->$next_table->$m_key->$key->name = $objtomove->name;
@@ -164,10 +145,7 @@ if (isset($_POST["save_match"])) {
                 $json_table->$next_table->$m_key->$key->cards = [];
                 $json_table->$next_table->$m_key->$key->isWinner = false;
             }
-
         }
-
-
     }
 
     echo $table_upload = json_encode($json_table);
@@ -180,9 +158,17 @@ if (isset($_POST["save_match"])) {
     }
 
     header("Location: table.php?comp_id=$comp_id");
-    
+}
 
 
+//Get referee object for future use
+
+$ref_list_query = "SELECT (`id`, `name`, `nation`) FROM $table_name";
+$ref_list_query_do = mysqli_query($connection, $ref_list_query);
+while ($row = mysqli_fetch_assoc($ref_list_query_do)) {
+
+    $ref_id = $row['id'];
+    $ref_name = $row['name'];
 }
 
 ?>
@@ -214,11 +200,10 @@ if (isset($_POST["save_match"])) {
                     } else {
 
                         if ($value == NULL) {
-                        ${'fencer_' . $fencer12} = new stdClass;
-                        ${'fencer_' . $fencer12}->name = "";
-                        ${'fencer_' . $fencer12}->nation = "";
-                        }
-                        else{
+                            ${'fencer_' . $fencer12} = new stdClass;
+                            ${'fencer_' . $fencer12}->name = "";
+                            ${'fencer_' . $fencer12}->nation = "";
+                        } else {
                             ${'fencer_' . $fencer12} = $value;
                         }
                         $fencer12++;
@@ -245,14 +230,14 @@ if (isset($_POST["save_match"])) {
                         </div>
 
                         <div>
-                            <p><?php  echo $fencer_2->name . "(" . $fencer_2->nation . ")"  ?></p>
+                            <p><?php echo $fencer_2->name . "(" . $fencer_2->nation . ")"  ?></p>
                             <button>
                                 <img src="../assets/icons/message-black-18dp.svg">
                             </button>
                         </div>
                     </div>
                     <div class="match_settings_wrapper">
-                        <form class="match_settings_form">
+                        <form class="match_settings_form" method="POST">
                             <p class="setting_title">Referee:</p>
                             <p class="setting"><?php echo $actualobject->referees->ref->name . "(" . $actualobject->referees->ref->nation . ")"  ?></p>
                             <button class="underlined_button" type="button" onclick="changeThis(this)">
@@ -276,7 +261,7 @@ if (isset($_POST["save_match"])) {
                                 <input type="button" class="save_change_button" value="Save">
                             </div>
                         </form>
-                        <form class="match_settings_form">
+                        <form class="match_settings_form" method="POST">
                             <p class="setting_title">Video Referee:</p>
                             <p class="setting"><?php echo $actualobject->referees->vref->name . "(" . $actualobject->referees->vref->nation . ")" ?></p>
                             <button class="underlined_button" type="button" onclick="changeThis(this)">
@@ -300,7 +285,7 @@ if (isset($_POST["save_match"])) {
                                 <input type="button" class="save_change_button" value="Save">
                             </div>
                         </form>
-                        <form class="match_settings_form">
+                        <form class="match_settings_form" method="POST">
                             <p class="setting_title">Piste:</p>
                             <p class="setting"><?php echo $actualobject->pistetime->pistename ?></p>
                             <button class="underlined_button" type="button" onclick="changeThis(this)">
@@ -328,7 +313,7 @@ if (isset($_POST["save_match"])) {
                                 <input type="button" class="save_change_button" value="Save">
                             </div>
                         </form>
-                        <form class="match_settings_form">
+                        <form class="match_settings_form" method="POST">
                             <p class="setting_title">Time:</p>
                             <p class="setting"><?php echo $actualobject->pistetime->time ?></p>
                             <button class="underlined_button" type="button" onclick="changeThis(this)">
@@ -348,10 +333,14 @@ if (isset($_POST["save_match"])) {
                             <div>
                                 <p><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?></p>
                                 <input type="number" name="fencid_1" class="" placeholder="fencers id" value="<?php echo $fencer_1->id ?>">
-                                <input type="text" class="match_fencer_input number_input" value="<?php if(isset($fencer_1->score)){echo $fencer_1->score;}else{echo "";} ?>" name="points_f1" id="points_f1">
+                                <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_1->score)) {
+                                                                                                        echo $fencer_1->score;
+                                                                                                    } else {
+                                                                                                        echo "";
+                                                                                                    } ?>" name="points_f1" id="points_f1">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f1"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1"/>
+                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
                                     <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
                                 </div>
                             </div>
@@ -394,10 +383,14 @@ if (isset($_POST["save_match"])) {
                             <div>
                                 <p><?php echo $fencer_2->name . "(" . $fencer_2->nation . ")" ?></p>
                                 <input type="number" name="fencid_2" class="" placeholder="fencers id" value="<?php echo $fencer_2->id ?>">
-                                <input type="text" class="match_fencer_input number_input" value="<?php if(isset($fencer_2->score)){echo $fencer_2->score;}else{echo "";} ?>" name="points_f2" id="points_f2">
+                                <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_2->score)) {
+                                                                                                        echo $fencer_2->score;
+                                                                                                    } else {
+                                                                                                        echo "";
+                                                                                                    } ?>" name="points_f2" id="points_f2">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f2"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2"/>
+                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
                                     <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
                                 </div>
                             </div>
@@ -439,10 +432,11 @@ if (isset($_POST["save_match"])) {
                 </div>
             </div>
         </div>
-    <script src="../js/main.js"></script>
-    <script src="../js/match_results.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/controls.js"></script>
-    <script src="../js/overlay_panel.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/match_results.js"></script>
+        <script src="../js/search.js"></script>
+        <script src="../js/controls.js"></script>
+        <script src="../js/overlay_panel.js"></script>
 </body>
+
 </html>
