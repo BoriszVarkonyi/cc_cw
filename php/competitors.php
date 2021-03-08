@@ -116,7 +116,7 @@
                         <?php
                             foreach ($json_table as $json_obj) {
                         ?>
-                            <div class="table_row" onclick="selectRow(this)" tabindex="0">
+                            <div class="table_row" onclick="selectRow(this)" tabindex="0" loading="lazy">
                                 <div class="table_item"><p><?php echo $json_obj -> comp_rank ?></p></div>
                                 <div class="table_item"><p><?php echo $json_obj -> classement ?></p></div>
                                 <div class="table_item"><p><?php echo $json_obj -> prenom . " " . $json_obj -> nom ?></p></div>
