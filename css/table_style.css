@@ -8,7 +8,7 @@
 }
 
 #call_room.cc {
-	margin: 20px;
+	margin: 50px 20px;
 	width: 100%;
 }
 
@@ -104,6 +104,12 @@
 	justify-content: center;
 	width: 100%;
 	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.table_round_wrapper:focus {
+	outline: 3px solid var(--c-gray);
+	outline-offset: -3px;
 }
 
 /* cw specific, makes good looking hover */

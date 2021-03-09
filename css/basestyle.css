@@ -691,7 +691,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	font-size: var(--f-small);
 	transition: opacity var(--t-basic), max-height var(--t-basic);
 }
 
@@ -717,6 +716,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	text-align: center;
 	background: var(--c-white);
 	display: block;
+	font-size: var(--f-small) !important;
 }
 
 .search_results > *.selected {
