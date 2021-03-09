@@ -727,7 +727,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	background: var(--c-lightergray);
 }
 
-
 .search_results > *.hidden {
 	display: none;
 }
