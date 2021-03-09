@@ -260,7 +260,7 @@
                             <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                                 <label for="set_club_input">Club</label>
                                 <div class="search_wrapper wide higher">
-                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input" tabindex="-1">
+                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input" tabindex="-1">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
@@ -277,7 +277,7 @@
                                 </div>
                                 <label for="set_nation_input">NATION</label>
                                 <div class="search_wrapper wide">
-                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input" tabindex="-1">
+                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input" tabindex="-1">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
@@ -288,7 +288,7 @@
                         </form>
                     </div>
                     <div class="search_wrapper">
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php

@@ -51,6 +51,8 @@ function searchEngine(x) {
                 selectedElementIndex--
                 li[selectedElementIndex + 1].classList.remove("selected")
                 li[selectedElementIndex].classList.add("selected")
+                li[selectedElementIndex].scrollIntoView()
+                keyDownEvent.preventDefault();
             }
             if(keyDownEvent.key == "ArrowDown"){
                 if(selectedElementIndex == liCounter -1) {
@@ -59,6 +61,8 @@ function searchEngine(x) {
                 selectedElementIndex++
                 li[selectedElementIndex - 1].classList.remove("selected")
                 li[selectedElementIndex].classList.add("selected")
+                li[selectedElementIndex].scrollIntoView()
+                keyDownEvent.preventDefault();
             }
         }       
     }

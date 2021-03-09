@@ -319,7 +319,7 @@ if (isset($_POST["generate_table"])) {
                     </div>
 
                     <div class="search_wrapper">
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                         <div class="search_results">
 

@@ -55,12 +55,12 @@ var btRight = document.getElementById("buttonRight")
 //If found da cookie
 if (document.cookie.split(';').some((item) => item.trim().startsWith('firstIndex='))) {
     firstIndex = parseInt(getCookie("firstIndex"))
-    console.log(firstIndex)
 }
 //If not found da cookie
 else {
+    console.log(" ez lenne?")
     firstIndex = 0;
-    document.cookie = "firstIndex="
+    document.cookie = "firstIndex=" + firstIndex
 }
 
 //If found da cookie
@@ -75,9 +75,10 @@ else {
     else {
         secondIndex = eleminitaions.length
     }
-    document.cookie = "secondIndex="
+    document.cookie = "secondIndex=" + secondIndex
 }
-
+console.log(firstIndex)
+console.log(secondIndex)
 //Hides all the eliminations
 for (i = 0; i < eleminitaions.length; i++) {
     eleminitaions[i].classList.add("hidden")
