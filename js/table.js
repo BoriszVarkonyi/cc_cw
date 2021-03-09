@@ -58,7 +58,6 @@ if (document.cookie.split(';').some((item) => item.trim().startsWith('firstIndex
 }
 //If not found da cookie
 else {
-    console.log(" ez lenne?")
     firstIndex = 0;
     document.cookie = "firstIndex=" + firstIndex
 }
@@ -77,8 +76,6 @@ else {
     }
     document.cookie = "secondIndex=" + secondIndex
 }
-console.log(firstIndex)
-console.log(secondIndex)
 //Hides all the eliminations
 for (i = 0; i < eleminitaions.length; i++) {
     eleminitaions[i].classList.add("hidden")
@@ -356,6 +353,24 @@ zoomInButton.addEventListener('mousemove', function (e) {
     mousePosition = e;
 })
 
-
-
-
+//Controls 
+/*
+var tableFencer = document.querySelectorAll(".table_round_wrapper");
+tableFencer[0].focus()
+function makeArray(){
+    var tableArray = []
+    for(i=0; i<eleminitaions.length; i++){
+        var currentRounds = eleminitaions[i].querySelectorAll(".table_round_wrapper")
+        var columArray = []
+        for(j=0; j<currentRounds.length; j+=2){
+            var array2 = []
+            array2.push(currentRounds[j])
+            array2.push(currentRounds[j+1])
+            columArray.push(array2)
+        }
+        tableArray.push(columArray)   
+    }
+    console.log(tableArray[0])
+}
+makeArray();
+*/
