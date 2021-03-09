@@ -15,77 +15,55 @@
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
         <div class="page_content_flex">
+    <?php
 
-        <?php
+        //get competitors
+        $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+        $do_get_data = mysqli_query($connection, $qry_get_data);
 
-            if(isset($_POST["reg_in"])){
+        if ($row = mysqli_fetch_assoc($do_get_data)) {
+            $json_string = $row['data'];
+            $json_table = json_decode($json_string);
+        } else {
+            $json_table = [];
+        }
 
-            $idtoregin = $_POST["fencer_ids"];
+        if(isset($_POST["reg_in"])){
+            $fencer_id = $_POST['fencer_ids'];
+            $id_to_change = findObject($json_table, $fencer_id, "id");
 
-            $query = "UPDATE cptrs_$comp_id SET reg = 1 WHERE id = '$idtoregin'";
-            $query_do = mysqli_query($connection, $query);
-
-            header("Location: registration.php?comp_id=$comp_id");
-
+            $json_table[$id_to_change] -> reg = 1;
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+            $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+            if (!$do_update = mysqli_query($connection, $qry_update)) {
+                echo mysqli_error($connection);
             }
+        }
 
-            if(isset($_POST["reg_out"])){
+        if(isset($_POST["reg_out"])){
+            $fencer_id = $_POST['fencer_ids'];
+            $id_to_change = findObject($json_table, $fencer_id, "id");
 
-                $idtoregin = $_POST["fencer_ids"];
-
-                $query = "UPDATE cptrs_$comp_id SET reg = 0 WHERE id = '$idtoregin'";
-                $query_do = mysqli_query($connection, $query);
-
-                header("Location: registration.php?comp_id=$comp_id");
-
-                }
-
-            if(isset($_POST["add_fencer"])){
-
-                $n_fname = $_POST["fencer_name"];
-                $f_nat = $_POST["f_nat"];
-                $f_pos = $_POST["fencer_position"];
-
-
-                $query_get_max = "SELECT * FROM cptrs_$comp_id";
-                $query_get_max_do = mysqli_query($connection, $query_get_max);
-
-                $add_id = "l" . rand(1, 500);
-
-                $checkarray = [];
-
-                while($row = mysqli_fetch_assoc($query_get_max_do)){
-
-                    $idmatch = $row["id"];
-
-                    if($idmatch != $add_id){
-
-                    array_push($checkarray, "0");
-
-                    }
-                    else{
-
-                        $row = mysqli_fetch_assoc($query_get_max_do);
-                        $add_id = "l" . rand(1, 500);
-                        continue;
-                    }
-
-                }
-
-                if(count($checkarray) == mysqli_num_rows($query_get_max_do)){
-
-                    $query = "INSERT INTO `cptrs_$comp_id`(`id`, `name`, `nationality`,`rank`) VALUES ('$add_id','$n_fname','$f_nat',$f_pos)";
-                    $query_do = mysqli_query($connection, $query);
-
-                    echo mysqli_error($connection);
-
-                }
-
-                header("Location: registration.php?comp_id=$comp_id");
-
+            $json_table[$id_to_change] -> reg = 0;
+            //update database
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+            $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+            if (!$do_update = mysqli_query($connection, $qry_update)) {
+                echo mysqli_error($connection);
             }
+        }
 
-        ?>
+        if(isset($_POST["add_fencer"])){
+
+            $n_fname = $_POST["fencer_name"];
+            $f_nat = $_POST["f_nat"];
+            $f_pos = $_POST["fencer_position"];
+
+
+            header("Refresh:0");
+        }
+
+    ?>
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
@@ -109,11 +87,11 @@
                         <div class="search_results">
                             <?php
                             foreach ($json_table as $json_object) {
-                                $username = $json_object -> username;
-                                $name = $json_object -> name;
+                                $name = $json_object -> nom . " " .  $json_object -> prenom;
+                                $id = $json_object -> id;
 
                                 ?>
-                                <a id="<?php echo $username ?>A" href="#<?php echo $username ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
+                                <a id="<?php echo $id ?>A" href="#<?php echo $id ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
                                 <?php
                             }
                                 ?>
@@ -145,14 +123,6 @@
                 <div id="page_content_panel_main">
 
                     <div class="table wrapper">
-
-               <?php
-
-               $query = "SELECT * FROM cptrs_$comp_id ORDER BY name";
-               $query_do = mysqli_query($connection, $query);
-
-
-               ?>
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
                             <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"></button>
@@ -164,22 +134,26 @@
                         <div class="table_row_wrapper">
                         <?php
 
-                        while($row = mysqli_fetch_assoc($query_do)){
+                        if (isset($json_table[0])) {
 
-                        $name = $row["name"];
-                        $nat = $row["nationality"];
-                        $stat = $row["reg"];
-                        $id = $row["id"];
+                            foreach ($json_table as $json_object) {
+                                $name = $json_object -> nom . " " . $json_object -> prenom;
+                                $nat = $json_object -> nation;
+                                $stat = $json_object -> reg;
+                                $id = $json_object -> id;
 
-                        ?>
+                            ?>
 
-                        <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
-                            <div class="table_item"><p><?php echo $name ?></p></div>
-                            <div class="table_item"><p><?php echo $nat ?></p></div>
-                            <div class="table_item"><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></div>
-                            <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div>
-                        </div>
-                        <?php
+                            <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
+                                <div class="table_item"><p><?php echo $name ?></p></div>
+                                <div class="table_item"><p><?php echo $nat ?></p></div>
+                                <div class="table_item"><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></div>
+                                <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div>
+                            </div>
+                            <?php
+                            }
+                        } else {
+                            ?><p>No fencers set-up yet!</p><?php
                         }
                         ?>
                         </div>
