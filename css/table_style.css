@@ -26,7 +26,7 @@
 	justify-content: center;
 	align-items: center;
 	top: 0;
-	z-index: 4;
+	z-index: 1;
 	border-radius: 5px;
 }
 
@@ -56,14 +56,17 @@
 	flex-direction: column;
 	align-items: center;
 	width: 0;
+	z-index: 0;
 	max-height: calc( (var(--f-small) + 30px) * 128);
 }
 
+/*
 .elimination.hidden {
 	max-height: 0;
 	flex: 0;
 	overflow: hidden;
 }
+*/
 
 /* Coloring of Columns and column labels, both cc and cw */
 
@@ -102,7 +105,6 @@
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
-	z-index: 2;
 	margin-bottom: 10px;
 }
 
@@ -133,7 +135,6 @@
 	cursor: pointer;
 	border-radius: 4px;
 	margin: 30px 25px;
-	z-index: 6;
 }
 
 .table_fencer::before, .table_round::after, .table_round_wrapper::before {

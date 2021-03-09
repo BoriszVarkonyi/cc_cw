@@ -317,6 +317,17 @@ if (isset($_POST["generate_table"])) {
                             <img src="../assets/icons/next_plan-black-18dp.svg" />
                         </button>
                     </div>
+
+                    <div class="search_wrapper">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
+                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <div class="search_results">
+
+                            <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Example</button>
+
+                        </div>
+                    </div>
+
                 <?php } ?>
                 <div class="view_button_wrapper zoom">
                     <button class="view_button" onclick="tableZoomOut()" id="zoomOutButton">

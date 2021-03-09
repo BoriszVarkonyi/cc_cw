@@ -252,14 +252,14 @@
                                 </div>
                                 <label for="referee_dob">Date of Birth</label>
                                 <input type="date" class="date_input" name="date_naissance" id="referee_dob" tabindex="-1">
-                                <label for="referee_image">License</label>
-                                <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence" id="referee_image" tabindex="-1">
+                                <label for="referee_licence">License</label>
+                                <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence" id="referee_licence" tabindex="-1">
                                 <label for="referee_image">Image link</label>
                                 <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image" id="referee_image" tabindex="-1">
                             </div>
                             <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                                 <label for="set_club_input">Club</label>
-                                <div class="search_wrapper wide">
+                                <div class="search_wrapper wide higher">
                                     <input type="text" name="nation" onfocus="resultChecker(this), isOpen()" onblur="isClosed()" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input" tabindex="-1">
                                     <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
                                     <div class="search_results">

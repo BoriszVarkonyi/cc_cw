@@ -519,7 +519,12 @@ input[type="time"] {
 
 .search_wrapper {
 	position: relative;
-	z-index: +10;
+	z-index: 1;
+}
+
+.search_wrapper.higher {
+	position: relative;
+	z-index: 2;
 }
 
 #title_stripe > .search_wrapper {
@@ -541,7 +546,7 @@ input[type="time"] {
 	background-position: 10px;
 	color: var(--c-black);
 	position: relative;
-	z-index: +1;
+	z-index: 1;
 	width: 100%;
 	box-sizing: border-box;
 	height: 37px;
@@ -553,7 +558,6 @@ input[type="time"] {
 	position: absolute;
 	right: 10px;
 	top: 50%;
-	z-index: +2;
 	transform: translateY(-50%);
 	display: flex;
 	justify-content: center;
@@ -680,7 +684,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	box-shadow: var(--s-black);
 	position: absolute;
 	top: 34px;
-	z-index: -1;
+	z-index: 0;
 	max-height: 0;
 	opacity: 0;
 	overflow: hidden;
@@ -711,7 +715,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	padding: 5px;
 	position: relative;
 	text-align: center;
-	z-index: 0;
 	background: var(--c-white);
 	display: block;
 }
@@ -726,51 +729,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 .search_results > *:focus {
 	background: red !important;
-}
-
-/* Loading Screen */
-
-#loading_bar {
-	width: 100vw;
-	height: .15em;
-	position: absolute;
-	top: 40px;
-	left: 0;
-	background: var(--cs-darkgray);
-	z-index: 5;
-	overflow: hidden;
-	opacity: 1;
-}
-
-#loading_bar::after {
-	width: 0;
-	height: 100%;
-	background: var(--c-primary);
-	content: "";
-	position: absolute;
-	transition: width var(--t-basic);
-}
-
-#loading_bar.load::after {
-	width: 26.1651%;
-}
-
-#loading_bar.loading::after {
-	width: 81.5116261%;
-}
-
-#loading_bar.loaded::after {
-	width: 100%;
-}
-
-#loading_bar.finished {
-	height: 0;
-	opacity: 0;
-	transition: height var(--t-basic) .2s, opacity var(--t-basic) .2s;
-}
-
-#loading_bar.hidden {
-	display: none;
 }
 
 /* CUSTOM TABLE ELEMENTS */

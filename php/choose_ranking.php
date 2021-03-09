@@ -133,8 +133,7 @@ if(isset($_POST["submit"]) ){
                 </div>
                 <div id="page_content_panel_main">
                     <div id="choose_ranking_wrapper">
-                        <div id="upload_ranking_panel">
-                            <button  onclick="toggleUploadRankingPanel()" class="open_panel_button"></button>
+                        <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()" >
                             <button class="panel_button" onclick="toggleUploadRankingPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg">
                             </button>
@@ -199,8 +198,7 @@ if(isset($_POST["submit"]) ){
                             </div>
                         </div>
 
-                        <div id="create_ranking_panel">
-                            <button onclick="toggleCreateRankingPanel()" class="open_panel_button"></button>
+                        <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
                             <button class="panel_button" onclick="toggleCreateRankingPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg">
                             </button>

@@ -8,18 +8,15 @@ var useThisRanking = document.getElementById("use_this_ranking");
 // expands and minimizes the Upload Panel
 function toggleUploadRankingPanel() {
     uploadPanel.classList.toggle("opened");
-    chooseRankingWrapper.classList.toggle("first");
-    rankingSearch.classList.add("closed")
+    rankingSearch.classList.toggle("closed")
 }
 
 // expands and minimizes the Create Panel
 function toggleCreateRankingPanel() {
     createPanel.classList.toggle("opened");
-    chooseRankingWrapper.classList.toggle("second");
-    rankingCreate.classList.add("closed");
+    rankingCreate.classList.toggle("closed");
 }
 
-//
 function chooseRankingCreate() {
     rankingCreate.classList.toggle("closed");
 }

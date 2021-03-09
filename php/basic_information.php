@@ -84,7 +84,7 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
 <body>
-<!-- header -->
+    <!-- header -->
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
