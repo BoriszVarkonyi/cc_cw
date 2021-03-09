@@ -54,7 +54,7 @@
 	--csd-orange: transparent;
 	--csd-lightorange: transparent;
 	/* Shadows */
-	--s-black: 0 3px 6px #25252510;
+	--s-black: 0 3px 6px rgba(0,0,0,.1);
 	--s-orange: 0 3px 6px #FF970010;
 	--s-red: 0 3px 6px #F84F4F10;
 	--s-green: 0 3px 6px #8DFFB710;
@@ -727,8 +727,9 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	background: var(--c-lightergray);
 }
 
-.search_results > *:focus {
-	background: red !important;
+
+.search_results > *.hidden {
+	display: none;
 }
 
 /* CUSTOM TABLE ELEMENTS */
