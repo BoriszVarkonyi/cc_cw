@@ -189,7 +189,7 @@
                                     <div class="table_header">
                                         <div class="table_header_text"><p>NAME</p></div>
                                     </div>
-                                    <div class="select_competition_wrapper table_row_wrapper">
+                                    <div class="select_competition_wrapper table_row_wrapper alt">
                                     <input type="text" name="selected_comp_id" id="selected_comp_input">
                                         <?php
                                         //get oragasniser id

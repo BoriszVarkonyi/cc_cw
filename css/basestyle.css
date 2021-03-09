@@ -667,7 +667,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 /* Search Result */
 
-.search:focus + button + div {	/* Search opener */
+.search_results.opened {	/* Search opener */
 	max-height: 40vh;
 	opacity: 1;
 	overflow-y: auto;

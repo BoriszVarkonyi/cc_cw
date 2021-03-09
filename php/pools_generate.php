@@ -272,7 +272,7 @@
         //set up new row for pools
         $qry_new_row = "INSERT INTO pools (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
         if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
-            header("Location: ../php/pools.php?comp_id=$comp_id");
+            header("Location: ../php/pools_config.php?comp_id=$comp_id");
         }
     }
 
@@ -310,7 +310,7 @@
                     </div>
                     <div class="db_panel_main">
 
-                    <form id="generate_pools" action="../php/generate_pools.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
+                    <form id="generate_pools" action="../php/pools_generate.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
                         <div>
                             <div>
                                 <label for="starting_time">STRIVE FOR</label>
