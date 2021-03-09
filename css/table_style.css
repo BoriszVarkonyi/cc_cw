@@ -60,13 +60,11 @@
 	max-height: calc( (var(--f-small) + 30px) * 128);
 }
 
-/*
 .elimination.hidden {
 	max-height: 0;
 	flex: 0;
 	overflow: hidden;
 }
-*/
 
 /* Coloring of Columns and column labels, both cc and cw */
 

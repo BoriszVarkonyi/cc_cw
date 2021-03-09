@@ -161,7 +161,7 @@
                             <div class="table_header">
                                 <div class="table_header_text"><p>NAME</p></div>
                             </div>
-                            <div class="select_competition_wrapper table_row_wrapper">
+                            <div class="select_competition_wrapper table_row_wrapper alt">
                                 <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
                                 <input type="text" name="id" form="import_technician" class="selected_list_item_input hidden" id="selected_row_input_import">
                                 <?php

@@ -1843,6 +1843,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	z-index: 2;
 	opacity: 1;
 	transition: opacity var(--t-basic);
+	top: calc(50px + 3vh);
 }
 
 .overlay_panel.hidden {
@@ -2194,13 +2195,11 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 
 #add_technician_panel {
 	right: 40px;
-	top: calc(50px + 3vh);
 }
 
 #import_technician_panel {
 	position: absolute;
 	right: 200px;
-	top: calc(50px + 3vh);
 }
 
 .select_competition_wrapper {
@@ -2521,45 +2520,6 @@ input[type="file"] {
 	position: sticky;
 }
 
-#wc_notes {
-	width: 100%;
-	min-height: 175px;
-	height: 25vh;
-	max-height: 300px;
-	padding: 7.5px;
-	background: var(--c-white);
-}
-
-#wc_notes::-webkit-input-placeholder {
-	font-size: var(--f-small);
-
-	color: var(--c-black);
-}
-
-#wc_notes::-moz-placeholder {
-	font-size: var(--f-small);
-
-	color: var(--c-black);
-}
-
-#wc_notes:-ms-input-placeholder {
-	font-size: var(--f-small);
-
-	color: var(--c-black);
-}
-
-#wc_notes::-ms-input-placeholder {
-	font-size: var(--f-small);
-
-	color: var(--c-black);
-}
-
-#wc_notes::placeholder {
-	font-size: var(--f-small);
-
-	color: var(--c-black);
-}
-
 #fencers_weapon_control {
 	width: 100%;
 	height: 100%;
@@ -2760,7 +2720,6 @@ div.title_box > button {
 	border: 3px solid var(--c-primary);
 	background: var(--c-secondary);
 	border-radius: 5px;
-
 	font-family: var(--bold);
 	cursor: pointer;
 	width: auto;
@@ -2876,12 +2835,10 @@ div.title_box > button {
 #add_fencer_panel {
 	position: absolute;
 	right: 40px;
-	top: calc(50px + 3vh);
 }
 
 #ranking_info_panel {
 	right: 530px;
-	top: calc(50px + 3vh);
 	flex-direction: column;
 	align-items: flex-start;
 	position: absolute;
@@ -2906,12 +2863,10 @@ div.title_box > button {
 /* ///TABLE// */
 
 #ref_panel {
-	top: calc(50px + 3vh);
 	right: 400px;
 }
 
 #pist_time_panel {
-	top: calc(50px + 3vh);
 	right: 40px;
 }
 
@@ -3382,7 +3337,6 @@ div.title_box > button {
 }
 
 #add_piste_panel {
-	top: calc(50px + 3vh);
 	right: 40px;
 }
 
@@ -3612,7 +3566,6 @@ div.title_box > button {
 }
 
 #ref_pis_time_panel {
-	top: calc(50px + 3vh);
 	right: 40px;
 }
 
@@ -3621,7 +3574,6 @@ div.title_box > button {
 }
 
 #disqualify_panel {
-	top: calc(50px + 3vh);
 	right: 40px;
 }
 

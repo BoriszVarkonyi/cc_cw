@@ -24,18 +24,15 @@
     $qry_check_pool = "SELECT count(*) FROM pools WHERE assoc_comp_id = '$comp_id'";
     $do_check_pool = mysqli_query($connection, $qry_check_pool);
 
-    $href_pools = 'href="pools_config.php?comp_id=' . $comp_id . '"';
     //logic
-    /*
     if ($row = mysqli_fetch_assoc($do_check_pool)) {
         $n = $row['count(*)'];
         if ($n == 1) {
             $href_pools = 'href="pools_config.php?comp_id=' . $comp_id . '"';
         } else {
-            $href_pools = 'href="generate_pools.php?comp_id=' . $comp_id . '"';
+            $href_pools = 'href="pools_generate.php?comp_id=' . $comp_id . '"';
         }
     }
-    */
 
     $assoc_array_functions = // creating assoc array of button names and onclicks, and hrefs
     [
