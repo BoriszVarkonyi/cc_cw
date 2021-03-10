@@ -370,7 +370,7 @@ function makeArray(){
         }
         tableArray.push(columArray)   
     }
-    console.log(tableArray[0])
+    console.log(tableArray[])
 }
 makeArray();
 */

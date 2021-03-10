@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                                 NAME
-                                <button type="button" onclick="">
+                                <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
                             </div>
@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                                 NATION / CLUB
-                                <button type="button" onclick="">
+                                <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
                             </div>
@@ -149,7 +149,7 @@
                                     </div>
                                 </div>
                                 STATUS
-                                <button type="button" onclick="">
+                                <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
                             </div>
@@ -197,6 +197,7 @@
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/list_search.js"></script>
     <script src="../js/overlay_panel.js"></script>
 </body>
 </html>
