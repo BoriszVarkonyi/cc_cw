@@ -5,6 +5,8 @@
 
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
+
 //get competitors
 $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
 $do_get_data = mysqli_query($connection, $qry_get_data);
@@ -16,37 +18,109 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
     $json_table = [];
 }
 
+
+$tablearray = json_decode(json_encode($json_table), true);;
+
 //Sorting fencers by nations(ABC)
 
-function cmp($a, $b) {
-    return strcmp($a->nation, $b->nation);
+//usage
+
+function arrayOrderBy(array &$arr, $order = null)
+{
+    if (is_null($order)) {
+        return $arr;
+    }
+    $orders = explode(',', $order);
+    usort($arr, function ($a, $b) use ($orders) {
+        $result = array();
+        foreach ($orders as $value) {
+            list($field, $sort) = array_map('trim', explode(' ', trim($value)));
+            if (!(isset($a[$field]) && isset($b[$field]))) {
+                continue;
+            }
+            if (strcasecmp($sort, 'desc') === 0) {
+                $tmp = $a;
+                $a = $b;
+                $b = $tmp;
+            }
+            if (is_numeric($a[$field]) && is_numeric($b[$field])) {
+                $result[] = $a[$field] - $b[$field];
+            } else {
+                $result[] = strcmp($a[$field], $b[$field]);
+            }
+        }
+        return implode('', $result);
+    });
+    return $arr;
 }
 
-usort($json_table, "cmp");
+arrayOrderBy($tablearray, 'reg asc,nation asc');
+
+foreach($tablearray as $fencer){
+
+    echo $fencer["nation"] . " " . $fencer["reg"] . "<br>";
+
+}
+
+// function cmp($a, $b) {
+
+//     return strcmp($a->nation, $b->nation);
+// }
+//usort($json_table, amp);
+//usort($json_table, "cmp");
+
+foreach ($json_table as $object) {
+
+    echo $object->nom . " ";
+    echo $object->nation  . " ";
+    echo $object->reg  . "<br>";
+}
 
 //Count who is ready and who is not 
 
 $ready = 0;
 $notready = 0;
 
-foreach($json_table as $object){
+foreach ($json_table as $object) {
 
     if ($object->reg == true) {
         $ready++;
-    }
-    else{
+    } else {
         $notready++;
     }
-
 }
 
 echo $ready . "<br>";
-echo $notready;
+echo $notready . "<br>";
 
-//Counting 
+//Counting each country's registered and not registered fencers
 
-foreach($json_table as $object){
+$ccode = "";
 
+$nations = new stdClass;
+
+foreach ($json_table as $object) {
+
+    $actualNation = $object->nation;
+
+    $nations->$actualNation->ready = 0;
+    $nations->$actualNation->notready = 0;
+}
+
+foreach ($json_table as $object) {
+
+    $actualNation = $object->nation;
+
+    if ($object->reg == true) {
+        $nations->$actualNation->ready += 1;
+    } else {
+        $nations->$actualNation->notready += 1;
+    }
+}
+
+foreach ($nations as $country_code => $country_value) {
+
+    echo $country_code . " registered: " . $country_value->ready . " not registered: " . $country_value->notready . "<br>";
 }
 
 

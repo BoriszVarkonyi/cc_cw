@@ -44,7 +44,7 @@
             $fencer_id = $_POST['fencer_ids'];
             $id_to_change = findObject($json_table, $fencer_id, "id");
 
-            $json_table[$id_to_change] -> reg = 0;
+            $json_table[$id_to_change] -> reg = false;
             //update database
             $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
             $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
