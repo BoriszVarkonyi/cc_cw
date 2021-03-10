@@ -114,24 +114,24 @@
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search page" id="">
+                                        <input type="text" name="" onkeyup="serachInLists(this)" placeholder="Search by Name" class="search page" id="">
                                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
                                 NAME
-                                <button type="button" onclick="">
+                                <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Nation" class="search page" id="">
+                                        <input type="text" name="" onkeyup="tempomaryNationSearch(this)" placeholder="Search by Nation" class="search page" id="">
                                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
                                 NATION / CLUB
-                                <button type="button" onclick="">
+                                <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
                             </div>
@@ -145,7 +145,7 @@
                                     </div>
                                 </div>
                                 STATUS
-                                <button type="button" onclick="">
+                                <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
                             </div>
@@ -187,6 +187,7 @@
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/list_search.js"></script>
     <script src="../js/overlay_panel.js"></script>
 </body>
 </html>

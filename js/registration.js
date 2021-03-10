@@ -67,3 +67,13 @@ document.addEventListener("keyup", function(e){
         }
     }
 })
+var searchFor = ""
+var nat = document.querySelectorAll(".table_item:nth-of-type(2) > p");
+for (i = 0; i < nat.length; i++) {
+    nat[i].parentNode.parentNode.style.display = "";
+}
+for (i = 0; i < nat.length; i++) {
+    if (nat[i].innerHTML != searchFor && searchFor != "") {
+        nat[i].parentNode.parentNode.style.display = "none";
+    }
+}

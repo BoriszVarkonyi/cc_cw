@@ -91,4 +91,5 @@ function selectSearch(x) {
             break;
         }
     }
+    selectedRowInput.value = selectedElementId
 }
