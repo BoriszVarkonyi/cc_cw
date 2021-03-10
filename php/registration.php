@@ -114,7 +114,7 @@
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search page" id="">
+                                        <input type="text" name="" onkeyup="serachInLists(this)" placeholder="Search by Name" class="search page" id="">
                                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Nation" class="search page" id="">
+                                        <input type="text" name="" onkeyup="tempomaryNationSearch(this)" placeholder="Search by Nation" class="search page" id="">
                                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
