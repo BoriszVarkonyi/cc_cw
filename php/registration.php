@@ -88,20 +88,7 @@
                     <div class="search_wrapper">
                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search page" id="inputs">
                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <div class="search_results">
-                            <?php
-                            foreach ($json_table as $json_object) {
-                                $name = $json_object -> nom . " " .  $json_object -> prenom;
-                                $id = $json_object -> id;
-
-                                ?>
-                                <a id="<?php echo $id ?>A" href="#<?php echo $id ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
-                                <?php
-                            }
-                                ?>
-                        </div>
                     </div>
-
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleAddFencerPanel()">
@@ -129,8 +116,8 @@
                     <div class="table wrapper">
                         <div class="table_header">
                             <div class="table_header_text">
-                                <div class="search_panel opened">
-                                    <div class="search_wrapper opened">
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
                                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search page" id="">
                                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
@@ -141,7 +128,7 @@
                                 </button>
                             </div>
                             <div class="table_header_text">
-                                <div class="search_panel opened">
+                                <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Nation" class="search page" id="">
                                         <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
@@ -153,7 +140,7 @@
                                 </button>
                             </div>
                             <div class="table_header_text">
-                                <div class="search_panel option opened">
+                                <div class="search_panel option">
                                     <div class="option_container">
                                         <input type="radio" name="status" id="a" value=""/>
                                         <label for="a">Not registered in</label>
