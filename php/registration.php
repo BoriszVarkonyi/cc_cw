@@ -85,10 +85,6 @@
                         </button>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
-                    <div class="search_wrapper">
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search page" id="inputs">
-                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                    </div>
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleAddFencerPanel()">
@@ -159,12 +155,6 @@
                         <?php
 
                         if (isset($json_table[0])) {
-
-                            function cmp($a, $b) {
-                                return strcmp($a->nation, $b->nation);
-                            }
-                            
-                            usort($json_table, "cmp");
 
                             foreach ($json_table as $json_object) {
                                 $name = $json_object -> nom . " " . $json_object -> prenom;
