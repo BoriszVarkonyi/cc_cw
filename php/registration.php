@@ -67,6 +67,10 @@
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
+                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>">
+                            <p>Registration Statistics</p>
+                            <img src="../assets/icons/pie_chart-black-18dp.svg"/>
+                        </a>
                         <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/person_add_alt_1-black-18dp.svg"/>
@@ -100,35 +104,68 @@
 
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
-                            <button class="panel_button" onclick="toggleAddFencerPanel()">
-                                <img src="../assets/icons/close-black-18dp.svg">
-                            </button>
-                            <!-- add fencers drop-down -->
-                            <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
-                                <label for="fencers_name">NAME</label>
-                                <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
-                                <label for="fencers_nationality">NATION / CLUB</label>
-                                <div class="search_wrapper wide">
-                                    <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input" id="nationInput">
-                                    <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
-                                    <div class="search_results">
-                                        <?php include "../includes/nations.php"; ?>
-                                    </div>
-                                </div>
-                                <label for="fencers_points">POSITION</label>
-                                <input type="number" placeholder="##" id="ranking_points" class="number_input centered" name="fencer_position">
-                                <button type="submit" name="add_fencer" class="panel_submit">Save</button>
-                            </form>
+                    <button class="panel_button" onclick="toggleAddFencerPanel()">
+                        <img src="../assets/icons/close-black-18dp.svg">
+                    </button>
+                    <!-- add fencers drop-down -->
+                    <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
+                        <label for="fencers_name">NAME</label>
+                        <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
+                        <label for="fencers_nationality">NATION / CLUB</label>
+                        <div class="search_wrapper wide">
+                            <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input" id="nationInput">
+                            <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                            <div class="search_results">
+                                <?php include "../includes/nations.php"; ?>
+                            </div>
                         </div>
+                        <label for="fencers_points">POSITION</label>
+                        <input type="number" placeholder="##" id="ranking_points" class="number_input centered" name="fencer_position">
+                        <button type="submit" name="add_fencer" class="panel_submit">Save</button>
+                    </form>
+                </div>
                 <div id="page_content_panel_main">
 
                     <div class="table wrapper">
                         <div class="table_header">
-                            <div class="table_header_text">NAME</div>
-                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"></button>
-                            <div class="table_header_text">NATION / CLUB</div>
-                            <button class="resizer"></button>
-                            <div class="table_header_text">STATUS</div>
+                            <div class="table_header_text">
+                                <div class="search_panel opened">
+                                    <div class="search_wrapper opened">
+                                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Name" class="search page" id="">
+                                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    </div>
+                                </div>
+                                NAME
+                                <button type="button" onclick="">
+                                    <img src="../assets/icons/search-black-18dp.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel opened">
+                                    <div class="search_wrapper">
+                                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search by Nation" class="search page" id="">
+                                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    </div>
+                                </div>
+                                NATION / CLUB
+                                <button type="button" onclick="">
+                                    <img src="../assets/icons/search-black-18dp.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel option opened">
+                                    <div class="option_container">
+                                        <input type="radio" name="status" id="a" value=""/>
+                                        <label for="a">Not registered in</label>
+                                        <input type="radio" name="status" id="b" value=""/>
+                                        <label for="b">Registered in</label>
+                                    </div>
+                                </div>
+                                STATUS
+                                <button type="button" onclick="">
+                                    <img src="../assets/icons/search-black-18dp.svg">
+                                </button>
+                            </div>
                             <div class="big_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">

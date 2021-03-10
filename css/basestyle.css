@@ -619,6 +619,33 @@ input[type="time"] {
 
 /* Search select */
 
+.search_panel {
+	bottom: 100%;
+	border-radius: 5px;
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height var(--t-basic);
+	font-size: var(--f-small);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.search_panel.option {
+	background: var(--c-white);
+	padding: 10px;
+	margin-bottom: 3px;
+}
+
+.search_panel.option > .option_container {
+	margin: 0 !important;
+}
+
+.search_panel.opened {
+	max-height: 100px;
+}
+
 .search.select {
 	margin: 0;
 	width: 100%;
@@ -787,6 +814,12 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	text-transform: uppercase;
 }
 
+.table_header_text {
+	flex-wrap: wrap;
+	position: relative;
+	align-content: flex-end;
+}
+
 .table_header_text.title {
 	justify-content: flex-start;
 }
@@ -828,6 +861,20 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	max-width: calc(1.4em + 1.25vmin - 6px);
 	justify-content: center;
 	border: 3px solid transparent;
+}
+
+.table_header_text > button {
+	width: 1rem;
+	height: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5px;
+}
+
+.table_header_text > button > img {
+	width: 1rem;
+	height: 1rem;
 }
 
 /* Table row */
@@ -1059,13 +1106,16 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 }
 
 .table_header_text, .table_item {
-	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	flex: 1 1 auto;
 	justify-content: center;
 	align-items: center;
 	max-width: 50%;
+}
+
+.table_item {
+	overflow: hidden;
 }
 
 .table_item.selected {
