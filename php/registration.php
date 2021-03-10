@@ -160,6 +160,12 @@
 
                         if (isset($json_table[0])) {
 
+                            function cmp($a, $b) {
+                                return strcmp($a->nation, $b->nation);
+                            }
+                            
+                            usort($json_table, "cmp");
+
                             foreach ($json_table as $json_object) {
                                 $name = $json_object -> nom . " " . $json_object -> prenom;
                                 $nat = $json_object -> nation;

@@ -115,18 +115,79 @@ if ($uploadOk == 0) {
 
         foreach ($xml->Tireurs->children() as $fencers) {
 
-            $sexe = reset($fencers["Sexe"]);
-            $id= reset($fencers["ID"]);
-            $image= reset($fencers["Image"]);
-            $points= reset($fencers["Points"]);
-            $classement= reset($fencers["Classement"]);
-            $club= reset($fencers["Club"]);
-            $lateralite= reset($fencers["Lateralite"]);
-            $date_naissance= reset($fencers["Date_naissance"]);
-            $licence= reset($fencers["Licence"]);
-            $nation= reset($fencers["Nation"]);
-            $prenom= reset($fencers["Prenom"]);
-            $nom= reset($fencers["Nom"]);
+            if (isset($fencers["Sexe"])) {
+                $sexe = str_replace("'", "", reset($fencers["Sexe"]));
+            }
+            else{
+                $sexe = NULL;
+            }
+            if (isset($fencers["ID"])) {
+                $id= str_replace("'", "", reset($fencers["ID"]));
+            }
+            else{
+                $id = NULL;
+            }
+            if (isset($fencers["Image"])) {
+                $image= str_replace("'", "", reset($fencers["Image"]));
+            }
+            else{
+                $image = NULL;
+            }
+            if (isset($fencers["Points"])) {
+                $points= str_replace("'", "", reset($fencers["Points"]));
+            }
+            else{
+                $points = NULL;
+            }
+            if (isset($fencers["Classement"])) {
+                $classement= str_replace("'", "", reset($fencers["Classement"]));
+            }
+            else{
+                $classement = NULL;
+            }
+            if (isset($fencers["Club"])) {
+                $club= str_replace("'", "", reset($fencers["Club"]));
+            }
+            else{
+                $club = NULL;
+            }
+            if (isset($fencers["Lateralite"])) {
+                $lateralite= str_replace("'", "", reset($fencers["Lateralite"]));
+            }
+            else{
+                $lateralite = NULL;
+            }
+            if (isset($fencers["Date_naissance"])) {
+                $date_naissance= str_replace("'", "", reset($fencers["Date_naissance"]));
+            }
+            else{
+                $date_naissance = NULL;
+            }
+            if (isset($fencers["Licence"])) {
+                $licence= str_replace("'", "", reset($fencers["Licence"]));
+            }
+            else{
+                $licence = NULL;
+            }
+            if (isset($fencers["Nation"])) {
+                $nation= str_replace("'", "", reset($fencers["Nation"]));
+            }
+            else{
+                $nation = NULL;
+            }
+            if (isset($fencers["Prenom"])) {
+                $prenom= str_replace("'", "", reset($fencers["Prenom"]));
+            }
+            else{
+                $prenom = NULL;
+            }
+            if (isset($fencers["Nom"])) {
+                $nom= str_replace("'", "", reset($fencers["Nom"]));
+            }
+            else{
+                $nom = NULL;
+            }
+
             $reg= false;
             $wc= false;
             $comp_rank= NULL;
@@ -143,11 +204,13 @@ if ($uploadOk == 0) {
 
         }
 
-        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
 
-            $qry_update_data = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+            echo $qry_update_data = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
             $do_update_data = mysqli_query($connection, $qry_update_data);
+
+            echo mysqli_error($connection);
 
 
         header("Location: ../php/competitors.php?comp_id=$comp_id");
