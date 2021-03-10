@@ -624,7 +624,7 @@ input[type="time"] {
 	border-radius: 5px;
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height var(--t-basic) padding var(--t-basic) opacity var(--t-basic);
+	transition: max-height var(--t-basic), padding var(--t-basic), opacity var(--t-basic);
 	font-size: var(--f-small);
 	display: flex;
 	justify-content: center;
