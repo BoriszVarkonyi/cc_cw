@@ -16,7 +16,7 @@ $minimum = 3;
 $maximum = 255;
 
 
-        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id) VALUES ('$comp_name', 1, $org_id, '$ass_tourn_id')";
+        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id)";
         $query_create = mysqli_query($connection, $query);
 
         if (!$query_create) {
