@@ -379,7 +379,7 @@ if (isset($_POST["time_change"])) {
                                     </div>
                                 </div>
                                 <input type="text" name="piste_change_data">
-                                <input type="submit" name="piste_change" class="save_change_button" value="Save">
+                                <input type="button" class="save_change_button" value="Save">
                             </div>
                         </form>
                         <form class="match_settings_form" method="POST">
