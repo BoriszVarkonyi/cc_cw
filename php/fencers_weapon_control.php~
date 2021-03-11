@@ -60,13 +60,14 @@
 
     $fencer_id = $_GET['fencer_id'];
 
-    $qry_get_fencers = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-    $do_get_data = mysqli_query($connection, $qry_get_fencers);
+    //get fencer data
+    $qry_get_fencer_data = "SELECT `name` FROM cptrs_$comp_id WHERE id = '$fencer_id'";
+    $do_get_fencer_data = mysqli_query($connection, $qry_get_fencer_data);
 
-    if ($row = mysqli_fetch_assoc($do_get_f_data)) {
-	    	$json_string = $row['data'];
-		$json_table = json_decode($json_sring);
-	   }
+    if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
+        $fencer_name = $row['name'];
+    }
+
 
     //check wc
     $qry_wc = "SELECT data FROM weapon_control WHERE assoc_comp_id = $comp_id";
@@ -91,8 +92,6 @@
 
 
 
-    $id_to_find = findObject($json_table, $fencer_id, "id");
-    $fencer_name = $json_table[$id_to_find] -> nom . " " . $json_table[$id_to_find] -> prenom;
 
 
 
