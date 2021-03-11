@@ -4,11 +4,10 @@
 	position: relative;
 	border-radius: 5px;
 	box-shadow: var(--s-black);
-	overflow: hidden;
 }
 
 #call_room.cc {
-	margin: 20px;
+	margin: 50px 20px;
 	width: 100%;
 }
 
@@ -26,7 +25,7 @@
 	justify-content: center;
 	align-items: center;
 	top: 0;
-	z-index: 4;
+	z-index: 2;
 	border-radius: 5px;
 }
 
@@ -56,7 +55,12 @@
 	flex-direction: column;
 	align-items: center;
 	width: 0;
+	z-index: 0;
 	max-height: calc( (var(--f-small) + 30px) * 128);
+}
+
+.elimination:focus-within {
+	z-index: 1;
 }
 
 .elimination.hidden {
@@ -102,8 +106,15 @@
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
-	z-index: 2;
 	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.table_round_wrapper:focus {
+	outline: 3px solid var(--c-primary);
+	outline-offset: 1.5px;
+	box-shadow: var(--s-black);
+	z-index: 3;
 }
 
 /* cw specific, makes good looking hover */
@@ -133,7 +144,6 @@
 	cursor: pointer;
 	border-radius: 4px;
 	margin: 30px 25px;
-	z-index: 6;
 }
 
 .table_fencer::before, .table_round::after, .table_round_wrapper::before {

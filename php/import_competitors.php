@@ -36,7 +36,7 @@
             </div>
             <div id="page_content_panel_main">
                 <div class="wrapper">
-                    <div class="inv_panel">
+                    <div class="db_panel other">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/build-black-18dp.svg">
                             <p>Import Competitors</p>

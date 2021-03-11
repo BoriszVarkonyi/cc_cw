@@ -317,6 +317,17 @@ if (isset($_POST["generate_table"])) {
                             <img src="../assets/icons/next_plan-black-18dp.svg" />
                         </button>
                     </div>
+
+                    <div class="search_wrapper">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
+                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <div class="search_results">
+
+                            <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Example</button>
+
+                        </div>
+                    </div>
+
                 <?php } ?>
                 <div class="view_button_wrapper zoom">
                     <button class="view_button" onclick="tableZoomOut()" id="zoomOutButton">
@@ -543,8 +554,8 @@ if (isset($_POST["generate_table"])) {
                                     }
                                 ?>
 
-                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>">
-                                        <div class="table_round" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" tabindex="0" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+                                        <div class="table_round">
 
                                             <?php
                                             $firstrun = 0;
@@ -628,5 +639,7 @@ if (isset($_POST["generate_table"])) {
 <script src="../js/main.js"></script>
 <script src="../js/table.js"></script>
 <script src="../js/overlay_panel.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/controls.js"></script>
 
 </html>

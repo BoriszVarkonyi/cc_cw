@@ -3,67 +3,6 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php
-
-    $table_name = "wc_$comp_id";
-    //feedback
-    $feedback = array(
-        "getrankid" => "no",
-        "getfencers" => "no",
-        "getcompdata" => "no"
-    );
-
-
-    //get ranking id by comp_id
-    $qry_getrankid = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
-
-    $qry_getrankid_do = mysqli_query($connection, $qry_getrankid);
-    if ($row = mysqli_fetch_assoc($qry_getrankid_do)) {
-        $feedback['getrankid'] = "ok!";
-        $ranking_id = $row['id'];
-    } else {
-        $feedback['getrankid'] = "ERROR " . mysqli_error($connection);
-    }
-
-    if (isset($_POST['add_wc'])) {
-        $fencer_id = $_POST['fencer_id'];
-        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&rankid=$ranking_id");
-    }
-
-    //checking for dupli tables
-    $check_d_table_qry = "SELECT COUNT(*)
-    FROM information_schema.tables
-    WHERE table_schema = 'ccdatabase'
-    AND table_name = '$table_name';";
-
-    if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-        $num_rows = mysqli_num_rows($check_d_table_do);
-        $feedback['ttest'] = "ok!";
-
-        if ($num_rows != 0) {
-            //creating weapon control  table
-            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL ,
-                                                                `name` VARCHAR(255) NOT NULL ,
-                                                                `nat` VARCHAR(255) NOT NULL ,
-                                                                `weapon_errors` VARCHAR(255) NOT NULL ,
-                                                                `notes` TEXT NOT NULL )
-                                                                ENGINE = InnoDB;";
-
-            if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
-                $feedback['create_table'] = "ok!";
-            } else {
-                $feedback['create_table'] = "ERROR " . mysqli_error($connection);
-            }
-
-        } else {
-            $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
-        }
-
-    } else {
-        $feedback['ttest'] = "ERROR " . mysqli_error($connection);
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

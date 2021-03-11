@@ -146,7 +146,7 @@ function sexConverter($sexin) {
 //find object with same id from json_table
 function findObject(array $table_of_objects, $id_to_find, string $attribute_name) {
     foreach ($table_of_objects as $object) {
-        if ($object -> $attribute_name == $id_to_find) {
+        if ($object -> {$attribute_name} == $id_to_find) {
             $ob_to_find = $object;
             break;
         }

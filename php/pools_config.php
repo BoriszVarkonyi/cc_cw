@@ -129,7 +129,7 @@ $fencers = count($json_table);
 
                         <label for="interval_of_match">INTERVAL OF MATCH</label>
                         <div id="interval_of_match_wrapper">
-                            <input type="number" class="number_input centered" name="interval_of_match" id="timeInput">
+                            <input type="number" class="number_input centered" name="interval_of_match" id="timeInput" placeholder="#">
                             <p>Min.</p>
                         </div>
 

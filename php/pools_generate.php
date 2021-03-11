@@ -272,7 +272,7 @@
         //set up new row for pools
         $qry_new_row = "INSERT INTO pools (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
         if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
-            header("Location: ../php/pools.php?comp_id=$comp_id");
+            header("Location: ../php/pools_config.php?comp_id=$comp_id");
         }
     }
 
@@ -310,7 +310,7 @@
                     </div>
                     <div class="db_panel_main">
 
-                    <form id="generate_pools" action="../php/generate_pools.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
+                    <form id="generate_pools" action="../php/pools_generate.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
                         <div>
                             <div>
                                 <label for="starting_time">STRIVE FOR</label>
@@ -332,7 +332,7 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="interval_of_match">NUMBER OF QUALIFIERS</label>
+                                <label for="interval_of_match">NUMBER OF QUALIFIERS AFTER POOLS</label>
                                 <input type="number" placeholder="#" class="number_input centered">
                             </div>
                         </div>
@@ -342,19 +342,19 @@
                                 <table class="pools_stat_table">
                                     <thead>
                                         <th>Percent</th>
-                                        <th>{Number of Fencers}</th>
+                                        <th>Number of Fencers</th>
                                     </thead>
                                     <tr>
                                         <td>All</td>
-                                        <td>{Number of Fencers}</td>
+                                        <td><?php echo $number_of_fencers ?></td>
                                     <tr>
                                     <tr>
                                         <td>80%</td>
-                                        <td>{Number of Fencers} * 0.8</td>
+                                        <td><?php echo $number_of_fencers * 0.8?></td>
                                     <tr>
                                     <tr>
                                         <td>70%</td>
-                                        <td>{Number of Fencers} * 0.7</td>
+                                        <td><?php echo $number_of_fencers * 0.7?></td>
                                     <tr>
                                 </table>
                             </div>

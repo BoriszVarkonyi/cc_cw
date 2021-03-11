@@ -161,7 +161,7 @@ function toggle_colormode_panel() {
     }
     else {
         oldClickedelement = color_panel;
-    } 
+    }
     //color_panel.classList.toggle("hidden");
 }
 
@@ -182,7 +182,7 @@ function toggle_profile_panel() {
     }
     else {
         oldClickedelement = profile_panel;
-    } 
+    }
     //profile_panel.classList.toggle("hidden");
 }
 
@@ -271,7 +271,7 @@ function classRemover(){
 function setToDanube(x){
     var danubeColorButton = document.querySelector(".color_square.danube")
     classRemover();
-    danubeColorButton.classList.add("selected") 
+    danubeColorButton.classList.add("selected")
     document.documentElement.setAttribute('data-content-theme', 'danube');
     //Saves the colormode
     localStorage.setItem('colorMode', 'danube');
@@ -334,7 +334,7 @@ setuptext.classList.add("disabled");
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
-numberInputs.forEach(item => { 
+numberInputs.forEach(item => {
     item.addEventListener("keydown", function(e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
@@ -356,7 +356,7 @@ document.addEventListener("keydown", function(e){
             }
             canAddHoverClass = false;
         }
-    }    
+    }
 })
 document.addEventListener("keyup", function(e){
     //searchBarClosed is a var. from control.js
@@ -367,7 +367,7 @@ document.addEventListener("keyup", function(e){
             }
             canAddHoverClass = true;
         }
-    }        
+    }
 })
 
 var loadingBar = document.getElementById("loading_bar");
@@ -379,8 +379,7 @@ document.addEventListener('DOMContentLoaded', function(){
         loadingBar.classList.remove("loading");
         loadingBar.classList.add("loaded");
         setTimeout(function(){ loadingBar.classList.remove("loading"); loadingBar.classList.add("finished")}, 1000);
-        setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.classList.add("hidden")}, 1200);
-        setTimeout(function(){ loadingBar.remove() }, 1500);
+        setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.remove()}, 1250);
     }
 })
 /*
@@ -389,11 +388,11 @@ function toggleFullscreen(){
     if(window.innerHeight == screen.height){
         if (document.exitFullscreen){
             document.exitFullscreen();
-        } 
-        else if (document.webkitExitFullscreen){ 
+        }
+        else if (document.webkitExitFullscreen){
             document.webkitExitFullscreen();
-        } 
-        else if (document.msExitFullscreen){ 
+        }
+        else if (document.msExitFullscreen){
             document.msExitFullscreen();
         }
         iconChanger();
@@ -401,11 +400,11 @@ function toggleFullscreen(){
     else{
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
-        } 
+        }
         else if (elem.webkitRequestFullscreen){
             elem.webkitRequestFullscreen();
-        } 
-        else if (elem.msRequestFullscreen){ 
+        }
+        else if (elem.msRequestFullscreen){
             elem.msRequestFullscreen();
         }
         iconChanger();

@@ -55,12 +55,11 @@ var btRight = document.getElementById("buttonRight")
 //If found da cookie
 if (document.cookie.split(';').some((item) => item.trim().startsWith('firstIndex='))) {
     firstIndex = parseInt(getCookie("firstIndex"))
-    console.log(firstIndex)
 }
 //If not found da cookie
 else {
     firstIndex = 0;
-    document.cookie = "firstIndex="
+    document.cookie = "firstIndex=" + firstIndex
 }
 
 //If found da cookie
@@ -75,9 +74,8 @@ else {
     else {
         secondIndex = eleminitaions.length
     }
-    document.cookie = "secondIndex="
+    document.cookie = "secondIndex=" + secondIndex
 }
-
 //Hides all the eliminations
 for (i = 0; i < eleminitaions.length; i++) {
     eleminitaions[i].classList.add("hidden")
@@ -355,6 +353,24 @@ zoomInButton.addEventListener('mousemove', function (e) {
     mousePosition = e;
 })
 
-
-
-
+//Controls 
+/*
+var tableFencer = document.querySelectorAll(".table_round_wrapper");
+tableFencer[0].focus()
+function makeArray(){
+    var tableArray = []
+    for(i=0; i<eleminitaions.length; i++){
+        var currentRounds = eleminitaions[i].querySelectorAll(".table_round_wrapper")
+        var columArray = []
+        for(j=0; j<currentRounds.length; j+=2){
+            var array2 = []
+            array2.push(currentRounds[j])
+            array2.push(currentRounds[j+1])
+            columArray.push(array2)
+        }
+        tableArray.push(columArray)   
+    }
+    console.log(tableArray[])
+}
+makeArray();
+*/
