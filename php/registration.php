@@ -138,7 +138,7 @@
                             <div class="table_header_text">
                                 <div class="search_panel option">
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="serachInLists()" class="search page">
+                                        <input type="text" onkeyup="serachInLists()" class="search page hidden">
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                     <div class="option_container">
@@ -146,6 +146,7 @@
                                         <label for="a">Not registered</label>
                                         <input type="radio" name="status" id="b" value="Registered"/>
                                         <label for="b">Registered</label>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
                                 STATUS
