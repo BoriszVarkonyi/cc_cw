@@ -114,8 +114,8 @@
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onkeyup="serachInLists(this)" placeholder="Search by Name" class="search page" id="">
-                                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <input type="text" name="" onkeyup="" placeholder="Search by Name" class="search page" id="">
+                                        <button type="button" onclick="searchDelete()"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
                                 NAME
@@ -124,10 +124,10 @@
                                 </button>
                             </div>
                             <div class="table_header_text">
-                                <div class="search_panel">
+                                <div class="search_panel opened">
                                     <div class="search_wrapper">
                                         <input type="text" name="" onkeyup="tempomaryNationSearch(this)" placeholder="Search by Nation" class="search page" id="">
-                                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick="searchDelete()"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
                                 NATION / CLUB

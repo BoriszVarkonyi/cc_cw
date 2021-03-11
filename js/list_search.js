@@ -39,4 +39,20 @@ function tempomaryNationSearch(x) {
             nat[i].parentNode.parentNode.style.display = "none";
         }
     }
+
+    // If the input is display all rows
+    if (searchFor == "") {
+        for (i = 0; i < nat.length; i++) {
+            nat[i].parentNode.parentNode.style.display = "";
+        }
+    }
+
+}
+
+// Displays all row when click the X
+function searchDelete() {
+    var nat = document.querySelectorAll(".table_item:nth-of-type(2) > p");
+    for (i = 0; i < nat.length; i++) {
+        nat[i].parentNode.parentNode.style.display = "";
+    }
 }
