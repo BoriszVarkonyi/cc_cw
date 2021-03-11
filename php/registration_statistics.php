@@ -144,7 +144,6 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                     <div class="grid_header breakpoint">
                                         <div class="grid_header_text">SECTION NAME</div>
                                         <div class="grid_header_text">QUANTITY</div>
-                                        <div class="grid_header_text">PERCENTAGE</div>
                                     </div>
 
                                     <?php
@@ -170,17 +169,14 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                         <div class="grid_row breakpoint">
                                             <div class="grid_item">All Fencers</div>
                                             <div class="grid_item"><?php echo ($ready + $notready) ?></div>
-                                            <div class="grid_item">-</div>
                                         </div>
                                         <div class="grid_row breakpoint">
                                             <div class="grid_item">Fencers Registered in</div>
                                             <div class="grid_item"><?php echo $ready ?></div>
-                                            <div class="grid_item"><?php echo 100 - round($notready / $ready * 100, 2)  ?> %</div>
                                         </div>
                                         <div class="grid_row breakpoint">
                                             <div class="grid_item">Fencers not Registered in</div>
                                             <div class="grid_item"><?php echo $notready ?></div>
-                                            <div class="grid_item"><?php echo round($notready / $ready * 100, 2) ?> %</div>
                                         </div>
                                     </div>
                                 </div>
@@ -227,8 +223,8 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                             <div class="grid_row breakpoint">
                                                 <div class="grid_item"><?php echo $country_code ?></div>
                                                 <div class="grid_item"><?php echo ($country_value->ready + $country_value->notready) ?></div>
-                                                <div class="grid_item"><?php echo $country_value->ready . " (" . (100 - round($country_value->notready / $country_value->ready * 100, 2)) . ")%" ?></div>
-                                                <div class="grid_item"><?php echo $country_value->notready . " (" . round($country_value->notready / $country_value->ready * 100, 2) . ")%" ?></div>
+                                                <div class="grid_item"><?php echo $country_value->ready ?></div>
+                                                <div class="grid_item"><?php echo $country_value->notready ?></div>
                                             </div>
 
                                         <?php } ?>
