@@ -148,7 +148,7 @@
                                                     <button class="panel_button" type="submit" name="submit_delete" id="update">
                                                         <img src="../assets/icons/delete-black-18dp.svg">
                                                     </button>
-                                                    <textarea id="update" name="text_body"><?php echo $json_table[$i] -> body ?></textarea>
+                                                    <textarea id="update" name="text_body" placeholder="Type the Announcement's body text here"><?php echo $json_table[$i] -> body ?></textarea>
                                                     <input id="update" name="text_title_to_change" type="text" value="<?php echo $i ?>" class="hidden">
                                                     <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
                                                 </form>

@@ -67,7 +67,7 @@
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
-                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>">
+                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart-black-18dp.svg"/>
                         </a>

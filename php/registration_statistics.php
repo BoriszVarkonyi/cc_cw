@@ -165,7 +165,7 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
                                     ?>
 
-                                    <div class="grid_row_wrapper breakpoint_inside">
+                                    <div class="grid_row_wrapper">
                                         <div class="grid_row breakpoint">
                                             <div class="grid_item">All Fencers</div>
                                             <div class="grid_item"><?php echo ($ready + $notready) ?></div>
@@ -190,7 +190,7 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                         <div class="grid_header_text">REGISTERED IN</div>
                                         <div class="grid_header_text">NOT REGISTERED IN</div>
                                     </div>
-                                    <div class="grid_row_wrapper breakpoint_inside">
+                                    <div class="grid_row_wrapper">
 
                                         <?php
 
@@ -288,7 +288,7 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                             <div class="grid_header_text">NAME</div>
                                             <div class="grid_header_text">STATUS</div>
                                         </div>
-                                        <div class="grid_row_wrapper breakpoint_inside">
+                                        <div class="grid_row_wrapper">
 
 
                                             <div class="grid_row breakpoint">
@@ -318,7 +318,7 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                                     <div class="grid_header_text">NATIONALITY</div>
                                                     <div class="grid_header_text">STATUS</div>
                                                 </div>
-                                                <div class="grid_row_wrapper breakpoint_inside">
+                                                <div class="grid_row_wrapper">
 
                                                     <?php
 
