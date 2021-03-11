@@ -17,7 +17,7 @@ document.onkeydown = (keyDownEvent) => {
     if(searchBarClosed && importOverlayClosed) {
         if(keyDownEvent.key == "ArrowUp"){
             var table = document.querySelector(".table");
-            var tableRows = document.querySelectorAll(".table .table_row");
+            var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)");
             if(selectedElementIndexAr == 0) {
                 selectedElementIndexAr++
             }
@@ -35,7 +35,7 @@ document.onkeydown = (keyDownEvent) => {
             //Cheks if theres a selected row.
             var hasSelected = false;
             var table = document.querySelector(".table");
-            var tableRows = document.querySelectorAll(".table .table_row")
+            var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)")
             for(i=0; i<tableRows.length; i++) {
                 if(tableRows[i].classList.contains("selected")){
                     hasSelected = true;
