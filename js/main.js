@@ -349,7 +349,7 @@ var canAddHoverClass = true;
 searchBarClosed = true;
 document.addEventListener("keydown", function(e){
     //searchBarClosed is a var. from control.js
-    if(searchBarClosed){
+    if(searchBarClosed && !somethingIsFocused){
         if(e.shiftKey && canAddHoverClass) {
             for(i=0; i<stripeButtons.length; i++){
                 stripeButtons[i].classList.add("hover")
@@ -358,9 +358,10 @@ document.addEventListener("keydown", function(e){
         }
     }
 })
+
 document.addEventListener("keyup", function(e){
     //searchBarClosed is a var. from control.js
-    if(searchBarClosed){
+    if(searchBarClosed && !somethingIsFocused){
         if(e.key == "Shift") {
             for(i=0; i<stripeButtons.length; i++){
                 stripeButtons[i].classList.remove("hover")
@@ -428,3 +429,16 @@ var compSelect = document.getElementById("competition_select")
 function toggleCompSelect() {
     compSelect.classList.toggle("opened")
 }
+
+var somethingIsFocused = false;
+var textAreas = document.querySelectorAll("input, textarea")
+textAreas.forEach(item => {
+    item.addEventListener("focus", function() {
+        console.log("hello!!")
+        somethingIsFocused = true
+    });
+    item.addEventListener("blur", function() {
+        somethingIsFocused = false
+    });
+})
+

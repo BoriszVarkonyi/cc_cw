@@ -5,15 +5,15 @@ addWeaponControlButton.disabled = true;
 sendMessageButton.disabled = true;
 addWeaponControlButton.classList.add("disabled")
 sendMessageButton.classList.add("disabled")
-function buttonDisabler(){
+function buttonDisabler() {
     var selectedItem = document.querySelector(".table_row_wrapper .selected")
-    if(selectedItem !== null){
+    if (selectedItem !== null) {
         addWeaponControlButton.disabled = false;
         sendMessageButton.disabled = false;
         addWeaponControlButton.classList.remove("disabled")
         sendMessageButton.classList.remove("disabled")
     }
-    else{
+    else {
         addWeaponControlButton.disabled = true;
         sendMessageButton.disabled = true;
         addWeaponControlButton.classList.add("disabled")
@@ -32,18 +32,20 @@ function callback(mutationsList, observer) {
 }
 
 const mutationObserver2 = new MutationObserver(callback)
-for(i=0; i<wcRows.length; i++){
-mutationObserver2.observe(wcRows[i], { attributes: true })
+for (i = 0; i < wcRows.length; i++) {
+    mutationObserver2.observe(wcRows[i], { attributes: true })
 }
 
 wctable.addEventListener("click", buttonDisabler)
 
-document.addEventListener("keyup", function(e){
-    //searchBarClosed is a var. from control.js
-    if(searchBarClosed){
-        if(e.shiftKey && e.which == 65) {
-            addWeaponControlButton.click()
+document.addEventListener("keyup", function (e) {
+    //somethingIsFocused is a var. from main.js
+    if (!somethingIsFocused) {
+        //searchBarClosed is a var. from control.js
+        if (searchBarClosed) {
+            if (e.shiftKey && e.which == 65) {
+                addWeaponControlButton.click()
+            }
         }
     }
-
 })

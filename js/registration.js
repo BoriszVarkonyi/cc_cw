@@ -6,7 +6,7 @@ function toggleAddFencerPanel() {
     addFencerPanel.classList.remove("hidden");
 }
 
-function setNation(x){
+function setNation(x) {
     var field = document.getElementById("nationInput");
     field.value = x.innerHTML;
     formvariableDeclaration()
@@ -23,44 +23,45 @@ function callback(mutationsList, observer) {
 }
 
 const mutationObserver3 = new MutationObserver(callback)
-for(i=0; i<tableRows.length; i++){
-mutationObserver3.observe(tableRows[i], { attributes: true })
+for (i = 0; i < tableRows.length; i++) {
+    mutationObserver3.observe(tableRows[i], { attributes: true })
 }
 
 var registrationtable = document.querySelector(".table_row_wrapper")
 registrationtable.addEventListener("click", buttonDisabler)
 var isselected = false;
 
-function buttonDisabler(){
+function buttonDisabler() {
     var selectedItem = document.querySelector(".table_row_wrapper .selected")
-    if(selectedItem !== null){
+    if (selectedItem !== null) {
         regInButton.classList.remove("disabled");
         regOutButton.classList.remove("disabled");
         isselected = true;
     }
-    else{
+    else {
         regInButton.classList.add("disabled");
         regOutButton.classList.add("disabled");
         isselected = false;
     }
 }
 
-document.addEventListener("keyup", function(e){
+document.addEventListener("keyup", function (e) {
     //somethingisOpened is a var. from main.js
-    if(!somethingisOpened){
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
         //Opens add registration to Shift+A
-        if(e.shiftKey && e.which == 65) {
+        if (e.shiftKey && e.which == 65) {
             var addfencer = document.getElementById("addFencer")
             addfencer.click()
         }
-        if(isselected){
+        if (isselected) {
             //Regist out to Shift+O
-            if(e.shiftKey && e.which == 79) {
+            if (e.shiftKey && e.which == 79) {
                 regOutButton = document.getElementById("regOut")
                 regOutButton.click()
             }
             //Regists in to Shift+I
-            if(e.shiftKey && e.which == 73) {
+            if (e.shiftKey && e.which == 73) {
                 regInButton = document.getElementById("regIn")
                 regInButton.click()
             }

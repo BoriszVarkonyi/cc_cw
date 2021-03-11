@@ -1,8 +1,11 @@
 //Saves to Shift+S
-document.addEventListener("keyup", function(e){
-    if(e.shiftKey && e.which == 83) {
-        var orangeSaveButton = document.querySelector(".stripe_button.orange")
-        orangeSaveButton.click()
+document.addEventListener("keyup", function (e) {
+    //somethingIsFocused is a var. from main.js
+    if (!somethingIsFocused) {
+        if (e.shiftKey && e.which == 83) {
+            var orangeSaveButton = document.querySelector(".stripe_button.orange")
+            orangeSaveButton.click()
+        }
     }
 })
 
@@ -12,14 +15,14 @@ var useOptions = document.querySelectorAll("#useOptionContainer input");
 var dontUseOptionButton = document.getElementById("not_used");
 
 //Use option
-function useOption(){
-    for(i=0; i<useOptions.length; i++){
+function useOption() {
+    for (i = 0; i < useOptions.length; i++) {
         useOptions[i].disabled = false;
     }
 }
 //Don't use option
-function dontUseOption(){
-    for(i=0; i<useOptions.length; i++){
+function dontUseOption() {
+    for (i = 0; i < useOptions.length; i++) {
         useOptions[i].checked = false;
         useOptions[i].disabled = true;
     }
