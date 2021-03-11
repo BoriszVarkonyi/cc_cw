@@ -65,7 +65,7 @@
 
     if ($row = mysqli_fetch_assoc($do_get_f_data)) {
 	    	$json_string = $row['data'];
-		$json_table = json_decode($json_sring);
+		$json_table = json_decode($json_string);
 	   }
 
     //check wc

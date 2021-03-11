@@ -33,6 +33,10 @@
     if ($row = mysqli_fetch_assoc($do_get_data)) {
 	    	$json_string = $row['data'];
 		$json_table = json_decode($json_sring);
+    } else {
+	    echo mysqli_error($connection);
+	    
+    
     }
 
 

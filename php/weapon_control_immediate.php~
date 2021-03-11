@@ -30,7 +30,7 @@
    $qry_get_fencers = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
     $do_get_data = mysqli_query($connection, $qry_get_fencers);
 
-    if ($row = mysqli_fetch_assoc($do_get_f_data)) {
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
 	    	$json_string = $row['data'];
 		$json_table = json_decode($json_sring);
     }
