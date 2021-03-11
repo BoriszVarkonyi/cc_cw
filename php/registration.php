@@ -114,7 +114,7 @@
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onkeyup="serachInLists()" placeholder="Search by Name" class="search page" id="">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
-                                        <input type="text" name="" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page" id="test">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page">
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
@@ -137,6 +137,10 @@
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel option">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="a" value=""/>
                                         <label for="a">Not registered</label>
@@ -159,7 +163,7 @@
                             function cmp($a, $b) {
                                 return strcmp($a->nation, $b->nation);
                             }
-                            
+
                             usort($json_table, "cmp");
 
                             foreach ($json_table as $json_object) {

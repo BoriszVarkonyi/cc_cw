@@ -887,7 +887,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 /* Table row */
 
 .table_row.hidden {
-	display: none;
+	display: none !important;
 }
 
 /* Basic Coloring of row, Mostly CC */
