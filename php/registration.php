@@ -142,9 +142,9 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                     <div class="option_container">
-                                        <input type="radio" name="status" id="a" value=""/>
+                                        <input type="radio" name="status" id="a" value="Not registered"/>
                                         <label for="a">Not registered</label>
-                                        <input type="radio" name="status" id="b" value=""/>
+                                        <input type="radio" name="status" id="b" value="Registered"/>
                                         <label for="b">Registered</label>
                                     </div>
                                 </div>
