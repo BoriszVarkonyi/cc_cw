@@ -1,15 +1,18 @@
 
-document.addEventListener("keyup", function(e){
+document.addEventListener("keyup", function (e) {
+  //somethingIsFocused is a var. form main.js
+  if (!somethingIsFocused) {
     //Saves to Shift+S
-    if(e.shiftKey && e.which == 83) {
+    if (e.shiftKey && e.which == 83) {
       var orangeSaveButton = document.querySelector(".stripe_button.orange")
       orangeSaveButton.click()
     }
     //Prints to Shift+P
-    if(e.shiftKey && e.which == 80) {
-    var stripeButton = document.querySelector(".stripe_button")
-    stripeButton.click()
-     }
+    if (e.shiftKey && e.which == 80) {
+      var stripeButton = document.querySelector(".stripe_button")
+      stripeButton.click()
+    }
+  }
 });
 
 var panelView = document.querySelector(".wrapper");
@@ -27,20 +30,20 @@ function printView() {
   printView.style.display = "flex";
 }
 panelViewButton.disabled = true;
-function viewButton(x){
+function viewButton(x) {
   panelView.classList.toggle('hidden');
   printView.classList.toggle('hidden');
   var clickedButton = x
-  if(clickedButton.id == "panelViewButton"){
+  if (clickedButton.id == "panelViewButton") {
     clickedButton.disabled = true;
     printViewButton.disabled = false;
   }
-  else{
+  else {
     clickedButton.disabled = true;
     panelViewButton.disabled = false;
   }
 }
 
 function printPage() {
-    window.print();
+  window.print();
 }

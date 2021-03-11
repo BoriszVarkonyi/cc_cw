@@ -7,7 +7,6 @@ function searchEngine(x) {
     var filter = input.value.toUpperCase();
     var ul = input.nextElementSibling.nextElementSibling;
     var li = ul.getElementsByTagName('a');
-    var liNotHidden = ul.querySelectorAll('a:not( .hidden)');
     if (li.length == 0) {
         li = ul.querySelectorAll("button");
     }
@@ -23,6 +22,7 @@ function searchEngine(x) {
         }
 
     }
+    //empty class system
     var allDisplay = false;
     for (i = 0; i < li.length; i++) {
         if (!li[i].classList.contains("hidden")) {
@@ -41,6 +41,17 @@ function searchEngine(x) {
             liCounter++
         }
     }
+    //Makes it sure that the control system works only on visible elements
+    var visibleLi = ul.querySelectorAll('a:not( .hidden)');
+    for (i = 0; i < visibleLi.length; i++) {
+        visibleLi[i].classList.remove("selected")
+    }
+    if (event.key != "ArrowUp" && event.key != "ArrowDown") {
+        selectedElementIndex = 0;
+    }
+    if (visibleLi.length > 0) {
+        visibleLi[selectedElementIndex].classList.add("selected")
+    }
     //importOverlayClosed is a var. from importoverlay.js
     importOverlayClosed = true;
     input.onkeydown = (keyDownEvent) => {
@@ -50,9 +61,13 @@ function searchEngine(x) {
                     selectedElementIndex++
                 }
                 selectedElementIndex--
-                li[selectedElementIndex + 1].classList.remove("selected")
-                li[selectedElementIndex].classList.add("selected")
-                li[selectedElementIndex].scrollIntoView()
+                for (i = 0; i < visibleLi.length; i++) {
+                    visibleLi[i].classList.remove("selected")
+                }
+                if (visibleLi.length > 0) {
+                    visibleLi[selectedElementIndex].classList.add("selected")
+                    visibleLi[selectedElementIndex].scrollIntoView()
+                }
                 keyDownEvent.preventDefault();
             }
             if (keyDownEvent.key == "ArrowDown") {
@@ -60,9 +75,13 @@ function searchEngine(x) {
                     selectedElementIndex--
                 }
                 selectedElementIndex++
-                li[selectedElementIndex - 1].classList.remove("selected")
-                li[selectedElementIndex].classList.add("selected")
-                li[selectedElementIndex].scrollIntoView()
+                for (i = 0; i < visibleLi.length; i++) {
+                    visibleLi[i].classList.remove("selected")
+                }
+                if (visibleLi.length > 0) {
+                    visibleLi[selectedElementIndex].classList.add("selected")
+                    visibleLi[selectedElementIndex].scrollIntoView()
+                }
                 keyDownEvent.preventDefault();
             }
         }

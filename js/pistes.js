@@ -11,7 +11,7 @@ function togglePisteSettings(x) {
 
     }
     //Checking if the oldclickedPiste var. equals the clickedPiste.
-    if (clickedPiste == oldclickedPiste){
+    if (clickedPiste == oldclickedPiste) {
         //If yes than it adds "focused".
         clickedPiste.classList.add("focused");
 
@@ -19,13 +19,13 @@ function togglePisteSettings(x) {
 
     clickedPiste.classList.toggle("focused");
     //Checking if we clicked the same piste.
-    if (clickedPiste.classList.contains("focused")){
+    if (clickedPiste.classList.contains("focused")) {
         //If yes it saves the piste.
         oldclickedPiste = clickedPiste
     }
-    else{
-    //If no it sets the oldclickedPiste var. undifened
-    oldclickedPiste = undefined;
+    else {
+        //If no it sets the oldclickedPiste var. undifened
+        oldclickedPiste = undefined;
 
     }
     var closeLinkButton = x.parentNode.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling;
@@ -61,21 +61,21 @@ var numbered_group = document.getElementsByClassName("numbered_group");
 
 
 
-function mainPiste(){
+function mainPiste() {
 
-for (let index = 0; index < main_group.length; index++) {
-    main_group[index].classList.remove("hidden");
+    for (let index = 0; index < main_group.length; index++) {
+        main_group[index].classList.remove("hidden");
 
-}
+    }
 
-for (let index = 0; index < colored_group.length; index++) {
-    colored_group[index].classList.add("hidden");
+    for (let index = 0; index < colored_group.length; index++) {
+        colored_group[index].classList.add("hidden");
 
-}
-for (let index = 0; index < numbered_group.length; index++) {
-    numbered_group[index].classList.add("hidden");
+    }
+    for (let index = 0; index < numbered_group.length; index++) {
+        numbered_group[index].classList.add("hidden");
 
-}
+    }
 
 
 }
@@ -98,7 +98,7 @@ function coloredPiste() {
 
 }
 
-function numberedPiste(){
+function numberedPiste() {
 
     for (let index = 0; index < main_group.length; index++) {
         main_group[index].classList.add("hidden");
@@ -115,25 +115,28 @@ function numberedPiste(){
     }
 
 }
-document.addEventListener("keyup", function(e){
-    //Opens Add piste to Shift+A
-    if(e.shiftKey && e.which == 65) {
-        var orangeAddButton = document.querySelector(".stripe_button.orange")
-        orangeAddButton.click()
+document.addEventListener("keyup", function (e) {
+    //somethingIsFocused is a var. from main.js
+    if (!somethingIsFocused) {
+        //Opens Add piste to Shift+A
+        if (e.shiftKey && e.which == 65) {
+            var orangeAddButton = document.querySelector(".stripe_button.orange")
+            orangeAddButton.click()
+        }
     }
 })
 //
-function liveButton(x){
+function liveButton(x) {
     var liveButton = x;
     var settingsWrapper = liveButton.parentNode.parentNode;
-    var linkWrapper = settingsWrapper.previousElementSibling; 
+    var linkWrapper = settingsWrapper.previousElementSibling;
     var textArea = linkWrapper.firstElementChild.nextElementSibling;
     settingsWrapper.classList.add("hidden");
     linkWrapper.classList.remove("hidden");
     textArea.focus();
 }
 
-function closeLinkWrapper(x){
+function closeLinkWrapper(x) {
     var closeButton = x;
     var linkWrapper = closeButton.parentNode;
     var settingsWrapper = linkWrapper.nextElementSibling;
