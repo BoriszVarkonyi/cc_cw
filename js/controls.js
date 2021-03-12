@@ -14,6 +14,7 @@ importOverlayClosed = true;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system, works only if search bar closed
     //importOverlayClosed is a var. from importoverlay.js
+    //searchBarClosed is a var from search.js
     if(searchBarClosed && importOverlayClosed) {
         if(keyDownEvent.key == "ArrowUp"){
             var table = document.querySelector(".table");
@@ -96,21 +97,6 @@ document.onkeydown = (keyDownEvent) => {
     if(keyDownEvent.key == "Tab"){
         keyDownEvent.preventDefault();
     }
-}
-var searchBarClosed = true;
-function isOpen(x) {
-    var searchResult = x.nextElementSibling.nextElementSibling;
-    searchResult.classList.add("opened")
-    searchBarClosed = false;
-}
-function isClosed(x) {
-    var searchResult = x.nextElementSibling.nextElementSibling;
-    searchResult.classList.remove("opened")
-    var removeElemClass = document.querySelectorAll(".search_results .selected")
-    for(i=0; i<removeElemClass.length; i++){
-        removeElemClass[i].classList.remove("selected")
-    }
-    searchBarClosed = true;
 }
 /*
 //Opens the searchbar to Shift+F

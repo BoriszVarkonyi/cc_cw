@@ -345,10 +345,9 @@ numberInputs.forEach(item => {
 
 var stripeButtons = document.querySelectorAll(".stripe_button")
 var canAddHoverClass = true;
-//searchBarClosed is a var. from control.js
+//searchBarClosed is a var. from search.js
 searchBarClosed = true;
 document.addEventListener("keydown", function(e){
-    //searchBarClosed is a var. from control.js
     if(searchBarClosed && !somethingIsFocused){
         if(e.shiftKey && canAddHoverClass) {
             for(i=0; i<stripeButtons.length; i++){
@@ -360,7 +359,7 @@ document.addEventListener("keydown", function(e){
 })
 
 document.addEventListener("keyup", function(e){
-    //searchBarClosed is a var. from control.js
+    //searchBarClosed is a var. from search.js
     if(searchBarClosed && !somethingIsFocused){
         if(e.key == "Shift") {
             for(i=0; i<stripeButtons.length; i++){

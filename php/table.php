@@ -640,6 +640,4 @@ if (isset($_POST["generate_table"])) {
 <script src="../js/table.js"></script>
 <script src="../js/overlay_panel.js"></script>
 <script src="../js/search.js"></script>
-<script src="../js/controls.js"></script>
-
 </html>

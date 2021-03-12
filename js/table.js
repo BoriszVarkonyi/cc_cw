@@ -354,23 +354,115 @@ zoomInButton.addEventListener('mousemove', function (e) {
 })
 
 //Controls 
-/*
 var tableFencer = document.querySelectorAll(".table_round_wrapper");
-tableFencer[0].focus()
-function makeArray(){
+tableFencer[0].classList.add("focus")
+function makeArray() {
     var tableArray = []
-    for(i=0; i<eleminitaions.length; i++){
+    for (i = 0; i < eleminitaions.length; i++) {
         var currentRounds = eleminitaions[i].querySelectorAll(".table_round_wrapper")
         var columArray = []
-        for(j=0; j<currentRounds.length; j+=2){
+        for (j = 0; j < currentRounds.length; j += 2) {
             var array2 = []
             array2.push(currentRounds[j])
-            array2.push(currentRounds[j+1])
+            array2.push(currentRounds[j + 1])
             columArray.push(array2)
         }
-        tableArray.push(columArray)   
+        tableArray.push(columArray)
     }
-    console.log(tableArray[])
+    return tableArray
 }
-makeArray();
-*/
+
+//Removes the focus class from every element
+function focusClassRemover() {
+    var focusedElement = document.querySelectorAll("#call_room .focus")
+    for (i = 0; i < focusedElement.length; i++) {
+        focusedElement[i].classList.remove("focus")
+    }
+}
+
+var tableInArray = makeArray();
+var index1 = 0;
+var index2 = 0;
+var index3 = 0;
+document.addEventListener("keyup", function (e) {
+    //searchBarClosed is a var. from search.js
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. form main.js
+    //Arrowsystem
+    if (searchBarClosed && !somethingisOpened && !somethingIsFocused) {
+        if (e.key == "ArrowUp") {
+            if (index2 > 0) {
+                focusClassRemover()
+                if (index3 <= 0) {
+                    index3 = 1;
+                    index2--
+                }
+                else {
+                    index3--
+                }
+                tableInArray[index1][index2][index3].classList.add("focus");
+                //tableInArray[index1][index2][index3].scrollIntoView()
+            }
+            else if (index2 == 0) {
+                if (index3 > 0) {
+                    if (tableInArray[index1][index2].length > 1) {
+                        index3--
+                    }
+                    focusClassRemover()
+                    tableInArray[index1][index2][index3].classList.add("focus");
+                    //tableInArray[index1][index2][index3].scrollIntoView()
+                }
+            }
+        }
+        if (e.key == "ArrowDown") {
+            if (index2 < tableInArray[index1].length - 1) {
+                focusClassRemover();
+                if (index3 >= tableInArray[index1][index2].length - 1) {
+                    index3 = 0;
+                    index2++
+                }
+                else {
+                    index3++
+                }
+                tableInArray[index1][index2][index3].classList.add("focus");
+                //tableInArray[index1][index2][index3].scrollIntoView()
+            }
+            else if (index2 == tableInArray[index1].length - 1) {
+                if (index3 < tableInArray[index1][index2].length - 1) {
+                    if (tableInArray[index1][index2][1] != undefined) {
+                        index3++
+                    }
+                    focusClassRemover()
+                    tableInArray[index1][index2][index3].classList.add("focus");
+                    //tableInArray[index1][index2][index3].scrollIntoView()
+                }
+            }
+        }
+        if (e.key == "ArrowLeft") {
+            if (index1 > 0) {
+                focusClassRemover()
+                index1--
+                if (index1 < firstIndex) {
+                    buttonLeft();
+                }
+                index2 = (index2 * 2) + index3
+                index3 = 0
+                tableInArray[index1][index2][index3].classList.add("focus");
+            }
+
+        }
+        if (e.key == "ArrowRight") {
+            if (index1 < tableInArray.length - 1) {
+                focusClassRemover()
+                index1++
+                if (index1 + 1 > secondIndex) {
+                    buttonRight();
+                }
+                index3 = index2 % 2
+                index2 = Math.floor(index2 / 2);
+                tableInArray[index1][index2][index3].classList.add("focus");
+            }
+        }
+    }
+})
+

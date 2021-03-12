@@ -49,6 +49,13 @@ function serachInLists() {
             visibleRows[i].style.backgroundColor = "rgb(246, 246, 246)"
         }
     }
+    //Removes elected class from all item
+    var selectedElements = document.querySelectorAll(".selected")
+    for(i=0; i<selectedElements.length; i++){
+        selectedElements[i].classList.remove("selected")
+    }
+    //selectedElementIndexAr is a var from list.js
+    selectedElementIndexAr = 0;
 }
 
 var radioButtons = document.querySelectorAll(".table_header .option_container input")

@@ -73,7 +73,7 @@ document.addEventListener("keyup", function(keyDownEvent){
             }
         }
     }
-    //searchBarClosed is a var. from control.js
+    //searchBarClosed is a var. from search.js
     //somethingisOpened is a var. from main.js
     if(searchBarClosed && !somethingisOpened){
         //Opens to add tech. or refr. to Shift+A

@@ -140,3 +140,19 @@ function selectSystem(x) {
     //Fill the input value
     selectInput.value = clickedOption.textContent
 }
+
+var searchBarClosed = true;
+function isOpen(x) {
+    var searchResult = x.nextElementSibling.nextElementSibling;
+    searchResult.classList.add("opened")
+    searchBarClosed = false;
+}
+function isClosed(x) {
+    var searchResult = x.nextElementSibling.nextElementSibling;
+    searchResult.classList.remove("opened")
+    var removeElemClass = document.querySelectorAll(".search_results .selected")
+    for(i=0; i<removeElemClass.length; i++){
+        removeElemClass[i].classList.remove("selected")
+    }
+    searchBarClosed = true;
+}
