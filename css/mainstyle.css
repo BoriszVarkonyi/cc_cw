@@ -99,6 +99,8 @@ header {
 	font-family: var(--bold);
 	transition: all var(--t-basic);
 	max-width: 50vw;
+	position: relative;
+	cursor: pointer;
 }
 
 #competition_select.opened {
@@ -107,19 +109,21 @@ header {
 	transition: all var(--t-basic);
 }
 
-#competition_select.opened button {
+#competition_select.opened div {
 	transform: rotate(180deg);
 }
 
-#competition_select button {
+#competition_select div {
 	position: absolute;
 	right: 10px;
+	width: 1rem;
+	height: 1rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transform: rotate(0deg);
-	-webkit-filter: var(--ci-secondarycontrast);
-	filter: var(--ci-secondarycontrast);
+	-webkit-filter: var(--ci-primarycontrast);
+	filter: var(--ci-primarycontrast);
 }
 
 #competition_select p {
@@ -144,6 +148,12 @@ header {
 	will-change: auto;
 	margin-top: -3px;
 	top: 30px;
+}
+
+#competition_select + div > p {
+	font-size: var(--f-xsmall);
+	color: var(--c-darkgray);
+	margin-top: 3px;
 }
 
 #competition_select.opened + div {
@@ -171,10 +181,6 @@ header {
 
 .competition_button.selected:hover {
 	background-color: var(--c-lightergray);
-}
-
-.competition_button.separate {
-	border-bottom: 1px solid var(--c-gray);
 }
 
 /* Header Bar Buttons */
@@ -2033,7 +2039,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	min-width: 100%;
 }
 
-#sheduled_to_do_list {
+.to_do_list {
 	padding: 0;
 	margin: 0;
 	font-family: var(--bold);

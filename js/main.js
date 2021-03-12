@@ -118,7 +118,7 @@ var oldClickedelement;
 
 //Toggle language panel
 
-function toggle_language_panel() {
+function toggleLanguagePanel() {
    //Making every panel hidden.
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
@@ -144,7 +144,7 @@ function toggle_language_panel() {
 }
 
 
-function toggle_colormode_panel() {
+function toggleColormodePanel() {
     //Making every panel hidden
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")
@@ -165,7 +165,7 @@ function toggle_colormode_panel() {
     //color_panel.classList.toggle("hidden");
 }
 
-function toggle_profile_panel() {
+function toggleProfilePanel() {
     //Making every panel hidden
     for(i=0; i<elements.length; i++){
         elements[i].classList.add("hidden")

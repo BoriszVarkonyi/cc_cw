@@ -2,12 +2,6 @@
 <?php include "../includes/db.php"; ?>
 <?php
 
-$enLang = "../assets/languages/en.txt";
-$enLines = file($enLang);
-
-$huLang = "../assets/languages/hu.txt";
-$huLines = file($huLang);
-
 checkComp($connection);
 
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
@@ -181,19 +175,6 @@ checkComp($connection);
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
                         <div class="db_panel main">
-                            <div>
-                                <p style="font-size: var(--f-xxxxlarge)">xxxxlarge</p>
-                                <p style="font-size: var(--f-xxxlarge)">xxxlarge</p>
-                                <p style="font-size: var(--f-xxlarge)">xxlarge</p>
-                                <p style="font-size: var(--f-xlarge)">xlarge</p>
-                                <p style="font-size: var(--f-large)">large</p>
-                                <p style="font-size: var(--f-medium)">medium</p>
-                                <p style="font-size: var(--f-small)">small</p>
-                                <p style="font-size: var(--f-xsmall)">xsmall</p>
-                                <p style="font-size: var(--f-xxsmall)">xxsmall</p>
-                                <p><?php echo $enLines[0];?> // This text is read from en.txt line 1</p>
-                                <p><?php echo $huLines[0];?> // This text is read from hu.txt line 1</p>
-                            </div>
                         </div>
 
                         <!-- competition status -->
@@ -220,25 +201,25 @@ checkComp($connection);
                             <!-- competiton status table -->
                             <div class="db_panel_main">
 
-                                <div id="sheduled_to_do_list">
+                                <div class="to_do_list">
 
-                                    <a class="sublist_title" onclick="toggle_general_to_do()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>"></a>
+                                    <a class="sublist_title" onclick="toggleToDoSublist()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>"></a>
 
-                                        <div id="general_to_do" class="sheduled_to_do_sublist">
+                                    <div class="to_do_list">
 
-                                            <li>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>"></li>
-                                            <li>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>"></li>
-                                            <li>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>"></li>
-                                            <li>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>"></li>
+                                        <div>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>"></div>
+                                        <div>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>"></div>
+                                        <div>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>"></div>
+                                        <div>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>"></div>
 
-                                        </div>
+                                    </div>
 
-                                    <a class="sublist_title" onclick="toggle_technical_to_do()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>"></a>
+                                    <a class="sublist_title" onclick="toggleToDoSublist()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>"></a>
 
-                                        <div id="technical_to_do" class="sheduled_to_do_sublist">
+                                        <div id="technical_to_do" class="to_do_list">
 
-                                            <li>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>"></li>
-                                            <li>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>"></li>
+                                            <div>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>"></div>
+                                            <div>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>"></div>
 
                                         </div>
 

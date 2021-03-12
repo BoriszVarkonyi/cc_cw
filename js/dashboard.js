@@ -1,5 +1,5 @@
 //toggle panels
-function toggle_general_to_do() {
+function toggleToDoSublist() {
     var element = document.getElementById("general_to_do");
     element.classList.toggle("closed");
 }
