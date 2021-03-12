@@ -182,7 +182,8 @@ checkComp($connection);
 
                             <!-- competition status panel header -->
 
-                            <?php //egyan az mint index.php elejen a comp_name lekérés
+                            <?php
+                            /* //egyan az mint index.php elejen a comp_name lekérés
                                 $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
                                 $check_comp_query = mysqli_query($connection, $query);
 
@@ -191,6 +192,7 @@ checkComp($connection);
                                     $comp_status = $row["comp_status"];
 
                                 }
+                                */
                             ?>
 
                             <div class="db_panel_title_stripe">
@@ -199,33 +201,67 @@ checkComp($connection);
                             </div>
 
                             <!-- competiton status table -->
-                            <div class="db_panel_main">
-
+                            <div class="db_panel_main list">
                                 <div class="to_do_list">
-
-                                    <a class="sublist_title" onclick="toggleToDoSublist()">General<img src="<?php echo $assoc_comp_table_elements['general'] ?>"></a>
-
-                                    <div class="to_do_list">
-
-                                        <div>Basic Information<img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>"></div>
-                                        <div>Information for fencers<img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>"></div>
-                                        <div>Timetable<img src="<?php echo $assoc_comp_table_elements['g_timetable'] ?>"></div>
-                                        <div>Invitation<img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>"></div>
-
+                                    <button onclick="toggleToDoSublist()">
+                                        <p>General</p>
+                                        <p>(4 / 1)</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['general'] ?>">
+                                    </button>
+                                    <div class="to_do_sublist">
+                                        <div>
+                                            <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Basic Information</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>">
+                                        </div>
+                                        <div>
+                                            <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Information for fencers</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>">
+                                        </div>
+                                        <div>
+                                            <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Invitation</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>">
+                                        </div>
                                     </div>
 
-                                    <a class="sublist_title" onclick="toggleToDoSublist()">Technical<img src="<?php echo $assoc_comp_table_elements['technical'] ?>"></a>
-
-                                        <div id="technical_to_do" class="to_do_list">
-
-                                            <div>Technicians<img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>"></div>
-                                            <div>Referees<img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>"></div>
-
+                                    <button onclick="toggleToDoSublist()">
+                                        <p>Technical</p>
+                                        <p>(4 / 1)</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['technical'] ?>">
+                                    </button>
+                                    <div class="to_do_sublist">
+                                        <div>
+                                            <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Technicians</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>">
                                         </div>
+                                        <div>
+                                            <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Referees</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                        </div>
+                                        <div>
+                                            <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Pistes</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                        </div>
+                                        <div>
+                                            <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                            <p>Formula</p>
+                                            <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                        </div>
+                                    </div>
 
-                                    <a>Ranking<img src="<?php echo $assoc_comp_table_elements['ranking'] ?>"></a>
-
-                                    <a>Pre-entries<img src="<?php echo $assoc_comp_table_elements['pre_entries'] ?>"></
+                                    <button class="done">
+                                        <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                        <p>Ranking</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['ranking'] ?>">
+                                    </button>
+                                </div>
+                                <div class="progress_bar">
+                                    <div class="progress" x-progress="100"></div>
                                 </div>
                             </div>
                         </div>

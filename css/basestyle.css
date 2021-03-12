@@ -494,6 +494,7 @@ label.error + input {
 input[type="number"] {
 	width: 40px;
 	margin-right: -35px;
+	background: none;
 }
 
 input[type="number"].number_input.centered {
