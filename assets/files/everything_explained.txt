@@ -18,3 +18,23 @@ Mozilla Firefox
 
 
 
+    <div class="modal_wrapper" id="modal_1">
+        <div class="modal basic">
+            <div class="modal_header red">
+                <p class="modal_title">Confieramtion</p>
+                <p class="modal_subtitle">Szia</p>
+            </div>
+            <div class="modal_main">
+                <p class="modal_main_title">Bruh</p>
+                <p class="modal_main_paragraph_title">Bruh</p>
+                <p class="modal_main_paragraph">Bruh</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <div class="modal_footer_content">
+                    <button class="modal_decline_button" onclick="toggleModal(1)">Decline</button>
+                    <button class="modal_confirmation_button">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>

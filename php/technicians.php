@@ -252,7 +252,6 @@
                         <div class="table_header">
                             <div class="table_header_text" id="drag-left">
                                 <p>NAME</p>
-                                <button class="sort_button"><img src="" alt=""></button>
                             </div>
                                 <div class="table_header_text" id="drag-right"><p>USERNAME</p></div>
                                 <div class="table_header_text" id="drag-right"><p>ROLE</p></div>

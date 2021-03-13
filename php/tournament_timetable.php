@@ -78,7 +78,6 @@ if (isset($_POST["new_weapon_control"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,9 +85,23 @@ if (isset($_POST["new_weapon_control"])) {
     <title>CC Create Competition</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/modal_style.min.css">
 </head>
-
 <body class="bg_fencers">
+    <div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal simple">
+            <div class="modal_header red">
+                <p class="modal_title">Editing Tournament's starting date and ending date will remove all weapon control phrases</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <div class="modal_footer_content">
+                    <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
+                    <button type="submit" class="modal_confirmation_button">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
     <div id="create_competition_panel" class="panel">
@@ -103,6 +116,7 @@ if (isset($_POST["new_weapon_control"])) {
                     <p>Save</p>
                     <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
+                <button onclick="deployModal(, 'Cancel', 'Okay')">Modal</button>
             </div>
         </div>
         <div id="panel_main">
@@ -213,15 +227,15 @@ if (isset($_POST["new_weapon_control"])) {
                     </div>
                     <div>
                         <label for="">STARTING TIME</label>
-                        <input type="time" class="" name="st_t" step="">
+                        <input type="time" class="" name="st_t" step="3600">
                     </div>
                     <div>
                         <label for="">ENDING TIME</label>
-                        <input type="time" class="" name="ed_t" step="">
+                        <input type="time" class="" name="ed_t" step="3600">
                     </div>
                     <div>
                         <label for="">MINUTE / FENCER</label>
-                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="">
+                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="1" min="1">
                     </div>
                     <div class="row">
                         <button class="panel_submit secondary relative" type="button" onclick="toggleWcPhase()">Cancel</button>
@@ -363,5 +377,6 @@ if (isset($_POST["new_weapon_control"])) {
     <script src="../js/competitions.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/tournament_timetable.js"></script>
+    <script src="../js/modal.js"></script>
 </body>
 </html>

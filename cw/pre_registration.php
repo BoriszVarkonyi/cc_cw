@@ -25,34 +25,46 @@ if(isset($_POST["send_pre"])){
     <title>Pre-Register for <?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/modal_style.min.css">
 </head>
 <body class="competitions">
-            <div class="modal_wrapper hidden" id="confirmation">
-                <div class="modal">
-                    <div>
-                        <button class="panel_button" onclick="toggleConf()">
-                            <img src="../assets/icons/close-black-18dp.svg">
-                        </button>
-                        <p class="title">Are you sure you want to send this Pre-Registration with the following informations?</p>
-                        <label>FEDERATION'S NAME</label>
-                        <p>FED NAME</p>
-                        <label>COUNTRY / FENCING CLUB</label>
-                        <P>GER</P>
-                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
-                        <p>g</p>
-                        <label>FEDERATION'S PHONE NUMBER</label>
-                        <p>grg</p>
-                        <label>CONTACT KEEPER'S FULL NAME</label>
-                        <p>grg</p>
-                        <label>CONTACT KEEPER'S EMAIL ADDRESS</label>
-                        <p>grg</p>
-                        <label>CONTACT KEEPER'S PHONE NUMBER</label>
-                        <p>grg</p>
-                        <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
-                    </div>
+    <div class="modal_wrapper" id="modal_1">
+        <div class="modal basic">
+            <div class="modal_header primary">
+                <p class="modal_title">Are you sure you want to send Pre-Registration with the following information?</p>
+                <p class="modal_subtitle">Please recheck the informations you given before submitting</p>
+            </div>
+            <div class="modal_main">
+                <p class="modal_main_title">Information you given:</p>
+                <p class="modal_main_paragraph_title">FEDERATION'S NAME</p>
+                <p class="modal_main_paragraph">FED NAME</p>
+                <p class="modal_main_paragraph_title">COUNTRY / FENCING CLUB</p>
+                <p class="modal_main_paragraph">GER</P>
+                <p class="modal_main_paragraph_title">FEDERATION'S OFFICAL EMAIL ADDRESS</p>
+                <p class="modal_main_paragraph">g</p>
+                <p class="modal_main_paragraph_title">FEDERATION'S PHONE NUMBER</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_paragraph_title">CONTACT KEEPER'S FULL NAME</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_paragraph_title">CONTACT KEEPER'S EMAIL ADDRESS</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_paragraph_title">CONTACT KEEPER'S PHONE NUMBER</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_title">Fencers you selected:</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_paragraph">grg</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <div class="modal_footer_content">
+                    <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
+                    <button type="submit" form="" class="modal_confirmation_button">Submit</button>
                 </div>
             </div>
-
+        </div>
+    </div>
     <?php include "cw_header.php"; ?>
     <div id="main">
         <div id="content">
@@ -131,7 +143,7 @@ if(isset($_POST["send_pre"])){
                     </div>
                 </div>
                 <div class="send_panel">
-                    <button type="button" onclick="toggleConf()" class="send_button">Send Pre-Registartion</button>
+                    <button type="button" onclick="toggleModal(1)" class="send_button">Send Pre-Registartion</button>
                 </div>
             </form>
         </div>
@@ -140,5 +152,6 @@ if(isset($_POST["send_pre"])){
     <script src="../js/cw_main.js"></script>
     <script src="../js/cw_pre_registration.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/modal.js"></script>
 </body>
 </html>

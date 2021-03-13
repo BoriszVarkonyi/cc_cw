@@ -1571,53 +1571,6 @@ input[value="Search"] {
 	height: 20px;
 }
 
-/* Modals */
-
-.modal_wrapper {
-	top: 0;
-	position: absolute;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, .40);
-	z-index: 4;
-	-webkit-backdrop-filter: blur(1px);
-	backdrop-filter: blur(1px);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.modal_wrapper.hidden {
-	display: none;
-}
-
-.modal {
-	z-index: 100;
-	overflow: visible;
-	background: var(--c-white);
-	border-radius: 5px;
-	border: 2px solid var(--c-gray);
-}
-
-.modal > div {
-	position: relative;
-	padding: 50px;
-}
-
-.modal .title {
-	font-family: var(--bold);
-	margin-bottom: 20px;
-}
-
-.modal label ~ p {
-	margin-bottom: 20px;
-}
-
-.modal button {
-	margin: 0;
-}
-
 /* Please confirm */
 
 #basic_body {

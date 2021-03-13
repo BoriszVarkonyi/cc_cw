@@ -130,6 +130,7 @@ header {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	min-width: 0;
 }
 
 #competition_select + div {
@@ -3074,51 +3075,6 @@ div.title_box > button {
 	white-space: nowrap;
 }
 
-/* Confirmation */
-
-.modal {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.modal::before {
-	position: fixed;
-	transform: translateX(50%), translateY(50%);
-	width: 100vw;
-	height: 100vh;
-	background: var(--c-transparent-black);
-	z-index: 2;
-	-webkit-backdrop-filter: blur(1px);
-	backdrop-filter: blur(1px);
-	content: "";
-}
-
-#confirmation {
-
-}
-
-#confirmation.hidden {
-	display: none;
-}
-
-#confirmation_form {
-	min-width: 800px;
-	width: 60%;
-	max-width: 1200px;
-	height: 30%;
-	min-height: 200px;
-	background: var(--c-white);
-	border-radius: 5px;
-	box-shadow: var(--s-black);
-	display: flex;
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-}
-
 #create_ranking_form {
 	min-width: 600px;
 	width: 40%;
@@ -4031,6 +3987,7 @@ div.title_box > button {
 	color: var(--cd-primarycontrast);
 	padding: 5px 10px;
 	border-radius: 5px;
+	font-family: var(--bold);
 }
 
 .table_wrapper {
