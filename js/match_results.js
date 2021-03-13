@@ -10,6 +10,63 @@ var score2 = getElements('points_f2')
 var drawcheckbox1 = getElements('draw_winner_f1')
 var drawcheckbox2 = getElements('draw_winner_f2')
 
+var black_1 = getElements('f1_b')
+var black_2 = getElements('f2_b')
+
+var nc_black_1 = getElements('f1_b_p')
+var nc_black_2 = getElements('f2_b_p')
+
+
+document.addEventListener('keyup', e => {
+
+    if(black_1.value != 0 && black_1.value != "" && black_1 == document.activeElement){
+
+        score1.value = "EXC";
+        score2.value = "";
+        drawcheckbox1.style.display = 'none'
+        drawcheckbox2.style.display = 'none'
+        black_2.value = ""
+        nc_black_1.value = ""
+        nc_black_2.value = ""
+
+    }
+    else if(black_2.value != 0 && black_2.value != "" && black_2 == document.activeElement){
+
+        score2.value = "EXC";
+        score1.value = "";
+        drawcheckbox1.style.display = 'none'
+        drawcheckbox2.style.display = 'none'
+        black_1.value = ""
+        nc_black_1.value = ""
+        nc_black_2.value = ""
+
+    }
+    else if (nc_black_1.value != 0 && nc_black_1.value != "" && nc_black_1 == document.activeElement){
+
+        score1.value = "NCB";
+        score2.value = "";
+        drawcheckbox1.style.display = 'none'
+        drawcheckbox2.style.display = 'none'
+        black_2.value = ""
+        black_1.value = ""
+        nc_black_2.value == ""
+
+    }
+    else if(nc_black_2.value != 0 && nc_black_2.value != "" && nc_black_2 == document.activeElement){
+
+        score2.value = "NCB";
+        score1.value = "";
+        drawcheckbox1.style.display = 'none'
+        drawcheckbox2.style.display = 'none'
+        black_2.value = ""
+        black_1.value = ""
+        nc_black_1.value = ""
+
+
+    }
+})
+
+
 function abandonment(x) {
 
     if (x.name == "1") {
@@ -19,6 +76,10 @@ function abandonment(x) {
         winnertext1.innerHTML = ""
         drawcheckbox1.style.display = 'none'
         drawcheckbox2.style.display = 'none'
+        black_1.value = ""
+        black_2.value = ""
+        nc_black_1.value = ""
+        nc_black_2.value = ""
     }
     else {
         score2.value = "ABD";
@@ -27,6 +88,10 @@ function abandonment(x) {
         winnertext1.innerHTML = "WINNER"
         drawcheckbox1.style.display = 'none'
         drawcheckbox2.style.display = 'none'
+        black_1.value = ""
+        black_2.value = ""
+        nc_black_1.value = ""
+        nc_black_2.value = ""
     }
 
 }
@@ -36,12 +101,19 @@ document.addEventListener('keyup', e => {
     //console.log("SC1:" + parseInt(score1.value))
     //console.log("SC2:" + parseInt(score2.value))
 
-    if (score1.value == "" || score2.value == "") {
+    
+    if(score1.value == "EXC" || score1.value == "NCB"){
 
         winnertext1.innerHTML = ""
+        winnertext2.innerHTML = "WINNER"        
+
+
+    }
+    else if(score2.value == "EXC" || score2.value == "NCB"){
+
         winnertext2.innerHTML = ""
-        drawcheckbox1.style.display = 'none'
-        drawcheckbox2.style.display = 'none'
+        winnertext1.innerHTML = "WINNER"        
+
 
     }
     else if (parseInt(score1.value) == parseInt(score2.value)) {
@@ -50,6 +122,14 @@ document.addEventListener('keyup', e => {
         winnertext2.innerHTML = ""
         drawcheckbox1.style.display = 'flex'
         drawcheckbox2.style.display = 'flex'
+
+    }
+    else if (score1.value == "" || score2.value == "") {
+
+        winnertext1.innerHTML = ""
+        winnertext2.innerHTML = ""
+        drawcheckbox1.style.display = 'none'
+        drawcheckbox2.style.display = 'none'
 
     }
     else if (parseInt(score1.value) > parseInt(score2.value)) {

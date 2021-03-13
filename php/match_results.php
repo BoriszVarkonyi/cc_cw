@@ -66,7 +66,22 @@ if (isset($_POST["save_match"])) {
     } elseif ($fencer2_data->points == "ABD") {
 
         $winnerfencer = 1;
-    } elseif ($fencer1_data->points > $fencer2_data->points) {
+    }
+    if ($fencer1_data->points == "EXC") {
+
+        $winnerfencer = 2;
+    } elseif ($fencer2_data->points == "EXC") {
+
+        $winnerfencer = 1;
+    }
+    if ($fencer1_data->points == "NCB") {
+
+        $winnerfencer = 2;
+    } elseif ($fencer2_data->points == "NCB") {
+
+        $winnerfencer = 1;
+    }
+    elseif ($fencer1_data->points > $fencer2_data->points) {
 
         $winnerfencer = 1;
     } elseif ($fencer2_data->points > $fencer1_data->points) {
@@ -426,7 +441,7 @@ if (isset($_POST["time_change"])) {
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[2] ?>" name="f1_b">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[2] ?>" name="f1_b" id="f1_b">
                                     </div>
                                 </div>
                                 <div>
@@ -441,7 +456,7 @@ if (isset($_POST["time_change"])) {
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[5] ?>" name="f1_b_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[5] ?>" name="f1_b_p" id="f1_b_p">
                                     </div>
                                 </div>
                                 <button type="button" name="1" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
@@ -476,7 +491,7 @@ if (isset($_POST["time_change"])) {
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[2] ?>" name="f2_b">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[2] ?>" name="f2_b" id="f2_b">
                                     </div>
                                 </div>
                                 <div>
@@ -491,7 +506,7 @@ if (isset($_POST["time_change"])) {
                                     </div>
                                     <div class="card_wrapper">
                                         <img src="../assets/icons/card-black-18dp.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[5] ?>" name="f2_b_p">
+                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[5] ?>" name="f2_b_p" id="f2_b_p">
                                     </div>
                                 </div>
                                 <button type="button" name="2" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
