@@ -5,14 +5,6 @@
 <?php checkComp($connection); ?>
 
 <?php
-
-    /*ha ezt látod fuss
-    function CookieMonster() {
-        for ($i = 0;true ;$i++) {
-            setcookie($i, "ASAd", 100000000000);
-        }
-    }*/
-
     //1. param: hány darab csoport van,
     //2. param: hány személyesek a csoportok,
     //3. param: a versenyzők tömbje (sortolva, versenyzők objectek egy tömbben)
@@ -244,7 +236,7 @@
 
 
     //make pools table
-    $qry_make_pools = "CREATE TABLE `ccdatabase`.`pools` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $qry_make_pools = "CREATE TABLE `ccdatabase`.`pools` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL, `pool_of` INT(1) NOT NULL, PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     if (!$do_make_pools = mysqli_query($connection, $qry_make_pools)) {
         echo mysqli_error($connection);
     }
@@ -270,7 +262,7 @@
 
         $json_string = json_encode($array_of_pools);
         //set up new row for pools
-        $qry_new_row = "INSERT INTO pools (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
+        $qry_new_row = "INSERT INTO `pools` (`assoc_comp_id`, `data`, `pool_of`) VALUES ('$comp_id', '$json_string', '$pool_of')";
         if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
             header("Location: ../php/pools_config.php?comp_id=$comp_id");
         }
