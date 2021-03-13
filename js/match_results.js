@@ -112,8 +112,7 @@ document.addEventListener('keyup', e => {
     else if(score2.value == "EXC" || score2.value == "NCB"){
 
         winnertext2.innerHTML = ""
-        winnertext1.innerHTML = "WINNER"        
-
+        winnertext1.innerHTML = "WINNER"
 
     }
     else if (parseInt(score1.value) == parseInt(score2.value)) {
