@@ -13,9 +13,6 @@ checkComp($connection);
 
     }
 
-
-
-
     //get logo image
     if (file_exists("../uploads/" . $comp_id . ".png")) {
 
@@ -26,6 +23,7 @@ checkComp($connection);
         $logo = "../assets/icons/no_image-black-18dp.svg";
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +35,66 @@ checkComp($connection);
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
 <body>
+    <div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal">
+            <div class="modal_header gray">
+                <p class="modal_title">Confieramtion</p>
+                <p class="modal_subtitle">Szia</p>
+            </div>
+            <div class="modal_main">
+                <img src="../assets/icons/arrow_back_ios-black-18dp.svg" class="modal_main_image margin_bottom">
+                <p class="modal_main_title margin_bottom primary big">Bruh</p>
+                <p class="modal_main_title margin_bottom big">Bruh</p>
+                <p class="modal_main_title margin_bottom primary">Bruh</p>
+                <p class="modal_main_title margin_bottom margin_top primary">Bruh</p>
+                <p class="modal_main_title margin_bottom centered">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph centered">Bruh</p>
+                <p class="modal_paragraph margin_top">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph big">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph margin_bottom">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <div class="modal_footer_content">
+                    <button class="modal_decline_button" onclick="toggleModal(1)">Decline</button>
+                    <button class="modal_confirmation_button">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal_wrapper hidden" id="modal_2">
+        <div class="modal">
+            <div class="modal_header red">
+                <p class="modal_title">Confieramtion</p>
+                <p class="modal_subtitle">Szia</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <div class="modal_footer_content">
+                    <button class="modal_decline_button" onclick="toggleModal(2)">Cancel</button>
+                    <button class="modal_confirmation_button">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <!-- header -->
     <div id="flexbox_container">
 
@@ -65,26 +123,15 @@ checkComp($connection);
                 <div id="page_content_panel_main">
                     <div id="db_panel_wrapper">
                         <div class="db_panel main">
-                        </div>
+                        <button onclick="toggleModal(1)">Example Modal</button>
+                        <button onclick="toggleModal(2)">Example Modal 2</button>
+                        <button onclick="toggleModal('EULA')">EULA Modal</button>
+                        <button onclick="toggleModal('cookies')">Cookies Modal</button>
+                        <button onclick="toggleModal('bug')">Bug report Modal</button>
+                    </div>
 
                         <!-- competition status -->
                         <div class="db_panel status">
-
-                            <!-- competition status panel header -->
-
-                            <?php
-                            /* //egyan az mint index.php elejen a comp_name lekérés
-                                $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
-                                $check_comp_query = mysqli_query($connection, $query);
-
-                                if($row = mysqli_fetch_assoc($check_comp_query)){
-
-                                    $comp_status = $row["comp_status"];
-
-                                }
-                                */
-                            ?>
-
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/beenhere-black-18dp.svg">
                                 <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
@@ -168,5 +215,6 @@ checkComp($connection);
     </div>
     <script src="../js/main.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="../js/modal.js"></script>
 </body>
 </html>

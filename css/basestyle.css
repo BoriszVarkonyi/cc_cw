@@ -2,8 +2,8 @@
 
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	/* Changes throughout colormodes */
-	--c-black: #252525;
-	--c-transparent-black: #25252530;
+	--c-black: rgb(37,37,37);
+	--c-transparent-black: rgba(37,37,37,.3);
 	--c-darkgray: #9B9A9A;
 	--c-gray: #CCC;
 	--c-lightgray: #DDD;
@@ -241,6 +241,10 @@ textarea {
 	border: none;
 	resize: none;
 	font-family: var(--regular);
+}
+
+.modal_wrapper.hidden {
+    display: none;
 }
 
 /*

@@ -1964,7 +1964,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	margin: 0 !important;
 }
 
-.main { grid-area: main; }
+.main { grid-area: main; align-items: center; justify-content: center;}
 .status { grid-area: status; }
 .chat { grid-area: chat; }
 

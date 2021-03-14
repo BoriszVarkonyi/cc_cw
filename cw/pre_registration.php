@@ -25,36 +25,38 @@ if(isset($_POST["send_pre"])){
     <title>Pre-Register for <?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/modal_style.min.css">
 </head>
 <body class="competitions">
-    <div class="modal_wrapper" id="modal_1">
-        <div class="modal basic">
+    <div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal">
             <div class="modal_header primary">
                 <p class="modal_title">Are you sure you want to send Pre-Registration with the following information?</p>
                 <p class="modal_subtitle">Please recheck the informations you given before submitting</p>
             </div>
             <div class="modal_main">
-                <p class="modal_main_title">Information you given:</p>
-                <p class="modal_main_paragraph_title">FEDERATION'S NAME</p>
-                <p class="modal_main_paragraph">FED NAME</p>
-                <p class="modal_main_paragraph_title">COUNTRY / FENCING CLUB</p>
-                <p class="modal_main_paragraph">GER</P>
-                <p class="modal_main_paragraph_title">FEDERATION'S OFFICAL EMAIL ADDRESS</p>
-                <p class="modal_main_paragraph">g</p>
-                <p class="modal_main_paragraph_title">FEDERATION'S PHONE NUMBER</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_paragraph_title">CONTACT KEEPER'S FULL NAME</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_paragraph_title">CONTACT KEEPER'S EMAIL ADDRESS</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_paragraph_title">CONTACT KEEPER'S PHONE NUMBER</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_title">Fencers you selected:</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_paragraph">grg</p>
-                <p class="modal_main_paragraph">grg</p>
+                <p class="modal_main_title big primary margin_bottom">Competition you selected:</p>
+                <p class="modal_paragraph">compname</p>
+                <p class="modal_paragraph">compname</p>
+                <p class="modal_main_title big primary margin_bottom">Information you given:</p>
+                <p class="modal_main_title">FEDERATION'S NAME</p>
+                <p class="modal_paragraph">FED NAME</p>
+                <p class="modal_main_title">COUNTRY / FENCING CLUB</p>
+                <p class="modal_paragraph">GER</P>
+                <p class="modal_main_title">FEDERATION'S OFFICAL EMAIL ADDRESS</p>
+                <p class="modal_paragraph">g</p>
+                <p class="modal_main_title">FEDERATION'S PHONE NUMBER</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_main_title">CONTACT KEEPER'S FULL NAME</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_main_title">CONTACT KEEPER'S EMAIL ADDRESS</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_main_title">CONTACT KEEPER'S PHONE NUMBER</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_main_title big primary margin_bottom">Fencers you selected:</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_paragraph">grg</p>
+                <p class="modal_paragraph">grg</p>
             </div>
             <div class="modal_footer">
                 <p class="modal_footer_text">This change cannot be reverted.</p>

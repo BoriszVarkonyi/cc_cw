@@ -85,11 +85,10 @@ if (isset($_POST["new_weapon_control"])) {
     <title>CC Create Competition</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/modal_style.min.css">
 </head>
 <body class="bg_fencers">
     <div class="modal_wrapper hidden" id="modal_1">
-        <div class="modal simple">
+        <div class="modal">
             <div class="modal_header red">
                 <p class="modal_title">Editing Tournament's starting date and ending date will remove all weapon control phrases</p>
             </div>
@@ -116,7 +115,6 @@ if (isset($_POST["new_weapon_control"])) {
                     <p>Save</p>
                     <img src="../assets/icons/save-black-18dp.svg"/>
                 </button>
-                <button onclick="deployModal(, 'Cancel', 'Okay')">Modal</button>
             </div>
         </div>
         <div id="panel_main">
