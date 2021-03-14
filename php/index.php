@@ -72,7 +72,7 @@ checkComp($connection);
                 <p class="modal_paragraph">Bruh</p>
             </div>
             <div class="modal_footer">
-                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button class="modal_decline_button" onclick="toggleModal(1)">Decline</button>
                     <button class="modal_confirmation_button">Accept</button>
@@ -87,7 +87,7 @@ checkComp($connection);
                 <p class="modal_subtitle">Szia</p>
             </div>
             <div class="modal_footer">
-                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button class="modal_decline_button" onclick="toggleModal(2)">Cancel</button>
                     <button class="modal_confirmation_button">Okay</button>

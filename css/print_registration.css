@@ -76,7 +76,6 @@
     transition: all var(--t-basic);
 }
 
-
 .grid_table {
     display: flex !important;
     flex-direction: column !important;
@@ -87,7 +86,7 @@
 }
 
 .grid_header, .grid_row {
-    display: flex !important;
+    display: inline-flex !important;
 }
 
 .grid_header_text {
@@ -132,6 +131,15 @@
 
 .grid_item.square.header {
     margin-left: 0 !important;
+}
+
+.breakpoint {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+    page-break-before: auto !important;
+    break-after: auto !important;
+    break-before: auto !important;
+    break-inside: avoid !important;
 }
 
 @media print {
@@ -234,14 +242,6 @@
 
     .grid_item.square.header {
         margin-left: 0 !important;
-    }
-
-    .breakpoint {
-        page-break-before: always !important;
-        page-break-after: always !important;
-        break-inside: avoid !important;
-        border: none !important;
-        float: none !important;
     }
 
 }

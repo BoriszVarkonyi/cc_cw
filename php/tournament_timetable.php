@@ -93,7 +93,7 @@ if (isset($_POST["new_weapon_control"])) {
                 <p class="modal_title">Editing Tournament's starting date and ending date will remove all weapon control phrases</p>
             </div>
             <div class="modal_footer">
-                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
                     <button type="submit" class="modal_confirmation_button">Okay</button>

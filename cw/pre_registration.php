@@ -59,7 +59,7 @@ if(isset($_POST["send_pre"])){
                 <p class="modal_paragraph">grg</p>
             </div>
             <div class="modal_footer">
-                <p class="modal_footer_text">This change cannot be reverted.</p>
+                <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
                     <button type="submit" form="" class="modal_confirmation_button">Submit</button>
