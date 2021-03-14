@@ -52,7 +52,6 @@ if (isset($_POST["create_piste"])) {
 
         $p_name = $_POST["one_piste_name"];
 
-        if (count($json_table) > 0) {
             foreach ($json_table as $value) {
 
                 if ($p_name == $value->name) {
@@ -60,7 +59,6 @@ if (isset($_POST["create_piste"])) {
                     $issue = true;
                 }
             }
-        }
 
         $piste_obj = new piste($p_name, 0);
 
@@ -68,10 +66,9 @@ if (isset($_POST["create_piste"])) {
 
     } else if ($_POST["piste_type"] == "colored") {
 
-        $p_name = $_POST["one_piste_name"];
+        $p_name = $_POST["colored_piste_name"];
         $p_color = $_POST["piste_color"];
 
-        if (count($json_table) > 0) {
             foreach ($json_table as $value) {
 
                 if ($p_name == $value->name) {
@@ -79,7 +76,6 @@ if (isset($_POST["create_piste"])) {
                     $issue = true;
                 }
             }
-        }
 
         $piste_obj = new piste($p_name, $p_color);
 
@@ -92,7 +88,6 @@ if (isset($_POST["create_piste"])) {
 
         for ($i = 0; $i < $quantity; $i++) {
 
-            if (count($json_table) > 0) {
                 foreach ($json_table as $value) {
 
                     if ($startnum == $value->name) {
@@ -100,7 +95,6 @@ if (isset($_POST["create_piste"])) {
                         $issue = true;
                     }
                 }
-            }
 
             $piste_obj = new piste($startnum, 0);
 
@@ -193,7 +187,7 @@ if (isset($_POST["create_piste"])) {
                         </div>
 
                         <label for="piste_number" class="label_text hidden colored_group">PISTE NUMBER</label>
-                        <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_number">
+                        <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_name">
 
                         <!--Numbered-->
                         <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE QUANTITY</label>
