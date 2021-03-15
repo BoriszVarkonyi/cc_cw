@@ -83,6 +83,8 @@ header {
 	width: 100%;
 	max-width: 50vw;
 	position: relative;
+	min-width: 0;
+	margin: 0 20px;
 }
 
 #competition_select {
@@ -3094,48 +3096,6 @@ div.title_box > button {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-#confirmation_form > p:nth-of-type(1), #create_ranking_form > p:nth-of-type(1) {
-	font-size: var(--f-large);
-	font-family: var(--bold);
-	margin-bottom: 15px;
-}
-
-#confirmation_form > p:nth-of-type(2), #create_ranking_form > p:nth-of-type(2) {
-	margin-bottom: 10px;
-	border-bottom: 2.5px solid var(--c-red);
-}
-
-#confirmation_button_section {
-	position: absolute;
-	width: 100%;
-	bottom: 15px;
-	display: flex;
-	justify-content: flex-end;
-}
-
-#confirmation_button_section > button {
-	margin-right: 15px;
-	padding: 6.5px;
-
-
-	border-radius: 5px;
-	background: var(--c-lightgray);
-}
-
-#confirmation_button_section > button:last-child {
-	font-family: var(--bold);
-	background: var(--c-secondary);
-}
-
-#create_ranking_form_wrapper {
-	margin-bottom: 20px;
-}
-
-.confirmation_title {
-	position: absolute;
-	top: 30px;
 }
 
 /* ///DATES WEAPON CONTROL/// */

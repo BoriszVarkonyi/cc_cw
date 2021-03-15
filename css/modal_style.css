@@ -28,6 +28,8 @@
 	flex-direction: column;
 }
 
+
+/* Makes the modal full width and height of the viewport on mobile */
 @media (max-width: 576px) {
     .modal {
         min-width: 100vw !important;
