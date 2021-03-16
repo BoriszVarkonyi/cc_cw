@@ -345,6 +345,13 @@ function makeArray() {
     return tableArray
 }
 
+function selectedClassRemover(){
+    var selectedEleminitaions = document.querySelectorAll("#call_room .selected")
+    for(i=0; i<selectedEleminitaions.length; i++){
+        selectedEleminitaions[i].classList.remove("selected")
+    }   
+}
+
 //Removes the focus class from every element
 function focusClassRemover() {
     var focusedElement = document.querySelectorAll("#call_room .focus")
@@ -441,6 +448,7 @@ document.addEventListener("keyup", function (e) {
                 tableInArray[index1][index2][index3].scrollIntoView()
             }
         }
+        selectedClassRemover()
         eleminitaions[index1].classList.add("selected")
         document.cookie = "index1=" + index1;
         document.cookie = "index2=" + index2;
