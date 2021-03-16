@@ -16,9 +16,8 @@ document.onkeydown = (keyDownEvent) => {
     //importOverlayClosed is a var. from importoverlay.js
     //searchBarClosed is a var from search.js
     if(searchBarClosed && importOverlayClosed) {
-        if(keyDownEvent.key == "ArrowUp"){
-            var table = document.querySelector(".table");
-            var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)");
+        var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)");
+        if(keyDownEvent.key == "ArrowUp" && tableRows.length > 0){
             if(selectedElementIndexAr == 0) {
                 selectedElementIndexAr++
             }
@@ -31,12 +30,9 @@ document.onkeydown = (keyDownEvent) => {
             keyDownEvent.preventDefault();
         }
 
-
-        if(keyDownEvent.key == "ArrowDown"){
+        if(keyDownEvent.key == "ArrowDown" && tableRows.length > 0){
             //Cheks if theres a selected row.
             var hasSelected = false;
-            var table = document.querySelector(".table");
-            var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)")
             for(i=0; i<tableRows.length; i++) {
                 if(tableRows[i].classList.contains("selected")){
                     hasSelected = true;
@@ -61,7 +57,28 @@ document.onkeydown = (keyDownEvent) => {
                 tableRows[selectedElementIndexAr].focus()
             }
         }
-        localStorage.setItem('elementIndex', selectedElementIndexAr);
+        if(keyDownEvent.key == "Home" && tableRows.length > 0){
+            keyDownEvent.preventDefault();
+            selectedElementIndexAr = 0;
+            var selectedElements = document.querySelectorAll(".selected")
+            for(i=0; i<selectedElements.length; i++){
+                selectedElements[i].classList.remove("selected")
+            }
+            tableRows[selectedElementIndexAr].classList.add("selected");
+            tableRows[selectedElementIndexAr].focus();
+        }
+
+        if(keyDownEvent.key == "End" && tableRows.length > 0){
+            keyDownEvent.preventDefault();
+            selectedElementIndexAr = tableRows.length-1;
+            var selectedElements = document.querySelectorAll(".selected")
+            for(i=0; i<selectedElements.length; i++){
+                selectedElements[i].classList.remove("selected")
+            }
+            tableRows[selectedElementIndexAr].classList.add("selected");
+            tableRows[selectedElementIndexAr].focus();
+        }
+        //localStorage.setItem('elementIndex', selectedElementIndexAr);
     }
     //Selects to enter
     //importOverlayClosed is a var. from importoverlay.js

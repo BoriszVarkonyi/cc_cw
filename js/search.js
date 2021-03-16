@@ -115,7 +115,6 @@ function resultChecker(x) {
     if (li.length == 0) {
         li = ul.querySelectorAll("button");
     }
-    var field = document.getElementById("inputs");
     x.value = ""
     liCounter = 0;
     for (i = 0; i < li.length; i++) {
