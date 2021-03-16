@@ -448,6 +448,9 @@ document.addEventListener("keyup", function (e) {
                 tableInArray[index1][index2][index3].scrollIntoView()
             }
         }
+        if(e.key =="Enter"){
+            tableInArray[index1][index2][index3].click();
+        }
         selectedClassRemover()
         eleminitaions[index1].classList.add("selected")
         document.cookie = "index1=" + index1;
