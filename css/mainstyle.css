@@ -69,7 +69,6 @@ header {
 	box-shadow: var(--s-black);
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
 	position: fixed;
 	top: 0;
 	z-index: 1;
@@ -83,6 +82,7 @@ header {
 	width: 100%;
 	max-width: 50vw;
 	position: relative;
+	min-width: 0;
 }
 
 #competition_select {
@@ -344,7 +344,7 @@ header {
 .language_button:disabled {
 	pointer-events: none;
 	-webkit-filter: contrast(.3);
-	        filter: contrast(.3);
+	filter: contrast(.3);
 }
 
 
@@ -1461,6 +1461,10 @@ header {
 	transition: all ease-out .2s;
 	border-radius: 5px;
 	overflow: hidden;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-o-object-position: center;
+	object-position: center;
 }
 
 .comp_logo:hover {
@@ -2071,7 +2075,8 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 .to_do_list > button:hover {
-	filter: brightness(0.95);
+	-webkit-filter: brightness(0.95);
+	        filter: brightness(0.95);
 }
 
 .to_do_list > button img {
@@ -2151,7 +2156,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 .progress {
-	width: 25%;
 	height: 100%;
 	border-radius: 5px;
 	background: var(--c-primary);
@@ -3089,48 +3093,6 @@ div.title_box > button {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-#confirmation_form > p:nth-of-type(1), #create_ranking_form > p:nth-of-type(1) {
-	font-size: var(--f-large);
-	font-family: var(--bold);
-	margin-bottom: 15px;
-}
-
-#confirmation_form > p:nth-of-type(2), #create_ranking_form > p:nth-of-type(2) {
-	margin-bottom: 10px;
-	border-bottom: 2.5px solid var(--c-red);
-}
-
-#confirmation_button_section {
-	position: absolute;
-	width: 100%;
-	bottom: 15px;
-	display: flex;
-	justify-content: flex-end;
-}
-
-#confirmation_button_section > button {
-	margin-right: 15px;
-	padding: 6.5px;
-
-
-	border-radius: 5px;
-	background: var(--c-lightgray);
-}
-
-#confirmation_button_section > button:last-child {
-	font-family: var(--bold);
-	background: var(--c-secondary);
-}
-
-#create_ranking_form_wrapper {
-	margin-bottom: 20px;
-}
-
-.confirmation_title {
-	position: absolute;
-	top: 30px;
 }
 
 /* ///DATES WEAPON CONTROL/// */

@@ -380,7 +380,7 @@ if (isset($_POST["time_change"])) {
                                     <img src="../assets/icons/close-black-18dp.svg">
                                 </button>
                                 <div class="search_wrapper narrow">
-                                    <button type="button" class="search select input" tabindex="3">
+                                    <button type="button" class="search select input" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
                                         <input type="text" name="date_to_select" placeholder="Select Date">
                                     </button>
                                     <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>

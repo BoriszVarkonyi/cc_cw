@@ -41,7 +41,7 @@
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
                     <div class="table t_c_1">
-                        <div class="table_row_wrapper">
+                        <div class="table_row_wrapper alt">
                         <?php
                             //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)
                             $qry = "SELECT * FROM competitions WHERE comp_status = 3 ORDER BY comp_start DESC";
