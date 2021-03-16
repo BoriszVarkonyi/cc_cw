@@ -1,5 +1,5 @@
 function toggleModal(modalIdNumber) {
-    // Adds stylesheet for modals beacuse of enhanced perfomance
+    // Adds stylesheet for modals beacuse perfomance good
     document.querySelector("head").insertAdjacentHTML("beforeend","<link rel=\"stylesheet\" href=\"../css/modal_style.min.css\" />");
 
     if (Number.isInteger(modalIdNumber)) {
@@ -11,7 +11,7 @@ function toggleModal(modalIdNumber) {
         document.querySelector("body").insertAdjacentHTML("beforeend",eulaModal);
     } else if (modalIdNumber == "cookies") {
         var cookiesContent = ["Navigation Bar pinning","Color modes and Contrast color modes","Set and load selected language", "Table: Save position of users view", "Table: Save users match density preference"];
-        var cookiesModal = "<div class='modal_wrapper' id='modal_cookies'><div class='modal'><div class='modal_header blue'><p class='modal_title'>Your privacy</p><p class='modal_subtitle'>Please read the follwoing information before continuning</p></div><div class='modal_main'><p class='modal_main_title big'>We use cookies on all CC sites for personalised content and enhancing user experience.</p><p class='modal_paragraph margin_top primary title'>If you do not enable cookies then following features will not work:</p>" + cookiesContent + "</div><div class='modal_footer'><p class='modal_footer_text'>Not accepting this agreement will result this panel to appear after every login.</p><div class='modal_footer_content'><button class='modal_decline_button' onclick=''>Decline</button><button class='modal_confirmation_button'>Accept</button></div></div></div></div>";
+        var cookiesModal = "<div class='modal_wrapper' id='modal_cookies'><div class='modal'><div class='modal_header blue'><p class='modal_title'>Your privacy</p><p class='modal_subtitle'>Please read the follwoing information before continuning</p></div><div class='modal_main'><p class='modal_main_title big'>We use cookies on all CC sites for personalised content and enhancing user experience.</p><p class='modal_paragraph margin_top margin_bottom primary title'>If you do not enable cookies then following features will not work:</p>" + cookiesContent + "</div><div class='modal_footer'><p class='modal_footer_text'>Not accepting this agreement will result this panel to appear after every login.</p><div class='modal_footer_content'><button class='modal_decline_button' onclick=''>Decline</button><button class='modal_confirmation_button'>Accept</button></div></div></div></div>";
         document.querySelector("body").insertAdjacentHTML("beforeend",cookiesModal);
     } else if (modalIdNumber == "bug") {
         var bugReportContent = "";
