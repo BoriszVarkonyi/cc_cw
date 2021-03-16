@@ -102,114 +102,112 @@ checkComp($connection);
         <?php include "../includes/navbar.php"; ?>
 
         <div class="page_content_flex">
+            <!-- dashboard header -->
+            <div id="title_stripe">
+                <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
+                    <img src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
+                </button>
+                <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
+                <p class="comp_title"><?php echo $comp_name; ?></p>
 
-                <!-- dashboard header -->
-                <div id="title_stripe">
-                    <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
+                <div id="publishcomp" class="stripe_button_wrapper">
+                    <button class="stripe_button primary <?php echo $publish_comp_disabled ?>">
+                        <p>Publish Competition</p>
+                        <img src="../assets/icons/send-black-18dp.svg"/>
                     </button>
-                    <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
-                    <p class="comp_title"><?php echo $comp_name; ?></p>
+                </div>
+            </div>
 
-                    <div id="publishcomp" class="stripe_button_wrapper">
-                        <button class="stripe_button primary <?php echo $publish_comp_disabled ?>">
-                            <p>Publish Competition</p>
-                            <img src="../assets/icons/send-black-18dp.svg"/>
-                        </button>
-                    </div>
+            <!-- dashboard body -->
+            <div id="page_content_panel_main">
+                <div id="db_panel_wrapper">
+                    <div class="db_panel main">
+                    <button onclick="toggleModal(1)">Example Modal</button>
+                    <button onclick="toggleModal(2)">Example Modal 2</button>
+                    <button onclick="toggleModal('EULA')">EULA Modal</button>
+                    <button onclick="toggleModal('cookies')">Cookies Modal</button>
+                    <button onclick="toggleModal('bug')">Bug report Modal</button>
                 </div>
 
-                <!-- dashboard body -->
-                <div id="page_content_panel_main">
-                    <div id="db_panel_wrapper">
-                        <div class="db_panel main">
-                        <button onclick="toggleModal(1)">Example Modal</button>
-                        <button onclick="toggleModal(2)">Example Modal 2</button>
-                        <button onclick="toggleModal('EULA')">EULA Modal</button>
-                        <button onclick="toggleModal('cookies')">Cookies Modal</button>
-                        <button onclick="toggleModal('bug')">Bug report Modal</button>
+                <!-- competition status -->
+                <div class="db_panel status">
+                    <div class="db_panel_title_stripe">
+                        <img src="../assets/icons/beenhere-black-18dp.svg">
+                        <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                     </div>
 
-                        <!-- competition status -->
-                        <div class="db_panel status">
-                            <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/beenhere-black-18dp.svg">
-                                <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
-                            </div>
-
-                            <!-- competiton status table -->
-                            <div class="db_panel_main list">
-                                <div class="to_do_list">
-                                    <button onclick="toggleToDoSublist()">
-                                        <p>General</p>
-                                        <p>(4 / 1)</p>
-                                        <img src="<?php echo $assoc_comp_table_elements['general'] ?>">
-                                    </button>
-                                    <div class="to_do_sublist">
-                                        <div>
-                                            <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Basic Information</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>">
-                                        </div>
-                                        <div>
-                                            <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Information for fencers</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>">
-                                        </div>
-                                        <div>
-                                            <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Invitation</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>">
-                                        </div>
-                                    </div>
-
-                                    <button onclick="toggleToDoSublist()">
-                                        <p>Technical</p>
-                                        <p>(4 / 1)</p>
-                                        <img src="<?php echo $assoc_comp_table_elements['technical'] ?>">
-                                    </button>
-                                    <div class="to_do_sublist">
-                                        <div>
-                                            <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Technicians</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>">
-                                        </div>
-                                        <div>
-                                            <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Referees</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
-                                        </div>
-                                        <div>
-                                            <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Pistes</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
-                                        </div>
-                                        <div>
-                                            <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                            <p>Formula</p>
-                                            <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
-                                        </div>
-                                    </div>
-
-                                    <button class="done">
-                                        <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
-                                        <p>Ranking</p>
-                                        <img src="<?php echo $assoc_comp_table_elements['ranking'] ?>">
-                                    </button>
+                    <!-- competiton status table -->
+                    <div class="db_panel_main list">
+                        <div class="to_do_list">
+                            <button onclick="toggleToDoSublist()">
+                                <p>General</p>
+                                <p>(4 / 1)</p>
+                                <img src="<?php echo $assoc_comp_table_elements['general'] ?>">
+                            </button>
+                            <div class="to_do_sublist">
+                                <div>
+                                    <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Basic Information</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>">
                                 </div>
-                                <div class="progress_bar">
-                                    <div class="progress" x-progress="100"></div>
+                                <div>
+                                    <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Information for fencers</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>">
+                                </div>
+                                <div>
+                                    <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Invitation</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>">
                                 </div>
                             </div>
+
+                            <button onclick="toggleToDoSublist()">
+                                <p>Technical</p>
+                                <p>(4 / 1)</p>
+                                <img src="<?php echo $assoc_comp_table_elements['technical'] ?>">
+                            </button>
+                            <div class="to_do_sublist">
+                                <div>
+                                    <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Technicians</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>">
+                                </div>
+                                <div>
+                                    <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Referees</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                </div>
+                                <div>
+                                    <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Pistes</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                </div>
+                                <div>
+                                    <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <p>Formula</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                </div>
+                            </div>
+
+                            <button class="done">
+                                <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                <p>Ranking</p>
+                                <img src="<?php echo $assoc_comp_table_elements['ranking'] ?>">
+                            </button>
                         </div>
-                    <!-- chat panel -->
-                        <div class="db_panel chat">
-                            <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/chat-black-18dp.svg">
-                                <p>Chat</p>
-                            </div>
+                        <div class="progress_bar">
+                            <div class="progress" x-progress="25"></div>
                         </div>
                     </div>
+                </div>
+                <!-- chat panel -->
+                <div class="db_panel chat">
+                    <div class="db_panel_title_stripe">
+                        <img src="../assets/icons/chat-black-18dp.svg">
+                        <p>Chat</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

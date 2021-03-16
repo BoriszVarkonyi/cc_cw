@@ -84,7 +84,6 @@ header {
 	max-width: 50vw;
 	position: relative;
 	min-width: 0;
-	margin: 0 20px;
 }
 
 #competition_select {
@@ -2158,7 +2157,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 }
 
 .progress {
-	width: 25%;
 	height: 100%;
 	border-radius: 5px;
 	background: var(--c-primary);
