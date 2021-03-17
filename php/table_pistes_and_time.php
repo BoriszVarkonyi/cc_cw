@@ -94,6 +94,24 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
                                                 <label for="">INTERVAL OF MATCHES</label>
                                                 <input type="number" class="number_input centered" placeholder="#">
                                             </div>
+                                            <div>
+                                                <label for="">USAGE OF PISTES</label>
+                                                <div class="option_container row">
+                                                    <input type="radio" name="piste_usage" id="all" value=""/>
+                                                    <label for="all">Use all</label>
+                                                    <input type="radio" name="piste_usage" id="not_all" value=""/>
+                                                    <label for="not_all">Don't use all</label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                            <label for="">PISTE & TIME RELATION</label>
+                                                <div class="option_container">
+                                                    <input type="radio" name="piste_time_relation" id="diff_time" value=""/>
+                                                    <label for="diff_time">Same piste different time</label>
+                                                    <input type="radio" name="piste_time_relation" id="diff_piste" value=""/>
+                                                    <label for="diff_piste">Different piste same time</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div>
