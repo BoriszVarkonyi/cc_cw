@@ -130,7 +130,19 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
                                     </div>
                                 </div>
-                                NATION / CLUB
+                                NATION
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search-black-18dp.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Club" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    </div>
+                                </div>
+                                CLUB
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search-black-18dp.svg">
                                 </button>
@@ -170,6 +182,7 @@
                             foreach ($json_table as $json_object) {
                                 $name = $json_object -> nom . " " . $json_object -> prenom;
                                 $nat = $json_object -> nation;
+                                $club = $json_object -> club;
                                 $stat = $json_object -> reg;
                                 $id = $json_object -> id;
 
@@ -178,6 +191,7 @@
                             <div class="table_row" id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
                                 <div class="table_item"><p><?php echo $name ?></p></div>
                                 <div class="table_item"><p><?php echo $nat ?></p></div>
+                                <div class="table_item"><p><?php echo $club ?></p></div>
                                 <div class="table_item"><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></div>
                                 <div class="big_status_item <?php if($stat == 0){echo "red";}else{echo "green";} ?>"></div>
                             </div>

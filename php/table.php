@@ -269,7 +269,7 @@ if (isset($_POST["generate_table"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Table of {Comp's name}</title>
+    <title>Table</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/table_style.min.css">
@@ -302,14 +302,14 @@ if (isset($_POST["generate_table"])) {
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message-black-18dp.svg" />
                         </button>
-                        <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
+                        <a class="stripe_button bold" type="button">
                             <p>Referees</p>
                             <img src="../assets/icons/ballot-black-18dp.svg" />
-                        </button>
-                        <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
+                        </a>
+                        <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot-black-18dp.svg" />
-                        </button>
+                        </a>
                         <button class="stripe_button primary" type="submit">
                             <p>Start next Round</p>
                             <img src="../assets/icons/next_plan-black-18dp.svg" />
@@ -335,163 +335,6 @@ if (isset($_POST["generate_table"])) {
                         <img src="../assets/icons/zoom_in-black-18dp.svg"/>
                     </button>
                 </div>
-            </div>
-            <div id="ref_panel" class="overlay_panel hidden">
-                <button class="panel_button" onclick="toggleRefPanel()">
-                    <img src="../assets/icons/close-black-18dp.svg">
-                </button>
-                <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
-                    <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
-                    <div class="option_container row">
-                        <input type="checkbox" name="pistes_type" checked id="true" value="" />
-                        <label for="true">True</label>
-                    </div>
-                    <label for="pistes_type">SELECT REFEREES</label>
-                    <div class="option_container row">
-                        <input type="radio" name="pistes_type" checked id="all_ref" onclick="useAllReferees()" value="" />
-                        <label for="all_ref">Use all</label>
-
-                        <input type="radio" name="pistes_type" id="manual_select_ref" onclick="selectReferees()" value="" />
-                        <label for="manual_select_ref">Select manually</label>
-                    </div>
-
-                    <div class="option_container grid piste_select disabled" id="select_referees_panel">
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" checked />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" checked />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" checked />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" checked />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-                    </div>
-                    <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
-                </form>
-            </div>
-            <div id="pist_time_panel" class="overlay_panel hidden">
-                <button class="panel_button" onclick="togglePistTimePanel()">
-                    <img src="../assets/icons/close-black-18dp.svg">
-                </button>
-                <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
-                    <label for="starting_time">STARTING TIME</label>
-                    <input type="time">
-
-                    <label for="interval_of_match">INTERVAL OF MATCH</label>
-                    <div id="interval_of_match_wrapper">
-                        <input type="number" class="number_input centered">
-                        <p>Min.</p>
-                    </div>
-
-                    <label for="pistes_type">PISTES</label>
-                    <div class="option_container row">
-                        <input type="radio" name="pistes_type" checked id="all" onclick="useAllPistes()" value="" />
-                        <label for="all">Use all</label>
-
-                        <input type="radio" name="pistes_type" id="manual_select" onclick="selectPistes()" value="" />
-                        <label for="manual_select">Select manually</label>
-                    </div>
-
-                    <div class="option_container grid piste_select disabled" id="select_pistes_panel">
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                        <div class="piste_select ghost">
-                            <input type="checkbox" name="piste_1" id="piste_1" value="" />
-                            <label for="piste_1">Piste 1</label>
-                        </div>
-
-                    </div>
-
-                    <button type="submit" name="submit" value="Save" class="panel_submit">Save</button>
-                </form>
             </div>
             <div id="page_content_panel_main">
                 <!-- State 0 -->
