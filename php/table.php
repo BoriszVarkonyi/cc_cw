@@ -85,13 +85,11 @@ if (isset($_POST["generate_table"])) {
     class pistetime
     {
 
-        public $id;
         public $pistename;
         public $time;
 
         function __construct()
         {
-            $this->id = NULL;
             $this->pistename = "";
             $this->time = "";
         }

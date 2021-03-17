@@ -46,7 +46,7 @@ function searchEngine(x) {
     for (i = 0; i < visibleLi.length; i++) {
         visibleLi[i].classList.remove("selected")
     }
-    if (event.key != "ArrowUp" && event.key != "ArrowDown") {
+    if (event.key != "ArrowUp" && event.key != "ArrowDown" && event.key !="Home" && event.key !="End") {
         selectedElementIndex = 0;
     }
     if (visibleLi.length > 0) {
@@ -84,6 +84,24 @@ function searchEngine(x) {
                 }
                 keyDownEvent.preventDefault();
             }
+            if(keyDownEvent.key == "Home" && !ul.classList.contains("empty")){
+                selectedElementIndex = 0;
+                for (i = 0; i < visibleLi.length; i++) {
+                    visibleLi[i].classList.remove("selected")
+                }
+                visibleLi[selectedElementIndex].classList.add("selected")
+                visibleLi[selectedElementIndex].scrollIntoView()
+                keyDownEvent.preventDefault();
+                
+            }
+            if(keyDownEvent.key == "End" && !ul.classList.contains("empty")){
+                selectedElementIndex = visibleLi.length-1;
+                for (i = 0; i < visibleLi.length; i++) {
+                    visibleLi[i].classList.remove("selected")
+                }
+                visibleLi[selectedElementIndex].classList.add("selected")
+                visibleLi[selectedElementIndex].scrollIntoView()
+            }
         }
     }
 
@@ -97,7 +115,6 @@ function resultChecker(x) {
     if (li.length == 0) {
         li = ul.querySelectorAll("button");
     }
-    var field = document.getElementById("inputs");
     x.value = ""
     liCounter = 0;
     for (i = 0; i < li.length; i++) {
