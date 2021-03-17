@@ -42,7 +42,7 @@
         $this -> nation = $nation;
         $this -> prenom = $prenom;
         $this -> nom = $nom;
-        $this -> isOnline = false;
+        $this -> isOnline = true;
         }
     }
 
@@ -166,7 +166,7 @@
                 <div id="title_stripe">
                         <p class="page_title">Referees</p>
                         <div class="stripe_button_wrapper">
-                            <a class="stripe_button" href="">
+                            <a class="stripe_button" href="import_referees.php?comp_id=<?php echo $comp_id ?>">
                                 <p>Import Referees from XML</p>
                                 <img src="../assets/icons/save_alt-black-18dp.svg"/>
                             </a>
@@ -354,11 +354,11 @@
 
                                 if($json_object -> isOnline == false){
 
-                                    echo "Offline";
+                                    echo "Not available";
 
                                 }
                                 else{
-                                    echo "Online";
+                                    echo "Available";
                                 }
 
                                 ?>
