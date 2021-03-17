@@ -111,10 +111,6 @@
 }
 
 .table_round_wrapper:focus {
-	outline: none;
-}
-
-.table_round_wrapper.focus {
 	outline: 3px solid var(--c-primary);
 	outline-offset: 1.5px;
 	box-shadow: var(--s-black);
