@@ -29,38 +29,12 @@ function togglePistTimePanel() {
     timePistPanel.classList.toggle("hidden");
 }
 
-//MarginNumber Cookie
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
 //Tableview cookies
-var firstIndex;
+var firstIndex = cookieFinder("firstIndex", 0, true);
 var secondIndex;
 var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
-//If found da cookie
-if (document.cookie.split(';').some((item) => item.trim().startsWith('firstIndex='))) {
-    firstIndex = parseInt(getCookie("firstIndex"))
-}
-//If not found da cookie
-else {
-    firstIndex = 0;
-    document.cookie = "firstIndex=" + firstIndex
-}
 
 //If found da cookie
 if (document.cookie.split(';').some((item) => item.trim().startsWith('secondIndex='))) {
@@ -355,7 +329,6 @@ zoomInButton.addEventListener('mousemove', function (e) {
 
 //Controls 
 var tableFencer = document.querySelectorAll(".table_round_wrapper");
-tableFencer[0].classList.add("focus")
 function makeArray() {
     var tableArray = []
     for (i = 0; i < eleminitaions.length; i++) {
@@ -372,6 +345,13 @@ function makeArray() {
     return tableArray
 }
 
+function selectedClassRemover(){
+    var selectedEleminitaions = document.querySelectorAll("#call_room .selected")
+    for(i=0; i<selectedEleminitaions.length; i++){
+        selectedEleminitaions[i].classList.remove("selected")
+    }   
+}
+
 //Removes the focus class from every element
 function focusClassRemover() {
     var focusedElement = document.querySelectorAll("#call_room .focus")
@@ -381,9 +361,12 @@ function focusClassRemover() {
 }
 
 var tableInArray = makeArray();
-var index1 = 0;
-var index2 = 0;
-var index3 = 0;
+var index1 = cookieFinder("index1", 0, true)
+var index2 = cookieFinder("index2", 0, true)
+var index3 = cookieFinder("index3", 0, true)
+eleminitaions[index1].classList.add("selected")
+tableInArray[index1][index2][index3].classList.add("focus");
+tableInArray[index1][index2][index3].scrollIntoView()
 document.addEventListener("keyup", function (e) {
     //searchBarClosed is a var. from search.js
     //somethingisOpened is a var. from main.js
@@ -401,7 +384,7 @@ document.addEventListener("keyup", function (e) {
                     index3--
                 }
                 tableInArray[index1][index2][index3].classList.add("focus");
-                //tableInArray[index1][index2][index3].scrollIntoView()
+                tableInArray[index1][index2][index3].scrollIntoView()
             }
             else if (index2 == 0) {
                 if (index3 > 0) {
@@ -410,7 +393,7 @@ document.addEventListener("keyup", function (e) {
                     }
                     focusClassRemover()
                     tableInArray[index1][index2][index3].classList.add("focus");
-                    //tableInArray[index1][index2][index3].scrollIntoView()
+                    tableInArray[index1][index2][index3].scrollIntoView()
                 }
             }
         }
@@ -425,7 +408,7 @@ document.addEventListener("keyup", function (e) {
                     index3++
                 }
                 tableInArray[index1][index2][index3].classList.add("focus");
-                //tableInArray[index1][index2][index3].scrollIntoView()
+                tableInArray[index1][index2][index3].scrollIntoView()
             }
             else if (index2 == tableInArray[index1].length - 1) {
                 if (index3 < tableInArray[index1][index2].length - 1) {
@@ -434,7 +417,7 @@ document.addEventListener("keyup", function (e) {
                     }
                     focusClassRemover()
                     tableInArray[index1][index2][index3].classList.add("focus");
-                    //tableInArray[index1][index2][index3].scrollIntoView()
+                    tableInArray[index1][index2][index3].scrollIntoView()
                 }
             }
         }
@@ -448,6 +431,7 @@ document.addEventListener("keyup", function (e) {
                 index2 = (index2 * 2) + index3
                 index3 = 0
                 tableInArray[index1][index2][index3].classList.add("focus");
+                tableInArray[index1][index2][index3].scrollIntoView()
             }
 
         }
@@ -461,8 +445,17 @@ document.addEventListener("keyup", function (e) {
                 index3 = index2 % 2
                 index2 = Math.floor(index2 / 2);
                 tableInArray[index1][index2][index3].classList.add("focus");
+                tableInArray[index1][index2][index3].scrollIntoView()
             }
         }
+        if(e.key =="Enter"){
+            tableInArray[index1][index2][index3].click();
+        }
+        selectedClassRemover()
+        eleminitaions[index1].classList.add("selected")
+        document.cookie = "index1=" + index1;
+        document.cookie = "index2=" + index2;
+        document.cookie = "index3=" + index3;
     }
 })
 

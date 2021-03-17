@@ -433,7 +433,6 @@ var somethingIsFocused = false;
 var textAreas = document.querySelectorAll("input, textarea")
 textAreas.forEach(item => {
     item.addEventListener("focus", function() {
-        console.log("hello!!")
         somethingIsFocused = true
     });
     item.addEventListener("blur", function() {

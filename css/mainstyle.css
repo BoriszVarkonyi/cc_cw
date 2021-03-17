@@ -69,7 +69,6 @@ header {
 	box-shadow: var(--s-black);
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
 	position: fixed;
 	top: 0;
 	z-index: 1;
@@ -345,7 +344,7 @@ header {
 .language_button:disabled {
 	pointer-events: none;
 	-webkit-filter: contrast(.3);
-	        filter: contrast(.3);
+	filter: contrast(.3);
 }
 
 

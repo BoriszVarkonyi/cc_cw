@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="search_wrapper narrow">
-                        <input type="number" name="year" class="search select alt" placeholder="-Year-Of-Birth-" onkeyup="searchEngine(this)">
+                        <input type="number" name="year" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" placeholder="-Year-Of-Birth-" onkeyup="searchEngine(this)">
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php

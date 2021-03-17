@@ -59,7 +59,7 @@
 	max-height: calc( (var(--f-small) + 30px) * 128);
 }
 
-.elimination:focus-within {
+.elimination.selected {
 	z-index: 1;
 }
 
@@ -108,6 +108,10 @@
 	width: 100%;
 	margin-bottom: 10px;
 	box-sizing: border-box;
+}
+
+.table_round_wrapper:focus {
+	outline: none;
 }
 
 .table_round_wrapper.focus {
