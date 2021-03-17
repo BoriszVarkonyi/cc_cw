@@ -3,73 +3,6 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
-<?php
-
-    $comp_id = $_GET['comp_id'];
-
-    //make formulas table
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`formulas` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_create_table = mysqli_query($connection, $qry_create_table);
-
-    //get data from form
-    if (isset($_POST['submit_form'])) {
-        $pool_points = $_POST['points_pools'];
-        $table_points = $_POST['points_table'];
-        $qualifiers = $_POST['nb_qualifier'];
-        if ($_POST['elimnation_type'] == 1) {
-            $is_direct_elim = TRUE;
-        } else if ($_POST['elimnation_type'] == 0) {
-            $is_direct_elim = FALSE;
-        }
-        if ($_POST['type_of_elimination'] == 1) {
-            $is_one_phase = TRUE;
-        } else if ($_POST['type_of_elimination'] == 0) {
-            $is_one_phase = FALSE;
-        }
-
-        if ($_POST['third_place'] == 1) {
-            $fencing_for_third = TRUE;
-        } else if ($_POST['third_place'] == 0) {
-            $fencing_for_third = FALSE;
-        }
-
-        $formula_table = new stdClass();
-
-        $formula_table -> poolPoints = $pool_points;
-        $formula_table -> tablePoints = $table_points;
-        $formula_table -> qualifiers = $qualifiers;
-        $formula_table -> isDirectElim = $is_direct_elim;
-        $formula_table -> isOnePhase = $is_one_phase;
-        $formula_table -> fencingThird = $fencing_for_third;
-
-        $json_table = json_encode($formula_table);
-
-        //test for existing row
-        $qry_test_row = "SELECT COUNT(*) FROM formulas WHERE assoc_comp_id = '$comp_id'";
-        $do_test_row = mysqli_query($connection, $qry_test_row);
-        if (mysqli_fetch_assoc($do_test_row)['COUNT(*)'] != 1) {
-            $qry_make_row = "INSERT INTO formulas (assoc_comp_id, data) VALUES ('$comp_id', '$json_table')";
-        } else {
-            $qry_make_row = "UPDATE formulas SET data = '$json_table' WHERE assoc_comp_id = '$comp_id'";
-        }
-
-        if ($do_mane_row = mysqli_query($connection, $qry_make_row)) {
-            header("Refresh: 0");
-        }
-    }
-
-    //get data for display from db
-    $qry_get_data = "SELECT * FROM formulas WHERE assoc_comp_id = '$comp_id'";
-    $do_get_data = mysqli_query($connection, $qry_get_data);
-
-    if ($row = mysqli_fetch_assoc($do_get_data)) {
-        $json_string = $row['data'];
-
-        $json_table = json_decode($json_string);
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,17 +37,7 @@
                             </button>
                             <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                             <div class="search_results">
-                                <?php
-
-                                foreach ($pistearray as $piste) {
-
-                                ?>
-
-                                    <button type="button" id="<?php echo $piste->name ?>" onclick="setreferee(this)"><?php echo $piste->name ?></button>
-
-                                <?php
-                                }
-                                ?>
+                                <button type="button" id="gr" onclick="setreferee(this)">v</button>
                             </div>
                         </div>
                     </div>
