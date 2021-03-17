@@ -80,8 +80,7 @@ if (isset($_POST["save_match"])) {
     } elseif ($fencer2_data->points == "NCB") {
 
         $winnerfencer = 1;
-    }
-    elseif ($fencer1_data->points > $fencer2_data->points) {
+    } elseif ($fencer1_data->points > $fencer2_data->points) {
 
         $winnerfencer = 1;
     } elseif ($fencer2_data->points > $fencer1_data->points) {
@@ -188,6 +187,17 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 }
 
 
+//Get piste object for future use
+
+$qry_get_data = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
+$do_get_data = mysqli_query($connection, $qry_get_data);
+
+if ($row = mysqli_fetch_assoc($do_get_data)) {
+    $data = $row['data'];
+
+    $pistearray = json_decode($data);
+}
+
 //Handle changes (ref, vref, piste, time)
 
 if (isset($_POST["ref_change"])) {
@@ -224,11 +234,19 @@ if (isset($_POST["vref_change"])) {
     header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
 }
 
-// if (isset($_POST["piste_change"])){
+if (isset($_POST["piste_change"])) {
 
-//Piste change system goes here when pistes are in new JSON system
+    $pistename = $_POST["piste_change_data"];
+    $json_table->$tableround->$matchid->pistetime->pistename = $pistename;
 
-// }
+    $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+
+}
 
 if (isset($_POST["time_change"])) {
 
@@ -385,12 +403,17 @@ if (isset($_POST["time_change"])) {
                                     </button>
                                     <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                                     <div class="search_results">
-                                        <button type="button" id="p1" onclick="setreferee(this)">Main Piste</button>
-                                        <button type="button" id="p2" onclick="setreferee(this)">Piste Red</button>
-                                        <button type="button" id="p3" onclick="setreferee(this)">Piste Blue</button>
-                                        <button type="button" id="p4" onclick="setreferee(this)">Piste 1</button>
-                                        <button type="button" id="p5" onclick="setreferee(this)">Piste 2</button>
-                                        <button type="button" id="p6" onclick="setreferee(this)">Piste 3</button>
+                                        <?php
+
+                                        foreach ($pistearray as $piste) {
+
+                                        ?>
+
+                                            <button type="button" id="<?php echo $piste->name ?>" onclick="setreferee(this)"><?php echo $piste->name ?></button>
+
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <input type="text" name="piste_change_data">
