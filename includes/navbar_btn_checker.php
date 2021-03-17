@@ -23,7 +23,12 @@
     //check for existing pool
     $qry_check_pool = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
     if ($do_check_pool = mysqli_query($connection, $qry_check_pool)) {
-        $href_pools = 'href="pools_config.php?comp_id=' . $comp_id . '"';
+
+        if ($row_cnt = mysqli_num_rows($do_check_pool) === 1) {
+            $href_pools = 'href="pools_config.php?comp_id=' . $comp_id . '"';
+        } else {
+            $href_pools = 'href="pools_generate.php?comp_id=' . $comp_id . '"';
+        }
     } else {
         $href_pools = 'href="pools_generate.php?comp_id=' . $comp_id . '"';
     }

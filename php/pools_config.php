@@ -5,15 +5,15 @@
 
 <?php
 
-$qry_check_row = "SELECT (`data`,`pool_of`) FROM pools WHERE assoc_comp_id = '$comp_id'";
-$do_check_row = mysqli_query($connection, $qry_check_row);
-if ($row = mysqli_fetch_assoc($do_check_row)) {
-    $json_string = $row['data'];
-    $json_table = json_decode($json_string);
-    $pool_of = $row['pool_of'];
-} else {
-    echo mysqli_error($connection);
-}
+    $qry_check_row = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
+        $pool_of = $row['pool_of'];
+    } else {
+        echo mysqli_error($connection);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +74,9 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
                         <div class="option_container row">
-                            <input type="checkbox" name="pistes_type" id="true" value=""/>
+                            <input type="radio" name="ref_can" id="false" value="0" checked/>
+                            <label for="false">False</label>
+                            <input type="radio" name="ref_can" id="true" value="1"/>
                             <label for="true">True</label>
                         </div>
                         <label for="all_ref">SELECT REFEREES</label>
@@ -90,20 +92,24 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 
                             <?php
 
-                            $ref_query = "SELECT * FROM ref_$comp_id WHERE online = 1";
+                            $ref_query = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
                             $ref_query_do = mysqli_query($connection, $ref_query);
+                            if ($row = mysqli_fetch_assoc($ref_query_do)) {
+                                $ref_string = $row['data'];
+                                $ref_table = json_decode($ref_string);
+                            }
 
-                            while ($row =  mysqli_fetch_assoc($ref_query_do)) {
 
-                                $refid = $row["id"];
-                                $fullname = $row["full_name"];
-
+                            foreach ($ref_table as $ref_obj) {
+                                $refid = $ref_obj -> id;
+                                $prenom_nom = $ref_obj -> prenom . $ref_obj -> nom;
+                                $ref_nat = $ref_obj -> nation;
 
                             ?>
 
                                 <div class="piste_select">
                                     <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="value1"/>
-                                    <label for="ref_<?php echo $refid ?>"><?php echo $fullname ?></label>
+                                    <label for="ref_<?php echo $refid ?>"><?php echo $prenom_nom ?></label>
                                 </div>
 
                             <?php
@@ -184,15 +190,18 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                     </form>
                 </div>
             </div>
+
+
+
             <div id="page_content_panel_main">
                 <div id="pools_wrapper" class="wrapper">
                     <div id="pool_listing" class="with_drag">
 
                         <?php
-                            for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
+                            $number_of_pools = count($json_table);
 
-                                $refname = "fazs";
-                                $refnat = "fazs";
+                            for ($pool_num = 1; $pool_num < $number_of_pools; $pool_num++) {
+
                                 $ref2name = "";
                                 $ref2nat = "";
                                 if ($json_table[$pool_num] -> ref1 !==  NULL) {
@@ -254,32 +263,34 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                                                 </div>
 
                                                 <div class="table_header_text square">
-                                                    rp
+                                                    Rp
                                                 </div>
 
                                             </div>
                                             <div class="table_row_wrapper alt" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
                                                 <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php
-                                                    for ($fencer_number = 1;$fencer_number <= $pool_of; $fencer_number++) {
+                                                    for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
 
-                                                        $fencer_name = $json_table[$pool_num] -> {$fencer_number} -> name;
-                                                        $fencer_nat = $json_table[$pool_num] -> {$fencer_number} -> nation;
-                                                        $fencer_id = $json_table[$pool_num] -> {$fencer_number} -> id;
+                                                        $fencer_name = $json_table[$pool_num] -> $fencer_number -> prenom_nom;
+                                                        $fencer_nat = $json_table[$pool_num] -> $fencer_number -> nation;
+                                                        $fencer_id = $json_table[$pool_num] -> $fencer_number -> id;
+                                                        $fencer_cp = $json_table[$pool_num] -> $fencer_number -> c_pos;
+                                                        $fencer_rp = $json_table[$pool_num] -> $fencer_number -> r_pos;
                                                 ?>
 
                                                     <div class="table_row">
                                                         <div class="table_item">
-                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fx ?>"><?php echo $fencer_name ?></p>
+                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>"><?php echo $fencer_name ?></p>
                                                         </div>
                                                         <div class="table_item">
                                                             <p><?php echo $fencer_nat ?></p>
                                                         </div>
                                                         <div class="table_item square">
-                                                            <p>1</p>
+                                                            <p><?php echo $fencer_cp ?></p>
                                                         </div>
                                                         <div class="table_item square">
-                                                            <p>1</p>
+                                                            <p><?php echo $fencer_rp ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
