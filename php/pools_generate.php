@@ -257,10 +257,17 @@
         $objects = new ObjSorter($json_table,'classement');
         $sorted_fencers = $objects->sorted;
 
+        //make set cp
+        $cp_counter = 1;
+        foreach ($sorted_fencers as $fencer_obj) {
+            $fencer_obj -> comp_rank = $cp_counter;
+            $cp_counter++;
+        }
+
         //I N I T I A T E   S O R O L A S !
         $array_of_pools = sorolas($number_of_pools,$pool_of,$sorted_fencers);
 
-        $json_string = json_encode($array_of_pools);
+        $json_string = json_encode($array_of_pools, JSON_UNESCAPED_UNICODE);
         //set up new row for pools
         $qry_new_row = "INSERT INTO `pools` (`assoc_comp_id`, `data`, `pool_of`) VALUES ('$comp_id', '$json_string', '$pool_of')";
         if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
