@@ -33,21 +33,13 @@
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
-body, html {
+body {
 	background: var(--c-lightestgray) !important;
 	overflow-x: auto;
 	overflow-y: auto;
-}
-
-html {
 	scroll-behavior: smooth !important;
 }
 
-/*
-input.disabled {
-	display: none;
-}
-*/
 /* Basic layout */
 
 header {

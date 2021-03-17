@@ -554,7 +554,7 @@ if (isset($_POST["generate_table"])) {
                                     }
                                 ?>
 
-                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" tabindex="0" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
                                         <div class="table_round">
 
                                             <?php

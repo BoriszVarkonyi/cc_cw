@@ -1959,6 +1959,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
     grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	grid-gap: 1vw;
+	gap: 1vw;
    	grid-template-areas:
     "main main"
     "status chat";

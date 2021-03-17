@@ -671,6 +671,15 @@ input[type="time"] {
 	text-align: center;
 }
 
+.search.select.alt input {
+	font-family: var(--bold);
+}
+
+/* No shaow on cw seletcts */
+.search.select.alt + button + .search_results {
+	box-shadow: none !important;
+}
+
 .search.select input {
 	width: 100% !important;
 	background-color: transparent !important;
