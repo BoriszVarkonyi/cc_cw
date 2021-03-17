@@ -96,10 +96,32 @@
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div id="" class="db_panel form_page_flex">
+                <div id="" class="form_page_flex">
+                    <div id="table_select_wrapper">
+                        <div class="search_wrapper wide">
+                            <button type="button" class="search select alt" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
+                                <input type="text" name="" placeholder="" value="Table of 64">
+                            </button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                            <div class="search_results">
+                                <?php
+
+                                foreach ($pistearray as $piste) {
+
+                                ?>
+
+                                    <button type="button" id="<?php echo $piste->name ?>" onclick="setreferee(this)"><?php echo $piste->name ?></button>
+
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                     <div class="db_panel_title_stripe">
                         <img src="../assets/icons/build-black-18dp.svg">
-                        <p>Set Formula of Pools and Table</p>
+                        <p>Set Time and Piste for table</p>
                     </div>
                     <div class="db_panel_main">
 
@@ -180,5 +202,5 @@
         </div>
     </body>
 <script src="../js/main.js"></script>
-<script src="../js/formula.js"></script>
+<script src="../js/search.js"></script>
 </html>

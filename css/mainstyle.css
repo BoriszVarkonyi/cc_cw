@@ -3964,3 +3964,10 @@ div.title_box > button {
 #tournament_timetable.hidden, #tournament_weapon_control.hidden, #wc_phases_table.hidden {
 	display: none;
 }
+
+/* Table pistes and time */
+
+#table_select_wrapper {
+	display: flex;
+	justify-content: center;
+}
