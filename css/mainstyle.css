@@ -4013,6 +4013,7 @@ div.title_box > button {
 	display: flex;
 	flex-direction: row !important;
 	gap: 10px;
+	height: 35vh;
 }
 
 .piste_type_wrapper {
@@ -4020,9 +4021,37 @@ div.title_box > button {
 	background: var(--c-lightestgray);
 	flex: 1 1 50%;
 	border-radius: 5px;
-	overflow: auto;
-	padding: 30px 10px;
 	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.piste_wrapper {
+	overflow: auto;
+	height: 100%;
+	max-height: 30vh;
+	padding: 30px 10px;
+	box-sizing: border-box;
+	flex: 1 1 30vh;
+}
+
+.piste_controls {
+	flex: 1 0 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid var(--c-gray);
+}
+
+.piste_controls button {
+	padding: 5px 10px;
+	border-radius: 50px;
+}
+
+.piste_controls button:hover {
+	background: var(--c-lightgray);
 }
 
 .piste {
