@@ -1,7 +1,7 @@
 function searchButton(x) {
     var button = x;
     var search = button.previousElementSibling;
-    if(search.classList.contains("opened")){
+    if (search.classList.contains("opened")) {
         search.querySelector(".search").value = ""
         serachInLists();
     }
@@ -41,17 +41,17 @@ function serachInLists() {
     }
     //setas the row bg color
     var visibleRows = document.querySelectorAll(".table_row:not( .hidden)")
-    for(i=0; i<visibleRows.length; i++){
-        if(i%2 ==0){
+    for (i = 0; i < visibleRows.length; i++) {
+        if (i % 2 == 0) {
             visibleRows[i].style.backgroundColor = "rgb(255, 255, 255)"
         }
-        else{
+        else {
             visibleRows[i].style.backgroundColor = "rgb(246, 246, 246)"
         }
     }
     //Removes elected class from all item
     var selectedElements = document.querySelectorAll(".selected")
-    for(i=0; i<selectedElements.length; i++){
+    for (i = 0; i < selectedElements.length; i++) {
         selectedElements[i].classList.remove("selected")
     }
     //selectedElementIndexAr is a var from list.js
@@ -61,13 +61,13 @@ function serachInLists() {
 var radioButtons = document.querySelectorAll(".table_header .option_container input")
 // Displays all row when click the X
 function searchDelete(x) {
-    if(x.previousElementSibling.value == undefined){
+    if (x.previousElementSibling.value == undefined) {
         x.parentNode.previousElementSibling.firstElementChild.value = ""
-        for(i=0; i<radioButtons.length; i++){
+        for (i = 0; i < radioButtons.length; i++) {
             radioButtons[i].checked = false;
         }
     }
-    else{
+    else {
         x.previousElementSibling.value = ""
     }
     serachInLists()
