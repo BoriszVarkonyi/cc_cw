@@ -467,3 +467,30 @@ document.onkeydown = (keyDownEvent) => {
     }
 }
 
+function indexFinder(findRound){
+    var indexArray = []
+    for(i=0; i<tableInArray.length; i++){
+        for(j=0; j<tableInArray[i].length; j++){
+            for(k=0; k<tableInArray[i][j].length; k++){
+                if(findRound == tableInArray[i][j][k]){
+                    indexArray.push(i)
+                    indexArray.push(j)
+                    indexArray.push(k)
+                    return indexArray;
+                }
+            }
+        }
+    }
+}
+
+function selectRound(x){
+    var indexArray = indexFinder(x);
+    index1 = indexArray[0]
+    index2 = indexArray[1]
+    index3 = indexArray[2]
+    tableInArray[index1][index2][index3].focus();
+    document.cookie = "index1=" + index1;
+    document.cookie = "index2=" + index2;
+    document.cookie = "index3=" + index3;
+}
+
