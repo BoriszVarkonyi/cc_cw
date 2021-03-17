@@ -345,7 +345,7 @@ header {
 .language_button:disabled {
 	pointer-events: none;
 	-webkit-filter: contrast(.3);
-	        filter: contrast(.3);
+	filter: contrast(.3);
 }
 
 
@@ -507,6 +507,7 @@ header {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	max-width: 90%;
 }
 
 .wrapper.w90 {
@@ -1960,6 +1961,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
     grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	grid-gap: 1vw;
+	gap: 1vw;
    	grid-template-areas:
     "main main"
     "status chat";
@@ -3962,4 +3964,11 @@ div.title_box > button {
 
 #tournament_timetable.hidden, #tournament_weapon_control.hidden, #wc_phases_table.hidden {
 	display: none;
+}
+
+/* Table pistes and time */
+
+#table_select_wrapper {
+	display: flex;
+	justify-content: center;
 }

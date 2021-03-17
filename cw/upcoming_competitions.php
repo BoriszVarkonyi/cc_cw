@@ -27,7 +27,7 @@
                     </div>
                     <!-- year drop-down -->
                     <div class="search_wrapper narrow">
-                        <input type="text" name="" placeholder="-Year-" class="search select alt" onkeyup="searchEngine(this)" onfocus="resultChecker(this)">
+                        <input type="text" name="" placeholder="-Year-" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" onfocus="resultChecker(this)">
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                         <div class="search_results">
                             <?php
@@ -42,7 +42,7 @@
                     </div>
                     <!-- sex drop-down -->
                     <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt">
+                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)">
                             <input type="text" name="" placeholder="-Sex-">
                         </button>
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
@@ -53,7 +53,7 @@
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt">
+                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)">
                             <input type="text" name="" placeholder="-Weapon Type-">
                         </button>
                         <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>

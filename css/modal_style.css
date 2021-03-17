@@ -4,8 +4,8 @@
 	background: var(--c-transparent-black);
 	position: fixed;
 	z-index: 10;	/* Has to be or it wont work properly in cw pages with browsing divs  */
-	-webkit-backdrop-filter: blur(1px);
-	backdrop-filter: blur(1px);
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
 	display: flex;
 	justify-content: center;
 	align-items: center;

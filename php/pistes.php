@@ -169,8 +169,8 @@ if (isset($_POST["create_piste"])) {
                         </div>
 
                         <!--Main-->
-                        <label for="piste_number" id="mainpiste_num_label" class="label_text hidden main_group">PISTE NUMBER</label>
-                        <input type="number" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="Main, 1, 2, 3, 4" name="one_piste_name">
+                        <label for="piste_number" id="mainpiste_num_label" class="label_text hidden main_group">PISTE NAME</label>
+                        <input type="text" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="Main, 1, 2, 3, 4" name="one_piste_name">
 
                         <!--Colored-->
                         <label for="piste_number" class="label_text hidden colored_group">PISTE COLOR</label>
@@ -186,8 +186,8 @@ if (isset($_POST["create_piste"])) {
                             <label for="red"></label>
                         </div>
 
-                        <label for="piste_number" class="label_text hidden colored_group">PISTE NUMBER</label>
-                        <input type="number" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_name">
+                        <label for="piste_number" class="label_text hidden colored_group">PISTE NAME</label>
+                        <input type="text" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_name">
 
                         <!--Numbered-->
                         <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE QUANTITY</label>

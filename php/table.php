@@ -85,13 +85,11 @@ if (isset($_POST["generate_table"])) {
     class pistetime
     {
 
-        public $id;
         public $pistename;
         public $time;
 
         function __construct()
         {
-            $this->id = NULL;
             $this->pistename = "";
             $this->time = "";
         }
@@ -554,7 +552,7 @@ if (isset($_POST["generate_table"])) {
                                     }
                                 ?>
 
-                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" tabindex="0" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" tabindex="1" onclick="window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
                                         <div class="table_round">
 
                                             <?php
@@ -636,6 +634,7 @@ if (isset($_POST["generate_table"])) {
         </div>
     </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/table.js"></script>
 <script src="../js/overlay_panel.js"></script>
