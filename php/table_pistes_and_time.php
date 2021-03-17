@@ -50,7 +50,17 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
                     <div id="table_select_wrapper">
                         <div class="search_wrapper wide">
                             <button type="button" class="search select alt" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
-                                <input type="text" name="" placeholder="" value="<?php echo 'Table of ' . ltrim($_GET["table_round"], 't_') ?>">
+                                <input type="text" name="" placeholder="" value="<?php
+                                
+                                //Checks if there is any table selected
+
+                                if(isset($_GET["table_round"])){
+                                    echo 'Table of ' . ltrim($_GET["table_round"], 't_');
+                                }else{
+                                    echo 'Please select a round';
+                                }
+                                
+                                ?>">
                             </button>
                             <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                             <div class="search_results">
