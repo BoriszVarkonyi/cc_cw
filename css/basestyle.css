@@ -802,6 +802,10 @@ label + .search_wrapper.wide .search, .search.has_icon  {
     box-sizing: border-box;
 }
 
+.table.fixed .table_item, .table.fixed .table_header_text {		/* Whole table */
+	flex: 1 1 100% !important;
+}
+
 .table.full {		/* 100% width no ppading */
     width: 100%;
 }

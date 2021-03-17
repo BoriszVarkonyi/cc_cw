@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div id="" class="wrapper full">
+                <div id="" class="wrapper full margin">
                     <div id="table_select_wrapper">
                         <div class="search_wrapper wide">
                             <button type="button" class="search select alt" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
@@ -118,87 +118,145 @@
                             </div>
                         </div>
                     </div>
-                    <div class="db_panel">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black-18dp.svg">
-                            <p>Set Time and Piste for table</p>
+                    <div id="table_piste_time_wrapper">
+                        <div class="db_panel full" id="pistes_and_time_panel">
+                            <div class="db_panel_title_stripe">
+                                <img src="../assets/icons/build-black-18dp.svg">
+                                <p>Set Time and Piste for table</p>
+                            </div>
+                            <div class="db_panel_main full">
+                                <form id="" action="" class="form_wrapper" method="POST">
+                                    <div>
+                                        <div>
+                                            <label for="">STARTING TIME</label>
+                                            <input type="time">
+                                        </div>
+                                        <div>
+                                            <label for="">INTERVAL OF MATCHES</label>
+                                            <input type="number" class="number_input centered" placeholder="#">
+                                        </div>
+                                        <div>
+                                            <label for="">USAGE OF PISTES</label>
+                                            <div class="option_container row">
+                                                <input type="radio" name="piste_usage" id="all" value=""/>
+                                                <label for="all">Use all</label>
+                                                <input type="radio" name="piste_usage" id="not_all" value=""/>
+                                                <label for="not_all">Don't use all</label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                        <label for="">PISTE & TIME RELATION</label>
+                                            <div class="option_container">
+                                                <input type="radio" name="piste_time_relation" id="diff_time" value=""/>
+                                                <label for="diff_time">Same piste different time</label>
+                                                <input type="radio" name="piste_time_relation" id="diff_piste" value=""/>
+                                                <label for="diff_piste">Different piste same time</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="">USED PISTES</label>
+                                        <div id="pistes_wrapper">
+                                            <div class="piste_type_wrapper">
+                                                <div class="piste">
+                                                    <div class="piste_number">1</div>
+                                                    <div class="piste_name">Main</div>
+                                                    <div class="piste_order">
+                                                        <button>
+                                                            <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
+                                                        </button>
+                                                        <button>
+                                                            <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
+                                                        </button>
+                                                    </div>
+                                                    <div class="piste_button">
+                                                        <button>
+                                                            <img src="../assets/icons/remove-black-18dp.svg">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="piste">
+                                                    <div class="piste_number">1</div>
+                                                    <div class="piste_name">Red</div>
+                                                    <div class="piste_order">
+                                                        <button>
+                                                            <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
+                                                        </button>
+                                                        <button>
+                                                            <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
+                                                        </button>
+                                                    </div>
+                                                    <div class="piste_button">
+                                                        <button>
+                                                            <img src="../assets/icons/remove-black-18dp.svg">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="piste_type_wrapper">
+                                                <div class="piste">
+                                                    <div class="piste_number">1</div>
+                                                    <div class="piste_name">Main</div>
+                                                    <div class="piste_button">
+                                                        <button>
+                                                            <img src="../assets/icons/add-black-18dp.svg">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="db_panel_main">
-                            <form id="save_form" action="" class="form_wrapper" method="POST">
-                                <div>
-                                    <div>
-                                        <label for="points_pools">POINTS IN POOLS</label>
-                                        <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">
+                        <div class="db_panel full" id="matches_preview_panel">
+                            <div class="db_panel_title_stripe">
+                                <img src="../assets/icons/build-black-18dp.svg">
+                                <p>Preview matches</p>
+                            </div>
+                            <div class="db_panel_main full">
+                                <div class="table fixed">
+                                    <div class="table_header">
+                                        <div class="table_header_text">Match ID</div>
+                                        <div class="table_header_text">Piste</div>
+                                        <div class="table_header_text">Starting time</div>
                                     </div>
-                                    <div>
-                                        <label for="points_table">POINTS IN TABLE</label>
-                                        <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">
-                                    </div>
-                                    <div>
-                                        <label for="nb_qualifier">NUMBER OF QUALIFIERS AFTER POOLS</label>
-                                        <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">
-                                    </div>
-                                    <div>
-                                        <label for="elimnation_type">ELIMINATION TYPE</label>
-                                        <div class="option_container">
-                                            <input type="radio" name="elimnation_type" id="direct_et" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
-                                            <label for="direct_et">Direct-Elimination Tournament</label>
-                                            <input type="radio" name="elimnation_type" id="double_et" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
-                                            <label for="double_et">Double-Elimination Tournament</label>
+                                    <div class="table_row_wrapper">
+                                        <div class="table_row">
+                                            <div class="table_item">x</div>
+                                            <div class="table_item">x</div>
+                                            <div class="table_item">x</div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_item">yy</div>
+                                            <div class="table_item">yy</div>
+                                            <div class="table_item">yy</div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_item">ghhh</div>
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
+                                        </div>
+                                        <div class="table_row">
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
+                                            <div class="table_item">hh</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-
-                                    <div>
-                                        <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>
-                                        <div class="option_container">
-                                            <input type="radio" name="type_of_elimination" id="one_phase_table" value="1" <?php echo $is_checked = ($json_table -> isOnePhase == 1) ? "checked" : "" ?> />
-                                            <label for="one_phase_table">One Phase Table</label>
-
-                                            <input type="radio" name="type_of_elimination" id="two_phase_table" value="0" <?php echo $is_checked = ($json_table -> isOnePhase == 0) ? "checked" : "" ?> />
-                                            <label for="two_phase_table">Two Phase Table</label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label for="third_place">FENCING FOR 3RD PLACE</label>
-                                        <div class="option_container">
-                                            <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
-                                            <label for="third_place_no">Yes</label>
-
-                                            <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> />
-                                            <label for="third_place_no">No</label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label for="third_place">USAGE OF CALL ROOM</label>
-                                        <div class="option_container row no_bottom">
-                                            <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value=""/>
-                                            <label for="used">Use</label>
-
-                                            <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="" checked/>
-                                            <label for="not_used">Don't use</label>
-                                        </div>
-                                        <div class="option_container" id="useOptionContainer">
-                                            <input type="checkbox" name="call_room" id="64" value="64"/>
-                                            <label for="64">64</label>
-                                            <input type="checkbox" name="call_room" id="32" value="32"/>
-                                            <label for="32">32</label>
-                                            <input type="checkbox" name="call_room" id="16" value="16"/>
-                                            <label for="16">16</label>
-                                            <input type="checkbox" name="call_room" id="8" value="8"/>
-                                            <label for="8">8</label>
-                                            <input type="checkbox" name="call_room" id="4" value="4"/>
-                                            <label for="4">4</label>
-                                            <input type="checkbox" name="call_room" id="2" value="2"/>
-                                            <label for="2">2</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
