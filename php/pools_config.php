@@ -4,6 +4,18 @@
 <?php checkComp($connection); ?>
 
 <?php
+function findFencer($json_table, $id_to_find, $attribute_to_find) {
+    foreach ($json_table as $pool) {
+        foreach ($pool as $fencer_obj) {
+            if ($fencer_obj -> $attribute_to_find == $id_to_find) {
+                $return_array[0] = array_search($pool,$json_table);
+                $return_array[1] = array_search($fencer_obj, $pool);
+
+                return $return_array;
+            }
+        }
+    }
+}
 
     $qry_check_row = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
@@ -13,6 +25,39 @@
         $pool_of = $row['pool_of'];
     } else {
         echo mysqli_error($connection);
+    }
+
+    if (isset($_POST['save_pools'])) {
+        $saved_pools_string = $_POST['save_pools_hidden_input'];
+
+
+    }
+
+    if (isset($_POST['draw_ref'])) {
+        $ref_can = $_POST['ref_can'];
+        $referees = $_POST['ref_select'];
+        $number_of_refs = $_POST['number_of_refs'];
+        $qry_get_refs = "SELECT `data` FROM `referees` WHERE `assoc_comp_id` = $comp_id";
+        $do_get_refs = mysqli_query($connection, $qry_get_refs);
+
+        if ($row = mysqli_fetch_assoc($do_get_refs)) {
+            $refs_string = $row['data'];
+            $refs_table = json_decode($refs_string);
+        }
+
+        if ($referees == "manual_select_ref") {
+            for ($i = 0; $i < $number_of_refs; $i++) {
+
+            }
+        } else {
+
+        }
+
+        if ($ref_can == 1) {
+
+        } else {
+
+        }
     }
 ?>
 
@@ -99,25 +144,32 @@
                                 $ref_table = json_decode($ref_string);
                             }
 
-
+                            $ref_counter = 0;
                             foreach ($ref_table as $ref_obj) {
                                 $refid = $ref_obj -> id;
                                 $prenom_nom = $ref_obj -> prenom . $ref_obj -> nom;
                                 $ref_nat = $ref_obj -> nation;
 
+                                $value_array = [
+                                    $refid,
+                                    $prenom_nom,
+                                    $ref_nat
+                                ];
+
                             ?>
 
                                 <div class="piste_select">
-                                    <input type="checkbox" name="ref_<?php echo $refid ?>" id="ref_<?php echo $refid ?>" value="value1"/>
+                                    <input type="checkbox" name="ref_<?php echo $ref_counter ?>" id="ref_<?php echo $refid ?>" value="<?php echo $value_array ?>"/>
                                     <label for="ref_<?php echo $refid ?>"><?php echo $prenom_nom ?></label>
                                 </div>
 
                             <?php
-
+                                $ref_counter++;
                             }
 
                             ?>
                         </div>
+                        <input type="number" name="number_of_refs" value="<?php echo $ref_counter?>" id="number_of_refs" hidden/>
                         <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
                     </form>
                 </div>
@@ -277,11 +329,13 @@
                                                         $fencer_id = $json_table[$pool_num] -> $fencer_number -> id;
                                                         $fencer_cp = $json_table[$pool_num] -> $fencer_number -> c_pos;
                                                         $fencer_rp = $json_table[$pool_num] -> $fencer_number -> r_pos;
+
+                                                        $json_string_obj = json_encode($json_table[$pool_num] -> $fencer_number,JSON_UNESCAPED_UNICODE);
                                                 ?>
 
                                                     <div class="table_row">
                                                         <div class="table_item">
-                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>"><?php echo $fencer_name ?></p>
+                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave="<?php echo $json_string_obj ?>"><?php echo $fencer_name ?></p>
                                                         </div>
                                                         <div class="table_item">
                                                             <p><?php echo $fencer_nat ?></p>
