@@ -262,14 +262,19 @@ function idloader() {
         poolsId = poolsId + "["
         var tablerowsJSONAttribute = entries[i].querySelectorAll(".table_row .table_item:first-of-type > p")
         for (d = 0; d < tablerowsJSONAttribute.length; d++) {
-            if (d < tablerowsJSONAttribute.length -1) {
+            if (d < tablerowsJSONAttribute.length - 1) {
                 poolsId = poolsId + tablerowsJSONAttribute[d].getAttribute("x-fencersave") + ","
             }
-            else{
+            else {
                 poolsId = poolsId + tablerowsJSONAttribute[d].getAttribute("x-fencersave");
             }
         }
-        poolsId = poolsId + "]"
+        if (i == entries.length-1) {
+            poolsId = poolsId + "]"
+        }
+        else{
+            poolsId = poolsId + "],"
+        }
     }
     poolsId = poolsId + "]"
     console.log(poolsId)
