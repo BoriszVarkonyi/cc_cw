@@ -4119,3 +4119,7 @@ div.title_box > button {
 	width: 20px;
 	height: 20px;
 }
+
+.piste_button button img.hidden {
+	display: none;
+}
