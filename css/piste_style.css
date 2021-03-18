@@ -1,5 +1,9 @@
 /* ///PISTES/// */
 
+#add_piste_panel {
+	right: 40px;
+}
+
 #pistes_wrapper {
 	display: flex;
 	flex-direction: column;

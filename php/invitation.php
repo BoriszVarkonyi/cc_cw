@@ -171,7 +171,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                     </button>
                 </div>
             </div>
-            <p> <?php //print_r($feedback) 
+            <p> <?php //print_r($feedback)
                 ?> </p>
             <div id="page_content_panel_main">
                 <div id="invitation_wrapper" class="wrapper">
@@ -253,7 +253,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload Image (max. 0.5MB)</label>
-                                <p id="fileText">Fájl neve ide</p>
+                                <p id="file_text">Fájl neve ide</p>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" id="uploadButton" disabled>
                             </form>
                         </div>

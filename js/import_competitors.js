@@ -1,8 +1,8 @@
 //Image upload
 var input = document.getElementById("fileToUpload");
 var uploadButton = document.getElementById("import_button");
-var filetext = document.getElementById("fileText")
-document.getElementById("fileText").textContent = " ";
+var filetext = document.getElementById("file_text")
+document.getElementById("file_text").textContent = " ";
 //Input change event listener
 input.addEventListener("input", function() {
   //Checks if an input is empty
@@ -15,7 +15,7 @@ input.addEventListener("input", function() {
     //If yes it enables the uploadButton
     uploadButton.disabled = false;
     //Deletes file parth.
-    document.getElementById("fileText").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
+    document.getElementById("file_text").textContent = input.value.replace(input.value.substring(0, input.value.lastIndexOf("\\")) + "\\", "");
   }
   //Check if its an xml file.
   //if not it deletes the input value, and send an error message

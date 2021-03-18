@@ -299,11 +299,6 @@ header {
 	max-width: 80px;
 }
 
-#language_panel {
-	right: 170px;
-	overflow: hidden;
-}
-
 #language_panel > div {
 	width: 100%;
 }
@@ -348,9 +343,13 @@ header {
 	filter: contrast(.3);
 }
 
-
 .language_button:hover {
 	background: var(--c-lightestgray);
+}
+
+#language_panel {
+	right: 170px;
+	overflow: hidden;
 }
 
 #colormode_panel {
@@ -381,7 +380,7 @@ header {
 	background: var(--c-darkgray);
 }
 
-/* Colormode changer*/
+/* Colormode changer */
 
 .color_mode_wrapper {
 	display: flex;
@@ -1760,6 +1759,12 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	border-color: var(--c-darkgray);
 }
 
+/* File input */
+
+input[type="file"] {
+	display: none;
+}
+
 /* Color input */
 
 .color_select { /* Wrapper for colors */
@@ -1908,7 +1913,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 
 .overlay_panel_controls button:disabled {
 	-webkit-filter: contrast(70%);
-	        filter: contrast(70%);
+	filter: contrast(70%);
 }
 
 .overlay_panel_controls button img {
@@ -2099,7 +2104,7 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 
 .to_do_list > button:hover {
 	-webkit-filter: brightness(0.95);
-	        filter: brightness(0.95);
+	filter: brightness(0.95);
 }
 
 .to_do_list > button img {
@@ -2278,13 +2283,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	border-radius: 5px;
 }
 
-.missing_text {
-	font-size: var(--f-large) !important;
-	font-family: var(--bold);
-	color: var(--c-darkgray);
-	text-align: center;
-}
-
 #add_technician_panel {
 	right: 40px;
 }
@@ -2409,26 +2407,6 @@ input[type=checkbox]:checked:disabled + label:before, input[type=radio]:checked:
 	align-items: center;
 }
 
-input:focus::-webkit-input-placeholder {
-	color: transparent;
-}
-
-input:focus::-moz-placeholder {
-	color: transparent;
-}
-
-input:focus:-ms-input-placeholder {
-	color: transparent;
-}
-
-input:focus::-ms-input-placeholder {
-	color: transparent;
-}
-
-input:focus::placeholder {
-	color: transparent;
-}
-
 #entry_fee_container {
 	display: flex;
 	width: 100%;
@@ -2463,10 +2441,6 @@ input:focus::placeholder {
 
 .invitation_file_wrapper > p {
 	font-family: var(--bold);
-}
-
-input[type="file"] {
-	display: none;
 }
 
 .invitation_file_wrapper > label, .file_label {
@@ -2552,9 +2526,8 @@ input[type="file"] {
 	margin: 0;
 }
 
-#fileText {
+#file_text {
 	font-size: var(--f-small);
-
 }
 
 /* ///INVITION IN SEPARATE FILE/// */
@@ -2926,18 +2899,6 @@ div.title_box > button {
 	font-family: var(--bold);
 }
 
-/* ///REFEREES/// */
-
-/* ///TABLE// */
-
-#ref_panel {
-	right: 400px;
-}
-
-#pist_time_panel {
-	right: 40px;
-}
-
 /* ///MANAGE ENTRIES/// */
 
 #manage_entries_wrapper {
@@ -3120,6 +3081,7 @@ div.title_box > button {
 
 /* ///DATES WEAPON CONTROL/// */
 
+/*
 #dates_weapon_control_wrapper {
 	max-width: 80vw;
 	width: 80%;
@@ -3223,7 +3185,7 @@ div.title_box > button {
 	display: none
 }
 
-.period.opened > div:nth-child(3) { /* Period Info */
+.period.opened > div:nth-child(3) { Period Info
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -3231,22 +3193,22 @@ div.title_box > button {
 	position: relative;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(1) { /* Period Info Fencers by 10 minutes */
+.period.opened > div:nth-child(3) > div:nth-child(1) { Period Info Fencers by 10 minutes
 	display: flex;
 	margin-top: 15px;
 	flex-direction: column;
 	width: 80%;
 }
 
-.ten_minutes_wrapper { /* Period Info Fencers minutes  */
+.ten_minutes_wrapper { Period Info Fencers minutes
 	display: flex;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(1) > div.selected { /* Period Info Fencers minutes  */
+.period.opened > div:nth-child(3) > div:nth-child(1) > div.selected { Period Info Fencers minutes
 	background: var(--c-lightgray);
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(1) > div.selected > p { /* Period Info Fencers minutes  */
+.period.opened > div:nth-child(3) > div:nth-child(1) > div.selected > p { Period Info Fencers minutes
 	font-family: var(--bold);
 }
 
@@ -3262,13 +3224,11 @@ div.title_box > button {
 
 .period.opened > div:nth-child(3) > div:nth-child(1) > div:last-child > p {
 	width: 100%;
-
-
 	text-align: center;
 	padding: 10px 0;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(2) { /* Period buttons */
+.period.opened > div:nth-child(3) > div:nth-child(2) { Period buttons
 	width: 100%;
 	display: flex;
 	margin: 5px 0 0 10px;
@@ -3277,18 +3237,18 @@ div.title_box > button {
 	padding-bottom: 27vh;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(2) > button { /* Period button */
+.period.opened > div:nth-child(3) > div:nth-child(2) > button { Period button
 	background: transparent;
 	height: 35px;
 	width: 35px;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(2) > button > img { /* Period button */
+.period.opened > div:nth-child(3) > div:nth-child(2) > button > img { Period button
 	width: 70%;
 	height: 70%;
 }
 
-.fencers_wrapper { /* Period buttons */
+.fencers_wrapper { Period buttons
 	max-height: 25vh;
 	background: var(--c-gray);
 	border-radius: 0 0 10px 0;
@@ -3307,25 +3267,14 @@ div.title_box > button {
 	display: none;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(3) > p { /* Period buttons */
+.period.opened > div:nth-child(3) > div:nth-child(3) > p { Period buttons
 	font-family: var(--bold);
 	width: 50%;
 	text-align: center;
 }
 
-.period.opened > div:nth-child(3) > div:nth-child(3).hidden > p { /* Period buttons */
+.period.opened > div:nth-child(3) > div:nth-child(3).hidden > p { Period buttons
 	display: none;
-}
-
-#add_piste_panel {
-	right: 40px;
-}
-
-/* ///COMPETITORS/// */
-
-#competitors_wrapper {
-	margin: 50px 0;
-	width: 80%;
 }
 
 /* ///POOLS/// */
@@ -3616,29 +3565,6 @@ div.title_box > button {
 	justify-content: center;
 	flex-direction: column;
 	height: 60%;
-}
-
-/* Announcements */
-
-/* Overview */
-
-/* Pool results */
-
-.entry_panel.results {
-	height: 60vh;
-}
-
-.pool_result_input {
-	margin: 0 !important;;
-	padding: 0 !important;;
-	border: none !important;
-	min-width: 100% !important;;
-	min-height: 100% !important;;
-	width: 100% !important;;
-	height: 100% !important;;
-	font-size: var(--f-small) !important;
-	overflow: visible !important;
-	text-align: center;
 }
 
 /* MATCH RESULT */
@@ -3983,143 +3909,5 @@ div.title_box > button {
 }
 
 #tournament_timetable.hidden, #tournament_weapon_control.hidden, #wc_phases_table.hidden {
-	display: none;
-}
-
-/* Table pistes and time */
-
-#table_select_wrapper {
-	display: flex;
-	justify-content: center;
-	flex: 0 1 auto;
-}
-
-#table_piste_time_wrapper {
-	flex: 1 1 auto;
-	display: flex;
-	gap: 20px;
-}
-
-#pistes_and_time_panel {
-	flex: 1 1 75%;
-}
-
-#matches_preview_panel {
-	flex: 1 1 25%;
-}
-
-#pistes_wrapper {
-	width: 100%;
-	display: flex;
-	flex-direction: row !important;
-	gap: 10px;
-	height: 35vh;
-}
-
-.piste_type_wrapper {
-	border: 3px solid var(--c-gray);
-	background: var(--c-lightestgray);
-	flex: 1 1 50%;
-	border-radius: 5px;
-	height: 100%;
-	box-sizing: border-box;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-}
-
-.piste_wrapper {
-	overflow: auto;
-	height: 100%;
-	max-height: 30vh;
-	padding: 30px 10px;
-	box-sizing: border-box;
-	flex: 1 1 30vh;
-}
-
-.piste_controls {
-	flex: 1 0 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-top: 1px solid var(--c-gray);
-}
-
-.piste_controls button {
-	padding: 5px 10px;
-	border-radius: 50px;
-}
-
-.piste_controls button:hover {
-	background: var(--c-lightgray);
-}
-
-.piste {
-	display: flex;
-	border: 3px solid var(--c-darkgray);
-	background: var(--c-lightergray);
-	border-radius: 5px;
-	align-items: center;
-	margin: 5px 0;
-}
-
-.piste > div {
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 3px;
-}
-
-.piste > div.hidden {
-	display: none;
-}
-
-.piste_number {
-	flex: 0 1 20px;
-}
-
-.piste_name {
-	flex: 1 1 auto;
-	justify-content: flex-start !important;
-}
-
-.piste_order {
-	flex-direction: column;
-	width: auto;
-	padding: 0 3px;
-}
-
-.piste_order button {
-	flex: 1 1 auto;
-	height: 50%;
-	border-radius: 50%;
-}
-
-.piste_order button:hover {
-	background: var(--c-lightgray);
-}
-
-.piste_order button img {
-	height: 16px;
-	width: 16px;
-}
-
-.piste_button button {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-}
-
-.piste_button button:hover {
-	background: var(--c-lightgray);
-}
-
-.piste_button button img {
-	width: 20px;
-	height: 20px;
-}
-
-.piste_button button img.hidden {
 	display: none;
 }

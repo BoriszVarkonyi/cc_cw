@@ -78,7 +78,7 @@
                         <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
                         <label for="file" class="file_label">Upload File (max. 0.5MB)</label>
                         <input form="fileToUpload" type="file" name="fileToUpload" id="file">
-                        <p id="fileText">File name</p>
+                        <p id="file_text">File name</p>
                     </div>
                     <?php } ?>
                 </div>

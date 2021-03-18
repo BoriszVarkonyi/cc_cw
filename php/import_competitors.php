@@ -50,7 +50,7 @@
                             <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload XML File</label>
-                                <p id="fileText">Fájl neve ide</p>
+                                <p id="file_text">Fájl neve ide</p>
                                 <input type="text" name="type" class="hidden" value="competitors">
                             </form>
                         </div>

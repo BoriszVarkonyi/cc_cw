@@ -211,8 +211,8 @@
 	font-family: var(--bold);
 }
 
-.table_fencer.empty > div {
-	background: var(--c-lightgray) !important;
+.table_fencer.empty {
+	filter: grayscale(1);
 }
 
 .table_fencer_number {

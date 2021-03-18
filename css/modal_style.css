@@ -4,8 +4,8 @@
 	background: var(--c-transparent-black);
 	position: fixed;
 	z-index: 10;	/* Has to be or it wont work properly in cw pages with browsing divs  */
-	-webkit-backdrop-filter: blur(3px);
-	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px) grayscale(.25);
+	backdrop-filter: blur(3px) grayscale(.25);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -156,7 +156,7 @@
 	padding: 4px 8px;
 	border-radius: 2px;
 	font-family: var(--bold);
-	margin: 0 3px;
+	margin: 0 5px;
 }
 
 .modal_decline_button {
