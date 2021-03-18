@@ -143,160 +143,10 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <label for="">USED PISTES</label>
                                             <div id="pistes_wrapper">
                                                 <div class="piste_type_wrapper">
-                                                    <div class="piste_wrapper">
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Main</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Main</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_order">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
-                                                                </button>
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/remove-black-18dp.svg">
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                                                    <div class="piste_wrapper" id="used_piste_container">
+                                                        
+                                                    <!-- JS MOVES PISTES HERE -->
+
                                                     </div>
                                                     <div class="piste_controls">
                                                         <button type="button" onclick="">Deselect all</button>
@@ -306,7 +156,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                 <!-- NOT USED PISTES STARTS HERE -->
 
                                                 <div class="piste_type_wrapper">
-                                                    <div class="piste_wrapper">
+                                                    <div class="piste_wrapper" id="not_used_piste_container">
 
                                                         <?php
 
@@ -314,9 +164,18 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                             <div class="piste">
                                                                 <div class="piste_name"><?php echo $piste->name ?></div>
+                                                                <div class="piste_order hidden" id="arrow_buttons">
+                                                                    <button type="button" onclick="moveUp(this)">
+                                                                        <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
+                                                                    </button>
+                                                                    <button type="button"  onclick="moveDown(this)">
+                                                                        <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
+                                                                    </button>
+                                                                </div>
                                                                 <div class="piste_button">
-                                                                    <button type="button">
-                                                                        <img src="../assets/icons/add-black-18dp.svg">
+                                                                    <button type="button" id="<?php echo $piste->name ?>" onclick="useOnePiste(this)">
+                                                                        <img class="plus" src="../assets/icons/add-black-18dp.svg">
+                                                                        <img class="minus hidden" src="../assets/icons/remove-black-18dp.svg">
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -378,5 +237,6 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/search.js"></script>
+<script src="../js/table_pistes_and_time.js"></script>
 
 </html>
