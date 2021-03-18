@@ -5,7 +5,7 @@
 
 <?php
 
-//Get table object for further USAGE
+//Get table object for further use
 
 
 $qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
@@ -15,6 +15,19 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
 
     $out_table = json_decode($row["data"]);
 }
+
+
+//Get pistes array of objects for further use
+
+$qry_get_data = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
+$do_get_data = mysqli_query($connection, $qry_get_data);
+
+if ($row = mysqli_fetch_assoc($do_get_data)) {
+    $data = $row['data'];
+
+    $json_table = json_decode($data);
+}
+
 
 ?>
 
@@ -50,7 +63,17 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
                     <div id="table_select_wrapper">
                         <div class="search_wrapper wide">
                             <button type="button" class="search select alt" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
-                                <input type="text" name="" placeholder="" value="<?php echo 'Table of ' . ltrim($_GET["table_round"], 't_') ?>">
+                                <input type="text" name="" placeholder="" value="<?php
+
+                                                                                    //Checks if there is any table selected
+
+                                                                                    if (isset($_GET["table_round"])) {
+                                                                                        echo 'Table of ' . ltrim($_GET["table_round"], 't_');
+                                                                                    } else {
+                                                                                        echo 'Please select a round';
+                                                                                    }
+
+                                                                                    ?>">
                             </button>
                             <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
                             <div class="search_results">
@@ -97,23 +120,26 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
                                             <div>
                                                 <label for="">USAGE OF PISTES</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="piste_usage" id="all" value=""/>
+                                                    <input type="radio" name="piste_usage" id="all" value="" />
                                                     <label for="all">Use all</label>
-                                                    <input type="radio" name="piste_usage" id="not_all" value=""/>
+                                                    <input type="radio" name="piste_usage" id="not_all" value="" />
                                                     <label for="not_all">Don't use all</label>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label for="">PISTE & TIME RELATION</label>
                                                 <div class="option_container">
-                                                    <input type="radio" name="piste_time_relation" id="diff_time" value=""/>
+                                                    <input type="radio" name="piste_time_relation" id="diff_time" value="" />
                                                     <label for="diff_time">Same piste different time</label>
-                                                    <input type="radio" name="piste_time_relation" id="diff_piste" value=""/>
+                                                    <input type="radio" name="piste_time_relation" id="diff_piste" value="" />
                                                     <label for="diff_piste">Different piste same time</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div>
+
+                                            <!-- USED PISTES STARTS HERE -->
+
                                             <label for="">USED PISTES</label>
                                             <div id="pistes_wrapper">
                                                 <div class="piste_type_wrapper">
@@ -276,17 +302,29 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
                                                         <button type="button" onclick="">Deselect all</button>
                                                     </div>
                                                 </div>
+
+                                                <!-- NOT USED PISTES STARTS HERE -->
+
                                                 <div class="piste_type_wrapper">
-                                                <div class="piste_wrapper">
-                                                        <div class="piste">
-                                                            <div class="piste_number">1</div>
-                                                            <div class="piste_name">Red</div>
-                                                            <div class="piste_button">
-                                                                <button type="button">
-                                                                    <img src="../assets/icons/add-black-18dp.svg">
-                                                                </button>
+                                                    <div class="piste_wrapper">
+
+                                                        <?php
+
+                                                        foreach ($json_table as $piste) { ?>
+
+                                                            <div class="piste">
+                                                                <div class="piste_name"><?php echo $piste->name ?></div>
+                                                                <div class="piste_button">
+                                                                    <button type="button">
+                                                                        <img src="../assets/icons/add-black-18dp.svg">
+                                                                    </button>
+                                                                </div>
                                                             </div>
-                                                        </div>
+
+                                                        <?php
+                                                        }
+                                                        ?>
+
                                                     </div>
                                                     <div class="piste_controls">
                                                         <button type="button" onclick="">Select all</button>
