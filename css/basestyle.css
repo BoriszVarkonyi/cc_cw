@@ -341,6 +341,11 @@ label.hidden {
 	align-items: flex-start;
 }
 
+.form_wrapper > div > div.full {
+	width: 100%;
+	min-width: 300px;
+}
+
 /* ///INPUTS/// */
 
 /* Text Based inputs */
@@ -675,7 +680,14 @@ input[type="time"] {
 	text-align: center;
 }
 
-.search.select.alt input {
+.search.select.altalt {
+	background-color: var(--c-lightestgray);
+	font-family: var(--bold);
+	border: 3px solid var(--cs-lightgray);
+	text-align: center;
+}
+
+.search.select.alt input, .search.select.altalt input {
 	font-family: var(--bold);
 }
 
@@ -868,6 +880,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 .table_header_text.square p, .table_item.square p {
 	text-overflow: clip !important;
+	padding: 0;
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
