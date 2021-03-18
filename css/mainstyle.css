@@ -2288,7 +2288,6 @@ input[type="file"] {
 }
 
 #import_technician_panel {
-	position: absolute;
 	right: 200px;
 }
 
@@ -2874,7 +2873,6 @@ div.title_box > button {
 /* RANKING */
 
 #add_fencer_panel {
-	position: absolute;
 	right: 40px;
 }
 
@@ -2882,7 +2880,6 @@ div.title_box > button {
 	right: 530px;
 	flex-direction: column;
 	align-items: flex-start;
-	position: absolute;
 }
 
 #ranking_info_panel > div > p {
