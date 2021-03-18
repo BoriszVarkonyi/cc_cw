@@ -350,7 +350,7 @@ function findFencer($json_table, $id_to_find, $attribute_to_find) {
 
                                                     <div class="table_row">
                                                         <div class="table_item">
-                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave="<?php echo $json_string_obj ?>"><?php echo $fencer_name ?></p>
+                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
                                                         </div>
                                                         <div class="table_item">
                                                             <p><?php echo $fencer_nat ?></p>

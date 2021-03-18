@@ -225,6 +225,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             ?>
                                         </div>
                                     </div>
+                                    <button class="try_button">Try</button>
                                 </div>
                             </div>
                         </div>
