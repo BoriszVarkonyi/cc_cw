@@ -50,13 +50,14 @@
 
 .elimination {
 	flex: 1 1 0px;
-	transition: flex ease-in .2s, max-height ease-in .5s .2s;
+	transition: opacity ease-in .2s;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 0;
 	z-index: 0;
 	max-height: calc( (var(--f-small) + 30px) * 128);
+	opacity: 1;
 }
 
 .elimination:focus-within {
@@ -67,6 +68,7 @@
 	max-height: 0;
 	flex: 0;
 	overflow: hidden;
+	opacity: 0;
 }
 
 /* Coloring of Columns and column labels, both cc and cw */
@@ -209,13 +211,8 @@
 	font-family: var(--bold);
 }
 
-.table_fencer.dna > .table_fencer_nat, .table_fencer.dna > .table_fencer_number {
-	visibility: hidden;
-}
-
-.table_fencer.dna > .table_fencer_name {
-	color: var(--c-red);
-	text-transform: uppercase;
+.table_fencer.empty > div {
+	background: var(--c-lightgray) !important;
 }
 
 .table_fencer_number {

@@ -4071,6 +4071,10 @@ div.title_box > button {
 	padding: 3px;
 }
 
+.piste > div.hidden {
+	display: none;
+}
+
 .piste_number {
 	flex: 0 1 20px;
 }
