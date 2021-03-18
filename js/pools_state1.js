@@ -70,14 +70,14 @@ var rowToDelete, regenerateTable, draggedElement, index, dragPlaceTodelete, prev
 var rowToSave = [];
 function drag(ev, x) {
     //If a drag starts from Draf Fencers Area
-    if(x.parentNode.parentNode.id == "pools_drag_panel"){
+    if (x.parentNode.parentNode.id == "pools_drag_panel") {
         //Gets the dragged Element innerHTML
-        for(i=0; i<rowToSave.length; i++){
-            if(rowToSave[i].indexOf(x.outerHTML) > -1){
-               //Saves the dragged element
-               draggedElement = rowToSave[i]
-               //Saves the index
-               index = i;
+        for (i = 0; i < rowToSave.length; i++) {
+            if (rowToSave[i].indexOf(x.outerHTML) > -1) {
+                //Saves the dragged element
+                draggedElement = rowToSave[i]
+                //Saves the index
+                index = i;
             }
             //Saves the element we dragged
             rowToDelete = x
@@ -89,7 +89,7 @@ function drag(ev, x) {
         }
     }
     //If a drag starts from a Table
-    else{
+    else {
         //Saves the dragged element
         draggedElement = x.parentNode.parentNode.outerHTML;
         //Saves the Dragged row, bottom drag place.
@@ -109,10 +109,10 @@ function drag(ev, x) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 //If we start a drag but we doesn't finish it.
-function dragEnd(x){
-    if(dragEndActive){
+function dragEnd(x) {
+    if (dragEndActive) {
         var dropAreas = x.parentNode.parentNode.parentNode.querySelectorAll(".table_row_drop")
-        for(i=0; i<dropAreas.length; i++){
+        for (i = 0; i < dropAreas.length; i++) {
             //It removes the droparea classes
             dropAreas[i].classList.remove("collapsed")
         }
@@ -120,25 +120,25 @@ function dragEnd(x){
 }
 
 function drop(ev) {
-    if(dragStart !== ev.target){
+    if (dragStart !== ev.target) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
         //Saves the dragged element innerHTML
-        if(dragStart.parentNode.id !== "pools_drag_panel"){
+        if (dragStart.parentNode.id !== "pools_drag_panel") {
             rowToSave.push(draggedElement)
         }
         //Deletes the dragged row if we dropped down.
-        if(rowToDelete !== undefined && !dragStart.classList.contains("holder") && !dragStart.classList.contains("deleter")){
+        if (rowToDelete !== undefined && !dragStart.classList.contains("holder") && !dragStart.classList.contains("deleter")) {
             rowToDelete.remove();
         }
         //Deletes the Dragged row, bottom drag place
-        if(dragPlaceTodelete !== undefined){
+        if (dragPlaceTodelete !== undefined) {
             dragPlaceTodelete.remove()
         }
         //Clears the var
         rowToDelete = undefined;
-        if(canRegenerate){
+        if (canRegenerate) {
             regenerate();
         }
     }
@@ -147,7 +147,7 @@ function drop(ev) {
 function regenerate() {
     var table = regenerateTable;
     var tableElements = table.querySelectorAll(".table_row")
-    if(tableElements.length == 0){
+    if (tableElements.length == 0) {
         var dropAreas = table.querySelector(".table_row_drop")
         dropAreas.outerHTML = '<div class="table_row_drop opened" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondrop="drop2(event, this)"></div>'
     }
@@ -190,51 +190,51 @@ var active = true;
 function tableWrapperHoverOn(x) {
     active = false;
     var dropAreas = x.querySelectorAll(".table_row_drop")
-    for(i=0; i<dropAreas.length; i++){
-    dropAreas[i].classList.add("collapsed")
+    for (i = 0; i < dropAreas.length; i++) {
+        dropAreas[i].classList.add("collapsed")
     }
 
 }
 //Removes class from every droparea in the table
-function tableWrapperHoverOff(x){
-    if(active){
+function tableWrapperHoverOff(x) {
+    if (active) {
         var dropAreas = x.querySelectorAll(".table_row_drop")
-        for(i=0; i<dropAreas.length; i++){
-        dropAreas[i].classList.remove("collapsed")
+        for (i = 0; i < dropAreas.length; i++) {
+            dropAreas[i].classList.remove("collapsed")
         }
     }
 }
 //Adds class to the droparea
-function dropAreaHoverOn(x){
+function dropAreaHoverOn(x) {
     x.classList.add("opened")
 }
 //Removes class from the droparea
-function dropAreaHoverOff(x){
+function dropAreaHoverOff(x) {
     active = true;
     x.classList.remove("opened")
 }
 //If we drop an element to a table
-function drop2(ev, x){
+function drop2(ev, x) {
     //Denies the dragEnd function
     dragEndActive = false;
     ev.preventDefault();
     var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
     regenerateTable = x.parentNode
     //If the droparea that we dropped in equals the saved droparea
-    if(dragPlaceTodelete == x){
+    if (dragPlaceTodelete == x) {
         //It doesnt generate the top droparea
         x.outerHTML = draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
     }
-    else{
+    else {
         //Else it does generate the top droparea
         x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
     }
     //Delertes the dragged row if we dropped down.
-    if(rowToDelete !== undefined){
+    if (rowToDelete !== undefined) {
         rowToDelete.remove();
     }
     //Deletes the saved droparea
-    if(dragPlaceTodelete !== undefined){
+    if (dragPlaceTodelete !== undefined) {
         dragPlaceTodelete.remove()
     }
     //Clears the var
@@ -248,30 +248,36 @@ function drop2(ev, x){
     //regenerateTable = previousTable;
     //regenerate();
     //Removes the class from all the droparea in the table
-    for(i=0; i<dropAreas.length; i++){
-    dropAreas[i].classList.remove("collapsed")
+    for (i = 0; i < dropAreas.length; i++) {
+        dropAreas[i].classList.remove("collapsed")
     }
     idloader();
 }
 
 var poolsId = ""
-function idloader(){
-    poolsId = ""
+function idloader() {
+    poolsId = "["
     var entries = document.querySelectorAll(".entry")
-    for(i=0; i<entries.length; i++){
-        if(i !== 0){
-            poolsId = poolsId + "//"
+    for (i = 0; i < entries.length; i++) {
+        poolsId = poolsId + "["
+        var tablerowsJSONAttribute = entries[i].querySelectorAll(".table_row .table_item:first-of-type > p")
+        for (d = 0; d < tablerowsJSONAttribute.length; d++) {
+            if (d < tablerowsJSONAttribute.length - 1) {
+                poolsId = poolsId + tablerowsJSONAttribute[d].getAttribute("x-fencersave") + ","
+            }
+            else {
+                poolsId = poolsId + tablerowsJSONAttribute[d].getAttribute("x-fencersave");
+            }
         }
-        var tablerowsid = entries[i].querySelectorAll(".table_row .table_item:first-of-type > p")
-        for(d=0; d<tablerowsid.length; d++){
-            if(d == 0){
-                poolsId = poolsId + tablerowsid[d].id
-            }
-            else{
-                poolsId = poolsId + "," + tablerowsid[d].id
-            }
+        if (i == entries.length-1) {
+            poolsId = poolsId + "]"
+        }
+        else{
+            poolsId = poolsId + "],"
         }
     }
+    poolsId = poolsId + "]"
+    console.log(poolsId)
     hiddenInput = document.getElementById("savePoolsHiddenInput")
     hiddenInput.value = poolsId
     hiddenInput.classList.remove("hidden")
@@ -281,7 +287,7 @@ idloader()
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
 hiddenInput.value = poolsId
 hiddenInput.classList.remove("hidden")
-function tableChecker(x){
+function tableChecker(x) {
     console.log(x)
 }
 //FORM VALIDATION
@@ -297,11 +303,11 @@ var inputs = [input1, input2];
 var allButton = document.getElementById("all")
 var pNtoptioncontainer = document.getElementById("select_pistes_panel")
 var pisteSelect = pNtoptioncontainer.querySelectorAll(".piste_select")
-function pNtValidation(){
+function pNtValidation() {
     pNtsaveButton.disabled = true;
     //Checking every input.
-    for(i=0; i<inputs.length; i++){
-        if(inputs[i].value == ""){
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
             //If it finds an empty input, then it disable the "Save" button.
             valid1 = false;
             break;
@@ -311,22 +317,22 @@ function pNtValidation(){
             valid1 = true;
         }
     }
-    if(allButton.checked){
+    if (allButton.checked) {
         valid2 = true;
     }
-    else{
+    else {
         valid2 = false;
-        for(i=0; i<pisteSelect.length; i++){
-            if(pisteSelect[i].firstElementChild.checked == true){
+        for (i = 0; i < pisteSelect.length; i++) {
+            if (pisteSelect[i].firstElementChild.checked == true) {
                 valid2 = true;
                 break;
             }
         }
     }
-    if(valid1 && valid2){
+    if (valid1 && valid2) {
         pNtsaveButton.disabled = false;
     }
-    else{
+    else {
         pNtsaveButton.disabled = true;
     }
 }
@@ -337,24 +343,24 @@ var allrfrs = document.getElementById("all_ref")
 var rfrsoptioncontaioner = document.getElementById("select_referees_panel")
 var rfrsselect = rfrsoptioncontaioner.querySelectorAll(".piste_select")
 var rfrsSaveButton = document.getElementById("rfrsSaveButton")
-function rfrsValidation(){
+function rfrsValidation() {
     rfrsSaveButton.disabled = true
-    if(allrfrs.checked){
+    if (allrfrs.checked) {
         valid2 = true;
     }
-    else{
+    else {
         valid2 = false;
-        for(i=0; i<rfrsselect.length; i++){
-            if(rfrsselect[i].firstElementChild.checked == true){
+        for (i = 0; i < rfrsselect.length; i++) {
+            if (rfrsselect[i].firstElementChild.checked == true) {
                 valid2 = true;
                 break;
             }
         }
     }
-    if(valid2){
+    if (valid2) {
         rfrsSaveButton.disabled = false;
     }
-    else{
+    else {
         rfrsSaveButton.disabled = true;
     }
 }
