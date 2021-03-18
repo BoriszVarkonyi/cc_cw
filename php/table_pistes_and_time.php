@@ -187,7 +187,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                         </div>
                                                         <div class="piste_controls">
-                                                            <button type="button" onclick="">Select all</button>
+                                                            <button type="button" onclick="addAllPistes()">Select all</button>
                                                         </div>
                                                     </div>
                                                 </div>
