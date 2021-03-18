@@ -33,32 +33,47 @@ function findFencer($json_table, $id_to_find, $attribute_to_find) {
 
     }
 
+    //referee drwawing
     if (isset($_POST['draw_ref'])) {
         $ref_can = $_POST['ref_can'];
         $referees = $_POST['ref_select'];
         $number_of_refs = $_POST['number_of_refs'];
+
+        //get referees from db
         $qry_get_refs = "SELECT `data` FROM `referees` WHERE `assoc_comp_id` = $comp_id";
         $do_get_refs = mysqli_query($connection, $qry_get_refs);
-
         if ($row = mysqli_fetch_assoc($do_get_refs)) {
             $refs_string = $row['data'];
             $refs_table = json_decode($refs_string);
         }
+        $selected_refs_array = [];
 
+        //choose referees
         if ($referees == "manual_select_ref") {
             for ($i = 0; $i < $number_of_refs; $i++) {
-
+                $ref_id = $_POST["ref_$i"];
+                if ($id_to_find = findObject($refs_table, $ref_id, "id") !== false) {
+                    array_push($selected_refs_array, $ref_table[$id_to_find]);
+                } else {
+                    echo "couldn't find id among referees";
+                }
             }
         } else {
-
+            $selected_refs_array = $refs_table;
         }
 
+        //draw refs
         if ($ref_can == 1) {
+            //referes can  match with anyone
 
         } else {
+            //referees cant match with own nationality
 
         }
     }
+
+    //piste
+
 ?>
 
 <!DOCTYPE html>
