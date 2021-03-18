@@ -8,7 +8,7 @@
     //1. param: hány darab csoport van,
     //2. param: hány személyesek a csoportok,
     //3. param: a versenyzők tömbje (sortolva, versenyzők objectek egy tömbben)
-    function sorolas(int $n_pools,int $fencers_in_pools,array $array_of_fencers) {
+    function sorolas($n_pools,int $fencers_in_pools,array $array_of_fencers) {
 
         //kicsit szukitett fencer csak a necessery info van benne
         class fencer {

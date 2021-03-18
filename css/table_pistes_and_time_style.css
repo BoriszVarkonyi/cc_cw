@@ -61,12 +61,12 @@
 	border-top: 2px solid var(--c-gray);
 }
 
-.piste_controls button {
+.piste_controls button, .try_button {
 	padding: 5px 10px;
 	border-radius: 50px;
 }
 
-.piste_controls button:hover {
+.piste_controls button:hover, .try_button:hover {
 	background: var(--c-lightgray);
 }
 
