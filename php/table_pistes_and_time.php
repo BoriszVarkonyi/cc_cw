@@ -110,19 +110,19 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                         <div>
                                             <div>
                                                 <label for="">STARTING TIME</label>
-                                                <input type="time">
+                                                <input type="time" id="starting_time">
                                             </div>
                                             <div>
-                                                <label for="">INTERVAL OF MATCHES</label>
-                                                <input type="number" class="number_input centered" placeholder="#">
+                                                <label for="">INTERVAL OF MATCHES (min)</label>
+                                                <input type="number" id="interval" class="number_input centered" placeholder="#">
                                             </div>
                                             <div>
                                                 <label for="">USAGE OF PISTES</label>
                                                 <div class="option_container row">
                                                     <input type="radio" name="piste_usage" id="all" value="" />
                                                     <label for="all">Use all</label>
-                                                    <input type="radio" name="piste_usage" id="not_all" value="" />
-                                                    <label for="not_all">Don't use all</label>
+                                                    <input type="radio" name="piste_usage" id="not_all" checked value="" />
+                                                    <label for="not_all">Automatic</label>
                                                 </div>
                                             </div>
                                             <div>
@@ -149,7 +149,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                         </div>
                                                         <div class="piste_controls">
-                                                            <button type="button" onclick="">Deselect all</button>
+                                                            <button type="button" onclick="removeAllPistes()">Deselect all</button>
                                                         </div>
                                                     </div>
 
@@ -163,7 +163,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                             foreach ($json_table as $piste) { ?>
 
-                                                                <div class="piste">
+                                                                <div class="piste not_used">
                                                                     <div class="piste_name"><?php echo $piste->name ?></div>
                                                                     <div class="piste_order hidden" id="arrow_buttons">
                                                                         <button type="button" onclick="moveUp(this)">
@@ -174,7 +174,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                                         </button>
                                                                     </div>
                                                                     <div class="piste_button">
-                                                                        <button type="button" id="<?php echo $piste->name ?>" onclick="useOnePiste(this)">
+                                                                        <button class="func_button" type="button" id="<?php echo $piste->name ?>" onclick="useOnePiste(this)">
                                                                             <img class="plus" src="../assets/icons/add-black-18dp.svg">
                                                                             <img class="minus hidden" src="../assets/icons/remove-black-18dp.svg">
                                                                         </button>
@@ -225,7 +225,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             ?>
                                         </div>
                                     </div>
-                                    <button class="try_button">Try</button>
+                                    <button class="try_button" onclick="tryConfig()">Try</button>
                                 </div>
                             </div>
                         </div>
