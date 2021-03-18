@@ -40,11 +40,15 @@
 	flex-direction: column;
 }
 
+.piste_type_title {
+	margin: 10px auto;
+}
+
 .piste_wrapper {
 	overflow: auto;
 	height: 100%;
 	max-height: 30vh;
-	padding: 30px 10px;
+	padding: 10px 10px 20px;
 	box-sizing: border-box;
 	flex: 1 1 30vh;
 }
@@ -54,7 +58,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-top: 1px solid var(--c-gray);
+	border-top: 2px solid var(--c-gray);
 }
 
 .piste_controls button {
@@ -80,15 +84,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 3px;
+	padding: 5px;
 }
 
 .piste > div.hidden {
 	display: none;
-}
-
-.piste_number {
-	flex: 0 1 20px;
 }
 
 .piste_name {
