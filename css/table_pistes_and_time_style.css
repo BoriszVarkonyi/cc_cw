@@ -18,6 +18,7 @@
 
 #matches_preview_panel {
 	flex: 1 1 25%;
+	min-width: 200px;
 }
 
 #pistes_wrapper {
@@ -108,7 +109,7 @@
 	border-radius: 50%;
 }
 
-.piste_order button:hover {
+.piste_order button:hover, .piste_button button:hover  {
 	background: var(--c-lightgray);
 }
 
@@ -121,10 +122,6 @@
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
-}
-
-.piste_button button:hover {
-	background: var(--c-lightgray);
 }
 
 .piste_button button img {

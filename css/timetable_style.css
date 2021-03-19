@@ -175,7 +175,6 @@
 }
 
 #set_wc_panel.hidden {
-	position: absolute;
 	opacity: 2;
 	top: 100vh;
 }

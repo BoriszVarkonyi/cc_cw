@@ -241,6 +241,7 @@ textarea {
 	border: none;
 	resize: none;
 	font-family: var(--regular);
+	font-size: var(--f-medium);
 }
 
 .modal_wrapper.hidden {
@@ -424,6 +425,15 @@ label.error + input {
 	border-bottom: 2px solid var(--c-red);
 }
 
+/* For development purposes */
+
+#title_stripe input {
+	padding: 0 !important;
+	margin: 0 !important;
+	background: var(--c-white) !important;
+	border: none !important;
+}
+
 /* Input Background Directory */
 
 .username_input {
@@ -502,19 +512,19 @@ label.error + input {
 
 input[type="number"] {
 	width: 40px;
-	margin-right: -35px;
-	background-color: none;
+	background-color: transparent;
+	text-align: center;
+}
+
+input[type="number"]:focus {
+	border: 3px solid var(--c-primary);
+	text-align: center;
 }
 
 input[type="number"].number_input.centered {
 	width: 100px;
 	text-align: center;
 	padding: 0;
-}
-
-input[type="number"].wc_time {
-	text-align: right;
-	margin: 0;
 }
 
 /* Time Input */

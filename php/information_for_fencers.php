@@ -60,15 +60,15 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                 <div id="title_stripe">
                     <p class="page_title">Informations for Fencers</p>
                     <div class="stripe_button_wrapper">
-                        <button onclick="copyContent()" class="stripe_button primary" type="submit" form="information_for_fencers_wrapper" name="submit">
+                        <button class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit">
                             <p>Save Information</p>
                             <img src="../assets/icons/save-black-18dp.svg"/>
                         </button>
                     </div>
                 </div>
                 <div id="page_content_panel_main">
-                    <form id="information_for_fencers_wrapper" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST" class="wrapper">
-                        <div id="needed_equipment_panel" class="db_panel">
+                    <form class="wrapper" class="db_panel other" id="information_for_fencers_form" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST">
+                        <div class="db_panel other">
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/beenhere-black-18dp.svg">
                                 <p>Equipment needed to be checked</p>
@@ -83,7 +83,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="table_row_wrapper">
+                                    <div class="table_row_wrapper alt">
                                         <?php
                                         $query_get_data = "SELECT comp_equipment FROM competitions WHERE comp_id = $comp_id";
                                         $query_get_data_do = mysqli_query($connection, $query_get_data);
@@ -93,7 +93,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                         $assocdatapost = explode(",", $assocdataprocess);
 
                                         for($i = 0; $i < 13; $i++){?>
-                                        <div class="table_row" id="<?php echo $i ?>" onclick="takeToField(this)">
+                                        <div class="table_row" id="<?php echo $i ?>">
                                             <div class="table_item"><?php echo $equipment[$i]?></div>
                                             <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
 
@@ -116,37 +116,13 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                 </div>
                             </div>
                         </div>
-                        <div id="additional_info_panel" class="db_panel">
+                        <div class="db_panel">
                             <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/rule-black-18dp.svg">
-                                <p>Additional Information</p>
+                                <img src="../assets/icons/edit-black-18dp.svg">
+                                <p>Set Additional Information</p>
                             </div>
-                            <div class="db_panel_main small">
-                                <input name="additional" type="text" class="hidden" id="additional_info_input">
-                                <div class="additional_info_wrapper" id="add_info_wrap">
-                                <?php
-
-                                $query_get_info = "SELECT comp_info FROM competitions WHERE comp_id = $comp_id";
-                                    $query_get_info_do = mysqli_query($connection, $query_get_info);
-
-                                    $associnfoget = mysqli_fetch_assoc($query_get_info_do);
-                                    $associnfopost = implode(",", $associnfoget);
-
-                                ?>
-                                    <div class="additional_info_text" contenteditable placeholder="Start typing here" id="additional"><?php
-
-                                    if($associnfopost == ""){
-
-                                            echo "";
-
-                                        }else{
-
-                                            echo $associnfopost;
-
-                                        }
-
-                                    ?></div>
-                                </div>
+                            <div class="db_panel_main column">
+                                <textarea name="text_body" class="standalone" placeholder="Type the information's body text here">SZÖVEGEGEGEE</textarea>
                             </div>
                         </div>
                     </form>

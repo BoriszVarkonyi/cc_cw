@@ -91,43 +91,24 @@
                             <p>Message Fencer</p>
                             <img src="../assets/icons/chat-black-18dp.svg"/>
                         </button>
-                        <a name="" class="stripe_button primary" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check In</p>
                             <img src="../assets/icons/check_circle_outline-black-18dp.svg"/>
                         </a>
-                        <a name="" class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Add Weapon Control</p>
                             <img src="../assets/icons/add-black-18dp.svg"/>
                         </a>
-                        <a name="" class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Edit Weapon Control</p>
                             <img src="../assets/icons/edit-black-18dp.svg"/>
                         </a>
-
-                        <a name="" class="stripe_button primary" id="checkOutButton" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" id="checkOutButton" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check Out</p>
                             <img src="../assets/icons/check_circle-black-18dp.svg"/>
                         </a>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
-                    <div class="search_wrapper">
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
-                        <div class="search_results">
-                        <?php
-                        $query = "SELECT * FROM cptrs_$comp_id";
-                        $query_do = mysqli_query($connection, $query);
-
-                        while($row = mysqli_fetch_assoc($query_do)){
-                            $idke = $row["id"];
-                            $nevecske = $row["name"];
-                            ?>
-                            <a id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $nevecske ?></a>
-                            <?php
-                        }
-                            ?>
-                        </div>
-                    </div>
                 </form>
                 <div id="page_content_panel_main">
                     <div class="wrapper table">
