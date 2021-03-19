@@ -84,6 +84,10 @@
     }
 
     //piste
+    if (isset($_POST['piste_time'])) {
+
+
+    }
 
 ?>
 
@@ -226,8 +230,13 @@
 
                             <?php
 
-                            $pistes_query = "SELECT * FROM pistes_$comp_id EXCEPT SELECT * FROM pistes_$comp_id WHERE piste_activity = 1";
-                            $pistes_query_do = mysqli_query($connection, $pistes_query);
+                            $qry_get_pistes = "SELECT `data` FROM `pistes` WHERE `assoc_comp_id` = '$comp_id'";
+                            $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
+
+                            if ($row = mysqli_fetch_assoc($do_get_pistes)) {
+                                $piste_string = $row['data'];
+                                $piste_table = json_decode($piste_string);
+                            }
 
                             $r = 1;
                             while ($row =  mysqli_fetch_assoc($pistes_query_do)) {
