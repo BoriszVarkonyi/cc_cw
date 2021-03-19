@@ -6,8 +6,6 @@
 <?php
 
 //Get table object for further use
-
-
 $qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
 $qry_get_table_do = mysqli_query($connection, $qry_get_table);
 
@@ -16,9 +14,7 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
     $out_table = json_decode($row["data"]);
 }
 
-
 //Get pistes array of objects for further use
-
 $qry_get_data = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
 $do_get_data = mysqli_query($connection, $qry_get_data);
 
@@ -208,7 +204,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <div class="table_header_text">PISTE</div>
                                             <div class="table_header_text">STARTING TIME</div>
                                         </div>
-                                        <div class="table_row_wrapper alt">
+                                        <div class="table_row_wrapper alt" id="table_row_wrapper">
 
                                             <?php
 
@@ -216,8 +212,8 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                 <div class="table_row">
                                                     <div class="table_item"><?php echo $matchkey ?></div>
-                                                    <div class="table_item"><?php echo $matches->pistetime->pistename ?></div>
-                                                    <div class="table_item"><?php echo $matches->pistetime->time ?></div>
+                                                    <div class="table_item pistes"><?php echo $matches->pistetime->pistename ?></div>
+                                                    <div class="table_item time"><?php echo $matches->pistetime->time ?></div>
                                                 </div>
 
                                             <?php
