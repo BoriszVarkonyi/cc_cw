@@ -10,6 +10,7 @@
     if ($row = mysqli_fetch_assoc($do_check_row)) {
         $json_string = $row['data'];
         $json_table = json_decode($json_string);
+        //ATINAK KUTYAM VAGY ---------------------------------------------------------------------------
         $pool_of = $row['pool_of'];
     } else {
         echo mysqli_error($connection);
