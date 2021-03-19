@@ -400,7 +400,6 @@ header {
 .color_mode:disabled, .color_square:disabled  {
 	-webkit-filter: grayscale(1) contrast(0.5) brightness(1.3);
 	filter: grayscale(1) contrast(0.5) brightness(1.3);
-	pointer-events: none;
 }
 
 .color_mode > div {
@@ -439,10 +438,14 @@ header {
 	background: var(--cs-black);
 }
 
-.color_mode > p {
+.color_mode p {
 	max-width: 2rem;
 	display: flex;
 	justify-content: center;
+}
+
+.color_mode.selected p {
+	font-family: var(--bold);
 }
 
 .color_variations {
@@ -470,9 +473,9 @@ header {
 .color_square::after {
 	content: attr(name);
 	text-transform: capitalize;
-	padding: 5px 10px;
+	padding: 3px 6px;
 	position: absolute;
-	background-color: var(--c-black);
+	background-color: var(--c-transparent-black);
 	color: var(--c-white);
 	font-size: var(--f-xsmall);
 	font-family: var(--bold);
@@ -1818,16 +1821,21 @@ input[type="file"] {
 	background: var(--c-yellow);
 }
 
+/* ALL TYPES OF OVERLAY PANEL */
+
+.header_overlay_panel, .overlay_panel {
+	position: absolute;
+	background: var(--c-white);
+	box-shadow: var(--s-black);
+	display: flex;
+	justify-content: center;
+}
+
 /* Header Overlaying Panel */
 
 .header_overlay_panel {
 	top: 40px;
-	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	position: absolute;
-	background: var(--c-white);
-	box-shadow: var(--s-black);
 	min-width: 200px;
 	width: 10vw;
 	max-width: 300px;
@@ -1862,12 +1870,7 @@ input[type="file"] {
 }
 
 .overlay_panel {
-	position: absolute;
-	background: var(--c-white);
-	box-shadow: var(--s-black);
 	border-radius: 5px;
-	display: flex;
-	justify-content: center;
 	align-items: center;
 	z-index: 2;
 	opacity: 1;
@@ -3221,18 +3224,19 @@ div.title_box > button {
 	left: 50%;
 	transform: translateX(-50%);
 	text-align: center;
+	font-size: var(--f-small);
 }
 
 #pools_drag_panel > div.holder:before {
 	color: var(--cs-gray);
 	content: "Drag Fencers here";
-	opacity: .2;
+	opacity: .5;
 }
 
 #pools_drag_panel > div.deleter:before {
 	color: var(--cs-red);
 	content: "Drag Fencers here to remove them";
-	opacity: .2;
+	opacity: .5;
 }
 
 #pools_drag_panel > div:empty.holder:before {
@@ -3278,66 +3282,6 @@ div.title_box > button {
 
 #disqualify_panel {
 	right: 40px;
-}
-
-/* User Guide */
-
-#guide_choose {
-	display: flex;
-	width: 80%;
-}
-
-.guide_option {
-	background: var(--c-white);
-	border-top: 2px solid var(--c-darkgray);
-	border-left: 2px solid var(--c-darkgray);
-	border-bottom: 2px solid var(--c-gray);
-	border-right: 2px solid var(--c-gray);
-	box-shadow: var(--s-black);
-	flex-grow: 1;
-	flex-basis: 300px;
-	border-radius: 10px;
-	height: 300px;
-	margin: 0 20px;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	cursor: pointer;
-	transition: transform var(--t-basic);
-}
-
-.guide_option:hover {
-	transform: scale(1.01);
-}
-
-.guide_option p:first-of-type {
-	font-size: var(--f-large);
-	font-family: var(--bold);
-}
-
-.guide_option > div:first-of-type {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: var(--c-gray);
-	height: 40%;
-}
-
-.guide_option div img {
-	font-size: var(--f-large);
-	font-family: var(--bold);
-	width: 50px;
-	height: 50px;
-}
-
-.guide_option > div:last-of-type {
-	padding: 10px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	height: 60%;
 }
 
 /* MATCH RESULT */
@@ -3587,7 +3531,7 @@ div.title_box > button {
 	overflow: hidden;
 }
 
-#pool_results .entry > .table_row{
+#pool_results .entry > .table_row {
 	background: var(--c-lightestgray);
 }
 

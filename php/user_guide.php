@@ -18,6 +18,7 @@
     <title>User Guide</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/guide_style.min.css">
 </head>
 <body>
 <!-- header -->
@@ -60,6 +61,7 @@
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 <script src="../js/main.js"></script>
 </html>

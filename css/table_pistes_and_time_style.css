@@ -1,5 +1,7 @@
 /* Table pistes and time */
 
+/* Needs to be sparated becuse class anmes are already set in piste_style.css */
+
 #table_select_wrapper {
 	display: flex;
 	justify-content: center;

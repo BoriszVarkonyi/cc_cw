@@ -11,7 +11,7 @@
     $test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
     $do_test = mysqli_query($connection, $test_for_row_qry);
 
-    
+
 
     if ($row = mysqli_fetch_assoc($do_test)) {
         $json_string = $row['data'];
@@ -35,8 +35,8 @@
 		$json_table = json_decode($json_sring);
     } else {
 	    echo mysqli_error($connection);
-	    
-    
+
+
     }
 
 
@@ -51,7 +51,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weapon Control</title>
+    <title>Immediate Weapon Control</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
@@ -86,7 +86,7 @@
                        	    foreach ($json_table as $obj) {
 				    $idke = $obj -> id;
 				    $nevecske = $obj -> prenom . " " . $obj -> nom;
-				   
+
                             ?>
                             <button id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" type="button"><?php echo $nevecske ?></button>
                             <?php
