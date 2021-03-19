@@ -424,6 +424,15 @@ label.error + input {
 	border-bottom: 2px solid var(--c-red);
 }
 
+/* For development purposes */
+
+#title_stripe input {
+	padding: 0 !important;
+	margin: 0 !important;
+	background: var(--c-white) !important;
+	border: none !important;
+}
+
 /* Input Background Directory */
 
 .username_input {

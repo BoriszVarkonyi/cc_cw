@@ -35,7 +35,7 @@ function toggle_nav_bar() {
         setext.innerHTML = "SETUP";
         status = "opened";
     }
-    else if (status == "opened"){
+    else if (status == "opened") {
         //cmtext.innerHTML = "C";
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
@@ -53,23 +53,23 @@ function toggle_nav_bar() {
     }
 }
 //Toggle pin
-function togglePinButton(x){
+function togglePinButton(x) {
     x.classList.toggle("pinned");
     pinChecker();
 }
 //Checks if the pin has pinned class
-function pinChecker(){
-    if(pin.classList.contains("pinned")){
+function pinChecker() {
+    if (pin.classList.contains("pinned")) {
         localStorage.setItem('navbar_status', 'pinned');
     }
-    else{
+    else {
         localStorage.setItem('navbar_status', 'notPinned');
     }
 }
 //Saves the status ofthe pin
 const navbar_status = localStorage.getItem('navbar_status');
 //Opens the navbar
-function opened_nav_bar(){
+function opened_nav_bar() {
     navBar.classList.remove("closed");
     appName.classList.remove("closed");
     menuSection.classList.remove("closed");
@@ -84,7 +84,7 @@ function opened_nav_bar(){
     status = "opened";
 }
 //Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
-if(navbar_status == "pinned" && navBar != null){
+if (navbar_status == "pinned" && navBar != null) {
     opened_nav_bar();
     pin.classList.add("pinned")
 }
@@ -119,19 +119,19 @@ var oldClickedelement;
 //Toggle language panel
 
 function toggleLanguagePanel() {
-   //Making every panel hidden.
-    for(i=0; i<elements.length; i++){
+    //Making every panel hidden.
+    for (i = 0; i < elements.length; i++) {
         elements[i].classList.add("hidden")
     }
     //Checking if the lang panel equals the oldClickedelement.
-    if(lang_panel == oldClickedelement) {
+    if (lang_panel == oldClickedelement) {
         //If yes it removes the class.
         lang_panel.classList.remove("hidden");
     }
     //Toggles the class.
     lang_panel.classList.toggle("hidden");
     //Checking if the lang panel class contains hidden.
-    if(lang_panel.classList.contains("hidden")) {
+    if (lang_panel.classList.contains("hidden")) {
         //If yes it sets the oldClickedelement undifend.
         oldClickedelement = undefined;
     }
@@ -146,17 +146,17 @@ function toggleLanguagePanel() {
 
 function toggleColormodePanel() {
     //Making every panel hidden
-    for(i=0; i<elements.length; i++){
+    for (i = 0; i < elements.length; i++) {
         elements[i].classList.add("hidden")
     }
 
-    if(color_panel == oldClickedelement) {
+    if (color_panel == oldClickedelement) {
         color_panel.classList.remove("hidden");
     }
 
     color_panel.classList.toggle("hidden");
 
-    if(color_panel.classList.contains("hidden")) {
+    if (color_panel.classList.contains("hidden")) {
         oldClickedelement = undefined;
     }
     else {
@@ -167,17 +167,17 @@ function toggleColormodePanel() {
 
 function toggleProfilePanel() {
     //Making every panel hidden
-    for(i=0; i<elements.length; i++){
+    for (i = 0; i < elements.length; i++) {
         elements[i].classList.add("hidden")
     }
 
-    if(profile_panel == oldClickedelement) {
+    if (profile_panel == oldClickedelement) {
         profile_panel.classList.remove("hidden");
     }
 
     profile_panel.classList.toggle("hidden");
 
-    if(profile_panel.classList.contains("hidden")) {
+    if (profile_panel.classList.contains("hidden")) {
         oldClickedelement = undefined;
     }
     else {
@@ -262,13 +262,13 @@ function setToDark() {
 //Page color changer
 var colorButtons = document.querySelectorAll(".color_square")
 //Removes selected class from the buttons
-function classRemover(){
-    for(i=0; i<colorButtons.length; i++){
+function classRemover() {
+    for (i = 0; i < colorButtons.length; i++) {
         colorButtons[i].classList.remove("selected")
     }
 }
 //Sets the colormode to danube
-function setToDanube(x){
+function setToDanube(x) {
     var danubeColorButton = document.querySelector(".color_square.danube")
     classRemover();
     danubeColorButton.classList.add("selected")
@@ -278,7 +278,7 @@ function setToDanube(x){
     colorMode = localStorage.getItem('colorMode');
 }
 //Sets the colormode to vanilla
-function setToVanilla(x){
+function setToVanilla(x) {
     var vanillaColorButton = document.querySelector(".color_square.vanilla")
     classRemover();
     vanillaColorButton.classList.add("selected")
@@ -290,11 +290,11 @@ function setToVanilla(x){
 
 var colorMode = localStorage.getItem('colorMode');
 //Sets the saved colormode
-function contentThemeSetter(){
-    if(colorMode == "danube"){
+function contentThemeSetter() {
+    if (colorMode == "danube") {
         setToDanube();
     }
-    else{
+    else {
         setToVanilla();
     }
 }
@@ -305,29 +305,29 @@ contentThemeSetter();
 var suti = document.cookie;
 var suti_list = suti.split("; ");
 
-if(suti_list.includes("lastlogin=" + 2)){
+if (suti_list.includes("lastlogin=" + 2)) {
 
-var dds = document.getElementsByClassName("setup_dropdown");
-console.log(dds);
+    var dds = document.getElementsByClassName("setup_dropdown");
+    console.log(dds);
 
-for(i = 0; i < dds.length; i++){
+    for (i = 0; i < dds.length; i++) {
 
-    dds[i].classList.add("disabled");
-    dds[i].onclick = "";
+        dds[i].classList.add("disabled");
+        dds[i].onclick = "";
 
-   }
+    }
 
-  var set = document.getElementsByClassName("setup");
-  console.log(set);
+    var set = document.getElementsByClassName("setup");
+    console.log(set);
 
-for(i = 0; i < set.length; i++){
+    for (i = 0; i < set.length; i++) {
 
-    set[i].classList.add("disabled");
-    set[i].href = "";
+        set[i].classList.add("disabled");
+        set[i].href = "";
 
-   }
-var setuptext = document.getElementById("setup_text");
-setuptext.classList.add("disabled");
+    }
+    var setuptext = document.getElementById("setup_text");
+    setuptext.classList.add("disabled");
 
 }
 
@@ -335,11 +335,11 @@ setuptext.classList.add("disabled");
 var invalidChars = ["-", "+", "e", "E"];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => {
-    item.addEventListener("keydown", function(e) {
+    item.addEventListener("keydown", function (e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
         }
-        }
+    }
     );
 })
 
@@ -347,10 +347,10 @@ var stripeButtons = document.querySelectorAll(".stripe_button")
 var canAddHoverClass = true;
 //searchBarClosed is a var. from search.js
 searchBarClosed = true;
-document.addEventListener("keydown", function(e){
-    if(searchBarClosed && !somethingIsFocused){
-        if(e.shiftKey && canAddHoverClass) {
-            for(i=0; i<stripeButtons.length; i++){
+document.addEventListener("keydown", function (e) {
+    if (searchBarClosed && !somethingIsFocused) {
+        if (e.shiftKey && canAddHoverClass) {
+            for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.add("hover")
             }
             canAddHoverClass = false;
@@ -358,11 +358,11 @@ document.addEventListener("keydown", function(e){
     }
 })
 
-document.addEventListener("keyup", function(e){
+document.addEventListener("keyup", function (e) {
     //searchBarClosed is a var. from search.js
-    if(searchBarClosed && !somethingIsFocused){
-        if(e.key == "Shift") {
-            for(i=0; i<stripeButtons.length; i++){
+    if (searchBarClosed && !somethingIsFocused) {
+        if (e.key == "Shift") {
+            for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.remove("hover")
             }
             canAddHoverClass = true;
@@ -371,15 +371,15 @@ document.addEventListener("keyup", function(e){
 })
 
 var loadingBar = document.getElementById("loading_bar");
-document.addEventListener('DOMContentLoaded', function(){
-    setTimeout(function(){ loadingBar.classList.add("load")}, 300);
-    setTimeout(function(){ loadingBar.classList.remove("load"); loadingBar.classList.add("loading")}, 500);
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () { loadingBar.classList.add("load") }, 300);
+    setTimeout(function () { loadingBar.classList.remove("load"); loadingBar.classList.add("loading") }, 500);
 
-    if (document.readyState === "complete" || document.readyState === "loaded"  || document.readyState === "interactive"){
+    if (document.readyState === "complete" || document.readyState === "loaded" || document.readyState === "interactive") {
         loadingBar.classList.remove("loading");
         loadingBar.classList.add("loaded");
-        setTimeout(function(){ loadingBar.classList.remove("loading"); loadingBar.classList.add("finished")}, 1000);
-        setTimeout(function(){ loadingBar.classList.remove("finished"); loadingBar.remove()}, 1250);
+        setTimeout(function () { loadingBar.classList.remove("loading"); loadingBar.classList.add("finished") }, 1000);
+        setTimeout(function () { loadingBar.classList.remove("finished"); loadingBar.remove() }, 1250);
     }
 })
 /*
@@ -432,10 +432,10 @@ function toggleCompSelect() {
 var somethingIsFocused = false;
 var textAreas = document.querySelectorAll("input, textarea")
 textAreas.forEach(item => {
-    item.addEventListener("focus", function() {
+    item.addEventListener("focus", function () {
         somethingIsFocused = true
     });
-    item.addEventListener("blur", function() {
+    item.addEventListener("blur", function () {
         somethingIsFocused = false
     });
 })
