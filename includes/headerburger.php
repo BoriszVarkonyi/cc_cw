@@ -154,31 +154,22 @@ if (isset($_POST["logout"])) {
             <img src="../assets/icons/close-black-18dp.svg"/>
         </button>
         <div class="color_mode_wrapper" id="color_mode_wrapper">
-            <div class="color_mode">
+            <button class="color_mode" onclick="setToLight()">
                 <div class="color_sample light">Aa</div>
-                <div>
-                    <input type="radio" name="colormode" id="light">
-                    <label for="light" onclick="setToLight();">Light</label>
-                </div>
-            </div>
-            <div class="color_mode">
+                <p>Light</p>
+            </button>
+            <button class="color_mode" onclick="setToHighContrast()" disabled>
                 <div class="color_sample high_contrast">Aa</div>
-                <div>
-                    <input type="radio" name="colormode" id="highcontrast">
-                    <label for="highcontrast" onclick="setToHighContrast()">High Contrast</label>
-                </div>
-            </div>
-            <div class="color_mode">
+                <p>High Contrast</p>
+            </button>
+            <button class="color_mode" onclick="setToDark()" disabled>
                 <div class="color_sample dark">Aa</div>
-                <div>
-                    <input type="radio" name="colormode" id="dark">
-                    <label for="dark" onclick="setToDark()">Dark</label>
-                </div>
-            </div>
+                <p>Dark</p>
+            </button>
         </div>
         <div class="color_variations">
-            <button class="color_square danube" onclick="setToDanube()" name="danube"></button>
             <button class="color_square vanilla" onclick="setToVanilla()" name="vanilla"></button>
+            <button class="color_square danube" onclick="setToDanube()" name="danube" disabled></button>
         </div>
     </div>
 
