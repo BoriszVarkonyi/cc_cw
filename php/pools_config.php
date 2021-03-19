@@ -18,7 +18,6 @@
 
     if (isset($_POST['save_pools'])) {
         $saved_pools_string = $_POST['save_pools_hidden_input'];
-        echo $saved_pools_string;
         $saved_fencers_table = json_decode($saved_pools_string);
 
         for ($pool_num = 0; $pool_num < count($saved_fencers_table); $pool_num++) {
@@ -87,7 +86,25 @@
     //piste
     if (isset($_POST['piste_time'])) {
 
+        $qry_get_pistes = "SELECT `data` FROM `pistes` WHERE `assoc_comp_id` = '$comp_id'";
+        $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
 
+        if ($row = mysqli_fetch_assoc($do_get_pistes)) {
+            $piste_string = $row['data'];
+            $piste_table = json_decode($piste_string);
+        }
+        $piste_usage = $_POST['pistes_usage_type'];
+        $pistes_array = [];
+
+        if ($piste_usage == 1) {
+            $pistes_array = $piste_table;
+        } else {
+            for ($i =  0; $i < count($ref_table); $i++) {
+                if (isset($_POST["piste_$i"])) {
+                    array_push($pistes_array, $piste_table[$i]);
+                }
+            }
+        }
     }
 
 ?>
@@ -239,13 +256,11 @@
                                 $piste_table = json_decode($piste_string);
                             }
 
-                            $r = 1;
-                            while ($row =  mysqli_fetch_assoc($pistes_query_do)) {
+                            $r = 0;
+                            foreach ($piste_table as $piste_obj) {
 
-                                $pistenum = $row["piste_number"];
-                                $pistetype = $row["piste_type"];
-                                $pistecolor = $row["piste_color"];
-
+                                $pistenum = $piste_obj -> name;
+                                $pistecolor = $piste_obj -> color;
 
                             ?>
 
@@ -254,18 +269,7 @@
                                     <input type="checkbox" name="piste_<?php echo $r ?>" id="piste_<?php echo $r ?>" value="1"/>
                                     <label for="piste_<?php echo $r ?>">Piste
                                     <?php
-
-                                        if ($pistetype == 1) {
-
-                                            echo "main";
-                                        } elseif ($pistetype == 2) {
-
-                                            echo  $pistenum . " (" . pisteColor($pistecolor) . ")";
-                                        } else {
-                                            echo $pistenum;
-                                        }
-
-
+                                        echo $pistenum;
                                     ?></label>
                                 </div>
 
@@ -396,436 +400,13 @@
                         }
                             ?>
 
-
+                        <input type="text" name="pool_of" id="pool_of" value="<?php echo $pool_of ?>"/>
 
                     </div>
                     <div id="pools_drag_panel">
                         <div ondrop="drop(event)" ondragover="allowDrop(event)" class="holder"></div>
                         <div ondrop="drop(event)" ondragover="allowDrop(event)" class="deleter"></div>
                     </div>
-
-
-
-                        <!-- <div class="entry">
-                        <div class="table_row start">
-                            <div class="table_item bold">No. 1</div>
-                            <div class="table_item">Piste 1</div>
-                            <div class="table_item">Ref: Név</div>
-                            <div class="table_item">11:50</div>
-                            <button type="button" onclick="" class="pool_config">
-                                <img src="../assets/icons/settings-black-18dp.svg">
-                            </button>
-                        </div>
-                        <div class="entry_panel">
-                            <div class="pool_table_wrapper">
-                                <div class="table_header">
-                                    <div class="table_header_text">
-                                        Fencers name
-                                    </div>
-                                    <div class="table_header_text">
-                                        Fencers nationality
-                                    </div>
-                                    <div class="table_header_text square">
-                                        No.
-                                    </div>
-                                    <div class="table_header_text square">
-                                        1
-                                    </div>
-                                    <div class="table_header_text square">
-                                        2
-                                    </div>
-                                    <div class="table_header_text square">
-                                        3
-                                    </div>
-                                    <div class="table_header_text square">
-                                        4
-                                    </div>
-                                    <div class="table_header_text square">
-                                        5
-                                    </div>
-                                    <div class="table_header_text square">
-                                        6
-                                    </div>
-                                    <div class="table_header_text square">
-                                        W
-                                    </div>
-                                    <div class="table_header_text square">
-                                        L
-                                    </div>
-                                    <div class="table_header_text square">
-                                        TR
-                                    </div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">1</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">2</div>
-                                    <div class="table_item square">a</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">3</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">as</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">gr</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">5</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">gr</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">6</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">ge</div>
-                                    <div class="table_item square  filled"></div>
-
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="table_row start">
-                            <div class="table_item bold">No. 1</div>
-                            <div class="table_item">Piste 1</div>
-                            <div class="table_item">Ref: Név</div>
-                            <div class="table_item">11:50</div>
-                            <button type="button" onclick="" class="pool_config">
-                                <img src="../assets/icons/settings-black-18dp.svg">
-                            </button>
-                        </div>
-                        <div class="entry_panel">
-                            <div class="pool_table_wrapper">
-                                <div class="table_header">
-                                    <div class="table_header_text">
-                                        Fencers name
-                                    </div>
-                                    <div class="table_header_text">
-                                        Fencers nationality
-                                    </div>
-                                    <div class="table_header_text square">
-                                        No.
-                                    </div>
-                                    <div class="table_header_text square">
-                                        1
-                                    </div>
-                                    <div class="table_header_text square">
-                                        2
-                                    </div>
-                                    <div class="table_header_text square">
-                                        3
-                                    </div>
-                                    <div class="table_header_text square">
-                                        4
-                                    </div>
-                                    <div class="table_header_text square">
-                                        5
-                                    </div>
-                                    <div class="table_header_text square">
-                                        6
-                                    </div>
-                                    <div class="table_header_text square">
-                                        W
-                                    </div>
-                                    <div class="table_header_text square">
-                                        L
-                                    </div>
-                                    <div class="table_header_text square">
-                                        TR
-                                    </div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">1</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">2</div>
-                                    <div class="table_item square">a</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">3</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">as</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">gr</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">5</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">gr</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">6</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">ge</div>
-                                    <div class="table_item square  filled"></div>
-
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="table_row start">
-                            <div class="table_item bold">No. 1</div>
-                            <div class="table_item">Piste 1</div>
-                            <div class="table_item">Ref: Név</div>
-                            <div class="table_item">11:50</div>
-                            <button type="button" onclick="" class="pool_config">
-                                <img src="../assets/icons/settings-black-18dp.svg">
-                            </button>
-                        </div>
-                        <div class="entry_panel">
-                            <div class="pool_table_wrapper">
-                                <div class="table_header">
-                                    <div class="table_header_text">
-                                        Fencers name
-                                    </div>
-                                    <div class="table_header_text">
-                                        Fencers nationality
-                                    </div>
-                                    <div class="table_header_text square">
-                                        No.
-                                    </div>
-                                    <div class="table_header_text square">
-                                        1
-                                    </div>
-                                    <div class="table_header_text square">
-                                        2
-                                    </div>
-                                    <div class="table_header_text square">
-                                        3
-                                    </div>
-                                    <div class="table_header_text square">
-                                        4
-                                    </div>
-                                    <div class="table_header_text square">
-                                        5
-                                    </div>
-                                    <div class="table_header_text square">
-                                        6
-                                    </div>
-                                    <div class="table_header_text square">
-                                        W
-                                    </div>
-                                    <div class="table_header_text square">
-                                        L
-                                    </div>
-                                    <div class="table_header_text square">
-                                        TR
-                                    </div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">1</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">2</div>
-                                    <div class="table_item square">a</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">3</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">as</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">gr</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">5</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">gr</div>
-                                    <div class="table_item square filled"></div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-
-                                <div class="table_row">
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item">Name</div>
-                                    <div class="table_item square row_title">6</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">a4</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">ge</div>
-                                    <div class="table_item square  filled"></div>
-
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                    <div class="table_item square">5a</div>
-                                </div>
-                            </div>
-                        </div> -->
-
                     </div>
                 </div>
             </div>
