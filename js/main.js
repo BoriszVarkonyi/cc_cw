@@ -218,7 +218,7 @@ var colorModes = csWrapper.getElementsByTagName("input");
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');
     localStorage.setItem('theme', '');
-    colorModes[0].checked = true;
+    //colorModes[0].checked = true;
 
     clrVariations.style.visibility = "visible";
 
@@ -235,7 +235,7 @@ var clrVariations = document.querySelector(".color_variations")
 function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
-    colorModes[1].checked = true;
+    //colorModes[1].checked = true;
 
     clrVariations.style.visibility = "hidden";
     document.documentElement.removeAttribute('data-content-theme');
@@ -252,7 +252,7 @@ function setToHighContrast() {
 function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
-    colorModes[2].checked = true;
+    //colorModes[2].checked = true;
 
     clrVariations.style.visibility = "visible";
 
