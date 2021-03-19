@@ -10,7 +10,6 @@ function removeEquipmentValues() {
 var inputs = document.querySelectorAll(".table_row input");
 inputs.forEach(item => {
     item.addEventListener("input", function () {
-        console.log("jeeej")
         if(item.value > 5 || item.value < 0 || item.value == "00"){
             item.value = ""
         }
