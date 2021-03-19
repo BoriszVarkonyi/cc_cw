@@ -213,13 +213,14 @@ window.addEventListener('load', (event) => {
 var hasBackgroundIcon = document.querySelectorAll("input");
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon)');
 var csWrapper = document.getElementById("color_mode_wrapper");
-var colorModes = csWrapper.getElementsByTagName("input");
+var colorModes = csWrapper.querySelectorAll(".color_mode");
 
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');
     localStorage.setItem('theme', '');
     //colorModes[0].checked = true;
-
+    colorModeClassRemover();
+    colorModes[0].classList.add("selected")
     clrVariations.style.visibility = "visible";
 
     for (var i = 0; i < icons.length; i++) {
@@ -236,7 +237,8 @@ function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
     //colorModes[1].checked = true;
-
+    colorModeClassRemover();
+    colorModes[1].classList.add("selected")
     clrVariations.style.visibility = "hidden";
     document.documentElement.removeAttribute('data-content-theme');
     /*
@@ -251,12 +253,19 @@ function setToHighContrast() {
 
 function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
+    localStorage.setItem('theme', 'dark');  
     //colorModes[2].checked = true;
-
+    colorModeClassRemover()
+    colorModes[2].classList.add("selected")
     clrVariations.style.visibility = "visible";
 
     contentThemeSetter();
+}
+
+function colorModeClassRemover(){
+    for(i=0; i<colorModes.length; i++){
+        colorModes[i].classList.remove("selected")
+    }
 }
 
 //Page color changer
