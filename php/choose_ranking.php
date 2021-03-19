@@ -133,7 +133,7 @@ if(isset($_POST["submit"]) ){
                 </div>
                 <div id="page_content_panel_main">
                     <div id="choose_ranking_wrapper">
-                        <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()" >
+                        <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()">
                             <button class="panel_button" onclick="toggleUploadRankingPanel()">
                                 <img src="../assets/icons/close-black-18dp.svg">
                             </button>

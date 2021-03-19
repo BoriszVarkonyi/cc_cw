@@ -512,19 +512,19 @@ label.error + input {
 
 input[type="number"] {
 	width: 40px;
-	margin-right: -35px;
 	background-color: transparent;
+	text-align: center;
+}
+
+input[type="number"]:focus {
+	border: 3px solid var(--c-primary);
+	text-align: center;
 }
 
 input[type="number"].number_input.centered {
 	width: 100px;
 	text-align: center;
 	padding: 0;
-}
-
-input[type="number"].wc_time {
-	text-align: right;
-	margin: 0;
 }
 
 /* Time Input */

@@ -2079,6 +2079,15 @@ input[type="file"] {
 	padding: 50px;
 }
 
+.db_panel_main.column {
+	flex-direction: column;
+	min-height: 30vh;
+	max-height: 80vh;
+	flex-basis: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
 .db_panel_main .table {
 	min-width: 100%;
 }
@@ -2431,7 +2440,7 @@ input[type="file"] {
 	overflow-x: hidden;
 }
 
-.entry_panel > textarea {
+.db_panel textarea {
 	padding: 5px;
 	width: 80%;
 	height: 70%;
@@ -2440,7 +2449,13 @@ input[type="file"] {
 	transition: background-color var(--t-basic), border var(--t-basic);
 }
 
-.entry_panel > textarea:hover, .entry_panel > textarea:focus {
+textarea.standalone {
+	width: 80%;
+	flex: 1 1 100%;
+	margin: 0 auto;
+}
+
+.db_panel textarea:hover, .db_panel textarea:focus {
 	background: var(--c-white);
 	border: 2px dashed var(--c-secondary);
 	transition: background-color var(--t-basic), border var(--t-basic);
