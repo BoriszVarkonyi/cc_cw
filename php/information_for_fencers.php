@@ -60,15 +60,15 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                 <div id="title_stripe">
                     <p class="page_title">Informations for Fencers</p>
                     <div class="stripe_button_wrapper">
-                        <button onclick="copyContent()" class="stripe_button primary" type="submit" form="information_for_fencers_wrapper" name="submit">
+                        <button onclick="copyContent()" class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit">
                             <p>Save Information</p>
                             <img src="../assets/icons/save-black-18dp.svg"/>
                         </button>
                     </div>
                 </div>
                 <div id="page_content_panel_main">
-                    <form id="information_for_fencers_wrapper" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST" class="wrapper">
-                        <div id="needed_equipment_panel" class="db_panel">
+                    <div class="wrapper">
+                        <form class="db_panel other" id="information_for_fencers_form" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST" >
                             <div class="db_panel_title_stripe">
                                 <img src="../assets/icons/beenhere-black-18dp.svg">
                                 <p>Equipment needed to be checked</p>
@@ -83,7 +83,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="table_row_wrapper">
+                                    <div class="table_row_wrapper alt">
                                         <?php
                                         $query_get_data = "SELECT comp_equipment FROM competitions WHERE comp_id = $comp_id";
                                         $query_get_data_do = mysqli_query($connection, $query_get_data);
@@ -115,37 +115,58 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="additional_info_panel" class="db_panel">
+                        </form>
+                        <div class="db_panel">
                             <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/rule-black-18dp.svg">
-                                <p>Additional Information</p>
+                                <img src="../assets/icons/build-black-18dp.svg">
+                                <p>Manage Addition Informations</p>
                             </div>
-                            <div class="db_panel_main small">
-                                <input name="additional" type="text" class="hidden" id="additional_info_input">
-                                <div class="additional_info_wrapper" id="add_info_wrap">
-                                <?php
+                            <div class="db_panel_main table">
+                                <div class="table t_c_0">
+                                    <div class="table_header">
+                                        <div class="table_header_text">TITLE</div>
+                                    </div>
+                                    <div class="table_row_wrapper alt">
 
-                                $query_get_info = "SELECT comp_info FROM competitions WHERE comp_id = $comp_id";
-                                    $query_get_info_do = mysqli_query($connection, $query_get_info);
+                                        <!-- ezt kell whileozni csorom -->
+                                        <div class="entry">
 
-                                    $associnfoget = mysqli_fetch_assoc($query_get_info_do);
-                                    $associnfopost = implode(",", $associnfoget);
+                                            <!-- csak a cim kell -->
+                                            <div class="table_row" onclick="toggleEntry(this)">
+                                                <div class="table_item invitation"><p>CÍM</p></div>
+                                            </div>
 
-                                ?>
-                                    <div class="additional_info_text" contenteditable placeholder="Start typing here" id="additional"><?php
+                                            <!-- updateing entry -->
+                                            <form class="entry_panel collapsed" id="update" method="POST" action="">
+                                                <button class="panel_button" type="submit" name="submit_delete" id="update">
+                                                    <img src="../assets/icons/delete-black-18dp.svg">
+                                                </button>
+                                                <textarea id="update" name="text_body" placeholder="Type the Announcement's body text here">SZÖVEGEGEGEE</textarea>
+                                                <input id="update" name="text_title_to_change" type="text" value="" class="hidden">
+                                                <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                            </form>
 
-                                    if($associnfopost == ""){
+                                        </div>
+                                        <!-- eddig mondjuk -->
 
-                                            echo "";
-
-                                        }else{
-
-                                            echo $associnfopost;
-
-                                        }
-
-                                    ?></div>
+                                        <!-- adding entry by title -->
+                                        <div id="add_entry" onclick="hideNshow()">
+                                            <div class="table_row" onclick="">
+                                                <div class="table_item">
+                                                    Add information
+                                                    <img src="../assets/icons/add-black-18dp.svg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="" id="adding_entry" class="hidden" method="POST">
+                                            <div class="table_row">
+                                                <div class="table_item">
+                                                    <input name="input_title" type="text" class="title_input" placeholder="Type in the title">
+                                                    <input name="input_submit" type="submit" class="save_entry" value="Create">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

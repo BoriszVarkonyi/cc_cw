@@ -241,6 +241,7 @@ textarea {
 	border: none;
 	resize: none;
 	font-family: var(--regular);
+	font-size: var(--f-medium);
 }
 
 .modal_wrapper.hidden {
@@ -512,7 +513,7 @@ label.error + input {
 input[type="number"] {
 	width: 40px;
 	margin-right: -35px;
-	background-color: none;
+	background-color: transparent;
 }
 
 input[type="number"].number_input.centered {

@@ -2357,49 +2357,6 @@ input[type="file"] {
 
 /* ///INFORMATION FOR FENCERS/// */
 
-#information_for_fencers_wrapper {
-	display: flex;
-	align-items: flex-start;
-	min-width: 90%;
-	flex-wrap: wrap;
-}
-
-#needed_equipment_panel {
-	margin: 20px;
-	flex: 1 1 600px;
-}
-
-#additional_info_panel {
-	margin: 20px;
-	flex: 1 1 300px;
-}
-
-.additional_info_wrapper {
-	width: 80%;
-	list-style: initial;
-	max-height: 60vh;
-}
-
-[contenteditable][placeholder]:empty:before {
-	content: attr(placeholder);
-	position: absolute;
-	color: var(--c-black);
-	background: transparent;
-	font-size: var(--f-small);
-}
-
-[contenteditable]:focus {
-	outline: none;
-}
-
-.additional_info_text {
-	border-left: 2px solid var(--c-black);
-	padding: 1px 5px;
-	margin-bottom: 10px;
-	width: 100%;
-	font-size: var(--f-small);
-}
-
 #reset_button {
 	display: flex;
 	justify-content: center;
