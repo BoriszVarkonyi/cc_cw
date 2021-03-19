@@ -218,17 +218,10 @@ var colorModes = csWrapper.querySelectorAll(".color_mode");
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');
     localStorage.setItem('theme', '');
-    //colorModes[0].checked = true;
     colorModeClassRemover();
     colorModes[0].classList.add("selected")
     clrVariations.style.visibility = "visible";
-
-    for (var i = 0; i < icons.length; i++) {
-        //icons[i].style.filter = "contrast(71%)";
-        //icons[i].style.filter = "invert()";
-    }
     contentThemeSetter();
-
 }
 
 var clrVariations = document.querySelector(".color_variations")
@@ -236,34 +229,23 @@ var clrVariations = document.querySelector(".color_variations")
 function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
-    //colorModes[1].checked = true;
     colorModeClassRemover();
     colorModes[1].classList.add("selected")
     clrVariations.style.visibility = "hidden";
     document.documentElement.removeAttribute('data-content-theme');
-    /*
-    for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
-    }
-    for (i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
-    }
-    */
 }
 
 function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');  
-    //colorModes[2].checked = true;
+    localStorage.setItem('theme', 'dark');
     colorModeClassRemover()
     colorModes[2].classList.add("selected")
     clrVariations.style.visibility = "visible";
-
     contentThemeSetter();
 }
 
-function colorModeClassRemover(){
-    for(i=0; i<colorModes.length; i++){
+function colorModeClassRemover() {
+    for (i = 0; i < colorModes.length; i++) {
         colorModes[i].classList.remove("selected")
     }
 }

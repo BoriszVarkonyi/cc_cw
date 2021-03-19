@@ -159,8 +159,9 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
-    <link rel="stylesheet" href="/css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/login_style.min.css">
 </head>
 
 <body class="bg_fencers">
@@ -193,12 +194,12 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
     <div id="login_links_wrapper">
-        <div id="program_news">
-            <a type="button" class="other_apps_button">News and updates</a>
+        <div class="login_link_wrapper">
+            <a type="button" class="login_link_button">News and updates</a>
         </div>
-        <div id="other_apps">
-            <button type="button" class="other_apps_button" onclick="toggleOtherApps()">Other Applications</button>
-            <div id="other_apps_dropdown">
+        <div class="login_link_wrapper">
+            <button type="button" class="login_link_button" onclick="toggleOtherApps(this)">Other Applications</button>
+            <div class="login_link_dropdown">
                 <p>For Organisers</p>
                 <a href="">CC Wheelchair</a>
                 <p>For Federations</p>
@@ -222,6 +223,8 @@ if (isset($_POST["submit"])) {
 
     <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
     <script src="/js/login.js"></script>
+    <script>
+        document.documentElement.setAttribute('data-content-theme', 'vanilla');
+    </script>
 </body>
-
 </html>
