@@ -67,6 +67,7 @@ function allowDrop(ev, x) {
     ev.preventDefault();
 }
 var rowToDelete, regenerateTable, draggedElement, index, dragPlaceTodelete, previousTable, canRegenerate = true, dragStart, dragEndActive = true;
+var maxFencerNumber = document.getElementById("pool_of").value;
 var rowToSave = [];
 function drag(ev, x) {
     //If a drag starts from Draf Fencers Area
@@ -215,43 +216,72 @@ function dropAreaHoverOff(x) {
 }
 //If we drop an element to a table
 function drop2(ev, x) {
-    //Denies the dragEnd function
-    dragEndActive = false;
-    ev.preventDefault();
-    var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
-    regenerateTable = x.parentNode
-    //If the droparea that we dropped in equals the saved droparea
-    if (dragPlaceTodelete == x) {
-        //It doesnt generate the top droparea
-        x.outerHTML = draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+    if (checkPoolTable(x)) {
+        //Denies the dragEnd function
+        dragEndActive = false;
+        ev.preventDefault();
+        var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
+        regenerateTable = x.parentNode
+        //If the droparea that we dropped in equals the saved droparea
+        if (dragPlaceTodelete == x) {
+            //It doesnt generate the top droparea
+            x.outerHTML = draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+        }
+        else {
+            //Else it does generate the top droparea
+            x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+        }
+        //Delertes the dragged row if we dropped down.
+        if (rowToDelete !== undefined) {
+            rowToDelete.remove();
+        }
+        //Deletes the saved droparea
+        if (dragPlaceTodelete !== undefined) {
+            dragPlaceTodelete.remove()
+        }
+        //Clears the var
+        rowToDelete = undefined;
+        //Deletes the dropped element innerHTMl from the array
+        if (index > -1) {
+            //Deletes by index
+            rowToSave.splice(index, 1);
+        }
+        regenerate();
+        //regenerateTable = previousTable;
+        //regenerate();
+        //Removes the class from all the droparea in the table
+        for (i = 0; i < dropAreas.length; i++) {
+            dropAreas[i].classList.remove("collapsed")
+        }
+        idloader();
     }
-    else {
-        //Else it does generate the top droparea
-        x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+    else{
+        //Removes the classes
+        removeOpenAndCollapseClass()
+        window.alert("Tisztelt felhasználó! \nÉszleltük hogy ön több fencer-t szeretett volna berakni egy table-be mint, amennyi megengedett. \nEz úton hivatalosan is közöljük magával hogy ön egy Buzi!")
     }
-    //Delertes the dragged row if we dropped down.
-    if (rowToDelete !== undefined) {
-        rowToDelete.remove();
+}
+
+function removeOpenAndCollapseClass(){
+    var elements = document.querySelectorAll("#pool_listing .opened")
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.remove("opened")
     }
-    //Deletes the saved droparea
-    if (dragPlaceTodelete !== undefined) {
-        dragPlaceTodelete.remove()
+    elements = document.querySelectorAll("#pool_listing .collapsed")
+    for(i=0; i<elements.length; i++){
+        elements[i].classList.remove("collapsed")
     }
-    //Clears the var
-    rowToDelete = undefined;
-    //Deletes the dropped element innerHTMl from the array
-    if (index > -1) {
-        //Deletes by index
-        rowToSave.splice(index, 1);
+}
+
+function checkPoolTable(x){
+    var table = x.parentNode
+    var fencerNumber = table.querySelectorAll(".table_row").length
+    if(fencerNumber < maxFencerNumber){
+        return true;
     }
-    regenerate();
-    //regenerateTable = previousTable;
-    //regenerate();
-    //Removes the class from all the droparea in the table
-    for (i = 0; i < dropAreas.length; i++) {
-        dropAreas[i].classList.remove("collapsed")
+    else{
+        return false;
     }
-    idloader();
 }
 
 var poolsId = ""
@@ -269,15 +299,14 @@ function idloader() {
                 poolsId = poolsId + tablerowsJSONAttribute[d].getAttribute("x-fencersave");
             }
         }
-        if (i == entries.length-1) {
+        if (i == entries.length - 1) {
             poolsId = poolsId + "]"
         }
-        else{
+        else {
             poolsId = poolsId + "],"
         }
     }
     poolsId = poolsId + "]"
-    console.log(poolsId)
     hiddenInput = document.getElementById("savePoolsHiddenInput")
     hiddenInput.value = poolsId
     hiddenInput.classList.remove("hidden")
@@ -287,9 +316,6 @@ idloader()
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
 hiddenInput.value = poolsId
 hiddenInput.classList.remove("hidden")
-function tableChecker(x) {
-    console.log(x)
-}
 //FORM VALIDATION
 var valid1 = false, valid2 = false;
 //It is a var from main.js
