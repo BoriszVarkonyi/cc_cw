@@ -195,10 +195,10 @@ if (isset($_POST["submit"])) {
     </div>
     <div id="login_links_wrapper">
         <div class="login_link_wrapper">
-            <a class="login_link_button">News and updates</a>
+            <button class="login_link_button" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">News and updates</button>
         </div>
         <div class="login_link_wrapper">
-            <button type="button" class="login_link_button" onclick="toggleOtherApps(this)">Other Applications</button>
+            <button class="login_link_button" onclick="toggleOtherApps(this)">Other Applications</button>
             <div class="login_link_dropdown">
                 <p>For Organisers</p>
                 <a href="">CC Wheelchair</a>

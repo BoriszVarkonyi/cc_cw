@@ -12,6 +12,8 @@
     margin-left: 10px;
 }
 
+
+/* Needs to be button or itt will get messed up */
 .login_link_button {
 	color: var(--c-white);
 	text-transform: uppercase;
