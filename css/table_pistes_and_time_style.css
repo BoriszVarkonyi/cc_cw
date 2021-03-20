@@ -12,6 +12,7 @@
 	flex: 1 1 auto;
 	display: flex;
 	gap: 20px;
+	max-height: 60vh;
 }
 
 #pistes_and_time_panel {

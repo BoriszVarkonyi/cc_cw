@@ -58,6 +58,12 @@ header {
 	z-index: 0;
 }
 
+#main.full {
+	display: flex;
+	flex-direction: column;
+
+}
+
 #content {
 	width: 100%;
 	display: flex;
@@ -67,9 +73,20 @@ header {
 	box-shadow: 0 3px 6px #25252530;
 }
 
+#content.full {
+	flex: 1 1 100%;
+}
+
 #content_wrapper {
 	width: 100%;
 	box-sizing: border-box;
+}
+
+#content_wrapper.centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1 1 100%;
 }
 
 #content_wrapper.reverse_wrap {
@@ -1642,6 +1659,25 @@ b.green {
 	flex-wrap: wrap;
 	align-items: flex-start;
 	align-content: flex-start;
+}
+
+/* VIDEO */
+
+#video {
+	width: 100%;
+	min-height: 300px;
+	height: 50vh;
+	max-height: 60vh;
+}
+
+@supports (aspect-ratio: 16 / 9) {
+	#video {
+		width: 100%;
+		min-height: unset;
+		height: unset;
+		max-height: unset;
+		aspect-ratio: 16 / 9;
+	}
 }
 
 /* Book appointment */
