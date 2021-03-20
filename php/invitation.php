@@ -144,7 +144,7 @@ if (file_exists("../uploads/$comp_id.png")) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Invitation of <?php echo $assoc_array_data['comp_name'] ?></title>
+    <title>Invitation</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/print_invitation_style.min.css">

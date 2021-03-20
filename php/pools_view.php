@@ -27,7 +27,7 @@ $fencers = count($json_table);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pools of <?php echo $comp_name ?></title>
+    <title>View Pools</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
@@ -232,6 +232,6 @@ $fencers = count($json_table);
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
-<script src="../js/pools.js"></script>
+<script src="../js/pools_view.js"></script>
 <script src="../js/overlay_panel.js"></script>
 </html>

@@ -213,21 +213,15 @@ window.addEventListener('load', (event) => {
 var hasBackgroundIcon = document.querySelectorAll("input");
 var icons = document.querySelectorAll('img[src$=".svg"]:not(.not_icon)');
 var csWrapper = document.getElementById("color_mode_wrapper");
-var colorModes = csWrapper.getElementsByTagName("input");
+var colorModes = csWrapper.querySelectorAll(".color_mode");
 
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');
     localStorage.setItem('theme', '');
-    colorModes[0].checked = true;
-
+    colorModeClassRemover();
+    colorModes[0].classList.add("selected")
     clrVariations.style.visibility = "visible";
-
-    for (var i = 0; i < icons.length; i++) {
-        //icons[i].style.filter = "contrast(71%)";
-        //icons[i].style.filter = "invert()";
-    }
     contentThemeSetter();
-
 }
 
 var clrVariations = document.querySelector(".color_variations")
@@ -235,28 +229,25 @@ var clrVariations = document.querySelector(".color_variations")
 function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
     localStorage.setItem('theme', 'highcontrast');
-    colorModes[1].checked = true;
-
+    colorModeClassRemover();
+    colorModes[1].classList.add("selected")
     clrVariations.style.visibility = "hidden";
     document.documentElement.removeAttribute('data-content-theme');
-    /*
-    for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
-    }
-    for (i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
-    }
-    */
 }
 
 function setToDark() {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
-    colorModes[2].checked = true;
-
+    colorModeClassRemover()
+    colorModes[2].classList.add("selected")
     clrVariations.style.visibility = "visible";
-
     contentThemeSetter();
+}
+
+function colorModeClassRemover() {
+    for (i = 0; i < colorModes.length; i++) {
+        colorModes[i].classList.remove("selected")
+    }
 }
 
 //Page color changer
@@ -267,6 +258,7 @@ function classRemover() {
         colorButtons[i].classList.remove("selected")
     }
 }
+
 //Sets the colormode to danube
 function setToDanube(x) {
     var danubeColorButton = document.querySelector(".color_square.danube")
@@ -277,6 +269,7 @@ function setToDanube(x) {
     localStorage.setItem('colorMode', 'danube');
     colorMode = localStorage.getItem('colorMode');
 }
+
 //Sets the colormode to vanilla
 function setToVanilla(x) {
     var vanillaColorButton = document.querySelector(".color_square.vanilla")
@@ -289,6 +282,7 @@ function setToVanilla(x) {
 }
 
 var colorMode = localStorage.getItem('colorMode');
+
 //Sets the saved colormode
 function contentThemeSetter() {
     if (colorMode == "danube") {
@@ -382,46 +376,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(function () { loadingBar.classList.remove("finished"); loadingBar.remove() }, 1250);
     }
 })
-/*
-function toggleFullscreen(){
-    var elem = document.querySelector("body");
-    if(window.innerHeight == screen.height){
-        if (document.exitFullscreen){
-            document.exitFullscreen();
-        }
-        else if (document.webkitExitFullscreen){
-            document.webkitExitFullscreen();
-        }
-        else if (document.msExitFullscreen){
-            document.msExitFullscreen();
-        }
-        iconChanger();
-    }
-    else{
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        }
-        else if (elem.webkitRequestFullscreen){
-            elem.webkitRequestFullscreen();
-        }
-        else if (elem.msRequestFullscreen){
-            elem.msRequestFullscreen();
-        }
-        iconChanger();
-    }
-}
-function iconChanger(){
-    var buttonIcon = document.querySelector("#colormode_button > img");
-    if(window.innerHeight == screen.height){
-        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
-    }
-    else{
-        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
-    }
-}
-
-window.addEventListener("resize", iconChanger);
-*/
 
 var compSelect = document.getElementById("competition_select")
 

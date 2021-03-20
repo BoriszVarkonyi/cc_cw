@@ -1182,12 +1182,21 @@ input[value="Search"] {
 	background: var(--c-lightestgray);
 }
 
-.video_wrapper > img {
+.video_wrapper img {
 	height: 110px;
 	width: 190px;
 	min-width: 190px;
 	-o-object-fit: cover;
 	object-fit: cover;
+}
+
+@supports (aspect-ratio: 16 / 9) {
+	.video_wrapper img {
+		height: 110px;
+		aspect-ratio: 16 / 9;
+		min-width: unset;
+		width: auto;
+	}
 }
 
 .video_wrapper_info {
@@ -1544,7 +1553,7 @@ input[value="Search"] {
 	font-family: var(--bold);
 }
 
-/* Cofirmation */
+/* Confirmation */
 
 .panel_button {
 	position: absolute;

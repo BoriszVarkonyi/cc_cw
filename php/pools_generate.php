@@ -366,7 +366,5 @@
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
-<script src="../js/pools.js"></script>
-<script src="../js/overlay_panel.js"></script>
-<script src="../js/generate_pools.js"></script>
+<script src="../js/pools_generate.js"></script>
 </html>

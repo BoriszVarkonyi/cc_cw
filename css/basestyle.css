@@ -2,35 +2,39 @@
 
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	/* Changes throughout colormodes */
+
+	/* Needs to be RGB and RGBA because tehse have the most browser support, HEXA is just not there yet :(*/
 	--c-black: rgb(37,37,37);
 	--c-transparent-black: rgba(37,37,37,.3);
-	--c-darkgray: #9B9A9A;
-	--c-gray: #CCC;
-	--c-lightgray: #DDD;
-	--c-lightergray: #ECECEC;
-	--c-lightestgray: #F6F6F6;
-	--c-white: #FFF;
-	--c-transparent-white: #FFFFFF20;
-	--c-yellow: #FFC914;
-	--c-lightyellow: #FFD443;
+	--c-darkgray: rgb(155, 154, 154);
+	--c-gray: rgb(204, 204, 204);
+	--c-lightgray: rgb(221, 221, 221);
+	--c-lightergray: rgb(236, 236, 236);
+	--c-lightestgray: rgb(246, 246, 246);
+	--c-white: rgb(255, 255, 255);
+	--c-transparent-white: rgba(255, 255, 255, .3);
 	/* Legacy stuff
 	--c-secondary: #FF9700;
 	--c-tertiary: #FFBE5C;
 	--c-secondary: #F19A3E;
 	--c-tertiary: #F4AE65;
 	*/
-	--c-red: #F84F4F;
-	--c-lightred: #F97272;
-	--c-green: #8DFFB7;
-	--c-lightgreen: #A4FFC5;
-	--c-blue: #42CAFD;
-	--c-lightblue: #68D5FD;
-	--c-orange: #FF9700;
-	--c-lightorange: #FFBE5C;
-	--c-purple: #7765E3;
-	--c-lightpurple: #9284e9;
-	--c-bronze:#E58955;
+	--c-yellow: rgb(255, 201, 20);
+	--c-lightyellow: rgb(255, 212, 67);
+	--c-red: rgb(248, 79, 79);
+	--c-lightred: rgb(249, 114, 114);
+	--c-green: rgb(141, 255, 183);
+	--c-lightgreen: rgb(164, 255, 197);
+	--c-blue: rgb(66, 202, 253);
+	--c-lightblue: rgb(104, 213, 253);
+	--c-orange: rgb(255, 151, 0);
+	--c-lightorange: rgb(255, 190, 92);
+	--c-purple: rgb(119, 101, 227);
+	--c-lightpurple: rgb(146, 132, 233);
+	--c-bronze:rgb(229, 137, 85);
 	/* Static throughout colormodes */
+	/*
+	NEEDS TO BE CHANGE TO RGB*/
 	--cs-black: #252525;
 	--cs-transparent-black: #25252520;
 	--cs-darkgray: #9B9A9A;
@@ -50,11 +54,12 @@
 	--cs-purple: #7765E3;
 	--cs-input: #252525;
 	--cs-bronze :#E58955;
+
 	/* Unique */
 	--csd-orange: transparent;
 	--csd-lightorange: transparent;
 	/* Shadows */
-	--s-black: 0 3px 6px rgba(0,0,0,.1);
+	--s-black: 0 3px 6px rgba(37,37,37,.1);
 	--s-orange: 0 3px 6px #FF970010;
 	--s-red: 0 3px 6px #F84F4F10;
 	--s-green: 0 3px 6px #8DFFB710;
@@ -80,6 +85,7 @@
 	--ci-staticwhite: invert();
 }
 
+/*
 [data-content-theme="danube"]:root {
 	--c-primary: #00768b;
 	--c-lightprimary: #3391a2;
@@ -92,21 +98,22 @@
 	--ci-secondarycontrast: contrast(71%);
 	--i-fencers-bg: url(../assets/img/fencers_bg_d.svg);
 }
-
+*/
 [data-content-theme="vanilla"]:root {
-	--c-primary: #FF9700;
-	--c-lightprimary: #FFBE5C;
-	--c-secondary: #FFBE5C;
-	--c-lightsecondary: #FF9700;
-	--c-tertiary: #FF9700;
-	--c-lighttertiary: #FF9700;
-	--cd-primarycontrast: #252252;
+	--c-primary: var(--c-orange);
+	--c-lightprimary: var(--c-lightorange);
+	--c-secondary: var(--c-lightorange);
+	--c-lightsecondary: var(--c-orange);
+	--c-tertiary: var(--c-orange);
+	--c-lighttertiary: var(--c-orange);
+	--cd-primarycontrast: var(--c-black);
 	--ci-primarycontrast: contrast(71%);
 	--ci-secondarycontrast: invert();
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
-[data-theme="highcontrast"]:root { /* High contrast mode, yellow and dark colors a prominent, biggger font sizes */
+/*
+[data-theme="highcontrast"]:root { High contrast mode, yellow and dark colors a prominent, biggger font sizes
 	--c-black: #FFFC00;
 	--c-transparent-black: #25252530;
 	--c-darkgray: #1A1A1A;
@@ -127,7 +134,7 @@
 	--ci-staticwhite: invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1);
 }
 
-[data-theme="dark"]:root {	/* Dark Mode */
+[data-theme="dark"]:root {	Dark Mode
 	--c-black: #F1F1F1;
 	--c-transparent-black: #25252530;
 	--c-darkgray: #3F3F3F;
@@ -143,18 +150,20 @@
 	--c-blue: #393939;
 	--c-purple: #393939;
 	--c-bronze : #393939;
-	/* Unique */
+	Unique
 	--csd-orange: #F19A3E;
 	--csd-lightorange: #f2a451;
-	/* Shadows */
+	Shadows
 	--s-black: 0 3px 6px #25252510;
 	--s-orange: 0 3px 6px #FF970010;
 	--s-red: 0 3px 6px #F84F4F10;
 	--s-green: 0 3px 6px #8DFFB710;
-	/*Icons*/
+	Icons
 	--ci-staticblack: invert();
 	--ci-staticwhite: saturation(71%);
 }
+
+*/
 
 @font-face {
 	font-family: Poppins-Light;
@@ -296,13 +305,37 @@ img[src$=".svg"].not_icon {
 	color: var(--cs-darkgray) !important;
 }
 
+/* ///SCROLL BAR// */
+
+*.small_scroll::-webkit-scrollbar { /* Width */
+    width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar { /* Width */
+    width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-darkgray);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: var(--c-gray);
+}
+
 /* ///FORMS AND INPUTS/// */
 
 label {	/* Used in forms, all caps, thin font    NO option buttons*/
 	font-family: var(--bold);
 	text-transform: uppercase;
 	color: var(--c-black);
-	padding: 0;
 }
 
 label.hidden {
@@ -426,13 +459,6 @@ label.error + input {
 }
 
 /* For development purposes */
-
-#title_stripe input {
-	padding: 0 !important;
-	margin: 0 !important;
-	background: var(--c-white) !important;
-	border: none !important;
-}
 
 /* Input Background Directory */
 
@@ -1232,31 +1258,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 .resizer:active {
 	background: var(--cs-blue);
-}
-
-/* ///SCROLL BAR// */
-
-*.small_scroll::-webkit-scrollbar { /* Width */
-    width: 6px;
-	height: 6px;
-}
-
-::-webkit-scrollbar { /* Width */
-    width: 10px;
-	height: 10px;
-}
-
-::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb { /* Handle */
-	background: var(--c-darkgray);
-	border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover { /* Handle on hover */
-    background: var(--c-gray);
 }
 
 input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking"] {
