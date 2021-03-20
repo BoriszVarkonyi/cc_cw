@@ -223,8 +223,8 @@ function tryConfig() {
     var matchesArray = table_wrapper.querySelectorAll(".table_row")
 
     //Main filler function
+    
     //Same time different piste
-
     if (different_piste.checked == true) {
 
         let pistecounter = 0;
@@ -259,8 +259,9 @@ function tryConfig() {
     }
 
     //Same piste different time
-
     if (different_time.checked == true) {
+
+        prime_array = [7, 11, 13, 17, 31, 37, 41, 43, 47, 53, 59, 71, 73, 79, 97, 113, 157, 179]
 
         for (let i = 0; i < matchesArray.length; i++) {
 
@@ -279,12 +280,16 @@ function tryConfig() {
 
         }
 
+        if (prime_array.includes(roundnum) && pistesAvailable != roundnum) {
+
+            roundnum++
+        }
+
         console.log("Roundnum: " + roundnum)
 
         while ((roundnum % pistesAvailable) != 0) {
 
             pistesAvailable--
-
         }
 
         var actualTime = new Date("2020-01-01T" + start + ":00");
