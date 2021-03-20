@@ -66,15 +66,13 @@ if (isset($_POST["save_match"])) {
     } elseif ($fencer2_data->points == "ABD") {
 
         $winnerfencer = 1;
-    }
-    if ($fencer1_data->points == "EXC") {
+    } elseif ($fencer1_data->points == "EXC") {
 
         $winnerfencer = 2;
     } elseif ($fencer2_data->points == "EXC") {
 
         $winnerfencer = 1;
-    }
-    if ($fencer1_data->points == "NCB") {
+    } elseif ($fencer1_data->points == "NCB") {
 
         $winnerfencer = 2;
     } elseif ($fencer2_data->points == "NCB") {
@@ -245,7 +243,6 @@ if (isset($_POST["piste_change"])) {
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
     header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
-
 }
 
 if (isset($_POST["time_change"])) {
