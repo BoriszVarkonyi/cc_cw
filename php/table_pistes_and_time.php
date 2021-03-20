@@ -29,6 +29,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,6 +39,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
+
 <body>
     <!-- header -->
     <div id="flexbox_container">
@@ -141,7 +143,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                         <p class="piste_type_title">Selected pistes</p>
                                                         <div class="piste_wrapper" id="used_piste_container">
 
-                                                        <!-- JS MOVES PISTES HERE -->
+                                                            <!-- JS MOVES PISTES HERE -->
 
                                                         </div>
                                                         <div class="piste_controls">
@@ -165,7 +167,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                                         <button type="button" onclick="moveUp(this)">
                                                                             <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
                                                                         </button>
-                                                                        <button type="button"  onclick="moveDown(this)">
+                                                                        <button type="button" onclick="moveDown(this)">
                                                                             <img src="../assets/icons/keyboard_arrow_down-black-18dp.svg">
                                                                         </button>
                                                                     </div>
@@ -197,7 +199,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                     <img src="../assets/icons/build-black-18dp.svg">
                                     <p>Preview matches</p>
                                 </div>
-                                <div class="db_panel_main full">
+                                <div class="db_panel_main list">
                                     <div class="table fixed">
                                         <div class="table_header">
                                             <div class="table_header_text">MATCH ID</div>
@@ -208,9 +210,35 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                             <?php
 
-                                            foreach ($out_table->$table_round as $matchkey => $matches) { ?>
+                                            foreach ($out_table->$table_round as $matchkey => $matches) {
 
-                                                <div class="table_row">
+                                                $canskip = false;
+
+                                                foreach ($matches as $fencerkey => $fencer) {
+
+                                                    if ($canskip == true) {
+                                                        break;
+                                                    }
+
+                                                    if ($fencerkey == "referees" || $fencerkey == "pistetime") {
+                                                        continue;
+                                                    }
+                                                    if (isset($fencer->name)) {
+                                                        if ($fencer->name == "" || $fencer->isWinner == true) {
+                                                            $canskip = true;
+                                                        }
+                                                    }
+                                                }
+
+                                            ?>
+
+                                                <div class="table_row <?php
+
+                                                                        if ($canskip == true) {
+                                                                            echo "skip";
+                                                                        }
+
+                                                                        ?>">
                                                     <div class="table_item"><?php echo $matchkey ?></div>
                                                     <div class="table_item pistes"><?php echo $matches->pistetime->pistename ?></div>
                                                     <div class="table_item time"><?php echo $matches->pistetime->time ?></div>

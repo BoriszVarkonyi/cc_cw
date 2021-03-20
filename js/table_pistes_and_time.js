@@ -7,6 +7,8 @@ var time_input = document.getElementById("starting_time")
 var interval_input = document.getElementById("interval")
 var use_all = document.getElementById("all")
 var use_not_all = document.getElementById("not_all")
+var different_time = document.getElementById("diff_time")
+var different_piste = document.getElementById("diff_piste")
 var table_wrapper = document.getElementById("table_row_wrapper")
 
 //================================================================================
@@ -222,38 +224,116 @@ function tryConfig() {
 
     //Main filler function
     //Same time different piste
-    let pistecounter = 0;
 
-    var actualTime = new Date("2020-01-01T" + start + ":00");
+    if (different_piste.checked == true) {
 
-    for (let i = 0; i < matchesArray.length; i++) {
+        let pistecounter = 0;
 
-        m_piste = matchesArray[i].querySelector(".pistes")
-        m_time = matchesArray[i].querySelector(".time")
+        var actualTime = new Date("2020-01-01T" + start + ":00");
 
-        m_piste.innerHTML = pisteArray[pistecounter];
-        m_time.innerHTML = actualTime.getHours() + ":" + minutes_with_leading_zeros(actualTime);
+        for (let i = 0; i < matchesArray.length; i++) {
 
-        pistecounter++
+            m_piste = matchesArray[i].querySelector(".pistes")
+            m_time = matchesArray[i].querySelector(".time")
 
-        if (pistecounter >= pistesAvailable) {
+            if (matchesArray[i].classList.contains("skip")) {
 
-            pistecounter = 0
-            actualTime.setTime(actualTime.getTime() + (interval * 60000))
+                m_piste.innerHTML = "Finished";
+                m_time.innerHTML = "Finished";
 
+                continue;
+            }
+
+            m_piste.innerHTML = pisteArray[pistecounter];
+            m_time.innerHTML = actualTime.getHours() + ":" + minutes_with_leading_zeros(actualTime);
+
+            pistecounter++
+
+            if (pistecounter >= pistesAvailable) {
+
+                pistecounter = 0
+                actualTime.setTime(actualTime.getTime() + (interval * 60000))
+
+            }
         }
     }
 
+    //Same piste different time
+
+    if (different_time.checked == true) {
+
+        for (let i = 0; i < matchesArray.length; i++) {
+
+            m_piste = matchesArray[i].querySelector(".pistes")
+            m_time = matchesArray[i].querySelector(".time")
+
+            if (matchesArray[i].classList.contains("skip")) {
+
+                m_piste.innerHTML = "Finished";
+                m_time.innerHTML = "Finished";
+
+                roundnum--
+
+                continue;
+            }
+
+        }
+
+        console.log("Roundnum: " + roundnum)
+
+        while ((roundnum % pistesAvailable) != 0) {
+
+            pistesAvailable--
+
+        }
+
+        var actualTime = new Date("2020-01-01T" + start + ":00");
+
+        change_every = roundnum / pistesAvailable
+
+        console.log("Change every: " + change_every)
+
+        changecounter = 0;
+        howmany = 0;
+
+        for (let i = 0; i < matchesArray.length; i++) {
+
+            m_piste = matchesArray[i].querySelector(".pistes")
+            m_time = matchesArray[i].querySelector(".time")
+
+            if (matchesArray[i].classList.contains("skip")) {
+
+                roundnum--
+
+                continue;
+            }
+
+            m_piste.innerHTML = pisteArray[changecounter]
+            m_time.innerHTML = actualTime.getHours() + ":" + minutes_with_leading_zeros(actualTime)
+
+            howmany++
+            actualTime.setTime(actualTime.getTime() + (interval * 60000))
+
+            if (howmany == change_every) {
+
+                changecounter++
+                actualTime = new Date("2020-01-01T" + start + ":00");
+                howmany = 0
+            }
+
+        }
+
+    }
+
     //Check in console
-    console.log(pistesAvailable)
-    console.log(pisteArray)
-    console.log(matchesArray)
+    // console.log(pistesAvailable)
+    // console.log(pisteArray)
+    // console.log(matchesArray)
 
 }
 
 //Function for leading zeros
-function minutes_with_leading_zeros(dt) 
-{ 
-  return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+function minutes_with_leading_zeros(dt) {
+    return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
 }
 //////////////////////////////////////////////////////////////////////////////////
