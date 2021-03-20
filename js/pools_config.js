@@ -325,9 +325,10 @@ var input1 = document.getElementById("startingTimeInput");
 var input2 = document.getElementById("timeInput");
 var pNtsaveButton = document.getElementById("pNtSaveButton");
 var inputs = [input1, input2];
-var allButton = document.getElementById("all")
-var pNtoptioncontainer = document.getElementById("select_pistes_panel")
-var pisteSelect = pNtoptioncontainer.querySelectorAll(".piste_select")
+var allButton = document.getElementById("all");
+var pNtoptioncontainer = document.getElementById("select_pistes_panel");
+var pisteSelect = pNtoptioncontainer.querySelectorAll(".piste_select");
+
 function pNtValidation() {
     pNtsaveButton.disabled = true;
     //Checking every input.
