@@ -180,7 +180,6 @@
                             <input type="radio" name="ref_select" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref"/>
                             <label for="manual_select_ref">Select manually</label>
                         </div>
-
                         <div class="option_container grid piste_select disabled" id="select_referees_panel">
 
                             <?php
@@ -217,6 +216,7 @@
 
                             ?>
                         </div>
+                        <input type="text" placeholder="Ez az ami kell Kovinak!">
                         <input type="number" name="number_of_refs" value="<?php echo $ref_counter?>" id="number_of_refs" hidden/>
                         <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
                     </form>
