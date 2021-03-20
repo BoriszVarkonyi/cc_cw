@@ -12,7 +12,7 @@
 	--c-lightergray: rgb(236, 236, 236);
 	--c-lightestgray: rgb(246, 246, 246);
 	--c-white: rgb(255, 255, 255);
-	--c-transparent-white: rgba(255, 255, 255, .3);
+	--c-transparent-white: rgba(255,255,255,.3);
 	/* Legacy stuff
 	--c-secondary: #FF9700;
 	--c-tertiary: #FFBE5C;
@@ -1060,35 +1060,28 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	display: none !important;
 	justify-content: center;
 	align-items: center;
+	height: 0;
 }
 
 .table_row_drop.collapsed {
-	background: var(--c-darkgray) !important;
-	height: 100%;
-	min-height: 3px;
+	background: var(--c-lightprimary) !important;
+	height: 4px;
 	display: flex !important;
+	border-radius: 5px;
 }
 
 .table_row_drop.opened {
 	display: flex !important;
-	background: var(--c-lightgray) !important;
-	min-height: calc(1.4em + 1.25vmin);
+	background: var(--c-lightprimary) !important;
+	height: calc(1.4em + 1.25vmin);
+	border-radius: 0px;
+	max-width: 100% !important;
 }
 
 .table_row_drop.opened:after {
 	content: "Drop Fencer here";
-	color: var(--c-darkgray);
-}
-
-.table_row_drop.opened:hover {
-	background: var(--c-lightergray) !important;
-	max-width: 100% !important;
-	transform: scale(1.01);
+	color: var(--cd-primarycontrast);
 	font-family: var(--bold);
-}
-
-.table_row_drop:hover p {
-	color: var(--c-black);
 }
 
 .table_row.start > .table_item {
