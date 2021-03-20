@@ -12,8 +12,8 @@
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
-        <div id="content">
+    <div id="main" class="full">
+        <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
@@ -22,8 +22,8 @@
                     Round Live gnwergnfeuwgfueu
                 </p>
             </div>
-            <div id="content_wrapper">
-                <div id="round_livestream_wrapper">
+            <div id="content_wrapper" class="round">
+                <div id="video" class="round">
                     <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
@@ -74,6 +74,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>

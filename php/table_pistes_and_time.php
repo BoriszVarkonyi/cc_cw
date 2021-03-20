@@ -48,12 +48,13 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Table Pistes & Time setup</p>
-                <div class="stripe_button_wrapper">
-                    <button name="submit_form" form="save_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
+                <form class="stripe_button_wrapper">
+                    <input type="text" id="">
+                    <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
                         <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
-                </div>
+                </form>
             </div>
             <div id="page_content_panel_main">
                 <div id="" class="wrapper full margin">
@@ -104,7 +105,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                     <p>Set Time and Piste for table</p>
                                 </div>
                                 <div class="db_panel_main full">
-                                    <form id="" action="" class="form_wrapper" method="POST">
+                                    <div class="form_wrapper" method="POST">
                                         <div>
                                             <div>
                                                 <label for="">STARTING TIME</label>
@@ -191,7 +192,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="db_panel full" id="matches_preview_panel">

@@ -41,7 +41,10 @@
                     <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <a href="https://www.youtube.com/embed/<?php echo $video_id ?>">Open on Youtube</a>
+                <a href="https://www.youtube.com/watch?v=<?php echo $video_id ?>" class="open_on_yt_button">
+                    <p>Open on Youtube</p>
+                    <img src="../assets/icons/youtube_icon-white-18dp.svg" alt="Youtube Logo">
+                </a>
             </div>
         </div>
     </div>
