@@ -86,26 +86,52 @@
     //piste
     if (isset($_POST['piste_time'])) {
 
+        //get table from db
         $qry_get_pistes = "SELECT `data` FROM `pistes` WHERE `assoc_comp_id` = '$comp_id'";
         $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
-
         if ($row = mysqli_fetch_assoc($do_get_pistes)) {
             $piste_string = $row['data'];
             $piste_table = json_decode($piste_string);
         }
+
+        //get data from form
         $piste_usage = $_POST['pistes_usage_type'];
+        $piste_time = $_POST['interval_of_match'];
+        //split és faszom!
+        $piste_start = $_POST['starting_time'];
+
         $pistes_array = [];
 
         if ($piste_usage == 1) {
             $pistes_array = $piste_table;
         } else {
-            for ($i =  0; $i < count($ref_table); $i++) {
+            for ($i =  0; $i < count($piste_table); $i++) {
                 if (isset($_POST["piste_$i"])) {
                     array_push($pistes_array, $piste_table[$i]);
                 }
             }
         }
+
+        $time = $piste_start;
+        $i = -1;
+        for ($pool_num = 0; $pool_num <= $pool_of; ++$pool_num) {
+
+            if ($i + 1 < count($pistes_array)) {
+                $i++;
+            } else {
+                $i = 0;
+                //TIME
+                $time += $piste_time;
+            }
+
+            $json_table[$pool_num] -> piste = $pistes_array[$i];
+            $json_table[$pool_num] -> s_time = $time;
+            $json_table[$pool_num] -> time = $piste_time;
+        }
+
+        print_r($json_table);
     }
+
 
 ?>
 
@@ -306,8 +332,8 @@
                                     }
                                 }
 
-                                $piste = "Blue";
-                                $time = "2:00";
+                                $piste = $json_table[$pool_num] -> piste -> name;
+                                $time = $json_table[$pool_num] -> s_time;
                             ?>
                             <div>
                                 <div class="entry">
