@@ -199,7 +199,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                     <img src="../assets/icons/build-black-18dp.svg">
                                     <p>Preview matches</p>
                                 </div>
-                                <div class="db_panel_main full">
+                                <div class="db_panel_main list">
                                     <div class="table fixed">
                                         <div class="table_header">
                                             <div class="table_header_text">MATCH ID</div>
