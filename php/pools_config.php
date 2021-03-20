@@ -104,6 +104,7 @@
         $ref_can = $_POST['ref_can'];
         $referees = $_POST['ref_select'];
         $number_of_refs = $_POST['number_of_refs'];
+        $n_o_pistes = $_POST['number_of_pistes'];
 
         //get referees from db
         $qry_get_refs = "SELECT `data` FROM `referees` WHERE `assoc_comp_id` = $comp_id";
