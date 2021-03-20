@@ -258,6 +258,7 @@ function classRemover() {
         colorButtons[i].classList.remove("selected")
     }
 }
+
 //Sets the colormode to danube
 function setToDanube(x) {
     var danubeColorButton = document.querySelector(".color_square.danube")
@@ -268,6 +269,7 @@ function setToDanube(x) {
     localStorage.setItem('colorMode', 'danube');
     colorMode = localStorage.getItem('colorMode');
 }
+
 //Sets the colormode to vanilla
 function setToVanilla(x) {
     var vanillaColorButton = document.querySelector(".color_square.vanilla")
@@ -280,6 +282,7 @@ function setToVanilla(x) {
 }
 
 var colorMode = localStorage.getItem('colorMode');
+
 //Sets the saved colormode
 function contentThemeSetter() {
     if (colorMode == "danube") {
@@ -373,46 +376,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(function () { loadingBar.classList.remove("finished"); loadingBar.remove() }, 1250);
     }
 })
-/*
-function toggleFullscreen(){
-    var elem = document.querySelector("body");
-    if(window.innerHeight == screen.height){
-        if (document.exitFullscreen){
-            document.exitFullscreen();
-        }
-        else if (document.webkitExitFullscreen){
-            document.webkitExitFullscreen();
-        }
-        else if (document.msExitFullscreen){
-            document.msExitFullscreen();
-        }
-        iconChanger();
-    }
-    else{
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        }
-        else if (elem.webkitRequestFullscreen){
-            elem.webkitRequestFullscreen();
-        }
-        else if (elem.msRequestFullscreen){
-            elem.msRequestFullscreen();
-        }
-        iconChanger();
-    }
-}
-function iconChanger(){
-    var buttonIcon = document.querySelector("#colormode_button > img");
-    if(window.innerHeight == screen.height){
-        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
-    }
-    else{
-        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
-    }
-}
-
-window.addEventListener("resize", iconChanger);
-*/
 
 var compSelect = document.getElementById("competition_select")
 

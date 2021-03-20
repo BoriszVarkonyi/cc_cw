@@ -96,11 +96,6 @@ if (isset($_POST["logout"])) {
 
     <!-- colormode and language buttons -->
     <div class="settings_section">
-        <!--
-        <button class="header_button" id="" onclick="toggleFullscreen()">
-            <img src="../assets/icons/open_in_full-black-18dp.svg"/>
-        </button>
-        -->
         <button class="header_button" id="language_button" onclick="toggleLanguagePanel()">
             <img src="../assets/icons/language-black-18dp.svg"/>
         </button>

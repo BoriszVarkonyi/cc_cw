@@ -460,13 +460,6 @@ label.error + input {
 
 /* For development purposes */
 
-#title_stripe input:not(input.search) {
-	padding: 0;
-	margin: 0;
-	background: var(--c-white);
-	border: none;
-}
-
 /* Input Background Directory */
 
 .username_input {

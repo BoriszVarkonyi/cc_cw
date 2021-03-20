@@ -12,8 +12,8 @@
     margin-left: 10px;
 }
 
-
 /* Needs to be button or itt will get messed up */
+
 .login_link_button {
 	color: var(--c-white);
 	text-transform: uppercase;
@@ -45,24 +45,24 @@
     overflow: hidden;
 }
 
-.login_link_wrapper.opened > .login_link_dropdown {
+.login_link_wrapper.opened .login_link_dropdown {
 	max-height: 250px;
     padding: 10px;
 }
 
-.login_link_dropdown > p {
+.login_link_dropdown p {
 	font-size: var(--f-small);
 	text-transform: uppercase;
 	font-family: var(--light);
 	margin: 10px 0 5px 5px;
 }
 
-.login_link_dropdown > a {
+.login_link_dropdown a {
 	font-size: var(--f-small);
 	margin: 0 0 10px 15px;
 }
 
-.login_link_dropdown > a:hover {
+.login_link_dropdown a:hover {
 	font-family: var(--bold);
 }
 
