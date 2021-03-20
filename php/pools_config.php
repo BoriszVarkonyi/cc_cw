@@ -32,12 +32,25 @@
                 $plus_hours = floor($this -> minutes / 60);
 
                 $this -> minutes = $new_mins;
+                $this -> hours += $plus_hours;
             }
 
             if ($this -> hours > 24) {
                 $new_hours = $this -> hours % 24;
 
                 $this -> hours = $new_hours;
+            }
+
+            if (strlen($this ->  hours) === 1) {
+                $current_hours = $this -> hours;
+
+                $this -> hours = "0" . $current_hours;
+            }
+
+            if (strlen($this ->  minutes) === 1) {
+                $current_minutes = $this -> minutes;
+
+                $this -> minutes = "0" . $current_minutes;
             }
         }
 
@@ -85,6 +98,7 @@
         //print_r($json_table);
     }
 
+    //only after piste drawing
     //referee drwawing
     if (isset($_POST['draw_ref'])) {
         $ref_can = $_POST['ref_can'];
@@ -117,7 +131,9 @@
         //draw refs
         if ($ref_can == 1) {
             //referes can  match with anyone
-
+            for ($i = 1; $i  < count($json_table) && $i - 1 < $ref_table; $i++) {
+                $json_table[$i] -> ref1 = $ref_table[$i-1];
+            }
         } else {
             //referees cant match with own nationality
 
@@ -161,19 +177,23 @@
         for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
             $piste_counter++;
             //set back counter if we ran out of pistes
-            if (!isset($piste_array[$piste_counter])) {
+            if (!isset($pistes_array[$piste_counter])) {
                 $piste_counter = 0;
                 $piste_time -> addTime($piste_time_add);
             }
-            $current_piste_name = $piste_array[$piste_counter] -> name;
+            $current_piste_name = $pistes_array[$piste_counter] -> name;
             $current_piste_time = $piste_time -> getTime();
 
             $json_table[$pool_num] -> piste = $current_piste_name;
             $json_table[$pool_num] -> time = $current_piste_time;
         }
 
+        //update db
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+        $qry_update_p = "UPDATE `pools` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+        $do_update_p = mysqli_query($connection, $qry_update_p);
 
-        print_r($json_table);
+        header("Refresh:0");
     }
 
 
