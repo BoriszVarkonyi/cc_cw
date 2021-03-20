@@ -5,6 +5,49 @@
 
 <?php
 
+    class pisteTime {
+        public $hours;
+        public $minutes;
+
+        function __construct($string) {
+            $time_array = explode(':',$string);
+
+            $this -> hours = $time_array[0];
+            $this -> minutes = $time_array[1];
+        }
+
+        function addTime($mins_to_add) {
+            if ($mins_to_add > 60) {
+                $hours = floor($mins_to_add / 60);
+                $mins = $mins_to_add  % 60;
+
+                $this -> hours += $hours;
+                $this -> minutes += $mins;
+            } else {
+                $this -> minutes += $mins_to_add;
+            }
+
+            if ($this -> minutes >= 60) {
+                $new_mins = $this -> minutes % 60;
+                $plus_hours = floor($this -> minutes / 60);
+
+                $this -> minutes = $new_mins;
+            }
+
+            if ($this -> hours > 24) {
+                $new_hours = $this -> hours % 24;
+
+                $this -> hours = $new_hours;
+            }
+        }
+
+        function getTime() {
+            $output = $this -> hours . ":" . $this -> minutes;
+
+            return $output;
+        }
+    }
+
     $qry_check_row = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
     if ($row = mysqli_fetch_assoc($do_check_row)) {
@@ -41,8 +84,6 @@
 
         //print_r($json_table);
     }
-
-
 
     //referee drwawing
     if (isset($_POST['draw_ref'])) {
@@ -96,12 +137,15 @@
 
         //get data from form
         $piste_usage = $_POST['pistes_usage_type'];
-        $piste_time = $_POST['interval_of_match'];
-        //split és faszom!
-        $piste_start = $_POST['starting_time'];
+        $piste_time_add = $_POST['interval_of_match'];
+        $piste_start_s = $_POST['starting_time'];
+
+        //new pisteTime obj
+        $piste_time = new pisteTime($piste_start_s);
 
         $pistes_array = [];
 
+        //select pistes based on input
         if ($piste_usage == 1) {
             $pistes_array = $piste_table;
         } else {
@@ -112,22 +156,22 @@
             }
         }
 
-        $time = $piste_start;
-        $i = -1;
-        for ($pool_num = 0; $pool_num <= $pool_of; ++$pool_num) {
-
-            if ($i + 1 < count($pistes_array)) {
-                $i++;
-            } else {
-                $i = 0;
-                //TIME
-                $time += $piste_time;
+        //draw pistes
+        $piste_counter = -1;
+        for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
+            $piste_counter++;
+            //set back counter if we ran out of pistes
+            if (!isset($piste_array[$piste_counter])) {
+                $piste_counter = 0;
+                $piste_time -> addTime($piste_time_add);
             }
+            $current_piste_name = $piste_array[$piste_counter] -> name;
+            $current_piste_time = $piste_time -> getTime();
 
-            $json_table[$pool_num] -> piste = $pistes_array[$i];
-            $json_table[$pool_num] -> s_time = $time;
-            $json_table[$pool_num] -> time = $piste_time;
+            $json_table[$pool_num] -> piste = $current_piste_name;
+            $json_table[$pool_num] -> time = $current_piste_time;
         }
+
 
         print_r($json_table);
     }
@@ -332,8 +376,8 @@
                                     }
                                 }
 
-                                $piste = $json_table[$pool_num] -> piste -> name;
-                                $time = $json_table[$pool_num] -> s_time;
+                                $piste = $json_table[$pool_num] -> piste;
+                                $time = $json_table[$pool_num] -> time;
                             ?>
                             <div>
                                 <div class="entry">

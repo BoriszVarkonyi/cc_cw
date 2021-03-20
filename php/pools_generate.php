@@ -34,7 +34,7 @@
             public $ref1 = NULL;
             public $ref2 = NULL;
             public $piste = NULL;
-            public $s_time = NULL;
+            public $time = NULL;
 
             //function amivel hozzárakjuk a fencereket
             function add_fencer(int $y,object $fencer_obj) {
