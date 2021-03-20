@@ -5,7 +5,7 @@
 	top: 10px;
 	right: 10px;
 	display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .login_link_wrapper {

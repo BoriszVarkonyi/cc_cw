@@ -195,7 +195,7 @@ if (isset($_POST["submit"])) {
     </div>
     <div id="login_links_wrapper">
         <div class="login_link_wrapper">
-            <a type="button" class="login_link_button">News and updates</a>
+            <a class="login_link_button">News and updates</a>
         </div>
         <div class="login_link_wrapper">
             <button type="button" class="login_link_button" onclick="toggleOtherApps(this)">Other Applications</button>
@@ -203,7 +203,7 @@ if (isset($_POST["submit"])) {
                 <p>For Organisers</p>
                 <a href="">CC Wheelchair</a>
                 <p>For Federations</p>
-                <a href="">Competition View</a>
+                <a href="../cw/competition_view.php">Competition View</a>
             </div>
         </div>
     </div>
