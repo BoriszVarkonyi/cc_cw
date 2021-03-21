@@ -31,8 +31,8 @@
 	flex: 1 1 75%;
 }
 
-#matches_preview_panel {
-	flex: 1 1 25%;
+#matches_preview_panel, #referees_preview_panel {
+	flex: 1 1 50%;
 	min-width: 200px;
 }
 
