@@ -8,23 +8,33 @@
 	flex: 0 1 auto;
 }
 
+#table_piste_time_wrapper .form_wrapper, #table_referees_wrapper .form_wrapper {
+	margin: auto;
+}
+
 #table_piste_time_wrapper {
 	flex: 1 1 auto;
 	display: flex;
 	gap: 20px;
-	max-height: 60vh;
+}
+
+#table_referees_wrapper {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 #pistes_and_time_panel {
-	flex: 1 1 75%;
+	flex: 1 1 25%;
 }
 
-#matches_preview_panel {
-	flex: 1 1 25%;
+#matches_preview_panel, #referees_preview_panel {
+	flex: 1 1 75%;
 	min-width: 200px;
 }
 
-#pistes_wrapper {
+#selection_list_wrapper {
 	width: 100%;
 	display: flex;
 	flex-direction: row !important;
@@ -32,7 +42,7 @@
 	height: 35vh;
 }
 
-.piste_type_wrapper {
+.selection_list {
 	border: 3px solid var(--c-gray);
 	background: var(--c-lightestgray);
 	flex: 1 1 50%;
@@ -44,7 +54,7 @@
 	flex-direction: column;
 }
 
-.piste_type_title {
+.selection_list_title {
 	margin: 10px auto;
 }
 
@@ -57,7 +67,7 @@
 	flex: 1 1 30vh;
 }
 
-.piste_controls {
+.selection_list_controls {
 	flex: 1 0 50px;
 	display: flex;
 	justify-content: center;
@@ -65,12 +75,12 @@
 	border-top: 2px solid var(--c-gray);
 }
 
-.piste_controls button, .try_button {
+.selection_list_controls button, .try_button {
 	padding: 5px 10px;
 	border-radius: 50px;
 }
 
-.piste_controls button:hover, .try_button:hover {
+.selection_list_controls button:hover, .try_button:hover {
 	background: var(--c-lightgray);
 }
 

@@ -90,6 +90,15 @@ header {
 	flex-direction: column;
 }
 
+#content_wrapper.round {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1 1 100%;
+	flex-wrap: wrap;
+	gap: 50px;
+}
+
 #content_wrapper.reverse_wrap {
 	display: flex;
 	flex-wrap: wrap-reverse;
@@ -518,7 +527,8 @@ header > div {
 	position: absolute;
 	top: 50px;
 	background: #25252599;
-	backdrop-filter: blur(1px);
+	-webkit-backdrop-filter: blur(1px);
+	        backdrop-filter: blur(1px);
 	height: 0;
 	transition: all var(--t-basic);
 	overflow: hidden;
@@ -1169,8 +1179,6 @@ input[value="Search"] {
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
-	padding: 0 50px 50px;
-	box-sizing: border-box;
 }
 
 .video_wrapper {
@@ -1233,6 +1241,7 @@ input[value="Search"] {
 	flex: 1 1 100%;
 	margin-top: 5px;
 	-webkit-line-clamp: 2;
+	color: var(--c-darkgray);
 }
 
 /* Pre-Reg */
@@ -1277,27 +1286,6 @@ input[value="Search"] {
 
 /* Round Live */
 
-#round_live_wrapper {
-	padding: 25px 0;
-	margin: 0 100px;
-	justify-content: center;
-	flex-grow: 1;
-	display: flex;
-	flex-wrap: nowrap;
-	min-height: 50vh;
-	height: 900px;
-	max-height: 70vh;
-}
-
-#round_livestream_wrapper {
-	background: var(--c-lightestgray);
-	flex-grow: 1;
-	margin-right: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 #no_livestream {
 	font-family: var(--bold);
 }
@@ -1308,14 +1296,19 @@ input[value="Search"] {
 
 #round_info_wrapper {
 	min-height: 100%;
-	min-width: 30%;
+	flex: 1 1 300px;
 	display: flex;
 	flex-direction: column;
 }
 
-#machine_wrapper {
+#round_info_wrapper > div {
 	width: 100%;
 	background: var(--c-lightestgray);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+#machine_wrapper {
 	margin-bottom: 20px;
 }
 
@@ -1352,16 +1345,15 @@ input[value="Search"] {
 }
 
 #round_info {
-	width: 100%;
-	background: var(--c-lightestgray);
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 10px 0;
 }
 
-#round_info > p {
-	padding: 10px 10%;
+#round_info p {
+	padding: 5px 10%;
 	font-family: var(--bold);
 }
 
@@ -1654,14 +1646,6 @@ b.green {
 	background: transparent;
 }
 
-#video_wrapper {
-	margin: 20px;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	align-content: flex-start;
-}
-
 /* VIDEO */
 
 #video {
@@ -1669,6 +1653,10 @@ b.green {
 	min-height: 300px;
 	height: 50vh;
 	max-height: 60vh;
+}
+
+#video.round {
+	flex: 1 1 600px;
 }
 
 #video iframe {
@@ -1691,6 +1679,26 @@ b.green {
 		aspect-ratio: 16 / 9;
 	}
 }
+
+.open_on_yt_button {
+	background: var(--c-red);
+	color: var(--c-white);
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	margin: 20px;
+}
+
+.open_on_yt_button p {
+	padding: 10px 5px 10px 20px;
+}
+
+.open_on_yt_button img {
+	padding: 10px 20px 10px 5px;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
 
 /* Book appointment */
 
