@@ -206,6 +206,7 @@ if (isset($_POST["ref_change"])) {
     $json_table->$tableround->$matchid->referees->ref->id = $refdataarray[0];
     $json_table->$tableround->$matchid->referees->ref->name = $refdataarray[1];
     $json_table->$tableround->$matchid->referees->ref->nation = $refdataarray[2];
+    $json_table->$tableround->$matchid->referees->ref->club = $refdataarray[3];
 
     $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -223,6 +224,7 @@ if (isset($_POST["vref_change"])) {
     $json_table->$tableround->$matchid->referees->vref->id = $refdataarray[0];
     $json_table->$tableround->$matchid->referees->vref->name = $refdataarray[1];
     $json_table->$tableround->$matchid->referees->vref->nation = $refdataarray[2];
+    $json_table->$tableround->$matchid->referees->vref->club = $refdataarray[3];
 
     $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -347,7 +349,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -375,7 +377,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>

@@ -51,6 +51,7 @@ if (isset($_POST["generate_table"])) {
 
         public $name;
         public $nation;
+        public $club;
         public $id;
         public $score;
         public $cards;
@@ -60,6 +61,7 @@ if (isset($_POST["generate_table"])) {
         {
             $this->name = $fencer_obj->prenom . " " . $fencer_obj->nom;
             $this->nation = $fencer_obj->nation;
+            $this->club = $fencer_obj->club;
             $this->id = $fencer_obj->id;
             $this->score = NULL;
             $this->cards = [];
@@ -72,12 +74,14 @@ if (isset($_POST["generate_table"])) {
 
         public $name;
         public $nation;
+        public $club;
         public $id;
 
         function __construct()
         {
             $this->name = "";
             $this->nation = "";
+            $this->club = "";
             $this->id = NULL;
         }
     }
