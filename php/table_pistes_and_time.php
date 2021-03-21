@@ -96,7 +96,7 @@ if (isset($_POST["save_piste_time"])) {
                 </form>
             </div>
             <div id="page_content_panel_main">
-                <div id="" class="wrapper full margin">
+                <div id="" class="wrapper margin">
                     <div id="table_select_wrapper">
                         <div class="search_wrapper wide">
                             <button type="button" class="search select altalt" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
