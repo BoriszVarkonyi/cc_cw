@@ -16,7 +16,6 @@
 	flex: 1 1 auto;
 	display: flex;
 	gap: 20px;
-	max-height: 70vh;
 }
 
 #table_referees_wrapper {
@@ -24,7 +23,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	max-height: 60vh;
 }
 
 #pistes_and_time_panel {
