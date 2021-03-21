@@ -101,10 +101,10 @@
     //only after piste drawing
     //referee drwawing
     if (isset($_POST['draw_ref'])) {
+        $fail = "";
         $ref_can = $_POST['ref_can'];
         $referees = $_POST['ref_select'];
         $number_of_refs = $_POST['number_of_refs'];
-        $n_o_pistes = $_POST['number_of_pistes'];
 
         //get referees from db
         $qry_get_refs = "SELECT `data` FROM `referees` WHERE `assoc_comp_id` = $comp_id";
@@ -122,23 +122,68 @@
                 if ($id_to_find = findObject($refs_table, $ref_id, "id") !== false) {
                     array_push($selected_refs_array, $ref_table[$id_to_find]);
                 } else {
-                    echo "couldn't find id among referees";
+                    $fail = "couldn't find id among referees";
                 }
             }
         } else {
-            $selected_refs_array = $refs_table;
+            $selected_refs_array = array_values($refs_table);
         }
 
         //draw refs
         if ($ref_can == 1) {
-            //referes can  match with anyone
-            for ($i = 1; $i  < count($json_table) && $i - 1 < $ref_table; $i++) {
-                $json_table[$i] -> ref1 = $ref_table[$i-1];
-            }
-        } else {
-            //referees cant match with own nationality
 
+            $ref_counter = 0;
+            //go through pools
+            for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
+
+                //assigne ref to pools then go to next ref
+                $json_table[$pool_num] -> ref1 = $selected_refs_array[$ref_counter];
+                $ref_counter++;
+            }
+
+        } else {
+            //referees can't match with own nationality
+            for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
+                foreach ($selected_refs_array as $key => $ref_obj) {
+                    if (false === array_search($ref_obj -> nation, $json_table[$pool_num] -> nationalitys)) {
+                        $json_table[$pool_num] -> ref1 = $ref_obj;
+                        unset($selected_refs_array[$key]);
+                        $selected_refs_array = array_values($selected_refs_array);
+                        break;
+                    }
+                }
+
+                if ($json_table[$pool_num] -> ref1 == NULL) {
+                    $json_table[$pool_num] -> ref1 = $selected_refs_array[0];
+                    $ref1_nat = $selected_refs_array[0] -> nation;
+                    unset($selected_refs_array[0]);
+                    $selected_refs_array = array_values($selected_refs_array);
+
+                    //search for 2nd ref
+                    foreach ($selected_refs_array as $key => $ref2_obj) {
+                        if ($ref2_obj -> nation != $ref1_nat) {
+                            $json_table[$pool_num] -> ref2 = $ref2_obj;
+                            unset($selected_refs_array[$key]);
+                            $selected_refs_array = array_values($selected_refs_array);
+                            break;
+                        }
+                    }
+
+                    if ($json_table[$pool_num] -> ref2 == NULL) {
+                        $fail = "REFEREE NATIONALITYS ARE NOT DIVERSE ENOUGH";
+                        break;
+                    }
+                }
+            }
         }
+
+        if ($fail == "") {
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+            $qry_update_r = "UPDATE `pools` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+            $do_update_r = mysqli_query($connection, $qry_update_r);
+        }
+
+        echo $fail;
     }
 
     //piste
@@ -191,7 +236,7 @@
 
         //update db
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-        $qry_update_p = "UPDATE `pools` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+        $qry_update_p = "UPDATE `pools` SET `data` = '$json_string', `num_of_pistes` = '$number_of_pistes' WHERE `assoc_comp_id` = '$comp_id'";
         $do_update_p = mysqli_query($connection, $qry_update_p);
 
         header("Refresh:0");
@@ -244,7 +289,7 @@
                     </form>
 
                     <form class="title_stripe_form" method="POST" action="">
-                        <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
+                        <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput">
                         <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
                             <p>Save Pools</p>
                             <img src="../assets/icons/save-black-18dp.svg"/>
@@ -307,7 +352,6 @@
 
                             ?>
                         </div>
-                        <input type="text" placeholder="Ez az ami kell Kovinak!">
                         <input type="number" name="number_of_refs" value="<?php echo $ref_counter?>" id="number_of_refs" hidden/>
                         <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
                     </form>
@@ -388,11 +432,11 @@
                                 $ref2name = "";
                                 $ref2nat = "";
                                 if ($json_table[$pool_num] -> ref1 !==  NULL) {
-                                    $refname = $json_table[$pool_num] -> ref1 -> name;
+                                    $refname = $json_table[$pool_num] -> ref1 -> prenom . " " . $json_table[$pool_num] -> ref1 -> nom;
                                     $refnat = $json_table[$pool_num] -> ref1 -> nation;
 
                                     if ($json_table[$pool_num] -> ref2 !==  NULL) {
-                                        $ref2name = $json_table[$pool_num] -> ref2 -> name;
+                                        $ref2name = $json_table[$pool_num] -> ref2 -> prenom . " " . $json_table[$pool_num] -> ref2 -> nom;
                                         $ref2nat = $json_table[$pool_num] -> ref2 -> nation;
                                     }
                                 }
