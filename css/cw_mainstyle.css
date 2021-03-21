@@ -1179,8 +1179,6 @@ input[value="Search"] {
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
-	padding: 0 50px 50px;
-	box-sizing: border-box;
 }
 
 .video_wrapper {
@@ -1243,6 +1241,7 @@ input[value="Search"] {
 	flex: 1 1 100%;
 	margin-top: 5px;
 	-webkit-line-clamp: 2;
+	color: var(--c-darkgray);
 }
 
 /* Pre-Reg */
