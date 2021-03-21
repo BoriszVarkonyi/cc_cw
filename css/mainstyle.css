@@ -1946,6 +1946,10 @@ input[type="file"] {
 	overflow: hidden;
 }
 
+.db_panel.hidden {
+	display: none;
+}
+
 .db_panel.full {
 	height: 100%;
 	margin: 0 !important;
@@ -1972,6 +1976,20 @@ input[type="file"] {
 	height: 20px;
 	-webkit-filter: var(--ci-primarycontrast) !important;
 	filter: var(--ci-primarycontrast) !important;
+}
+
+.db_panel_title_stripe button {
+	justify-self: flex-end;
+	margin-left: auto;
+	padding: 0 5px;
+	border-radius: 5px;
+	border: 2px solid var(--c-gray);
+	font-size: var(--f-small);
+	font-family: var(--bold);
+}
+
+.db_panel_title_stripe button:hover {
+	background: var(--c-lightgray);
 }
 
 .db_panel_main {

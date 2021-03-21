@@ -98,7 +98,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         $table_round = $_GET["table_round"];
                     ?>
 
-                        <div id="table_piste_time_wrapper">
+                        <div id="table_referees_wrapper">
                             <div class="db_panel full" id="pistes_and_time_panel">
                                 <div class="db_panel_title_stripe">
                                     <img src="../assets/icons/build-black-18dp.svg">
@@ -209,6 +209,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                 <div class="db_panel_title_stripe">
                                     <img src="../assets/icons/build-black-18dp.svg">
                                     <p>Preview matches</p>
+                                    <button onclick="">Preview Referees</button>
                                 </div>
                                 <div class="db_panel_main list">
                                     <div class="table fixed">
@@ -269,6 +270,31 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                         </div>
                                     </div>
                                     <button class="try_button" onclick="tryConfig()">Try</button>
+                                </div>
+                            </div>
+                            <div class="db_panel full hidden" id="referees_preview_panel">
+                                <div class="db_panel_title_stripe">
+                                    <img src="../assets/icons/build-black-18dp.svg">
+                                    <p>Preview referees</p>
+                                    <button onclick="">Preview Matches</button>
+                                </div>
+                                <div class="db_panel_main list">
+                                    <div class="table fixed">
+                                        <div class="table_header">
+                                            <div class="table_header_text"><p>REFEREE</p></div>
+                                            <div class="table_header_text"><p>PISTE</p></div>
+                                            <div class="table_header_text"><p>STARTING TIME</p></div>
+                                            <div class="table_header_text"><p>FENCER 1 NAT</p></div>
+                                        </div>
+                                        <div class="table_row_wrapper alt" id="table_row_wrapper_referees">
+                                            <div class="table_row">
+                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item "><p>47</p></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
