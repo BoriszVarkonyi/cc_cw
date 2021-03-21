@@ -28,11 +28,11 @@
 }
 
 #pistes_and_time_panel {
-	flex: 1 1 75%;
+	flex: 1 1 25%;
 }
 
 #matches_preview_panel, #referees_preview_panel {
-	flex: 1 1 50%;
+	flex: 1 1 75%;
 	min-width: 200px;
 }
 
