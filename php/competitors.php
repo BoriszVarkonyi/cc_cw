@@ -212,5 +212,4 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 <script src="../js/list.js"></script>
 <script src="../js/controls.js"></script>
 <script src="../js/search.js"></script>
-
 </html>
