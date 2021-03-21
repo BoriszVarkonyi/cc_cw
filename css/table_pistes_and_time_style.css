@@ -12,13 +12,7 @@
 	margin: auto;
 }
 
-#table_piste_time_wrapper {
-	flex: 1 1 auto;
-	display: flex;
-	gap: 20px;
-}
-
-#table_referees_wrapper {
+#table_referees_wrapper, #table_piste_time_wrapper {
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
