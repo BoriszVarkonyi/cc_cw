@@ -302,18 +302,14 @@ if (isset($_POST["generate_table"])) {
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message-black-18dp.svg" />
                         </button>
-                        <a class="stripe_button bold" type="button">
-                            <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
-                        </a>
                         <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot-black-18dp.svg" />
                         </a>
-                        <button class="stripe_button primary" type="submit">
-                            <p>Start next Round</p>
-                            <img src="../assets/icons/next_plan-black-18dp.svg" />
-                        </button>
+                        <a class="stripe_button bold" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
+                            <p>Referees</p>
+                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                        </a>
                     </div>
 
                     <div class="search_wrapper">

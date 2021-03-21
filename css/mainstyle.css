@@ -1021,6 +1021,7 @@ header {
 	overflow: visible;
 	font-size: inherit;
 	color: inherit;
+	border-radius: 5px;
 }
 
 .nav_bar_item:hover {
