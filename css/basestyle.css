@@ -313,8 +313,8 @@ img[src$=".svg"].not_icon {
 }
 
 ::-webkit-scrollbar { /* Width */
-    width: 8px;
-	height: 8px;
+    width: 10px;
+	height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -1187,6 +1187,10 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 .table_item {
 	overflow: hidden;
+}
+
+.table_item.hidden, .table_header_text.hidden {
+	display: none;
 }
 
 .table_item.selected {
