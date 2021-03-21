@@ -15,7 +15,7 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
 }
 
 //Get pistes array of objects for further use
-$qry_get_data = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
+$qry_get_data = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
 $do_get_data = mysqli_query($connection, $qry_get_data);
 
 if ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -170,10 +170,11 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                             <?php
 
-                                                            foreach ($json_table as $piste) { ?>
+                                                            foreach ($json_table as $referee) { ?>
 
                                                                 <div class="piste not_used">
-                                                                    <div class="piste_name"><?php echo $piste->name ?></div>
+                                                                    <div class="piste_name"><?php echo $referee->prenom . " " . $referee->nom ?></div>
+                                                                    <div class="referee_nation"><?php echo $referee->nation ?></div>
                                                                     <div class="piste_order hidden" id="arrow_buttons">
                                                                         <button type="button" onclick="moveUp(this)">
                                                                             <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
@@ -183,7 +184,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                                         </button>
                                                                     </div>
                                                                     <div class="piste_button">
-                                                                        <button class="func_button" type="button" id="<?php echo $piste->name ?>" onclick="useOnePiste(this)">
+                                                                        <button class="func_button" type="button" id="<?php echo $referee->id ?>" onclick="useOnePiste(this)">
                                                                             <img class="plus" src="../assets/icons/add-black-18dp.svg">
                                                                             <img class="minus hidden" src="../assets/icons/remove-black-18dp.svg">
                                                                         </button>
