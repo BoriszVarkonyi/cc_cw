@@ -5,6 +5,9 @@
 
 <?php
 
+print_r($_POST);
+$table_round = $_GET["table_round"];
+
 //Get table object for further use
 $qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
 $qry_get_table_do = mysqli_query($connection, $qry_get_table);
@@ -23,6 +26,42 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
     $json_table = json_decode($data);
 }
+
+if (isset($_POST["save_piste_time"])) {
+    
+    $datastring = $_POST["data_to_upload"];
+
+    $pistetime_strings_array = explode("//", $datastring);
+
+    foreach($pistetime_strings_array as $ptobj){
+
+        $innerdata = explode(",",$ptobj);
+
+        print_r($innerdata);
+
+        foreach($out_table->$table_round as $matchkey => $match){
+
+            if ($matchkey == $innerdata[0]) {
+                
+                $out_table->$table_round->$matchkey->pistetime->pistename = $innerdata[1];
+                $out_table->$table_round->$matchkey->pistetime->time = $innerdata[2];
+
+                break;
+            }
+
+        }
+
+    }
+
+    $table_upload = json_encode($out_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    header("Location: table.php?comp_id=$comp_id");
+
+}
+
 
 
 ?>
@@ -48,9 +87,9 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
         <div class="page_content_flex">
             <div id="title_stripe">
                 <p class="page_title">Table Pistes & Time setup</p>
-                <form class="stripe_button_wrapper">
-                    <input type="text" id="">
-                    <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
+                <form class="stripe_button_wrapper" method="POST">
+                    <input type="text" id="data_to_upload" name="data_to_upload">
+                    <button name="save_piste_time" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
                         <img src="../assets/icons/save-black-18dp.svg" />
                     </button>
@@ -95,7 +134,6 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                     if (isset($_GET["table_round"])) {
 
-                        $table_round = $_GET["table_round"];
                     ?>
 
                         <div id="table_piste_time_wrapper">
@@ -240,7 +278,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                                         }
 
                                                                         ?>">
-                                                    <div class="table_item"><?php echo $matchkey ?></div>
+                                                    <div class="table_item key"><?php echo $matchkey ?></div>
                                                     <div class="table_item pistes"><?php echo $matches->pistetime->pistename ?></div>
                                                     <div class="table_item time"><?php echo $matches->pistetime->time ?></div>
                                                 </div>

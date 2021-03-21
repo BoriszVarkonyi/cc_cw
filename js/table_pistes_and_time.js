@@ -10,6 +10,7 @@ var use_not_all = document.getElementById("not_all")
 var different_time = document.getElementById("diff_time")
 var different_piste = document.getElementById("diff_piste")
 var table_wrapper = document.getElementById("table_row_wrapper")
+var datafield = document.getElementById("data_to_upload")
 
 //================================================================================
 
@@ -223,7 +224,9 @@ function tryConfig() {
     var matchesArray = table_wrapper.querySelectorAll(".table_row")
 
     //Main filler function
-    
+
+    var datastring = ""
+
     //Same time different piste
     if (different_piste.checked == true) {
 
@@ -231,8 +234,11 @@ function tryConfig() {
 
         var actualTime = new Date("2020-01-01T" + start + ":00");
 
+        var firstrun = true
+
         for (let i = 0; i < matchesArray.length; i++) {
 
+            m_key = matchesArray[i].querySelector(".key")
             m_piste = matchesArray[i].querySelector(".pistes")
             m_time = matchesArray[i].querySelector(".time")
 
@@ -247,6 +253,16 @@ function tryConfig() {
             m_piste.innerHTML = pisteArray[pistecounter];
             m_time.innerHTML = actualTime.getHours() + ":" + minutes_with_leading_zeros(actualTime);
 
+            //Fill data string
+
+            if (firstrun != true) {
+                datastring += "//";
+            } else {
+                firstrun = false
+            }
+
+            datastring += m_key.innerHTML + "," + m_piste.innerHTML + "," + m_time.innerHTML
+
             pistecounter++
 
             if (pistecounter >= pistesAvailable) {
@@ -256,6 +272,9 @@ function tryConfig() {
 
             }
         }
+
+        datafield.value = datastring
+
     }
 
     //Same piste different time
@@ -301,8 +320,11 @@ function tryConfig() {
         changecounter = 0;
         howmany = 0;
 
+        var firstrun = true
+
         for (let i = 0; i < matchesArray.length; i++) {
 
+            m_key = matchesArray[i].querySelector(".key")
             m_piste = matchesArray[i].querySelector(".pistes")
             m_time = matchesArray[i].querySelector(".time")
 
@@ -316,6 +338,17 @@ function tryConfig() {
             m_piste.innerHTML = pisteArray[changecounter]
             m_time.innerHTML = actualTime.getHours() + ":" + minutes_with_leading_zeros(actualTime)
 
+            //Fill data string
+
+            if (firstrun != true) {
+                datastring += "//";
+            } else {
+                firstrun = false
+            }
+
+            datastring += m_key.innerHTML + "," + m_piste.innerHTML + "," + m_time.innerHTML
+
+
             howmany++
             actualTime.setTime(actualTime.getTime() + (interval * 60000))
 
@@ -328,6 +361,7 @@ function tryConfig() {
 
         }
 
+        datafield.value = datastring
     }
 
     //Check in console
