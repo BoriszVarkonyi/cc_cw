@@ -1179,14 +1179,17 @@ input[value="Search"] {
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
+	margin-bottom: 50px;
 }
 
 .video_wrapper {
 	flex: 1 1 400px;
+	overflow: hidden;
 	height: 150px;
 	padding: 20px;
 	box-sizing: border-box;
 	display: flex;
+	justify-content: center;
 	cursor: pointer;
 }
 
@@ -1202,6 +1205,7 @@ input[value="Search"] {
 	height: 110px;
 	width: 190px;
 	min-width: 190px;
+	max-width: 40vw;
 	-o-object-fit: cover;
 	object-fit: cover;
 }
@@ -1209,14 +1213,17 @@ input[value="Search"] {
 @supports (aspect-ratio: 16 / 9) {
 	.video_wrapper img {
 		height: 110px;
+		max-width: 40vw;
 		aspect-ratio: 16 / 9;
 		min-width: unset;
 		width: auto;
+		-o-object-fit: cover;
+		object-fit: cover;
 	}
 }
 
 .video_wrapper_info {
-	padding: 0 0 0 20px;
+	padding-left: 20px;
 	max-height: 150px;
 	overflow: hidden;
 	line-height: 1.25;
@@ -1242,6 +1249,7 @@ input[value="Search"] {
 	margin-top: 5px;
 	-webkit-line-clamp: 2;
 	color: var(--c-darkgray);
+	font-size: var(--f-small);
 }
 
 /* Pre-Reg */
