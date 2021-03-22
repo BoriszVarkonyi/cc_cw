@@ -96,11 +96,6 @@ if (isset($_POST["logout"])) {
 
     <!-- colormode and language buttons -->
     <div class="settings_section">
-        <!--
-        <button class="header_button" id="" onclick="toggleFullscreen()">
-            <img src="../assets/icons/open_in_full-black-18dp.svg"/>
-        </button>
-        -->
         <button class="header_button" id="language_button" onclick="toggleLanguagePanel()">
             <img src="../assets/icons/language-black-18dp.svg"/>
         </button>
@@ -119,31 +114,31 @@ if (isset($_POST["logout"])) {
         <div id="languages_wrapper">
             <button id="english" class="language_button selected">
                 <img src="../assets/icons/english.svg" class="not_icon"/>
-                <p class="language_label">English</p>
+                <p>English</p>
             </button>
             <button id="russian" class="language_button" disabled>
                 <img src="../assets/icons/russian.svg" class="not_icon"/>
-                <p class="language_label">Russian</p>
+                <p>Russian</p>
             </button>
             <button id="french" class="language_button" disabled>
                 <img src="../assets/icons/french.svg" class="not_icon"/>
-                <p class="language_label">French</p>
+                <p>French</p>
             </button>
             <button id="japanese" class="language_button" disabled>
                 <img src="../assets/icons/japanese.svg" class="not_icon"/>
-                <p class="language_label">Japanese</p>
+                <p>Japanese</p>
             </button>
             <button id="korean" class="language_button" disabled>
                 <img src="../assets/icons/korean.svg" class="not_icon"/>
-                <p class="language_label">Korean</p>
+                <p>Korean</p>
             </button>
             <button id="hungarian" class="language_button" disabled>
                 <img src="../assets/icons/hungarian.svg" class="not_icon"/>
-                <p class="language_label">Hungarian</p>
+                <p>Hungarian</p>
             </button>
             <button id="romanian" class="language_button" disabled>
                 <img src="../assets/icons/romanian.svg" class="not_icon"/>
-                <p class="language_label">Romanian</p>
+                <p>Romanian</p>
             </button>
         </div>
     </div>
@@ -158,18 +153,18 @@ if (isset($_POST["logout"])) {
                 <div class="color_sample light">Aa</div>
                 <p>Light</p>
             </button>
-            <button class="color_mode" onclick="setToHighContrast()">
+            <button class="color_mode" onclick="setToHighContrast()" >
                 <div class="color_sample high_contrast">Aa</div>
                 <p>High Contrast</p>
             </button>
-            <button class="color_mode" onclick="setToDark()">
+            <button class="color_mode" onclick="setToDark()" >
                 <div class="color_sample dark">Aa</div>
                 <p>Dark</p>
             </button>
         </div>
         <div class="color_variations">
             <button class="color_square vanilla" onclick="setToVanilla()" name="vanilla"></button>
-            <button class="color_square danube" onclick="setToDanube()" name="danube"></button>
+            <button class="color_square danube" onclick="setToDanube()" name="danube" ></button>
         </div>
     </div>
 

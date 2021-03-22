@@ -51,6 +51,7 @@ if (isset($_POST["generate_table"])) {
 
         public $name;
         public $nation;
+        public $club;
         public $id;
         public $score;
         public $cards;
@@ -60,6 +61,7 @@ if (isset($_POST["generate_table"])) {
         {
             $this->name = $fencer_obj->prenom . " " . $fencer_obj->nom;
             $this->nation = $fencer_obj->nation;
+            $this->club = $fencer_obj->club;
             $this->id = $fencer_obj->id;
             $this->score = NULL;
             $this->cards = [];
@@ -72,12 +74,14 @@ if (isset($_POST["generate_table"])) {
 
         public $name;
         public $nation;
+        public $club;
         public $id;
 
         function __construct()
         {
             $this->name = "";
             $this->nation = "";
+            $this->club = "";
             $this->id = NULL;
         }
     }
@@ -292,7 +296,7 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
-                            <img src="../assets/icons/add_box-black-18dp.svg" />
+                            <img src="../assets/icons/add_box-black-18dp.svg"/>
                         </button>
                     </div>
 
@@ -300,20 +304,16 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg" />
+                            <img src="../assets/icons/message-black-18dp.svg"/>
                         </button>
-                        <a class="stripe_button bold" type="button">
-                            <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
-                        </a>
                         <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </a>
-                        <button class="stripe_button primary" type="submit">
-                            <p>Start next Round</p>
-                            <img src="../assets/icons/next_plan-black-18dp.svg" />
-                        </button>
+                        <a class="stripe_button bold" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
+                            <p>Referees</p>
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
+                        </a>
                     </div>
 
                     <div class="search_wrapper">

@@ -171,7 +171,6 @@ function regenerate() {
     for(i=0; i<rows.length; i++){
         var tableItems = rows[i].querySelectorAll(".table_item")
         for(c=2; c<rows.length+3; c++){
-
             if(c == 2){
                 rows[i].innerHTML = rows[i].innerHTML + '<div class="table_item square row_title"><p>' + (i + 1) +'</p></div>'
             }
@@ -329,9 +328,10 @@ var input1 = document.getElementById("startingTimeInput");
 var input2 = document.getElementById("timeInput");
 var pNtsaveButton = document.getElementById("pNtSaveButton");
 var inputs = [input1, input2];
-var allButton = document.getElementById("all")
-var pNtoptioncontainer = document.getElementById("select_pistes_panel")
-var pisteSelect = pNtoptioncontainer.querySelectorAll(".piste_select")
+var allButton = document.getElementById("all");
+var pNtoptioncontainer = document.getElementById("select_pistes_panel");
+var pisteSelect = pNtoptioncontainer.querySelectorAll(".piste_select");
+
 function pNtValidation() {
     pNtsaveButton.disabled = true;
     //Checking every input.

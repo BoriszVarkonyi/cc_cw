@@ -109,15 +109,15 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="button" onclick="printPage()">
                         <p>Print Statistics</p>
-                        <img src="../assets/icons/print-black-18dp.svg" />
+                        <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
                 </div>
                 <div class="view_button_wrapper zoom">
                     <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out-black-18dp.svg" />
+                        <img src="../assets/icons/zoom_out-black-18dp.svg"/>
                     </button>
                     <button class="view_button" onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in-black-18dp.svg" />
+                        <img src="../assets/icons/zoom_in-black-18dp.svg"/>
                     </button>
                 </div>
             </div>

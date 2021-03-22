@@ -222,13 +222,7 @@ function setToLight() {
     colorModeClassRemover();
     colorModes[0].classList.add("selected")
     clrVariations.style.visibility = "visible";
-
-    for (var i = 0; i < icons.length; i++) {
-        //icons[i].style.filter = "contrast(71%)";
-        //icons[i].style.filter = "invert()";
-    }
     contentThemeSetter();
-
 }
 
 var clrVariations = document.querySelector(".color_variations")
@@ -241,14 +235,6 @@ function setToHighContrast() {
     colorModes[1].classList.add("selected")
     clrVariations.style.visibility = "hidden";
     document.documentElement.removeAttribute('data-content-theme');
-    /*
-    for (var i = 0; i < icons.length; i++) {
-        icons[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
-    }
-    for (i = 1; i < hasBackgroundIcon.length; i++) {
-        hasBackgroundIcon[i].style.filter = "invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1)";
-    }
-    */
 }
 
 function setToDark() {
@@ -258,12 +244,11 @@ function setToDark() {
     colorModeClassRemover()
     colorModes[2].classList.add("selected")
     clrVariations.style.visibility = "visible";
-
     contentThemeSetter();
 }
 
-function colorModeClassRemover(){
-    for(i=0; i<colorModes.length; i++){
+function colorModeClassRemover() {
+    for (i = 0; i < colorModes.length; i++) {
         colorModes[i].classList.remove("selected")
     }
 }
@@ -276,6 +261,7 @@ function classRemover() {
         colorButtons[i].classList.remove("selected")
     }
 }
+
 //Sets the colormode to danube
 function setToDanube(x) {
     var danubeColorButton = document.querySelector(".color_square.danube")
@@ -286,6 +272,7 @@ function setToDanube(x) {
     document.cookie = "colorMode = danube;" + setExpireDay(365);
     colorMode = cookieFinder("colorMode", "vanilla", false, 365);
 }
+
 //Sets the colormode to vanilla
 function setToVanilla(x) {
     var vanillaColorButton = document.querySelector(".color_square.vanilla")
@@ -391,46 +378,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(function () { loadingBar.classList.remove("finished"); loadingBar.remove() }, 1250);
     }
 })
-/*
-function toggleFullscreen(){
-    var elem = document.querySelector("body");
-    if(window.innerHeight == screen.height){
-        if (document.exitFullscreen){
-            document.exitFullscreen();
-        }
-        else if (document.webkitExitFullscreen){
-            document.webkitExitFullscreen();
-        }
-        else if (document.msExitFullscreen){
-            document.msExitFullscreen();
-        }
-        iconChanger();
-    }
-    else{
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        }
-        else if (elem.webkitRequestFullscreen){
-            elem.webkitRequestFullscreen();
-        }
-        else if (elem.msRequestFullscreen){
-            elem.msRequestFullscreen();
-        }
-        iconChanger();
-    }
-}
-function iconChanger(){
-    var buttonIcon = document.querySelector("#colormode_button > img");
-    if(window.innerHeight == screen.height){
-        buttonIcon.src = "../assets/icons/close_fullscreen-black-18dp.svg"
-    }
-    else{
-        buttonIcon.src = "../assets/icons/open_in_full-black-18dp.svg"
-    }
-}
-
-window.addEventListener("resize", iconChanger);
-*/
 
 var compSelect = document.getElementById("competition_select")
 

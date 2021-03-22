@@ -1,5 +1,5 @@
-function toggleOtherApps () {
-    var otherApps = document.getElementById("other_apps");
+function toggleOtherApps(x) {
+    var otherApps = x.parentNode;
     otherApps.classList.toggle("opened");
 }
 var form = document.querySelector(".overlay_panel_form")
@@ -8,9 +8,9 @@ var loginButton = document.querySelector(".login_button");
 var opitons = form.querySelectorAll(".option_container > input");
 var valid1 = false, valid2 = false;
 loginButton.classList.add("disabled")
-function loginFormValidation(){
-    for(i=0; i<inputs.length; i++){
-        if(inputs[i].value == ""){
+function loginFormValidation() {
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
             //If it finds an empty input, then it disable the "Save" button.
             valid1 = false;
             break;
@@ -20,28 +20,28 @@ function loginFormValidation(){
             valid1 = true;
         }
     }
-    for(i=0; i<opitons.length; i++){
-        if(opitons[i].checked){
+    for (i = 0; i < opitons.length; i++) {
+        if (opitons[i].checked) {
             valid2 = true;
             break;
         }
-        else{
+        else {
             valid2 = false;
         }
     }
-    if(valid1 && valid2){
+    if (valid1 && valid2) {
         loginButton.classList.remove("disabled")
     }
-    else{
+    else {
         loginButton.classList.add("disabled")
     }
 }
 form.addEventListener("input", loginFormValidation)
-function errorChecker(x){
-    if(x.value == ""){
+function errorChecker(x) {
+    if (x.value == "") {
         x.previousElementSibling.classList.add("error")
     }
-    else{
+    else {
         x.previousElementSibling.classList.remove("error")
     }
 }

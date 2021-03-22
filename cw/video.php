@@ -20,14 +20,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $comp_name ?>'s final results</title>
+    <title><?php echo $comp_name ?>'s highlight video</title>
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
 <body class="videos">
     <?php include "cw_header.php"; ?>
-    <div id="main">
-        <div id="content">
+    <div id="main" class="full">
+        <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
@@ -36,11 +36,15 @@
                     Video From <?php echo $comp_name ?></p>
                 </p>
             </div>
-            <div id="content_wrapper">
-                <div id="round_livestream_wrapper">
+            <div id="content_wrapper" class="centered">
+                <div id="video">
                     <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" frameborder="0" allowfullscreen></iframe>
                 </div>
+                <a href="https://www.youtube.com/watch?v=<?php echo $video_id ?>" class="open_on_yt_button">
+                    <p>Open on Youtube</p>
+                    <img src="../assets/icons/youtube_icon-white-18dp.svg" alt="Youtube Logo">
+                </a>
             </div>
         </div>
     </div>

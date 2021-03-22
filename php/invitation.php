@@ -163,11 +163,11 @@ if (file_exists("../uploads/$comp_id.png")) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button" type="button" onclick="printPage()" shortcut="SHIFT+P">
                         <p>Print Invitation</p>
-                        <img src="../assets/icons/print-black-18dp.svg" />
+                        <img src="../assets/icons/print-black-18dp.svg"/>
                     </button>
                     <button class="stripe_button primary" type="button" shortcut="SHIFT+S">
                         <p>Save Invitation</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                        <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </div>
             </div>

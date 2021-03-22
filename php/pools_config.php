@@ -5,6 +5,62 @@
 
 <?php
 
+    class pisteTime {
+        public $hours;
+        public $minutes;
+
+        function __construct($string) {
+            $time_array = explode(':',$string);
+
+            $this -> hours = $time_array[0];
+            $this -> minutes = $time_array[1];
+        }
+
+        function addTime($mins_to_add) {
+            if ($mins_to_add > 60) {
+                $hours = floor($mins_to_add / 60);
+                $mins = $mins_to_add  % 60;
+
+                $this -> hours += $hours;
+                $this -> minutes += $mins;
+            } else {
+                $this -> minutes += $mins_to_add;
+            }
+
+            if ($this -> minutes >= 60) {
+                $new_mins = $this -> minutes % 60;
+                $plus_hours = floor($this -> minutes / 60);
+
+                $this -> minutes = $new_mins;
+                $this -> hours += $plus_hours;
+            }
+
+            if ($this -> hours > 24) {
+                $new_hours = $this -> hours % 24;
+
+                $this -> hours = $new_hours;
+            }
+
+            if (strlen($this ->  hours) === 1) {
+                $current_hours = $this -> hours;
+
+                $this -> hours = "0" . $current_hours;
+            }
+
+            if (strlen($this ->  minutes) === 1) {
+                $current_minutes = $this -> minutes;
+
+                $this -> minutes = "0" . $current_minutes;
+            }
+        }
+
+        function getTime() {
+            $output = $this -> hours . ":" . $this -> minutes;
+
+            return $output;
+        }
+    }
+
     $qry_check_row = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
     if ($row = mysqli_fetch_assoc($do_check_row)) {
@@ -42,8 +98,7 @@
         //print_r($json_table);
     }
 
-
-
+    //only after piste drawing
     //referee drwawing
     if (isset($_POST['draw_ref'])) {
         $ref_can = $_POST['ref_can'];
@@ -76,7 +131,9 @@
         //draw refs
         if ($ref_can == 1) {
             //referes can  match with anyone
-
+            for ($i = 1; $i  < count($json_table) && $i - 1 < $ref_table; $i++) {
+                $json_table[$i] -> ref1 = $ref_table[$i-1];
+            }
         } else {
             //referees cant match with own nationality
 
@@ -86,26 +143,59 @@
     //piste
     if (isset($_POST['piste_time'])) {
 
+        //get table from db
         $qry_get_pistes = "SELECT `data` FROM `pistes` WHERE `assoc_comp_id` = '$comp_id'";
         $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
-
         if ($row = mysqli_fetch_assoc($do_get_pistes)) {
             $piste_string = $row['data'];
             $piste_table = json_decode($piste_string);
         }
+
+        //get data from form
         $piste_usage = $_POST['pistes_usage_type'];
+        $piste_time_add = $_POST['interval_of_match'];
+        $piste_start_s = $_POST['starting_time'];
+
+        //new pisteTime obj
+        $piste_time = new pisteTime($piste_start_s);
+
         $pistes_array = [];
 
+        //select pistes based on input
         if ($piste_usage == 1) {
             $pistes_array = $piste_table;
         } else {
-            for ($i =  0; $i < count($ref_table); $i++) {
+            for ($i =  0; $i < count($piste_table); $i++) {
                 if (isset($_POST["piste_$i"])) {
                     array_push($pistes_array, $piste_table[$i]);
                 }
             }
         }
+
+        //draw pistes
+        $piste_counter = -1;
+        for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
+            $piste_counter++;
+            //set back counter if we ran out of pistes
+            if (!isset($pistes_array[$piste_counter])) {
+                $piste_counter = 0;
+                $piste_time -> addTime($piste_time_add);
+            }
+            $current_piste_name = $pistes_array[$piste_counter] -> name;
+            $current_piste_time = $piste_time -> getTime();
+
+            $json_table[$pool_num] -> piste = $current_piste_name;
+            $json_table[$pool_num] -> time = $current_piste_time;
+        }
+
+        //update db
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+        $qry_update_p = "UPDATE `pools` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+        $do_update_p = mysqli_query($connection, $qry_update_p);
+
+        header("Refresh:0");
     }
+
 
 ?>
 
@@ -180,7 +270,6 @@
                             <input type="radio" name="ref_select" id="manual_select_ref" onclick="selectReferees()" value="manual_select_ref"/>
                             <label for="manual_select_ref">Select manually</label>
                         </div>
-
                         <div class="option_container grid piste_select disabled" id="select_referees_panel">
 
                             <?php
@@ -217,6 +306,7 @@
 
                             ?>
                         </div>
+                        <input type="text" placeholder="Ez az ami kell Kovinak!">
                         <input type="number" name="number_of_refs" value="<?php echo $ref_counter?>" id="number_of_refs" hidden/>
                         <button type="submit" name="draw_ref" value="Save" class="panel_submit" id="rfrsSaveButton">Save</button>
                     </form>
@@ -306,8 +396,8 @@
                                     }
                                 }
 
-                                $piste = "Blue";
-                                $time = "2:00";
+                                $piste = $json_table[$pool_num] -> piste;
+                                $time = $json_table[$pool_num] -> time;
                             ?>
                             <div>
                                 <div class="entry">

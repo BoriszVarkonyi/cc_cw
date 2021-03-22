@@ -5,9 +5,6 @@
 
 <?php
 
-print_r($_POST);
-$table_round = $_GET["table_round"];
-
 //Get table object for further use
 $qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
 $qry_get_table_do = mysqli_query($connection, $qry_get_table);
@@ -18,7 +15,7 @@ if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
 }
 
 //Get pistes array of objects for further use
-$qry_get_data = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
+$qry_get_data = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
 $do_get_data = mysqli_query($connection, $qry_get_data);
 
 if ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -26,42 +23,6 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
     $json_table = json_decode($data);
 }
-
-if (isset($_POST["save_piste_time"])) {
-
-    $datastring = $_POST["data_to_upload"];
-
-    $pistetime_strings_array = explode("//", $datastring);
-
-    foreach($pistetime_strings_array as $ptobj){
-
-        $innerdata = explode(",",$ptobj);
-
-        print_r($innerdata);
-
-        foreach($out_table->$table_round as $matchkey => $match){
-
-            if ($matchkey == $innerdata[0]) {
-
-                $out_table->$table_round->$matchkey->pistetime->pistename = $innerdata[1];
-                $out_table->$table_round->$matchkey->pistetime->time = $innerdata[2];
-
-                break;
-            }
-
-        }
-
-    }
-
-    $table_upload = json_encode($out_table, JSON_UNESCAPED_UNICODE);
-
-    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
-    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
-
-    header("Location: table.php?comp_id=$comp_id");
-
-}
-
 
 
 ?>
@@ -86,10 +47,10 @@ if (isset($_POST["save_piste_time"])) {
         <!-- navbar -->
         <div class="page_content_flex">
             <div id="title_stripe">
-                <p class="page_title">Table Pistes & Time setup</p>
-                <form class="stripe_button_wrapper" method="POST">
-                    <input type="text" id="data_to_upload" name="data_to_upload">
-                    <button name="save_piste_time" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
+                <p class="page_title">Table Referees setup</p>
+                <form class="stripe_button_wrapper">
+                    <input type="text" id="">
+                    <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
                         <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
@@ -120,7 +81,7 @@ if (isset($_POST["save_piste_time"])) {
 
                                 foreach ($out_table as $round_name => $tableround) { ?>
 
-                                    <a type="button" id="gr" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
+                                    <a type="button" id="gr" href="table_referees.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
                                 <?php
                                 }
                                 ?>
@@ -134,52 +95,63 @@ if (isset($_POST["save_piste_time"])) {
 
                     if (isset($_GET["table_round"])) {
 
+                        $table_round = $_GET["table_round"];
                     ?>
 
-                        <div id="table_piste_time_wrapper">
+                        <div id="table_referees_wrapper">
                             <div class="db_panel full" id="pistes_and_time_panel">
                                 <div class="db_panel_title_stripe">
                                     <img src="../assets/icons/build-black-18dp.svg">
-                                    <p>Set Time and Piste for table</p>
+                                    <p>Set Referees for table</p>
                                 </div>
                                 <div class="db_panel_main full">
                                     <div class="form_wrapper" method="POST">
                                         <div>
                                             <div>
-                                                <label for="">STARTING TIME</label>
-                                                <input type="time" id="starting_time">
-                                            </div>
-                                            <div>
-                                                <label for="">INTERVAL OF MATCHES (min)</label>
-                                                <input type="number" id="interval" class="number_input centered" placeholder="#">
-                                            </div>
-                                            <div>
-                                                <label for="">USAGE OF PISTES</label>
-                                                <div class="option_container row">
-                                                    <input type="radio" name="piste_usage" id="all" value=""/>
-                                                    <label for="all">Use all</label>
-                                                    <input type="radio" name="piste_usage" id="not_all" checked value=""/>
-                                                    <label for="not_all">Automatic</label>
+                                                <label for="">REFEREE TYPE</label>
+                                                <div class="option_container">
+                                                    <input type="radio" name="referee_type" id="m_ref" value="" checked onclick="vref_to_ref()"/>
+                                                    <label for="m_ref">Match Referee</label>
+                                                    <input type="radio" name="referee_type" id="v_ref" value="" onclick="ref_to_vref()"/>
+                                                    <label for="v_ref">Video Referee</label>
                                                 </div>
                                             </div>
                                             <div>
-                                                <label for="">PISTE & TIME RELATION</label>
-                                                <div class="option_container">
-                                                    <input type="radio" name="piste_time_relation" id="diff_time" value=""/>
-                                                    <label for="diff_time">Same piste different time</label>
-                                                    <input type="radio" name="piste_time_relation" id="diff_piste" value=""/>
-                                                    <label for="diff_piste">Different piste same time</label>
+                                                <label for="">SEPARATE BY</label>
+                                                <div class="option_container row">
+                                                    <input type="radio" name="separate_by" id="club" value="" onclick="nation_to_club()"/>
+                                                    <label for="club">Club</label>
+                                                    <input type="radio" name="separate_by" id="nat" checked value="" onclick="club_to_nation()"/>
+                                                    <label for="nat">Nationality</label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label for="">REFEREES STAY ON PISTE</label>
+                                                <div class="option_container row">
+                                                    <input type="radio" name="stay_on_piste" id="stay" value=""/>
+                                                    <label for="stay">Stay</label>
+                                                    <input type="radio" name="stay_on_piste" id="dont_stay" checked value=""/>
+                                                    <label for="dont_stay">Don't Stay</label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label for="">USAGE OF REFEREES</label>
+                                                <div class="option_container row">
+                                                    <input type="radio" name="referees_usage" id="enough" value=""/>
+                                                    <label for="enough">Just enough</label>
+                                                    <input type="radio" name="referees_usage" id="automatic" checked value=""/>
+                                                    <label for="automatic">Automatic</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div>
                                             <div class="full">
-                                                <!-- USED PISTES STARTS HERE -->
+                                                <!-- USED REFEREES STARTS HERE -->
 
-                                                <label for="">SELECT PISTES</label>
+                                                <label for="">SELECT REFEREES</label>
                                                 <div id="selection_list_wrapper">
                                                     <div class="selection_list">
-                                                        <p class="selection_list_title">Selected pistes</p>
+                                                        <p class="selection_list_title">Selected referees</p>
                                                         <div class="piste_wrapper" id="used_selection_list">
 
                                                             <!-- JS MOVES PISTES HERE -->
@@ -190,18 +162,19 @@ if (isset($_POST["save_piste_time"])) {
                                                         </div>
                                                     </div>
 
-                                                    <!-- NOT USED PISTES STARTS HERE -->
+                                                    <!-- NOT USED REFEREES STARTS HERE -->
 
                                                     <div class="selection_list">
-                                                        <p class="selection_list_title">Not selected pistes</p>
+                                                        <p class="selection_list_title">Not selected referees</p>
                                                         <div class="piste_wrapper" id="not_used_selection_list">
 
                                                             <?php
 
-                                                            foreach ($json_table as $piste) { ?>
+                                                            foreach ($json_table as $referee) { ?>
 
                                                                 <div class="piste not_used">
-                                                                    <div class="piste_name"><?php echo $piste->name ?></div>
+                                                                    <div class="piste_name"><?php echo $referee->prenom . " " . $referee->nom ?></div>
+                                                                    <div class="referee_nation"><?php echo $referee->nation ?></div>
                                                                     <div class="piste_order hidden" id="arrow_buttons">
                                                                         <button type="button" onclick="moveUp(this)">
                                                                             <img src="../assets/icons/keyboard_arrow_up-black-18dp.svg">
@@ -211,7 +184,7 @@ if (isset($_POST["save_piste_time"])) {
                                                                         </button>
                                                                     </div>
                                                                     <div class="piste_button">
-                                                                        <button class="func_button" type="button" id="<?php echo $piste->name ?>" onclick="useOnePiste(this)">
+                                                                        <button class="func_button" type="button" id="<?php echo $referee->id ?>" onclick="useOnePiste(this)">
                                                                             <img class="plus" src="../assets/icons/add-black-18dp.svg">
                                                                             <img class="minus hidden" src="../assets/icons/remove-black-18dp.svg">
                                                                         </button>
@@ -236,7 +209,8 @@ if (isset($_POST["save_piste_time"])) {
                             <div class="db_panel full" id="matches_preview_panel">
                                 <div class="db_panel_title_stripe">
                                     <img src="../assets/icons/build-black-18dp.svg">
-                                    <p>Preview matches</p>
+                                    <p class="table_text">Preview matches</p>
+                                    <button id="preview_button" onclick="nation_to_club(this)">Preview Referees</button>
                                 </div>
                                 <div class="db_panel_main list">
                                     <div class="table fixed">
@@ -244,6 +218,10 @@ if (isset($_POST["save_piste_time"])) {
                                             <div class="table_header_text"><p>MATCH ID</p></div>
                                             <div class="table_header_text"><p>PISTE</p></div>
                                             <div class="table_header_text"><p>STARTING TIME</p></div>
+                                            <div class="table_header_text" id="f1_head"><p>F1 NATION</p></div>
+                                            <div class="table_header_text" id="f2_head"><p>F2 NATION</p> </div>
+                                            <div class="table_header_text" id="vr_name_head"><p>REFEREE</p></div>
+                                            <div class="table_header_text" id="vr_nat_head"><p>REFEREE NATION</p></div>
                                         </div>
                                         <div class="table_row_wrapper alt" id="table_row_wrapper">
 
@@ -253,11 +231,10 @@ if (isset($_POST["save_piste_time"])) {
 
                                                 $canskip = false;
 
-                                                foreach ($matches as $fencerkey => $fencer) {
+                                                $fencersnat = [];
+                                                $fencersclub = [];
 
-                                                    if ($canskip == true) {
-                                                        break;
-                                                    }
+                                                foreach ($matches as $fencerkey => $fencer) {
 
                                                     if ($fencerkey == "referees" || $fencerkey == "pistetime") {
                                                         continue;
@@ -265,6 +242,12 @@ if (isset($_POST["save_piste_time"])) {
                                                     if (isset($fencer->name)) {
                                                         if ($fencer->name == "" || $fencer->isWinner == true) {
                                                             $canskip = true;
+                                                        }
+                                                        else{
+
+                                                            array_push($fencersnat, $fencer->nation);
+                                                            array_push($fencersclub, $fencer->club);
+
                                                         }
                                                     }
                                                 }
@@ -278,9 +261,19 @@ if (isset($_POST["save_piste_time"])) {
                                                                         }
 
                                                                         ?>">
-                                                    <div class="table_item key"><?php echo $matchkey ?></div>
-                                                    <div class="table_item pistes"><?php echo $matches->pistetime->pistename ?></div>
-                                                    <div class="table_item time"><?php echo $matches->pistetime->time ?></div>
+                                                    <div class="table_item"><p><?php echo $matchkey ?></p></div>
+                                                    <div class="table_item pistes"><p><?php echo $matches->pistetime->pistename ?></p></div>
+                                                    <div class="table_item time"><p><?php echo $matches->pistetime->time ?></p></div>
+                                                    <div class="table_item nation"><p><?php echo $fencersnat[0] ?></p></div>
+                                                    <div class="table_item nation"><p><?php echo $fencersnat[1] ?></p></div>
+                                                    <div class="table_item club hidden"><p><?php echo $fencersclub[0] ?></p></div>
+                                                    <div class="table_item club hidden"><p><?php echo $fencersclub[1] ?></p></div>
+                                                    <div class="table_item referee refname"><p><?php echo $matches->referees->ref->name ?></p></div>
+                                                    <div class="table_item nation referee"><p><?php echo $matches->referees->ref->nation ?></p></div>
+                                                    <div class="table_item club referee hidden"><p><?php echo $matches->referees->ref->club ?></p></div>
+                                                    <div class="table_item video hidden vrefname"><p><?php echo $matches->referees->vref->name ?></p></div>
+                                                    <div class="table_item nation video hidden"><p><?php echo $matches->referees->vref->nation ?></p></div>
+                                                    <div class="table_item club video hidden"><p><?php echo $matches->referees->vref->club ?></p></div>
                                                 </div>
 
                                             <?php
@@ -289,6 +282,31 @@ if (isset($_POST["save_piste_time"])) {
                                         </div>
                                     </div>
                                     <button class="try_button" onclick="tryConfig()">Try</button>
+                                </div>
+                            </div>
+                            <div class="db_panel full hidden" id="referees_preview_panel">
+                                <div class="db_panel_title_stripe">
+                                    <img src="../assets/icons/build-black-18dp.svg">
+                                    <p>Preview referees</p>
+                                    <button onclick="">Preview Matches</button>
+                                </div>
+                                <div class="db_panel_main list">
+                                    <div class="table fixed">
+                                        <div class="table_header">
+                                            <div class="table_header_text"><p>REFEREE</p></div>
+                                            <div class="table_header_text"><p>PISTE</p></div>
+                                            <div class="table_header_text"><p>STARTING TIME</p></div>
+                                            <div class="table_header_text"><p>FENCER 1 NAT</p></div>
+                                        </div>
+                                        <div class="table_row_wrapper alt" id="table_row_wrapper_referees">
+                                            <div class="table_row">
+                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item "><p>47</p></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -304,5 +322,5 @@ if (isset($_POST["save_piste_time"])) {
 <script src="../js/main.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/table_config.js"></script>
-<script src="../js/table_pistes_and_time.js"></script>
+<script src="../js/table_referees.js"></script>
 </html>

@@ -94,11 +94,11 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
-                        <img src="../assets/icons/message-black-18dp.svg" />
+                        <img src="../assets/icons/message-black-18dp.svg"/>
                     </button>
                     <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
                         <p>Import Competitors from XML</p>
-                        <img src="../assets/icons/get_app-black-18dp.svg" />
+                        <img src="../assets/icons/get_app-black-18dp.svg"/>
                     </a>
                 </div>
                 <div class="search_wrapper">
@@ -212,5 +212,4 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 <script src="../js/list.js"></script>
 <script src="../js/controls.js"></script>
 <script src="../js/search.js"></script>
-
 </html>

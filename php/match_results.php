@@ -66,15 +66,13 @@ if (isset($_POST["save_match"])) {
     } elseif ($fencer2_data->points == "ABD") {
 
         $winnerfencer = 1;
-    }
-    if ($fencer1_data->points == "EXC") {
+    } elseif ($fencer1_data->points == "EXC") {
 
         $winnerfencer = 2;
     } elseif ($fencer2_data->points == "EXC") {
 
         $winnerfencer = 1;
-    }
-    if ($fencer1_data->points == "NCB") {
+    } elseif ($fencer1_data->points == "NCB") {
 
         $winnerfencer = 2;
     } elseif ($fencer2_data->points == "NCB") {
@@ -208,6 +206,7 @@ if (isset($_POST["ref_change"])) {
     $json_table->$tableround->$matchid->referees->ref->id = $refdataarray[0];
     $json_table->$tableround->$matchid->referees->ref->name = $refdataarray[1];
     $json_table->$tableround->$matchid->referees->ref->nation = $refdataarray[2];
+    $json_table->$tableround->$matchid->referees->ref->club = $refdataarray[3];
 
     $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -225,6 +224,7 @@ if (isset($_POST["vref_change"])) {
     $json_table->$tableround->$matchid->referees->vref->id = $refdataarray[0];
     $json_table->$tableround->$matchid->referees->vref->name = $refdataarray[1];
     $json_table->$tableround->$matchid->referees->vref->nation = $refdataarray[2];
+    $json_table->$tableround->$matchid->referees->vref->club = $refdataarray[3];
 
     $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -245,7 +245,6 @@ if (isset($_POST["piste_change"])) {
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
     header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
-
 }
 
 if (isset($_POST["time_change"])) {
@@ -308,7 +307,7 @@ if (isset($_POST["time_change"])) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
                         <p>Save Match</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                        <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </div>
             </div>
@@ -350,7 +349,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -378,7 +377,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -447,7 +446,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f1" id="points_f1">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f1"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
+                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1"/>
                                     <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
                                 </div>
                             </div>
@@ -497,7 +496,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f2" id="points_f2">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f2"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
+                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2"/>
                                     <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
                                 </div>
                             </div>
