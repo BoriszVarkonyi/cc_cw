@@ -215,7 +215,7 @@ function dropAreaHoverOff(x) {
 }
 //If we drop an element to a table
 function drop2(ev, x) {
-    if (checkPoolTable(x)) {
+    if (checkPoolTable(x) || previousTable == x.parentNode) {
         //Denies the dragEnd function
         dragEndActive = false;
         ev.preventDefault();
