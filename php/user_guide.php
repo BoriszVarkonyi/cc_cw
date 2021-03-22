@@ -63,5 +63,6 @@
         </div>
     </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 </html>

@@ -109,6 +109,7 @@ $maximum = 255;
             </form>
         </div>
     </div>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/create_competition.js"></script>
 </body>

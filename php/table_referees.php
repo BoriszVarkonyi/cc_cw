@@ -319,6 +319,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
             </div>
         </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/table_config.js"></script>
