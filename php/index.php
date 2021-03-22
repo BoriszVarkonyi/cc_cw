@@ -211,7 +211,8 @@ checkComp($connection);
             </div>
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/modal.js"></script>
 </body>

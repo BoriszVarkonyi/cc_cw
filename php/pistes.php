@@ -436,6 +436,7 @@ if (isset($_POST["create_piste"])) {
                 </div>
             </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/pistes.js"></script>
 <script src="../js/overlay_panel.js"></script>

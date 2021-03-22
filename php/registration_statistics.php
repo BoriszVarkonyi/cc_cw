@@ -350,7 +350,8 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                 </div>
             </div>
         </div>
-        <script src="../js/main.js"></script>
+        <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
         <script src="../js/controls.js"></script>
         <script src="../js/print.js"></script>
 </body>

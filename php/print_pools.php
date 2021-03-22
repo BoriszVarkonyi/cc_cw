@@ -253,6 +253,7 @@
             </div>
         </div>
     </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/print_pools.js"></script>
 <script src="../js/print.js"></script>

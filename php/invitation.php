@@ -458,6 +458,7 @@ if (file_exists("../uploads/$comp_id.png")) {
         </div>
     </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/invitation.js"></script>
 <script src="../js/entry_controls.js"></script>

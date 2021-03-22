@@ -64,7 +64,8 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
             </div>
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
 </body>
 </html>

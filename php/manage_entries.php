@@ -440,7 +440,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
             </div>
         </div>
     </body>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/manage_entries.js"></script>
 </html>

@@ -370,7 +370,8 @@ if (isset($_POST["new_weapon_control"])) {
 
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
     <script src="../js/search.js"></script>

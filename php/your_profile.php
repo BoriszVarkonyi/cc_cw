@@ -85,7 +85,8 @@
             </div>
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/your_profile.js"></script>
 </body>
 </html>

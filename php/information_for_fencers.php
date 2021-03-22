@@ -129,7 +129,8 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                 </div>
             </div>
         </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/information_for_fencers.js"></script>
 </body>
