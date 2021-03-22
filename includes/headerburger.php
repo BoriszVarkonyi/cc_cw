@@ -52,7 +52,6 @@ if (isset($_POST["logout"])) {
 
 ?>
 
-<div id="loading_bar"></div>
 <header>
     <p id="app_name" class="closed">Competition Control <b>Alpha</b></p>
     <?php
@@ -153,18 +152,18 @@ if (isset($_POST["logout"])) {
                 <div class="color_sample light">Aa</div>
                 <p>Light</p>
             </button>
-            <button class="color_mode" onclick="setToHighContrast()" >
+            <button class="color_mode" onclick="setToHighContrast()" disabled>
                 <div class="color_sample high_contrast">Aa</div>
                 <p>High Contrast</p>
             </button>
-            <button class="color_mode" onclick="setToDark()" >
+            <button class="color_mode" onclick="setToDark()" disabled>
                 <div class="color_sample dark">Aa</div>
                 <p>Dark</p>
             </button>
         </div>
         <div class="color_variations">
             <button class="color_square vanilla" onclick="setToVanilla()" name="vanilla"></button>
-            <button class="color_square danube" onclick="setToDanube()" name="danube" ></button>
+            <button class="color_square danube" onclick="setToDanube()" name="danube" disabled></button>
         </div>
     </div>
 
@@ -203,3 +202,4 @@ if (isset($_POST["logout"])) {
         </form>
     </div>
 </header>
+<div id="loading_bar"></div>
