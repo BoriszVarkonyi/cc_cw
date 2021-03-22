@@ -60,14 +60,14 @@ function togglePinButton(x) {
 //Checks if the pin has pinned class
 function pinChecker() {
     if (pin.classList.contains("pinned")) {
-        localStorage.setItem('navbar_status', 'pinned');
+        document.cookie = "navbar_status = pinned;" + setExpireDay(365);
     }
     else {
-        localStorage.setItem('navbar_status', 'notPinned');
+        document.cookie = "navbar_status = notPinned;" + setExpireDay(365);
     }
 }
 //Saves the status ofthe pin
-const navbar_status = localStorage.getItem('navbar_status');
+var navbar_status = cookieFinder('navbar_status', 'notPinned', false, 365)
 //Opens the navbar
 function opened_nav_bar() {
     navBar.classList.remove("closed");
@@ -191,7 +191,7 @@ function toggleProfilePanel() {
 window.addEventListener('DOMContentLoaded', (event) => {
     document.body.classList.add("preload");
 
-    const current_cs = localStorage.getItem('theme');
+    var current_cs = cookieFinder("theme", "", false, 365);
     document.documentElement.setAttribute('data-theme', current_cs);
     if (current_cs == "") {
         setToLight();
@@ -217,7 +217,7 @@ var colorModes = csWrapper.querySelectorAll(".color_mode");
 
 function setToLight() {
     document.documentElement.setAttribute('data-theme', '');
-    localStorage.setItem('theme', '');
+    document.cookie = "theme = ;" + setExpireDay(365)
     //colorModes[0].checked = true;
     colorModeClassRemover();
     colorModes[0].classList.add("selected")
@@ -235,7 +235,7 @@ var clrVariations = document.querySelector(".color_variations")
 
 function setToHighContrast() {
     document.documentElement.setAttribute('data-theme', 'highcontrast');
-    localStorage.setItem('theme', 'highcontrast');
+    document.cookie = "theme = highcontrast;" + setExpireDay(365);
     //colorModes[1].checked = true;
     colorModeClassRemover();
     colorModes[1].classList.add("selected")
@@ -252,8 +252,8 @@ function setToHighContrast() {
 }
 
 function setToDark() {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');  
+    document.documentElement.setAttribute('data-theme', 'dark'); 
+    document.cookie = "theme = dark;" + setExpireDay(365);
     //colorModes[2].checked = true;
     colorModeClassRemover()
     colorModes[2].classList.add("selected")
@@ -283,8 +283,8 @@ function setToDanube(x) {
     danubeColorButton.classList.add("selected")
     document.documentElement.setAttribute('data-content-theme', 'danube');
     //Saves the colormode
-    localStorage.setItem('colorMode', 'danube');
-    colorMode = localStorage.getItem('colorMode');
+    document.cookie = "colorMode = danube;" + setExpireDay(365);
+    colorMode = cookieFinder("colorMode", "vanilla", false, 365);
 }
 //Sets the colormode to vanilla
 function setToVanilla(x) {
@@ -293,11 +293,11 @@ function setToVanilla(x) {
     vanillaColorButton.classList.add("selected")
     document.documentElement.setAttribute('data-content-theme', 'vanilla');
     //Saves the colormode
-    localStorage.setItem('colorMode', 'vanilla');
-    colorMode = localStorage.getItem('colorMode');
+    document.cookie = "colorMode = vanilla;" + setExpireDay(365);
+    colorMode = cookieFinder("colorMode", "vanilla", false, 365);
 }
 
-var colorMode = localStorage.getItem('colorMode');
+var colorMode = cookieFinder("colorMode", "vanilla", false, 365);
 //Sets the saved colormode
 function contentThemeSetter() {
     if (colorMode == "danube") {
@@ -438,6 +438,7 @@ function toggleCompSelect() {
     compSelect.classList.toggle("opened")
 }
 
+//Disables hot keys when a text or input is focused
 var somethingIsFocused = false;
 var textAreas = document.querySelectorAll("input, textarea")
 textAreas.forEach(item => {

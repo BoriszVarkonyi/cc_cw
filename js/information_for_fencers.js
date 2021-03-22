@@ -7,6 +7,7 @@ function removeEquipmentValues() {
     }
 }
 
+//Max input value 5. Else it makes it empty
 var inputs = document.querySelectorAll(".table_row input");
 inputs.forEach(item => {
     item.addEventListener("input", function () {
