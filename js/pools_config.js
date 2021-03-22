@@ -257,7 +257,7 @@ function drop2(ev, x) {
     else{
         //Removes the classes
         removeOpenAndCollapseClass()
-        window.alert("Tisztelt felhasználó! \nÉszleltük hogy ön több fencer-t szeretett volna berakni egy table-be mint, amennyi megengedett. \nEz úton hivatalosan is közöljük magával hogy ön egy Buzi!")
+        toggleModal(1);
     }
 }
 
