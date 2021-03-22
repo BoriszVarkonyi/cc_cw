@@ -308,8 +308,8 @@ img[src$=".svg"].not_icon {
 /* ///SCROLL BAR// */
 
 *.small_scroll::-webkit-scrollbar { /* Width */
-    width: 6px;
-	height: 6px;
+    width: 7px;
+	height: 7px;
 }
 
 ::-webkit-scrollbar { /* Width */

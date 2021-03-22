@@ -470,7 +470,7 @@ header {
 	border: 3px solid var(--c-darkgray);
 }
 
-.color_square::after {
+.color_square::after, .panel_button::after {
 	content: attr(name);
 	text-transform: capitalize;
 	padding: 3px 6px;

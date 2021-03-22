@@ -71,7 +71,7 @@ if (isset($_POST["logout"])) {
                     <img src="../assets/icons/arrow_drop_down-black-18dp.svg" id="">
                 </div>
             </div>
-            <div>
+            <div class="small_scroll">
                 <p>TOURNAMENT'S PAGES</p>
                 <button class="competition_button separate" onclick="location.href=''">Tournament's timetable</button>
                 <button class="competition_button separate" onclick="location.href=''">Manage Weapon Control Bookings</button>
@@ -189,7 +189,7 @@ if (isset($_POST["logout"])) {
 
     <!-- profile panel drop-down -->
     <div id="profile_panel" class="header_overlay_panel hidden">
-        <a class="panel_button left" href="your_profile.php" target="_blank" aria-label="Check and edit your profile">
+        <a class="panel_button left" href="your_profile.php" target="_blank" aria-label="Check and edit your profile" name="Edit profile">
             <img src="../assets/icons/edit-black-18dp.svg"/>
         </a>
         <button class="panel_button" onclick="toggleProfilePanel()">

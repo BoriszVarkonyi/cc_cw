@@ -212,6 +212,19 @@
 </head>
 
 <body>
+    <div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal">
+            <div class="modal_header red">
+                <p class="modal_title">You reached this pool's limit. You cannot.</p>
+                <p class="modal_subtitle">The fencer has been relocated to it's original position.</p>
+            </div>
+            <div class="modal_footer">
+                <div class="modal_footer_content">
+                    <button class="modal_confirmation_button" onclick="toggleModal(1)">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- header -->
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
@@ -505,6 +518,7 @@
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>
+<script src="../js/modal.js"></script>
 <script src="../js/pools_config.js"></script>
 <script src="../js/overlay_panel.js"></script>
 </html>
