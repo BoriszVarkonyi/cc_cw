@@ -91,7 +91,7 @@ if (isset($_POST["save_piste_time"])) {
                     <input type="text" id="data_to_upload" name="data_to_upload">
                     <button name="save_piste_time" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                        <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </form>
             </div>
@@ -156,18 +156,18 @@ if (isset($_POST["save_piste_time"])) {
                                             <div>
                                                 <label for="">USAGE OF PISTES</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="piste_usage" id="all" value="" />
+                                                    <input type="radio" name="piste_usage" id="all" value=""/>
                                                     <label for="all">Use all</label>
-                                                    <input type="radio" name="piste_usage" id="not_all" checked value="" />
+                                                    <input type="radio" name="piste_usage" id="not_all" checked value=""/>
                                                     <label for="not_all">Automatic</label>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label for="">PISTE & TIME RELATION</label>
                                                 <div class="option_container">
-                                                    <input type="radio" name="piste_time_relation" id="diff_time" value="" />
+                                                    <input type="radio" name="piste_time_relation" id="diff_time" value=""/>
                                                     <label for="diff_time">Same piste different time</label>
-                                                    <input type="radio" name="piste_time_relation" id="diff_piste" value="" />
+                                                    <input type="radio" name="piste_time_relation" id="diff_piste" value=""/>
                                                     <label for="diff_piste">Different piste same time</label>
                                                 </div>
                                             </div>

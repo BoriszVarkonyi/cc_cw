@@ -52,7 +52,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                     <input type="text" id="">
                     <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                        <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </form>
             </div>
@@ -119,7 +119,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <div>
                                                 <label for="">SEPARATE BY</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="separate_by" id="club" value="" onclick="nation_to_club()" />
+                                                    <input type="radio" name="separate_by" id="club" value="" onclick="nation_to_club()"/>
                                                     <label for="club">Club</label>
                                                     <input type="radio" name="separate_by" id="nat" checked value="" onclick="club_to_nation()"/>
                                                     <label for="nat">Nationality</label>
@@ -128,18 +128,18 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <div>
                                                 <label for="">REFEREES STAY ON PISTE</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="stay_on_piste" id="stay" value="" />
+                                                    <input type="radio" name="stay_on_piste" id="stay" value=""/>
                                                     <label for="stay">Stay</label>
-                                                    <input type="radio" name="stay_on_piste" id="dont_stay" checked value="" />
+                                                    <input type="radio" name="stay_on_piste" id="dont_stay" checked value=""/>
                                                     <label for="dont_stay">Don't Stay</label>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label for="">USAGE OF REFEREES</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="referees_usage" id="enough" value="" />
+                                                    <input type="radio" name="referees_usage" id="enough" value=""/>
                                                     <label for="enough">Just enough</label>
-                                                    <input type="radio" name="referees_usage" id="automatic" checked value="" />
+                                                    <input type="radio" name="referees_usage" id="automatic" checked value=""/>
                                                     <label for="automatic">Automatic</label>
                                                 </div>
                                             </div>

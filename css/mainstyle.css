@@ -1703,57 +1703,6 @@ input[type="file"] {
 	display: none;
 }
 
-/* Color input */
-
-.color_select { /* Wrapper for colors */
-	display: flex;
-	width: 100%;
-	margin: 10px 0 15px;
-}
-
-.color_select.hidden {
-	display: none;
-	margin: 0;
-}
-
-.color_select > label:before {
-	display: flex;
-	width: 20px;
-	height: 20px;
-	border-radius: 2px;
-	margin: 0 5px;
-	border-style: solid;
-}
-
-.color_select > input + label {
-	margin-bottom: 0;
-}
-.color_select > input + label:before {
-	border: none;
-	padding: 3px;
-}
-
-.color_select > input:checked + label:before {
-	border: 3px solid var(--c-black);
-	padding: 0px;
-}
-
-.color_select > input.red + label:before {
-	background: var(--c-red);
-}
-
-.color_select > input.green + label:before {
-	background: var(--c-green);
-}
-
-.color_select > input.blue + label:before {
-	background: var(--c-blue);
-}
-
-.color_select > input.yellow + label:before {
-	background: var(--c-yellow);
-}
-
 /* ALL TYPES OF OVERLAY PANEL */
 
 .header_overlay_panel, .overlay_panel {

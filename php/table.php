@@ -296,7 +296,7 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
-                            <img src="../assets/icons/add_box-black-18dp.svg" />
+                            <img src="../assets/icons/add_box-black-18dp.svg"/>
                         </button>
                     </div>
 
@@ -304,15 +304,15 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg" />
+                            <img src="../assets/icons/message-black-18dp.svg"/>
                         </button>
                         <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </a>
                         <a class="stripe_button bold" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
                             <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg" />
+                            <img src="../assets/icons/ballot-black-18dp.svg"/>
                         </a>
                     </div>
 

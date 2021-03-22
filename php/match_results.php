@@ -307,7 +307,7 @@ if (isset($_POST["time_change"])) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
                         <p>Save Match</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                        <img src="../assets/icons/save-black-18dp.svg"/>
                     </button>
                 </div>
             </div>
@@ -446,7 +446,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f1" id="points_f1">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f1"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
+                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1"/>
                                     <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
                                 </div>
                             </div>
@@ -496,7 +496,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f2" id="points_f2">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f2"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
+                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2"/>
                                     <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
                                 </div>
                             </div>

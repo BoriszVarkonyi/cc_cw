@@ -1,5 +1,58 @@
 /* ///PISTES/// */
 
+/* Color input */
+
+.color_select { /* Wrapper for colors */
+	display: flex;
+	width: 100%;
+	margin: 10px 0 15px;
+}
+
+.color_select.hidden {
+	display: none;
+	margin: 0;
+}
+
+.color_select > label:before {
+	display: flex;
+	width: 25px;
+	height: 25px;
+	border-radius: 15px;
+	margin: 0 5px;
+	box-sizing: border-box;
+}
+
+.color_select > input + label {
+	margin-bottom: 0;
+}
+.color_select > input + label:before {
+	border: none;
+	padding: 3px;
+}
+
+.color_select > input:checked + label:before {
+	border: 3px solid var(--c-black);
+	transform: scale(1.1);
+}
+
+.color_select > input.red + label:before {
+	background: var(--c-red);
+}
+
+.color_select > input.green + label:before {
+	background: var(--c-green);
+}
+
+.color_select > input.blue + label:before {
+	background: var(--c-blue);
+}
+
+.color_select > input.yellow + label:before {
+	background: var(--c-yellow);
+}
+
+/* Pistes main styling */
+
 #add_piste_panel {
 	right: 40px;
 }
@@ -13,12 +66,15 @@
 
 .piste_wrapper {
 	margin: 30px 0;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
 }
 
 .piste {
 	display: flex;
 	background: var(--c-white);
-	flex: 1 0 0;
+	flex: 1 1 450px;
 	min-width: 400px;
 	width: 40vw;
 	max-width: 500px;

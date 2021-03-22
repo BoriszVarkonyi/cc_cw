@@ -34,7 +34,7 @@
 	--c-bronze:rgb(229, 137, 85);
 	/* Static throughout colormodes */
 	/*
-	NEEDS TO BE CHANGE TO RGB*/
+	NEEDS TO BE CHANGED TO RGB*/
 	--cs-black: #252525;
 	--cs-transparent-black: #25252520;
 	--cs-darkgray: #9B9A9A;
@@ -542,7 +542,7 @@ input[type="number"] {
 	text-align: center;
 }
 
-input[type="number"]:focus {
+input[type="number"]:not(.number_input):focus {
 	border: 3px solid var(--c-primary);
 	text-align: center;
 }
