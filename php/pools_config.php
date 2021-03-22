@@ -215,7 +215,7 @@
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
             <div class="modal_header red">
-                <p class="modal_title">You reached this pool's limit. You cannot.</p>
+                <p class="modal_title">You reached this pool's limit. You cannot put more fencers into this pool.</p>
                 <p class="modal_subtitle">The fencer has been relocated to it's original position.</p>
             </div>
             <div class="modal_footer">
