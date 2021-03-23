@@ -42,9 +42,7 @@
                 <div class="wrapper table" id="overview_wrapper">
                     <div class="table_header">
                         <div class="table_header_text">POSITION</div>
-                        <button class="resizer"></button>
                         <div class="table_header_text">NAME</div>
-                        <button class="resizer"></button>
                         <div class="table_header_text">NATION / CLUB</div>
                         <div class="big_status_header"></div>
                     </div>

@@ -202,29 +202,24 @@ body * {
 	transition: none !important;
 }
 
-input[type="button"] {
-	cursor: pointer;
-}
-
-button {
+button, input[type="button"] {
 	cursor: pointer;
 	background: transparent;
 }
 
-button, input {
+button, input, textarea {
 	padding: 0;
 	font-size: var(--f-medium);
 	font-family: var(--regular);
 	color: var(--c-black);
+	caret-color: var(--c-black);
     outline: none;
     border: none;
+	resize: none;
+	appearance: none;
 }
 
-p {
-	margin: 0;
-}
-
-form {
+p, form {
 	margin: 0;
 }
 
@@ -237,20 +232,6 @@ a {
 
 form.hidden, form.disabled {
 	display: none;
-	max-width: 0;
-	max-height: 0;
-	min-width: 0;
-	min-height: 0;
-	margin: 0;
-	padding: 0;
-}
-
-textarea {
-	outline: none;
-	border: none;
-	resize: none;
-	font-family: var(--regular);
-	font-size: var(--f-medium);
 }
 
 .modal_wrapper.hidden {
@@ -332,7 +313,7 @@ img[src$=".svg"].not_icon {
 
 /* ///FORMS AND INPUTS/// */
 
-label {	/* Used in forms, all caps, thin font    NO option buttons*/
+label {	/* Used in forms, all caps, bold font, NO option buttons*/
 	font-family: var(--bold);
 	text-transform: uppercase;
 	color: var(--c-black);
@@ -388,16 +369,6 @@ input.hidden {
 	display: none;
 }
 
-input[type="text"].hidden {
-	display: none;
-}
-
-input, input:focus {
-    color: var(--cd-sedondarycontrast);
-	outline: none;
-	border: none;
-}
-
 input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"].number_input, input[type="time"] {		/* Sets basic look of text and password inputs*/
 	background-color: var(--c-lightestgray);
 	box-sizing: border-box;
@@ -410,6 +381,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	border-radius: 5px;
 	background-repeat: no-repeat;
 	background-position: 10px;
+
 }
 
 input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt {		/* Sets basic look of text and password inputs*/
@@ -540,6 +512,13 @@ input[type="number"] {
 	width: 40px;
 	background-color: transparent;
 	text-align: center;
+	-moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+  	margin: 0;
 }
 
 input[type="number"]:not(.number_input):focus {
@@ -834,7 +813,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 /* CUSTOM TABLE ELEMENTS */
 
 /* These have flex display propety */
-
 .table, .table_row_wrapper, .table_header, .small_status_header, .big_status_header, .table_row, .big_status_item, .table_header_text, .table_item  {
 	display: flex;
 }
@@ -866,14 +844,16 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	margin: 100px auto;
 }
 
-.table.no_interaction * {		/* Whole table, primarly cw */
-	/*cursor: default;*/
+/*
+.table.no_interaction * {
+	cursor: default;
 }
 
-.table.no_interaction .table_row:hover {		/* Whole table, primarly cw */
+.table.no_interaction .table_row:hover {
 	-webkit-filter: brightness(1) !important;
 	filter: brightness(1) !important;
 }
+*/
 
 .table_row_wrapper {	/* Wraps table_row elements */
 	flex-direction: column;
@@ -1233,6 +1213,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 /* Resizer */
 
+/*
 .resizer {
 	border-radius: 7px;
 	position: relative;
@@ -1256,6 +1237,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 .resizer:active {
 	background: var(--cs-blue);
 }
+*/
 
 input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking"] {
 	padding: 7.5px 30px;
@@ -1264,14 +1246,6 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 	font-family: var(--bold);
 	cursor: pointer;
 	color: var(--c-white);
-}
-
-/* Input Classes */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 /* Entry */

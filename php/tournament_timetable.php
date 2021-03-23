@@ -103,7 +103,7 @@ if (isset($_POST["new_weapon_control"])) {
     </div>
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
-    <div id="create_competition_panel" class="panel">
+    <div class="panel">
         <div id="title_stripe">
             <p class="page_title">Tournament's Timetable</p>
             <div class="stripe_button_wrapper">

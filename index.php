@@ -165,13 +165,11 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body class="bg_fencers">
-    <div id="login_panel" class="panel">
+    <div id="login_panel">
         <div id="title_stripe">
-            <div class="stripe_section">
-                <p class="page_title">Login</p>
-            </div>
+            <p class="page_title">Login</p>
         </div>
-        <div id="panel_main" class="no_padding">
+        <div id="panel_main">
             <!-- login form -->
             <form action="index.php" method="POST" autocomplete="off" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
                     echo "error";
@@ -213,7 +211,6 @@ if (isset($_POST["submit"])) {
             <input type="radio" name="app" id="cc" value="cc" checked />
             <label for="cc">Competition Control</label>
         </div>
-
         <div>
             <input type="radio" name="app" id="ccw" value="ccw"/>
             <label for="ccw" other>Competition Control Wheelchair</label>

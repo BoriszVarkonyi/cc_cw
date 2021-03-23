@@ -1398,16 +1398,20 @@ header {
 
 /* Title Stripe Elements */
 
-.comp_title {
+.page_title {
+	line-height: 1.25;
+	max-height: 1rem;
+	display: flex;
+    align-items: center;
 	font-family: var(--bold);
-	font-size: var(--f-xlarge);
 	max-width: 50vw;
-	overflow: hidden;
-	float: left;
+	text-overflow: ellipsis;
+	font-size: var(--f-xlarge);
 }
 
 .comp_logo {
 	width: 50px;
+	min-width: 50px;
 	height: 50px;
 	margin: 0 10px;
 	transition: all ease-out .2s;
@@ -1422,12 +1426,6 @@ header {
 .comp_logo:hover {
 	transform: scale(1.05);
 	border-radius: 0;
-}
-
-.page_title {		/* The page's title fills the login panel and page_content */
-	font-family: var(--bold);
-	font-size: var(--f-xxlarge);
-	line-height: 1.25;
 }
 
 /* Legends */
@@ -1501,7 +1499,7 @@ header {
 	margin: 0;
 }
 
-.panel {		/* Sets basic attributes of a panel */
+.panel, #login_panel {		/* Sets basic attributes of a panel */
 	display: flex;
 	flex-flow: column;
 	background: var(--c-lightergray);
@@ -1511,7 +1509,7 @@ header {
 	overflow: hidden;
 }
 
-#your_competitions_panel, #create_competition_panel {		/* Sets size and position of name panels */
+.panel {		/* Sets size and position of name panels */
 	min-width: 650px;
 	min-height: 450px;
 	max-width: 1300px;
@@ -1537,11 +1535,13 @@ header {
 	z-index: 0;
 }
 
-#panel_main.no_padding {		/* The main part of the panel it is under the title_stripe*/
+#login_panel #panel_main {		/* The main part of the panel it is under the title_stripe*/
 	padding: 0px;
 }
 
 /* ///FORMS AND INPUTS/// */
+
+/*
 
 .panel_title {
 	font-family: var(--bold);
@@ -1559,6 +1559,8 @@ header {
 .panel_title.green {
 	color: var(--c-green);
 }
+
+*/
 
 /* Option Input */
 
@@ -1865,7 +1867,7 @@ input[type="file"] {
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	padding: 1vw;
+	padding: 20px;
 	display: grid;
     grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;

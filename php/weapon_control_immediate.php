@@ -99,9 +99,7 @@
                     <div class="wrapper table">
                         <div class="table_header">
                             <div class="table_header_text">NAME</div>
-                            <button class="resizer"></button>
                             <div class="table_header_text">NATION / CLUB</div>
-                            <button class="resizer"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="big_status_header"></div>
                         </div>

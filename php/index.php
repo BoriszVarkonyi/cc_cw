@@ -108,7 +108,7 @@ checkComp($connection);
                     <img src="../assets/icons/arrow_back_ios-black.svg"/>
                 </button>
                 <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
-                <p class="comp_title"><?php echo $comp_name; ?></p>
+                <p class="page_title"><?php echo $comp_name; ?></p>
 
                 <div id="publishcomp" class="stripe_button_wrapper">
                     <button class="stripe_button primary <?php echo $publish_comp_disabled ?>">
