@@ -61,12 +61,11 @@
         }
     }
 
-    $qry_check_row = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
+    $qry_check_row = "SELECT `fencers`, `pool_of` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
     if ($row = mysqli_fetch_assoc($do_check_row)) {
-        $json_string = $row['data'];
+        $json_string = $row['fencers'];
         $json_table = json_decode($json_string);
-        //ATINAK KUTYAM VAGY ---------------------------------------------------------------------------
         $pool_of = $row['pool_of'];
     } else {
         echo mysqli_error($connection);
@@ -90,7 +89,7 @@
         //update db
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
-        $qry_update = "UPDATE `pools` SET `data` = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        $qry_update = "UPDATE `pools` SET `fencers` = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
 
         header("Refresh:0");
@@ -179,7 +178,7 @@
 
         if ($fail == "") {
             $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-            $qry_update_r = "UPDATE `pools` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+            $qry_update_r = "UPDATE `pools` SET `fencers` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
             $do_update_r = mysqli_query($connection, $qry_update_r);
         }
 
@@ -236,12 +235,15 @@
 
         //update db
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-        $qry_update_p = "UPDATE `pools` SET `data` = '$json_string', `num_of_pistes` = '$number_of_pistes' WHERE `assoc_comp_id` = '$comp_id'";
+        $qry_update_p = "UPDATE `pools` SET `fencers` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
         $do_update_p = mysqli_query($connection, $qry_update_p);
 
         header("Refresh:0");
     }
 
+    if (isset($_POST['start_pools'])) {
+
+    }
 
 ?>
 

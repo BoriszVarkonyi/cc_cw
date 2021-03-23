@@ -5,17 +5,17 @@
 
 <?php
 
-$qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-$do_check_row = mysqli_query($connection, $qry_check_row);
-if ($row = mysqli_fetch_assoc($do_check_row)) {
-    $json_string = $row['data'];
-    $json_table = json_decode($json_string);
-} else {
-    echo mysqli_error($connection);
-}
+    $qry_get_pools = "SELECT `fencer`, `pool_of` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_get_pools = mysqli_query($connection, $qry_get_pools);
 
-$fencers = count($json_table);
+    if ($row = mysqli_fetch_assoc($do_get_pools)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
 
+        $pool_of = $row['pool_of'];
+    } else {
+        echo mysqli_error($connection);
+    }
 
 
 ?>
@@ -55,61 +55,34 @@ $fencers = count($json_table);
                 <div id="pool_listing" class="state_2 wrapper">
                     <?php
 
-                    $qry_get_pool_number = "SELECT MAX(`pool_number`) FROM `pools_$comp_id`";
-                    $do_get_pool_number = mysqli_query($connection, $qry_get_pool_number);
-                    if ($row = mysqli_fetch_assoc($do_get_pool_number)) {
-                        $pool_of = $row['MAX(`pool_number`)'];
-                    }
+                    for ($pool_num = 1; $pool_num < count($json_table); $pool_num++){
+                        $current_pool = $json_table[$pool_num];
 
-                    $f = [];
-                    for ($i = 1; $i <= $pool_of; $i++) {
+                        $piste = $current_pool -> piste;
+                        $ref1name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
 
-                        $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $i";
-                        $inside_query_do = mysqli_query($connection, $inside_query);
+                        if ($current_pool -> ref2 != NULL) {
+                            $ref2name = $current_pool -> ref2 -> prenom . " " . $current_pool -> ref2 -> nom;
+                        }
+                        $time = $current_pool -> time;
 
-                        if ($row = mysqli_fetch_assoc($inside_query_do)) {
-
-                            $pool_f_in = $row["pool_of"];
-                            $f[0] = $row['f1'];
-                            $f[1] = $row['f2'];
-                            $f[2] = $row['f3'];
-                            $f[3] = $row['f4'];
-                            $f[4] = $row['f5'];
-                            $f[5] = $row['f6'];
-                            $f[6] = $row['f7'];
-                            $ref = $row["ref"];
-                            $ref_2 = $row["ref2"];
-                            $piste = $row["piste"];
-                            $time = $row["time"];
+                        //get number of fencers in pools
+                        for ($number_of_fencers = 1; isset($current_pool -> $number_of_fencers); $number_of_fencers++);
+                        $number_of_fencers--;
 
 
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref'";
-                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
-
-                            if ($refrow = mysqli_fetch_assoc($get_ref_name_do)) {
-
-                                $refname = $refrow["full_name"];
-                                $refnat = $refrow["nat"];
-                            }
-
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref_2'";
-                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
-
-                            $ref2name = "";
-                            $ref2nat = "";
-
-                            if ($refrow = mysqli_fetch_assoc($get_ref_name_do)) {
-
-                                $ref2name = $refrow["full_name"];
-                                $ref2nat = $refrow["nat"];
-                            }
-                        } ?>
+                    ?>
                         <div>
                             <div class="entry">
                                 <div class="table_row start">
-                                    <div class="table_item bold">No. <?php echo $i ?></div>
+                                    <div class="table_item bold">No. <?php echo $pool_num ?></div>
                                     <div class="table_item">Piste <?php echo $piste ?></div>
-                                    <div class="table_item">Ref: <?php echo $refname ?></div>
+                                    <div class="table_item">Ref1: <?php echo $ref1name ?></div>
+                                    <?php
+                                    if ($current_pool -> ref2 != NULL) {
+                                        ?><div class="table_item">Ref2: <?php echo $ref2name ?></div><?php
+                                    }
+                                    ?>
                                     <div class="table_item"><?php echo $time ?></div>
                                     <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $i ?>'" class="pool_config">
                                         <img src="../assets/icons/open_in_new-black-18dp.svg">
@@ -128,9 +101,9 @@ $fencers = count($json_table);
                                                 No.
                                             </div>
                                             <?php
-                                            for ($k = 0; $k < $pool_f_in; $k++) { ?>
+                                            for ($k = 1; $k <= $number_of_fencers; $k++) { ?>
                                                 <div class="table_header_text square">
-                                                    <?php echo $k + 1; ?>
+                                                    <?php echo $k; ?>
                                                 </div>
                                             <?php
                                             }
@@ -139,29 +112,26 @@ $fencers = count($json_table);
                                         </div>
                                         <div class="table_row_wrapper alt">
                                             <?php
-                                            for ($n = 0; $n < $pool_f_in; $n++) {
-                                                $fx = $f[$n];
-                                                $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
-                                                $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
+                                            for ($n = 1; $n <= $number_of_fencers; $n++) {
 
-                                                if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
-                                                    $fencer_nat = $row['nationality'];
-                                                    $fencer_name = $row['name'];
-                                                } ?>
+                                                $fencer_nat = $current_pool -> {$n} -> nation;
+                                                $fencer_name = $current_pool -> {$n} -> prenom_nom;
+                                                ?>
 
 
                                                 <div class="table_row">
                                                     <div class="table_item"><?php echo $fencer_name ?></div>
                                                     <div class="table_item"><?php echo $fencer_nat ?></div>
-                                                    <div class="table_item square row_title"><?php echo $n + 1 ?></div>
+                                                    <div class="table_item square row_title"><?php echo $n?></div>
                                                     <?php
                                                     $filled = "";
-                                                    for ($l = 0; $l < $pool_f_in; $l++) {
+                                                    for ($l = 1; $l <= $number_of_fencers; $l++) {
 
                                                         if ($l == $n) {
 
                                                             $filled = "filled";
-                                                        } ?>
+                                                        }
+                                                    ?>
 
                                                         <div class="table_item square <?php echo $filled ?>">
 
@@ -170,36 +140,22 @@ $fencers = count($json_table);
                                                             $back = 0;
                                                             if ($l > $n) {
 
-                                                                $front = $n + 1;
-                                                                $back = $l + 1;
+                                                                $front = $n;
+                                                                $back = $l;
                                                             } else {
 
-                                                                $front = $l + 1;
-                                                                $back = $n + 1;
+                                                                $front = $l;
+                                                                $back = $n;
                                                             }
                                                             if ($l != $n) {
                                                                 $scorenow = 0;
                                                                 $m_id = $front . "-" . $back;
 
                                                                 if ($l > $n) {
-                                                                    $ret = $i + 1;
-                                                                    $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $i";
-                                                                    $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                                    while ($row4 = mysqli_fetch_assoc($query_get_scores_do)) {
-
-                                                                        $scorenow = $row4["f1_sc"];
-                                                                    }
+                                                                    $scorenow = "";
                                                                     echo $scorenow;
                                                                 } elseif ($n > $l) {
-                                                                    $ret = $i + 1;
-                                                                    $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $i";
-                                                                    $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                                    while ($row4 = mysqli_fetch_assoc($query_get_scores_do)) {
-
-                                                                        $scorenow = $row4["f2_sc"];
-                                                                    }
+                                                                    $scorenow = "";
                                                                     echo $scorenow;
                                                                 }
                                                             }

@@ -4,35 +4,6 @@
 <?php checkComp($connection); ?>
 
 <?php
-
-$poolnum = $_GET["poolid"];
-
-if(isset($_POST["savepool"])){
-
-print_r($_POST);
-
-$get_matches_query = "SELECT * FROM pool_matches_$comp_id WHERE p_in = $poolnum ORDER BY oip ASC";
-$get_matches_query_do = mysqli_query($connection, $get_matches_query);
-
-while($row = mysqli_fetch_assoc($get_matches_query_do)){
-
-$oip = $row["oip"];
-
-$score1 = $_POST[$oip . "_1"];
-$score2 = $_POST[$oip . "_2"];
-
-if($score1 != NULL && $score2 != NULL){
-
-    $update_query = "UPDATE pool_matches_$comp_id SET f1_sc = $score1, f2_sc = $score2 WHERE p_in = $poolnum AND oip = $oip";
-    $update_query_do = mysqli_query($connection, $update_query);
-
-}
-
-}
-
-}
-
-
 ?>
 
 <!DOCTYPE html>
