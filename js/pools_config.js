@@ -215,7 +215,7 @@ function dropAreaHoverOff(x) {
 }
 //If we drop an element to a table
 function drop2(ev, x) {
-    if (checkPoolTable(x)) {
+    if (checkPoolTable(x) || previousTable == x.parentNode) {
         //Denies the dragEnd function
         dragEndActive = false;
         ev.preventDefault();
@@ -254,35 +254,38 @@ function drop2(ev, x) {
         }
         idloader();
     }
-    else {
+    else{
         //Removes the classes
         removeOpenAndCollapseClass()
-        window.alert("Tisztelt felhasználó! \nÉszleltük hogy ön több fencer-t szeretett volna berakni egy table-be mint, amennyi megengedett. \nEz úton hivatalosan is közöljük magával hogy ön egy Buzi!")
+        toggleModal(1);
     }
 }
 
-function removeOpenAndCollapseClass() {
+//Removes the classes (when the pool table is full)
+function removeOpenAndCollapseClass(){
     var elements = document.querySelectorAll("#pool_listing .opened")
-    for (i = 0; i < elements.length; i++) {
+    for(i=0; i<elements.length; i++){
         elements[i].classList.remove("opened")
     }
     elements = document.querySelectorAll("#pool_listing .collapsed")
-    for (i = 0; i < elements.length; i++) {
+    for(i=0; i<elements.length; i++){
         elements[i].classList.remove("collapsed")
     }
 }
 
-function checkPoolTable(x) {
+//Checks if the pool table is full
+function checkPoolTable(x){
     var table = x.parentNode
     var fencerNumber = table.querySelectorAll(".table_row").length
-    if (fencerNumber < maxFencerNumber) {
+    if(fencerNumber < maxFencerNumber){
         return true;
     }
-    else {
+    else{
         return false;
     }
 }
 
+//Makes the JSON format string
 var poolsId = ""
 function idloader() {
     poolsId = "["

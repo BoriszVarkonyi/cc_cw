@@ -44,7 +44,7 @@
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Competitors of <?php echo $comp_name ?>
                 </p>
@@ -53,12 +53,12 @@
                 <form method="POST" id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="name" placeholder="Search by Name" class="search page alt">
-                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/close-black.svg"></button>
                     </div>
 
                     <div class="search_wrapper narrow">
                         <input type="number" name="year" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" placeholder="-Year-Of-Birth-" onkeyup="searchEngine(this)">
-                        <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
                         <div class="search_results">
                             <?php
                                 for ($i = +3; $i <= 100; $i++) {

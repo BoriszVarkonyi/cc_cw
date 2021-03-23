@@ -28,7 +28,7 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
             <div class="stripe_button_wrapper">
                 <button class="stripe_button primary" onclick="location.href='create_tournament.php'">
                     <p>Create Tournament</p>
-                    <img src="../assets/icons/add-black-18dp.svg"/>
+                    <img src="../assets/icons/add-black.svg"/>
                 </button>
             </div>
         </div>
@@ -64,7 +64,8 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
             </div>
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
 </body>
 </html>

@@ -49,12 +49,12 @@
             <div class="stripe_button_wrapper">
                 <button class="stripe_button bold" onclick="closePage()" shortcut="SHIFT+C">
                     <p>Close Page</p>
-                    <img src="../assets/icons/close-black-18dp.svg"/>
+                    <img src="../assets/icons/close-black.svg"/>
                 </button>
                 <form id="fileToUpload" action="../profile_pics/uploads.php?id=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
                     <button name="submit" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save Profile</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/>
+                        <img src="../assets/icons/save-black.svg"/>
                     </button>
                 </form>
             </div>
@@ -85,7 +85,8 @@
             </div>
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/your_profile.js"></script>
 </body>
 </html>

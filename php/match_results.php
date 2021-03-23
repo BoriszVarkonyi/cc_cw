@@ -206,6 +206,7 @@ if (isset($_POST["ref_change"])) {
     $json_table->$tableround->$matchid->referees->ref->id = $refdataarray[0];
     $json_table->$tableround->$matchid->referees->ref->name = $refdataarray[1];
     $json_table->$tableround->$matchid->referees->ref->nation = $refdataarray[2];
+    $json_table->$tableround->$matchid->referees->ref->club = $refdataarray[3];
 
     $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -223,6 +224,7 @@ if (isset($_POST["vref_change"])) {
     $json_table->$tableround->$matchid->referees->vref->id = $refdataarray[0];
     $json_table->$tableround->$matchid->referees->vref->name = $refdataarray[1];
     $json_table->$tableround->$matchid->referees->vref->nation = $refdataarray[2];
+    $json_table->$tableround->$matchid->referees->vref->club = $refdataarray[3];
 
     $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -305,7 +307,7 @@ if (isset($_POST["time_change"])) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
                         <p>Save Match</p>
-                        <img src="../assets/icons/save-black-18dp.svg" />
+                        <img src="../assets/icons/save-black.svg"/>
                     </button>
                 </div>
             </div>
@@ -315,14 +317,14 @@ if (isset($_POST["time_change"])) {
                         <div>
                             <p><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?></p>
                             <button>
-                                <img src="../assets/icons/message-black-18dp.svg">
+                                <img src="../assets/icons/message-black.svg">
                             </button>
                         </div>
 
                         <div>
                             <p><?php echo $fencer_2->name . "(" . $fencer_2->nation . ")"  ?></p>
                             <button>
-                                <img src="../assets/icons/message-black-18dp.svg">
+                                <img src="../assets/icons/message-black.svg">
                             </button>
                         </div>
                     </div>
@@ -335,11 +337,11 @@ if (isset($_POST["time_change"])) {
                             </button>
                             <div class="collapsed">
                                 <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close-black-18dp.svg">
+                                    <img src="../assets/icons/close-black.svg">
                                 </button>
                                 <div class="search_wrapper wide">
                                     <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="rfrInput" placeholder="Search and Select referee" class="search input has_icon">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                                     <div class="search_results">
 
                                         <?php
@@ -347,7 +349,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -364,18 +366,18 @@ if (isset($_POST["time_change"])) {
                             </button>
                             <div class="collapsed">
                                 <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close-black-18dp.svg">
+                                    <img src="../assets/icons/close-black.svg">
                                 </button>
                                 <div class="search_wrapper wide">
                                     <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="vdrfrInput" placeholder="Search and Select referee" class="search input has_icon">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                                     <div class="search_results">
                                         <?php
 
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -392,13 +394,13 @@ if (isset($_POST["time_change"])) {
                             </button>
                             <div class="collapsed">
                                 <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close-black-18dp.svg">
+                                    <img src="../assets/icons/close-black.svg">
                                 </button>
                                 <div class="search_wrapper narrow">
                                     <button type="button" class="search select input" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
                                         <input type="text" name="date_to_select" placeholder="Select Date">
                                     </button>
-                                    <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                                    <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
                                     <div class="search_results">
                                         <?php
 
@@ -425,7 +427,7 @@ if (isset($_POST["time_change"])) {
                             </button>
                             <div class="collapsed">
                                 <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close-black-18dp.svg">
+                                    <img src="../assets/icons/close-black.svg">
                                 </button>
                                 <input type="time" name="time_change_data">
                                 <input type="submit" name="time_change" class="save_change_button" value="Save">
@@ -444,7 +446,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f1" id="points_f1">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f1"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
+                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1"/>
                                     <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
                                 </div>
                             </div>
@@ -452,30 +454,30 @@ if (isset($_POST["time_change"])) {
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg">
+                                        <img src="../assets/icons/card-yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[0] ?>" name="f1_y">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg">
+                                        <img src="../assets/icons/card-red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[1] ?>" name="f1_r">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg">
+                                        <img src="../assets/icons/card-black.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[2] ?>" name="f1_b" id="f1_b">
                                     </div>
                                 </div>
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg">
+                                        <img src="../assets/icons/card-yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[3] ?>" name="f1_y_p">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg">
+                                        <img src="../assets/icons/card-red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[4] ?>" name="f1_r_p">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg">
+                                        <img src="../assets/icons/card-black.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[5] ?>" name="f1_b_p" id="f1_b_p">
                                     </div>
                                 </div>
@@ -494,7 +496,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f2" id="points_f2">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f2"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
+                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2"/>
                                     <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
                                 </div>
                             </div>
@@ -502,30 +504,30 @@ if (isset($_POST["time_change"])) {
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg">
+                                        <img src="../assets/icons/card-yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[0] ?>" name="f2_y">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg">
+                                        <img src="../assets/icons/card-red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[1] ?>" name="f2_r">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg">
+                                        <img src="../assets/icons/card-black.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[2] ?>" name="f2_b" id="f2_b">
                                     </div>
                                 </div>
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow-18dp.svg">
+                                        <img src="../assets/icons/card-yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[3] ?>" name="f2_y_p">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red-18dp.svg">
+                                        <img src="../assets/icons/card-red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[4] ?>" name="f2_r_p">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-black-18dp.svg">
+                                        <img src="../assets/icons/card-black.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[5] ?>" name="f2_b_p" id="f2_b_p">
                                     </div>
                                 </div>
@@ -536,7 +538,8 @@ if (isset($_POST["time_change"])) {
                 </div>
             </div>
         </div>
-        <script src="../js/main.js"></script>
+        <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
         <script src="../js/match_results.js"></script>
         <script src="../js/search.js"></script>
         <script src="../js/controls.js"></script>

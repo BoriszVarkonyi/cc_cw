@@ -66,21 +66,21 @@
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>">
                             <p>Weapon Control Statistics</p>
-                            <img src="../assets/icons/pie_chart-black-18dp.svg"/>
+                            <img src="../assets/icons/pie_chart-black.svg"/>
                         </a>
                         <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/chat-black-18dp.svg"/>
+                            <img src="../assets/icons/chat-black.svg"/>
                         </button>
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
                             <p>Add weapon control</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/> <!-- This should change to ../assets/icons/edit-black-18dp.svg if the fencer already has weapon control-->
+                            <img src="../assets/icons/add-black.svg"/> <!-- This should change to ../assets/icons/edit-black.svg if the fencer already has weapon control-->
                         </button>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     <div class="search_wrapper">
                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/close-black.svg"></button>
                         <div class="search_results">
                         <?php
                        	    foreach ($json_table as $obj) {
@@ -129,7 +129,8 @@
                 </div>
             </div>
         </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/weapon_control_immediate.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>

@@ -15,22 +15,35 @@ function getCookie(cname) {
     return "";
 }
 
-function cookieFinder(cookieName, defaultValue, isNumber) {
+function cookieFinder(cookieName, defaultValue, isNumber, exdays) {
     String(cookieName)
-    //If found da cookie
+    //If found da cookie returns the value
     if (document.cookie.split(';').some((item) => item.trim().startsWith(cookieName + '='))) {
         if (isNumber) {
             return parseInt(getCookie(cookieName))
         }
-        else{
+        else {
             return getCookie(cookieName)
         }
     }
-    //If not found da cookie
+    //If not found da cookie, it makes it with a defaul value
     else {
-        document.cookie = (cookieName + "=") + defaultValue
-        return defaultValue;
+        if (exdays == undefined) {
+            document.cookie = (cookieName + "=") + defaultValue
+            return defaultValue;
+        }
+        else {
+            document.cookie = cookieName + "=" + defaultValue + ";" + setExpireDay(exdays);
+            return defaultValue;
+        }
     }
+}
 
+//Sets the expires date
+function setExpireDay(exdays){
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    return expires;
 }
 

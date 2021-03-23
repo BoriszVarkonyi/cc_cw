@@ -1,6 +1,6 @@
 function toggleModal(modalIdNumber) {
     // Adds stylesheet for modals beacuse perfomance good
-    document.querySelector("head").insertAdjacentHTML("beforeend","<link rel=\"stylesheet\" href=\"../css/modal_style.min.css\" />");
+    document.querySelector("head").insertAdjacentHTML("beforeend","<link rel=\"stylesheet\" href=\"../css/modal_style.min.css\"/>");
 
     if (Number.isInteger(modalIdNumber)) {
         var currentModal = document.getElementById("modal_" + modalIdNumber);

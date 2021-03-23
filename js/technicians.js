@@ -68,11 +68,11 @@ function hidePasswords(x) {
 
     var buttonIcon = document.querySelector("#visibility_button > img");
 
-    buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
+    buttonIcon.src = "../assets/icons/visibility_off-black.svg";
 
     if (visib == 1){
 
-        buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
+        buttonIcon.src = "../assets/icons/visibility_off-black.svg";
 
     for(i = 0; i < change_id.length; i++) {
 
@@ -92,7 +92,7 @@ function hidePasswords(x) {
 
          }
 
-         buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
+         buttonIcon.src = "../assets/icons/visibility-black.svg";
 
          visib = 1;
     }

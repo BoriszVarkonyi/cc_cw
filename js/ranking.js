@@ -103,12 +103,12 @@ for(i=0; i<passwordText.innerHTML.length; i++) {
   stars += "*"
 }
 passwordText.innerHTML = stars
-buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
+buttonIcon.src = "../assets/icons/visibility_off-black.svg";
 
 function hidePasswords(x) {
   if(visible){
     //Hides the password changes the image
-    buttonIcon.src = "../assets/icons/visibility_off-black-18dp.svg";
+    buttonIcon.src = "../assets/icons/visibility_off-black.svg";
     var stars ="";
     for(i=0; i<passwordText.innerHTML.length; i++) {
       stars += "*"
@@ -119,7 +119,7 @@ function hidePasswords(x) {
   else {
     //Show the password, changes the image
     passwordText.innerHTML = password
-    buttonIcon.src = "../assets/icons/visibility-black-18dp.svg";
+    buttonIcon.src = "../assets/icons/visibility-black.svg";
     visible = true;
   }
 }

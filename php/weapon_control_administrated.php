@@ -85,27 +85,27 @@
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>">
                             <p>Weapon Control Statistics</p>
-                            <img src="../assets/icons/pie_chart-black-18dp.svg"/>
+                            <img src="../assets/icons/pie_chart-black.svg"/>
                         </a>
                         <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/chat-black-18dp.svg"/>
+                            <img src="../assets/icons/chat-black.svg"/>
                         </button>
                         <a class="stripe_button primary" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check In</p>
-                            <img src="../assets/icons/check_circle_outline-black-18dp.svg"/>
+                            <img src="../assets/icons/check_circle_outline-black.svg"/>
                         </a>
                         <a class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Add Weapon Control</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/>
+                            <img src="../assets/icons/add-black.svg"/>
                         </a>
                         <a class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                             <p>Edit Weapon Control</p>
-                            <img src="../assets/icons/edit-black-18dp.svg"/>
+                            <img src="../assets/icons/edit-black.svg"/>
                         </a>
                         <a class="stripe_button primary" id="checkOutButton" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
                             <p>Check Out</p>
-                            <img src="../assets/icons/check_circle-black-18dp.svg"/>
+                            <img src="../assets/icons/check_circle-black.svg"/>
                         </a>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
@@ -158,7 +158,8 @@
                 </div>
             </div>
         </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/weapon_control_administrated.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>

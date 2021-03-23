@@ -37,16 +37,16 @@
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
                             <p id="save_text">Print All Pools</p>
-                            <img src="../assets/icons/print-black-18dp.svg"/>
+                            <img src="../assets/icons/print-black.svg"/>
                         </button>
                     </div>
 
                     <div class="view_button_wrapper zoom">
                         <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
-                            <img src="../assets/icons/zoom_out-black-18dp.svg"/>
+                            <img src="../assets/icons/zoom_out-black.svg"/>
                         </button>
                         <button class="view_button" onclick="zoomIn()" id="zoomInButton">
-                            <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                            <img src="../assets/icons/zoom_in-black.svg"/>
                         </button>
                     </div>
                 </div>
@@ -253,6 +253,7 @@
             </div>
         </div>
     </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/print_pools.js"></script>
 <script src="../js/print.js"></script>

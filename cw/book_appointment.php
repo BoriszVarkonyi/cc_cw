@@ -42,7 +42,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Book Appointment for Weapon Control of {Comp's name}
                 </p>
@@ -51,7 +51,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                 <div class="modal">
                     <div>
                         <button class="panel_button" onclick="toggleConf()">
-                            <img src="../assets/icons/close-black-18dp.svg">
+                            <img src="../assets/icons/close-black.svg">
                         </button>
                         <p class="title">Are you sure you want to send this Pre-Registration with these informations?</p>
                         <label>COUNTRY / FENCING CLUB</label>
@@ -77,7 +77,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
                                         <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
-                                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                                         <div class="search_results">
                                             <?php include "../includes/nations.php"; ?>
                                         </div>

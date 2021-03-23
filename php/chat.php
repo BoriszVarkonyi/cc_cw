@@ -58,7 +58,7 @@
                     <p>Chat room name</p>
                     <div id="stripe_button_wrapper">
                         <button  class="white_glass base">
-                            <img src="../assets/icons/volume_off-black-18dp.svg" alt="Mute button image">
+                            <img src="../assets/icons/volume_off-black.svg" alt="Mute button image">
                         </button>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                     <form id="message_form">
                         <textarea name="message" id="message" cols="30" rows="1" placeholder="Aa"></textarea>
                         <button>
-                            <img src="../assets/icons/send-black-18dp.svg" alt="Send Button">
+                            <img src="../assets/icons/send-black.svg" alt="Send Button">
                         </button>
                     </form>
                 </div>

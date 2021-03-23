@@ -109,11 +109,11 @@ if (isset($_POST["new_weapon_control"])) {
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_tournament.php'">
                     <p>Cancel</p>
-                    <img src="../assets/icons/close-black-18dp.svg"/>
+                    <img src="../assets/icons/close-black.svg"/>
                 </button>
                 <button type="submit" name="save" form="tournament_timetable" class="stripe_button primary">
                     <p>Save</p>
-                    <img src="../assets/icons/save-black-18dp.svg"/>
+                    <img src="../assets/icons/save-black.svg"/>
                 </button>
             </div>
         </div>
@@ -180,7 +180,7 @@ if (isset($_POST["new_weapon_control"])) {
                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                 <input type="text" name="date_to_select" placeholder="Select Date">
                             </button>
-                            <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
                             <div class="search_results">
 
                                 <?php
@@ -307,7 +307,7 @@ if (isset($_POST["new_weapon_control"])) {
                                 <button type="button" class="search select input" tabindex="3">
                                     <input type="text" name="date_to_select" placeholder="Select Date">
                                 </button>
-                                <button type="button"><img src="../assets/icons/arrow_drop_down-black-18dp.svg"></button>
+                                <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
                                 <div class="search_results">
 
                                     <?php
@@ -370,7 +370,8 @@ if (isset($_POST["new_weapon_control"])) {
 
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
     <script src="../js/search.js"></script>

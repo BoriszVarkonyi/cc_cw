@@ -62,7 +62,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit">
                             <p>Save Information</p>
-                            <img src="../assets/icons/save-black-18dp.svg"/>
+                            <img src="../assets/icons/save-black.svg"/>
                         </button>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                     <form class="wrapper" class="db_panel other" id="information_for_fencers_form" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST">
                         <div class="db_panel other">
                             <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/beenhere-black-18dp.svg">
+                                <img src="../assets/icons/beenhere-black.svg">
                                 <p>Equipment needed to be checked</p>
                             </div>
                             <div class="db_panel_main small">
@@ -79,7 +79,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                         <div class="table_header_text">EQUIPMENT</div>
                                         <div class="table_header_text">QUANTITY
                                             <button onclick="removeEquipmentValues()" type="button" id="reset_button">
-                                                <img src="../assets/icons/cached-black-18dp.svg">
+                                                <img src="../assets/icons/cached-black.svg">
                                             </button>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                         </div>
                         <div class="db_panel">
                             <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/edit-black-18dp.svg">
+                                <img src="../assets/icons/edit-black.svg">
                                 <p>Set Additional Information</p>
                             </div>
                             <div class="db_panel_main column">
@@ -129,7 +129,8 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                 </div>
             </div>
         </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/information_for_fencers.js"></script>
 </body>

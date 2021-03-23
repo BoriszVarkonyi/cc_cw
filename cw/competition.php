@@ -3,7 +3,7 @@
 <?php include "../includes/db.php"; ?>
 <?php
 
-    $logo_path = "../assets/icons/delete-black-18dp.svg";
+    $logo_path = "../assets/icons/delete-black.svg";
 
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";

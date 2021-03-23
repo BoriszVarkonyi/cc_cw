@@ -91,14 +91,14 @@
                 <div class="stripe_button_wrapper">
                     <button name="submit_form" form="save_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save Formula</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/>
+                        <img src="../assets/icons/save-black.svg"/>
                     </button>
                 </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/build-black-18dp.svg">
+                        <img src="../assets/icons/build-black.svg">
                         <p>Set Formula of Pools and Table</p>
                     </div>
                     <div class="db_panel_main">
@@ -179,6 +179,7 @@
             </div>
         </div>
     </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/formula.js"></script>
 </html>

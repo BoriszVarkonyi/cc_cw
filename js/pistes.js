@@ -125,7 +125,7 @@ document.addEventListener("keyup", function (e) {
         }
     }
 })
-//
+//Live buttom
 function liveButton(x) {
     var liveButton = x;
     var settingsWrapper = liveButton.parentNode.parentNode;
@@ -135,7 +135,7 @@ function liveButton(x) {
     linkWrapper.classList.remove("hidden");
     textArea.focus();
 }
-
+//Close link wrapper button
 function closeLinkWrapper(x) {
     var closeButton = x;
     var linkWrapper = closeButton.parentNode;

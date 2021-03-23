@@ -10,6 +10,7 @@ function searchButton(x) {
 
 function serachInLists() {
     var searches = document.querySelectorAll(".table_header .search")
+    //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
         var filter = searches[j].value.toUpperCase();
         if (j > 0) {
@@ -73,6 +74,7 @@ function searchDelete(x) {
     serachInLists()
 }
 
+//Deals with the radio button search inputs
 radioButtons.forEach(item => {
     item.addEventListener("input", function () {
         var searchInput = this.parentNode.previousElementSibling.firstElementChild

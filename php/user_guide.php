@@ -33,7 +33,7 @@
                 <div id="guide_choose">
                     <div class="guide_option">
                         <div>
-                            <img src="../assets/icons/directions-black-18dp.svg">
+                            <img src="../assets/icons/directions-black.svg">
                         </div>
                         <div>
                             <p>Getting Started</p>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="guide_option">
                         <div>
-                            <img src="../assets/icons/menu_book-black-18dp.svg">
+                            <img src="../assets/icons/menu_book-black.svg">
                         </div>
                         <div>
                             <p>Everything explained</p>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="guide_option">
                         <div>
-                            <img src="../assets/icons/healing-black-18dp.svg">
+                            <img src="../assets/icons/healing-black.svg">
                         </div>
                         <div>
                             <p>Patch Notes</p>
@@ -63,5 +63,6 @@
         </div>
     </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 </html>

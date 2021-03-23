@@ -94,14 +94,14 @@
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="submit" name="submit" form="basic_information_form">
                         <p id="save_text">Save Information</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/>
+                        <img src="../assets/icons/save-black.svg"/>
                     </button>
                 </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/build-black-18dp.svg">
+                        <img src="../assets/icons/build-black.svg">
                         <p>Set basic information</p>
                     </div>
                     <form class="db_panel_main" action="" id="basic_information_form" method="POST">
@@ -194,6 +194,7 @@
             </div>
         </div>
     </div>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/basic_information.js"></script>
 </body>

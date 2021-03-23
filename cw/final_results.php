@@ -16,7 +16,7 @@
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Final Results of <?php echo $comp_name ?>
                 </p>
@@ -25,7 +25,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                     </div>
                     <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>
@@ -54,7 +54,7 @@
                                 </p>
                             </div>
                             <div class="big_status_item gold">
-                                <img src="../assets/icons/emoji_events-black-18dp.svg">
+                                <img src="../assets/icons/emoji_events-black.svg">
                             </div>
                         </div>
                         <div class="table_row">

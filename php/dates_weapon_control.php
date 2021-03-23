@@ -129,10 +129,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                 </div>
                                 <div>
                                     <button type="button">
-                                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg">
+                                        <img src="../assets/icons/person_add_alt_1-black.svg">
                                     </button>
                                     <button type="button">
-                                        <img src="../assets/icons/person_remove-black-18dp.svg">
+                                        <img src="../assets/icons/person_remove-black.svg">
                                     </button>
                                 </div>
 
@@ -206,10 +206,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                 </div>
                                 <div>
                                     <button type="button">
-                                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg">
+                                        <img src="../assets/icons/person_add_alt_1-black.svg">
                                     </button>
                                     <button type="button">
-                                        <img src="../assets/icons/person_remove-black-18dp.svg">
+                                        <img src="../assets/icons/person_remove-black.svg">
                                     </button>
                                 </div>
                                 <div>
@@ -267,10 +267,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                 </div>
                                 <div>
                                     <button type="button">
-                                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg">
+                                        <img src="../assets/icons/person_add_alt_1-black.svg">
                                     </button>
                                     <button type="button">
-                                        <img src="../assets/icons/person_remove-black-18dp.svg">
+                                        <img src="../assets/icons/person_remove-black.svg">
                                     </button>
                                 </div>
                                 <div>
@@ -328,10 +328,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                 </div>
                                 <div>
                                     <button type="button">
-                                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg">
+                                        <img src="../assets/icons/person_add_alt_1-black.svg">
                                     </button>
                                     <button type="button">
-                                        <img src="../assets/icons/person_remove-black-18dp.svg">
+                                        <img src="../assets/icons/person_remove-black.svg">
                                     </button>
                                 </div>
                                 <div>
@@ -389,10 +389,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                 </div>
                                 <div>
                                     <button type="button">
-                                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg">
+                                        <img src="../assets/icons/person_add_alt_1-black.svg">
                                     </button>
                                     <button type="button">
-                                        <img src="../assets/icons/person_remove-black-18dp.svg">
+                                        <img src="../assets/icons/person_remove-black.svg">
                                     </button>
                                 </div>
                                 <div>
@@ -450,10 +450,10 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
                                 </div>
                                 <div>
                                     <button type="button">
-                                        <img src="../assets/icons/person_add_alt_1-black-18dp.svg">
+                                        <img src="../assets/icons/person_add_alt_1-black.svg">
                                     </button>
                                     <button type="button">
-                                        <img src="../assets/icons/person_remove-black-18dp.svg">
+                                        <img src="../assets/icons/person_remove-black.svg">
                                     </button>
                                 </div>
                                 <div>
@@ -474,6 +474,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
             </div>
         </div>
     </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/dates_weapon_control.js"></script>
 </html>

@@ -146,31 +146,31 @@ if (isset($_POST["create_piste"])) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" onclick="toggleAddPistePanel()">
                         <p>Add Piste</p>
-                        <img src="../assets/icons/add-black-18dp.svg" />
+                        <img src="../assets/icons/add-black.svg"/>
                     </button>
                 </div>
 
                 <div class="overlay_panel hidden" id="add_piste_panel">
                     <button class="panel_button" onclick="toggleAddPistePanel()">
-                        <img src="../assets/icons/close-black-18dp.svg">
+                        <img src="../assets/icons/close-black.svg">
                     </button>
 
                     <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" autocomplete="off" class="overlay_panel_form flex" method="POST">
                         <label for="username">TYPE</label>
                         <div class="option_container row">
-                            <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main" />
+                            <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main"/>
                             <label for="main">Single</label>
 
-                            <input type="radio" onclick="coloredPiste()" name="piste_type" id="colored" value="colored" />
+                            <input type="radio" onclick="coloredPiste()" name="piste_type" id="colored" value="colored"/>
                             <label for="colored">Colored</label>
 
-                            <input type="radio" onclick="numberedPiste()" name="piste_type" id="numbered" value="numbered" />
+                            <input type="radio" onclick="numberedPiste()" name="piste_type" id="numbered" value="numbered"/>
                             <label for="numbered">Multiple</label>
                         </div>
 
                         <!--Main-->
                         <label for="piste_number" id="mainpiste_num_label" class="label_text hidden main_group">PISTE NAME</label>
-                        <input type="text" id="mainpiste_num_input" class="number_input small hidden main_group" placeholder="Main, 1, 2, 3, 4" name="one_piste_name">
+                        <input type="text" id="mainpiste_num_input" class="number_input centered hidden main_group" placeholder="Main, 1, 2, 3, 4" name="one_piste_name">
 
                         <!--Colored-->
                         <label for="piste_number" class="label_text hidden colored_group">PISTE COLOR</label>
@@ -187,14 +187,14 @@ if (isset($_POST["create_piste"])) {
                         </div>
 
                         <label for="piste_number" class="label_text hidden colored_group">PISTE NAME</label>
-                        <input type="text" class="number_input small hidden colored_group" placeholder="e.g. 2" name="colored_piste_name">
+                        <input type="text" class="number_input centered hidden colored_group" placeholder="e.g. 2" name="colored_piste_name">
 
                         <!--Numbered-->
                         <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE QUANTITY</label>
-                        <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="quantity">
+                        <input type="number" class="number_input centered hidden numbered_group" placeholder="e.g. 2" name="quantity">
 
                         <label for="piste_quanitity" class="label_text hidden numbered_group">PISTE START NUMBER</label>
-                        <input type="number" class="number_input small hidden numbered_group" placeholder="e.g. 2" name="start_num">
+                        <input type="number" class="number_input centered hidden numbered_group" placeholder="e.g. 2" name="start_num">
 
                     </form>
                     <button type="submit" name="create_piste" class="panel_submit" form="create_piste" value="Import">Create</button>
@@ -223,40 +223,40 @@ if (isset($_POST["create_piste"])) {
                                 </div>
                                 <div>
                                     <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                        <img src="../assets/icons/settings-black.svg">
                                     </button>
                                 </div>
                                 <form method="POST" class="piste_settings_panel">
                                     <div class="link_wrapper hidden">
-                                        <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>" />
+                                        <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                         <input type="text" class="link_input">
                                         <button type="button" onclick="closeLinkWrapper(this)">
-                                            <img src="../assets/icons/close-black-18dp.svg">
+                                            <img src="../assets/icons/close-black.svg">
                                         </button>
                                         <button type="submit">
-                                            <img src="../assets/icons/send-black-18dp.svg">
+                                            <img src="../assets/icons/send-black.svg">
                                         </button>
                                     </div>
                                     <div class="settings_wrapper">
                                         <div>
                                             <p>Control</p>
                                             <button class="selected">
-                                                <img src="../assets/icons/smartphone-black-18dp.svg">
+                                                <img src="../assets/icons/smartphone-black.svg">
                                             </button>
                                             <button>
-                                                <img src="../assets/icons/laptop-black-18dp.svg">
+                                                <img src="../assets/icons/laptop-black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Live</p>
                                             <button type="button" onclick="liveButton(this)">
-                                                <img src="../assets/icons/live_tv-black-18dp.svg">
+                                                <img src="../assets/icons/live_tv-black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Delete</p>
                                             <button name="delete_piste" id="delete_piste" type="submit">
-                                                <img src="../assets/icons/delete-black-18dp.svg">
+                                                <img src="../assets/icons/delete-black.svg">
                                             </button>
                                         </div>
                                     </div>
@@ -301,40 +301,40 @@ if (isset($_POST["create_piste"])) {
                                 </div>
                                 <div>
                                     <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                        <img src="../assets/icons/settings-black.svg">
                                     </button>
                                 </div>
                                 <form method="POST" class="piste_settings_panel">
                                     <div class="link_wrapper hidden">
-                                        <input name="id_to_change" class="hidden" value="<?php echo $value->name ?>" />
+                                        <input name="id_to_change" class="hidden" value="<?php echo $value->name ?>"/>
                                         <input type="text" class="link_input">
                                         <button type="button" onclick="closeLinkWrapper(this)">
-                                            <img src="../assets/icons/close-black-18dp.svg">
+                                            <img src="../assets/icons/close-black.svg">
                                         </button>
                                         <button type="submit">
-                                            <img src="../assets/icons/send-black-18dp.svg">
+                                            <img src="../assets/icons/send-black.svg">
                                         </button>
                                     </div>
                                     <div class="settings_wrapper">
                                         <div>
                                             <p>Control</p>
                                             <button class="selected">
-                                                <img src="../assets/icons/smartphone-black-18dp.svg">
+                                                <img src="../assets/icons/smartphone-black.svg">
                                             </button>
                                             <button>
-                                                <img src="../assets/icons/laptop-black-18dp.svg">
+                                                <img src="../assets/icons/laptop-black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Live</p>
                                             <button type="button" onclick="liveButton(this)">
-                                                <img src="../assets/icons/live_tv-black-18dp.svg">
+                                                <img src="../assets/icons/live_tv-black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Delete</p>
                                             <button name="delete_piste" id="delete_piste" type="submit">
-                                                <img src="../assets/icons/delete-black-18dp.svg">
+                                                <img src="../assets/icons/delete-black.svg">
                                             </button>
                                         </div>
                                     </div>
@@ -386,40 +386,40 @@ if (isset($_POST["create_piste"])) {
                                 </div>
                                 <div>
                                     <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                        <img src="../assets/icons/settings-black-18dp.svg">
+                                        <img src="../assets/icons/settings-black.svg">
                                     </button>
                                 </div>
                                 <form method="POST" class="piste_settings_panel">
                                     <div class="link_wrapper hidden">
-                                        <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>" />
+                                        <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
                                         <input type="text" class="link_input">
                                         <button type="button" onclick="closeLinkWrapper(this)">
-                                            <img src="../assets/icons/close-black-18dp.svg">
+                                            <img src="../assets/icons/close-black.svg">
                                         </button>
                                         <button type="submit">
-                                            <img src="../assets/icons/send-black-18dp.svg">
+                                            <img src="../assets/icons/send-black.svg">
                                         </button>
                                     </div>
                                     <div class="settings_wrapper">
                                         <div>
                                             <p>Control</p>
                                             <button class="selected">
-                                                <img src="../assets/icons/smartphone-black-18dp.svg">
+                                                <img src="../assets/icons/smartphone-black.svg">
                                             </button>
                                             <button>
-                                                <img src="../assets/icons/laptop-black-18dp.svg">
+                                                <img src="../assets/icons/laptop-black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Live</p>
                                             <button type="button" onclick="liveButton(this)">
-                                                <img src="../assets/icons/live_tv-black-18dp.svg">
+                                                <img src="../assets/icons/live_tv-black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Delete</p>
                                             <button name="delete_piste" id="delete_piste" type="submit">
-                                                <img src="../assets/icons/delete-black-18dp.svg">
+                                                <img src="../assets/icons/delete-black.svg">
                                             </button>
                                         </div>
                                     </div>
@@ -436,6 +436,7 @@ if (isset($_POST["create_piste"])) {
                 </div>
             </div>
 </body>
+<script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/pistes.js"></script>
 <script src="../js/overlay_panel.js"></script>

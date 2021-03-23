@@ -363,11 +363,11 @@
 					</g>
 					<text transform="matrix(0.9659 -0.2588 0.2588 0.9659 1537.5549 75.4198)" class="st8 st9 st10">HUN</text>
 				</g>
-				<g id="check-black-18dp" transform="translate(369 187)">
+				<g id="check-black" transform="translate(369 187)">
 					<path id="Path_83" class="st6" d="M-106.2-411.9l38.6-10.4l10.4,38.6l-38.6,10.4L-106.2-411.9z"/>
 					<path id="Path_84" class="st8" d="M-84.9-389.3l-8.9-5.3l-1.7,3.1l11.9,7.1l14.4-26l-3-1.8L-84.9-389.3z"/>
 				</g>
-				<g id="check-black-18dp-2" transform="translate(369 244)">
+				<g id="check-black-2" transform="translate(369 244)">
 					<path id="Path_83-2" class="st6" d="M-76.7-358.8l38.6-10.4l10.4,38.6l-38.6,10.4L-76.7-358.8z"/>
 					<path id="Path_84-2" class="st8" d="M-55.4-336.2l-8.9-5.3l-1.7,3.1l11.9,7.1l14.4-26l-3-1.8L-55.4-336.2z"/>
 				</g>
@@ -684,7 +684,7 @@
 				</g>
 
 					<rect id="Rectangle_1437" x="2638.9" y="-995.5" transform="matrix(0.9659 -0.2588 0.2588 0.9659 349.8202 714.0878)" class="st2" width="496" height="48"/>
-				<g id="emoji_events-black-18dp" transform="translate(1723 155)">
+				<g id="emoji_events-black" transform="translate(1723 155)">
 
 						<rect id="Rectangle_823" x="1143.4" y="-1148.5" transform="matrix(0.9659 -0.2588 0.2588 0.9659 331.7097 262.6613)" class="st6" width="40" height="40"/>
 					<path id="Path_33" class="st8" d="M1171.1-1141.8l-3,0.8l-0.8-3l-15,4l0.8,3l-3,0.8c-1.7,0.4-2.6,2.2-2.2,3.8l0.4,1.5

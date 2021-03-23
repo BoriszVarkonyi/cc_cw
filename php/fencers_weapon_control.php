@@ -154,11 +154,11 @@
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button" <?php echo $wc_page ?>>
                             <p>Back</p>
-                            <img src="../assets/icons/close-black-18dp.svg"/>
+                            <img src="../assets/icons/close-black.svg"/>
                         </a>
                         <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
                             <p>Save weapon control</p>
-                            <img src="../assets/icons/save-black-18dp.svg"/>
+                            <img src="../assets/icons/save-black.svg"/>
                         </button>
                     </div>
                 </div>
@@ -207,6 +207,7 @@
                 </div>
         </div>
     </body>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
 </html>

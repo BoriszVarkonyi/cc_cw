@@ -63,7 +63,7 @@
                             $comp_name = $row['comp_name'];
                             $comp_id = $row['comp_id'];
                             $comp_status = $row['comp_status'];
-                            $star = "../assets/icons/star-black-18dp.svg";
+                            $star = "../assets/icons/star-black.svg";
                             $comp_start = $row['comp_start'];
                             $comp_end = $row['comp_start'];
 

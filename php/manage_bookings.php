@@ -23,19 +23,19 @@
             <form class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_tournament.php'">
                     <p>Cancel</p>
-                    <img src="../assets/icons/close-black-18dp.svg"/>
+                    <img src="../assets/icons/close-black.svg"/>
                 </button>
                 <button class="stripe_button red" onclick="" name="" id="" type="submit" shortcut="SHIFT+D">
                     <p>Disapprove</p>
-                    <img src="../assets/icons/how_to_unreg-black-18dp.svg"/>
+                    <img src="../assets/icons/how_to_unreg-black.svg"/>
                 </button>
                 <button class="stripe_button green" onclick="" name="" id="" type="submit" shortcut="SHIFT+A">
                     <p>Approve</p>
-                    <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
+                    <img src="../assets/icons/how_to_reg-black.svg"/>
                 </button>
                 <button class="stripe_button green" onclick="" name="" id="" type="submit" shortcut="SHIFT+A">
                     <p>Approve All</p>
-                    <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
+                    <img src="../assets/icons/how_to_reg-black.svg"/>
                 </button>
                 <input type="text" class="selected_list_item_input" name="" id="" value="">
             </form>
@@ -65,7 +65,8 @@
             </div>
         </div>
     </div>
-    <script src="../js/main.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+<script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
     <script src="../js/manage_entries.js"></script>

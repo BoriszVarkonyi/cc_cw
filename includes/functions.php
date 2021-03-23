@@ -224,9 +224,9 @@ function getStar($comp_id) {
     }
 
     if ($contains) {
-        $star = "../assets/icons/star-black-18dp.svg";
+        $star = "../assets/icons/star-black.svg";
     } else {
-        $star = "../assets/icons/star_border-black-18dp.svg";
+        $star = "../assets/icons/star_border-black.svg";
     }
 
     return $star;
