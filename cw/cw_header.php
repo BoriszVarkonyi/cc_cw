@@ -31,7 +31,7 @@
         <div>
             <button onclick="toggleLanguagesPanel(this)">
                 <p>En</p>
-                <img src="../assets/icons/arrow_drop_down-black-18dp.svg">
+                <img src="../assets/icons/arrow_drop_down-black.svg">
             </button>
             <div id="change_language_panel">
                 <div>
@@ -46,7 +46,7 @@
     </div>
     <div id="navigation_mobile">
         <button onclick="toggleMobileNavigation(this)">
-            <img src="../assets/icons/menu-black-18dp.svg">
+            <img src="../assets/icons/menu-black.svg">
         </button>
         <div id="mobile_navigation">
             <div>

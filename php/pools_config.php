@@ -235,23 +235,23 @@
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
-                        <img src="../assets/icons/message-black-18dp.svg"/>
+                        <img src="../assets/icons/message-black.svg"/>
                     </button>
 
                     <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
                         <p>Referees</p>
-                        <img src="../assets/icons/ballot-black-18dp.svg"/>
+                        <img src="../assets/icons/ballot-black.svg"/>
                     </button>
 
                     <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
                         <p>Pistes & Time</p>
-                        <img src="../assets/icons/ballot-black-18dp.svg"/>
+                        <img src="../assets/icons/ballot-black.svg"/>
                     </button>
 
                     <form action="" method="POST">
                         <button class="stripe_button primary" type="submit" name="start_pools">
                             <p>Start Pools</p>
-                            <img src="../assets/icons/outlined_flag-black-18dp.svg"/>
+                            <img src="../assets/icons/outlined_flag-black.svg"/>
                         </button>
                     </form>
 
@@ -259,13 +259,13 @@
                         <input type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" class="hidden">
                         <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
                             <p>Save Pools</p>
-                            <img src="../assets/icons/save-black-18dp.svg"/>
+                            <img src="../assets/icons/save-black.svg"/>
                         </button>
                     </form>
                 </div>
                 <div id="ref_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleRefPanel()">
-                        <img src="../assets/icons/close-black-18dp.svg">
+                        <img src="../assets/icons/close-black.svg">
                     </button>
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
@@ -326,7 +326,7 @@
                 </div>
                 <div id="pist_time_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="togglePistTimePanel()">
-                        <img src="../assets/icons/close-black-18dp.svg">
+                        <img src="../assets/icons/close-black.svg">
                     </button>
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time">STARTING TIME</label>
@@ -439,7 +439,7 @@
                                         <div class="table_item"><?php echo $time ?></div>
                                         <div class="big_status_item">
                                             <button type="button" onclick="" class="pool_config">
-                                                <img src="../assets/icons/settings-black-18dp.svg">
+                                                <img src="../assets/icons/settings-black.svg">
                                             </button>
                                         </div>
                                     </div>

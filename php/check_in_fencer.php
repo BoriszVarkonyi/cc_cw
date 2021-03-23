@@ -24,27 +24,27 @@
                 <div class="stripe_button_wrapper">
                     <button name="" id="" class="stripe_button" shortcut="SHIFT+P" onclick="printPage()">
                         <p>Print Check In</p>
-                        <img src="../assets/icons/print-black-18dp.svg"/>
+                        <img src="../assets/icons/print-black.svg"/>
                     </button>
                     <button name="" class="stripe_button primary" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Save Check In</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/>
+                        <img src="../assets/icons/save-black.svg"/>
                     </button>
                 </div>
                 <div class="view_button_wrapper zoom">
                     <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out-black-18dp.svg"/>
+                        <img src="../assets/icons/zoom_out-black.svg"/>
                     </button>
                     <button class="view_button" onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                        <img src="../assets/icons/zoom_in-black.svg"/>
                     </button>
                 </div>
                 <div class="view_button_wrapper view">
                     <button class="view_button" onclick="viewButton(this)" id="panelViewButton">
-                        <img src="../assets/icons/view_grid-black-18dp.svg"/>
+                        <img src="../assets/icons/view_grid-black.svg"/>
                     </button>
                     <button class="view_button" onclick="viewButton(this)" id="printViewButton">
-                        <img src="../assets/icons/print-black-18dp.svg"/>
+                        <img src="../assets/icons/print-black.svg"/>
                     </button>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="wrapper">
                     <form action="" id="" method="POST" class="db_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/backpack-black-18dp.svg"/>
+                            <img src="../assets/icons/backpack-black.svg"/>
                             Contents of fencer's bag
                         </div>
                         <div class="db_panel_main">

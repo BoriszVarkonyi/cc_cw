@@ -69,26 +69,26 @@
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
                             <p>Registration Statistics</p>
-                            <img src="../assets/icons/pie_chart-black-18dp.svg"/>
+                            <img src="../assets/icons/pie_chart-black.svg"/>
                         </a>
                         <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
                             <p>Add Fencer</p>
-                            <img src="../assets/icons/person_add_alt_1-black-18dp.svg"/>
+                            <img src="../assets/icons/person_add_alt_1-black.svg"/>
                         </button>
                         <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
                             <p>Register out</p>
-                            <img src="../assets/icons/how_to_unreg-black-18dp.svg"/>
+                            <img src="../assets/icons/how_to_unreg-black.svg"/>
                         </button>
                         <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit" shortcut="SHIFT+I">
                             <p>Register in</p>
-                            <img src="../assets/icons/how_to_reg-black-18dp.svg"/>
+                            <img src="../assets/icons/how_to_reg-black.svg"/>
                         </button>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleAddFencerPanel()">
-                        <img src="../assets/icons/close-black-18dp.svg">
+                        <img src="../assets/icons/close-black.svg">
                     </button>
                     <!-- add fencers drop-down -->
                     <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
@@ -97,7 +97,7 @@
                         <label for="fencers_nationality">NATION / CLUB</label>
                         <div class="search_wrapper wide">
                             <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input" id="nationInput">
-                            <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                            <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                             <div class="search_results">
                                 <?php include "../includes/nations.php"; ?>
                             </div>
@@ -115,55 +115,55 @@
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
                                     </div>
                                 </div>
                                 NAME
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black-18dp.svg">
+                                    <img src="../assets/icons/search-black.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
                                     </div>
                                 </div>
                                 NATION
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black-18dp.svg">
+                                    <img src="../assets/icons/search-black.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" placeholder="Search by Club" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
                                     </div>
                                 </div>
                                 CLUB
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black-18dp.svg">
+                                    <img src="../assets/icons/search-black.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel option">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" class="search page hidden">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="a" value="Not registered"/>
                                         <label for="a">Not registered</label>
                                         <input type="radio" name="status" id="b" value="Registered"/>
                                         <label for="b">Registered</label>
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black-18dp.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
                                     </div>
                                 </div>
                                 STATUS
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black-18dp.svg">
+                                    <img src="../assets/icons/search-black.svg">
                                 </button>
                             </div>
                             <div class="big_status_header"></div>

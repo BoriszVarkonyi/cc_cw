@@ -20,7 +20,7 @@ checkComp($connection);
 
     } else {
 
-        $logo = "../assets/icons/no_image-black-18dp.svg";
+        $logo = "../assets/icons/no_image-black.svg";
     }
 ?>
 
@@ -42,7 +42,7 @@ checkComp($connection);
                 <p class="modal_subtitle">Szia</p>
             </div>
             <div class="modal_main">
-                <img src="../assets/icons/arrow_back_ios-black-18dp.svg" class="modal_main_image margin_bottom">
+                <img src="../assets/icons/arrow_back_ios-black.svg" class="modal_main_image margin_bottom">
                 <p class="modal_main_title margin_bottom primary big">Bruh</p>
                 <p class="modal_main_title margin_bottom big">Bruh</p>
                 <p class="modal_main_title margin_bottom primary">Bruh</p>
@@ -105,7 +105,7 @@ checkComp($connection);
             <!-- dashboard header -->
             <div id="title_stripe">
                 <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
-                    <img src="../assets/icons/arrow_back_ios-black-18dp.svg"/>
+                    <img src="../assets/icons/arrow_back_ios-black.svg"/>
                 </button>
                 <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
                 <p class="comp_title"><?php echo $comp_name; ?></p>
@@ -113,7 +113,7 @@ checkComp($connection);
                 <div id="publishcomp" class="stripe_button_wrapper">
                     <button class="stripe_button primary <?php echo $publish_comp_disabled ?>">
                         <p>Publish Competition</p>
-                        <img src="../assets/icons/send-black-18dp.svg"/>
+                        <img src="../assets/icons/send-black.svg"/>
                     </button>
                 </div>
             </div>
@@ -132,7 +132,7 @@ checkComp($connection);
                 <!-- competition status -->
                 <div class="db_panel status">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/beenhere-black-18dp.svg">
+                        <img src="../assets/icons/beenhere-black.svg">
                         <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                     </div>
 
@@ -146,17 +146,17 @@ checkComp($connection);
                             </button>
                             <div class="to_do_sublist">
                                 <div>
-                                    <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Basic Information</p>
                                     <img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>">
                                 </div>
                                 <div>
-                                    <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Information for fencers</p>
                                     <img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>">
                                 </div>
                                 <div>
-                                    <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Invitation</p>
                                     <img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>">
                                 </div>
@@ -169,29 +169,29 @@ checkComp($connection);
                             </button>
                             <div class="to_do_sublist">
                                 <div>
-                                    <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Technicians</p>
                                     <img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>">
                                 </div>
                                 <div>
-                                    <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Referees</p>
                                     <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
                                 </div>
                                 <div>
-                                    <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Pistes</p>
                                     <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
                                 </div>
                                 <div>
-                                    <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                    <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                     <p>Formula</p>
                                     <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
                                 </div>
                             </div>
 
                             <button class="done">
-                                <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black-18dp.svg"></a>
+                                <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new-black.svg"></a>
                                 <p>Ranking</p>
                                 <img src="<?php echo $assoc_comp_table_elements['ranking'] ?>">
                             </button>
@@ -204,7 +204,7 @@ checkComp($connection);
                 <!-- chat panel -->
                 <div class="db_panel chat">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/chat-black-18dp.svg">
+                        <img src="../assets/icons/chat-black.svg">
                         <p>Chat</p>
                     </div>
                 </div>

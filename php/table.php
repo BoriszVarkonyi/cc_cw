@@ -296,7 +296,7 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
-                            <img src="../assets/icons/add_box-black-18dp.svg"/>
+                            <img src="../assets/icons/add_box-black.svg"/>
                         </button>
                     </div>
 
@@ -304,21 +304,21 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg"/>
+                            <img src="../assets/icons/message-black.svg"/>
                         </button>
                         <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg"/>
+                            <img src="../assets/icons/ballot-black.svg"/>
                         </a>
                         <a class="stripe_button bold" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
                             <p>Referees</p>
-                            <img src="../assets/icons/ballot-black-18dp.svg"/>
+                            <img src="../assets/icons/ballot-black.svg"/>
                         </a>
                     </div>
 
                     <div class="search_wrapper">
                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
-                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/close-black.svg"></button>
                         <div class="search_results">
 
                             <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Example</button>
@@ -329,10 +329,10 @@ if (isset($_POST["generate_table"])) {
                 <?php } ?>
                 <div class="view_button_wrapper zoom">
                     <button class="view_button" onclick="tableZoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out-black-18dp.svg"/>
+                        <img src="../assets/icons/zoom_out-black.svg"/>
                     </button>
                     <button class="view_button" onclick="tableZoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in-black-18dp.svg"/>
+                        <img src="../assets/icons/zoom_in-black.svg"/>
                     </button>
                 </div>
             </div>
@@ -349,10 +349,10 @@ if (isset($_POST["generate_table"])) {
                     <!-- State 1 -->
                     <div id="call_room" class="cc">
                         <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                            <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                            <img src="../assets/icons/arrow_back_ios-black.svg">
                         </div>
                         <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                            <img src="../assets/icons/arrow_forward_ios-black-18dp.svg">
+                            <img src="../assets/icons/arrow_forward_ios-black.svg">
                         </div>
 
                         <?php

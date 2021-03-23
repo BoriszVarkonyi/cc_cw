@@ -17,7 +17,7 @@
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Round Live gnwergnfeuwgfueu
                 </p>
@@ -48,18 +48,18 @@
                             <div class="fencer_score_wrapper">
                                 <div id="machine_fencer_1" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-black-18dp.svg">
-                                        <img src="../assets/icons/card-gray-18dp.svg">
-                                        <img src="../assets/icons/card-yellow-18dp.svg">
+                                        <img src="../assets/icons/priority-black.svg">
+                                        <img src="../assets/icons/card-gray.svg">
+                                        <img src="../assets/icons/card-yellow.svg">
                                     </div>
                                     <p id="machine_fencer_1_score">5</p>
                                 </div>
                                 <p id="machine_period">5</p>
                                 <div id="machine_fencer_2" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-gray-18dp.svg">
-                                        <img src="../assets/icons/card-red-18dp.svg">
-                                        <img src="../assets/icons/card-yellow-18dp.svg">
+                                        <img src="../assets/icons/priority-gray.svg">
+                                        <img src="../assets/icons/card-red.svg">
+                                        <img src="../assets/icons/card-yellow.svg">
                                     </div>
                                     <p id="machine_fencer_2_score">5</p>
                                 </div>

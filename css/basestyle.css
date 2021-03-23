@@ -463,75 +463,75 @@ label.error + input {
 /* Input Background Directory */
 
 .username_input {
-	background-image: url(../assets/icons/person-black-18dp.svg);
+	background-image: url(../assets/icons/person-black.svg);
 }
 
 .password_input {
-	background-image: url(../assets/icons/lock-black-18dp.svg);
+	background-image: url(../assets/icons/lock-black.svg);
 }
 
 .name_input {
-	background-image: url(../assets/icons/label-black-18dp.svg);
+	background-image: url(../assets/icons/label-black.svg);
 }
 
 .country_input {
-	background-image: url(../assets/icons/language-black-18dp.svg);
+	background-image: url(../assets/icons/language-black.svg);
 }
 
 .location_input {
-	background-image: url(../assets/icons/location_city-black-18dp.svg);
+	background-image: url(../assets/icons/location_city-black.svg);
 }
 
 .money_input {
-	background-image: url(../assets/icons/payments-black-18dp.svg);
+	background-image: url(../assets/icons/payments-black.svg);
 }
 
 .link_input {
-	background-image: url(../assets/icons/link-black-18dp.svg);
+	background-image: url(../assets/icons/link-black.svg);
 }
 
 .date_input {
-	background-image: url(../assets/icons/calendar_today-black-18dp.svg);
+	background-image: url(../assets/icons/calendar_today-black.svg);
 }
 
 .start_date_input {
-	background-image: url(../assets/icons/outlined_flag-black-18dp.svg);
+	background-image: url(../assets/icons/outlined_flag-black.svg);
 }
 
 .end_date_input {
-	background-image: url(../assets/icons/flag-black-18dp.svg);
+	background-image: url(../assets/icons/flag-black.svg);
 }
 
 .end_date_pre_reg {
-	background-image: url(../assets/icons/person_add_disabled-black-18dp.svg);
+	background-image: url(../assets/icons/person_add_disabled-black.svg);
 }
 
 .wc_input {
-	background-image: url(../assets/icons/check-black-18dp.svg);
+	background-image: url(../assets/icons/check-black.svg);
 }
 
 .title_input {
-	background-image: url(../assets/icons/title-black-18dp.svg);
+	background-image: url(../assets/icons/title-black.svg);
 }
 
 .full_name_input {
-	background-image: url(../assets/icons/perm_identity-black-18dp.svg);
+	background-image: url(../assets/icons/perm_identity-black.svg);
 }
 
 .email_input {
-	background-image: url(../assets/icons/email-black-18dp.svg);
+	background-image: url(../assets/icons/email-black.svg);
 }
 
 .email_contact_input {
-	background-image: url(../assets/icons/contact_mail-black-18dp.svg);
+	background-image: url(../assets/icons/contact_mail-black.svg);
 }
 
 .phone_number_input {
-	background-image: url(../assets/icons/call-black-18dp.svg);
+	background-image: url(../assets/icons/call-black.svg);
 }
 
 .phone_number_contact_input {
-	background-image: url(../assets/icons/contact_phone-black-18dp.svg);
+	background-image: url(../assets/icons/contact_phone-black.svg);
 }
 
 /* Number inputs */
@@ -651,7 +651,7 @@ input[type="time"] {
 	background-color: var(--c-white);
 	font-family: var(--bold);
 	border: 3px solid var(--cs-lightergray) !important;
-	background-image: url(../assets/icons/search-black-18dp.svg);
+	background-image: url(../assets/icons/search-black.svg);
 	margin: 0;
 	width: 100%;
 }
@@ -762,7 +762,7 @@ label + .search_wrapper {
 }
 
 label + .search_wrapper.wide .search, .search.has_icon  {
-	background-image: url(../assets/icons/search-black-18dp.svg);
+	background-image: url(../assets/icons/search-black.svg);
 }
 
 /* Search Result */

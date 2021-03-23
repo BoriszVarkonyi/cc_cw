@@ -17,7 +17,7 @@
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Table of <?php echo $comp_name ?>
                 </p>
@@ -26,15 +26,15 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                     </div>
                 </form>
                 <div id="call_room" class="cw">
                     <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </div>
                     <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                        <img src="../assets/icons/arrow_forward_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_forward_ios-black.svg">
                     </div>
                     <div id="e_1" class="elimination">
                         <div class="elimination_label">Table of __</div>

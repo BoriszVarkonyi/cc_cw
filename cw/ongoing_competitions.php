@@ -23,7 +23,7 @@
                     <!-- search by name box -->
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                     </div>
                     <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>

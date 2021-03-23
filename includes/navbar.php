@@ -7,26 +7,26 @@
 <div class="nav_bar_flex">
     <div id="nav_bar" class="closed">
         <button id="nav_bar_pin" onclick="togglePinButton(this)">
-            <img src="../assets/icons/push_pin-black-18dp.svg">
+            <img src="../assets/icons/push_pin-black.svg">
         </button>
         <div id="nav_bar_wrapper">
             <p id="overview_text" class="nav_bar_title">O</p>
             <!-- dashboard -->
             <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
-                <img src="../assets/icons/dashboard-black-18dp.svg">
+                <img src="../assets/icons/dashboard-black.svg">
                 <p>Dashboard</p>
             </a>
             <a href="login_chat.php" class="nav_bar_item" target="_blank">
-                <img src="../assets/icons/chat-black-18dp.svg">
+                <img src="../assets/icons/chat-black.svg">
                 <p>Chat</p>
             </a>
 
             <p id="controls_text" class="nav_bar_title">C</p>
             <!-- DT -->
             <button type="button" <?php echo $assoc_array_functions['dt'] ?> >
-                <img src="../assets/icons/list_alt-black-18dp.svg">
+                <img src="../assets/icons/list_alt-black.svg">
                 <p>DT</p>
-                <img src="../assets/icons/arrow_drop_down-black-18dp.svg" id="dt_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="dt_dropdown_icon" class="dropdown_icon close">
             </button>
 
             <!-- DT drop-down -->
@@ -40,24 +40,24 @@
 
             <!-- callroom -->
            <a <?php echo $assoc_array_functions['call_room'] ?>>
-               <img src="../assets/icons/account_tree-black-18dp.svg">
+               <img src="../assets/icons/account_tree-black.svg">
                <p>Call Room</p>
             </a>
 
             <!-- registration -->
            <a <?php echo $assoc_array_functions['registration'] ?>>
-               <img src="../assets/icons/how_to_reg-black-18dp.svg">
+               <img src="../assets/icons/how_to_reg-black.svg">
                <p>Registration</p>
             </a>
 
             <!-- weapon control -->
             <a <?php echo $assoc_array_functions['weapon_control'] ?>>
-                <img src="../assets/icons/weapon_control-black-18dp.svg">
+                <img src="../assets/icons/weapon_control-black.svg">
                 <p>Weapon Control</p>
             </a>
 
             <a <?php echo $assoc_array_functions['announcements'] ?>>
-                <img src="../assets/icons/new_releases-black-18dp.svg">
+                <img src="../assets/icons/new_releases-black.svg">
                 <p>Announcements</p>
             </a>
 
@@ -65,9 +65,9 @@
 
             <!-- general -->
             <button type="button" <?php echo $assoc_array_functions['general'] ?>>
-                <img src="../assets/icons/widgets-black-18dp.svg">
+                <img src="../assets/icons/widgets-black.svg">
                 <p>General</p>
-                <img src="../assets/icons/arrow_drop_down-black-18dp.svg" id="general_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="general_dropdown_icon" class="dropdown_icon close">
             </button>
 
             <!-- general drop-down -->
@@ -79,9 +79,9 @@
 
             <!-- technical -->
             <button type="button" <?php echo $assoc_array_functions['technical'] ?>>
-                <img src="../assets/icons/home_repair_service-black-18dp.svg">
+                <img src="../assets/icons/home_repair_service-black.svg">
                 <p>Technical</p>
-                <img src="../assets/icons/arrow_drop_down-black-18dp.svg" id="technical_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="technical_dropdown_icon" class="dropdown_icon close">
             </button>
 
             <!-- technical drop-down -->
@@ -94,19 +94,19 @@
 
             <!-- ranking  -->
             <a <?php echo $assoc_array_functions['ranking'] ?>>
-                <img src="../assets/icons/leaderboard-black-18dp.svg">
+                <img src="../assets/icons/leaderboard-black.svg">
                 <p>Ranking</p>
             </a>
 
             <!-- manage ebtries -->
             <a <?php echo $assoc_array_functions['manage_entries'] ?>>
-                <img src="../assets/icons/all_inbox-black-18dp.svg">
+                <img src="../assets/icons/all_inbox-black.svg">
                 <p>Manage Entries</p>
             </a>
 
             <!-- ?help -->
             <a href="user_guide.php?comp_id=<?php echo $comp_id ?>" id="need_help">
-                <img src="../assets/icons/help-black-18dp.svg">
+                <img src="../assets/icons/help-black.svg">
                 <p>Need help?</p>
             </a>
         </div>

@@ -31,7 +31,7 @@
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Video From <?php echo $comp_name ?></p>
                 </p>
@@ -43,7 +43,7 @@
                 </div>
                 <a href="https://www.youtube.com/watch?v=<?php echo $video_id ?>" class="open_on_yt_button">
                     <p>Open on Youtube</p>
-                    <img src="../assets/icons/youtube_icon-white-18dp.svg" alt="Youtube Logo">
+                    <img src="../assets/icons/youtube_icon-white.svg" alt="Youtube Logo">
                 </a>
             </div>
         </div>

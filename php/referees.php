@@ -168,25 +168,25 @@
                         <div class="stripe_button_wrapper">
                             <a class="stripe_button" href="import_referees.php?comp_id=<?php echo $comp_id ?>">
                                 <p>Import Referees from XML</p>
-                                <img src="../assets/icons/save_alt-black-18dp.svg"/>
+                                <img src="../assets/icons/save_alt-black.svg"/>
                             </a>
                             <button class="stripe_button" onclick="toggle_import_technician()">
                                 <p>Import Referees from Competition</p>
-                                <img src="../assets/icons/save_alt-black-18dp.svg"/>
+                                <img src="../assets/icons/save_alt-black.svg"/>
                             </button>
                             <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                                 <p>Remove Referee</p>
-                                <img src="../assets/icons/delete-black-18dp.svg"/>
+                                <img src="../assets/icons/delete-black.svg"/>
                             </button>
                             <button class="stripe_button primary" onclick="toggle_add_technician()">
                                 <p>Add Referees</p>
-                                <img src="../assets/icons/add-black-18dp.svg"/>
+                                <img src="../assets/icons/add-black.svg"/>
                             </button>
                         </div>
 
                         <div id="import_technician_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black-18dp.svg">
+                                <img src="../assets/icons/close-black.svg">
                             </button>
                             <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
                                 <div class="table t_c_0">
@@ -229,13 +229,13 @@
 
                     <div id="add_technician_panel" class="overlay_panel hidden">
                         <div class="overlay_panel_controls">
-                            <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios-black-18dp.svg"></button>
+                            <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios-black.svg"></button>
                             <p>Identification</p>
-                            <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios-black-18dp.svg"></button>
+                            <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios-black.svg"></button>
                             <p class="overlay_panel_controls_counter">3 / 3</p>
                         </div>
                         <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black-18dp.svg">
+                            <img src="../assets/icons/close-black.svg">
                         </button>
                         <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
                             <div class="overlay_panel_division visible" overlay_division_title="Identification">
@@ -265,7 +265,7 @@
                                 <label for="set_club_input">Club</label>
                                 <div class="search_wrapper wide higher">
                                     <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input" tabindex="-1">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -282,7 +282,7 @@
                                 <label for="set_nation_input">NATION</label>
                                 <div class="search_wrapper wide">
                                     <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input" tabindex="-1">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black-18dp.svg"></button>
+                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
                                     <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                     </div>
@@ -293,7 +293,7 @@
                     </div>
                     <div class="search_wrapper">
                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                        <button type="button"><img src="../assets/icons/close-black-18dp.svg"></button>
+                        <button type="button"><img src="../assets/icons/close-black.svg"></button>
                         <div class="search_results">
                             <?php
                                 // $ref_list_query = "SELECT * FROM $table_name";

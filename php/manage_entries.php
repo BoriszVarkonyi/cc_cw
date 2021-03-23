@@ -143,7 +143,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
     <div id="confirmation" class="hidden">
         <form id="confirmation_form">
             <button class="panel_button" onclick="">
-                <img src="../assets/icons/close-black-18dp.svg">
+                <img src="../assets/icons/close-black.svg">
             </button>
             <p>Are you sure you want to {action} {object}?</p>
             <p>You cannot withdraw this action!</p>
@@ -221,7 +221,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                         </div>
                                         <div class="entry_panel collapsed">
                                             <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
-                                                <img src="../assets/icons/info-black-18dp.svg">
+                                                <img src="../assets/icons/info-black.svg">
                                             </button>
                                             <form id="appdisapp_<?php  echo $entry_id  ?>" class="approve_fencers_wrapper table" action="" method="POST">
                                                 <div class="table_header">
@@ -367,7 +367,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                         </div>
                                         <div class="entry_panel collapsed">
                                             <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
-                                                <img src="../assets/icons/info-black-18dp.svg">
+                                                <img src="../assets/icons/info-black.svg">
                                             </button>
                                             <form class="approve_fencers_wrapper table">
                                                 <div class="table_header">

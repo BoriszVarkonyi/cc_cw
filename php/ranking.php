@@ -109,24 +109,24 @@ if(mysqli_num_rows($query_do) == 0){
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button" type="submit" method="post" onclick="toggleRankingInfo()">
                             <p>Ranking Information</p>
-                            <img src="../assets/icons/info-black-18dp.svg"/>
+                            <img src="../assets/icons/info-black.svg"/>
                         </button>
 
                         <!-- delete ranking button -->
                         <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="delete_ranking" class="hidden"></form>
                         <button class="stripe_button red" type="submit" name="drop_table" form="delete_ranking">
                             <p>Delete Ranking</p>
-                            <img src="../assets/icons/delete-black-18dp.svg"/>
+                            <img src="../assets/icons/delete-black.svg"/>
                         </button>
 
                         <button class="stripe_button disabled" id="delete_fencer_button" type="submit" name="delete_fencer" form="delete_fencer_form">
                             <p>Delete fencer</p>
-                            <img src="../assets/icons/delete-black-18dp.svg"/>
+                            <img src="../assets/icons/delete-black.svg"/>
                         </button>
 
                         <button class="stripe_button primary" type="submit" onclick="toggleAddFencer()">
                             <p>Add fencer</p>
-                            <img src="../assets/icons/add-black-18dp.svg"/>
+                            <img src="../assets/icons/add-black.svg"/>
                         </button>
                     </div>
 
@@ -169,7 +169,7 @@ if(mysqli_num_rows($query_do) == 0){
                 </form>
                     <div id="add_fencer_panel" class="overlay_panel hidden">
                             <button class="panel_button" onclick="toggleAddFencer()">
-                                <img src="../assets/icons/close-black-18dp.svg">
+                                <img src="../assets/icons/close-black.svg">
                             </button>
                             <!-- add fencers drop-down -->
                             <form action="ranking.php?comp_id=<?php echo $comp_id ?>&rankid=<?php echo $ranking_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
@@ -190,7 +190,7 @@ if(mysqli_num_rows($query_do) == 0){
                     <!-- ranking info button -->
                     <div id="ranking_info_panel" class="overlay_panel hidden">
                         <button class="panel_button" onclick="toggleRankingInfo()">
-                            <img src="../assets/icons/close-black-18dp.svg">
+                            <img src="../assets/icons/close-black.svg">
                         </button>
 
                         <?php
@@ -213,7 +213,7 @@ if(mysqli_num_rows($query_do) == 0){
                             <div>
                                 <p id="password"><?php echo $pass ?></p>
                                 <button onclick="hidePasswords(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility-black-18dp.svg">
+                                    <img src="../assets/icons/visibility-black.svg">
                                 </button>
                             </div>
                         </div>

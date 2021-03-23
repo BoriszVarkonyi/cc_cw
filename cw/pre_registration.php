@@ -73,7 +73,7 @@ if(isset($_POST["send_pre"])){
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black-18dp.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     PRE-REGISTER FENCERS FOR <?php echo $comp_name ?>
                 </p>

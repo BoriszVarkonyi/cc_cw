@@ -30,11 +30,11 @@
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button" type="submit">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black-18dp.svg"/>
+                            <img src="../assets/icons/message-black.svg"/>
                         </button>
                         <button class="stripe_button primary" type="submit">
                             <p>Pass Fencer</p>
-                            <img src="../assets/icons/send-black-18dp.svg"/>
+                            <img src="../assets/icons/send-black.svg"/>
                         </button>
                     </div>
                 </div>

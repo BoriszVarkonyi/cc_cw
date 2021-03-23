@@ -43,11 +43,11 @@ $fencers = count($json_table);
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button primary" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
                         <p>Print Pools</p>
-                        <img src="../assets/icons/print-black-18dp.svg"/>
+                        <img src="../assets/icons/print-black.svg"/>
                     </a>
                     <a class="stripe_button primary <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
                         <p>Finish Pools</p>
-                        <img src="../assets/icons/save-black-18dp.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
+                        <img src="../assets/icons/save-black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>
                 </div>
             </div>
@@ -112,7 +112,7 @@ $fencers = count($json_table);
                                     <div class="table_item">Ref: <?php echo $refname ?></div>
                                     <div class="table_item"><?php echo $time ?></div>
                                     <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $i ?>'" class="pool_config">
-                                        <img src="../assets/icons/open_in_new-black-18dp.svg">
+                                        <img src="../assets/icons/open_in_new-black.svg">
                                     </button>
                                 </div>
                                 <div class="entry_panel">
