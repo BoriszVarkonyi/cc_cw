@@ -1,36 +1,15 @@
 /* 	Universal */
-/*
-[data-content-theme="danube"]:root {
-	--c-primary: #00768b;
-	--c-lightprimary: #3391a2;
-	--c-secondary: #2CAA58;
-	--c-lightsecondary: #56bb79;
-	--c-tertiary: #001333;
-	--c-lighttertiary: #33425c;
-	--cd-primarycontrast: #FFF;
-	--i-fencers-bg: url(../assets/img/fencers_bg_d.svg);
-}
-
-[data-content-theme="vanilla"]:root {
-	--c-primary: #FF9700;
-	--c-lightprimary: #FFBE5C;
-	--c-secondary: #FFBE5C;
-	--c-lightsecondary: #FF9700;
-	--c-tertiary: #FF9700;
-	--c-lighttertiary: #FF9700;
-	--cd-primarycontrast: #252252;
-	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
-}
-*/
 
 :root {
-	--c-primary: #FF9700;
-	--c-lightprimary: #FFBE5C;
-	--c-secondary: #FFBE5C;
-	--c-lightsecondary: #FF9700;
-	--c-tertiary: #FF9700;
-	--c-lighttertiary: #FF9700;
-	--cd-primarycontrast: #252252;
+	--c-primary: var(--c-orange);
+	--c-lightprimary: var(--c-lightorange);
+	--c-secondary: var(--c-lightorange);
+	--c-lightsecondary: var(--c-orange);
+	--c-tertiary: var(--c-orange);
+	--c-lighttertiary: var(--c-orange);
+	--cd-primarycontrast: var(--c-black);
+	--ci-primarycontrast: contrast(71%);
+	--ci-secondarycontrast: invert();
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 

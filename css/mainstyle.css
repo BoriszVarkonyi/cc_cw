@@ -917,6 +917,7 @@ header {
 	transition: all var(--t-basic);
 	position: relative;
 	font-size: var(--f-large);
+	overflow: hidden; /* Buttons might overflow into main content == bad */
 }
 
 #nav_bar.closed {
