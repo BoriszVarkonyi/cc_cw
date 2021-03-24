@@ -5,14 +5,15 @@
 
 <?php
 
-    $qry_get_pools = "SELECT `fencer`, `pool_of` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
+    $qry_get_pools = "SELECT `fencers`, `matches` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
     $do_get_pools = mysqli_query($connection, $qry_get_pools);
 
     if ($row = mysqli_fetch_assoc($do_get_pools)) {
-        $json_string = $row['data'];
-        $json_table = json_decode($json_string);
+        $json_string = $row['fencers'];
+        $fencers_table = json_decode($json_string);
+        $json_string = $row['matches'];
+        $matches_table = json_decode($json_string);
 
-        $pool_of = $row['pool_of'];
     } else {
         echo mysqli_error($connection);
     }
@@ -55,8 +56,8 @@
                 <div id="pool_listing" class="state_2 wrapper">
                     <?php
 
-                    for ($pool_num = 1; $pool_num < count($json_table); $pool_num++){
-                        $current_pool = $json_table[$pool_num];
+                    for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++){
+                        $current_pool = $fencers_table[$pool_num];
 
                         $piste = $current_pool -> piste;
                         $ref1name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
@@ -84,7 +85,7 @@
                                     }
                                     ?>
                                     <div class="table_item"><?php echo $time ?></div>
-                                    <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $i ?>'" class="pool_config">
+                                    <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $pool_num ?>'" class="pool_config">
                                         <img src="../assets/icons/open_in_new-black.svg">
                                     </button>
                                 </div>

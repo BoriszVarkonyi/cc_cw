@@ -4,6 +4,20 @@
 <?php checkComp($connection); ?>
 
 <?php
+    $qry_get_data = "SELECT fencers, matches FROM pools WHERE assoc_comp_id = '$comp_id'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $fencers_string = $row['fencers'];
+        $matches_string = $row['matches'];
+
+        $fencers_table = json_decode($fencers_string);
+        $matches_table = json_decode($matches_string);
+    }
+
+    $pool_num = $_GET['poolid'];
+    $current_f_pool = $fencers_table[$pool_num];
+    $current_m_pool = $matches_table[$pool_num-1];
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pool No. <?php echo $poolnum ?> 's results</title>
+    <title>Pool No. <?php echo $pool_num ?> 's results</title>
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
 </head>
@@ -23,7 +37,7 @@
         <!-- navbar -->
         <div class="page_content_flex">
             <div id="title_stripe">
-                <p class="page_title">Pool No. <?php echo $poolnum ?> 's results</p>
+                <p class="page_title">Pool No. <?php echo $pool_num ?> 's results</p>
                 <input type="text" name="" id="" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
@@ -72,7 +86,7 @@
 
                     <?php
 
-                    $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $poolnum";
+                    $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $pool_num";
                         $inside_query_do = mysqli_query($connection,$inside_query);
 
                         if($row = mysqli_fetch_assoc($inside_query_do)){
@@ -118,7 +132,7 @@
                     <div>
                         <div class="entry">
                             <div class="table_row start">
-                                <div class="table_item bold">No. <?php echo $poolnum ?></div>
+                                <div class="table_item bold">No. <?php echo $pool_num ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
                                 <div class="table_item">Ref: <?php if (isset($refname)) {
 

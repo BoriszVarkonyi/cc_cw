@@ -25,7 +25,7 @@
     if ($do_check_pools = mysqli_query($connection, $qry_check_pools)) {
         if ($row = mysqli_fetch_assoc($do_check_pools)) {
             $matches = $row['matches'];
-            $fencers = $row['fenecrs'];
+            $fencers = $row['fencers'];
 
             if ($fencers == NULL) {
                 $href_pools = 'href="../php/pools_generate.php?comp_id=' . $comp_id .'"';
