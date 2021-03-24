@@ -45,3 +45,5 @@ function errorChecker(x) {
         x.previousElementSibling.classList.remove("error")
     }
 }
+
+document.documentElement.setAttribute('data-content-theme', 'vanilla');

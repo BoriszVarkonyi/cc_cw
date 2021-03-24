@@ -159,8 +159,8 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/login_style.min.css">
 </head>
 
@@ -208,7 +208,7 @@ if (isset($_POST["submit"])) {
 
     <div id="apps">
         <div>
-            <input type="radio" name="app" id="cc" value="cc" checked />
+            <input type="radio" name="app" id="cc" value="cc" checked/>
             <label for="cc">Competition Control</label>
         </div>
         <div>
@@ -220,8 +220,5 @@ if (isset($_POST["submit"])) {
 
     <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
     <script src="/js/login.js"></script>
-    <script>
-        document.documentElement.setAttribute('data-content-theme', 'vanilla');
-    </script>
 </body>
 </html>
