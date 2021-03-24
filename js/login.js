@@ -46,4 +46,10 @@ function errorChecker(x) {
     }
 }
 
+function chooseApp(x) {
+    var selectedApp = x;
+    selectedApp.classList.add("current")
+}
+
+
 document.documentElement.setAttribute('data-content-theme', 'vanilla');

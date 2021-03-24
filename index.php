@@ -207,13 +207,11 @@ if (isset($_POST["submit"])) {
     </div>
 
     <div id="apps">
-        <div>
-            <input type="radio" name="app" id="cc" value="cc" checked/>
-            <label for="cc">Competition Control</label>
+        <div class="app_wrapper current" onclick="chooseApp(this)">
+            <p>Competition Control</p>
         </div>
-        <div>
-            <input type="radio" name="app" id="ccw" value="ccw"/>
-            <label for="ccw" other>Competition Control Wheelchair</label>
+        <div class="app_wrapper" onclick="chooseApp(this)">
+            <p>Competition Control Wheelchair</p>
             <button>OPEN</button>
         </div>
     </div>
