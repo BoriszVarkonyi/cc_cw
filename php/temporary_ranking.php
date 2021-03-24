@@ -58,9 +58,7 @@ echo count($objects_array) . " VÍVÓ";
                 <div class="table wrapper first_column_centered">
                 <div class="table_header">
                     <div class="table_header_text">TEMPORARY RANK</div>
-                    <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"></button>
                     <div class="table_header_text">NAME</div>
-                    <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"></button>
                     <div class="table_header_text">NATION / CLUB</div>
                 </div>
                         <div class="table_row_wrapper">

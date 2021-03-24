@@ -43,7 +43,7 @@
 
     <?php include "../includes/headerburger.php" ?>
 
-    <div id="your_competitions_panel" class="panel">
+    <div class="panel">
         <div id="title_stripe">
             <p class="page_title">Your profile</p>
             <div class="stripe_button_wrapper">

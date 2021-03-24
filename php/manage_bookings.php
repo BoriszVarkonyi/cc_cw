@@ -17,7 +17,7 @@
 <body class="bg_fencers">
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
-    <div id="create_competition_panel" class="panel">
+    <div class="panel">
         <div id="title_stripe">
             <p class="page_title">Manage Weapon Control Bookings</p>
             <form class="stripe_button_wrapper">

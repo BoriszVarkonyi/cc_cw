@@ -82,7 +82,12 @@
 	z-index: 0;
 }
 
-#apps input + label {
+.app_wrapper {
+	position: relative;
+	cursor: pointer;
+}
+
+#apps p {
 	color: var(--c-black);
 	align-self: flex-end;
 	background: var(--c-white);
@@ -96,20 +101,12 @@
 	transition: all ease-in .2s;
 }
 
-#apps input + label::before {
-	display: none;
-}
-
-#apps input:checked + label {
+#apps .app_wrapper.current p {
 	font-size: var(--f-xxxlarge);
 	border-right: 5px solid var(--c-primary);
 }
 
-#apps div {
-	position: relative;
-}
-
-#apps input + label[other] + button {
+#apps .app_wrapper + button {
 	max-width: 0;
 	overflow: hidden;
 	white-space: nowrap;
@@ -127,7 +124,7 @@
 	color: var(--cd-primarycontrast);
 }
 
-#apps input:checked + label[other] + button {
+#apps .app_wrapper.current + button {
 	max-width: 200px;
 	overflow: hidden;
 	padding: 5px 10px !important;

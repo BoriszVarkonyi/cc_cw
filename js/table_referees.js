@@ -158,9 +158,9 @@ function ref_to_vref() {
 
             var club_row = table_rows[h].querySelectorAll(".club")
             for (let i = 0; i < club_row.length; i++) {
-                
+
                 club_row[i].classList.add("hidden")
-                
+
             }
 
         }
@@ -173,9 +173,9 @@ function ref_to_vref() {
 
             var nation_row = table_rows[h].querySelectorAll(".nation")
             for (let i = 0; i < nation_row.length; i++) {
-                
+
                 nation_row[i].classList.add("hidden")
-                
+
             }
 
         }
@@ -212,9 +212,9 @@ function vref_to_ref() {
 
             var club_row = table_rows[h].querySelectorAll(".club")
             for (let i = 0; i < club_row.length; i++) {
-                
+
                 club_row[i].classList.add("hidden")
-                
+
             }
 
         }
@@ -227,11 +227,56 @@ function vref_to_ref() {
 
             var nation_row = table_rows[h].querySelectorAll(".nation")
             for (let i = 0; i < nation_row.length; i++) {
-                
+
                 nation_row[i].classList.add("hidden")
-                
+
             }
 
         }
     }
+}
+
+function try_referees() {
+
+    //Get matches
+
+    var matches = {}
+
+    var table_rows = table_wrapper.querySelectorAll(".table_row")
+
+    for (let i = 0; i < table_rows.length; i++) {
+
+        var id = table_rows[i].querySelector(".id").children
+        var piste = table_rows[i].querySelector(".pistes").children
+
+        if (nation.checked == true) {
+            var selectorArray = table_rows[i].querySelectorAll(".n_for_ref")
+        } else {
+            var selectorArray = table_rows[i].querySelectorAll(".c_for_ref")
+        }
+
+        if (!matches[piste[0].innerHTML]) {
+            
+            matches[piste[0].innerHTML] = []
+            
+            matches[piste[0].innerHTML].push({match_id : id[0].innerHTML, n1 : selectorArray[0].children[0].innerHTML, n2 : selectorArray[1].children[0].innerHTML}) 
+
+            console.log(matches)
+
+        }else{
+            matches[piste[0].innerHTML].push({match_id : id[0].innerHTML, n1 : selectorArray[0].children[0].innerHTML, n2 : selectorArray[1].children[0].innerHTML}) 
+        }
+
+        console.log(matches);
+
+    }
+
+    // for (const iterator of Object.entries(testobject)) {
+    //     console.log(iterator[1].first)
+    // }
+
+    //testobject.qwe = {};
+
+    //console.log(testobject)
+
 }

@@ -45,3 +45,11 @@ function errorChecker(x) {
         x.previousElementSibling.classList.remove("error")
     }
 }
+
+function chooseApp(x) {
+    var selectedApp = x;
+    selectedApp.classList.add("current")
+}
+
+
+document.documentElement.setAttribute('data-content-theme', 'vanilla');

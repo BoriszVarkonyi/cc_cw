@@ -261,13 +261,13 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                                         }
 
                                                                         ?>">
-                                                    <div class="table_item"><p><?php echo $matchkey ?></p></div>
+                                                    <div class="table_item id"><p><?php echo $matchkey ?></p></div>
                                                     <div class="table_item pistes"><p><?php echo $matches->pistetime->pistename ?></p></div>
                                                     <div class="table_item time"><p><?php echo $matches->pistetime->time ?></p></div>
-                                                    <div class="table_item nation"><p><?php echo $fencersnat[0] ?></p></div>
-                                                    <div class="table_item nation"><p><?php echo $fencersnat[1] ?></p></div>
-                                                    <div class="table_item club hidden"><p><?php echo $fencersclub[0] ?></p></div>
-                                                    <div class="table_item club hidden"><p><?php echo $fencersclub[1] ?></p></div>
+                                                    <div class="table_item nation n_for_ref"><p><?php echo $fencersnat[0] ?></p></div>
+                                                    <div class="table_item nation n_for_ref"><p><?php echo $fencersnat[1] ?></p></div>
+                                                    <div class="table_item club c_for_ref hidden"><p><?php echo $fencersclub[0] ?></p></div>
+                                                    <div class="table_item club c_for_ref hidden"><p><?php echo $fencersclub[1] ?></p></div>
                                                     <div class="table_item referee refname"><p><?php echo $matches->referees->ref->name ?></p></div>
                                                     <div class="table_item nation referee"><p><?php echo $matches->referees->ref->nation ?></p></div>
                                                     <div class="table_item club referee hidden"><p><?php echo $matches->referees->ref->club ?></p></div>
@@ -281,7 +281,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             ?>
                                         </div>
                                     </div>
-                                    <button class="try_button" onclick="tryConfig()">Try</button>
+                                    <button class="try_button" onclick="try_referees()">Try</button>
                                 </div>
                             </div>
                             <div class="db_panel full hidden" id="referees_preview_panel">

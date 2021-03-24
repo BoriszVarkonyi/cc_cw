@@ -331,11 +331,8 @@
 
                         <div class="table_header">
                             <div class="table_header_text">FULL NAME</div>
-                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">NATION</div>
-                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">CLUB</div>
-                            <button class="resizer" onmousedown="mouseDown(this)" onmouseup="mouseUp()"></button>
                             <div class="table_header_text">STATUS</div>
                             <div class="small_status_header"></div>
                         </div>

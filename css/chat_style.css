@@ -147,30 +147,6 @@ label {	/* Used in forms, all caps, thin font    NO option buttons*/
 	}
 }
 
-@-moz-keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-@-o-keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -469,6 +445,22 @@ textarea {
 	border: none;
 	resize: none;
 	font-family: var(--regular);
+}
+
+textarea::-webkit-input-placeholder {
+    font-size: var(--f-medium);
+}
+
+textarea::-moz-placeholder {
+    font-size: var(--f-medium);
+}
+
+textarea:-ms-input-placeholder {
+    font-size: var(--f-medium);
+}
+
+textarea::-ms-input-placeholder {
+    font-size: var(--f-medium);
 }
 
 textarea::placeholder {

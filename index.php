@@ -159,19 +159,17 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/login_style.min.css">
 </head>
 
 <body class="bg_fencers">
-    <div id="login_panel" class="panel">
+    <div id="login_panel">
         <div id="title_stripe">
-            <div class="stripe_section">
-                <p class="page_title">Login</p>
-            </div>
+            <p class="page_title">Login</p>
         </div>
-        <div id="panel_main" class="no_padding">
+        <div id="panel_main">
             <!-- login form -->
             <form action="index.php" method="POST" autocomplete="off" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
                     echo "error";
@@ -209,22 +207,16 @@ if (isset($_POST["submit"])) {
     </div>
 
     <div id="apps">
-        <div>
-            <input type="radio" name="app" id="cc" value="cc" checked />
-            <label for="cc">Competition Control</label>
+        <div class="app_wrapper current" onclick="chooseApp(this)">
+            <p>Competition Control</p>
         </div>
-
-        <div>
-            <input type="radio" name="app" id="ccw" value="ccw"/>
-            <label for="ccw" other>Competition Control Wheelchair</label>
+        <div class="app_wrapper" onclick="chooseApp(this)">
+            <p>Competition Control Wheelchair</p>
             <button>OPEN</button>
         </div>
     </div>
 
     <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
     <script src="/js/login.js"></script>
-    <script>
-        document.documentElement.setAttribute('data-content-theme', 'vanilla');
-    </script>
 </body>
 </html>
