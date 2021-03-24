@@ -67,7 +67,7 @@ function pinChecker() {
     }
 }
 //Saves the status ofthe pin
-var navbar_status = cookieFinder('navbar_status', 'notPinned', false, 365)
+var navbar_status = cookieFinder('navbar_status', 'notPinned', false, 65)
 //Opens the navbar
 function opened_nav_bar() {
     navBar.classList.remove("closed");
