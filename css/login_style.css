@@ -106,7 +106,7 @@
 	border-right: 5px solid var(--c-primary);
 }
 
-#apps .app_wrapper + button {
+#apps .app_wrapper button {
 	max-width: 0;
 	overflow: hidden;
 	white-space: nowrap;
@@ -124,7 +124,7 @@
 	color: var(--cd-primarycontrast);
 }
 
-#apps .app_wrapper.current + button {
+#apps .app_wrapper.current button {
 	max-width: 200px;
 	overflow: hidden;
 	padding: 5px 10px !important;

@@ -211,6 +211,7 @@
 }
 
 .table_fencer.empty {
+	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
 }
 
