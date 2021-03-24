@@ -21,17 +21,26 @@
 
 
     //check for existing pool
-    $qry_check_pool = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id'";
-    if ($do_check_pool = mysqli_query($connection, $qry_check_pool)) {
+    $qry_check_pools = "SELECT `fencers`, `matches` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
+    if ($do_check_pools = mysqli_query($connection, $qry_check_pools)) {
+        if ($row = mysqli_fetch_assoc($do_check_pools)) {
+            $matches = $row['matches'];
+            $fencers = $row['fenecrs'];
 
-        if ($row_cnt = mysqli_num_rows($do_check_pool) === 1) {
-            $href_pools = 'href="pools_config.php?comp_id=' . $comp_id . '"';
+            if ($fencers == NULL) {
+                $href_pools = 'href="../php/pools_generate.php?comp_id=' . $comp_id .'"';
+            } else if ($matches == NULL) {
+                $href_pools = 'href="../php/pools_config.php?comp_id=' . $comp_id .'"';
+            } else {
+                $href_pools = 'href="../php/pools_view.php?comp_id=' . $comp_id .'"';
+            }
         } else {
-            $href_pools = 'href="pools_generate.php?comp_id=' . $comp_id . '"';
+            $href_pools = 'href="../php/pools_generate.php?comp_id=' . $comp_id .'"';
         }
     } else {
-        $href_pools = 'href="pools_generate.php?comp_id=' . $comp_id . '"';
+        $href_pools = 'href="../php/pools_generate.php?comp_id=' . $comp_id .'"';
     }
+
 
 
     $assoc_array_functions = // creating assoc array of button names and onclicks, and hrefs

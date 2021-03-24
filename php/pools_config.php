@@ -180,9 +180,10 @@
             $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
             $qry_update_r = "UPDATE `pools` SET `fencers` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
             $do_update_r = mysqli_query($connection, $qry_update_r);
+        } else {
+            echo $fail;
         }
 
-        echo $fail;
     }
 
     //piste
@@ -243,6 +244,65 @@
 
     if (isset($_POST['start_pools'])) {
 
+
+        class match {
+            public $w_id = NULL;
+            public $given = 0;
+            public $gotten = 0;
+            public $id;
+            public $enemy;
+
+            function __construct($id, $enemy) {
+                $this -> id = $id;
+                $this -> enemy = $enemy;
+            }
+        }
+
+        class matches {
+            function __construct($pool_num, $start, $json_table) {
+                for ($j = $start + 1; $j <= $pool_num; $j++) {
+
+                    $id = $json_table[$pool_num] -> {$start} -> id;
+                    $enemy = $json_table[$pool_num] -> {$j} -> id;
+
+                    $this -> {$j} = new match($id, $enemy);
+                }
+            }
+        }
+
+        function getNumberOfFencers($json_table, $pool_num) {
+            for ($i = 7; $i > 0; $i--) {
+                if (isset($json_table[$pool_num] -> {$i})) {
+                    return $i;
+                }
+            }
+        }
+
+        class pool {
+
+            function __construct($pool_num, $json_table) {
+                $number_of_fencers = getNumberOfFencers($json_table, $pool_num);
+
+                for ($i = 1; $i < $number_of_fencers; $i++) {
+                    $this -> {$i} = new matches($number_of_fencers, $i, $json_table);
+                }
+            }
+        }
+
+        $array_of_pools = [];
+
+        for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
+            $pool_obj = new pool($pool_num, $json_table);
+
+            array_push($array_of_pools, $pool_obj);
+        }
+
+        //update databse
+        $json_string = json_encode($array_of_pools, JSON_UNESCAPED_UNICODE);
+        $qry_upadte_matches = "UPDATE `pools` SET `matches` = '$json_string'";
+        $do_update_matches = mysqli_query($connection, $qry_upadte_matches);
+
+        header("Location: ../php/pools_view.php?comp_id=$comp_id");
     }
 
 ?>
