@@ -85,7 +85,7 @@
 	--ci-staticwhite: invert();
 }
 
-/*
+
 [data-content-theme="danube"]:root {
 	--c-primary: #00768b;
 	--c-lightprimary: #3391a2;
@@ -98,7 +98,7 @@
 	--ci-secondarycontrast: contrast(71%);
 	--i-fencers-bg: url(../assets/img/fencers_bg_d.svg);
 }
-*/
+
 
 [data-content-theme="vanilla"]:root {
 	--c-primary: var(--c-orange);
@@ -113,8 +113,7 @@
 	--i-fencers-bg: url(../assets/img/fencers_bg_v.svg);
 }
 
-/*
-[data-theme="highcontrast"]:root { High contrast mode, yellow and dark colors a prominent, biggger font sizes
+[data-theme="highcontrast"]:root { /*High contrast mode, yellow and dark colors a prominent, biggger font sizes*/
 	--c-black: #FFFC00;
 	--c-transparent-black: #25252530;
 	--c-darkgray: #1A1A1A;
@@ -135,7 +134,7 @@
 	--ci-staticwhite: invert(100%) grayscale(100%) brightness(150%) sepia(90%) hue-rotate(5deg) saturate(5000%) contrast(1);
 }
 
-[data-theme="dark"]:root {	Dark Mode
+[data-theme="dark"]:root {	/*Dark Mode*/
 	--c-black: #F1F1F1;
 	--c-transparent-black: #25252530;
 	--c-darkgray: #3F3F3F;
@@ -151,20 +150,19 @@
 	--c-blue: #393939;
 	--c-purple: #393939;
 	--c-bronze : #393939;
-	Unique
+
 	--csd-orange: #F19A3E;
 	--csd-lightorange: #f2a451;
-	Shadows
+
 	--s-black: 0 3px 6px #25252510;
 	--s-orange: 0 3px 6px #FF970010;
 	--s-red: 0 3px 6px #F84F4F10;
 	--s-green: 0 3px 6px #8DFFB710;
-	Icons
+
 	--ci-staticblack: invert();
 	--ci-staticwhite: saturation(71%);
 }
 
-*/
 
 @font-face {
 	font-family: Poppins-Light;
