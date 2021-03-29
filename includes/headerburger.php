@@ -152,18 +152,18 @@ if (isset($_POST["logout"])) {
                 <div class="color_sample light">Aa</div>
                 <p>Light</p>
             </button>
-            <button class="color_mode" onclick="setToHighContrast()" disabled>
+            <button class="color_mode" onclick="setToHighContrast()">
                 <div class="color_sample high_contrast">Aa</div>
                 <p>High Contrast</p>
             </button>
-            <button class="color_mode" onclick="setToDark()" disabled>
+            <button class="color_mode" onclick="setToDark()">
                 <div class="color_sample dark">Aa</div>
                 <p>Dark</p>
             </button>
         </div>
         <div class="color_variations">
             <button class="color_square vanilla" onclick="setToVanilla()" name="vanilla"></button>
-            <button class="color_square danube" onclick="setToDanube()" name="danube" disabled></button>
+            <button class="color_square danube" onclick="setToDanube()" name="danube"></button>
         </div>
     </div>
 
