@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $comp_name ?>'s pools</title>
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>

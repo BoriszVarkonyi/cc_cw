@@ -1483,25 +1483,7 @@ header {
 	border: 3px solid var(--cs-darkgray);
 }
 
-/* Background */
-
-#illustration_bg {		/* Background used on login page and choose competition*/
-	width: 100vw;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
 /* Small Pages */
-
-#copyright_text {		/* Name and version text used on login page*/
-	font-size: var(--f-small);
-	font-family: var(--bold);
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	margin: 0;
-}
 
 .panel, #login_panel {		/* Sets basic attributes of a panel */
 	display: flex;
