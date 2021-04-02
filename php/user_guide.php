@@ -31,7 +31,7 @@
             </div>
             <div id="page_content_panel_main">
                 <div id="guide_choose">
-                    <div class="guide_option">
+                    <a class="guide_option" href="">
                         <div>
                             <img src="../assets/icons/directions-black.svg">
                         </div>
@@ -39,8 +39,8 @@
                             <p>Getting Started</p>
                             <p>Guide for new Organisers!</p>
                         </div>
-                    </div>
-                    <div class="guide_option">
+                    </a>
+                    <a class="guide_option" href="">
                         <div>
                             <img src="../assets/icons/menu_book-black.svg">
                         </div>
@@ -48,8 +48,8 @@
                             <p>Everything explained</p>
                             <p>User Guide covering all.</p>
                         </div>
-                    </div>
-                    <div class="guide_option">
+                    </a>
+                    <a class="guide_option" href="">
                         <div>
                             <img src="../assets/icons/healing-black.svg">
                         </div>
@@ -57,7 +57,7 @@
                             <p>Patch Notes</p>
                             <p>See what updates we made!</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

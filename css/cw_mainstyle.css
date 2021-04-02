@@ -1573,7 +1573,7 @@ input[value="Search"] {
 }
 
 #basic_body::before, #basic_body::after {
-	content: '';
+	content: "";
 	position: absolute;
 	height: 10px;
 	width: 100vw;
