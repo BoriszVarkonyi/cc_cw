@@ -1030,7 +1030,7 @@ header {
 	font-size: inherit;
 	color: inherit;
 	border-radius: 5px;
-	padding: 0 20px;
+	padding: 0 15px 0 20px;
 	box-sizing: border-box;
 }
 
