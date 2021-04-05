@@ -276,16 +276,9 @@ header {
 	background: var(--c-lightestgray);
 }
 
-#menu_button > img {
+#menu_button img {
 	width: 25px;
 	height: 25px;
-}
-
-#menu_button.closed {
-	min-width: 40px;
-	width: 2vw;
-	max-width: 80px;
-	height: 40px;
 }
 
 #menu_button_section {
@@ -403,6 +396,8 @@ header {
 .color_mode:disabled, .color_square:disabled  {
 	-webkit-filter: grayscale(1) contrast(0.5) brightness(1.3);
 	filter: grayscale(1) contrast(0.5) brightness(1.3);
+	pointer-events: none;
+	cursor: default;
 }
 
 .color_mode > div {
@@ -903,7 +898,9 @@ header {
 	background: var(--c-gray);
 }
 
-/* Navigation */
+/* Navigation bar */
+
+/* Items */
 
 #nav_bar {
 	background: linear-gradient(180deg, var(--c-secondary) 0%, var(--c-tertiary) 100%);
@@ -918,13 +915,6 @@ header {
 	position: relative;
 	font-size: var(--f-large);
 	overflow: hidden; /* Buttons might overflow into main content == bad */
-}
-
-#nav_bar.closed {
-	transition: all var(--t-basic);
-	min-width: 40px;
-	width: 2vw;
-	max-width: 80px;
 }
 
 #nav_bar_pin {
@@ -962,10 +952,6 @@ header {
 	background: #ffffff;
 }
 
-#nav_bar.closed #nav_bar_pin {
-	display: none;
-}
-
 #nav_bar:hover #nav_bar_pin {
 	opacity: 1;
 }
@@ -982,10 +968,6 @@ header {
 	transition: var(--t-basic);
 }
 
-#app_name.closed {
-	left: -500px;
-}
-
 #nav_bar_wrapper {
 	width: 100%;
 	box-sizing: border-box;
@@ -998,12 +980,6 @@ header {
 	color: var(--cd-primarycontrast);
 }
 
-#nav_bar.closed > #nav_bar_wrapper {
-	min-width: 40px;
-	width: 2vw;
-	max-width: 80px;
-}
-
 .nav_bar_title {
 	font-size: inherit;
 	font-family: var(--bold);
@@ -1011,12 +987,6 @@ header {
 	padding: 0;
 	margin: 25px 0 7px 0;
 	transition: transform var(--t-basic);
-}
-
-#nav_bar.closed .nav_bar_title {
-	white-space: nowrap;
-	width: 100%;
-	text-align: center;
 }
 
 .nav_bar_item {
@@ -1045,7 +1015,7 @@ header {
 	filter: contrast(50%);
 }
 
-.nav_bar_item > p {
+.nav_bar_item p {
 	padding: 1.5px 0 1.5px 5px;
 	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
@@ -1053,185 +1023,10 @@ header {
 	animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes hideNavTitles {
-    0% {
-		opacity: 1;
-		position: relative;
-	}
 
-	1% {
-		padding-left: 0;
-		opacity: 1;
-		position: relative;
-	}
-
-	99% {
-		max-width: 0;
-	}
-
-    100% {
-		opacity: 0;
-		max-width: 0;
-	}
-}
-
-@keyframes hideNavTitles {
-    0% {
-		opacity: 1;
-		position: relative;
-	}
-
-	1% {
-		padding-left: 0;
-		opacity: 1;
-		position: relative;
-	}
-
-	99% {
-		max-width: 0;
-	}
-
-    100% {
-		opacity: 0;
-		max-width: 0;
-		padding-left: 0;
-	}
-}
-
-@-webkit-keyframes showNavTitles {
-	0% {
-		opacity: 0;
-		max-width: 0;
-		padding-left: 0;
-	}
-
-	1% {
-		opacity: 0;
-	}
-
-    100% {
-		opacity: 1;
-		display: block;
-    }
-
-}
-
-@keyframes showNavTitles {
-	0% {
-		opacity: 0;
-		max-width: 0;
-		padding-left: 0;
-	}
-
-	1% {
-		opacity: 0;
-	}
-
-    100% {
-		opacity: 1;
-		display: block;
-    }
-
-}
-
-@-webkit-keyframes hideDropdown {
-    0% {
-		opacity: 1;
-	}
-
-	1% {
-		opacity: 1;
-		position: relative;
-	}
-
-	99% {
-		max-width: 0;
-		padding-left: 0;
-	}
-
-    100% {
-		opacity: 0;
-		max-width: 0;
-		padding-left: 0;
-	}
-}
-
-@keyframes hideDropdown {
-    0% {
-		opacity: 1;
-	}
-
-	1% {
-		opacity: 1;
-		position: relative;
-	}
-
-	99% {
-		position: absolute;
-	}
-
-    100% {
-		opacity: 0;
-		position: absolute;
-	}
-}
-
-@-webkit-keyframes showDropdown {
-	0% {
-		opacity: 0;
-		display: aboslute;
-	}
-
-	1% {
-		opacity: 0;
-	}
-
-    100% {
-		opacity: 1;
-		display: block;
-    }
-
-}
-
-@keyframes showDropdown {
-	0% {
-		opacity: 0;
-		display: aboslute;
-	}
-
-	1% {
-		opacity: 0;
-	}
-
-    100% {
-		opacity: 1;
-		display: block;
-    }
-
-}
-
-#nav_bar.closed .nav_bar_item > p {
-	-webkit-animation: hideNavTitles var(--t-basic);
-	animation: hideNavTitles var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
-}
-
-#nav_bar.closed .nav_bar_item {
-	padding: 0;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
-
-.nav_bar_item > img:not(.dropdown_icon) {
+.nav_bar_item img:not(.dropdown_icon) {
 	height: 1.05em;
 	width: 1.05em;
-}
-
-#nav_bar.closed .nav_bar_item > img {
-	padding: 0;
-	margin: 0;
 }
 
 .dropdown_icon {
@@ -1247,15 +1042,8 @@ header {
 	animation-fill-mode: forwards;
 }
 
-.dropdown_icon.close {
+.dropdown_icon.closed {
 	transform: rotate(180deg);
-}
-
-#nav_bar.closed .nav_bar_item > .dropdown_icon {
-	-webkit-animation: hideDropdown var(--t-basic);
-	animation: hideDropdown var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
 }
 
 .dropdown_menu {
@@ -1340,21 +1128,76 @@ header {
 	animation-fill-mode: forwards;
 }
 
-#nav_bar.closed #need_help {
-	width: 100%;
+#need_help img {
+	height: 1.05em;
+	width: 1.05em;
+	margin-right: 5px;
 }
 
-#nav_bar.closed #need_help > p {
+/* Closed states  */
+
+#nav_bar.closed {
+	transition: all var(--t-basic);
+	min-width: 40px;
+	width: 2vw;
+	max-width: 80px;
+}
+
+#nav_bar.closed #nav_bar_pin {
+	display: none;
+}
+
+#app_name.closed {
+	left: -500px;
+}
+
+#nav_bar.closed #nav_bar_wrapper {
+	min-width: 40px;
+	width: 2vw;
+	max-width: 80px;
+}
+
+#nav_bar.closed .nav_bar_title {
+	white-space: nowrap;
+	width: 100%;
+	text-align: center;
+}
+
+#nav_bar.closed .nav_bar_item p {
 	-webkit-animation: hideNavTitles var(--t-basic);
 	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-#need_help img {
-	height: 1.05em;
-	width: 1.05em;
-	margin-right: 5px;
+#nav_bar.closed .nav_bar_item {
+	padding: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#nav_bar.closed .nav_bar_item img {
+	padding: 0;
+	margin: 0;
+}
+
+#nav_bar.closed .nav_bar_item .dropdown_icon {
+	-webkit-animation: hideDropdown var(--t-basic);
+	animation: hideDropdown var(--t-basic);
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+#nav_bar.closed #need_help {
+	width: 100%;
+}
+
+#nav_bar.closed #need_help p {
+	-webkit-animation: hideNavTitles var(--t-basic);
+	animation: hideNavTitles var(--t-basic);
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
 }
 
 #nav_bar.closed #need_help img {
@@ -1362,9 +1205,166 @@ header {
 	margin: 0;
 }
 
+/* Animations */
+
+@-webkit-keyframes hideNavTitles {
+    0% {
+		opacity: 1;
+		position: relative;
+	}
+
+	1% {
+		padding-left: 0;
+		opacity: 1;
+		position: relative;
+	}
+
+	99% {
+		max-width: 0;
+	}
+
+    100% {
+		opacity: 0;
+		max-width: 0;
+	}
+}
+
+@keyframes hideNavTitles {
+    0% {
+		opacity: 1;
+		position: relative;
+	}
+
+	1% {
+		padding-left: 0;
+		opacity: 1;
+		position: relative;
+	}
+
+	99% {
+		max-width: 0;
+	}
+
+    100% {
+		opacity: 0;
+		max-width: 0;
+		padding-left: 0;
+	}
+}
+
+@-webkit-keyframes showNavTitles {
+	0% {
+		opacity: 0;
+		max-width: 0;
+		padding-left: 0;
+	}
+
+	1% {
+		opacity: 0;
+	}
+
+    100% {
+		opacity: 1;
+		display: block;
+    }
+}
+
+@keyframes showNavTitles {
+	0% {
+		opacity: 0;
+		max-width: 0;
+		padding-left: 0;
+	}
+
+	1% {
+		opacity: 0;
+	}
+
+    100% {
+		opacity: 1;
+		display: block;
+    }
+
+}
+
+@-webkit-keyframes hideDropdown {
+    0% {
+		opacity: 1;
+	}
+
+	1% {
+		opacity: 1;
+		position: relative;
+	}
+
+	99% {
+		max-width: 0;
+		padding-left: 0;
+	}
+
+    100% {
+		opacity: 0;
+		max-width: 0;
+		padding-left: 0;
+	}
+}
+
+@keyframes hideDropdown {
+    0% {
+		opacity: 1;
+	}
+
+	1% {
+		opacity: 1;
+		position: relative;
+	}
+
+	99% {
+		position: absolute;
+	}
+
+    100% {
+		opacity: 0;
+		position: absolute;
+	}
+}
+
+@-webkit-keyframes showDropdown {
+	0% {
+		opacity: 0;
+		display: aboslute;
+	}
+
+	1% {
+		opacity: 0;
+	}
+
+    100% {
+		opacity: 1;
+		display: block;
+    }
+}
+
+@keyframes showDropdown {
+	0% {
+		opacity: 0;
+		display: aboslute;
+	}
+
+	1% {
+		opacity: 0;
+	}
+
+    100% {
+		opacity: 1;
+		display: block;
+    }
+}
+
+
 /* Page content elements */
 
-#title_stripe {		/*  Wide gray stripe that coontains he pages's title */
+#title_stripe {		/*  Wide gray stripe that coontains the pages's title and stripe buttons */
 	position: relative;
 	z-index: 1;
 	background: var(--c-lightestgray);

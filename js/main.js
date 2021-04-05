@@ -1,14 +1,12 @@
 /* navigatation */
-status = "closed";
+status = "opened";
 
 var cotext = document.getElementById("controls_text");
-//var cmtext = document.getElementById("communications_text");
 var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
 var navBar = document.getElementById("nav_bar");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("menu_button_section");
-var menuButton = document.getElementById("menu_button");
 var pin = document.getElementById("nav_bar_pin");
 
 var dtDropIcon = document.getElementById("dt_dropdown_icon");
@@ -23,33 +21,30 @@ function toggle_nav_bar() {
     navBar.classList.toggle("closed");
     appName.classList.toggle("closed");
     menuSection.classList.toggle("closed");
-    menuButton.classList.toggle("closed");
-    dtDropIcon.classList.toggle("close");
-    gnDropIcon.classList.toggle("close");
-    thDropIcon.classList.toggle("close");
+    dtDropIcon.classList.toggle("closed");
+    gnDropIcon.classList.toggle("closed");
+    thDropIcon.classList.toggle("closed");
 
     if (status == "closed") {
         ovtext.innerHTML = "OVERVIEW";
-        //cmtext.innerHTML = "COMMUNICATIONS";
         cotext.innerHTML = "CONTROLS";
         setext.innerHTML = "SETUP";
         status = "opened";
     }
     else if (status == "opened") {
-        //cmtext.innerHTML = "C";
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
         setext.innerHTML = "S";
         status = "closed";
 
         dtDrop.classList.add("hidden");
-        dtDropIcon.classList.add("close");
+        dtDropIcon.classList.add("closed");
 
         gnDrop.classList.add("hidden");
-        gnDropIcon.classList.add("close");
+        gnDropIcon.classList.add("closed");
 
         thDrop.classList.add("hidden");
-        thDropIcon.classList.add("close");
+        thDropIcon.classList.add("closed");
     }
 }
 //Toggle pin
@@ -73,12 +68,10 @@ function opened_nav_bar() {
     navBar.classList.remove("closed");
     appName.classList.remove("closed");
     menuSection.classList.remove("closed");
-    menuButton.classList.remove("closed");
-    dtDropIcon.classList.remove("close");
-    gnDropIcon.classList.remove("close");
-    thDropIcon.classList.remove("close");
+    dtDropIcon.classList.remove("closed");
+    gnDropIcon.classList.remove("closed");
+    thDropIcon.classList.remove("closed");
     ovtext.innerHTML = "OVERVIEW";
-    //cmtext.innerHTML = "COMMUNICATIONS";
     cotext.innerHTML = "CONTROLS";
     setext.innerHTML = "SETUP";
     status = "opened";
@@ -92,17 +85,17 @@ if (navbar_status == "pinned" && navBar != null) {
 /* Toggle Nav Dropdow  */
 function toggle_dtDropdown() {
     dtDrop.classList.toggle("hidden");
-    dtDropIcon.classList.toggle("close");
+    dtDropIcon.classList.toggle("closed");
 }
 
 function toggle_general_dropdown() {
     gnDrop.classList.toggle("hidden");
-    gnDropIcon.classList.toggle("close");
+    gnDropIcon.classList.toggle("closed");
 }
 
 function toggle_technical_dropdown() {
     thDrop.classList.toggle("hidden");
-    thDropIcon.classList.toggle("close");
+    thDropIcon.classList.toggle("closed");
 }
 
 // Toggle panels
@@ -238,7 +231,7 @@ function setToHighContrast() {
 }
 
 function setToDark() {
-    document.documentElement.setAttribute('data-theme', 'dark'); 
+    document.documentElement.setAttribute('data-theme', 'dark');
     document.cookie = "theme = dark;" + setExpireDay(365);
     //colorModes[2].checked = true;
     colorModeClassRemover()

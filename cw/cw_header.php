@@ -9,9 +9,11 @@
         <div>
             <button onclick="toggleCompetitionsPanel(this)" type="button">Competitions</button>
             <div id="competitions_navigation">
-                <a href="upcoming_competitions.php">Upcoming</a>
-                <a href="ongoing_competitions.php">Ongoing</a>
-                <a href="finished_competitions.php">Finished</a>
+                <div>
+                    <a href="upcoming_competitions.php">Upcoming</a>
+                    <a href="ongoing_competitions.php">Ongoing</a>
+                    <a href="finished_competitions.php">Finished</a>
+                </div>
             </div>
         </div>
         <div>
