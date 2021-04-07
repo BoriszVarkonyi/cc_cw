@@ -26,7 +26,7 @@
             <button type="button" <?php echo $assoc_array_functions['dt'] ?> >
                 <img src="../assets/icons/list_alt-black.svg">
                 <p>DT</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg" id="dt_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="dt_dropdown_icon" class="dropdown_icon">
             </button>
 
             <!-- DT drop-down -->
@@ -67,7 +67,7 @@
             <button type="button" <?php echo $assoc_array_functions['general'] ?>>
                 <img src="../assets/icons/widgets-black.svg">
                 <p>General</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg" id="general_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="general_dropdown_icon" class="dropdown_icon">
             </button>
 
             <!-- general drop-down -->
@@ -81,7 +81,7 @@
             <button type="button" <?php echo $assoc_array_functions['technical'] ?>>
                 <img src="../assets/icons/home_repair_service-black.svg">
                 <p>Technical</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg" id="technical_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="technical_dropdown_icon" class="dropdown_icon">
             </button>
 
             <!-- technical drop-down -->

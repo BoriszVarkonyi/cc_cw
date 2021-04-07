@@ -15,21 +15,20 @@
 
 body {
 	background: var(--c-lightestgray) !important;
-	overflow: hidden;
 	scroll-behavior: smooth !important;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
 }
 
 /* Basic layout */
 
 #main {
 	width: 100%;
-	flex-grow: 1;
 	min-height: calc(100vh - 50px);
-	max-height: calc(100vh - 50px);
 	z-index: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
 	position: relative;
+	margin-top: 50px;
 }
 
 #main.full {
@@ -80,6 +79,7 @@ body {
 footer {
 	width: 100%;
 	z-index: 0;
+	font-size: var(--f-small);
 }
 
 .column {
@@ -260,12 +260,30 @@ footer {
 		width: 50%;
 	}
 }
+/* ///SCROLL BAR// */
+
+::-webkit-scrollbar { /* Width */
+    width: 9px;
+	height: 9px;
+}
+
+::-webkit-scrollbar-track {
+	background: linear-gradient(180deg, var(--c-secondary) 0, var(--c-primary) 100%);
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-transparent-white);
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: rgba(255, 255, 255, 0.4);
+}
 
 /* Header */
 
 header {
 	width: 100vw;
-	max-width: 100vw;
+	max-width: calc(100vw - 9px);
 	height: 50px;
 	box-sizing: border-box;
 	background: linear-gradient(90deg, var(--c-primary) 0,var(--c-secondary) 100%);
@@ -273,7 +291,8 @@ header {
 	box-shadow: var(--s-black);
 	display: flex;
 	align-items: stretch;
-	position: relative;
+	position: fixed;
+	overflow: hidden;
 }
 
 body.home header {
@@ -309,6 +328,7 @@ header > div {
 
 #navigation {
 	justify-content: center;
+	position: relative;
 }
 
 #navigation > div {
@@ -346,19 +366,18 @@ header > div {
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: center;
-	max-height: 0;
-	width: 100%;
+	justify-self: flex-end;
+	max-width: 0;
+	width: auto;
 	overflow: hidden;
 	transition: max-height var(--t-basic);
 	background: var(--c-primary);
-	position: absolute;
-	top: 50px;
-	left: 0;
+	z-index: 1;
 	border-radius: 0 0 5px 5px;
 }
 
 #competitions_navigation.opened {
-	max-height: 50vh;
+	max-width: 1000px;
 }
 
 #competitions_navigation div {
@@ -606,23 +625,26 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 /*  Main page */
 
 #slideshow {
-	max-height: 40vh;
+	max-height: 70vh;
 	position: relative;
 	overflow: hidden;
 	width: 100vw;
 	background: linear-gradient(90deg, var(--c-primary) 0,var(--c-secondary) 100%);
-	clip-path: ellipse( 100% 100% at 50% 0%);
+	/* LOWER ARCHES */
+	-webkit-clip-path: ellipse(150% 100% at 50% 0);
+	clip-path: ellipse(150% 100% at 50% 0);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 #sildes {
-	max-height: 40vh;
-	height: 500px;
+	max-height: 70vh;
+	height: 1000px;
 	width: 100%;
-	-webkit-clip-path: ellipse( 100% 100% at 50% 100%);
-	clip-path: ellipse( 100% 100% at 50% 100%);
+	/* UPPER ARCHES */
+	-webkit-clip-path: ellipse(150% 100% at 50% 100%);
+	clip-path: ellipse(150% 100% at 50% 100%);
 }
 
 #slide_nav {

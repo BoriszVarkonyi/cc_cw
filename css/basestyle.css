@@ -190,6 +190,7 @@ body, html {	/* Gives placeholder background and default font */
 	font-size: var(--f-medium) !important;
 }
 
+/* Annoy Borisz, good feature so things look good when user decides to be a 9 year old with mild autism */
 body * {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -285,31 +286,6 @@ img[src$=".svg"].not_icon {
 ::placeholder {
 	font-size: var(--f-medium);
 	color: var(--cs-darkgray) !important;
-}
-
-/* ///SCROLL BAR// */
-
-*.small_scroll::-webkit-scrollbar { /* Width */
-    width: 7px;
-	height: 7px;
-}
-
-::-webkit-scrollbar { /* Width */
-    width: 10px;
-	height: 10px;
-}
-
-::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb { /* Handle */
-	background: var(--c-darkgray);
-	border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover { /* Handle on hover */
-    background: var(--c-gray);
 }
 
 /* ///FORMS AND INPUTS/// */

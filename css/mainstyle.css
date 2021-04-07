@@ -50,6 +50,31 @@ html {
 }
 */
 
+/* ///SCROLL BAR// */
+
+*.small_scroll::-webkit-scrollbar { /* Width */
+    width: 7px;
+	height: 7px;
+}
+
+::-webkit-scrollbar { /* Width */
+    width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-darkgray);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: var(--c-gray);
+}
+
 .page_content_flex {
 	flex: 1 0 0;
 	display: flex;
