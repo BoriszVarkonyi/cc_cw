@@ -34,7 +34,7 @@ function toggle_nav_bar() {
 
         for(i=0; i<navbarItems.length; i++){
             navbarItems[i].nextElementSibling.classList.add("hidden");
-            dropDownIcons[i].classList.add("close");
+            dropDownIcons[i].classList.add("closed");
         }
     }
 }
@@ -75,7 +75,7 @@ function toggle_dtDropdown(x) {
     //Gets the right index
     var index = Array.from(navbarItems).indexOf(x);
     navbarItems[index].nextElementSibling.classList.toggle("hidden");
-    dropDownIcons[index].classList.toggle("close");
+    dropDownIcons[index].classList.toggle("closed");
 }
 
 // Toggle panels
