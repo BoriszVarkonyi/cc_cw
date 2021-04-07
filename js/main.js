@@ -7,6 +7,7 @@ var setext = document.getElementById("setup_text");
 var navBar = document.getElementById("nav_bar");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("menu_button_section");
+var menuButton = document.getElementById("menu_button") 
 var pin = document.getElementById("nav_bar_pin");
 
 var navbarItems = document.querySelectorAll("button.nav_bar_item");
@@ -53,13 +54,11 @@ function pinChecker() {
 }
 //Saves the status ofthe pin
 var navbar_status = cookieFinder('navbar_status', 'pinned', false, 365)
-console.log()
 //Opens the navbar
 function opened_nav_bar() {
     navBar.classList.remove("closed");
     appName.classList.remove("closed");
     menuSection.classList.remove("closed");
-    menuButton.classList.remove("closed");
     ovtext.innerHTML = "OVERVIEW";
     cotext.innerHTML = "CONTROLS";
     setext.innerHTML = "SETUP";
