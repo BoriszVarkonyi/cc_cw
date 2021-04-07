@@ -18,6 +18,11 @@
     $pool_num = $_GET['poolid'];
     $current_f_pool = $fencers_table[$pool_num];
     $current_m_pool = $matches_table[$pool_num-1];
+
+    //get number of fencers in pools
+    for ($number_of_fencers = 1; isset($current_pool -> $number_of_fencers); $number_of_fencers++);
+    $number_of_fencers--;
+    $pool_f_in = $number_of_fencers;
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +90,6 @@
 
 
                     <?php
-
 
 
 
@@ -224,43 +228,7 @@
 
                     <div id="pool_matches">
 
-                        <?php
-
-                        $get_matches_query = "SELECT * FROM pool_matches_$comp_id WHERE p_in = $poolnum ORDER BY oip ASC";
-                        $get_matches_query_do = mysqli_query($connection, $get_matches_query);
-
-                        while($row = mysqli_fetch_assoc($get_matches_query_do)){
-
-                        $f1_id = $row["f1_id"];
-                        $f2_id = $row["f2_id"];
-                        $f1_sc = $row["f1_sc"];
-                        $f2_sc = $row["f2_sc"];
-                        $oip = $row["oip"];
-
-
-                        $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id = '$f1_id'";
-                        $get_fencer_names_do = mysqli_query($connection, $get_fencer_names);
-
-                        $get_fencer_names2 = "SELECT * FROM cptrs_$comp_id WHERE id = '$f2_id'";
-                        $get_fencer_names_do2 = mysqli_query($connection, $get_fencer_names2);
-
-
-
-                        if($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
-
-                        $f1_n = $row2["name"];
-
-
-                        }
-                        if($row3 = mysqli_fetch_assoc($get_fencer_names_do2)){
-
-                            $f2_n = $row3["name"];
-
-
-                            }
-
-
-                        ?>
+                        <?php ?>
 
 
                         <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
@@ -283,7 +251,7 @@
 
                         <?php
 
-                    }
+
 
                         ?>
 
