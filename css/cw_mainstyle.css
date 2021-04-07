@@ -292,7 +292,6 @@ header {
 	display: flex;
 	align-items: stretch;
 	position: fixed;
-	overflow: hidden;
 }
 
 body.home header {
@@ -408,7 +407,7 @@ header > div {
 }
 
 #change_language > div > button {
-	background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-lightprimary) 100%);
+	background: var(--c-transparent-white);
 	height: 30px;
 	width: 60px;
 	border-radius: 20px;
@@ -452,7 +451,7 @@ header > div {
 	right: 0;
 	position: absolute;
 	width: 0;
-	background: linear-gradient(180deg, var(--c-tertiary) 0%, var(--c-secondary) 100%);
+	background: linear-gradient(180deg, var(--c-secondary) 0%, var(--c-secondary) 100%);
 	border-radius: 0 0 5px 5px;
 	transition: all var(--t-basic);
 	overflow: hidden;
@@ -484,6 +483,7 @@ header > div {
 	border: 1px solid var(--c-gray);
 	padding: 2px;
 	margin: 2px 0;
+	font-size: var(--f-small);
 }
 
 #change_language_panel button.selected {
