@@ -2,38 +2,34 @@
 <?php include "../includes/cw_fav_button_list.php" ?>
 <?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
-<html lang="en" data-content-theme="vanilla">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CompetitionView</title>
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="home">
     <?php include "cw_header.php"; ?>
     <div id="main">
         <div id="slideshow">
-            <p id="slideshow_title" title="Check Competitions">Check Competitions</p>
+            <div id="slideshow_content">
+                <p id="slideshow_title">Check Competitions</p>
+            </div>
+            <div id="slide_nav">
+                <button class="slideButtons active" onclick="toggleButton(this)"></button>
+                <button class="slideButtons" onclick="toggleButton(this)"></button>
+                <button class="slideButtons" onclick="toggleButton(this)"></button>
+                <button class="slideButtons" onclick="toggleButton(this)"></button>
+            </div>
             <div id="sildes">
-                <div id="slide_nav">
-                    <button class="slideButtons active" onclick="toggleButton(this)"></button>
-                    <button class="slideButtons" onclick="toggleButton(this)"></button>
-                    <button class="slideButtons" onclick="toggleButton(this)"></button>
-                    <button class="slideButtons" onclick="toggleButton(this)"></button>
-                </div>
                 <!-- slide1 -->
-                <div class="slide bg_fencers"></div>
+                <div class="slide" style="background-image: url(../assets/img/fencers_bg_d.svg)">
+                </div>
 
-                <!-- slide2 -->
-                <div class="slide bg_fencers"></div>
 
-                <!-- slide3 -->
-                <div class="slide bg_fencers"></div>
-
-                <!-- slide4 -->
-                <div class="slide bg_fencers"></div>
             </div>
         </div>
         <div id="content">
@@ -110,6 +106,6 @@
     <?php include "cw_footer.php"; ?>
 </body>
 <script src="../js/cw_main.js"></script>
-<script src="../js/cw_slideshow.js"></script>
+<!-- <script src="../js/cw_slideshow.js"></script> -->
 <script src="../js/list.js"></script>
 </html>

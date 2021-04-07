@@ -119,8 +119,8 @@ if(isset($_POST["submit"]) ){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Choose Ranking</title>
     <link rel="icon" href="../assets/img/favicon.png">
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
 <!-- header -->

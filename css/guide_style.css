@@ -7,10 +7,7 @@
 
 .guide_option {
 	background: var(--c-white);
-	border-top: 2px solid var(--c-darkgray);
-	border-left: 2px solid var(--c-darkgray);
-	border-bottom: 2px solid var(--c-gray);
-	border-right: 2px solid var(--c-gray);
+	border: 2px solid var(--c-darkgray);
 	box-shadow: var(--s-black);
 	flex-grow: 1;
 	flex-basis: 300px;

@@ -36,8 +36,8 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table Pistes & Time setup</title>
     <link rel="stylesheet" href="../css/table_pistes_and_time_style.min.css">
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 
 <body>

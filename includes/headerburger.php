@@ -53,12 +53,12 @@ if (isset($_POST["logout"])) {
 ?>
 
 <header>
-    <p id="app_name" class="closed">Competition Control <b>Alpha</b></p>
+    <p id="app_name">Competition Control <b>Alpha</b></p>
     <?php
     if (isset($_GET['comp_id'])) {
     ?>
         <!-- hamburger tab for navbar left -->
-        <div id="menu_button_section" class="closed">
+        <div id="menu_button_section">
             <button type="button" onclick="toggle_nav_bar()" id="menu_button">
                 <img src="../assets/icons/menu-black.svg"/>
             </button>
@@ -95,10 +95,10 @@ if (isset($_POST["logout"])) {
 
     <!-- colormode and language buttons -->
     <div class="settings_section">
-        <button class="header_button" id="language_button" onclick="toggleLanguagePanel()">
+        <button class="header_button" onclick="toggleLanguagePanel()">
             <img src="../assets/icons/language-black.svg"/>
         </button>
-        <button class="header_button" id="colormode_button" onclick="toggleColormodePanel()">
+        <button class="header_button" onclick="toggleColormodePanel()">
             <img src="../assets/icons/color_lens-black.svg"/>
         </button>
     </div>
@@ -106,7 +106,7 @@ if (isset($_POST["logout"])) {
     <!-- language select drop-down -->
     <div id="language_panel" class="header_overlay_panel hidden">
         <div>
-            <button id="close_lang_button" class="panel_button fixed" onclick="toggleLanguagePanel()">
+            <button class="panel_button fixed" onclick="toggleLanguagePanel()">
                 <img src="../assets/icons/close-black.svg"/>
             </button>
         </div>
