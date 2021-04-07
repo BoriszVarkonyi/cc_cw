@@ -121,99 +121,26 @@
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-                                        <?php
-                                        for ($k=0; $k < $pool_f_in; $k++) { ?>
-                                            <div class="table_header_text square">
-                                            <?php echo $k +1; ?>
-                                        </div>
-                                        <?php
-                                        }
-                                        ?>
-
+                                        <div class="table_header_text square">1</div>
+                                        <div class="table_header_text square">2</div>
+                                        <div class="table_header_text square">3</div>
+                                        <div class="table_header_text square">4</div>
+                                        <div class="table_header_text square">5</div>
+                                        <div class="table_header_text square">6</div>
+                                        <div class="table_header_text square">7</div>
                                     </div>
                                     <div class="table_row_wrapper alt">
-                                    <?php
-                                    for ($n=0; $n < $pool_f_in; $n++) {
-                                            $fx = $f[$n];
-                                            $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
-                                            $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
-
-                                            if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
-                                                $fencer_name = $row['name'];
-                                            }?>
-
-                                    <div id="<?php echo $n ?>" class="table_row" onclick="selectRow(this)">
-                                        <div class="table_item"><?php echo $fencer_name ?></div>
-                                        <div class="table_item square row_title"><?php echo $n+1 ?></div>
-                                        <?php
-                                        $filled = "";
-                                        for ($l=0; $l < $pool_f_in; $l++) {
-
-                                        if($l == $n){
-
-                                        $filled = "filled";
-
-                                        }?>
-
-                                        <div class="table_item square <?php echo $filled ?>">
-
-                                        <?php
-                                        $front = 0;
-                                        $back = 0;
-                                            if($l > $n){
-
-                                                $front = $n+1;
-                                                $back = $l+1;
-
-                                            }else{
-
-                                                $front = $l +1 ;
-                                                $back = $n+1;
-
-                                            }
-                                        if($l != $n){
-                                            $scorenow = 0;
-                                            $m_id = $front . "-" . $back;
-
-                                            if($l > $n){
-                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                    $scorenow = $row4["f1_sc"];
-
-                                                }
-                                                echo $scorenow;
-
-                                            }
-                                            elseif($n > $l){
-                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                    $scorenow = $row4["f2_sc"];
-
-                                                }
-                                                echo $scorenow;
-                                            }
-
-                                            }
-
-                                        ?>
-
+                                        <div id="" class="table_row" onclick="selectRow(this)">
+                                            <div class="table_item">Fencer name</div>
+                                            <div class="table_item square row_title">Nomer</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square">1</div>
+                                            <div class="table_item square">1</div>
+                                            <div class="table_item square">2</div>
+                                            <div class="table_item square">4</div>
+                                            <div class="table_item square">45</div>
+                                            <div class="table_item square">4</div>
                                         </div>
-
-                                        <?php
-                                        $filled = "";
-                                        }
-
-                                        ?>
-                                    </div>
-                                    <?php
-                                        }
-                                            ?>
                                     </div>
                                 </div>
                             </div>
@@ -233,18 +160,18 @@
 
                         <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
                             <div class="match_number">
-                                <p><?php echo $oip ?></p>
+                                <p>Match num</p>
                             </div>
                             <div>
-                                <p><?php echo $f1_n ?></p>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="<?php echo $f1_sc ?>">
+                                <p>fencer 1</p>
+                                <input type="number" form="savepool" placeholder="#" name="" id="" class="number_input" value="">
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="<?php echo $f2_sc ?>">
-                                <p><?php echo $f2_n ?></p>
+                                <input type="number" form="savepool" placeholder="#" name="" id="" class="number_input" value="">
+                                <p>fencer 2</p>
                             </div>
                         </div>
 
