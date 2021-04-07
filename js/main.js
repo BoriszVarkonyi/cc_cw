@@ -1,5 +1,5 @@
 /* navigatation */
-status = "closed";
+status = "opened";
 
 var cotext = document.getElementById("controls_text");
 //var cmtext = document.getElementById("communications_text");
@@ -11,45 +11,33 @@ var menuSection = document.getElementById("menu_button_section");
 var menuButton = document.getElementById("menu_button");
 var pin = document.getElementById("nav_bar_pin");
 
-var dtDropIcon = document.getElementById("dt_dropdown_icon");
-var gnDropIcon = document.getElementById("general_dropdown_icon");
-var thDropIcon = document.getElementById("technical_dropdown_icon");
-
-var dtDrop = document.getElementById("dt_dropdown_menu");
-var gnDrop = document.getElementById("general_dropdown_menu");
-var thDrop = document.getElementById("technical_dropdown_menu");
+var navbarItems = document.querySelectorAll("button.nav_bar_item");
+var dropDownIcons = document.querySelectorAll(".dropdown_icon");
 
 function toggle_nav_bar() {
     navBar.classList.toggle("closed");
     appName.classList.toggle("closed");
     menuSection.classList.toggle("closed");
     menuButton.classList.toggle("closed");
-    dtDropIcon.classList.toggle("close");
-    gnDropIcon.classList.toggle("close");
-    thDropIcon.classList.toggle("close");
 
-    if (status == "closed") {
+    if (status == "opened") {
         ovtext.innerHTML = "OVERVIEW";
         //cmtext.innerHTML = "COMMUNICATIONS";
         cotext.innerHTML = "CONTROLS";
         setext.innerHTML = "SETUP";
-        status = "opened";
+        status = "closed";
     }
-    else if (status == "opened") {
+    else if (status == "closed") {
         //cmtext.innerHTML = "C";
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
         setext.innerHTML = "S";
-        status = "closed";
+        status = "opened";
 
-        dtDrop.classList.add("hidden");
-        dtDropIcon.classList.add("close");
-
-        gnDrop.classList.add("hidden");
-        gnDropIcon.classList.add("close");
-
-        thDrop.classList.add("hidden");
-        thDropIcon.classList.add("close");
+        for(i=0; i<navbarItems.length; i++){
+            navbarItems[i].nextElementSibling.classList.add("hidden");
+            dropDownIcons[i].classList.add("close");
+        }
     }
 }
 //Toggle pin
@@ -67,21 +55,19 @@ function pinChecker() {
     }
 }
 //Saves the status ofthe pin
-var navbar_status = cookieFinder('navbar_status', 'notPinned', false, 65)
+var navbar_status = cookieFinder('navbar_status', 'pinned', false, 365)
+console.log()
 //Opens the navbar
 function opened_nav_bar() {
     navBar.classList.remove("closed");
     appName.classList.remove("closed");
     menuSection.classList.remove("closed");
     menuButton.classList.remove("closed");
-    dtDropIcon.classList.remove("close");
-    gnDropIcon.classList.remove("close");
-    thDropIcon.classList.remove("close");
     ovtext.innerHTML = "OVERVIEW";
     //cmtext.innerHTML = "COMMUNICATIONS";
     cotext.innerHTML = "CONTROLS";
     setext.innerHTML = "SETUP";
-    status = "opened";
+    status = "closed";
 }
 //Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
 if (navbar_status == "pinned" && navBar != null) {
@@ -90,19 +76,11 @@ if (navbar_status == "pinned" && navBar != null) {
 }
 
 /* Toggle Nav Dropdow  */
-function toggle_dtDropdown() {
-    dtDrop.classList.toggle("hidden");
-    dtDropIcon.classList.toggle("close");
-}
-
-function toggle_general_dropdown() {
-    gnDrop.classList.toggle("hidden");
-    gnDropIcon.classList.toggle("close");
-}
-
-function toggle_technical_dropdown() {
-    thDrop.classList.toggle("hidden");
-    thDropIcon.classList.toggle("close");
+function toggle_dtDropdown(x) {
+    //Gets the right index
+    var index = Array.from(navbarItems).indexOf(x);
+    navbarItems[index].nextElementSibling.classList.toggle("hidden");
+    dropDownIcons[index].classList.toggle("close");
 }
 
 // Toggle panels
@@ -396,4 +374,3 @@ textAreas.forEach(item => {
         somethingIsFocused = false
     });
 })
-

@@ -1,5 +1,6 @@
 <?php include "../includes/headerburger.php"; ?>
 <?php include "../includes/db.php" ?>
+
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 

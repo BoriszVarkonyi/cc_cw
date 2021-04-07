@@ -128,9 +128,13 @@
     <title>Technicians</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/test_navbar.js"></script>
+
 </head>
 <body class="preload">
 <!-- header -->
+    <script>console.log("body")</script>
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
@@ -308,7 +312,7 @@
         </div>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/technicians.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
