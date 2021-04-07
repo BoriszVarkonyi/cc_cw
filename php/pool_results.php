@@ -86,49 +86,12 @@
 
                     <?php
 
-                    $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $pool_num";
-                        $inside_query_do = mysqli_query($connection,$inside_query);
-
-                        if($row = mysqli_fetch_assoc($inside_query_do)){
-
-                            $pool_f_in = $row["pool_of"];
-                            $f[0] = $row['f1'];
-                            $f[1] = $row['f2'];
-                            $f[2] = $row['f3'];
-                            $f[3] = $row['f4'];
-                            $f[4] = $row['f5'];
-                            $f[5] = $row['f6'];
-                            $f[6] = $row['f7'];
-                            $ref = $row["ref"];
-                            $ref_2 = $row["ref2"];
-                            $piste = $row["piste"];
-                            $time = $row["time"];
 
 
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref'";
-                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
 
-                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
 
-                                $refname = $refrow["full_name"];
-                                $refnat = $refrow["nat"];
 
-                            }
-
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref_2'";
-                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
-
-                            $ref2name = "";
-                            $ref2nat = "";
-
-                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
-
-                                $ref2name = $refrow["full_name"];
-                                $ref2nat = $refrow["nat"];
-
-                            }
-
-                        }?>
+                        ?>
                     <div>
                         <div class="entry">
                             <div class="table_row start">
