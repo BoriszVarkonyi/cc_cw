@@ -78,8 +78,8 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Competitiors</title>
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 
 <body>

@@ -18,6 +18,11 @@
     $pool_num = $_GET['poolid'];
     $current_f_pool = $fencers_table[$pool_num];
     $current_m_pool = $matches_table[$pool_num-1];
+
+    //get number of fencers in pools
+    for ($number_of_fencers = 1; isset($current_pool -> $number_of_fencers); $number_of_fencers++);
+    $number_of_fencers--;
+    $pool_f_in = $number_of_fencers;
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +32,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pool No. <?php echo $pool_num ?> 's results</title>
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
 <!-- header -->
@@ -86,49 +91,11 @@
 
                     <?php
 
-                    $inside_query = "SELECT * FROM pools_$comp_id WHERE pool_number = $pool_num";
-                        $inside_query_do = mysqli_query($connection,$inside_query);
-
-                        if($row = mysqli_fetch_assoc($inside_query_do)){
-
-                            $pool_f_in = $row["pool_of"];
-                            $f[0] = $row['f1'];
-                            $f[1] = $row['f2'];
-                            $f[2] = $row['f3'];
-                            $f[3] = $row['f4'];
-                            $f[4] = $row['f5'];
-                            $f[5] = $row['f6'];
-                            $f[6] = $row['f7'];
-                            $ref = $row["ref"];
-                            $ref_2 = $row["ref2"];
-                            $piste = $row["piste"];
-                            $time = $row["time"];
 
 
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref'";
-                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
 
-                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
 
-                                $refname = $refrow["full_name"];
-                                $refnat = $refrow["nat"];
-
-                            }
-
-                            $get_ref_name = "SELECT * FROM ref_$comp_id WHERE id = '$ref_2'";
-                            $get_ref_name_do = mysqli_query($connection, $get_ref_name);
-
-                            $ref2name = "";
-                            $ref2nat = "";
-
-                            if($refrow = mysqli_fetch_assoc($get_ref_name_do)){
-
-                                $ref2name = $refrow["full_name"];
-                                $ref2nat = $refrow["nat"];
-
-                            }
-
-                        }?>
+                        ?>
                     <div>
                         <div class="entry">
                             <div class="table_row start">
@@ -154,99 +121,26 @@
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-                                        <?php
-                                        for ($k=0; $k < $pool_f_in; $k++) { ?>
-                                            <div class="table_header_text square">
-                                            <?php echo $k +1; ?>
-                                        </div>
-                                        <?php
-                                        }
-                                        ?>
-
+                                        <div class="table_header_text square">1</div>
+                                        <div class="table_header_text square">2</div>
+                                        <div class="table_header_text square">3</div>
+                                        <div class="table_header_text square">4</div>
+                                        <div class="table_header_text square">5</div>
+                                        <div class="table_header_text square">6</div>
+                                        <div class="table_header_text square">7</div>
                                     </div>
                                     <div class="table_row_wrapper alt">
-                                    <?php
-                                    for ($n=0; $n < $pool_f_in; $n++) {
-                                            $fx = $f[$n];
-                                            $get_fencer_data = "SELECT * FROM cptrs_$comp_id WHERE id = '$fx'";
-                                            $do_get_fencer_data = mysqli_query($connection, $get_fencer_data);
-
-                                            if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
-                                                $fencer_name = $row['name'];
-                                            }?>
-
-                                    <div id="<?php echo $n ?>" class="table_row" onclick="selectRow(this)">
-                                        <div class="table_item"><?php echo $fencer_name ?></div>
-                                        <div class="table_item square row_title"><?php echo $n+1 ?></div>
-                                        <?php
-                                        $filled = "";
-                                        for ($l=0; $l < $pool_f_in; $l++) {
-
-                                        if($l == $n){
-
-                                        $filled = "filled";
-
-                                        }?>
-
-                                        <div class="table_item square <?php echo $filled ?>">
-
-                                        <?php
-                                        $front = 0;
-                                        $back = 0;
-                                            if($l > $n){
-
-                                                $front = $n+1;
-                                                $back = $l+1;
-
-                                            }else{
-
-                                                $front = $l +1 ;
-                                                $back = $n+1;
-
-                                            }
-                                        if($l != $n){
-                                            $scorenow = 0;
-                                            $m_id = $front . "-" . $back;
-
-                                            if($l > $n){
-                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                    $scorenow = $row4["f1_sc"];
-
-                                                }
-                                                echo $scorenow;
-
-                                            }
-                                            elseif($n > $l){
-                                                $query_get_scores = "SELECT * FROM pool_matches_$comp_id WHERE m_id = '$m_id' AND p_in = $poolnum";
-                                                $query_get_scores_do = mysqli_query($connection, $query_get_scores);
-
-                                                while($row4 = mysqli_fetch_assoc($query_get_scores_do)){
-
-                                                    $scorenow = $row4["f2_sc"];
-
-                                                }
-                                                echo $scorenow;
-                                            }
-
-                                            }
-
-                                        ?>
-
+                                        <div id="" class="table_row" onclick="selectRow(this)">
+                                            <div class="table_item">Fencer name</div>
+                                            <div class="table_item square row_title">Nomer</div>
+                                            <div class="table_item square filled"></div>
+                                            <div class="table_item square">1</div>
+                                            <div class="table_item square">1</div>
+                                            <div class="table_item square">2</div>
+                                            <div class="table_item square">4</div>
+                                            <div class="table_item square">45</div>
+                                            <div class="table_item square">4</div>
                                         </div>
-
-                                        <?php
-                                        $filled = "";
-                                        }
-
-                                        ?>
-                                    </div>
-                                    <?php
-                                        }
-                                            ?>
                                     </div>
                                 </div>
                             </div>
@@ -261,66 +155,30 @@
 
                     <div id="pool_matches">
 
-                        <?php
-
-                        $get_matches_query = "SELECT * FROM pool_matches_$comp_id WHERE p_in = $poolnum ORDER BY oip ASC";
-                        $get_matches_query_do = mysqli_query($connection, $get_matches_query);
-
-                        while($row = mysqli_fetch_assoc($get_matches_query_do)){
-
-                        $f1_id = $row["f1_id"];
-                        $f2_id = $row["f2_id"];
-                        $f1_sc = $row["f1_sc"];
-                        $f2_sc = $row["f2_sc"];
-                        $oip = $row["oip"];
-
-
-                        $get_fencer_names = "SELECT * FROM cptrs_$comp_id WHERE id = '$f1_id'";
-                        $get_fencer_names_do = mysqli_query($connection, $get_fencer_names);
-
-                        $get_fencer_names2 = "SELECT * FROM cptrs_$comp_id WHERE id = '$f2_id'";
-                        $get_fencer_names_do2 = mysqli_query($connection, $get_fencer_names2);
-
-
-
-                        if($row2 = mysqli_fetch_assoc($get_fencer_names_do)){
-
-                        $f1_n = $row2["name"];
-
-
-                        }
-                        if($row3 = mysqli_fetch_assoc($get_fencer_names_do2)){
-
-                            $f2_n = $row3["name"];
-
-
-                            }
-
-
-                        ?>
+                        <?php ?>
 
 
                         <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
                             <div class="match_number">
-                                <p><?php echo $oip ?></p>
+                                <p>Match num</p>
                             </div>
                             <div>
-                                <p><?php echo $f1_n ?></p>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $oip ?>_1" id="" class="number_input" placeholder="<?php echo $f1_sc ?>">
+                                <p>fencer 1</p>
+                                <input type="number" form="savepool" placeholder="#" name="" id="" class="number_input" value="">
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $oip ?>_2" id="" class="number_input" placeholder="<?php echo $f2_sc ?>">
-                                <p><?php echo $f2_n ?></p>
+                                <input type="number" form="savepool" placeholder="#" name="" id="" class="number_input" value="">
+                                <p>fencer 2</p>
                             </div>
                         </div>
 
 
                         <?php
 
-                    }
+
 
                         ?>
 

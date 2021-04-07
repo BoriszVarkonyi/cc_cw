@@ -5,12 +5,12 @@
 
 <!-- navbar -->
 <div class="nav_bar_flex">
-    <div id="nav_bar" class="closed">
+    <div id="nav_bar">
         <button id="nav_bar_pin" onclick="togglePinButton(this)">
             <img src="../assets/icons/push_pin-black.svg">
         </button>
         <div id="nav_bar_wrapper">
-            <p id="overview_text" class="nav_bar_title">O</p>
+            <p id="overview_text" class="nav_bar_title">OVERVIEW</p>
             <!-- dashboard -->
             <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
                 <img src="../assets/icons/dashboard-black.svg">
@@ -21,12 +21,12 @@
                 <p>Chat</p>
             </a>
 
-            <p id="controls_text" class="nav_bar_title">C</p>
+            <p id="controls_text" class="nav_bar_title">CONTROLS</p>
             <!-- DT -->
             <button type="button" <?php echo $assoc_array_functions['dt'] ?> >
                 <img src="../assets/icons/list_alt-black.svg">
                 <p>DT</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg" id="dt_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="dt_dropdown_icon" class="dropdown_icon">
             </button>
 
             <!-- DT drop-down -->
@@ -61,13 +61,13 @@
                 <p>Announcements</p>
             </a>
 
-            <p id="setup_text" class="nav_bar_title">S</p>
+            <p id="setup_text" class="nav_bar_title">SETUP</p>
 
             <!-- general -->
             <button type="button" <?php echo $assoc_array_functions['general'] ?>>
                 <img src="../assets/icons/widgets-black.svg">
                 <p>General</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg" id="general_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="general_dropdown_icon" class="dropdown_icon">
             </button>
 
             <!-- general drop-down -->
@@ -81,7 +81,7 @@
             <button type="button" <?php echo $assoc_array_functions['technical'] ?>>
                 <img src="../assets/icons/home_repair_service-black.svg">
                 <p>Technical</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg" id="technical_dropdown_icon" class="dropdown_icon close">
+                <img src="../assets/icons/arrow_drop_down-black.svg" id="technical_dropdown_icon" class="dropdown_icon">
             </button>
 
             <!-- technical drop-down -->

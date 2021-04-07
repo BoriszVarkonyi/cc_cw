@@ -2,13 +2,11 @@
 status = "opened";
 
 var cotext = document.getElementById("controls_text");
-//var cmtext = document.getElementById("communications_text");
 var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
 var navBar = document.getElementById("nav_bar");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("menu_button_section");
-var menuButton = document.getElementById("menu_button");
 var pin = document.getElementById("nav_bar_pin");
 
 var navbarItems = document.querySelectorAll("button.nav_bar_item");
@@ -22,7 +20,6 @@ function toggle_nav_bar() {
 
     if (status == "opened") {
         ovtext.innerHTML = "OVERVIEW";
-        //cmtext.innerHTML = "COMMUNICATIONS";
         cotext.innerHTML = "CONTROLS";
         setext.innerHTML = "SETUP";
         status = "closed";
@@ -64,7 +61,6 @@ function opened_nav_bar() {
     menuSection.classList.remove("closed");
     menuButton.classList.remove("closed");
     ovtext.innerHTML = "OVERVIEW";
-    //cmtext.innerHTML = "COMMUNICATIONS";
     cotext.innerHTML = "CONTROLS";
     setext.innerHTML = "SETUP";
     status = "closed";
@@ -216,7 +212,7 @@ function setToHighContrast() {
 }
 
 function setToDark() {
-    document.documentElement.setAttribute('data-theme', 'dark'); 
+    document.documentElement.setAttribute('data-theme', 'dark');
     document.cookie = "theme = dark;" + setExpireDay(365);
     //colorModes[2].checked = true;
     colorModeClassRemover()
