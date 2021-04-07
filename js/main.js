@@ -10,6 +10,8 @@ var menuSection = document.getElementById("menu_button_section");
 var menuButton = document.getElementById("menu_button") 
 var pin = document.getElementById("nav_bar_pin");
 
+pin.classList.add("pinned")
+
 var navbarItems = document.querySelectorAll("button.nav_bar_item");
 var dropDownIcons = document.querySelectorAll(".dropdown_icon");
 
@@ -19,22 +21,22 @@ function toggle_nav_bar() {
     menuSection.classList.toggle("closed");
     menuButton.classList.toggle("closed");
 
-    if (status == "opened") {
+    if (status == "closed") {
         ovtext.innerHTML = "OVERVIEW";
         cotext.innerHTML = "CONTROLS";
         setext.innerHTML = "SETUP";
-        status = "closed";
+        status = "opened";
     }
-    else if (status == "closed") {
+    else if (status == "opened") {
         //cmtext.innerHTML = "C";
         ovtext.innerHTML = "O";
         cotext.innerHTML = "C";
         setext.innerHTML = "S";
-        status = "opened";
+        status = "closed";
 
         for(i=0; i<navbarItems.length; i++){
             navbarItems[i].nextElementSibling.classList.add("hidden");
-            dropDownIcons[i].classList.add("closed");
+            dropDownIcons[i].classList.remove("closed");
         }
     }
 }
@@ -55,19 +57,24 @@ function pinChecker() {
 //Saves the status ofthe pin
 var navbar_status = cookieFinder('navbar_status', 'pinned', false, 365)
 //Opens the navbar
-function opened_nav_bar() {
-    navBar.classList.remove("closed");
-    appName.classList.remove("closed");
-    menuSection.classList.remove("closed");
-    ovtext.innerHTML = "OVERVIEW";
-    cotext.innerHTML = "CONTROLS";
-    setext.innerHTML = "SETUP";
+function closed_nav_bar() {
+    navBar.classList.add("closed");
+    appName.classList.add("closed");
+    menuSection.classList.add("closed");
+    ovtext.innerHTML = "O";
+    cotext.innerHTML = "C";
+    setext.innerHTML = "S";
     status = "closed";
+
+    for(i=0; i<navbarItems.length; i++){
+        navbarItems[i].nextElementSibling.classList.add("hidden");
+        dropDownIcons[i].classList.remove("closed");
+    }
 }
 //Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
-if (navbar_status == "pinned" && navBar != null) {
-    opened_nav_bar();
-    pin.classList.add("pinned")
+if (navbar_status == "notPinned" && navBar != null) {
+    closed_nav_bar();
+    pin.classList.remove("pinned")
 }
 
 /* Toggle Nav Dropdow  */
