@@ -30,7 +30,7 @@
         <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();">
+                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
                         <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Video From <?php echo $comp_name ?></p>
@@ -39,7 +39,7 @@
             <div id="content_wrapper" class="centered">
                 <div id="video">
                     <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $video_id ?>" title="<?php echo $comp_name ?>'s highlight video" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <a href="https://www.youtube.com/watch?v=<?php echo $video_id ?>" class="open_on_yt_button">
                     <p>Open on Youtube</p>

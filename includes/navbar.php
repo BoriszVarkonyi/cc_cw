@@ -6,7 +6,7 @@
 <!-- navbar -->
 <div class="nav_bar_flex">
     <div id="nav_bar">
-        <button id="nav_bar_pin" onclick="togglePinButton(this)">
+        <button id="nav_bar_pin" onclick="togglePinButton(this)" class="pinned">
             <img src="../assets/icons/push_pin-black.svg">
         </button>
         <div id="nav_bar_wrapper">

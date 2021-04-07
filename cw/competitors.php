@@ -43,7 +43,7 @@
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();">
+                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
                         <img src="../assets/icons/arrow_back_ios-black.svg">
                     </button>
                     Competitors of <?php echo $comp_name ?>

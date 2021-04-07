@@ -60,6 +60,9 @@ body {
 	align-items: center;
 	flex: 1 1 100%;
 	flex-direction: column;
+	/* Has to be these or viewport will try to override it */
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 #content_wrapper.round {
@@ -330,11 +333,36 @@ header > div {
 	position: relative;
 }
 
+/* Button and lick wrappers */
 #navigation > div {
 	flex: 1 1 auto;
 	height: 100%;
 	position: relative;
 }
+
+/*
+#navigation > div:nth-child(even):before {
+	height: 25px;
+	width: 2px;
+	content: "";
+	position: absolute;
+	left: -1px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: var(--c-transparent-white);
+}
+
+#navigation > div:nth-child(even)::after {
+	height: 25px;
+	width: 2px;
+	content: "";
+	position: absolute;
+	right: -1px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: var(--c-transparent-white);
+}
+*/
 
 #navigation > div:hover {
 	background-color: rgba(255, 255, 255, 0.2);

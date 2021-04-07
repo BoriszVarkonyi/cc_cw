@@ -485,17 +485,19 @@ label.error + input {
 
 /* Number inputs */
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+  	margin: 0;
+}
+
 input[type="number"] {
 	width: 40px;
 	background-color: transparent;
 	text-align: center;
 	-moz-appearance: textfield;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-  	margin: 0;
+	appearance: textfield;
 }
 
 input[type="number"]:not(.number_input):focus {
