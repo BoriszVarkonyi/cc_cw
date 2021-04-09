@@ -979,6 +979,32 @@ nav img {
 	margin: 0;
 	left: 10px;
 	transition: var(--t-basic);
+	display: flex;
+	align-items: center;
+}
+
+#app_name * {
+	line-height: 1;
+}
+
+#app_name p:first-child {
+	z-index: 1;
+	padding: 2px;
+	border-radius: 2px;
+}
+
+#app_name p:last-child {
+	font-family: var(--bold);
+	font-size: 50px;
+	z-index: 0;
+	text-transform: uppercase;
+	color: var(--c-lightestgray);
+	position: absolute;
+	transition: all var(--t-basic);
+}
+
+#app_name p:last-child:hover {
+	color: var(--c-lightergray);
 }
 
 #nav_bar_content {

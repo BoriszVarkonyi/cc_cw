@@ -97,11 +97,11 @@ footer {
 
 @media (min-width: 0) {
 
-	#navigation {
+	nav#desktop {
 		display: none;
 	}
 
-	#navigation_mobile {
+	#mobile_navigation_wrapper {
 		display: flex;
 	}
 
@@ -202,11 +202,11 @@ footer {
 
 @media (min-width: 992px) {
 
-	#navigation {
+	nav#desktop {
 		display: flex;
 	}
 
-	#navigation_mobile {
+	#mobile_navigation_wrapper {
 		display: none;
 	}
 
@@ -238,11 +238,11 @@ footer {
 
 @media (min-width: 1200px) {
 
-	#navigation_mobile {
+	#mobile_navigation_wrapper {
 		display: none;
 	}
 
-	#navigation {
+	nav#desktop {
 		display: flex;
 	}
 
@@ -263,6 +263,7 @@ footer {
 		width: 50%;
 	}
 }
+
 /* ///SCROLL BAR// */
 
 ::-webkit-scrollbar { /* Width */
@@ -324,24 +325,16 @@ header > div {
 
 #app_name {
 	font-family: var(--bold);
-	margin-left: 5px;
 	color: var(--c-white);
 }
 
-#navigation {
+nav#desktop {
 	justify-content: center;
 	position: relative;
 }
 
-/* Button and lick wrappers */
-#navigation > div {
-	flex: 1 1 auto;
-	height: 100%;
-	position: relative;
-}
-
 /*
-#navigation > div:nth-child(even):before {
+nav#desktop > div:nth-child(even):before {
 	height: 25px;
 	width: 2px;
 	content: "";
@@ -352,7 +345,7 @@ header > div {
 	background: var(--c-transparent-white);
 }
 
-#navigation > div:nth-child(even)::after {
+nav#desktop > div:nth-child(even)::after {
 	height: 25px;
 	width: 2px;
 	content: "";
@@ -364,16 +357,23 @@ header > div {
 }
 */
 
-#navigation > div:hover {
+/* Button and lick wrappers */
+nav#desktop > div {
+	flex: 1 1 auto;
+	height: 100%;
+	position: relative;
+}
+
+nav#desktop > div:hover {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
-#navigation > div.current a, #mobile_navigation a.current, #navigation > div.current button {
+nav#desktop > div.current > *:first-child, nav#mobile a.current {
 	font-family: var(--bold);
 	background-color: var(--c-transparent-white);
 }
 
-#navigation > div > *:first-child {
+nav#desktop > div > *:first-child {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -382,18 +382,16 @@ header > div {
 	padding: 0 13px;
 	box-sizing: border-box;
 	color: var(--c-white);
+	font-family: var(--bold);
 }
 
-#navigation > div > button.opened {
+nav#desktop > div > button.opened {
 	background: var(--c-transparent-white);
 }
 
 #competitions_navigation {
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
-	justify-content: center;
-	justify-self: flex-end;
 	max-width: 0;
 	width: auto;
 	overflow: hidden;
@@ -524,14 +522,14 @@ header > div {
 
 /* Mobile */
 
-#navigation_mobile {
+#mobile_navigation_wrapper {
 	width: auto !important;
 	flex-grow: 0;
 	justify-content: center;
 	align-items: center;
 }
 
-#navigation_mobile > button {
+#mobile_navigation_wrapper > button {
 	background: transparent;
 	height: 50px;
 	width: 50px;
@@ -540,16 +538,16 @@ header > div {
 	align-items: center;
 }
 
-#navigation_mobile > button.opened {
+#mobile_navigation_wrapper > button.opened {
 	background: var(--c-transparent-white);
 }
 
-#navigation_mobile > button img {
+#mobile_navigation_wrapper > button img {
 	height: 35px;
 	width: 35px;
 }
 
-#mobile_navigation {
+nav#mobile {
 	z-index: 2;
 	left: 0;
 	width: 100vw;
@@ -561,33 +559,33 @@ header > div {
 	overflow: hidden;
 }
 
-@supports (backdrop-filter: blur(1px) grayscale(.5)) {
-	#mobile_navigation {
+@supports ((-webkit-backdrop-filter: blur(1px) grayscale(.5)) or (backdrop-filter: blur(1px) grayscale(.5))) {
+	nav#mobile {
 		-webkit-backdrop-filter: blur(1px) grayscale(.5);
 		backdrop-filter: blur(1px) grayscale(.5);
 	}
 }
 
-#mobile_navigation.opened {
+nav#mobile.closed {
 	height: calc(100vh - 50px);
 }
 
-#mobile_navigation div {
+nav#mobile div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-#mobile_navigation > div {
+nav#mobile > div {
 	margin-top: 20px;
 }
 
-#mobile_navigation > div > div a {
+nav#mobile > div > div a {
 	font-size: var(--f-large);
 	margin-top: 3px;
 }
 
-#mobile_navigation a, #mobile_navigation p {
+nav#mobile a, nav#mobile p {
 	margin-top: 10px;
 	color: var(--c-white);
 	font-size: var(--f-xlarge);
@@ -595,13 +593,13 @@ header > div {
     border-radius: 5px;
 }
 
-#mobile_navigation a.cu, #mobile_navigation p {
+nav#mobile a.cu, nav#mobile p {
 	margin-top: 10px;
 	color: var(--c-white);
 	font-size: var(--f-xlarge);
 }
 
-#mobile_navigation p {
+nav#mobile p {
 	text-decoration: underline;
 }
 
@@ -680,21 +678,21 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	clip-path: ellipse(150% 100% at 50% 100%);
 }
 
-#slide_nav {
+#slide_nav#desktop {
 	position: absolute;
 	right: 10px;
 	bottom: 10px;
 	z-index: 0;
 }
 
-#slide_nav > button {
+#slide_nav#desktop > button {
 	background: var(--c-lightergray);
 	border-radius: 50%;
 	height: 20px;
 	width: 20px;
 }
 
-#slide_nav > button.active {
+#slide_nav#desktop > button.active {
 	background: var(--c-darkgray);
 }
 
@@ -1651,11 +1649,6 @@ input[value="Search"] {
 	margin: 10px 0;
 }
 
-.bold, b {
-	font-family: var(--bold);
-	background: transparent;
-}
-
 .go_back {
 	font-family: var(--bold);
 	text-decoration: underline;
@@ -1666,16 +1659,6 @@ input[value="Search"] {
 
 .go_back:hover {
 	background: var(--c-lightestgray);
-}
-
-b.red {
-	color: var(--c-red);
-	background: transparent;
-}
-
-b.green {
-	color: var(--c-green);
-	background: transparent;
 }
 
 /* VIDEO */

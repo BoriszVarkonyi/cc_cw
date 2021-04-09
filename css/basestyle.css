@@ -85,7 +85,6 @@
 	--ci-staticwhite: invert();
 }
 
-
 [data-content-theme="danube"]:root {
 	--c-primary: #00768b;
 	--c-lightprimary: #3391a2;
@@ -98,7 +97,6 @@
 	--ci-secondarycontrast: contrast(71%);
 	--i-fencers-bg: url(../assets/img/fencers_bg_d.svg);
 }
-
 
 [data-content-theme="vanilla"]:root {
 	--c-primary: var(--c-orange);
@@ -225,11 +223,29 @@ p, form {
 	margin: 0;
 }
 
+ul, ol {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
 a {
 	text-decoration: none;
 	color: var(--c-black);
 	white-space: nowrap;
 	cursor: pointer;
+}
+
+strong {
+	font-family: var(--bold);
+}
+
+strong.red {
+	color: var(--cs-red);
+}
+
+strong.green {
+	color: var(--cs-green);
 }
 
 form.hidden, form.disabled {

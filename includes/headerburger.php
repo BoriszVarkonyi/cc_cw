@@ -53,7 +53,10 @@ if (isset($_POST["logout"])) {
 ?>
 
 <header>
-    <p id="app_name">Competition Control <b>Alpha</b></p>
+    <div id="app_name">
+        <p>Competition Control</p>
+        <p>Alpha</p>
+    </div>
     <?php
     if (isset($_GET['comp_id'])) {
     ?>
