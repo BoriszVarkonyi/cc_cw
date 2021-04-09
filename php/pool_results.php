@@ -40,7 +40,7 @@
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Pool No. <?php echo $pool_num ?> 's results</p>
                 <input type="text" name="" id="" class="selected_list_item_input">
@@ -186,9 +186,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+    </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/pool_results.js"></script>
     <script src="../js/overlay_panel.js"></script>

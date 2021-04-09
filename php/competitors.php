@@ -87,7 +87,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Competitors</p>
                 <input type="text" class="selected_list_item_input">
@@ -121,92 +121,93 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                     usort($json_table, "cmp");
 
                 ?>
-                    <div class="wrapper table w90 first_column_centered">
-                        <div class="table_header">
-                            <div class="table_header_text">C. POS</div>
-                            <div class="table_header_text">R. POS</div>
-                            <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">NATION</div>
-                            <div class="table_header_text">CLUB</div>
-                            <div class="table_header_text">REGISTRATION</div>
-                            <div class="small_status_header"></div>
-                            <div class="table_header_text">WEAPON CONTROL</div>
-                            <div class="small_status_header"></div>
-                        </div>
-                        <div class="table_row_wrapper">
-                            <?php
-                            foreach ($json_table as $json_obj) {
-                            ?>
-                                <div class="table_row" onclick="selectRow(this)" tabindex="0" loading="lazy">
-                                    <div class="table_item">
-                                        <p><?php echo $json_obj->comp_rank ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php echo $json_obj->classement ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php echo $json_obj->prenom . " " . $json_obj->nom ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php echo $json_obj->nation ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php echo $json_obj->club ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p>
-                                            <?php
-
-                                            if ($json_obj->wc == 0) {
-
-                                                echo "Not ready";
-                                            } else {
-
-                                                echo "Ready";
-                                            }
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <div class="small_status_item <?php
-                                                                    if ($json_obj->reg == 0) {
-
-                                                                        echo "red";
-                                                                    } else {
-
-                                                                        echo "green";
-                                                                    }
-                                                                    ?>">
-                                    </div>
-                                    <div class="table_item"><?php
-                                                            if ($json_obj->wc == 0) {
-
-                                                                echo "Not ready";
-                                                            } else {
-
-                                                                echo "Ready";
-                                                            }
-                                                            ?>
-                                    </div>
-                                    <div class="small_status_item <?php
-                                                                    if ($json_obj->wc == 0) {
-
-                                                                        echo "red";
-                                                                    } else {
-
-                                                                        echo "green";
-                                                                    }
-                                                                    ?>">
-                                    </div>
-                                </div>
-
-                        <?php
-                            }
-                        }
-                        ?>
-                        </div>
+                <div class="wrapper table w90 first_column_centered">
+                    <div class="table_header">
+                        <div class="table_header_text">C. POS</div>
+                        <div class="table_header_text">R. POS</div>
+                        <div class="table_header_text">NAME</div>
+                        <div class="table_header_text">NATION</div>
+                        <div class="table_header_text">CLUB</div>
+                        <div class="table_header_text">REGISTRATION</div>
+                        <div class="small_status_header"></div>
+                        <div class="table_header_text">WEAPON CONTROL</div>
+                        <div class="small_status_header"></div>
                     </div>
+                    <div class="table_row_wrapper">
+                        <?php
+                        foreach ($json_table as $json_obj) {
+                        ?>
+                            <div class="table_row" onclick="selectRow(this)" tabindex="0" loading="lazy">
+                                <div class="table_item">
+                                    <p><?php echo $json_obj->comp_rank ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo $json_obj->classement ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo $json_obj->prenom . " " . $json_obj->nom ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo $json_obj->nation ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo $json_obj->club ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p>
+                                        <?php
+
+                                        if ($json_obj->wc == 0) {
+
+                                            echo "Not ready";
+                                        } else {
+
+                                            echo "Ready";
+                                        }
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="small_status_item <?php
+                                                                if ($json_obj->reg == 0) {
+
+                                                                    echo "red";
+                                                                } else {
+
+                                                                    echo "green";
+                                                                }
+                                                                ?>">
+                                </div>
+                                <div class="table_item"><?php
+                                                        if ($json_obj->wc == 0) {
+
+                                                            echo "Not ready";
+                                                        } else {
+
+                                                            echo "Ready";
+                                                        }
+                                                        ?>
+                                </div>
+                                <div class="small_status_item <?php
+                                                                if ($json_obj->wc == 0) {
+
+                                                                    echo "red";
+                                                                } else {
+
+                                                                    echo "green";
+                                                                }
+                                                                ?>">
+                                </div>
+                            </div>
+
+                    <?php
+                        }
+                    }
+                    ?>
+                    </div>
+                </div>
             </div>
         </div>
+    </main>
 </body>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>

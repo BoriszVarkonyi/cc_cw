@@ -284,7 +284,7 @@ if (isset($_POST["generate_table"])) {
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Table</p>
 
@@ -474,12 +474,12 @@ if (isset($_POST["generate_table"])) {
                     <div class="red">Haven't started</div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/table.js"></script>
+    <script src="../js/overlay_panel.js"></script>
+    <script src="../js/search.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/table.js"></script>
-<script src="../js/overlay_panel.js"></script>
-<script src="../js/search.js"></script>
 </html>

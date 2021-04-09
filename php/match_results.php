@@ -282,7 +282,7 @@ if (isset($_POST["time_change"])) {
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <?php
                 $fencer12 = 1;
@@ -537,13 +537,13 @@ if (isset($_POST["time_change"])) {
                     </form>
                 </div>
             </div>
-        </div>
-        <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-        <script src="../js/match_results.js"></script>
-        <script src="../js/search.js"></script>
-        <script src="../js/controls.js"></script>
-        <script src="../js/overlay_panel.js"></script>
+        </main>
+    </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/match_results.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/controls.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
-
 </html>

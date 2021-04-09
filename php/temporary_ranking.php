@@ -49,7 +49,7 @@ echo count($objects_array) . " VÍVÓ";
         <div id="flexbox_container">
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <form id="title_stripe" method="POST" action="">
                 <p class="page_title">Temporary Ranking</p>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
@@ -80,10 +80,10 @@ echo count($objects_array) . " VÍVÓ";
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>

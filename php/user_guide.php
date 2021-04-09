@@ -25,7 +25,7 @@
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">User Guide</p>
             </div>
@@ -60,9 +60,9 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
 </html>

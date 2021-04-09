@@ -84,7 +84,7 @@ if (isset($_POST["save_piste_time"])) {
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Table Pistes & Time setup</p>
                 <form class="stripe_button_wrapper" method="POST">
@@ -299,11 +299,12 @@ if (isset($_POST["save_piste_time"])) {
 
                 </div>
             </div>
-        </div>
+        </main>
+    </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/table_config.js"></script>
+    <script src="../js/table_pistes_and_time.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/search.js"></script>
-<script src="../js/table_config.js"></script>
-<script src="../js/table_pistes_and_time.js"></script>
 </html>

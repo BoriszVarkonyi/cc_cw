@@ -140,7 +140,7 @@ if (isset($_POST["create_piste"])) {
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Pistes</p>
                 <div class="stripe_button_wrapper">
@@ -435,10 +435,11 @@ if (isset($_POST["create_piste"])) {
                     </div>
                 </div>
             </div>
+        </main>
+    </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/pistes.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/pistes.js"></script>
-<script src="../js/overlay_panel.js"></script>
-
 </html>

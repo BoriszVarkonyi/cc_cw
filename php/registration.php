@@ -14,56 +14,56 @@
         <div id="flexbox_container">
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
-        <div class="page_content_flex">
-    <?php
+            <main>
+            <?php
 
-        //get competitors
-        $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-        $do_get_data = mysqli_query($connection, $qry_get_data);
+                //get competitors
+                $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+                $do_get_data = mysqli_query($connection, $qry_get_data);
 
-        if ($row = mysqli_fetch_assoc($do_get_data)) {
-            $json_string = $row['data'];
-            $json_table = json_decode($json_string);
-        } else {
-            $json_table = [];
-        }
+                if ($row = mysqli_fetch_assoc($do_get_data)) {
+                    $json_string = $row['data'];
+                    $json_table = json_decode($json_string);
+                } else {
+                    $json_table = [];
+                }
 
-        if(isset($_POST["reg_in"])){
-            $fencer_id = $_POST['fencer_ids'];
-            $id_to_change = findObject($json_table, $fencer_id, "id");
+                if(isset($_POST["reg_in"])){
+                    $fencer_id = $_POST['fencer_ids'];
+                    $id_to_change = findObject($json_table, $fencer_id, "id");
 
-            $json_table[$id_to_change] -> reg = 1;
-            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-            $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-            if (!$do_update = mysqli_query($connection, $qry_update)) {
-                echo mysqli_error($connection);
-            }
-        }
+                    $json_table[$id_to_change] -> reg = 1;
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                    $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+                    if (!$do_update = mysqli_query($connection, $qry_update)) {
+                        echo mysqli_error($connection);
+                    }
+                }
 
-        if(isset($_POST["reg_out"])){
-            $fencer_id = $_POST['fencer_ids'];
-            $id_to_change = findObject($json_table, $fencer_id, "id");
+                if(isset($_POST["reg_out"])){
+                    $fencer_id = $_POST['fencer_ids'];
+                    $id_to_change = findObject($json_table, $fencer_id, "id");
 
-            $json_table[$id_to_change] -> reg = false;
-            //update database
-            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-            $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
-            if (!$do_update = mysqli_query($connection, $qry_update)) {
-                echo mysqli_error($connection);
-            }
-        }
+                    $json_table[$id_to_change] -> reg = false;
+                    //update database
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                    $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+                    if (!$do_update = mysqli_query($connection, $qry_update)) {
+                        echo mysqli_error($connection);
+                    }
+                }
 
-        if(isset($_POST["add_fencer"])){
+                if(isset($_POST["add_fencer"])){
 
-            $n_fname = $_POST["fencer_name"];
-            $f_nat = $_POST["f_nat"];
-            $f_pos = $_POST["fencer_position"];
+                    $n_fname = $_POST["fencer_name"];
+                    $f_nat = $_POST["f_nat"];
+                    $f_pos = $_POST["fencer_position"];
 
 
-            header("Refresh:0");
-        }
+                    header("Refresh:0");
+                }
 
-    ?>
+            ?>
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
@@ -205,10 +205,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>

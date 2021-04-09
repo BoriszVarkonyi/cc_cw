@@ -85,7 +85,7 @@
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Formula</p>
                 <div class="stripe_button_wrapper">
@@ -177,8 +177,9 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </body>
+        </main>
+    </div>
+</body>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/formula.js"></script>

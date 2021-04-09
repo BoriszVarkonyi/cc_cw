@@ -97,11 +97,8 @@ checkComp($connection);
     </div>
 <!-- header -->
     <div id="flexbox_container">
-
-        <!-- left navigation bar -->
         <?php include "../includes/navbar.php"; ?>
-
-        <div class="page_content_flex">
+        <main>
             <!-- dashboard header -->
             <div id="title_stripe">
                 <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
@@ -209,10 +206,10 @@ checkComp($connection);
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/modal.js"></script>
 </body>

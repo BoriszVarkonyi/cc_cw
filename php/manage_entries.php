@@ -156,13 +156,12 @@ header("Location: manage_entries.php?comp_id=$comp_id");
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
-                <div id="title_stripe">
-                    <p class="page_title">Manage Entries</p>
-                </div>
-                <div id="page_content_panel_main">
-                    <div id="manage_entries_wrapper">
-
+        <main>
+            <div id="title_stripe">
+                <p class="page_title">Manage Entries</p>
+            </div>
+            <div id="page_content_panel_main">
+                <div id="manage_entries_wrapper">
                     <div id="new_entries_panel">
                         <p>New Entries</p>
                         <div class="table">
@@ -438,10 +437,11 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </main>
+    </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/manage_entries.js"></script>
+</body>
 </html>

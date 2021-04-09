@@ -109,12 +109,10 @@
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
-
             </div>
-
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
                     <div class="db_panel other">
@@ -184,7 +182,8 @@
                 </div>
             </div>
         </div>
-    </body>
+    </main>
+</body>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/list.js"></script>

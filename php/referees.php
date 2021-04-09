@@ -162,166 +162,168 @@
     <div id="flexbox_container">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
-                <div id="title_stripe">
-                        <p class="page_title">Referees</p>
-                        <div class="stripe_button_wrapper">
-                            <a class="stripe_button" href="import_referees.php?comp_id=<?php echo $comp_id ?>">
-                                <p>Import Referees from XML</p>
-                                <img src="../assets/icons/save_alt-black.svg"/>
-                            </a>
-                            <button class="stripe_button" onclick="toggle_import_technician()">
-                                <p>Import Referees from Competition</p>
-                                <img src="../assets/icons/save_alt-black.svg"/>
-                            </button>
-                            <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
-                                <p>Remove Referee</p>
-                                <img src="../assets/icons/delete-black.svg"/>
-                            </button>
-                            <button class="stripe_button primary" onclick="toggle_add_technician()">
-                                <p>Add Referees</p>
-                                <img src="../assets/icons/add-black.svg"/>
-                            </button>
-                        </div>
+        <main>
+            <div id="title_stripe">
+                <p class="page_title">Referees</p>
+                <div class="stripe_button_wrapper">
+                    <a class="stripe_button" href="import_referees.php?comp_id=<?php echo $comp_id ?>">
+                        <p>Import Referees from XML</p>
+                        <img src="../assets/icons/save_alt-black.svg"/>
+                    </a>
+                    <button class="stripe_button" onclick="toggle_import_technician()">
+                        <p>Import Referees from Competition</p>
+                        <img src="../assets/icons/save_alt-black.svg"/>
+                    </button>
+                    <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                        <p>Remove Referee</p>
+                        <img src="../assets/icons/delete-black.svg"/>
+                    </button>
+                    <button class="stripe_button primary" onclick="toggle_add_technician()">
+                        <p>Add Referees</p>
+                        <img src="../assets/icons/add-black.svg"/>
+                    </button>
+                </div>
 
-                        <div id="import_technician_panel" class="overlay_panel hidden">
-                            <button class="panel_button" onclick="toggle_import_technician()">
-                                <img src="../assets/icons/close-black.svg">
-                            </button>
-                            <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
-                                <div class="table t_c_0">
-                                    <div class="table_header">
-                                        <div class="table_header_text"><p>NAME</p></div>
-                                    </div>
-                                    <div class="select_competition_wrapper table_row_wrapper alt">
-                                    <input type="text" name="selected_comp_id" id="selected_comp_input">
-                                        <?php
-                                        //get oragasniser id
-                                        $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
-                                        $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
-
-                                        if ($row = mysqli_fetch_assoc($do_get_org_id)) {
-                                            $org_id = $row['id'];
-                                        } else {
-                                            echo mysqli_error($connection);
-                                        }
-
-                                        $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id' AND comp_id != '$comp_id'";
-                                        $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
-
-                                        while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
-                                            $import_comp_name = $row['comp_name'];
-                                            $import_comp_id = $row['comp_id'];
-                                        ?>
-
-                                    <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p></div></div>
-
-                                    <?php
-                                        }
-                                    ?>
-                                    </div>
-                                </div>
-                                <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
-                            </form>
-                        </div>
-                        <input type="text" name='id' form="remove_technician" class="selected_list_item_input hidden">
-                        <form action="" method="POST" id="remove_technician" class="hidden"></form>
-
-                    <div id="add_technician_panel" class="overlay_panel hidden">
-                        <div class="overlay_panel_controls">
-                            <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios-black.svg"></button>
-                            <p>Identification</p>
-                            <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios-black.svg"></button>
-                            <p class="overlay_panel_controls_counter">3 / 3</p>
-                        </div>
-                        <button class="panel_button" onclick="toggle_add_technician()">
-                            <img src="../assets/icons/close-black.svg">
-                        </button>
-                        <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
-                            <div class="overlay_panel_division visible" overlay_division_title="Identification">
-                                <label for="referee_username">USERNAME</label>
-                                <input type="text" placeholder="Type the referees's id" class="username_input" name="id" id="referee_username" tabindex="-1">
-                                <label for="referee_firsname">FIRST NAME</label>
-                                <input type="text" placeholder="Type the referees's first name" class="full_name_input" name="prenom" id="referee_firsname" tabindex="-1">
-                                <label for="referee_surname">SURNAME</label>
-                                <input type="text" placeholder="Type the referees's surname" class="full_name_input" name="nom" id="referee_surname" tabindex="-1">
+                <div id="import_technician_panel" class="overlay_panel hidden">
+                    <button class="panel_button" onclick="toggle_import_technician()">
+                        <img src="../assets/icons/close-black.svg">
+                    </button>
+                    <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
+                        <div class="table t_c_0">
+                            <div class="table_header">
+                                <div class="table_header_text"><p>NAME</p></div>
                             </div>
-                            <div class="overlay_panel_division" overlay_division_title="Identification 2">
-                                <label>SEX</label>
-                                <div class="option_container row">
-                                    <input type="radio" name="sexe" id="male" value="m" tabindex="-1"/>
-                                    <label for="male">Male</label>
-                                    <input type="radio" name="sexe" id="female" value="f" tabindex="-1"/>
-                                    <label for="female">Female</label>
-                                </div>
-                                <label for="referee_dob">Date of Birth</label>
-                                <input type="date" class="date_input" name="date_naissance" id="referee_dob" tabindex="-1">
-                                <label for="referee_licence">License</label>
-                                <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence" id="referee_licence" tabindex="-1">
-                                <label for="referee_image">Image link</label>
-                                <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image" id="referee_image" tabindex="-1">
+                            <div class="select_competition_wrapper table_row_wrapper alt">
+                            <input type="text" name="selected_comp_id" id="selected_comp_input">
+                                <?php
+                                //get oragasniser id
+                                $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
+                                $do_get_org_id = mysqli_query($connection, $qry_get_org_id);
+
+                                if ($row = mysqli_fetch_assoc($do_get_org_id)) {
+                                    $org_id = $row['id'];
+                                } else {
+                                    echo mysqli_error($connection);
+                                }
+
+                                $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id' AND comp_id != '$comp_id'";
+                                $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
+
+                                while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
+                                    $import_comp_name = $row['comp_name'];
+                                    $import_comp_id = $row['comp_id'];
+                                ?>
+
+                            <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p></div></div>
+
+                            <?php
+                                }
+                            ?>
                             </div>
-                            <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
-                                <label for="set_club_input">Club</label>
-                                <div class="search_wrapper wide higher">
-                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input" tabindex="-1">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
-                                    <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
-                                    </div>
-                                </div>
-                                <label for="referee_categorie">Categorie</label>
-                                <input type="text" placeholder="Type the referees's categorie" class="full_name_input" name="categorie" id="referee_categorie" tabindex="-1">
-                                <label>Lateralite</label>
-                                <div class="option_container row">
-                                    <input type="radio" name="lateralite" id="g" value="g"/>
-                                    <label for="g">Left</label>
-                                    <input type="radio" name="lateralite" id="d" value="d"/>
-                                    <label for="d">Right</label>
-                                </div>
-                                <label for="set_nation_input">NATION</label>
-                                <div class="search_wrapper wide">
-                                    <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input" tabindex="-1">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
-                                    <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save" id="newTechSaveButton">Save</button>
-                        </form>
+                        </div>
+                        <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
+                    </form>
+                </div>
+
+                <input type="text" name='id' form="remove_technician" class="selected_list_item_input hidden">
+                <form action="" method="POST" id="remove_technician" class="hidden"></form>
+
+                <div id="add_technician_panel" class="overlay_panel hidden">
+                    <div class="overlay_panel_controls">
+                        <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios-black.svg"></button>
+                        <p>Identification</p>
+                        <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios-black.svg"></button>
+                        <p class="overlay_panel_controls_counter">3 / 3</p>
                     </div>
-                    <div class="search_wrapper">
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                        <button type="button"><img src="../assets/icons/close-black.svg"></button>
-                        <div class="search_results">
-                            <?php
-                                // $ref_list_query = "SELECT * FROM $table_name";
-                                // $ref_list_query_do = mysqli_query($connection, $ref_list_query);
-                                // while($row = mysqli_fetch_assoc($ref_list_query_do)){
-
-                                //     $ref_id = $row['id'];
-                                //     $ref_name = $row['name'];
-
-                            ?>
-
-                            <a id="<?php //echo $ref_id ?>" href="#"  onclick="selectSearch(this), autoFill(this)"><?php //echo $ref_name ?></a>
-
-                            <?php
-
-                                // }
-                            ?>
+                    <button class="panel_button" onclick="toggle_add_technician()">
+                        <img src="../assets/icons/close-black.svg">
+                    </button>
+                    <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
+                        <div class="overlay_panel_division visible" overlay_division_title="Identification">
+                            <label for="referee_username">USERNAME</label>
+                            <input type="text" placeholder="Type the referees's id" class="username_input" name="id" id="referee_username" tabindex="-1">
+                            <label for="referee_firsname">FIRST NAME</label>
+                            <input type="text" placeholder="Type the referees's first name" class="full_name_input" name="prenom" id="referee_firsname" tabindex="-1">
+                            <label for="referee_surname">SURNAME</label>
+                            <input type="text" placeholder="Type the referees's surname" class="full_name_input" name="nom" id="referee_surname" tabindex="-1">
                         </div>
+                        <div class="overlay_panel_division" overlay_division_title="Identification 2">
+                            <label>SEX</label>
+                            <div class="option_container row">
+                                <input type="radio" name="sexe" id="male" value="m" tabindex="-1"/>
+                                <label for="male">Male</label>
+                                <input type="radio" name="sexe" id="female" value="f" tabindex="-1"/>
+                                <label for="female">Female</label>
+                            </div>
+                            <label for="referee_dob">Date of Birth</label>
+                            <input type="date" class="date_input" name="date_naissance" id="referee_dob" tabindex="-1">
+                            <label for="referee_licence">License</label>
+                            <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence" id="referee_licence" tabindex="-1">
+                            <label for="referee_image">Image link</label>
+                            <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image" id="referee_image" tabindex="-1">
+                        </div>
+                        <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
+                            <label for="set_club_input">Club</label>
+                            <div class="search_wrapper wide higher">
+                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input" tabindex="-1">
+                                <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                                <div class="search_results">
+                                <?php include "../includes/nations.php"; ?>
+                                </div>
+                            </div>
+                            <label for="referee_categorie">Categorie</label>
+                            <input type="text" placeholder="Type the referees's categorie" class="full_name_input" name="categorie" id="referee_categorie" tabindex="-1">
+                            <label>Lateralite</label>
+                            <div class="option_container row">
+                                <input type="radio" name="lateralite" id="g" value="g"/>
+                                <label for="g">Left</label>
+                                <input type="radio" name="lateralite" id="d" value="d"/>
+                                <label for="d">Right</label>
+                            </div>
+                            <label for="set_nation_input">NATION</label>
+                            <div class="search_wrapper wide">
+                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input" tabindex="-1">
+                                <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                                <div class="search_results">
+                                <?php include "../includes/nations.php"; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save" id="newTechSaveButton">Save</button>
+                    </form>
+                </div>
+
+                <div class="search_wrapper">
+                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
+                    <button type="button"><img src="../assets/icons/close-black.svg"></button>
+                    <div class="search_results">
+                        <?php
+                            // $ref_list_query = "SELECT * FROM $table_name";
+                            // $ref_list_query_do = mysqli_query($connection, $ref_list_query);
+                            // while($row = mysqli_fetch_assoc($ref_list_query_do)){
+
+                            //     $ref_id = $row['id'];
+                            //     $ref_name = $row['name'];
+
+                        ?>
+
+                        <a id="<?php //echo $ref_id ?>" href="#"  onclick="selectSearch(this), autoFill(this)"><?php //echo $ref_name ?></a>
+
+                        <?php
+
+                            // }
+                        ?>
                     </div>
                 </div>
-                <div id="page_content_panel_main">
-                    <div class="wrapper table">
+            </div>
+            <div id="page_content_panel_main">
+                <div class="wrapper table">
 
                     <?php
 
                     if (!isset($json_table[0])) {
 
-                   ?>
+                    ?>
                             <div id="no_something_panel">
                                 <p>You have no referees set up!</p>
                             </div>
@@ -379,14 +381,12 @@
                     }
                     //Check,read,display technicians END
                         ?>
-
-                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/referees.js"></script>
     <script src="../js/controls.js"></script>
