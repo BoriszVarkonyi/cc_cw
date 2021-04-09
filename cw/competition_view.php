@@ -13,7 +13,7 @@
 </head>
 <body class="home">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="slideshow">
             <div id="slideshow_content">
                 <p id="slideshow_title">Check Competitions</p>
@@ -63,7 +63,7 @@
                                     </div>
                                     <form method="POST" class="big_status_item">
                                         <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                                            <img src="<?php echo $star ?>">
+                                            <img src="<?php echo $star ?>" alt="Favourite competition button">
                                         </button>
                                     </form>
                                 </div>
@@ -92,7 +92,7 @@
                         ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg">
+                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" alt="<?php echo$title ?> thumbnail">
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>
                                     <p><?php echo $comp_name ?></p>
@@ -102,10 +102,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
+    <!-- <script src="../js/cw_slideshow.js"></script> -->
+    <script src="../js/list.js"></script>
 </body>
-<script src="../js/cw_main.js"></script>
-<!-- <script src="../js/cw_slideshow.js"></script> -->
-<script src="../js/list.js"></script>
 </html>

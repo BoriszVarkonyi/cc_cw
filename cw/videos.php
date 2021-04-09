@@ -12,7 +12,7 @@
 </head>
 <body class="videos">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Videos</p>
@@ -42,7 +42,7 @@
                     ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'" loading="lazy">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg">
+                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" alt="<?php echo$title ?> thumbnail">
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>
                                     <p><?php echo $comp_name ?></p>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/search.js"></script>

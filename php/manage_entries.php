@@ -153,7 +153,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
             </div>
         </form>
     </div>
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

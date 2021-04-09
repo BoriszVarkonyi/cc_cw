@@ -30,7 +30,7 @@
 </head>
 <body class="blog">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title"><?php echo $title ?></p>
@@ -45,7 +45,7 @@
                 <p class="paragraph"><?php echo $body ?></p>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>

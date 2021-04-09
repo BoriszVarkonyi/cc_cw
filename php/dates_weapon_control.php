@@ -32,7 +32,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

@@ -30,39 +30,60 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pre-Register for <?php echo $comp_name ?></title>
+    <title>Book Appointment for Weapon Control of</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                        <img src="../assets/icons/arrow_back_ios-black.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                     </button>
-                    Book Appointment for Weapon Control of {Comp's name}
+                    Book Appointment for Weapon Control of
                 </p>
             </div>
-            <div class="modal_wrapper hidden" id="confirmation">
+            <div class="modal_wrapper hidden" id="modal_1">
                 <div class="modal">
-                    <div>
-                        <button class="panel_button" onclick="toggleConf()">
-                            <img src="../assets/icons/close-black.svg">
-                        </button>
-                        <p class="title">Are you sure you want to send this Pre-Registration with these informations?</p>
-                        <label>COUNTRY / FENCING CLUB</label>
-                        <p>BEBGUWE</p>
-                        <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
-                        <p>BEBGUWE</p>
-                        <label>NUMBER OF FENCERS</label>
-                        <p>7</p>
-                        <label>SELECTED APPOINTMENT</label>
-                        <p>2014.05.07 14:20</p>
-                        <button type="submit" name="send_pre" class="send_button" form="content_wrapper" value="Send">Send</button>
+                    <div class="modal_header primary">
+                        <p class="modal_title">Are you sure you want to send Weapon Control appointment booking with the following information?</p>
+                        <p class="modal_subtitle">Please recheck the informations you given before submitting!</p>
+                    </div>
+                    <div class="modal_main">
+                        <p class="modal_main_title big primary margin_bottom">Competition you selected:</p>
+                        <p class="modal_paragraph">compname</p>
+                        <p class="modal_paragraph">compname</p>
+                        <p class="modal_main_title big primary margin_bottom">Information you given:</p>
+                        <p class="modal_main_title">FEDERATION'S NAME</p>
+                        <p class="modal_paragraph">FED NAME</p>
+                        <p class="modal_main_title">COUNTRY / FENCING CLUB</p>
+                        <p class="modal_paragraph">GER</P>
+                        <p class="modal_main_title">FEDERATION'S OFFICAL EMAIL ADDRESS</p>
+                        <p class="modal_paragraph">g</p>
+                        <p class="modal_main_title">FEDERATION'S PHONE NUMBER</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_main_title">CONTACT KEEPER'S FULL NAME</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_main_title">CONTACT KEEPER'S EMAIL ADDRESS</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_main_title">CONTACT KEEPER'S PHONE NUMBER</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_main_title big primary margin_bottom">Fencers you selected:</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_paragraph">grg</p>
+                        <p class="modal_paragraph">grg</p>
+                    </div>
+                    <div class="modal_footer">
+                        <p class="modal_footer_text">This change cannot be undone.</p>
+                        <div class="modal_footer_content">
+                            <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
+                            <button type="submit" form="" class="modal_confirmation_button">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,8 +97,8 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 <div>
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="f_nat" onfocus="resultChecker(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
-                                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                                        <input type="text" name="f_nat" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
+                                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php include "../includes/nations.php"; ?>
                                         </div>
@@ -164,15 +185,16 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                     </div>
                 </div>
                 <div class="send_panel">
-                    <button type="button" onclick="toggleConf()" class="send_button">Send Appointment Booking</button>
+                    <button type="button" onclick="toggleModal(1)" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/cw_book_appointment.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/controls.js"></script>
 </body>
 </html>

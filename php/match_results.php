@@ -279,7 +279,7 @@ if (isset($_POST["time_change"])) {
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

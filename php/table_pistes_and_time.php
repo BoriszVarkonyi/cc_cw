@@ -81,7 +81,7 @@ if (isset($_POST["save_piste_time"])) {
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

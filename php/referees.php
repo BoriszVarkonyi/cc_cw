@@ -159,7 +159,7 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
@@ -230,7 +230,7 @@
 
                 <div id="add_technician_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
-                        <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios-black.svg"></button>
+                        <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button"></button>
                         <p>Identification</p>
                         <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios-black.svg"></button>
                         <p class="overlay_panel_controls_counter">3 / 3</p>

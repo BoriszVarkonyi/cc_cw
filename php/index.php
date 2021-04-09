@@ -96,7 +96,7 @@ checkComp($connection);
         </div>
     </div>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <main>
             <!-- dashboard header -->

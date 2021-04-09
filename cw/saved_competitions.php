@@ -40,7 +40,7 @@
 </head>
 <body class="saved_competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Saved competitions</p>
@@ -82,7 +82,7 @@
                                 <form method="POST" class="big_status_item">
 
                                     <button name="submit_button" type="submit" class="favourite_button" value="<?php echo $comp_id?>">
-                                        <img src="<?php echo $star ?>">
+                                        <img src="<?php echo $star ?>" alt="Favourite competition button">
                                     </button>
                                 </form>
                             </div>
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>

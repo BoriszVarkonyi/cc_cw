@@ -135,7 +135,7 @@
 <body class="preload">
 <!-- header -->
     <script>console.log("body")</script>
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

@@ -53,7 +53,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
 </head>
 <body class="preload">
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

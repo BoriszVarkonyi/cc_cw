@@ -32,7 +32,7 @@
             </div>
         </form>
     </div>
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <!-- navbar -->
         <main>
             <div id="title_stripe">
@@ -75,7 +75,7 @@
                     <form action="" method="POST" id="calendar">
                     </form>
                         <button name="back" type="submit" form="calendar">
-                            <img src="../assets/icons/arrow_back_ios-black.svg">
+                            <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                         </button>
                         <div> <p></p> </div>
                         <button name="next" type="submit" form="calendar">

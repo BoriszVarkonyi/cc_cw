@@ -46,7 +46,7 @@ echo count($objects_array) . " VÍVÓ";
 <body>
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
-        <div id="flexbox_container">
+        <div id="content_wrapper">
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
         <main>

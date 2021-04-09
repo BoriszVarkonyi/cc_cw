@@ -13,7 +13,7 @@
 </head>
 <body class="finished_competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Finished competitions</p>
@@ -68,8 +68,7 @@
                 <?php include "../cw/comps_display.php" ?>
             </div>
         </div>
-    </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>

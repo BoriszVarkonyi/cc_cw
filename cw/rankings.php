@@ -12,7 +12,7 @@
 </head>
 <body class="rankings">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Rankings</p>
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>

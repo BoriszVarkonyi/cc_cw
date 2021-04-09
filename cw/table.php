@@ -12,12 +12,12 @@
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                        <img src="../assets/icons/arrow_back_ios-black.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                     </button>
                     Table of <?php echo $comp_name ?>
                 </p>
@@ -31,7 +31,7 @@
                 </form>
                 <div id="call_room" class="cw">
                     <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                        <img src="../assets/icons/arrow_back_ios-black.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                     </div>
                     <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                         <img src="../assets/icons/arrow_forward_ios-black.svg">
@@ -1126,10 +1126,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
-    <script src="../js/cw_table.js"></script
-    <script src="../js/search.js"></script>>
+    <script src="../js/cw_table.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

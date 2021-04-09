@@ -43,7 +43,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

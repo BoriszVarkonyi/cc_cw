@@ -100,7 +100,7 @@ if(mysqli_num_rows($query_do) == 0){
 ?>
 
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>

@@ -26,12 +26,12 @@
 </head>
 <body class="videos">
     <?php include "cw_header.php"; ?>
-    <div id="main" class="full">
+    <main role="main" class="full">
         <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                        <img src="../assets/icons/arrow_back_ios-black.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                     </button>
                     Video From <?php echo $comp_name ?></p>
                 </p>
@@ -47,7 +47,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>

@@ -281,7 +281,7 @@ if (isset($_POST["generate_table"])) {
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
@@ -349,7 +349,7 @@ if (isset($_POST["generate_table"])) {
                     <!-- State 1 -->
                     <div id="call_room" class="cc">
                         <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                            <img src="../assets/icons/arrow_back_ios-black.svg">
+                            <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                         </div>
                         <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                             <img src="../assets/icons/arrow_forward_ios-black.svg">

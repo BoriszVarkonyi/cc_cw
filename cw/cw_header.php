@@ -33,7 +33,7 @@
         <div>
             <button onclick="toggleLanguagesPanel(this)">
                 <p>En</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg">
+                <img src="../assets/icons/arrow_drop_down-black.svg" alt="Dropwon icon">
             </button>
             <div id="change_language_panel">
                 <div>
@@ -48,7 +48,7 @@
     </div>
     <div id="navigation_mobile">
         <button onclick="toggleMobileNavigation(this)" aria-label="Open Mobile Navigation" aria-label="Open Mobile Navigation">
-            <img src="../assets/icons/menu-black.svg">
+            <img src="../assets/icons/menu-black.svg" alt="Menu button">
         </button>
         <div id="mobile_navigation">
             <div>

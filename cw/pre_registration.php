@@ -31,7 +31,7 @@ if(isset($_POST["send_pre"])){
         <div class="modal">
             <div class="modal_header primary">
                 <p class="modal_title">Are you sure you want to send Pre-Registration with the following information?</p>
-                <p class="modal_subtitle">Please recheck the informations you given before submitting</p>
+                <p class="modal_subtitle">Please recheck the informations you given before submitting!</p>
             </div>
             <div class="modal_main">
                 <p class="modal_main_title big primary margin_bottom">Competition you selected:</p>
@@ -68,12 +68,12 @@ if(isset($_POST["send_pre"])){
         </div>
     </div>
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                        <img src="../assets/icons/arrow_back_ios-black.svg">
+                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
                     </button>
                     PRE-REGISTER FENCERS FOR <?php echo $comp_name ?>
                 </p>
@@ -149,7 +149,7 @@ if(isset($_POST["send_pre"])){
                 </div>
             </form>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/cw_pre_registration.js"></script>
