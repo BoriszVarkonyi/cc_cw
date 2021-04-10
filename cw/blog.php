@@ -22,12 +22,12 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick="" aria-label="Close search"><img src="../assets/icons/close-black.svg" alt="Search close"></button>
                     </div>
                     <input type="submit" value="Search">
                 </form>
 
-                <div>
+                <div id="blog_wrapper">
                     <?php
                     $qry_get_data = "SELECT * FROM `cw_articles`";
                     $do_get_data = mysqli_query($connection, $qry_get_data);
@@ -46,10 +46,12 @@
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
                         <p class="article_title"><?php echo $title ?></p>
-                        <img src="<?php echo $pic ?>"  class="article_image">
+                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
                         <p class="article_brief"><?php echo $body ?></p>
-                        <p class="article_post_date">POSTED: <?php echo $date ?></p>
-                        <p class="article_post_date">BY: <?php echo $author ?></p> <!-- ennek nem biztos date nek kene lennie de csak ez volt na -->
+                        <div class="article_info">
+                            <p>POSTED: <?php echo $date ?></p>
+                            <p>BY: <?php echo $author ?></p>
+                        </div>
                     </div>
                     <?php
                         }

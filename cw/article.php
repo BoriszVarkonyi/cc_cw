@@ -13,10 +13,6 @@
         $date = $row['date'];
         $pic = "../article_pics/" . $id . ".png";
     }
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,13 +32,17 @@
                 <p class="stripe_title"><?php echo $title ?></p>
             </div>
             <div id="content_wrapper">
-                <div class="article_info">
-                    <p><?php echo "By:" . $author ?></p>
-                    <p><?php echo $date ?></p>
-                </div>
-                <!--<img src="<?php echo $pic ?>">-->
-                <img class="bg_fencers">
-                <p class="paragraph"><?php echo $body ?></p>
+                <article>
+                    <div class="info">
+                        <p><?php echo "By:" . $author ?></p>
+                        <p><?php echo $date ?></p>
+                    </div>
+                    <div class="body">
+                        <!--<img src="<?php echo $pic ?>">-->
+                        <img class="bg_fencers">
+                        <p><?php echo $body ?></p>
+                    </div>
+                </article>
             </div>
         </div>
     </main>

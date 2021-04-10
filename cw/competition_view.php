@@ -18,12 +18,14 @@
             <div id="slideshow_content">
                 <p id="slideshow_title">Check Competitions</p>
             </div>
+            <!--
             <div id="slide_nav">
                 <button class="slideButtons active" onclick="toggleButton(this)"></button>
                 <button class="slideButtons" onclick="toggleButton(this)"></button>
                 <button class="slideButtons" onclick="toggleButton(this)"></button>
                 <button class="slideButtons" onclick="toggleButton(this)"></button>
             </div>
+            -->
             <div id="sildes">
                 <!-- slide1 -->
                 <div class="slide" style="background-image: url(../assets/img/fencers_bg_d.svg)">
@@ -33,7 +35,7 @@
             </div>
         </div>
         <div id="content">
-            <div id="content_wrapper">
+            <div id="content_wrapper" class="columns">
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
                     <div class="table t_c_1">
@@ -99,6 +101,18 @@
                                 </div>
                             </div>
                     <?php } ?>
+                </div>
+                <div class="column">
+                    <p class="column_title">Latest Blog Posts</p>
+                    <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
+                        <p class="article_title"><?php echo $title ?></p>
+                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
+                        <p class="article_brief"><?php echo $body ?></p>
+                        <div class="article_info">
+                            <p>POSTED: <?php echo $date ?></p>
+                            <p>BY: <?php echo $author ?></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

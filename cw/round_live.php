@@ -25,7 +25,7 @@
             <div id="content_wrapper" class="round">
                 <div id="video" class="round">
                     <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" title="Live vide from {comp name}, piste no, {fencer 1} vs. {fencer 2}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div id="round_info_wrapper">
                     <div id="machine_wrapper">

@@ -6,10 +6,6 @@ body, html {	/* Gives placeholder background and default font*/
 	overflow: hidden;
 }
 
-html {
-	scroll-behavior: smooth !important;
-}
-
 /* ///SCROLL BAR// */
 
 *.small_scroll::-webkit-scrollbar { /* Width */
@@ -981,6 +977,7 @@ nav img {
 	transition: var(--t-basic);
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 #app_name * {

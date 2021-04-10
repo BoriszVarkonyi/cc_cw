@@ -188,6 +188,12 @@ body, html {	/* Gives placeholder background and default font */
 	font-size: var(--f-medium) !important;
 }
 
+@supports (scroll-behavior: smooth) {
+	body, html {
+		scroll-behavior: smooth;
+	}
+}
+
 /* Annoy Borisz, good feature so things look good when user decides to be a 9 year old with mild autism */
 body * {
 	-webkit-user-select: none;
@@ -512,8 +518,18 @@ input[type="number"] {
 	width: 40px;
 	background-color: transparent;
 	text-align: center;
-	-moz-appearance: textfield;
-	appearance: textfield;
+}
+
+@supports (appearance: textfield) {
+	input[type="number"] {
+		appearance: textfield;
+	}
+}
+
+@supports (-moz-appearance: textfield) {
+	input[type="number"] {
+		-moz-appearance: textfield
+	}
 }
 
 input[type="number"]:not(.number_input):focus {
