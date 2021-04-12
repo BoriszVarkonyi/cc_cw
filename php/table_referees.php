@@ -138,9 +138,9 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <div>
                                                 <label for="">USAGE OF REFEREES</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="referees_usage" id="manual" value=""/>
+                                                    <input type="radio" name="referees_usage" id="manual" value="" />
                                                     <label for="manual">Manual</label>
-                                                    <input type="radio" name="referees_usage" id="automatic" checked value=""/>
+                                                    <input type="radio" name="referees_usage" id="automatic" checked value="" />
                                                     <label for="automatic">Automatic</label>
                                                 </div>
                                             </div>
@@ -265,7 +265,9 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                             $canskip = true;
                                                         }
                                                         array_push($fencersnat, $fencer->nation);
-                                                        array_push($fencersclub, $fencer->club);
+                                                        if (isset($fencer->club)) {
+                                                            array_push($fencersclub, $fencer->club);
+                                                        }
                                                     }
                                                 }
 
@@ -282,7 +284,11 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                         <p><?php echo $matchkey ?></p>
                                                     </div>
                                                     <div class="table_item pistes">
-                                                        <p><?php echo $matches->pistetime->pistename ?></p>
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $matches->pistetime->pistename;
+                                                            } ?></p>
                                                     </div>
                                                     <div class="table_item time">
                                                         <p><?php
@@ -293,16 +299,32 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                             } ?></p>
                                                     </div>
                                                     <div class="table_item nation n_for_ref">
-                                                        <p><?php echo $fencersnat[0] ?></p>
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersnat[0];
+                                                            } ?></p>
                                                     </div>
                                                     <div class="table_item nation n_for_ref">
-                                                        <p><?php echo $fencersnat[1] ?></p>
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersnat[1];
+                                                            } ?></p>
                                                     </div>
                                                     <div class="table_item club c_for_ref hidden">
-                                                        <p><?php echo $fencersclub[0] ?></p>
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersclub[0];
+                                                            } ?></p>
                                                     </div>
                                                     <div class="table_item club c_for_ref hidden">
-                                                        <p><?php echo $fencersclub[1] ?></p>
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersclub[1];
+                                                            } ?></p>
                                                     </div>
                                                     <div class="table_item referee refname">
                                                         <p><?php echo $matches->referees->ref->name ?></p>
