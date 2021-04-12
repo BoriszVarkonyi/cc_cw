@@ -27,18 +27,18 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     ?>
 
     <!-- outputting the table -->
-    <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
-        <div class="table_item">
+    <div class="table_row">
+        <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
             <p>
                 <?php echo $comp_name; ?>
             </p>
         </div>
-        <div class="table_item">
+        <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
             <p>
                 <?php echo $comp_start . "&nbsp;&nbsp;-&nbsp;&nbsp;" . $comp_end; ?>
             </p>
         </div>
-        <div class="table_item">
+        <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
             <p>
                 <?php echo $comp_host; ?>
             </p>
