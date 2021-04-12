@@ -335,24 +335,12 @@ if (isset($_POST["generate_table"])) {
                 </div>
 
                 <div class="view_button_wrapper second">
-                    <button onclick="" id="">
+                    <button onclick="toggleViewPanel()" id="">
                         <img src="../assets/icons/list_alt_black.svg"/>
                     </button>
                 </div>
 
-                <div class="view_button_wrapper third">
-                    <button onclick="" id="">
-                        <img src="../assets/icons/settings_black.svg"/>
-                    </button>
-                </div>
-
-                <div class="view_button_wrapper fourth">
-                    <button onclick="" id="">
-                        <img src="../assets/icons/help_center_black.svg"/>
-                    </button>
-                </div>
-
-                <div class="view_panel second hidden" id="view_panel_1">
+                <div class="view_panel second" id="view_panel_1">
                     <div class="color_legend">
                         <div class="green">Finished</div>
                         <div class="yellow">Ongoing</div>
@@ -360,7 +348,13 @@ if (isset($_POST["generate_table"])) {
                     </div>
                 </div>
 
-                <div class="view_panel third hidden" id="view_panel_2">
+                <div class="view_button_wrapper third">
+                    <button onclick="toggleViewPanel()" id="">
+                        <img src="../assets/icons/settings_black.svg"/>
+                    </button>
+                </div>
+
+                <div class="view_panel third" id="view_panel_2">
                     <label for="">DISPLAY FENCERS'</label>
                     <div class="option_container">
                         <input type="checkbox" name="fencer_type" id="nat" value="1"/>
