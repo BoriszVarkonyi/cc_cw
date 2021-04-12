@@ -175,7 +175,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                                 <div class="piste not_used">
                                                                     <div class="referee_id hidden"><?php echo $referee->id ?></div>
-                                                                    <div class="piste_name"><?php echo $referee->prenom . " " . $referee->nom ?></div>
+                                                                    <div class="referee_name"><?php echo $referee->prenom . " " . $referee->nom ?></div>
                                                                     <div class="referee_nation"><?php echo $referee->nation ?></div>
                                                                     <div class="referee_club hidden"><?php echo $referee->club ?></div>
                                                                     <div class="piste_order hidden" id="arrow_buttons">
