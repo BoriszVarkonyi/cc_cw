@@ -42,7 +42,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </button>
                     Book Appointment for Weapon Control of
                 </p>
@@ -98,7 +98,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
                                         <input type="text" name="f_nat" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
-                                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg" alt="Close search"></button>
+                                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php include "../includes/nations.php"; ?>
                                         </div>

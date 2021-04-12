@@ -144,21 +144,21 @@
                 <div class="stripe_button_wrapper">
                     <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()" shortcut="SHIFT+I">
                         <p>Import Technicians</p>
-                        <img src="../assets/icons/save_alt-black.svg"/>
+                        <img src="../assets/icons/save_alt_black.svg"/>
                     </button>
                     <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button" shortcut="SHIFT+R">
                         <p>Remove Technician</p>
-                        <img src="../assets/icons/delete-black.svg"/>
+                        <img src="../assets/icons/delete_black.svg"/>
                     </button>
                     <button class="stripe_button primary" onclick="toggle_add_technician()" shortcut="SHIFT+A">
                         <p>Add Technicians</p>
-                        <img src="../assets/icons/add-black.svg"/>
+                        <img src="../assets/icons/add_black.svg"/>
                     </button>
                 </div>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggle_import_technician()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form" autocomplete="off">
                         <div class="table t_c_0">
@@ -201,7 +201,7 @@
 
                 <div id="add_technician_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggle_add_technician()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
                         <label for="name">NAME</label>
@@ -227,7 +227,7 @@
 
                 <div class="search_wrapper">
                     <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close-black.svg"></button>
+                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
                     <div class="search_results">
                         <?php
                         foreach ($json_table as $json_object) {

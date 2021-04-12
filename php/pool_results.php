@@ -47,23 +47,23 @@
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
-                        <img src="../assets/icons/message-black.svg"/>
+                        <img src="../assets/icons/message_black.svg"/>
                     </button>
 
                     <button class="stripe_button red disabled" type="button" onclick="disqualifyToggle()">
                         <p>Disqualify</p>
-                        <img src="../assets/icons/highlight_off-black.svg"/>
+                        <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
 
                     <button class="stripe_button primary" type="submit">
                         <p>Save Pool</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
                 <div id="disqualify_panel" class="overlay_panel hidden">
                     <p class="panel_title">Disqualify {Fencer's name}</p>
                     <button class="panel_button" onclick="disqualifyToggle()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <label for="ref_type">REASON OF DISQUALIFICATION</label>

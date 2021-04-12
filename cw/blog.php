@@ -22,7 +22,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick="" aria-label="Close search"><img src="../assets/icons/close-black.svg" alt="Search close"></button>
+                        <button type="button" onclick="" aria-label="Close search"><img src="../assets/icons/close_black.svg" alt="Search close"></button>
                     </div>
                     <input type="submit" value="Search">
                 </form>

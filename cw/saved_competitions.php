@@ -63,7 +63,7 @@
                             $comp_name = $row['comp_name'];
                             $comp_id = $row['comp_id'];
                             $comp_status = $row['comp_status'];
-                            $star = "../assets/icons/star-black.svg";
+                            $star = "../assets/icons/star_black.svg";
                             $comp_start = $row['comp_start'];
                             $comp_end = $row['comp_start'];
 
@@ -82,7 +82,7 @@
                                 <form method="POST" class="big_status_item">
 
                                     <button name="submit_button" type="submit" class="favourite_button" value="<?php echo $comp_id?>">
-                                        <img src="<?php echo $star ?>" alt="Favourite competition button">
+                                        <img src="<?php echo $star ?>" alt="Save Competition">
                                     </button>
                                 </form>
                             </div>

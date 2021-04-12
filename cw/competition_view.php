@@ -65,7 +65,7 @@
                                     </div>
                                     <form method="POST" class="big_status_item">
                                         <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                                            <img src="<?php echo $star ?>" alt="Favourite competition button">
+                                            <img src="<?php echo $star ?>" alt="Save Competition">
                                         </button>
                                     </form>
                                 </div>

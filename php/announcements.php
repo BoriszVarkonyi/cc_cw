@@ -117,7 +117,7 @@
                 <div id="announcements_wrapper" class="wrapper">
                     <div class="db_panel other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black.svg">
+                            <img src="../assets/icons/build_black.svg">
                             <p>Manage Announcements</p>
                         </div>
                         <div class="db_panel_main table">
@@ -143,7 +143,7 @@
                                         <!-- updateing entry -->
                                         <form class="entry_panel collapsed" id="update" method="POST" action="">
                                             <button class="panel_button" type="submit" name="submit_delete" id="update">
-                                                <img src="../assets/icons/delete-black.svg">
+                                                <img src="../assets/icons/delete_black.svg">
                                             </button>
                                             <textarea id="update" name="text_body" placeholder="Type the Announcement's body text here"><?php echo $json_table[$i] -> body ?></textarea>
                                             <input id="update" name="text_title_to_change" type="text" value="<?php echo $i ?>" class="hidden">
@@ -162,7 +162,7 @@
                                         <div class="table_row" onclick="">
                                             <div class="table_item">
                                                 Add information
-                                                <img src="../assets/icons/add-black.svg">
+                                                <img src="../assets/icons/add_black.svg">
                                             </div>
                                         </div>
                                     </div>

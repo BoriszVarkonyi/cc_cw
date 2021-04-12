@@ -91,7 +91,7 @@ if (isset($_POST["save_piste_time"])) {
                     <input type="text" id="data_to_upload" name="data_to_upload">
                     <button name="save_piste_time" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </form>
             </div>
@@ -112,7 +112,7 @@ if (isset($_POST["save_piste_time"])) {
 
                                                                                     ?>">
                             </button>
-                            <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                             <div class="search_results">
 
 
@@ -139,7 +139,7 @@ if (isset($_POST["save_piste_time"])) {
                         <div id="table_piste_time_wrapper">
                             <div class="db_panel full" id="pistes_and_time_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/build-black.svg">
+                                    <img src="../assets/icons/build_black.svg">
                                     <p>Set Time and Piste for table</p>
                                 </div>
                                 <div class="db_panel_main full">
@@ -204,16 +204,16 @@ if (isset($_POST["save_piste_time"])) {
                                                                     <div class="piste_name"><?php echo $piste->name ?></div>
                                                                     <div class="piste_order hidden" id="arrow_buttons">
                                                                         <button type="button" onclick="moveUp(this)">
-                                                                            <img src="../assets/icons/keyboard_arrow_up-black.svg">
+                                                                            <img src="../assets/icons/keyboard_arrow_up_black.svg">
                                                                         </button>
                                                                         <button type="button" onclick="moveDown(this)">
-                                                                            <img src="../assets/icons/keyboard_arrow_down-black.svg">
+                                                                            <img src="../assets/icons/keyboard_arrow_down_black.svg">
                                                                         </button>
                                                                     </div>
                                                                     <div class="piste_button">
                                                                         <button class="func_button" type="button" id="<?php echo $piste->name ?>" onclick="useOnePiste(this)">
-                                                                            <img class="plus" src="../assets/icons/add-black.svg">
-                                                                            <img class="minus hidden" src="../assets/icons/remove-black.svg">
+                                                                            <img class="plus" src="../assets/icons/add_black.svg">
+                                                                            <img class="minus hidden" src="../assets/icons/remove_black.svg">
                                                                         </button>
                                                                     </div>
                                                                 </div>
@@ -235,7 +235,7 @@ if (isset($_POST["save_piste_time"])) {
                             </div>
                             <div class="db_panel full" id="matches_preview_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/build-black.svg">
+                                    <img src="../assets/icons/build_black.svg">
                                     <p>Preview matches</p>
                                 </div>
                                 <div class="db_panel_main list">

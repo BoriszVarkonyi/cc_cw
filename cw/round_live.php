@@ -17,7 +17,7 @@
             <div id="title_stripe">
                 <p class="stripe_title">
                     <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                        <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </button>
                     Round Live gnwergnfeuwgfueu
                 </p>
@@ -48,7 +48,7 @@
                             <div class="fencer_score_wrapper">
                                 <div id="machine_fencer_1" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-black.svg">
+                                        <img src="../assets/icons/priority_black.svg">
                                         <img src="../assets/icons/card-gray.svg">
                                         <img src="../assets/icons/card-yellow.svg">
                                     </div>

@@ -21,7 +21,7 @@
     <div id="confirmation" class="hidden">
         <form id="confirmation_form" action="timetable.php?comp_id=" method="POST">
             <button class="panel_button" type="button" onclick="removeWcDay(this)">
-                <img src="../assets/icons/close-black.svg">
+                <img src="../assets/icons/close_black.svg">
             </button>
             <p id="remove_warning"></p>
             <p>You cannot withdraw this action!</p>
@@ -40,17 +40,17 @@
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="submit">
                         <p>Save Timetable</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
             </div>
             <div id="page_content_panel_main" class="no_scroll">
                 <div id="set_wc_panel" class="overlay_panel_single hidden">
                     <button class="panel_button drag">
-                        <img src="../assets/icons/drag_indicator-black.svg">
+                        <img src="../assets/icons/drag_indicator_black.svg">
                     </button>
                     <button class="panel_button" onclick="closeWcPanel()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">
                         <p id="panel_text" class="panel_title"></p>
@@ -75,11 +75,11 @@
                     <form action="" method="POST" id="calendar">
                     </form>
                         <button name="back" type="submit" form="calendar">
-                            <img src="../assets/icons/arrow_back_ios-black.svg" alt="Go back button">
+                            <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                         </button>
                         <div> <p></p> </div>
                         <button name="next" type="submit" form="calendar">
-                            <img src="../assets/icons/arrow_forward_ios-black.svg">
+                            <img src="../assets/icons/arrow_forward_ios_black.svg">
                         </button>
                     </div>
                     <div id="timetable_container">

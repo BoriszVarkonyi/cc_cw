@@ -21,7 +21,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                     </div>
                 </form>
                 <div class="table cw">

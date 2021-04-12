@@ -30,7 +30,7 @@
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">
                         <p>Import</p>
-                        <img src="../assets/icons/get_app-black.svg"/>
+                        <img src="../assets/icons/get_app_black.svg"/>
                     </button>
                 </div>
             </div>
@@ -38,13 +38,13 @@
                 <div class="wrapper">
                     <div class="db_panel other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black.svg">
+                            <img src="../assets/icons/build_black.svg">
                             <p>Import Competitors</p>
                         </div>
                         <div class="db_panel_main">
                             <form method="POST" id="delete_logo">
                                 <button id="delete_logo" class="panel_button">
-                                    <img src="../assets/icons/delete-black.svg">
+                                    <img src="../assets/icons/delete_black.svg">
                                 </button>
                             </form>
                             <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">

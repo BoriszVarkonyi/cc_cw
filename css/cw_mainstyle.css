@@ -910,9 +910,10 @@ input[value="Search"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border: 2px solid var(--c-gray);
 }
 
-.back_button > img {
+.back_button img {
 	margin-right: 3px;
 	height: 25px;
 	width: 25px;
