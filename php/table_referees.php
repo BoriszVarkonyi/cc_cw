@@ -82,7 +82,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                 foreach ($out_table as $round_name => $tableround) { ?>
 
-                                    <a type="button" id="gr" href="table_referees.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
+                                    <a type="button" href="table_referees.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
                                 <?php
                                 }
                                 ?>
@@ -138,11 +138,15 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <div>
                                                 <label for="">USAGE OF REFEREES</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="referees_usage" id="enough" value=""/>
-                                                    <label for="enough">Just enough</label>
+                                                    <input type="radio" name="referees_usage" id="manual" value=""/>
+                                                    <label for="manual">Manual</label>
                                                     <input type="radio" name="referees_usage" id="automatic" checked value=""/>
                                                     <label for="automatic">Automatic</label>
                                                 </div>
+                                            </div>
+                                            <div id="">
+                                                <label for="">MAX MATCH PER REFEREE</label>
+                                                <input type="number" name="" id="" class="number_input centered" placeholder="#">
                                             </div>
                                         </div>
                                         <div>
