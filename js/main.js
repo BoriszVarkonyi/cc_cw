@@ -4,10 +4,10 @@ status = "opened";
 var cotext = document.getElementById("controls_text");
 var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
-var navBar = document.getElementById("nav_bar");
+var navBar = document.querySelector("nav");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("menu_button_section");
-var menuButton = document.getElementById("menu_button") 
+var menuButton = document.getElementById("menu_button")
 var pin = document.getElementById("nav_bar_pin");
 
 var navbarItems = document.querySelectorAll("button.nav_bar_item");
@@ -32,7 +32,7 @@ function toggle_nav_bar() {
         setext.innerHTML = "S";
         status = "closed";
 
-        for(i=0; i<navbarItems.length; i++){
+        for (i = 0; i < navbarItems.length; i++) {
             navbarItems[i].nextElementSibling.classList.add("hidden");
             dropDownIcons[i].classList.remove("closed");
         }
@@ -64,7 +64,7 @@ function closed_nav_bar() {
     setext.innerHTML = "S";
     status = "closed";
 
-    for(i=0; i<navbarItems.length; i++){
+    for (i = 0; i < navbarItems.length; i++) {
         navbarItems[i].nextElementSibling.classList.add("hidden");
         dropDownIcons[i].classList.remove("closed");
     }

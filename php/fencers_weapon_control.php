@@ -144,70 +144,70 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
-
-                <div id="title_stripe">
-                    <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
-                    <div class="stripe_button_wrapper">
-                        <a class="stripe_button" <?php echo $wc_page ?>>
-                            <p>Back</p>
-                            <img src="../assets/icons/close-black.svg"/>
-                        </a>
-                        <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
-                            <p>Save weapon control</p>
-                            <img src="../assets/icons/save-black.svg"/>
-                        </button>
-                    </div>
+        <main>
+            <div id="title_stripe">
+                <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
+                <div class="stripe_button_wrapper">
+                    <a class="stripe_button" <?php echo $wc_page ?>>
+                        <p>Back</p>
+                        <img src="../assets/icons/close_black.svg"/>
+                    </a>
+                    <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
+                        <p>Save weapon control</p>
+                        <img src="../assets/icons/save_black.svg"/>
+                    </button>
                 </div>
-                <div id="page_content_panel_main">
-                    <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
-                        <div id="issues_panel" class="table">
-                            <div class="table_header">
-                                <div class="table_header_text">ISSUE</div>
-                                <div class="table_header_text">QUANTITY</div>
-                                <div class="big_status_header"></div>
-                            </div>
-                            <div class="table_row_wrapper">
+            </div>
+            <div id="page_content_panel_main">
+                <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
+                    <div id="issues_panel" class="table">
+                        <div class="table_header">
+                            <div class="table_header_text">ISSUE</div>
+                            <div class="table_header_text">QUANTITY</div>
+                            <div class="big_status_header"></div>
+                        </div>
+                        <div class="table_row_wrapper">
 
-                                <?php
-                                    foreach ($array_issues as $issue) {
+                            <?php
+                                foreach ($array_issues as $issue) {
 
-                                    $issue_id = array_search($issue, $array_issues);
-                                    if (isset($array_of_real_issues[$issue_id]) && $array_of_real_issues[$issue_id] != 0) {
-                                        $issue_numbers = $array_of_real_issues[$issue_id];
-                                    } else {
-                                        $issue_numbers = "";
-                                    }
-                                ?>
+                                $issue_id = array_search($issue, $array_issues);
+                                if (isset($array_of_real_issues[$issue_id]) && $array_of_real_issues[$issue_id] != 0) {
+                                    $issue_numbers = $array_of_real_issues[$issue_id];
+                                } else {
+                                    $issue_numbers = "";
+                                }
+                            ?>
 
-                                <div class="table_row">
-                                    <div class="table_item"><p><?php echo $issue ?></p></div>
-                                    <div class="table_item"><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
-                                    <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
-                                        <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
-                                        <label for="<?php echo $issue_id ?>"></label>
-                                    </div>
+                            <div class="table_row">
+                                <div class="table_item"><p><?php echo $issue ?></p></div>
+                                <div class="table_item"><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
+                                <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
+                                    <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
+                                    <label for="<?php echo $issue_id ?>"></label>
                                 </div>
+                            </div>
 
-                                <?php
-                                    }
-                                ?>
-                            </div>
+                            <?php
+                                }
+                            ?>
                         </div>
-                        <div id="notes_panel">
-                            <div class="table_header">
-                                <div class="table_header_text title">NOTES</div>
-                            </div>
-                            <textarea name="wc_notes" id="wc_notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
+                    </div>
+                    <div id="notes_panel">
+                        <div class="table_header">
+                            <div class="table_header_text title">NOTES</div>
                         </div>
-                    </form>
-                </div>
-        </div>
-    </body>
+                        <textarea name="wc_notes" id="wc_notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
+</body>
 </html>

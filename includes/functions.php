@@ -224,9 +224,9 @@ function getStar($comp_id) {
     }
 
     if ($contains) {
-        $star = "../assets/icons/star-black.svg";
+        $star = "../assets/icons/star_black.svg";
     } else {
-        $star = "../assets/icons/star_border-black.svg";
+        $star = "../assets/icons/star_border_black.svg";
     }
 
     return $star;
@@ -350,5 +350,15 @@ function tablecolor($colorcode){
     return $colorwrite;
 
 
+}
+
+//get number of fencers in current pool
+function getFencersInPool($current_pool) {
+    for ($i = 7; $i >= 4; $i--) {
+        if (isset($current_pool -> {$i})) {
+            return $i;
+        }
+    }
+    return false;
 }
 ?>

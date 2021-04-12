@@ -12,12 +12,12 @@
 <body class="competitions">
     <div id="wrapper">
         <?php include "cw_header.php"; ?>
-        <div id="main">
+        <main role="main">
             <div id="content">
                 <div id="title_stripe">
                     <p class="stripe_title">
-                        <button type="button" class="back_button" onclick="window.history.back();">
-                            <img src="../assets/icons/arrow_back_ios-black.svg">
+                        <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                            <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                         </button>
                         Temporary Ranking of <?php echo $comp_name ?>
                     </p>
@@ -25,7 +25,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                     </div>
                 </form>
                 <div id="competition_color_legend">
@@ -81,7 +81,7 @@
             </div>
             <?php include "cw_footer.php"; ?>
         </div>
-    </div>
+    </main>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>

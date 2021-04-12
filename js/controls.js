@@ -15,10 +15,10 @@ document.onkeydown = (keyDownEvent) => {
     //Arrow system, works only if search bar closed
     //importOverlayClosed is a var. from importoverlay.js
     //searchBarClosed is a var from search.js
-    if(searchBarClosed && importOverlayClosed) {
+    if (searchBarClosed && importOverlayClosed) {
         var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)");
-        if(keyDownEvent.key == "ArrowUp" && tableRows.length > 0){
-            if(selectedElementIndexAr == 0) {
+        if (keyDownEvent.key == "ArrowUp" && tableRows.length > 0) {
+            if (selectedElementIndexAr == 0) {
                 selectedElementIndexAr++
             }
             selectedElementIndexAr--
@@ -30,17 +30,17 @@ document.onkeydown = (keyDownEvent) => {
             keyDownEvent.preventDefault();
         }
 
-        if(keyDownEvent.key == "ArrowDown" && tableRows.length > 0){
+        if (keyDownEvent.key == "ArrowDown" && tableRows.length > 0) {
             //Cheks if theres a selected row.
             var hasSelected = false;
-            for(i=0; i<tableRows.length; i++) {
-                if(tableRows[i].classList.contains("selected")){
+            for (i = 0; i < tableRows.length; i++) {
+                if (tableRows[i].classList.contains("selected")) {
                     hasSelected = true;
                     break;
                 }
             }
-            if(hasSelected){
-                if(selectedElementIndexAr == tableRows.length -1) {
+            if (hasSelected) {
+                if (selectedElementIndexAr == tableRows.length - 1) {
                     selectedElementIndexAr--
                 }
                 selectedElementIndexAr++
@@ -52,27 +52,27 @@ document.onkeydown = (keyDownEvent) => {
                 keyDownEvent.preventDefault();
             }
             //If there is not a selected row than it selects the first row.
-            else{
+            else {
                 tableRows[selectedElementIndexAr].classList.add("selected")
                 tableRows[selectedElementIndexAr].focus()
             }
         }
-        if(keyDownEvent.key == "Home" && tableRows.length > 0){
+        if (keyDownEvent.key == "Home" && tableRows.length > 0) {
             keyDownEvent.preventDefault();
             selectedElementIndexAr = 0;
             var selectedElements = document.querySelectorAll(".selected")
-            for(i=0; i<selectedElements.length; i++){
+            for (i = 0; i < selectedElements.length; i++) {
                 selectedElements[i].classList.remove("selected")
             }
             tableRows[selectedElementIndexAr].classList.add("selected");
             tableRows[selectedElementIndexAr].focus();
         }
 
-        if(keyDownEvent.key == "End" && tableRows.length > 0){
+        if (keyDownEvent.key == "End" && tableRows.length > 0) {
             keyDownEvent.preventDefault();
-            selectedElementIndexAr = tableRows.length-1;
+            selectedElementIndexAr = tableRows.length - 1;
             var selectedElements = document.querySelectorAll(".selected")
-            for(i=0; i<selectedElements.length; i++){
+            for (i = 0; i < selectedElements.length; i++) {
                 selectedElements[i].classList.remove("selected")
             }
             tableRows[selectedElementIndexAr].classList.add("selected");
@@ -82,23 +82,23 @@ document.onkeydown = (keyDownEvent) => {
     }
     //Selects to enter
     //importOverlayClosed is a var. from importoverlay.js
-    if(!searchBarClosed && importOverlayClosed) {
-        if(keyDownEvent.key == "Enter"){
+    if (!searchBarClosed && importOverlayClosed) {
+        if (keyDownEvent.key == "Enter") {
             var selected = document.querySelector(".search_results .selected")
             var selectedElementId = document.querySelector(".search_results .selected").id.slice(0, -1);
-            var selectedElements = document.querySelectorAll(".page_content_flex .selected")
+            var selectedElements = document.querySelectorAll("main .selected")
             var selectedTableElement = document.getElementById(selectedElementId)
             //Works only if theres a table. Select the table element
-            if(selectedTableElement !== null) {
-                for(i=0; i<selectedElements.length; i++){
+            if (selectedTableElement !== null) {
+                for (i = 0; i < selectedElements.length; i++) {
                     selectedElements[i].classList.remove("selected")
                 }
                 selectedTableElement.focus();
                 selectedTableElement.classList.add("selected")
                 //Counts the selected table row index
                 var rows = document.querySelectorAll(".table .table_row");
-                for(i=0; i<rows.length; i++){
-                    if(rows[i].classList.contains("selected")){
+                for (i = 0; i < rows.length; i++) {
+                    if (rows[i].classList.contains("selected")) {
                         selectedElementIndexAr = i;
                         break;
                     }
@@ -111,7 +111,7 @@ document.onkeydown = (keyDownEvent) => {
             formvariableDeclaration();
         }
     }
-    if(keyDownEvent.key == "Tab"){
+    if (keyDownEvent.key == "Tab") {
         keyDownEvent.preventDefault();
     }
 }
@@ -127,7 +127,7 @@ document.onkeyup=function(e){
     }
 }
 */
-function test(){
+function test() {
     /*
     var tableRows = document.querySelectorAll(".table .table_row")
     tableRows[selectedElementIndexAr].classList.add("selected")

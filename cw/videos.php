@@ -12,7 +12,7 @@
 </head>
 <body class="videos">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Videos</p>
@@ -21,7 +21,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
                 <div id="videos_wrapper">
@@ -42,7 +42,7 @@
                     ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'" loading="lazy">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg">
+                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" alt="<?php echo$title ?> thumbnail">
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>
                                     <p><?php echo $comp_name ?></p>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/search.js"></script>

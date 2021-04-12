@@ -11,84 +11,84 @@
 <body>
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
-        <div id="flexbox_container">
+        <div id="content_wrapper">
             <?php include "../includes/navbar.php"; ?>
             <!-- navbar -->
-        <div class="page_content_flex">
-    <?php
+            <main>
+            <?php
 
-        //get competitors
-        $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-        $do_get_data = mysqli_query($connection, $qry_get_data);
+                //get competitors
+                $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+                $do_get_data = mysqli_query($connection, $qry_get_data);
 
-        if ($row = mysqli_fetch_assoc($do_get_data)) {
-            $json_string = $row['data'];
-            $json_table = json_decode($json_string);
-        } else {
-            $json_table = [];
-        }
+                if ($row = mysqli_fetch_assoc($do_get_data)) {
+                    $json_string = $row['data'];
+                    $json_table = json_decode($json_string);
+                } else {
+                    $json_table = [];
+                }
 
-        if(isset($_POST["reg_in"])){
-            $fencer_id = $_POST['fencer_ids'];
-            $id_to_change = findObject($json_table, $fencer_id, "id");
+                if(isset($_POST["reg_in"])){
+                    $fencer_id = $_POST['fencer_ids'];
+                    $id_to_change = findObject($json_table, $fencer_id, "id");
 
-            $json_table[$id_to_change] -> reg = 1;
-            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-            $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-            if (!$do_update = mysqli_query($connection, $qry_update)) {
-                echo mysqli_error($connection);
-            }
-        }
+                    $json_table[$id_to_change] -> reg = 1;
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                    $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+                    if (!$do_update = mysqli_query($connection, $qry_update)) {
+                        echo mysqli_error($connection);
+                    }
+                }
 
-        if(isset($_POST["reg_out"])){
-            $fencer_id = $_POST['fencer_ids'];
-            $id_to_change = findObject($json_table, $fencer_id, "id");
+                if(isset($_POST["reg_out"])){
+                    $fencer_id = $_POST['fencer_ids'];
+                    $id_to_change = findObject($json_table, $fencer_id, "id");
 
-            $json_table[$id_to_change] -> reg = false;
-            //update database
-            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-            $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
-            if (!$do_update = mysqli_query($connection, $qry_update)) {
-                echo mysqli_error($connection);
-            }
-        }
+                    $json_table[$id_to_change] -> reg = false;
+                    //update database
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                    $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+                    if (!$do_update = mysqli_query($connection, $qry_update)) {
+                        echo mysqli_error($connection);
+                    }
+                }
 
-        if(isset($_POST["add_fencer"])){
+                if(isset($_POST["add_fencer"])){
 
-            $n_fname = $_POST["fencer_name"];
-            $f_nat = $_POST["f_nat"];
-            $f_pos = $_POST["fencer_position"];
+                    $n_fname = $_POST["fencer_name"];
+                    $f_nat = $_POST["f_nat"];
+                    $f_pos = $_POST["fencer_position"];
 
 
-            header("Refresh:0");
-        }
+                    header("Refresh:0");
+                }
 
-    ?>
+            ?>
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
                             <p>Registration Statistics</p>
-                            <img src="../assets/icons/pie_chart-black.svg"/>
+                            <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
                         <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
                             <p>Add Fencer</p>
-                            <img src="../assets/icons/person_add_alt_1-black.svg"/>
+                            <img src="../assets/icons/person_add_alt_1_black.svg"/>
                         </button>
                         <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
                             <p>Register out</p>
-                            <img src="../assets/icons/how_to_unreg-black.svg"/>
+                            <img src="../assets/icons/how_to_unreg_black.svg"/>
                         </button>
                         <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit" shortcut="SHIFT+I">
                             <p>Register in</p>
-                            <img src="../assets/icons/how_to_reg-black.svg"/>
+                            <img src="../assets/icons/how_to_reg_black.svg"/>
                         </button>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleAddFencerPanel()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <!-- add fencers drop-down -->
                     <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
@@ -97,7 +97,7 @@
                         <label for="fencers_nationality">NATION / CLUB</label>
                         <div class="search_wrapper wide">
                             <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input" id="nationInput">
-                            <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                            <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                             <div class="search_results">
                                 <?php include "../includes/nations.php"; ?>
                             </div>
@@ -115,55 +115,55 @@
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 NAME
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black.svg">
+                                    <img src="../assets/icons/search_black.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 NATION
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black.svg">
+                                    <img src="../assets/icons/search_black.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" placeholder="Search by Club" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 CLUB
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black.svg">
+                                    <img src="../assets/icons/search_black.svg">
                                 </button>
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel option">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="serachInLists()" class="search page hidden">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="a" value="Not registered"/>
                                         <label for="a">Not registered</label>
                                         <input type="radio" name="status" id="b" value="Registered"/>
                                         <label for="b">Registered</label>
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close-black.svg"></button>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 STATUS
                                 <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search-black.svg">
+                                    <img src="../assets/icons/search_black.svg">
                                 </button>
                             </div>
                             <div class="big_status_header"></div>
@@ -205,10 +205,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>

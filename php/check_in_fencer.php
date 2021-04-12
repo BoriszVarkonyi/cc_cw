@@ -15,36 +15,36 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Check in {Fencer's name}</p>
                 <div class="stripe_button_wrapper">
                     <button name="" id="" class="stripe_button" shortcut="SHIFT+P" onclick="printPage()">
                         <p>Print Check In</p>
-                        <img src="../assets/icons/print-black.svg"/>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                     <button name="" class="stripe_button primary" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Save Check In</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper zoom">
-                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out-black.svg"/>
+                <div class="view_button_wrapper first">
+                    <button onclick="zoomOut()" id="zoomOutButton">
+                        <img src="../assets/icons/zoom_out_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in-black.svg"/>
+                    <button onclick="zoomIn()" id="zoomInButton">
+                        <img src="../assets/icons/zoom_in_black.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper view">
-                    <button class="view_button" onclick="viewButton(this)" id="panelViewButton">
-                        <img src="../assets/icons/view_grid-black.svg"/>
+                <div class="view_button_wrapper fourth">
+                    <button onclick="viewButton(this)" id="panelViewButton">
+                        <img src="../assets/icons/view_grid_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="viewButton(this)" id="printViewButton">
-                        <img src="../assets/icons/print-black.svg"/>
+                    <button onclick="viewButton(this)" id="printViewButton">
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="wrapper">
                     <form action="" id="" method="POST" class="db_panel">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/backpack-black.svg"/>
+                            <img src="../assets/icons/backpack_black.svg"/>
                             Contents of fencer's bag
                         </div>
                         <div class="db_panel_main">
@@ -173,7 +173,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>

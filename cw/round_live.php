@@ -12,12 +12,12 @@
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main" class="full">
+    <main role="main" class="full">
         <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();">
-                        <img src="../assets/icons/arrow_back_ios-black.svg">
+                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </button>
                     Round Live gnwergnfeuwgfueu
                 </p>
@@ -25,7 +25,7 @@
             <div id="content_wrapper" class="round">
                 <div id="video" class="round">
                     <p id="no_livestream" class="hidden">There is no available livestream for this round.</p>
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/b68b-E2UwL4?autoplay=1&mute=1" title="Live vide from {comp name}, piste no, {fencer 1} vs. {fencer 2}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div id="round_info_wrapper">
                     <div id="machine_wrapper">
@@ -48,7 +48,7 @@
                             <div class="fencer_score_wrapper">
                                 <div id="machine_fencer_1" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-black.svg">
+                                        <img src="../assets/icons/priority_black.svg">
                                         <img src="../assets/icons/card-gray.svg">
                                         <img src="../assets/icons/card-yellow.svg">
                                     </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>

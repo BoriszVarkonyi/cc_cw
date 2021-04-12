@@ -1,4 +1,3 @@
-<?php include "../includes/cw_fav_button_list.php" ?>
 <?php $statusofpage = 3; ?>
 
 <!DOCTYPE html>
@@ -13,7 +12,7 @@
 </head>
 <body class="ongoing_competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Ongoing competitions</p>
@@ -23,7 +22,7 @@
                     <!-- search by name box -->
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                     </div>
                     <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>
@@ -39,8 +38,7 @@
                 <?php include "../cw/comps_display.php" ?>
             </div>
         </div>
-    </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>

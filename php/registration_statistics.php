@@ -100,24 +100,24 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Weapon Control Statistics</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="button" onclick="printPage()">
                         <p>Print Statistics</p>
-                        <img src="../assets/icons/print-black.svg"/>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper zoom">
-                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out-black.svg"/>
+                <div class="view_button_wrapper first">
+                    <button onclick="zoomOut()" id="zoomOutButton">
+                        <img src="../assets/icons/zoom_out_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in-black.svg"/>
+                    <button onclick="zoomIn()" id="zoomInButton">
+                        <img src="../assets/icons/zoom_in_black.svg"/>
                     </button>
                 </div>
             </div>
@@ -349,11 +349,11 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-        <script src="../js/controls.js"></script>
-        <script src="../js/print.js"></script>
+        </main>
+    </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/controls.js"></script>
+    <script src="../js/print.js"></script>
 </body>
-
 </html>

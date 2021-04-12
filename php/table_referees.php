@@ -43,17 +43,17 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Table Referees setup</p>
                 <form class="stripe_button_wrapper">
                     <input type="text" id="">
                     <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg" />
                     </button>
                 </form>
             </div>
@@ -74,7 +74,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                                                                     ?>">
                             </button>
-                            <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                             <div class="search_results">
 
 
@@ -82,7 +82,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                                 foreach ($out_table as $round_name => $tableround) { ?>
 
-                                    <a type="button" id="gr" href="table_referees.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
+                                    <a type="button" href="table_referees.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
                                 <?php
                                 }
                                 ?>
@@ -102,7 +102,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         <div id="table_referees_wrapper">
                             <div class="db_panel full" id="pistes_and_time_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/build-black.svg">
+                                    <img src="../assets/icons/build_black.svg">
                                     <p>Set Referees for table</p>
                                 </div>
                                 <div class="db_panel_main full">
@@ -111,38 +111,42 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             <div>
                                                 <label for="">REFEREE TYPE</label>
                                                 <div class="option_container">
-                                                    <input type="radio" name="referee_type" id="m_ref" value="" checked onclick="vref_to_ref()"/>
+                                                    <input type="radio" name="referee_type" id="m_ref" value="" checked onclick="vref_to_ref()" />
                                                     <label for="m_ref">Match Referee</label>
-                                                    <input type="radio" name="referee_type" id="v_ref" value="" onclick="ref_to_vref()"/>
+                                                    <input type="radio" name="referee_type" id="v_ref" value="" onclick="ref_to_vref()" />
                                                     <label for="v_ref">Video Referee</label>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label for="">SEPARATE BY</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="separate_by" id="club" value="" onclick="nation_to_club()"/>
+                                                    <input type="radio" name="separate_by" id="club" value="" onclick="nation_to_club()" />
                                                     <label for="club">Club</label>
-                                                    <input type="radio" name="separate_by" id="nat" checked value="" onclick="club_to_nation()"/>
+                                                    <input type="radio" name="separate_by" id="nat" checked value="" onclick="club_to_nation()" />
                                                     <label for="nat">Nationality</label>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label for="">REFEREES STAY ON PISTE</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="stay_on_piste" id="stay" value=""/>
+                                                    <input type="radio" name="stay_on_piste" id="stay" value="" />
                                                     <label for="stay">Stay</label>
-                                                    <input type="radio" name="stay_on_piste" id="dont_stay" checked value=""/>
+                                                    <input type="radio" name="stay_on_piste" id="dont_stay" checked value="" />
                                                     <label for="dont_stay">Don't Stay</label>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label for="">USAGE OF REFEREES</label>
                                                 <div class="option_container row">
-                                                    <input type="radio" name="referees_usage" id="enough" value=""/>
-                                                    <label for="enough">Just enough</label>
-                                                    <input type="radio" name="referees_usage" id="automatic" checked value=""/>
+                                                    <input type="radio" name="referees_usage" id="manual" value="" />
+                                                    <label for="manual">Manual</label>
+                                                    <input type="radio" name="referees_usage" id="automatic" checked value="" />
                                                     <label for="automatic">Automatic</label>
                                                 </div>
+                                            </div>
+                                            <div id="">
+                                                <label for="">MAX MATCH PER REFEREE</label>
+                                                <input type="number" name="" id="" class="number_input centered" placeholder="#">
                                             </div>
                                         </div>
                                         <div>
@@ -174,20 +178,22 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                             foreach ($json_table as $referee) { ?>
 
                                                                 <div class="piste not_used">
-                                                                    <div class="piste_name"><?php echo $referee->prenom . " " . $referee->nom ?></div>
+                                                                    <div class="referee_id hidden"><?php echo $referee->id ?></div>
+                                                                    <div class="referee_name"><?php echo $referee->prenom . " " . $referee->nom ?></div>
                                                                     <div class="referee_nation"><?php echo $referee->nation ?></div>
+                                                                    <div class="referee_club hidden"><?php echo $referee->club ?></div>
                                                                     <div class="piste_order hidden" id="arrow_buttons">
                                                                         <button type="button" onclick="moveUp(this)">
-                                                                            <img src="../assets/icons/keyboard_arrow_up-black.svg">
+                                                                            <img src="../assets/icons/keyboard_arrow_up_black.svg">
                                                                         </button>
                                                                         <button type="button" onclick="moveDown(this)">
-                                                                            <img src="../assets/icons/keyboard_arrow_down-black.svg">
+                                                                            <img src="../assets/icons/keyboard_arrow_down_black.svg">
                                                                         </button>
                                                                     </div>
                                                                     <div class="piste_button">
                                                                         <button class="func_button" type="button" id="<?php echo $referee->id ?>" onclick="useOnePiste(this)">
-                                                                            <img class="plus" src="../assets/icons/add-black.svg">
-                                                                            <img class="minus hidden" src="../assets/icons/remove-black.svg">
+                                                                            <img class="plus" src="../assets/icons/add_black.svg">
+                                                                            <img class="minus hidden" src="../assets/icons/remove_black.svg">
                                                                         </button>
                                                                     </div>
                                                                 </div>
@@ -209,20 +215,34 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                             </div>
                             <div class="db_panel full" id="matches_preview_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/build-black.svg">
+                                    <img src="../assets/icons/build_black.svg">
                                     <p class="table_text">Preview matches</p>
                                     <button id="preview_button" onclick="nation_to_club(this)">Preview Referees</button>
                                 </div>
                                 <div class="db_panel_main list">
                                     <div class="table fixed">
                                         <div class="table_header">
-                                            <div class="table_header_text"><p>MATCH ID</p></div>
-                                            <div class="table_header_text"><p>PISTE</p></div>
-                                            <div class="table_header_text"><p>STARTING TIME</p></div>
-                                            <div class="table_header_text" id="f1_head"><p>F1 NATION</p></div>
-                                            <div class="table_header_text" id="f2_head"><p>F2 NATION</p> </div>
-                                            <div class="table_header_text" id="vr_name_head"><p>REFEREE</p></div>
-                                            <div class="table_header_text" id="vr_nat_head"><p>REFEREE NATION</p></div>
+                                            <div class="table_header_text">
+                                                <p>MATCH ID</p>
+                                            </div>
+                                            <div class="table_header_text">
+                                                <p>PISTE</p>
+                                            </div>
+                                            <div class="table_header_text">
+                                                <p>STARTING TIME</p>
+                                            </div>
+                                            <div class="table_header_text" id="f1_head">
+                                                <p>F1 NATION</p>
+                                            </div>
+                                            <div class="table_header_text" id="f2_head">
+                                                <p>F2 NATION</p>
+                                            </div>
+                                            <div class="table_header_text" id="vr_name_head">
+                                                <p>REFEREE</p>
+                                            </div>
+                                            <div class="table_header_text" id="vr_nat_head">
+                                                <p>REFEREE NATION</p>
+                                            </div>
                                         </div>
                                         <div class="table_row_wrapper alt" id="table_row_wrapper">
 
@@ -244,11 +264,9 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                         if ($fencer->name == "" || $fencer->isWinner == true) {
                                                             $canskip = true;
                                                         }
-                                                        else{
-
-                                                            array_push($fencersnat, $fencer->nation);
+                                                        array_push($fencersnat, $fencer->nation);
+                                                        if (isset($fencer->club)) {
                                                             array_push($fencersclub, $fencer->club);
-
                                                         }
                                                     }
                                                 }
@@ -262,19 +280,70 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                                         }
 
                                                                         ?>">
-                                                    <div class="table_item id"><p><?php echo $matchkey ?></p></div>
-                                                    <div class="table_item pistes"><p><?php echo $matches->pistetime->pistename ?></p></div>
-                                                    <div class="table_item time"><p><?php echo $matches->pistetime->time ?></p></div>
-                                                    <div class="table_item nation n_for_ref"><p><?php echo $fencersnat[0] ?></p></div>
-                                                    <div class="table_item nation n_for_ref"><p><?php echo $fencersnat[1] ?></p></div>
-                                                    <div class="table_item club c_for_ref hidden"><p><?php echo $fencersclub[0] ?></p></div>
-                                                    <div class="table_item club c_for_ref hidden"><p><?php echo $fencersclub[1] ?></p></div>
-                                                    <div class="table_item referee refname"><p><?php echo $matches->referees->ref->name ?></p></div>
-                                                    <div class="table_item nation referee"><p><?php echo $matches->referees->ref->nation ?></p></div>
-                                                    <div class="table_item club referee hidden"><p><?php echo $matches->referees->ref->club ?></p></div>
-                                                    <div class="table_item video hidden vrefname"><p><?php echo $matches->referees->vref->name ?></p></div>
-                                                    <div class="table_item nation video hidden"><p><?php echo $matches->referees->vref->nation ?></p></div>
-                                                    <div class="table_item club video hidden"><p><?php echo $matches->referees->vref->club ?></p></div>
+                                                    <div class="table_item id">
+                                                        <p><?php echo $matchkey ?></p>
+                                                    </div>
+                                                    <div class="table_item pistes">
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $matches->pistetime->pistename;
+                                                            } ?></p>
+                                                    </div>
+                                                    <div class="table_item time">
+                                                        <p><?php
+                                                            if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $matches->pistetime->time;
+                                                            } ?></p>
+                                                    </div>
+                                                    <div class="table_item nation n_for_ref">
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersnat[0];
+                                                            } ?></p>
+                                                    </div>
+                                                    <div class="table_item nation n_for_ref">
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersnat[1];
+                                                            } ?></p>
+                                                    </div>
+                                                    <div class="table_item club c_for_ref hidden">
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersclub[0];
+                                                            } ?></p>
+                                                    </div>
+                                                    <div class="table_item club c_for_ref hidden">
+                                                        <p><?php if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $fencersclub[1];
+                                                            } ?></p>
+                                                    </div>
+                                                    <div class="table_item referee refname">
+                                                        <p><?php echo $matches->referees->ref->name ?></p>
+                                                    </div>
+                                                    <div class="table_item nation referee">
+                                                        <p><?php echo $matches->referees->ref->nation ?></p>
+                                                    </div>
+                                                    <div class="table_item club referee hidden">
+                                                        <p><?php echo $matches->referees->ref->club ?></p>
+                                                    </div>
+                                                    <div class="table_item video hidden vrefname">
+                                                        <p><?php echo $matches->referees->vref->name ?></p>
+                                                    </div>
+                                                    <div class="table_item nation video hidden">
+                                                        <p><?php echo $matches->referees->vref->nation ?></p>
+                                                    </div>
+                                                    <div class="table_item club video hidden">
+                                                        <p><?php echo $matches->referees->vref->club ?></p>
+                                                    </div>
                                                 </div>
 
                                             <?php
@@ -287,24 +356,40 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                             </div>
                             <div class="db_panel full hidden" id="referees_preview_panel">
                                 <div class="db_panel_title_stripe">
-                                    <img src="../assets/icons/build-black.svg">
+                                    <img src="../assets/icons/build_black.svg">
                                     <p>Preview referees</p>
                                     <button onclick="">Preview Matches</button>
                                 </div>
                                 <div class="db_panel_main list">
                                     <div class="table fixed">
                                         <div class="table_header">
-                                            <div class="table_header_text"><p>REFEREE</p></div>
-                                            <div class="table_header_text"><p>PISTE</p></div>
-                                            <div class="table_header_text"><p>STARTING TIME</p></div>
-                                            <div class="table_header_text"><p>FENCER 1 NAT</p></div>
+                                            <div class="table_header_text">
+                                                <p>REFEREE</p>
+                                            </div>
+                                            <div class="table_header_text">
+                                                <p>PISTE</p>
+                                            </div>
+                                            <div class="table_header_text">
+                                                <p>STARTING TIME</p>
+                                            </div>
+                                            <div class="table_header_text">
+                                                <p>FENCER 1 NAT</p>
+                                            </div>
                                         </div>
                                         <div class="table_row_wrapper alt" id="table_row_wrapper_referees">
                                             <div class="table_row">
-                                                <div class="table_item "><p>47</p></div>
-                                                <div class="table_item "><p>47</p></div>
-                                                <div class="table_item "><p>47</p></div>
-                                                <div class="table_item "><p>47</p></div>
+                                                <div class="table_item ">
+                                                    <p>47</p>
+                                                </div>
+                                                <div class="table_item ">
+                                                    <p>47</p>
+                                                </div>
+                                                <div class="table_item ">
+                                                    <p>47</p>
+                                                </div>
+                                                <div class="table_item ">
+                                                    <p>47</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -318,11 +403,13 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 
                 </div>
             </div>
-        </div>
+        </main>
+    </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/table_config.js"></script>
+    <script src="../js/table_referees.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/search.js"></script>
-<script src="../js/table_config.js"></script>
-<script src="../js/table_referees.js"></script>
+
 </html>

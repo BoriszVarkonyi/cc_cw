@@ -109,11 +109,11 @@ if (isset($_POST["new_weapon_control"])) {
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_tournament.php'">
                     <p>Cancel</p>
-                    <img src="../assets/icons/close-black.svg"/>
+                    <img src="../assets/icons/close_black.svg"/>
                 </button>
                 <button type="submit" name="save" form="tournament_timetable" class="stripe_button primary">
                     <p>Save</p>
-                    <img src="../assets/icons/save-black.svg"/>
+                    <img src="../assets/icons/save_black.svg"/>
                 </button>
             </div>
         </div>
@@ -180,7 +180,7 @@ if (isset($_POST["new_weapon_control"])) {
                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                 <input type="text" name="date_to_select" placeholder="Select Date">
                             </button>
-                            <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                             <div class="search_results">
 
                                 <?php
@@ -233,7 +233,7 @@ if (isset($_POST["new_weapon_control"])) {
                     </div>
                     <div>
                         <label for="">MINUTE / FENCER</label>
-                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="1" min="1">
+                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="1">
                     </div>
                     <div class="row">
                         <button class="panel_submit secondary relative" type="button" onclick="toggleWcPhase()">Cancel</button>
@@ -307,7 +307,7 @@ if (isset($_POST["new_weapon_control"])) {
                                 <button type="button" class="search select input" tabindex="3">
                                     <input type="text" name="date_to_select" placeholder="Select Date">
                                 </button>
-                                <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                 <div class="search_results">
 
                                     <?php

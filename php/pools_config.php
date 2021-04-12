@@ -324,7 +324,7 @@
         <div class="modal">
             <div class="modal_header red">
                 <p class="modal_title">You reached this pool's limit. You cannot put more fencers into this pool.</p>
-                <p class="modal_subtitle">The fencer has been relocated to it's original position.</p>
+                <p class="modal_subtitle">The fencer has been relocated to it's previous position.</p>
             </div>
             <div class="modal_footer">
                 <div class="modal_footer_content">
@@ -334,32 +334,32 @@
         </div>
     </div>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Configure Pools</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
-                        <img src="../assets/icons/message-black.svg"/>
+                        <img src="../assets/icons/message_black.svg"/>
                     </button>
 
                     <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
                         <p>Referees</p>
-                        <img src="../assets/icons/ballot-black.svg"/>
+                        <img src="../assets/icons/ballot_black.svg"/>
                     </button>
 
                     <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
                         <p>Pistes & Time</p>
-                        <img src="../assets/icons/ballot-black.svg"/>
+                        <img src="../assets/icons/ballot_black.svg"/>
                     </button>
 
                     <form action="" method="POST">
                         <button class="stripe_button primary" type="submit" name="start_pools">
                             <p>Start Pools</p>
-                            <img src="../assets/icons/outlined_flag-black.svg"/>
+                            <img src="../assets/icons/outlined_flag_black.svg"/>
                         </button>
                     </form>
 
@@ -367,13 +367,13 @@
                         <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput">
                         <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
                             <p>Save Pools</p>
-                            <img src="../assets/icons/save-black.svg"/>
+                            <img src="../assets/icons/save_black.svg"/>
                         </button>
                     </form>
                 </div>
                 <div id="ref_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="toggleRefPanel()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="ref_type">REFEREES CAN MATCH WITH SAME NATIONALITY / CLUB FENCER</label>
@@ -433,7 +433,7 @@
                 </div>
                 <div id="pist_time_panel" class="overlay_panel hidden">
                     <button class="panel_button" onclick="togglePistTimePanel()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
                         <label for="starting_time">STARTING TIME</label>
@@ -546,7 +546,7 @@
                                         <div class="table_item"><?php echo $time ?></div>
                                         <div class="big_status_item">
                                             <button type="button" onclick="" class="pool_config">
-                                                <img src="../assets/icons/settings-black.svg">
+                                                <img src="../assets/icons/settings_black.svg">
                                             </button>
                                         </div>
                                     </div>
@@ -620,13 +620,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/pools_config.js"></script>
+    <script src="../js/overlay_panel.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/modal.js"></script>
-<script src="../js/pools_config.js"></script>
-<script src="../js/overlay_panel.js"></script>
 </html>

@@ -1,5 +1,4 @@
 <?php include "../includes/db.php"; ?>
-<?php include "../includes/cw_fav_button_list.php" ?>
 <?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,27 +12,25 @@
 </head>
 <body class="home">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="slideshow">
             <div id="slideshow_content">
                 <p id="slideshow_title">Check Competitions</p>
             </div>
-            <div id="slide_nav">
-                <button class="slideButtons active" onclick="toggleButton(this)"></button>
-                <button class="slideButtons" onclick="toggleButton(this)"></button>
-                <button class="slideButtons" onclick="toggleButton(this)"></button>
-                <button class="slideButtons" onclick="toggleButton(this)"></button>
-            </div>
+            <button class="slideshow_navigation_button left" aria-label="Slideshow go left">
+                <img src="../assets/icons/chevron_left_black.svg" alt="Slideshow go left">
+            </button>
+            <button class="slideshow_navigation_button right" aria-label="Slideshow go right">
+                <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
+            </button>
             <div id="sildes">
                 <!-- slide1 -->
                 <div class="slide" style="background-image: url(../assets/img/fencers_bg_d.svg)">
                 </div>
-
-
             </div>
         </div>
         <div id="content">
-            <div id="content_wrapper">
+            <div id="content_wrapper" class="columns">
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
                     <div class="table t_c_1">
@@ -48,8 +45,6 @@
                                 $comp_name =  $row['comp_name'];
                                 $comp_id = $row['comp_id'];
 
-                                $star = getStar($comp_id);
-
                                 //displays the compnames in a table with href button (live)
                                 ?>
                                 <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
@@ -61,11 +56,11 @@
                                     <div class="table_item live">
                                         <a href="">Live</a>
                                     </div>
-                                    <form method="POST" class="big_status_item">
+                                    <div class="big_status_item">
                                         <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                                            <img src="<?php echo $star ?>">
+                                            <img src="" alt="Save Competition">
                                         </button>
-                                    </form>
+                                    </div>
                                 </div>
                             <?php
                             }
@@ -92,7 +87,7 @@
                         ?>
                             <!-- latest video placeholder -->
                             <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg">
+                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" alt="<?php echo$title ?> thumbnail">
                                 <div class="video_wrapper_info">
                                     <p><?php echo$title ?></p>
                                     <p><?php echo $comp_name ?></p>
@@ -100,12 +95,24 @@
                             </div>
                     <?php } ?>
                 </div>
+                <div class="column">
+                    <p class="column_title">Latest Blog Posts</p>
+                    <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
+                        <p class="article_title"><?php echo $title ?></p>
+                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
+                        <p class="article_brief"><?php echo $body ?></p>
+                        <div class="article_info">
+                            <p>POSTED: <?php echo $date ?></p>
+                            <p>BY: <?php echo $author ?></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cw_main.js"></script>
+    <!-- <script src="../js/cw_slideshow.js"></script> -->
+    <script src="../js/list.js"></script>
 </body>
-<script src="../js/cw_main.js"></script>
-<!-- <script src="../js/cw_slideshow.js"></script> -->
-<script src="../js/list.js"></script>
 </html>

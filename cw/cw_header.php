@@ -2,7 +2,7 @@
     <div>
         <a href="competition_view.php" id="app_name">CompetitionView</a>
     </div>
-    <div id="navigation">
+    <nav id="desktop">
         <div>
             <a href="competition_view.php">Home</a>
         </div>
@@ -28,12 +28,12 @@
         <div>
             <a href="saved_competitions.php">Saved Competitions</a>
         </div>
-    </div>
+    </nav>
     <div id="change_language">
         <div>
             <button onclick="toggleLanguagesPanel(this)">
                 <p>En</p>
-                <img src="../assets/icons/arrow_drop_down-black.svg">
+                <img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropwon icon">
             </button>
             <div id="change_language_panel">
                 <div>
@@ -46,11 +46,11 @@
             </div>
         </div>
     </div>
-    <div id="navigation_mobile">
-        <button onclick="toggleMobileNavigation(this)">
-            <img src="../assets/icons/menu-black.svg">
+    <div id="mobile_navigation_wrapper">
+        <button onclick="toggleMobileNavigation(this)" aria-label="Open Mobile Navigation" aria-label="Open Mobile Navigation">
+            <img src="../assets/icons/menu_black.svg" alt="Menu button icon">
         </button>
-        <div id="mobile_navigation">
+        <nav id="mobile">
             <div>
                 <a href="competition_view.php">Home</a>
                 <p>Competitions</p>
@@ -64,6 +64,6 @@
                 <a href="rankings.php">Rankings</a>
                 <a href="saved_competitions.php">Saved Competitions</a>
             </div>
-        </div>
+        </nav>
     </div>
 </header>

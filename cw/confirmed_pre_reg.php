@@ -12,8 +12,8 @@
 </head>
 <body id="basic_body">
     <div class="basic_panel">
-        <p>Your Pre-Registration for <b>Competitions name</b> has been <b class="red">disapproved.</b><b class="green">approved.</b></p>
-        <p class="bold">If you think the decisison is incorrect contact the organiser of the competition!</p>
+        <p>Your Pre-Registration for <strong>Competitions name</strong> has been <strong class="red">disapproved.</strong><strong class="green">approved.</strong></p>
+        <strong>If you think the decisison is incorrect contact the organiser of the competition!</strong>
     </div>
 </body>
 </html>

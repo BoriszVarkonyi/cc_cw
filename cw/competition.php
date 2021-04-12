@@ -1,9 +1,8 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php include "../includes/cw_fav_button.php"; ?>
 <?php include "../includes/db.php"; ?>
 <?php
 
-    $logo_path = "../assets/icons/delete-black.svg";
+    $logo_path = "../assets/icons/delete_black.svg";
 
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
@@ -62,14 +61,14 @@
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe" class="big">
-                <img src="<?php echo $logo_path ?>" width="50" height="50">
+                <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                 <p class="stripe_title"><?php echo $comp_name ?></p>
                 <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
-                    <img src=<?php echo $star ?> >
+                    <img src="" alt="Save Competition">
                 </button>
                 <p id="comp_status">ONGOING</p>
                 <!-- <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>-->
@@ -251,8 +250,9 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
         </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>

@@ -56,15 +56,15 @@ $query_comps = mysqli_query($connection, $query);
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='manage_bookings.php?t_id=<?php echo $ass_tourn_id ?>'">
                     <p>Manage Bookings</p>
-                    <img src="../assets/icons/calendar_today-black.svg"/>
+                    <img src="../assets/icons/calendar_today_black.svg"/>
                 </button>
                 <button class="stripe_button" onclick="location.href='tournament_timetable.php?t_id=<?php echo $ass_tourn_id ?>'">
                     <p>Manage Timetable</p>
-                    <img src="../assets/icons/calendar_today-black.svg"/>
+                    <img src="../assets/icons/calendar_today_black.svg"/>
                 </button>
                 <button class="stripe_button primary" onclick="location.href='create_competition.php?t_id=<?php echo $ass_tourn_id ?>'">
                     <p>Create Competition</p>
-                    <img src="../assets/icons/add-black.svg"/>
+                    <img src="../assets/icons/add_black.svg"/>
                 </button>
             </div>
         </div>
