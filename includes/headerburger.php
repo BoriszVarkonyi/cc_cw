@@ -53,21 +53,24 @@ if (isset($_POST["logout"])) {
 ?>
 
 <header>
-    <p id="app_name">Competition Control <b>Alpha</b></p>
+    <div id="app_name">
+        <p>Competition Control</p>
+        <p>Alpha</p>
+    </div>
     <?php
     if (isset($_GET['comp_id'])) {
     ?>
         <!-- hamburger tab for navbar left -->
         <div id="menu_button_section">
             <button type="button" onclick="toggle_nav_bar()" id="menu_button">
-                <img src="../assets/icons/menu-black.svg"/>
+                <img src="../assets/icons/menu_black.svg"/>
             </button>
         </div>
         <div id="competition_select_wrapper">
             <div id="competition_select" onclick="toggleCompSelect()">
                 <p><?php echo $comp_name ?></p>
                 <div>
-                    <img src="../assets/icons/arrow_drop_down-black.svg" id="">
+                    <img src="../assets/icons/arrow_drop_down_black.svg" id="">
                 </div>
             </div>
             <div class="small_scroll">
@@ -96,10 +99,10 @@ if (isset($_POST["logout"])) {
     <!-- colormode and language buttons -->
     <div class="settings_section">
         <button class="header_button" onclick="toggleLanguagePanel()">
-            <img src="../assets/icons/language-black.svg"/>
+            <img src="../assets/icons/language_black.svg"/>
         </button>
         <button class="header_button" onclick="toggleColormodePanel()">
-            <img src="../assets/icons/color_lens-black.svg"/>
+            <img src="../assets/icons/color_lens_black.svg"/>
         </button>
     </div>
 
@@ -107,7 +110,7 @@ if (isset($_POST["logout"])) {
     <div id="language_panel" class="header_overlay_panel hidden">
         <div>
             <button class="panel_button fixed" onclick="toggleLanguagePanel()">
-                <img src="../assets/icons/close-black.svg"/>
+                <img src="../assets/icons/close_black.svg"/>
             </button>
         </div>
         <div id="languages_wrapper">
@@ -145,7 +148,7 @@ if (isset($_POST["logout"])) {
     <!-- colormode select drop-down -->
     <div id="colormode_panel" class="header_overlay_panel hidden">
         <button class="panel_button" onclick="toggleColormodePanel()">
-            <img src="../assets/icons/close-black.svg"/>
+            <img src="../assets/icons/close_black.svg"/>
         </button>
         <div class="color_mode_wrapper" id="color_mode_wrapper">
             <button class="color_mode" onclick="setToLight()">
@@ -189,10 +192,10 @@ if (isset($_POST["logout"])) {
     <!-- profile panel drop-down -->
     <div id="profile_panel" class="header_overlay_panel hidden">
         <a class="panel_button left" href="your_profile.php" target="_blank" aria-label="Check and edit your profile" name="Edit profile">
-            <img src="../assets/icons/edit-black.svg"/>
+            <img src="../assets/icons/edit_black.svg"/>
         </a>
         <button class="panel_button" onclick="toggleProfilePanel()">
-            <img src="../assets/icons/close-black.svg"/>
+            <img src="../assets/icons/close_black.svg"/>
         </button>
         <img src="<?php echo $profile_pic ?>" class="profile_picture_big" height="55" width="55">
         <p class="username_big"><?php echo $username; ?></p>

@@ -6,6 +6,10 @@ var head2 = document.getElementById("f2_head")
 var vr_name = document.getElementById("vr_name_head")
 var vr_nat = document.getElementById("vr_nat_head")
 
+//containers
+var usedContainer = document.getElementById("used_selection_list")
+var notUsedContainer = document.getElementById("not_used_selection_list")
+
 //types of referees
 var match_ref = document.getElementById("m_ref")
 var video_ref = document.getElementById("v_ref")
@@ -69,6 +73,30 @@ function nation_to_club() {
 
     vr_nat.innerHTML += " CLUB"
 
+    var refereelist = notUsedContainer.querySelectorAll(".piste")
+
+    for (const element of refereelist) {
+
+        var nation = element.querySelector(".referee_nation")
+        var club = element.querySelector(".referee_club")
+
+        nation.classList.add("hidden")
+        club.classList.remove("hidden")
+
+    }
+
+    var refereelist = usedContainer.querySelectorAll(".piste")
+
+    for (const element of refereelist) {
+
+        var nation = element.querySelector(".referee_nation")
+        var club = element.querySelector(".referee_club")
+
+        nation.classList.add("hidden")
+        club.classList.remove("hidden")
+
+    }
+
 }
 
 //Function for changing club to nation selection
@@ -124,6 +152,32 @@ function club_to_nation() {
     }
 
     vr_nat.innerHTML += " NATION"
+
+    var refereelist = notUsedContainer.querySelectorAll(".piste")
+
+    for (const element of refereelist) {
+
+        var nation = element.querySelector(".referee_nation")
+        var club = element.querySelector(".referee_club")
+
+        nation.classList.remove("hidden")
+        club.classList.add("hidden")
+
+    }
+
+    var refereelist = usedContainer.querySelectorAll(".piste")
+
+    for (const element of refereelist) {
+
+        var nation = element.querySelector(".referee_nation")
+        var club = element.querySelector(".referee_club")
+
+        nation.classList.remove("hidden")
+        club.classList.add("hidden")
+
+    }
+
+
 }
 
 //Function for changing match ref to video ref
@@ -236,6 +290,8 @@ function vref_to_ref() {
     }
 }
 
+//Fuction to draw referees to matches
+
 function try_referees() {
 
     //Get matches
@@ -245,6 +301,10 @@ function try_referees() {
     var table_rows = table_wrapper.querySelectorAll(".table_row")
 
     for (let i = 0; i < table_rows.length; i++) {
+
+        if (table_rows[i].classList.contains("skip")) {
+            continue;
+        }
 
         var id = table_rows[i].querySelector(".id").children
         var piste = table_rows[i].querySelector(".pistes").children
@@ -256,27 +316,63 @@ function try_referees() {
         }
 
         if (!matches[piste[0].innerHTML]) {
-            
+
             matches[piste[0].innerHTML] = []
-            
-            matches[piste[0].innerHTML].push({match_id : id[0].innerHTML, n1 : selectorArray[0].children[0].innerHTML, n2 : selectorArray[1].children[0].innerHTML}) 
 
-            console.log(matches)
+            matches[piste[0].innerHTML].push({
+                match_id: id[0].innerHTML,
+                n1: selectorArray[0].children[0].innerHTML,
+                n2: selectorArray[1].children[0].innerHTML
+            })
 
-        }else{
-            matches[piste[0].innerHTML].push({match_id : id[0].innerHTML, n1 : selectorArray[0].children[0].innerHTML, n2 : selectorArray[1].children[0].innerHTML}) 
+        } else {
+            matches[piste[0].innerHTML].push({
+                match_id: id[0].innerHTML,
+                n1: selectorArray[0].children[0].innerHTML,
+                n2: selectorArray[1].children[0].innerHTML
+            })
+        }
+    }
+
+    console.log(matches);
+
+    //Get referees
+
+    var referees = []
+
+    var refereelist = usedContainer.querySelectorAll(".piste")
+
+    for (const element of refereelist) {
+
+        var id = element.querySelector(".referee_id")
+        var name = element.querySelector(".referee_name")
+
+        if (nation.checked == true) {
+            var selector = element.querySelector(".referee_nation")
+        } else {
+            var selector = element.querySelector(".referee_club")
         }
 
-        console.log(matches);
+        if (!referees) {
+
+            referees = []
+
+            referees.push({
+                ref_id: id.innerHTML,
+                n1: selector.innerHTML,
+                name: name.innerHTML
+            })
+
+        } else {
+            referees.push({
+                ref_id: id.innerHTML,
+                n1: selector.innerHTML,
+                name: name.innerHTML
+            })
+        }
 
     }
 
-    // for (const iterator of Object.entries(testobject)) {
-    //     console.log(iterator[1].first)
-    // }
-
-    //testobject.qwe = {};
-
-    //console.log(testobject)
+    console.log(referees)
 
 }

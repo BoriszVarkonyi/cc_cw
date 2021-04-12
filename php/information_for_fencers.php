@@ -53,84 +53,84 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
 </head>
 <body class="preload">
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
-                <div id="title_stripe">
-                    <p class="page_title">Informations for Fencers</p>
-                    <div class="stripe_button_wrapper">
-                        <button class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit">
-                            <p>Save Information</p>
-                            <img src="../assets/icons/save-black.svg"/>
-                        </button>
-                    </div>
+        <main>
+            <div id="title_stripe">
+                <p class="page_title">Informations for Fencers</p>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit">
+                        <p>Save Information</p>
+                        <img src="../assets/icons/save_black.svg"/>
+                    </button>
                 </div>
-                <div id="page_content_panel_main">
-                    <form class="wrapper" class="db_panel other" id="information_for_fencers_form" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST">
-                        <div class="db_panel other">
-                            <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/beenhere-black.svg">
-                                <p>Equipment needed to be checked</p>
-                            </div>
-                            <div class="db_panel_main small">
-                                <div class="table">
-                                    <div class="table_header">
-                                        <div class="table_header_text">EQUIPMENT</div>
-                                        <div class="table_header_text">QUANTITY
-                                            <button onclick="removeEquipmentValues()" type="button" id="reset_button">
-                                                <img src="../assets/icons/cached-black.svg">
-                                            </button>
-                                        </div>
+            </div>
+            <div id="page_content_panel_main">
+                <form class="wrapper" class="db_panel other" id="information_for_fencers_form" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST">
+                    <div class="db_panel other">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/beenhere_black.svg">
+                            <p>Equipment needed to be checked</p>
+                        </div>
+                        <div class="db_panel_main small">
+                            <div class="table">
+                                <div class="table_header">
+                                    <div class="table_header_text">EQUIPMENT</div>
+                                    <div class="table_header_text">QUANTITY
+                                        <button onclick="removeEquipmentValues()" type="button" id="reset_button">
+                                            <img src="../assets/icons/cached_black.svg">
+                                        </button>
                                     </div>
-                                    <div class="table_row_wrapper alt">
-                                        <?php
-                                        $query_get_data = "SELECT comp_equipment FROM competitions WHERE comp_id = $comp_id";
-                                        $query_get_data_do = mysqli_query($connection, $query_get_data);
+                                </div>
+                                <div class="table_row_wrapper alt">
+                                    <?php
+                                    $query_get_data = "SELECT comp_equipment FROM competitions WHERE comp_id = $comp_id";
+                                    $query_get_data_do = mysqli_query($connection, $query_get_data);
 
-                                        $assocdataget = mysqli_fetch_assoc($query_get_data_do);
-                                        $assocdataprocess = implode(",", $assocdataget);
-                                        $assocdatapost = explode(",", $assocdataprocess);
+                                    $assocdataget = mysqli_fetch_assoc($query_get_data_do);
+                                    $assocdataprocess = implode(",", $assocdataget);
+                                    $assocdatapost = explode(",", $assocdataprocess);
 
-                                        for($i = 0; $i < 13; $i++){?>
-                                        <div class="table_row" id="<?php echo $i ?>">
-                                            <div class="table_item"><?php echo $equipment[$i]?></div>
-                                            <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
+                                    for($i = 0; $i < 13; $i++){?>
+                                    <div class="table_row" id="<?php echo $i ?>">
+                                        <div class="table_item"><?php echo $equipment[$i]?></div>
+                                        <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
 
-                                            if($assocdatapost[$i] == 0){
+                                        if($assocdatapost[$i] == 0){
 
-                                                echo "";
+                                            echo "";
 
-                                            }else{
+                                        }else{
 
-                                                echo $assocdatapost[$i];
+                                            echo $assocdatapost[$i];
 
-                                            }
-                                            ?>"></div>
-                                        </div>
-
-                                        <?php
                                         }
-                                        ?>
+                                        ?>"></div>
                                     </div>
+
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="db_panel">
-                            <div class="db_panel_title_stripe">
-                                <img src="../assets/icons/edit-black.svg">
-                                <p>Set Additional Information</p>
-                            </div>
-                            <div class="db_panel_main column">
-                                <textarea name="text_body" class="standalone" placeholder="Type the information's body text here">SZÖVEGEGEGEE</textarea>
-                            </div>
+                    </div>
+                    <div class="db_panel">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/edit_black.svg">
+                            <p>Set Additional Information</p>
                         </div>
-                    </form>
-                </div>
+                        <div class="db_panel_main column">
+                            <textarea name="text_body" class="standalone" placeholder="Type the information's body text here">SZÖVEGEGEGEE</textarea>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
+        </main>
+    </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/information_for_fencers.js"></script>
 </body>

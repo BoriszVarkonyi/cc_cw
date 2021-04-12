@@ -21,16 +21,16 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Import Referees from XML</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">
                         <p>Import</p>
-                        <img src="../assets/icons/get_app-black.svg"/>
+                        <img src="../assets/icons/get_app_black.svg"/>
                     </button>
                 </div>
             </div>
@@ -38,13 +38,13 @@
                 <div class="wrapper">
                     <div class="db_panel other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black.svg">
+                            <img src="../assets/icons/build_black.svg">
                             <p>Import Competitors</p>
                         </div>
                         <div class="db_panel_main">
                             <form method="POST" id="delete_logo">
                                 <button id="delete_logo" class="panel_button">
-                                    <img src="../assets/icons/delete-black.svg">
+                                    <img src="../assets/icons/delete_black.svg">
                                 </button>
                             </form>
                             <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
@@ -69,12 +69,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/controls.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/import_referees.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/controls.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/import_referees.js"></script>
 </html>

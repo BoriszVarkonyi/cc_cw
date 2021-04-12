@@ -85,23 +85,23 @@
 </head>
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Basic Information</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="submit" name="submit" form="basic_information_form">
                         <p id="save_text">Save Information</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/build-black.svg">
+                        <img src="../assets/icons/build_black.svg">
                         <p>Set basic information</p>
                     </div>
                     <form class="db_panel_main" action="" id="basic_information_form" method="POST">
@@ -192,7 +192,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>

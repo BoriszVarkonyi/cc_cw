@@ -38,33 +38,33 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Pool No. <?php echo $pool_num ?> 's results</p>
                 <input type="text" name="" id="" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
-                        <img src="../assets/icons/message-black.svg"/>
+                        <img src="../assets/icons/message_black.svg"/>
                     </button>
 
                     <button class="stripe_button red disabled" type="button" onclick="disqualifyToggle()">
                         <p>Disqualify</p>
-                        <img src="../assets/icons/highlight_off-black.svg"/>
+                        <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
 
                     <button class="stripe_button primary" type="submit">
                         <p>Save Pool</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
                 <div id="disqualify_panel" class="overlay_panel hidden">
                     <p class="panel_title">Disqualify {Fencer's name}</p>
                     <button class="panel_button" onclick="disqualifyToggle()">
-                        <img src="../assets/icons/close-black.svg">
+                        <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <label for="ref_type">REASON OF DISQUALIFICATION</label>
@@ -215,7 +215,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+    </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
