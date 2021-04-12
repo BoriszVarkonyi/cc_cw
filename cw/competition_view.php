@@ -57,7 +57,7 @@
                                         <a href="">Live</a>
                                     </div>
                                     <div class="big_status_item">
-                                        <button value="<?php echo $comp_id ?>" class="favourite_button" onclick="">
+                                        <button value="<?php echo $comp_id ?>" class="favourite_button" onclick="favButton(this)">
                                             <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                                         </button>
                                     </div>
@@ -111,6 +111,7 @@
         </div>
     </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
     <!-- <script src="../js/cw_slideshow.js"></script> -->
     <script src="../js/list.js"></script>

@@ -40,6 +40,7 @@
         </div>
     </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/cw_ongoing_competitions.js"></script>

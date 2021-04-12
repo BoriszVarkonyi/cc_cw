@@ -67,8 +67,8 @@
                 <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                 <p class="stripe_title"><?php echo $comp_name ?></p>
-                <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
-                    <img src="" alt="Save Competition">
+                <button value="<?php echo $comp_id ?>" class="favourite_button" onclick="favButton(this)">
+                    <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                 </button>
                 <p id="comp_status">ONGOING</p>
                 <!-- <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>-->
@@ -254,6 +254,7 @@
         </div>
     </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
 </body>
 </html>
