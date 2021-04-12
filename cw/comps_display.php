@@ -23,7 +23,6 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     $comp_host = $row['comp_host'];
     $comp_id = $row['comp_id'];
 
-    $star = getStar($comp_id);
 
     ?>
 
@@ -44,11 +43,11 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
                 <?php echo $comp_host; ?>
             </p>
         </div>
-        <form method="POST" class="big_status_item">
+        <div class="big_status_item">
             <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                <img src="<?php echo $star ?>" alt="Save Competition">
+                <img src="" alt="Save Competition">
             </button>
-        </form>
+        </div>
     </div>
 
 <?php } ?>

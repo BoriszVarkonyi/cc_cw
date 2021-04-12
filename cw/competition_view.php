@@ -1,5 +1,4 @@
 <?php include "../includes/db.php"; ?>
-<?php include "../includes/cw_fav_button_list.php" ?>
 <?php include "../includes/functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,20 +17,16 @@
             <div id="slideshow_content">
                 <p id="slideshow_title">Check Competitions</p>
             </div>
-            <!--
-            <div id="slide_nav">
-                <button class="slideButtons active" onclick="toggleButton(this)"></button>
-                <button class="slideButtons" onclick="toggleButton(this)"></button>
-                <button class="slideButtons" onclick="toggleButton(this)"></button>
-                <button class="slideButtons" onclick="toggleButton(this)"></button>
-            </div>
-            -->
+            <button class="slideshow_navigation_button left" aria-label="Slideshow go left">
+                <img src="../assets/icons/chevron_left_black.svg" alt="Slideshow go left">
+            </button>
+            <button class="slideshow_navigation_button right" aria-label="Slideshow go right">
+                <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
+            </button>
             <div id="sildes">
                 <!-- slide1 -->
                 <div class="slide" style="background-image: url(../assets/img/fencers_bg_d.svg)">
                 </div>
-
-
             </div>
         </div>
         <div id="content">
@@ -50,8 +45,6 @@
                                 $comp_name =  $row['comp_name'];
                                 $comp_id = $row['comp_id'];
 
-                                $star = getStar($comp_id);
-
                                 //displays the compnames in a table with href button (live)
                                 ?>
                                 <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
@@ -63,11 +56,11 @@
                                     <div class="table_item live">
                                         <a href="">Live</a>
                                     </div>
-                                    <form method="POST" class="big_status_item">
+                                    <div class="big_status_item">
                                         <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                                            <img src="<?php echo $star ?>" alt="Save Competition">
+                                            <img src="" alt="Save Competition">
                                         </button>
-                                    </form>
+                                    </div>
                                 </div>
                             <?php
                             }

@@ -112,11 +112,11 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper zoom">
-                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
+                <div class="view_button_wrapper first">
+                    <button onclick="zoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
+                    <button onclick="zoomIn()" id="zoomInButton">
                         <img src="../assets/icons/zoom_in_black.svg"/>
                     </button>
                 </div>

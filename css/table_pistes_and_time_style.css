@@ -6,6 +6,7 @@
 	display: flex;
 	justify-content: center;
 	flex: 0 1 auto;
+	margin-bottom: 20px;
 }
 
 #table_piste_time_wrapper .form_wrapper, #table_referees_wrapper .form_wrapper {

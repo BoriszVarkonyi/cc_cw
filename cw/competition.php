@@ -1,5 +1,4 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php include "../includes/cw_fav_button.php"; ?>
 <?php include "../includes/db.php"; ?>
 <?php
 
@@ -69,7 +68,7 @@
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                 <p class="stripe_title"><?php echo $comp_name ?></p>
                 <button form="fav_button" name="submit_button" class="favourite_button" type="submit">
-                    <img src="<?php echo $star ?>" alt="Save Competition">
+                    <img src="" alt="Save Competition">
                 </button>
                 <p id="comp_status">ONGOING</p>
                 <!-- <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>-->

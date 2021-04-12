@@ -50,7 +50,7 @@
         <button onclick="toggleMobileNavigation(this)" aria-label="Open Mobile Navigation" aria-label="Open Mobile Navigation">
             <img src="../assets/icons/menu_black.svg" alt="Menu button icon">
         </button>
-        <nav id="mobile" hidden>
+        <nav id="mobile">
             <div>
                 <a href="competition_view.php">Home</a>
                 <p>Competitions</p>

@@ -57,7 +57,7 @@
                 <div id="title_stripe" class="white_glass light">
                     <p>Chat room name</p>
                     <div id="stripe_button_wrapper">
-                        <button  class="white_glass base">
+                        <button class="white_glass base">
                             <img src="../assets/icons/volume_off_black.svg" alt="Mute button image">
                         </button>
                     </div>
