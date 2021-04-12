@@ -804,6 +804,8 @@ input[value="Search"] {
 	border-radius: 5px;
 	padding: 2px 25px;
 	box-shadow: var(--s-black);
+	height: 37px;
+	color: var(--cd-primarycontrast)
 }
 
 #browsing_bar {

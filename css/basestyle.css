@@ -348,6 +348,10 @@ label.hidden {
 	align-items: flex-start;
 }
 
+.form_wrapper > div > div.hidden {
+	display: none;
+}
+
 .form_wrapper > div > div.row {
 	width: 300px;
 	display: flex;
