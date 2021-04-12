@@ -351,4 +351,14 @@ function tablecolor($colorcode){
 
 
 }
+
+//get number of fencers in current pool
+function getFencersInPool($current_pool) {
+    for ($i = 7; $i >= 4; $i--) {
+        if (isset($current_pool -> {$i})) {
+            return $i;
+        }
+    }
+    return false;
+}
 ?>

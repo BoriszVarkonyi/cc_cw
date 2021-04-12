@@ -20,9 +20,10 @@
     $current_m_pool = $matches_table[$pool_num-1];
 
     //get number of fencers in pools
-    for ($number_of_fencers = 1; isset($current_pool -> $number_of_fencers); $number_of_fencers++);
-    $number_of_fencers--;
-    $pool_f_in = $number_of_fencers;
+    $pool_f_in = getFencersInPool($current_f_pool);
+
+    //get number of mathces in round robin
+    $number_of_matches = $pool_f_in * ($pool_f_in - 1) / 2;
 ?>
 
 <!DOCTYPE html>
@@ -91,25 +92,31 @@
 
                     <?php
 
+                        //get pools data
+                        $piste = $current_f_pool -> piste;
+                        $time =  $current_f_pool -> time;
 
+                        $ref1name = $current_f_pool -> ref1 -> prenom . $current_f_pool -> ref1 -> nom;
+                        $ref1nat = $current_f_pool -> ref1 -> nation;
 
-
-
-                        ?>
+                        if ($current_f_pool -> ref2 != NULL) {
+                            $ref2nat = $current_f_pool -> ref2 -> nation;
+                            $ref2name = $current_f_pool -> ref2 -> prenom . $current_f_pool -> ref2 -> nom;
+                        }
+                    ?>
                     <div>
                         <div class="entry">
                             <div class="table_row start">
                                 <div class="table_item bold">No. <?php echo $pool_num ?></div>
                                 <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref: <?php if (isset($refname)) {
-
-                                        echo $refname;
-                                        echo "(" . $refnat . ")";
-                                    } else {
-                                        echo "No ref assigned!";
-                                    } ?></div>
-
-
+                                <div class="table_item">Ref:
+                                <?php
+                                //echo out ref(s)
+                                echo $ref1name . " (" . $ref1nat . ")";
+                                if ($current_f_pool -> ref2 != NULL) {
+                                    echo "Ref 2: " . $ref2name . " (" . $ref2nat . ") ";
+                                }
+                                ?></div>
                                 <div class="table_item"><?php echo $time ?></div>
                             </div>
                             <div class="entry_panel">
@@ -121,27 +128,47 @@
                                         <div class="table_header_text square">
                                             No.
                                         </div>
-                                        <div class="table_header_text square">1</div>
-                                        <div class="table_header_text square">2</div>
-                                        <div class="table_header_text square">3</div>
-                                        <div class="table_header_text square">4</div>
-                                        <div class="table_header_text square">5</div>
-                                        <div class="table_header_text square">6</div>
-                                        <div class="table_header_text square">7</div>
+                                        <?php
+                                            //echo out fencer number top(horizontal)
+                                            for ($i = 1; $i <= $pool_f_in; $i++ ) {
+                                        ?>
+                                        <div class="table_header_text square"><?php echo $i ?></div>
+                                        <?php
+                                            }
+                                        ?>
                                     </div>
+
                                     <div class="table_row_wrapper alt">
+                                        <?php
+                                            //echo the fencers vertical
+                                            for ($f_num = 1; $f_num <= $pool_f_in; $f_num++) {
+                                                //get fencers data
+                                                $fencer_name = $current_f_pool -> $f_num -> prenom_nom;
+
+                                        ?>
+
                                         <div id="" class="table_row" onclick="selectRow(this)">
-                                            <div class="table_item">Fencer name</div>
-                                            <div class="table_item square row_title">Nomer</div>
-                                            <div class="table_item square filled"></div>
-                                            <div class="table_item square">1</div>
-                                            <div class="table_item square">1</div>
-                                            <div class="table_item square">2</div>
-                                            <div class="table_item square">4</div>
-                                            <div class="table_item square">45</div>
-                                            <div class="table_item square">4</div>
+                                            <div class="table_item"><?php echo $fencer_name ?></div>
+                                            <div class="table_item square row_title"><?php echo $f_num ?></div>
+                                            <?php
+                                                for ($i = 1; $i <= $pool_f_in; $i++) {
+
+                                                    //get scores from matches_table!
+
+                                                    if ($i == $f_num) {
+                                                        ?><div class="table_item square filled"></div><?php
+                                                    } else {
+                                                        ?><div class="table_item square"></div><?php
+                                                    }
+
+                                                }
+                                            ?>
                                         </div>
+                                    <?php
+                                        }
+                                    ?>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -155,9 +182,11 @@
 
                     <div id="pool_matches">
 
-                        <?php ?>
+                        <?php
 
 
+
+                        ?>
                         <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
                             <div class="match_number">
                                 <p>Match num</p>

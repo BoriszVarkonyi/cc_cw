@@ -68,8 +68,7 @@
                         $time = $current_pool -> time;
 
                         //get number of fencers in pools
-                        for ($number_of_fencers = 1; isset($current_pool -> $number_of_fencers); $number_of_fencers++);
-                        $number_of_fencers--;
+                        $number_of_fencers = getFencersInPool($fencers_table[$pool_num]);
 
 
                     ?>
