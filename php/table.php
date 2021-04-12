@@ -335,7 +335,7 @@ if (isset($_POST["generate_table"])) {
                 </div>
 
                 <div class="view_button_wrapper second">
-                    <button onclick="toggleViewPanel()" id="">
+                    <button onclick="toggleThisPanel(this)" id="">
                         <img src="../assets/icons/list_alt_black.svg"/>
                     </button>
                 </div>
@@ -349,7 +349,7 @@ if (isset($_POST["generate_table"])) {
                 </div>
 
                 <div class="view_button_wrapper third">
-                    <button onclick="toggleViewPanel()" id="">
+                    <button onclick="toggleThisPanel(this)" id="">
                         <img src="../assets/icons/settings_black.svg"/>
                     </button>
                 </div>

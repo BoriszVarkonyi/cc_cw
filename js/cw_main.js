@@ -210,3 +210,8 @@ function selectSearch(x) {
 function printPage() {
     window.print();
 }
+
+function favButton(x){
+    var favImage = x.querySelector("img")
+    console.log(favImage)
+}
