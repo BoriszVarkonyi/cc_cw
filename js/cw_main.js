@@ -210,7 +210,6 @@ function selectSearch(x) {
 function printPage() {
     window.print();
 }
-//document.cookie = "bookmarks = "
 var bookmarkCookies = cookieFinder("bookmarks", "", false, 365)
 //Makes the saved bookmarks bookmarked when the page is loaded
 var bookmarkButtons = document.querySelectorAll(".favourite_button");
