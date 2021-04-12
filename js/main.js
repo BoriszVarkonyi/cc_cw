@@ -10,8 +10,6 @@ var menuSection = document.getElementById("menu_button_section");
 var menuButton = document.getElementById("menu_button") 
 var pin = document.getElementById("nav_bar_pin");
 
-pin.classList.add("pinned")
-
 var navbarItems = document.querySelectorAll("button.nav_bar_item");
 var dropDownIcons = document.querySelectorAll(".dropdown_icon");
 
