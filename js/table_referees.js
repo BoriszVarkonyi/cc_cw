@@ -302,6 +302,10 @@ function try_referees() {
 
     for (let i = 0; i < table_rows.length; i++) {
 
+        if (table_rows[i].classList.contains("skip")) {
+            continue;
+        }
+
         var id = table_rows[i].querySelector(".id").children
         var piste = table_rows[i].querySelector(".pistes").children
 
@@ -330,19 +334,15 @@ function try_referees() {
         }
     }
 
-    var test = matches.Main
-
-    console.log(test[5].n2);
+    console.log(matches);
 
     //Get referees
 
-    var referees = {}
+    var referees = []
 
     var refereelist = usedContainer.querySelectorAll(".piste")
 
     for (const element of refereelist) {
-
-        console.log(element)
 
         var id = element.querySelector(".referee_id")
         var name = element.querySelector(".referee_name")
@@ -353,18 +353,18 @@ function try_referees() {
             var selector = element.querySelector(".referee_club")
         }
 
-        if (!referees[piste[0].innerHTML]) {
+        if (!referees) {
 
-            referees[piste[0].innerHTML] = []
+            referees = []
 
-            referees[piste[0].innerHTML].push({
+            referees.push({
                 ref_id: id.innerHTML,
                 n1: selector.innerHTML,
                 name: name.innerHTML
             })
 
         } else {
-            referees[piste[0].innerHTML].push({
+            referees.push({
                 ref_id: id.innerHTML,
                 n1: selector.innerHTML,
                 name: name.innerHTML

@@ -53,7 +53,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                     <input type="text" id="">
                     <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
-                        <img src="../assets/icons/save_black.svg"/>
+                        <img src="../assets/icons/save_black.svg" />
                     </button>
                 </form>
             </div>
@@ -259,11 +259,9 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                     if (isset($fencer->name)) {
                                                         if ($fencer->name == "" || $fencer->isWinner == true) {
                                                             $canskip = true;
-                                                        } else {
-
-                                                            array_push($fencersnat, $fencer->nation);
-                                                            array_push($fencersclub, $fencer->club);
                                                         }
+                                                        array_push($fencersnat, $fencer->nation);
+                                                        array_push($fencersclub, $fencer->club);
                                                     }
                                                 }
 
@@ -283,7 +281,12 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                         <p><?php echo $matches->pistetime->pistename ?></p>
                                                     </div>
                                                     <div class="table_item time">
-                                                        <p><?php echo $matches->pistetime->time ?></p>
+                                                        <p><?php
+                                                            if ($canskip == true) {
+                                                                echo "FINISHED";
+                                                            } else {
+                                                                echo $matches->pistetime->time;
+                                                            } ?></p>
                                                     </div>
                                                     <div class="table_item nation n_for_ref">
                                                         <p><?php echo $fencersnat[0] ?></p>
@@ -382,4 +385,5 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
     <script src="../js/table_config.js"></script>
     <script src="../js/table_referees.js"></script>
 </body>
+
 </html>
