@@ -296,7 +296,7 @@ function try_referees() {
 
     //Get matches
 
-    var matches = {}
+    var matches = []
 
     var table_rows = table_wrapper.querySelectorAll(".table_row")
 
@@ -375,4 +375,56 @@ function try_referees() {
 
     console.log(referees)
 
+    //Assign referees to matches
+
+    var assignedArray = []
+
+    for (const key in matches) {
+
+        //console.log(matches[key])
+
+        refIndexCounter = 0
+
+        for (const ref of referees) {
+
+            var canUse = true
+
+            for (const matchData of matches[key]) {
+
+                if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
+
+                    console.log("OK")
+
+                } else {
+
+                    canUse = false
+                    break
+
+                }
+
+            }
+
+            if (canUse == true) {
+
+                for (const matchData of matches[key]) {
+
+                    assignedArray.push([matchData.match_id, ref])
+                }
+
+                referees.splice(refIndexCounter, 1)
+                break
+                
+            }else{
+
+                refIndexCounter++
+
+            }
+
+        }
+
+
+
+    }
+
+    console.log(assignedArray)
 }
