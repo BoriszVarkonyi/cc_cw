@@ -26,7 +26,7 @@
 </head>
 <body>
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title"><?php echo $comp_name . "'s ranking" ?></p>
@@ -35,7 +35,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                     </div>
                 </form>
                 <div class="table cw">
@@ -75,8 +75,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>

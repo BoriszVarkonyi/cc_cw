@@ -5,7 +5,7 @@ function selectFencer(x){
     var current = document.getElementById(x.id);
     var currentname = current.getElementsByTagName("div")[1].innerHTML;
     current.classList.add("hidden");
-    sfw.innerHTML += '<div><input type="number" name=""  class="hidden"><p>'+ currentname +'</p><button id="'+ x.id +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close-black.svg"></button></div>'
+    sfw.innerHTML += '<div><input type="number" name=""  class="hidden"><p>'+ currentname +'</p><button id="'+ x.id +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close_black.svg"></button></div>'
 }
 
 function removeSelection(x) {

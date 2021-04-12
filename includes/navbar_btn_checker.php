@@ -1,3 +1,4 @@
+
 <?php
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connection, $query);
@@ -45,7 +46,7 @@
 
     $assoc_array_functions = // creating assoc array of button names and onclicks, and hrefs
     [
-        "dt" =>                 'onclick="toggle_dtDropdown()"',
+        "dt" =>                 'onclick="toggle_dtDropdown(this)"',
         "competitors" =>        'href="competitors.php?comp_id=' . $comp_id . '"',
         "pools" =>              $href_pools,
         "temp_ranking" =>       'href="temporary_ranking.php?comp_id=' . $comp_id . '"',
@@ -55,11 +56,11 @@
         "registration" =>       'href="registration.php?comp_id=' . $comp_id . '"',
         "weapon_control" =>     $wc_page,
         "announcements" =>      'href="announcements.php?comp_id=' . $comp_id . '"',
-        "general" =>            'onclick="toggle_general_dropdown()"',
+        "general" =>            'onclick="toggle_dtDropdown(this)"',
         "basic_info" =>         'href="basic_information.php?comp_id=' . $comp_id . '"',
         "info_for_fencers" =>   'href="information_for_fencers.php?comp_id=' . $comp_id . '"',
         "invitation" =>         'href="invitation.php?comp_id=' . $comp_id . '"',
-        "technical" =>          'onclick="toggle_technical_dropdown()"',
+        "technical" =>          'onclick="toggle_dtDropdown(this)"',
         "technicians" =>        'href="technicians.php?comp_id=' . $comp_id . '"',
         "referees" =>           'href="referees.php?comp_id=' . $comp_id . '"',
         "pistes" =>             'href="pistes.php?comp_id=' . $comp_id . '"',

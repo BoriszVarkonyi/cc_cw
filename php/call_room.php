@@ -21,28 +21,29 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
-                <div id="title_stripe">
-                    <p class="page_title">Call Room</p>
-                    <div class="stripe_button_wrapper">
-                        <button class="stripe_button" type="submit">
-                            <p>Message Fencer</p>
-                            <img src="../assets/icons/message-black.svg"/>
-                        </button>
-                        <button class="stripe_button primary" type="submit">
-                            <p>Pass Fencer</p>
-                            <img src="../assets/icons/send-black.svg"/>
-                        </button>
-                    </div>
+        <main>
+            <div id="title_stripe">
+                <p class="page_title">Call Room</p>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button" type="submit">
+                        <p>Message Fencer</p>
+                        <img src="../assets/icons/message_black.svg"/>
+                    </button>
+                    <button class="stripe_button primary" type="submit">
+                        <p>Pass Fencer</p>
+                        <img src="../assets/icons/send_black.svg"/>
+                    </button>
                 </div>
-                <div id="page_content_panel_main">
+            </div>
+            <div id="page_content_panel_main">
 
-                </div>
-        </div>
-    </body>
+            </div>
+        </main>
+    </div>
+</body>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
 </html>

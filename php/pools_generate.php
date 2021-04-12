@@ -288,23 +288,23 @@
 </head>
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Generate Pools</p>
                 <div class="stripe_button_wrapper">
                     <button name="submit" form="generate_pools" class="stripe_button primary" type="submit" shortcut="SHIFT+G">
                         <p>Generate Pools</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/build-black.svg">
+                        <img src="../assets/icons/build_black.svg">
                         <p>Set propeties of Pools</p>
                     </div>
                     <div class="db_panel_main">
@@ -361,11 +361,11 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/pools_generate.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/pools_generate.js"></script>
 </html>

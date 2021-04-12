@@ -21,10 +21,10 @@
 </head>
 <body>
 <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
             <div id="title_stripe">
                 <p class="page_title">Overview</p>
                 <div class="stripe_button_wrapper">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="search_wrapper">
                     <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close-black.svg"></button>
+                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
                     <div class="search_results">
                         <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button"></button>
                     </div>
@@ -80,9 +80,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
+        </main>
+    </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+</body>
 </html>

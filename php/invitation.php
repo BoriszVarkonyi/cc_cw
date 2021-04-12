@@ -44,7 +44,7 @@ if (file_exists("../uploads/" . $comp_id . ".png")) {
     $delete_btn_class = "panel_button";
 } else {
 
-    $logo = "../assets/icons/no_image-black.svg";
+    $logo = "../assets/icons/no_image_black.svg";
     $delete_btn_class = "panel_button disabled";
 }
 
@@ -153,21 +153,21 @@ if (file_exists("../uploads/$comp_id.png")) {
 
 <body>
     <!-- header -->
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
+        <main>
 
             <div id="title_stripe">
                 <p class="page_title">Invitation & Plus Information</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button" type="button" onclick="printPage()" shortcut="SHIFT+P">
                         <p>Print Invitation</p>
-                        <img src="../assets/icons/print-black.svg"/>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                     <button class="stripe_button primary" type="button" shortcut="SHIFT+S">
                         <p>Save Invitation</p>
-                        <img src="../assets/icons/save-black.svg"/>
+                        <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
             </div>
@@ -178,7 +178,7 @@ if (file_exists("../uploads/$comp_id.png")) {
 
                     <div class="db_panel other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black.svg">
+                            <img src="../assets/icons/build_black.svg">
                             <p>Plus information</p>
                         </div>
                         <div class="db_panel_main table">
@@ -206,7 +206,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                                     </div>
                                                     <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
                                                         <button class="panel_button" type="submit" name="submit_delete" id="update">
-                                                            <img src="../assets/icons/delete-black.svg">
+                                                            <img src="../assets/icons/delete_black.svg">
                                                         </button>
                                                         <textarea id="update" name="text_body"><?php echo $info_body ?></textarea>
                                                         <input id="update" name="text_title_to_change" type="text" value="<?php echo $info_title ?>" class="hidden">
@@ -221,7 +221,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                             <div class="table_row" onclick="">
                                                 <div class="table_item">
                                                     Add information
-                                                    <img src="../assets/icons/add-black.svg">
+                                                    <img src="../assets/icons/add_black.svg">
                                                 </div>
                                             </div>
                                         </div>
@@ -241,13 +241,13 @@ if (file_exists("../uploads/$comp_id.png")) {
                     </div>
                     <div class="db_panel other">
                         <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build-black.svg">
+                            <img src="../assets/icons/build_black.svg">
                             <p>Add competition logo</p>
                         </div>
                         <div class="db_panel_main">
                             <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
                                 <button id="delete_logo" class="<?php echo $kuka_disable ?>">
-                                    <img src="../assets/icons/delete-black.svg">
+                                    <img src="../assets/icons/delete_black.svg">
                                 </button>
                             </form>
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
@@ -455,12 +455,11 @@ if (file_exists("../uploads/$comp_id.png")) {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/invitation.js"></script>
+    <script src="../js/entry_controls.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/invitation.js"></script>
-<script src="../js/entry_controls.js"></script>
-
 </html>

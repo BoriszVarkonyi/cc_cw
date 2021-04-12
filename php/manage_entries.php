@@ -143,7 +143,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
     <div id="confirmation" class="hidden">
         <form id="confirmation_form">
             <button class="panel_button" onclick="">
-                <img src="../assets/icons/close-black.svg">
+                <img src="../assets/icons/close_black.svg">
             </button>
             <p>Are you sure you want to {action} {object}?</p>
             <p>You cannot withdraw this action!</p>
@@ -153,16 +153,15 @@ header("Location: manage_entries.php?comp_id=$comp_id");
             </div>
         </form>
     </div>
-    <div id="flexbox_container">
+    <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
-        <div class="page_content_flex">
-                <div id="title_stripe">
-                    <p class="page_title">Manage Entries</p>
-                </div>
-                <div id="page_content_panel_main">
-                    <div id="manage_entries_wrapper">
-
+        <main>
+            <div id="title_stripe">
+                <p class="page_title">Manage Entries</p>
+            </div>
+            <div id="page_content_panel_main">
+                <div id="manage_entries_wrapper">
                     <div id="new_entries_panel">
                         <p>New Entries</p>
                         <div class="table">
@@ -221,7 +220,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                         </div>
                                         <div class="entry_panel collapsed">
                                             <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
-                                                <img src="../assets/icons/info-black.svg">
+                                                <img src="../assets/icons/info_black.svg">
                                             </button>
                                             <form id="appdisapp_<?php  echo $entry_id  ?>" class="approve_fencers_wrapper table" action="" method="POST">
                                                 <div class="table_header">
@@ -367,7 +366,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                         </div>
                                         <div class="entry_panel collapsed">
                                             <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
-                                                <img src="../assets/icons/info-black.svg">
+                                                <img src="../assets/icons/info_black.svg">
                                             </button>
                                             <form class="approve_fencers_wrapper table">
                                                 <div class="table_header">
@@ -438,10 +437,11 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </main>
+    </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/manage_entries.js"></script>
+</body>
 </html>

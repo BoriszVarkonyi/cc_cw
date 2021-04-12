@@ -13,7 +13,7 @@
 </head>
 <body class="finished_competitions">
     <?php include "cw_header.php"; ?>
-    <div id="main">
+    <main role="main">
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Finished competitions</p>
@@ -23,12 +23,12 @@
                     <!-- search by name box -->
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close-black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                     </div>
                     <!-- year drop-down -->
                     <div class="search_wrapper narrow">
                         <input type="text" name="" placeholder="-Year-" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)">
-                        <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                         <div class="search_results">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
@@ -45,7 +45,7 @@
                         <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)">
                             <input type="text" name="" placeholder="-Sex-">
                         </button>
-                        <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                         <div class="search_results">
                             <button type="button" onclick="selectSystem(this)">Male</button>
                             <button type="button" onclick="selectSystem(this)">Female</button>
@@ -56,7 +56,7 @@
                         <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)">
                             <input type="text" name="" placeholder="-Weapon Type-">
                         </button>
-                        <button type="button"><img src="../assets/icons/arrow_drop_down-black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                         <div class="search_results">
                             <button type="button" onclick="selectSystem(this)">Epee</button>
                             <button type="button" onclick="selectSystem(this)">Foil</button>
@@ -68,8 +68,7 @@
                 <?php include "../cw/comps_display.php" ?>
             </div>
         </div>
-    </div>
-    </div>
+    </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>

@@ -42,11 +42,11 @@ if (isset($_POST["create_tournament"])) {
             <div class="stripe_button_wrapper">
                 <button class="stripe_button" onclick="location.href='choose_tournament.php'">
                     <p>Cancel</p>
-                    <img src="../assets/icons/close-black.svg"/>
+                    <img src="../assets/icons/close_black.svg"/>
                 </button>
                 <button type="submit" name="create_tournament" form="create_tournament" class="stripe_button primary">
                     <p>Create</p>
-                    <img src="../assets/icons/add-black.svg"/>
+                    <img src="../assets/icons/add_black.svg"/>
                 </button>
             </div>
         </div>
