@@ -255,6 +255,7 @@
     </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
+    <script src="../js/cw_bookmark_competition.js"></script>
     <script src="../js/cw_main.js"></script>
 </body>
 </html>

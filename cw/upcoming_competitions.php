@@ -22,12 +22,12 @@
                     <!-- search by name box -->
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                     <!-- year drop-down -->
                     <div class="search_wrapper narrow">
                         <input type="text" name="" placeholder="-Year-" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" onfocus="resultChecker(this)">
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
                             <?php
                                 for ($i = -1; $i <= 10; $i++) {
@@ -41,25 +41,25 @@
                     </div>
                     <!-- sex drop-down -->
                     <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)">
+                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Sex">
                             <input type="text" name="" placeholder="-Sex-">
                         </button>
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
-                            <button type="button" onclick="selectSystem(this)">Male</button>
-                            <button type="button" onclick="selectSystem(this)">Female</button>
+                            <button type="button" onclick="selectSystem(this)" aria-label="Male">Male</button>
+                            <button type="button" onclick="selectSystem(this)" aria-label="Female">Female</button>
                         </div>
                     </div>
                     <!-- weapon type drop-down -->
                     <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)">
+                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Weapon Type">
                             <input type="text" name="" placeholder="-Weapon Type-">
                         </button>
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
-                            <button type="button" onclick="selectSystem(this)">Epee</button>
-                            <button type="button" onclick="selectSystem(this)">Foil</button>
-                            <button type="button"onclick="selectSystem(this)">Sabre</button>
+                            <button type="button" onclick="selectSystem(this)" aria-label="Epee">Epee</button>
+                            <button type="button" onclick="selectSystem(this)" aria-label="Foil">Foil</button>
+                            <button type="button"onclick="selectSystem(this)" aria-label="Sabre">Sabre</button>
                         </div>
                     </div>
                     <input name="submit_search" type="submit" value="Search">
@@ -70,6 +70,7 @@
     </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
+    <script src="../js/cw_bookmark_competition.js"></script>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/search.js"></script>

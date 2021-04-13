@@ -644,7 +644,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	align-items: center;
 }
 
-#sildes {
+#slides {
 	max-height: 70vh;
 	height: 1000px;
 	width: 100%;
@@ -715,7 +715,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	width: 50px;
 	height: 50px;
 	-webkit-filter: var(--ci-primarycontrast);
-	        filter: var(--ci-primarycontrast);
+	filter: var(--ci-primarycontrast);
 }
 
 .slideshow_navigation_button.left {
@@ -732,33 +732,56 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	position: absolute;
 	opacity: 1;
 	left: 0;
-	transition: opacity ease-in .25s, left ease-in .5s;
+	top: 0;
+	transition: opacity ease-in .25s, filter ease-in .25s;
 	background-color: var(--c-white);
 	-o-object-fit: cover;
 	object-fit: cover;
+	z-index: 1;
 }
 
 .slide.hidden {
-	left: 100vw;
 	opacity: 0;
-	transition: opacity ease-in .5s .55s, left ease-in 1s .5s;
-	z-index: 0;
+	transition: opacity ease-in .5s .55s;
+	z-index: 2;
 }
 
 .slide.blurred {
-	-webkit-filter: blur(5px) brightness(75%);
-	filter: blur(5px) brightness(75%);
+	-webkit-filter: blur(5px) brightness(.8) contrast(.8);
+	filter: blur(5px) brightness(.8) contrast(.8);
+	z-index: 0;
 }
 
-.slide button {
-	background: var(--c-secondary);
-	padding: 5px 10px;
-	font-family: var(--bold);
-	font-size: var(--f-large);
-	border-radius: 5px;
-	margin-left: 30px;
-	z-index: 1;
+#slide_indicator {
+	position: absolute;
+	bottom: 20px;
+	display: flex;
 }
+
+#slide_indicator button {
+	width: 1rem;
+	height: 1rem;
+	background: var(--c-gray);
+	border-radius: 50%;
+	margin: 0 5px;
+	box-shadow: var(--s-black);
+	border: 2px solid var(--c-white);
+}
+
+#slide_indicator button.current {
+	background: var(--c-white);
+	border: none;
+}
+
+#shadow {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: linear-gradient(to top, rgba(0, 0, 0, .4), transparent);
+	height: 30%;
+}
+
+/* Colums */
 
 .column_title {
 	font-family: var(--bold);
@@ -779,10 +802,12 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	flex: 0 0 4rem;
 }
 
-.table_item.live > a {
-	color: var(--c-red);
+.table_item.live a {
+	border: 4px solid var(--c-red);
+	padding: 4px 6px;
+	border-radius: 5px;
 	font-family: var(--bold);
-	text-decoration: underline;
+	line-height: 1;
 }
 
 .about_us {
@@ -792,14 +817,20 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 /* Competitions Pages */
 
 input[value="Search"] {
-	color: var(--c-black);
-	background: var(--c-secondary);
+	background: var(--c-white);
 	font-family: var(--bold);
+	border: 3px solid var(--c-primary);
 	border-radius: 5px;
 	padding: 2px 25px;
 	box-shadow: var(--s-black);
 	height: 37px;
-	color: var(--cd-primarycontrast)
+	color: var(--c-black);
+	transition: all var(--t-basic);
+	flex-basis: 200px !important;
+}
+
+input[value="Search"]:hover {
+	border: 5px solid var(--c-primary);
 }
 
 #browsing_bar {
@@ -828,10 +859,6 @@ input[value="Search"] {
 }
 
 #browsing_bar > .select_input {
-	flex-basis: 200px !important;
-}
-
-#browsing_bar input[type="submit"] {
 	flex-basis: 200px !important;
 }
 
@@ -924,7 +951,7 @@ input[value="Search"] {
 #competition_color_legend {
 	display: flex;
 	align-items: center;
-	margin: -30px 50px 50px 50px;
+	margin: -30px 0 50px 15px;
 }
 
 #competition_color_legend > button {
@@ -1244,7 +1271,6 @@ input[value="Search"] {
 }
 
 .video_wrapper_info p:last-child {
-	color: var(--c-darkgray);
 	font-size: var(--f-small);
 	max-height: calc(var(--f-small) * 1.2 * 3);
 }
@@ -1552,7 +1578,6 @@ input[value="Search"] {
 
 .article_info {
 	text-transform: uppercase;
-	color: var(--c-darkgray);
 	margin-right: 1rem;
 	font-size: var(--f-small);
 	overflow: hidden;

@@ -307,7 +307,7 @@ if (isset($_POST["new_weapon_control"])) {
                                 <button type="button" class="search select input" tabindex="3">
                                     <input type="text" name="date_to_select" placeholder="Select Date">
                                 </button>
-                                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                                 <div class="search_results">
 
                                     <?php

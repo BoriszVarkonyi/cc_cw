@@ -53,12 +53,12 @@
                 <form method="POST" id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="name" placeholder="Search by Name" class="search page alt">
-                        <button type="button"><img src="../assets/icons/close_black.svg"></button>
+                        <button type="button"><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
 
                     <div class="search_wrapper narrow">
                         <input type="number" name="year" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" placeholder="-Year-Of-Birth-" onkeyup="searchEngine(this)">
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
                             <?php
                                 for ($i = +3; $i <= 100; $i++) {

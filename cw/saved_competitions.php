@@ -29,14 +29,14 @@
                     <div class="table_row_wrapper alt">
 
                         <!-- Ezten kell loopba tenni -->
-                        <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
-                            <div class="table_item">
+                        <div class="table_row">
+                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <p><?php echo $comp_name ?></p>
                             </div>
-                            <div class="table_item">
+                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <p><?php echo $comp_start . " - " . $comp_end ?></p>
                             </div>
-                            <div class="table_item">
+                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <p><?php echo statusConverter($comp_status) ?></p>
                             </div>
                             <div class="big_status_item">
@@ -46,7 +46,6 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
             </div>
@@ -54,6 +53,7 @@
     </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
+    <script src="../js/cw_bookmark_competition.js"></script>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
 </body>
