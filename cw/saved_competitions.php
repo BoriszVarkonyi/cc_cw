@@ -1,33 +1,6 @@
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
-<?php $statusofpage = 4; ?>
-<?php
 
-
-    $cookie_expires = time() + 31556926;
-    $cookie_name = "fav_comp";
-
-    if (isset($_COOKIE[$cookie_name])) {
-        $saved_comps = $_COOKIE[$cookie_name];
-    } else {
-        $saved_comps = 0;
-    }
-
-    $saved_comps = str_replace("%", ", ", $saved_comps);
-    $saved_comps = substr_replace($saved_comps, "", 0, 1);
-    $saved_comps .= "0";
-
-    $cookie_value = $_COOKIE[$cookie_name];
-
-    if (isset($_POST['submit_button'])) {
-        $comp_id = $_POST['submit_button'];
-
-        $cookie_value = str_replace($comp_id . "%", "", $cookie_value);
-
-        setcookie($cookie_name, $cookie_value, $cookie_expires, "/");
-        header("Refresh:0");
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +13,7 @@
 </head>
 <body class="saved_competitions">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Saved competitions</p>
@@ -54,48 +27,33 @@
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper alt">
-                        <?php
-                        $qry_get_data = "SELECT * FROM competitions WHERE comp_id IN ($saved_comps);";
-                        $do_get_data =  mysqli_query($connection, $qry_get_data);
-                        echo mysqli_error($connection);
 
-                        while ($row = mysqli_fetch_assoc($do_get_data)) {
-                            $comp_name = $row['comp_name'];
-                            $comp_id = $row['comp_id'];
-                            $comp_status = $row['comp_status'];
-                            $star = "../assets/icons/star_black.svg";
-                            $comp_start = $row['comp_start'];
-                            $comp_end = $row['comp_start'];
-
-                            ?>
-                            <!-- outputting the table -->
-                            <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
-                                <div class="table_item">
-                                    <p><?php echo $comp_name ?></p>
-                                </div>
-                                <div class="table_item">
-                                    <p><?php echo $comp_start . " - " . $comp_end ?></p>
-                                </div>
-                                <div class="table_item">
-                                    <p><?php echo statusConverter($comp_status) ?></p>
-                                </div>
-                                <form method="POST" class="big_status_item">
-
-                                    <button name="submit_button" type="submit" class="favourite_button" value="<?php echo $comp_id?>">
-                                        <img src="<?php echo $star ?>" alt="Save Competition">
-                                    </button>
-                                </form>
+                        <!-- Ezten kell loopba tenni -->
+                        <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                            <div class="table_item">
+                                <p><?php echo $comp_name ?></p>
                             </div>
-                        <?php
-                        }
-                        ?>
+                            <div class="table_item">
+                                <p><?php echo $comp_start . " - " . $comp_end ?></p>
+                            </div>
+                            <div class="table_item">
+                                <p><?php echo statusConverter($comp_status) ?></p>
+                            </div>
+                            <div class="big_status_item">
+                                <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
+                                    <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
+                                </button>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
 </body>

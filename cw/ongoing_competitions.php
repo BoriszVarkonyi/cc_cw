@@ -1,4 +1,3 @@
-<?php include "../includes/cw_fav_button_list.php" ?>
 <?php $statusofpage = 3; ?>
 
 <!DOCTYPE html>
@@ -13,7 +12,7 @@
 </head>
 <body class="ongoing_competitions">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Ongoing competitions</p>
@@ -41,6 +40,7 @@
         </div>
     </main>
     <?php include "cw_footer.php"; ?>
+    <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/cw_ongoing_competitions.js"></script>

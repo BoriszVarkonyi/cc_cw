@@ -31,19 +31,19 @@
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper zoom">
-                    <button class="view_button" onclick="zoomOut()" id="zoomOutButton">
+                <div class="view_button_wrapper first">
+                    <button onclick="zoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="zoomIn()" id="zoomInButton">
+                    <button onclick="zoomIn()" id="zoomInButton">
                         <img src="../assets/icons/zoom_in_black.svg"/>
                     </button>
                 </div>
-                <div class="view_button_wrapper view">
-                    <button class="view_button" onclick="viewButton(this)" id="panelViewButton">
+                <div class="view_button_wrapper fourth">
+                    <button onclick="viewButton(this)" id="panelViewButton">
                         <img src="../assets/icons/view_grid_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="viewButton(this)" id="printViewButton">
+                    <button onclick="viewButton(this)" id="printViewButton">
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
                 </div>

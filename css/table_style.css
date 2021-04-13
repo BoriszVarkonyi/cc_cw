@@ -24,8 +24,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	top: 0;
 	z-index: 2;
+	top: 0;
 }
 
 .elimination_slider_button.disabled {
@@ -109,6 +109,7 @@
 	width: 100%;
 	margin-bottom: 10px;
 	box-sizing: border-box;
+	z-index: 0;
 }
 
 .table_round_wrapper:focus {

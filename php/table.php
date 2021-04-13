@@ -320,20 +320,46 @@ if (isset($_POST["generate_table"])) {
                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
                         <button type="button"><img src="../assets/icons/close_black.svg"></button>
                         <div class="search_results">
-
                             <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Example</button>
-
                         </div>
                     </div>
 
                 <?php } ?>
-                <div class="view_button_wrapper zoom">
-                    <button class="view_button" onclick="tableZoomOut()" id="zoomOutButton">
+                <div class="view_button_wrapper first">
+                    <button onclick="tableZoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out_black.svg"/>
                     </button>
-                    <button class="view_button" onclick="tableZoomIn()" id="zoomInButton">
+                    <button onclick="tableZoomIn()" id="zoomInButton">
                         <img src="../assets/icons/zoom_in_black.svg"/>
                     </button>
+                </div>
+
+                <div class="view_button_wrapper second">
+                    <button onclick="toggleThisPanel(this)" id="">
+                        <img src="../assets/icons/list_alt_black.svg"/>
+                    </button>
+                </div>
+
+                <div class="view_panel second" id="view_panel_1">
+                    <div class="color_legend">
+                        <div class="green">Finished</div>
+                        <div class="yellow">Ongoing</div>
+                        <div class="red">Haven't started</div>
+                    </div>
+                </div>
+
+                <div class="view_button_wrapper third">
+                    <button onclick="toggleThisPanel(this)" id="">
+                        <img src="../assets/icons/settings_black.svg"/>
+                    </button>
+                </div>
+
+                <div class="view_panel third" id="view_panel_2">
+                    <label for="">DISPLAY FENCERS'</label>
+                    <div class="option_container">
+                        <input type="checkbox" name="fencer_type" id="nat" value="1"/>
+                        <label for="nat">Nationality</label>
+                    </div>
                 </div>
             </div>
             <div id="page_content_panel_main">
@@ -467,12 +493,6 @@ if (isset($_POST["generate_table"])) {
                     </div>
 
                 <?php } ?>
-
-                <div class="color_legend">
-                    <div class="green">Finished</div>
-                    <div class="yellow">Ongoing</div>
-                    <div class="red">Haven't started</div>
-                </div>
             </div>
         </main>
     </div>

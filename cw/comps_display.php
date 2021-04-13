@@ -23,32 +23,31 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
     $comp_host = $row['comp_host'];
     $comp_id = $row['comp_id'];
 
-    $star = getStar($comp_id);
 
     ?>
 
     <!-- outputting the table -->
-    <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
-        <div class="table_item">
+    <div class="table_row">
+        <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
             <p>
                 <?php echo $comp_name; ?>
             </p>
         </div>
-        <div class="table_item">
+        <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
             <p>
                 <?php echo $comp_start . "&nbsp;&nbsp;-&nbsp;&nbsp;" . $comp_end; ?>
             </p>
         </div>
-        <div class="table_item">
+        <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
             <p>
                 <?php echo $comp_host; ?>
             </p>
         </div>
-        <form method="POST" class="big_status_item">
-            <button name="submit_button" value="<?php echo $comp_id ?>" class="favourite_button">
-                <img src="<?php echo $star ?>" alt="Save Competition">
+        <div class="big_status_item">
+            <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
+                <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
             </button>
-        </form>
+        </div>
     </div>
 
 <?php } ?>

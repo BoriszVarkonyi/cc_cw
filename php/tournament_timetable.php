@@ -233,7 +233,7 @@ if (isset($_POST["new_weapon_control"])) {
                     </div>
                     <div>
                         <label for="">MINUTE / FENCER</label>
-                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="1" min="1">
+                        <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="1">
                     </div>
                     <div class="row">
                         <button class="panel_submit secondary relative" type="button" onclick="toggleWcPhase()">Cancel</button>

@@ -182,7 +182,6 @@ if (isset($_POST["logout"])) {
 
     ?>
     <img src="<?php echo $profile_pic ?>" id="profile_picture" onclick="toggleProfilePanel()" height="30" width="30"/>
-
     <!-- profile data -->
     <div class="identity_section" onclick="toggleProfilePanel()">
         <p id="username"><?php echo $username; ?></p>

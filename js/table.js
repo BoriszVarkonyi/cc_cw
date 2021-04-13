@@ -193,7 +193,6 @@ else {
     marginNumber = 30;
     document.cookie = "marginNumber=" + marginNumber;
 }
-console.log(document.cookie)
 //Table zoom in/zoom out buttons
 
 function tableZoomOut() {
@@ -494,3 +493,6 @@ function selectRound(x){
     document.cookie = "index3=" + index3;
 }
 
+function toggleThisPanel(x){
+    x.parentNode.nextElementSibling.classList.toggle("hidden")
+}

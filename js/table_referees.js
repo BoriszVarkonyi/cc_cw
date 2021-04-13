@@ -19,6 +19,20 @@ var video_ref = document.getElementById("v_ref")
 var nation = document.getElementById("nat")
 var club = document.getElementById("club")
 
+//usage_of_referees
+
+var automatic = document.getElementById("automatic")
+var manual = document.getElementById("manual")
+
+var mpr = document.getElementById("mpr")
+
+//shuffle array function
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
+
+
 //Function for changing nation to club selection
 
 function nation_to_club() {
@@ -296,15 +310,19 @@ function try_referees() {
 
     //Get matches
 
-    var matches = {}
+    var matches = []
 
     var table_rows = table_wrapper.querySelectorAll(".table_row")
+
+    var availableMatches = 0
 
     for (let i = 0; i < table_rows.length; i++) {
 
         if (table_rows[i].classList.contains("skip")) {
             continue;
         }
+
+        availableMatches++;
 
         var id = table_rows[i].querySelector(".id").children
         var piste = table_rows[i].querySelector(".pistes").children
@@ -375,4 +393,128 @@ function try_referees() {
 
     console.log(referees)
 
+    if (automatic.checked == true) {
+
+        //Assign referees to matches automatically
+
+        var assignedArray = []
+
+        for (const key in matches) {
+
+            //console.log(matches[key])
+
+            refIndexCounter = 0
+
+            for (const ref of referees) {
+
+                var canUse = true
+
+                for (const matchData of matches[key]) {
+
+                    if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
+
+                        console.log("OK")
+                    } else {
+
+                        canUse = false
+                        break
+                    }
+
+                }
+
+                if (canUse == true) {
+
+                    for (const matchData of matches[key]) {
+
+                        assignedArray.push([matchData.match_id, ref])
+                    }
+
+                    referees.splice(refIndexCounter, 1)
+                    break
+
+                } else {
+
+                    refIndexCounter++
+                }
+            }
+        }
+        console.log(assignedArray)
+    }
+
+    if (manual.checked == true) {
+
+        //Assign referees to matches manual match num
+
+        change_every = mpr.value
+
+        console.log(availableMatches)
+
+        var assignedArray = []
+
+        for (let index = 0; index < 10; index++) {
+
+            if (assignedArray == availableMatches) {
+                break
+            }
+
+            shuffle(referees)
+
+            assignedArray = []
+
+            for (const key in matches) {
+
+                //console.log(matches[key])
+
+                refIndexCounter = 0
+
+                for (const ref of referees) {
+
+                    var canUse = true
+
+                    var counter = 0
+
+                    for (const matchData of matches[key]) {
+
+                        if (counter == change_every) {
+                            break
+                        }
+
+                        if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
+                            console.log("OK")
+                            counter++
+                        } else {
+                            canUse = false
+                            break
+                        }
+
+                    }
+
+                    if (canUse == true) {
+
+                        var counter = 0
+
+                        for (const matchData of matches[key]) {
+
+                            if (counter == change_every) {
+                                break
+                            }
+
+                            assignedArray.push([matchData.match_id, ref])
+
+                            counter++
+                        }
+
+                        referees.splice(refIndexCounter, 1)
+                        matches[key].splice(0, change_every)
+                        break
+
+                    } else {
+
+                        refIndexCounter++
+                    }
+                }
+            }
+            console.log(assignedArray)
+        }
+    }
 }

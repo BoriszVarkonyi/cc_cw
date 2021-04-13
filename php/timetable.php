@@ -104,12 +104,6 @@
 
                         </div>
                     </div>
-                    <div class="color_legend">
-                        <div class="green">Starting Date</div>
-                        <div class="red">Ending Date</div>
-                        <div class="orange">Has Weapon Control</div>
-                        <div class="gray_outline">Today</div>
-                    </div>
                 </div>
             </div>
         </main>
