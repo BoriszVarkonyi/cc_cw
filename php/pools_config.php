@@ -262,8 +262,8 @@
             function __construct($pool_num, $number_of_fencers, $start, $json_table) {
                 for ($j = $start + 1; $j <= $number_of_fencers; $j++) {
 
-                    $id = $json_table[$pool_num-1] -> {$start} -> id;
-                    $enemy = $json_table[$pool_num-1] -> {$j} -> id;
+                    $id = $json_table[$pool_num] -> {$start} -> id;
+                    $enemy = $json_table[$pool_num] -> {$j} -> id;
 
                     $this -> {$j} = new match($id, $enemy);
                 }

@@ -19,7 +19,7 @@
 
     $pool_num = $_GET['poolid'];
     $current_f_pool = $fencers_table[$pool_num];
-    $current_m_pool = $matches_table[$pool_num];
+    $current_m_pool = $matches_table[$pool_num - 1];
 
     //get number of fencers in pools
     $pool_f_in = getFencersInPool($current_f_pool);
