@@ -26,9 +26,9 @@
             </button>
             <div id="slides">
                 <img src="../article_pics/4.png" alt="slide_1" class="slide">
-                <img src="../article_pics/7.png" alt="slide_2" class="slide">
-                <img src="../assets/img/fencers_bg_d.svg" alt="slide_3" class="slide">
-                <img src="../assets/img/fencers_bg_v.svg" alt="slide_4" class="slide">
+                <img src="../article_pics/7.png" alt="slide_2" class="slide hidden">
+                <img src="../assets/img/fencers_bg_d.svg" alt="slide_3" class="slide hidden">
+                <img src="../assets/img/fencers_bg_v.svg" alt="slide_4" class="slide hidden">
             </div>
             <div id="shadow"></div>
             <div id="slide_indicator">
