@@ -284,7 +284,7 @@
                 $number_of_fencers = getNumberOfFencers($json_table, $pool_num);
 
                 for ($i = 1; $i < $number_of_fencers; $i++) {
-                    $this -> {$i} = new matches($number_of_fencers, $i, $json_table);
+                    $this -> {$i} = new matches($pool_num, $i, $json_table);
                 }
             }
         }
