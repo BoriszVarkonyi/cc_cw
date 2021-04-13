@@ -9,6 +9,7 @@
     <title>CompetitionView</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <meta name="description" content="Check and Follow Fencing Competitions around the world with CompetitionView">
 </head>
 <body class="home">
     <?php include "cw_header.php"; ?>
@@ -23,8 +24,18 @@
             <button class="slideshow_navigation_button right" aria-label="Slideshow go right">
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
-            <div id="sildes">
+            <div id="slides">
                 <img src="../article_pics/4.png" alt="slide_1" class="slide">
+                <img src="../article_pics/7.png" alt="slide_2" class="slide">
+                <img src="../assets/img/fencers_bg_d.svg" alt="slide_3" class="slide">
+                <img src="../assets/img/fencers_bg_v.svg" alt="slide_4" class="slide">
+            </div>
+            <div id="shadow"></div>
+            <div id="slide_indicator">
+                <button onclick="jumpToSlide(1)" aria-label="Jump to Slide 1" class="current"></button>
+                <button onclick="jumpToSlide(2)" aria-label="Jump to Slide 2"></button>
+                <button onclick="jumpToSlide(3)" aria-label="Jump to Slide 3"></button>
+                <button onclick="jumpToSlide(4)" aria-label="Jump to Slide 4"></button>
             </div>
         </div>
         <div id="content">
@@ -45,14 +56,14 @@
 
                                 //displays the compnames in a table with href button (live)
                                 ?>
-                                <div class="table_row" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                <div class="table_row">
                                     <!-- comp_name displayed -->
-                                    <div class="table_item">
+                                    <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                         <p><?php echo $comp_name ?></p>
                                     </div>
                                     <!-- live button href -->
                                     <div class="table_item live">
-                                        <a href="">Live</a>
+                                        <a href="competition.php?comp_id=<?php echo $comp_id ?>">Live</a>
                                     </div>
                                     <div class="big_status_item">
                                         <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">

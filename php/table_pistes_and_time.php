@@ -112,7 +112,7 @@ if (isset($_POST["save_piste_time"])) {
 
                                                                                     ?>">
                             </button>
-                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                             <div class="search_results">
 
 
