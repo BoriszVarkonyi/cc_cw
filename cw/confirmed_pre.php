@@ -43,6 +43,7 @@ if(!$query_do){
 echo mysqli_error($connection);
 
 echo "KISGECI";
+// Na ne beszélj csúnyán mert megmondalak 😎😎
 
 }
 

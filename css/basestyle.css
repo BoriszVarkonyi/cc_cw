@@ -242,18 +242,6 @@ a {
 	cursor: pointer;
 }
 
-strong {
-	font-family: var(--bold);
-}
-
-strong.red {
-	color: var(--cs-red);
-}
-
-strong.green {
-	color: var(--cs-green);
-}
-
 form.hidden, form.disabled {
 	display: none;
 }
@@ -384,7 +372,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="emai
 	border-radius: 5px;
 	background-repeat: no-repeat;
 	background-position: 10px;
-
+	text-align: start; /* Needed cos od number inputs */
 }
 
 input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt {		/* Sets basic look of text and password inputs*/

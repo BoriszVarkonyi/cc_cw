@@ -19,6 +19,14 @@
                 <p class="stripe_title">Saved competitions</p>
             </div>
             <div id="content_wrapper">
+                <div id="page_info_wrapper">
+                    <div class="help_icon">
+                        <img src="../assets/icons/help_black.svg" alt="Page Information and Help Icon">
+                    </div>
+                    <div class="page_info">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                    </div>
+                </div>
                 <div class="table cw middle">
                     <div class="table_header">
                         <div class="table_header_text"><p>COMPETITION'S NAME</p></div>
@@ -27,7 +35,6 @@
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper alt">
-
                         <!-- Ezten kell loopba tenni -->
                         <div class="table_row">
                             <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">

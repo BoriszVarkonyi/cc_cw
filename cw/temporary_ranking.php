@@ -10,18 +10,18 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="competitions">
-    <div id="wrapper">
-        <?php include "cw_header.php"; ?>
-        <main>
-            <div id="content">
-                <div id="title_stripe">
-                    <p class="stripe_title">
-                        <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
-                            <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                        </button>
-                        Temporary Ranking of <?php echo $comp_name ?>
-                    </p>
-                </div>
+    <?php include "cw_header.php"; ?>
+    <main>
+        <div id="content">
+            <div id="title_stripe">
+                <p class="stripe_title">
+                    <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                    </a>
+                    Temporary Ranking of <?php echo $comp_name ?>
+                </p>
+            </div>
+            <div id="content_wrapper">
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
@@ -29,11 +29,11 @@
                     </div>
                 </form>
                 <div id="competition_color_legend">
-                    <button id="fencing_lengend" value="Registration Finished"></button>
+                    <button id="fencing_lengend" value="Registration Finished" aria-label="Select Still Fencing"></button>
                     <p>Still fencing</p>
-                    <button id="eliminated_lengend" value="Ongoing Pools"></button>
+                    <button id="eliminated_lengend" value="Ongoing Pools" aria-label="Select Eliminated"></button>
                     <p>Eliminated</p>
-                    <button id="passed_lengend" value="Ongoing Table"></button>
+                    <button id="passed_lengend" value="Ongoing Table" aria-label="Select Passsed"></button>
                     <p>Passed</p>
                 </div>
                 <div class="table cw">
@@ -79,12 +79,13 @@
                     </div>
                 </div>
             </div>
-            <?php include "cw_footer.php"; ?>
         </div>
+        <?php include "cw_footer.php"; ?>
     </main>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>
     <script src="../js/cw_temporary_ranking.js"></script>
     <script src="../js/search.js"></script>
+</body>
 </html>

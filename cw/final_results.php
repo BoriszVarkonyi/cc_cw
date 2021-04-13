@@ -15,9 +15,9 @@
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                    <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                    </button>
+                    </a>
                     Final Results of <?php echo $comp_name ?>
                 </p>
             </div>
@@ -54,7 +54,7 @@
                                 </p>
                             </div>
                             <div class="big_status_item gold">
-                                <img src="../assets/icons/emoji_events_black.svg">
+                                <img src="../assets/icons/emoji_events_black.svg" alt="Winner Icon">
                             </div>
                         </div>
                         <div class="table_row">
