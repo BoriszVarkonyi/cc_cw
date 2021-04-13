@@ -250,8 +250,9 @@
         //initial data from form
         $pool_of = $_POST['pools_of'];
         //js majd ideadja
-        $number_of_pools = ceil($number_of_fencers/$pool_of);
-
+        $array_p = explode(";", $pool_of);
+        $pool_of = $array_p[0];
+        $number_of_pools = $array_p[1];
 
         //SORTING OOGA BOOGA
         $objects = new ObjSorter($json_table,'classement');
