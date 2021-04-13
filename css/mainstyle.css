@@ -316,12 +316,19 @@ header {
 	color: var(--c-black);
 }
 
-.language_button > img { /* 3:2 aspect ratio */
+.language_button > img {
 	height: 12px;
 	width: 18px;
 	margin-right: 10px;
 	box-shadow: var(--s-black);
-	aspect-ratio: 3 / 2;
+}
+
+@supports (aspect-ratio: 3 / 2) {
+	.language_button > img { /* 3:2 aspect ratio */
+		height: 12px;
+		width: unset;
+		aspect-ratio: 3 / 2;
+	}
 }
 
 .language_button.selected {
@@ -480,7 +487,7 @@ header {
 	opacity: 0;
 }
 
-.panel_button::after:empty {
+.panel_button:empty::after {
 	padding: 3px 6px;
 }
 
@@ -642,14 +649,9 @@ header {
 	background: var(--c-white) !important;
 }
 
-.stripe_button.bold {
-	font-family: var(--bold);
-}
-
 .stripe_button.primary {
 	background: var(--c-primary);
 	box-shadow: var(--s-orange);
-	font-family: var(--bold);
 	color: var(--cd-primarycontrast);
 }
 
@@ -662,10 +664,13 @@ header {
 	filter: invert();
 }
 
+.stripe_button.bold, .stripe_button.primary, .stripe_button.red, .stripe_button.green, .stripe_button.blue {
+	font-family: var(--bold);
+}
+
 .stripe_button.red {
 	background: var(--c-red);
 	box-shadow: var(--s-red);
-	font-family: var(--bold);
 }
 
 .stripe_button.red:hover {
@@ -675,7 +680,6 @@ header {
 .stripe_button.green {
 	background: var(--c-green);
 	box-shadow: var(--s-green);
-	font-family: var(--bold);
 }
 
 .stripe_button.green:hover {
@@ -685,7 +689,6 @@ header {
 .stripe_button.blue {
 	background: var(--c-blue);
 	box-shadow: var(--s-blue);
-	font-family: var(--bold);
 }
 
 .stripe_button.blue:hover {
@@ -1449,7 +1452,7 @@ nav.closed #need_help img {
 @-webkit-keyframes showDropdown {
 	0% {
 		opacity: 0;
-		display: aboslute;
+		display: absolute;
 	}
 
 	1% {
@@ -1465,7 +1468,7 @@ nav.closed #need_help img {
 @keyframes showDropdown {
 	0% {
 		opacity: 0;
-		display: aboslute;
+		display: absolute;
 	}
 
 	1% {

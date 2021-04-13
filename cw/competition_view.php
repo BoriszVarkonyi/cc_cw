@@ -12,7 +12,7 @@
 </head>
 <body class="home">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="slideshow">
             <div id="slideshow_content">
                 <p id="slideshow_title">Check Competitions</p>
@@ -24,9 +24,7 @@
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="sildes">
-                <!-- slide1 -->
-                <div class="slide" style="background-image: url(../assets/img/fencers_bg_d.svg)">
-                </div>
+                <img src="../article_pics/4.png" alt="slide_1" class="slide">
             </div>
         </div>
         <div id="content">
@@ -57,7 +55,7 @@
                                         <a href="">Live</a>
                                     </div>
                                     <div class="big_status_item">
-                                        <button value="<?php echo $comp_id ?>" class="favourite_button" onclick="favButton(this)">
+                                        <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                                             <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                                         </button>
                                     </div>

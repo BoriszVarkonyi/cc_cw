@@ -454,11 +454,11 @@ if (isset($_POST["time_change"])) {
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow.svg">
+                                        <img src="../assets/icons/card_yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[0] ?>" name="f1_y">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red.svg">
+                                        <img src="../assets/icons/card_red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[1] ?>" name="f1_r">
                                     </div>
                                     <div class="card_wrapper">
@@ -469,11 +469,11 @@ if (isset($_POST["time_change"])) {
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow.svg">
+                                        <img src="../assets/icons/card_yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[3] ?>" name="f1_y_p">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red.svg">
+                                        <img src="../assets/icons/card_red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[4] ?>" name="f1_r_p">
                                     </div>
                                     <div class="card_wrapper">
@@ -504,11 +504,11 @@ if (isset($_POST["time_change"])) {
                                 <div>
                                     Regular
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow.svg">
+                                        <img src="../assets/icons/card_yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[0] ?>" name="f2_y">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red.svg">
+                                        <img src="../assets/icons/card_red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[1] ?>" name="f2_r">
                                     </div>
                                     <div class="card_wrapper">
@@ -519,11 +519,11 @@ if (isset($_POST["time_change"])) {
                                 <div>
                                     Passive
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-yellow.svg">
+                                        <img src="../assets/icons/card_yellow.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[3] ?>" name="f2_y_p">
                                     </div>
                                     <div class="card_wrapper">
-                                        <img src="../assets/icons/card-red.svg">
+                                        <img src="../assets/icons/card_red.svg">
                                         <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[4] ?>" name="f2_r_p">
                                     </div>
                                     <div class="card_wrapper">

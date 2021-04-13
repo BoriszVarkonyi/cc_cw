@@ -12,7 +12,7 @@
 </head>
 <body class="finished_competitions">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Finished competitions</p>

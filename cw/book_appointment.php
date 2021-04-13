@@ -37,7 +37,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">

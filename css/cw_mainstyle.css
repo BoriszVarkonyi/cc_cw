@@ -120,7 +120,7 @@ footer {
 		padding: 0 10px;
 	}
 
-	.table .favourite_button {
+	.table .bookmark_button {
 		opacity: 1;
 	}
 
@@ -128,7 +128,7 @@ footer {
 		font-size: var(--f-small);
 	}
 
-	.table .table_item:not(div.table_item:first-of-type), .table .table_header_text:not(div.table_header_tex:first-of-type) {
+	.table .table_item:not(div.table_item:first-of-type), .table .table_header_text:not(div.table_header_text:first-of-type) {
 		display: none;
 	}
 
@@ -174,10 +174,6 @@ footer {
 		padding: 0 20px;
 	}
 
-	.table .favourite_button {
-		opacity: 1;
-	}
-
 	#browsing_bar > * {
 		flex: 0 1 auto;
 	}
@@ -214,7 +210,7 @@ footer {
 		padding: 0 40px;
 	}
 
-	.table .favourite_button {
+	.table .bookmark_button {
 		opacity: 0;
 	}
 
@@ -738,8 +734,8 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 	left: 0;
 	transition: opacity ease-in .25s, left ease-in .5s;
 	background-color: var(--c-white);
-	background-size: cover;
-	background-position: center center;
+	-o-object-fit: cover;
+	object-fit: cover;
 }
 
 .slide.hidden {
@@ -776,35 +772,6 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 .column_title.centered {
 	margin: 20px 0 10px;
 	justify-content: center;
-}
-
-.cw_panel_title > .favourite_button {
-	margin: 0 0 4px 10px;
-}
-
-.cw_panel_title_wrapper {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
-}
-
-.cw_panel_title_wrapper > button {
-	margin: 0;
-	margin-right: 20px;
-}
-
-.cw_panel_title_wrapper > p {
-	font-family: var(--bold);
-	font-size: var(--f-large);
-	text-transform: uppercase;
-}
-
-.cw_panel_subtitle {
-	font-family: var(--bold);
-	text-transform: uppercase;
-	position: absolute;
-	top: 30px;
-	left: 30px;
 }
 
 .table_item.live {
@@ -1486,26 +1453,26 @@ input[value="Search"] {
 
 /* Saved Competitions */
 
-.favourite_button {
+.bookmark_button {
 	width: 30px;
 	height: 30px;
 	background: transparent;
 }
 
-.favourite_button:hover {
+.bookmark_button:hover {
 	transform: scale(1.1);
 }
 
-.favourite_button > img {
+.bookmark_button img {
 	width: 100%;
 	height: 100%;
 }
 
-.table_row > .big_status_item > .favourite_button {
+.big_status_item .bookmark_button {
 	transition: opacity var(--t-basic);
 }
 
-.table_row:hover > .big_status_item > .favourite_button {
+.table_row:hover .big_status_item .bookmark_button {
 	opacity: 1;
 	transition: opacity var(--t-basic);
 }
@@ -1617,12 +1584,13 @@ article p.h2 {
 }
 
 article img {
-	width: 30rem;
 	height: 20rem;
+	max-width: 100%;
 	-o-object-fit: cover;
 	object-fit: cover;
 	float: right;
 	margin: 0 0 1rem 1rem;
+	border-radius: 5px;
 }
 
 article .body p {

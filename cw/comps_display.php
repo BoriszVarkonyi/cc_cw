@@ -44,7 +44,7 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
             </p>
         </div>
         <div class="big_status_item">
-            <button value="<?php echo $comp_id ?>" class="favourite_button" onclick="favButton(this)">
+            <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                 <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
             </button>
         </div>

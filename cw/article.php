@@ -26,7 +26,7 @@
 </head>
 <body class="blog">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title"><?php echo $title ?></p>
@@ -38,8 +38,7 @@
                         <p><?php echo $date ?></p>
                     </div>
                     <div class="body">
-                        <!--<img src="<?php echo $pic ?>">-->
-                        <img class="bg_fencers">
+                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
                         <p><?php echo $body ?></p>
                     </div>
                 </article>

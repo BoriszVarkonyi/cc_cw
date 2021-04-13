@@ -213,7 +213,7 @@ function printPage() {
 
 var bookmarkCookies = cookieFinder("bookmarks", "", false, 365)
 //Makes the saved bookmarks bookmarked when the page is loaded
-var bookmarkButtons = document.querySelectorAll(".favourite_button");
+var bookmarkButtons = document.querySelectorAll(".bookmark_button");
 var cookieInArray = bookmarkCookies.split(",");
 for (i = 0; i < bookmarkButtons.length; i++) {
     for (k = 0; k<cookieInArray.length; k++) {

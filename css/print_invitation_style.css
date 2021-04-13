@@ -195,7 +195,7 @@
 		margin: 30pt !important;
 	}
 
-    .db_panel, a, .favourite_button, header, footer, #competition_controls {
+    .db_panel, a, .bookmark_button, header, footer, #competition_controls {
         display: none !important;
 	}
 

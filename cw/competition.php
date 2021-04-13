@@ -61,13 +61,13 @@
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe" class="big">
                 <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
                 <p class="stripe_title"><?php echo $comp_name ?></p>
-                <button value="<?php echo $comp_id ?>" class="favourite_button" onclick="favButton(this)">
+                <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                 </button>
                 <p id="comp_status">ONGOING</p>
