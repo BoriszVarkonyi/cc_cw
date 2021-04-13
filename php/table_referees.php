@@ -146,7 +146,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                             </div>
                                             <div id="">
                                                 <label for="">MAX MATCH PER REFEREE</label>
-                                                <input type="number" name="" id="" class="number_input centered" placeholder="#">
+                                                <input type="number" name="" id="mpr" class="number_input centered" placeholder="#">
                                             </div>
                                         </div>
                                         <div>
