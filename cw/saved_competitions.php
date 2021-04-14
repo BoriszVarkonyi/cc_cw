@@ -24,7 +24,8 @@
                         <img src="../assets/icons/help_black.svg" alt="Page Information and Help Icon">
                     </div>
                     <div class="page_info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                        <p>You can bookmark competitions by clicking the <strong>bookmark button</strong><span><img src="../assets/icons/bookmark_border_black.svg" alt="Bookmark Icon"></span>.</p>
+                        <p>These are only stored in your browser and will be deleted after the removal of <a href="https://www.allaboutcookies.org/cookies/">cookies</a>.</p>
                     </div>
                 </div>
                 <div class="table cw middle">
@@ -35,6 +36,7 @@
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper alt">
+
                         <!-- Ezten kell loopba tenni -->
                         <div class="table_row">
                             <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">

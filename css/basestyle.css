@@ -840,7 +840,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 .table {		/* Whole table */
 	flex-direction: column;
 	color: var(--c-black);
-	--lineheight: var(--lineheight);
+	--lineheight: calc(1.4em + 1.25vmin);
 }
 
 .table p {
@@ -903,8 +903,8 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 }
 
 .table_header_text.square, .table_item.square {
-	min-width: calc(1.4em + 1.25vmin);
-	max-width: calc(1.4em + 1.25vmin);
+	min-width: --lineheight;
+	max-width: --lineheight;
 }
 
 .table_item.square.red {
@@ -996,6 +996,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	outline: none;
 	cursor: pointer;
 	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
+	height: var(--lineheight);
 }
 
 .entry > .table_row {
@@ -1074,7 +1075,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 .table_row_drop.opened {
 	display: flex !important;
 	background: var(--c-lightprimary) !important;
-	height: calc(1.4em + 1.25vmin);
+	height: --lineheight;
 	border-radius: 0px;
 	max-width: 100% !important;
 }
@@ -1172,10 +1173,6 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 }
 
 /* Universal Table */
-
-.table_row {
-	height: calc(1.4em + 1.25vmin);
-}
 
 .table_header_text, .table_item {
 	white-space: nowrap;
