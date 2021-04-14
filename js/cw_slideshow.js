@@ -1,3 +1,4 @@
+/*
 //SLIDESHOW
 var slides = document.querySelectorAll(".slide");
 var slidesNumber = 0;
@@ -74,7 +75,71 @@ function showSlides() {
 }
 //Slideshow automatic timer
 var myTimer = setInterval(showSlides, 5000)
+*/
 
+//SLIDESHOW 2.0 (R.I.P 1.0 :c)
+var slides = document.querySelectorAll(".slide");
+var slideButtons = document.querySelectorAll("#slide_indicator button")
+var slideNumber = 0;
 
+function autoSlide() {
+  var previusSlide = slides[slideNumber]
+  previusSlide.classList.add("blurred")
+  slideButtons[slideNumber].classList.remove("current")
+  if (slideNumber + 1 == slides.length) {
+    slideNumber = 0;
+  }
+  else {
+    slideNumber++
+  }
+  setTimeout(function () {
+    slides[slideNumber].classList.remove("hidden")
+  }, 250)
+  setTimeout(function () {
+    slideButtons[slideNumber].classList.add("current")
+    previusSlide.classList.add("hidden")
+  }, 500)
+}
+var myTimer = setInterval(autoSlide, 3000)
+
+function slideToRight() {
+  clearInterval(myTimer)
+  slides[slideNumber].classList.add("hidden")
+  slideButtons[slideNumber].classList.remove("current")
+  if (slideNumber + 1 == slides.length) {
+    slideNumber = 0;
+  }
+  else {
+    slideNumber++
+  }
+  slides[slideNumber].classList.remove("hidden")
+  slideButtons[slideNumber].classList.add("current")
+  myTimer = setInterval(autoSlide, 3000)
+}
+
+function slideToLeft() {
+  clearInterval(myTimer)
+  slides[slideNumber].classList.add("hidden")
+  slideButtons[slideNumber].classList.remove("current")
+  if (slideNumber == 0) {
+    slideNumber = slides.length - 1;
+  }
+  else {
+    slideNumber--
+  }
+  slides[slideNumber].classList.remove("hidden")
+  slideButtons[slideNumber].classList.add("current")
+  myTimer = setInterval(autoSlide, 3000)
+}
+
+function jumpToSlide(jumpToSlideNumber){
+  clearInterval(myTimer)
+  slideButtons[slideNumber].classList.remove("current")
+  slides[slideNumber].classList.add("hidden")
+  slideNumber = jumpToSlideNumber-1
+  slides[slideNumber].classList.remove("hidden")
+  slideButtons[slideNumber].classList.add("current")
+  myTimer = setInterval(autoSlide, 3000)
+}
 
 

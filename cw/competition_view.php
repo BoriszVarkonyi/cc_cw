@@ -18,10 +18,10 @@
             <div id="slideshow_content">
                 <p id="slideshow_title">Check Competitions</p>
             </div>
-            <button class="slideshow_navigation_button left" aria-label="Slideshow go left">
+            <button class="slideshow_navigation_button left" aria-label="Slideshow go left" onclick="slideToLeft()">
                 <img src="../assets/icons/chevron_left_black.svg" alt="Slideshow go left">
             </button>
-            <button class="slideshow_navigation_button right" aria-label="Slideshow go right">
+            <button class="slideshow_navigation_button right" aria-label="Slideshow go right" onclick="slideToRight()">
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="slides">
@@ -122,7 +122,7 @@
     <?php include "cw_footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
-    <!-- <script src="../js/cw_slideshow.js"></script> -->
+    <script src="../js/cw_slideshow.js"></script>
     <script src="../js/list.js"></script>
 </body>
 </html>
