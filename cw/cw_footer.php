@@ -6,8 +6,8 @@
         </div>
         <div>
             <p>CONTACTS</p>
-            <a href="">Email</a>
-            <a href="">Facebook</a>
+            <a href="confirm_pre_reg.php">Email</a>
+            <a href="confirmed_pre_reg.php">Facebook</a>
             <a href="">Instagram</a>
             <a href="" class="about_us">About us</a>
         </div>

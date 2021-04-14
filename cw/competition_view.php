@@ -16,7 +16,10 @@
     <main>
         <div id="slideshow">
             <div id="slideshow_content">
-                <p id="slideshow_title">Check Competitions</p>
+                <!-- Beta fos -->
+                <svg viewBox="0 0 190 18" id="slideshow_title">
+                    <text x="0" y="14">Check Competitions</text>
+                </svg>
             </div>
             <button class="slideshow_navigation_button left" aria-label="Slideshow go left" onclick="slideToLeft()">
                 <img src="../assets/icons/chevron_left_black.svg" alt="Slideshow go left">

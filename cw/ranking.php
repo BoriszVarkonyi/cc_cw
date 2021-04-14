@@ -29,7 +29,12 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title"><?php echo $comp_name . "'s ranking" ?></p>
+                <p class="stripe_title">
+                    <a class="back_button" href="rankings.php" aria-label="Go back to Rankings">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                    </a>
+                    <?php echo $comp_name . "'s ranking" ?>
+                </p>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">

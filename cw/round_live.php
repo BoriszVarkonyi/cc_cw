@@ -16,9 +16,9 @@
         <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                    <a class="back_button" href="table.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's table">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                    </button>
+                    </a>
                     Round Live gnwergnfeuwgfueu
                 </p>
             </div>

@@ -16,9 +16,9 @@
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                    <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                    </button>
+                    </a>
                     Table of <?php echo $comp_name ?>
                 </p>
             </div>
@@ -30,11 +30,11 @@
                     </div>
                 </form>
                 <div id="call_room" class="cw">
-                    <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                    <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()" aria-label="Go to previous Table Column">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </div>
-                    <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                        <img src="../assets/icons/arrow_forward_ios_black.svg">
+                    <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()" aria-label="Go to next Table Column">
+                        <img src="../assets/icons/arrow_forward_ios_black.svg" alt="Go forward button">
                     </div>
                     <div id="e_1" class="elimination">
                         <div class="elimination_label">Table of __</div>
