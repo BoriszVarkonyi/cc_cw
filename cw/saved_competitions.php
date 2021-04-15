@@ -37,24 +37,41 @@
                     </div>
                     <div class="table_row_wrapper alt">
 
+                        <?php
+                            if (isset($_COOKIE['bookmarks'])) {
+                                $value = $_COOKIE['bookmarks'];
+
+                                $comp_array  = explode(",", $value);
+                                foreach($comp_array as $current_comp_id) {
+                                    //get comp_data
+                                    $qry_comp_data = "SELECT `comp_name`,`comp_start`,`comp_end` FROM `competitions` WHERE `comp_id` = '$current_comp_id'";
+                                    $do_comp_data = mysqli_query($connection, $qry_comp_data);
+                                    if ($row = mysqli_fetch_assoc($do_comp_data)) {
+                                        $comp_name = $row['comp_name'];
+                                        $comp_end = $row['comp_end'];
+                                        $comp_start = $row['comp_start'];
+                                    } else {
+                                        echo mysqli_error($connection);
+                                    }
+
+                        ?>
                         <!-- Ezten kell loopba tenni -->
                         <div class="table_row">
                             <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <p><?php echo $comp_name ?></p>
-                            </div>
-                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
-                                <p><?php echo $comp_start . " - " . $comp_end ?></p>
-                            </div>
-                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
-                                <p><?php echo statusConverter($comp_status) ?></p>
-                            </div>
-                            <div class="big_status_item">
-                                <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
+                                <div class="big_status_item">
+                                <button value="<?php echo $current_comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                                 </button>
                             </div>
+                            </div>
                         </div>
-
+                        <?php
+                                }
+                            } else {
+                                echo "NO COMPETITIONS BOOKMARKED YET!";
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
