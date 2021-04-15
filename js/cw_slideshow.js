@@ -84,8 +84,8 @@ var slideNumber = 0;
 
 function autoSlide() {
   var previusSlide = slides[slideNumber]
+  var previousButton = slideButtons[slideNumber]
   previusSlide.classList.add("blurred")
-  slideButtons[slideNumber].classList.remove("current")
   if (slideNumber + 1 == slides.length) {
     slideNumber = 0;
   }
@@ -94,40 +94,56 @@ function autoSlide() {
   }
   setTimeout(function () {
     slides[slideNumber].classList.remove("hidden")
+    previousButton.classList.remove("current")
   }, 250)
   setTimeout(function () {
     slideButtons[slideNumber].classList.add("current")
     previusSlide.classList.add("hidden")
-  }, 500)
+  }, 500)  
+  setTimeout(function () {
+    previusSlide.classList.remove("blurred")
+  }, 750)
 }
 var myTimer = setInterval(autoSlide, 3000)
 
 function slideToRight() {
   clearInterval(myTimer)
-  slides[slideNumber].classList.add("hidden")
+  var previusSlide = slides[slideNumber]
   slideButtons[slideNumber].classList.remove("current")
   if (slideNumber + 1 == slides.length) {
     slideNumber = 0;
+    previusSlide.classList.add("hidden")
+    slides[slideNumber].classList.remove("hidden")
   }
   else {
     slideNumber++
+    slides[slideNumber].classList.remove("hidden")
+    setTimeout(function () {
+      previusSlide.classList.add("hidden")
+    }, 250)
   }
-  slides[slideNumber].classList.remove("hidden")
   slideButtons[slideNumber].classList.add("current")
   myTimer = setInterval(autoSlide, 3000)
 }
 
 function slideToLeft() {
   clearInterval(myTimer)
-  slides[slideNumber].classList.add("hidden")
+  var previusSlide = slides[slideNumber]
   slideButtons[slideNumber].classList.remove("current")
   if (slideNumber == 0) {
     slideNumber = slides.length - 1;
+    slides[slideNumber].classList.remove("hidden")
+    setTimeout(function () {
+      previusSlide.classList.add("hidden")
+    }, 250)
   }
   else {
     slideNumber--
+    slides[slideNumber].classList.remove("hidden")    
+    setTimeout(function () {
+      previusSlide.classList.add("hidden")
+    }, 250)
   }
-  slides[slideNumber].classList.remove("hidden")
   slideButtons[slideNumber].classList.add("current")
   myTimer = setInterval(autoSlide, 3000)
 }
