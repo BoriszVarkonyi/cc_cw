@@ -752,7 +752,7 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 
 .slide.hidden {
 	opacity: 0;
-	z-index: 2;
+	z-index: 0;
 }
 
 .slide.blurred {
