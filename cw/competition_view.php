@@ -84,7 +84,7 @@
                 <div class="column">
                     <p class="column_title">Latest Videos</p>
                     <?php
-                        $qry_get_videos = "SELECT * FROM cw_videos ORDER BY Date_of_creation ASC LIMIT 5;";
+                        $qry_get_videos = "SELECT * FROM `cw_videos` ORDER BY Date_of_creation ASC LIMIT 5;";
                         $do_get_videos = mysqli_query($connection, $qry_get_videos);
 
                         while ($row = mysqli_fetch_assoc($do_get_videos)) {
@@ -109,15 +109,29 @@
                 </div>
                 <div class="column">
                     <p class="column_title">Latest Blog Posts</p>
+                    <?php
+
+                    $qry_get_articeles = "SELECT * FROM `cw_articles` ORDER BY `date` DESC LIMIT 5";
+                    $do_get_artocles = mysqli_query($connection, $qry_get_articeles);
+                    echo mysqli_error($connection);
+                    while ($row = mysqli_fetch_assoc($do_get_artocles)) {
+                        $title = $row['title'];
+                        $body =  $row['body'];
+                        $author = $row['author'];
+                        $date = $row['date'];
+                        $id = $row['id'];
+                    ?>
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
                         <p class="article_title"><?php echo $title ?></p>
-                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
                         <p class="article_brief"><?php echo $body ?></p>
                         <div class="article_info">
                             <p>POSTED: <?php echo $date ?></p>
                             <p>BY: <?php echo $author ?></p>
                         </div>
                     </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
