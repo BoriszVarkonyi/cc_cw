@@ -72,9 +72,9 @@ if(isset($_POST["send_pre"])){
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                    <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                    </button>
+                    </a>
                     PRE-REGISTER FENCERS FOR <?php echo $comp_name ?>
                 </p>
             </div>
@@ -85,34 +85,48 @@ if(isset($_POST["send_pre"])){
                         <div class="form_wrapper">
                             <div>
                                 <div>
-                                    <label for="f_name">FEDERATION'S NAME</label>
-                                    <input type="text" name="f_name" id="f_name" placeholder="Type in the federation's name" class="name_input alt">
+                                    <label>
+                                        FEDERATION'S NAME
+                                        <input type="text" name="f_name" id="f_name" placeholder="Type in the federation's name" class="name_input alt">
+                                    </label>
                                 </div>
                                 <div>
-                                    <label>COUNTRY / FENCING CLUB</label>
-                                    <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
+                                    <label>
+                                        COUNTRY / FENCING CLUB
+                                        <input type="text" name="f_country" placeholder="Type in the country's name" class="country_input alt">
+                                    </label>
                                 </div>
                                 <div>
-                                    <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
-                                    <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
+                                    <label>
+                                        FEDERATION'S OFFICAL EMAIL ADDRESS
+                                        <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
+                                    </label>
                                 </div>
                                 <div>
-                                    <label>FEDERATION'S PHONE NUMBER</label>
-                                    <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">
+                                    <label>
+                                        FEDERATION'S PHONE NUMBER
+                                        <input type="number" name="f_phone" class="number_input phone_number_input alt" placeholder="Type in the phone number">
+                                    </label>
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <label>CONTACT KEEPER'S FULL NAME</label>
-                                    <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">
+                                    <label>
+                                        CONTACT KEEPER'S FULL NAME
+                                        <input type="text" name="c_name" placeholder="Type in the full name" class="full_name_input alt">
+                                    </label>
                                 </div>
                                 <div>
-                                    <label>CONTACT KEEPER'S EMAIL ADDRESS</label>
-                                    <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">
+                                    <label>
+                                        CONTACT KEEPER'S EMAIL ADDRESS
+                                        <input type="email" name="c_email" placeholder="Type in the email address" class="email_contact_input alt">
+                                    </label>
                                 </div>
                                 <div>
-                                    <label>CONTACT KEEPER'S PHONE NUMBER</label>
-                                    <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">
+                                    <label>
+                                        CONTACT KEEPER'S PHONE NUMBER
+                                        <input type="number" name="c_phone"  class="number_input phone_number_contact_input alt" placeholder="Type in the phone number">
+                                    </label>
                                 </div>
                             </div>
                         </div>

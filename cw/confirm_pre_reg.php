@@ -6,15 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Confirm Pre-Registration</title>
+    <title>Pre-Registration alert</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body id="basic_body">
     <div class="basic_panel">
-        <p>Email has been sent to <b>hunfencing@hunfencing.hu</b> for verification!</p>
-        <p class="bold">Please check your emails and confirm your Pre-Registartion.</p>
-        <a class="go_back" href="cw_competition.php">Go back</a>
+        <p>An email has been sent to <strong>hunfencing@hunfencing.hu</strong> for verification!</p>
+        <strong>Please check your emails and confirm your Pre-Registartion.</strong>
+        <a class="go_back" href="competition_view.php">Go to Front Page</a>
     </div>
 </body>
 </html>

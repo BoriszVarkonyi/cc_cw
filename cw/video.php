@@ -30,7 +30,7 @@
         <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                    <button class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </button>
                     Video From <?php echo $comp_name ?></p>
@@ -43,7 +43,7 @@
                 </div>
                 <a href="https://www.youtube.com/watch?v=<?php echo $video_id ?>" class="open_on_yt_button">
                     <p>Open on Youtube</p>
-                    <img src="../assets/icons/youtube_icon-white.svg" alt="Youtube Logo">
+                    <img src="../assets/icons/youtube_icon_black.svg" alt="Youtube Logo">
                 </a>
             </div>
         </div>

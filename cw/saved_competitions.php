@@ -19,6 +19,15 @@
                 <p class="stripe_title">Saved competitions</p>
             </div>
             <div id="content_wrapper">
+                <div id="page_info_wrapper">
+                    <div class="help_icon">
+                        <img src="../assets/icons/help_black.svg" alt="Page Information and Help Icon">
+                    </div>
+                    <div class="page_info">
+                        <p>You can bookmark competitions by clicking the <strong>bookmark button</strong><span><img src="../assets/icons/bookmark_border_black.svg" alt="Bookmark Icon"></span>.</p>
+                        <p>These are only stored in your browser and will be deleted after the removal of <a href="https://www.allaboutcookies.org/cookies/">cookies</a>.</p>
+                    </div>
+                </div>
                 <div class="table cw middle">
                     <div class="table_header">
                         <div class="table_header_text"><p>COMPETITION'S NAME</p></div>

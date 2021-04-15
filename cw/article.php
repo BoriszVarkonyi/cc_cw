@@ -29,7 +29,12 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title"><?php echo $title ?></p>
+                <p class="stripe_title">
+                    <a class="back_button" href="blog.php" aria-label="Go back to Blog">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                    </a>
+                    <?php echo $title ?>
+                </p>
             </div>
             <div id="content_wrapper">
                 <article>
