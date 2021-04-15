@@ -394,6 +394,16 @@ function try_referees() {
     console.log("REFEREES:");
     console.log(referees)
 
+    console.log(change_every + " SZER " + referees.length + " < " + availableMatches)
+
+    if (mpr.value * referees.length < availableMatches) {
+        
+        alert("Incorrect referee selection")
+        console.log("ASDASDASD")
+
+    }
+
+
     if (automatic.checked == true) {
 
         //Assign referees to matches automatically
