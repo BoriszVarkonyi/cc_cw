@@ -16,9 +16,9 @@
         <div id="content" class="full">
             <div id="title_stripe">
                 <p class="stripe_title">
-                    <button type="button" class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
+                    <a class="back_button" href="table.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's table">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                    </button>
+                    </a>
                     Round Live gnwergnfeuwgfueu
                 </p>
             </div>
@@ -49,17 +49,17 @@
                                 <div id="machine_fencer_1" class="machine_fencer">
                                     <div>
                                         <img src="../assets/icons/priority_black.svg">
-                                        <img src="../assets/icons/card-gray.svg">
-                                        <img src="../assets/icons/card-yellow.svg">
+                                        <img src="../assets/icons/card_gray.svg">
+                                        <img src="../assets/icons/card_yellow.svg">
                                     </div>
                                     <p id="machine_fencer_1_score">5</p>
                                 </div>
                                 <p id="machine_period">5</p>
                                 <div id="machine_fencer_2" class="machine_fencer">
                                     <div>
-                                        <img src="../assets/icons/priority-gray.svg">
-                                        <img src="../assets/icons/card-red.svg">
-                                        <img src="../assets/icons/card-yellow.svg">
+                                        <img src="../assets/icons/priority_gray.svg">
+                                        <img src="../assets/icons/card_red.svg">
+                                        <img src="../assets/icons/card_yellow.svg">
                                     </div>
                                     <p id="machine_fencer_2_score">5</p>
                                 </div>

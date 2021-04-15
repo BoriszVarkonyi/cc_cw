@@ -53,12 +53,9 @@
         <nav id="mobile">
             <div>
                 <a href="competition_view.php">Home</a>
-                <p>Competitions</p>
-                <div>
-                    <a href="upcoming_competitions.php">Upcoming</a>
-                    <a href="ongoing_competitions.php">Ongoing</a>
-                    <a href="finished_competitions.php">Finished</a>
-                </div>
+                <a href="upcoming_competitions.php">Upcoming Competitions</a>
+                <a href="ongoing_competitions.php">Ongoing Competitions</a>
+                <a href="finished_competitions.php">Finished Competitions</a>
                 <a href="blog.php">Blog</a>
                 <a href="videos.php">Videos</a>
                 <a href="rankings.php">Rankings</a>

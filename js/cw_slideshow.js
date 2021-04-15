@@ -1,3 +1,4 @@
+/*
 //SLIDESHOW
 var slides = document.querySelectorAll(".slide");
 var slidesNumber = 0;
@@ -74,7 +75,87 @@ function showSlides() {
 }
 //Slideshow automatic timer
 var myTimer = setInterval(showSlides, 5000)
+*/
 
+//SLIDESHOW 2.0 (R.I.P 1.0 :c)
+var slides = document.querySelectorAll(".slide");
+var slideButtons = document.querySelectorAll("#slide_indicator button")
+var slideNumber = 0;
 
+function autoSlide() {
+  var previusSlide = slides[slideNumber]
+  var previousButton = slideButtons[slideNumber]
+  previusSlide.classList.add("blurred")
+  if (slideNumber + 1 == slides.length) {
+    slideNumber = 0;
+  }
+  else {
+    slideNumber++
+  }
+  setTimeout(function () {
+    slides[slideNumber].classList.remove("hidden")
+    previousButton.classList.remove("current")
+  }, 250)
+  setTimeout(function () {
+    slideButtons[slideNumber].classList.add("current")
+    previusSlide.classList.add("hidden")
+  }, 500)  
+  setTimeout(function () {
+    previusSlide.classList.remove("blurred")
+  }, 750)
+}
+var myTimer = setInterval(autoSlide, 3000)
+
+function slideToRight() {
+  clearInterval(myTimer)
+  var previusSlide = slides[slideNumber]
+  slideButtons[slideNumber].classList.remove("current")
+  if (slideNumber + 1 == slides.length) {
+    slideNumber = 0;
+    previusSlide.classList.add("hidden")
+    slides[slideNumber].classList.remove("hidden")
+  }
+  else {
+    slideNumber++
+    slides[slideNumber].classList.remove("hidden")
+    setTimeout(function () {
+      previusSlide.classList.add("hidden")
+    }, 250)
+  }
+  slideButtons[slideNumber].classList.add("current")
+  myTimer = setInterval(autoSlide, 3000)
+}
+
+function slideToLeft() {
+  clearInterval(myTimer)
+  var previusSlide = slides[slideNumber]
+  slideButtons[slideNumber].classList.remove("current")
+  if (slideNumber == 0) {
+    slideNumber = slides.length - 1;
+    slides[slideNumber].classList.remove("hidden")
+    setTimeout(function () {
+      previusSlide.classList.add("hidden")
+    }, 250)
+  }
+  else {
+    slideNumber--
+    slides[slideNumber].classList.remove("hidden")    
+    setTimeout(function () {
+      previusSlide.classList.add("hidden")
+    }, 250)
+  }
+  slideButtons[slideNumber].classList.add("current")
+  myTimer = setInterval(autoSlide, 3000)
+}
+
+function jumpToSlide(jumpToSlideNumber){
+  clearInterval(myTimer)
+  slideButtons[slideNumber].classList.remove("current")
+  slides[slideNumber].classList.add("hidden")
+  slideNumber = jumpToSlideNumber-1
+  slides[slideNumber].classList.remove("hidden")
+  slideButtons[slideNumber].classList.add("current")
+  myTimer = setInterval(autoSlide, 3000)
+}
 
 

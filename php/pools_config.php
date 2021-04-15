@@ -259,8 +259,8 @@
         }
 
         class matches {
-            function __construct($pool_num, $start, $json_table) {
-                for ($j = $start + 1; $j <= $pool_num; $j++) {
+            function __construct($pool_num, $number_of_fencers, $start, $json_table) {
+                for ($j = $start + 1; $j <= $number_of_fencers; $j++) {
 
                     $id = $json_table[$pool_num] -> {$start} -> id;
                     $enemy = $json_table[$pool_num] -> {$j} -> id;
@@ -284,7 +284,7 @@
                 $number_of_fencers = getNumberOfFencers($json_table, $pool_num);
 
                 for ($i = 1; $i < $number_of_fencers; $i++) {
-                    $this -> {$i} = new matches($number_of_fencers, $i, $json_table);
+                    $this -> {$i} = new matches($pool_num, $number_of_fencers, $i, $json_table);
                 }
             }
         }

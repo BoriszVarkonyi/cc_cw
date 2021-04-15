@@ -13,7 +13,7 @@
 </head>
 <body class="blog">
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
                 <p class="stripe_title">Blog</p>
@@ -22,7 +22,7 @@
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick="" aria-label="Close search"><img src="../assets/icons/close_black.svg" alt="Search close"></button>
+                        <button type="button" onclick="" aria-label="Close Search"><img src="../assets/icons/close_black.svg" alt="Search Close"></button>
                     </div>
                     <input type="submit" value="Search">
                 </form>
@@ -46,7 +46,6 @@
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
                         <p class="article_title"><?php echo $title ?></p>
-                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
                         <p class="article_brief"><?php echo $body ?></p>
                         <div class="article_info">
                             <p>POSTED: <?php echo $date ?></p>

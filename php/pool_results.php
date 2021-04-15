@@ -1,5 +1,7 @@
 <?php include "../includes/headerburger.php"; ?>
 <?php include "../includes/db.php" ?>
+<?php //include "../includes/functions.php"; ?>
+<?php include "../includes/pool_orders.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
@@ -17,13 +19,37 @@
 
     $pool_num = $_GET['poolid'];
     $current_f_pool = $fencers_table[$pool_num];
-    $current_m_pool = $matches_table[$pool_num-1];
+    $current_m_pool = $matches_table[$pool_num - 1];
 
     //get number of fencers in pools
     $pool_f_in = getFencersInPool($current_f_pool);
 
     //get number of mathces in round robin
     $number_of_matches = $pool_f_in * ($pool_f_in - 1) / 2;
+
+    //get order of matches
+    $order_array = poolOrder($pool_f_in);
+
+    //get fencers names and ids
+    $qry_get_names = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_get_names = mysqli_query($connection, $qry_get_names);
+    if ($row = mysqli_fetch_assoc($do_get_names)) {
+        $name_string = $row['data'];
+        $name_json = json_decode($name_string);
+
+        $name_array = [];
+        //make name assoc array
+        foreach ($name_json as $name_obj) {
+            $name = $name_obj -> prenom . " " . $name_obj -> nom;
+            $id = $name_obj -> id;
+
+            $name_array[$id] = $name;
+        }
+    }
+
+    if (isset($_POST['submit_savepool'])) {
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -55,18 +81,18 @@
                         <p>Disqualify</p>
                         <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
-
-                    <button class="stripe_button primary" type="submit">
+                    <form id="savepool" action="" method="POST"></form>
+                    <button value="1" form="savepool" class="stripe_button primary" type="submit">
                         <p>Save Pool</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
                 <div id="disqualify_panel" class="overlay_panel hidden">
-                    <p class="panel_title">Disqualify {Fencer's name}</p>
+                    <p class="panel_title">Disqualify <?php echo $fencer_name ?>}</p>
                     <button class="panel_button" onclick="disqualifyToggle()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
-                    <form action="" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
+                    <form action="" name="savepool" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <label for="ref_type">REASON OF DISQUALIFICATION</label>
                         <div class="option_container">
                             <input type="radio" name="ref_type" id="medical" value=""/>
@@ -82,9 +108,7 @@
                         <button type="submit" name="submit" class="submit_button" value="Disqualify">Disqualify</button>
                     </form>
                 </div>
-
             </div>
-
             <div id="page_content_panel_main">
                 <div class="wrapper full" id="pool_results">
                     <div>
@@ -152,13 +176,17 @@
                                             <div class="table_item square row_title"><?php echo $f_num ?></div>
                                             <?php
                                                 for ($i = 1; $i <= $pool_f_in; $i++) {
-
+                                                    if ($i < $f_num) {
+                                                        $points = $current_m_pool -> {$i} -> {$f_num} -> given;
+                                                    } else if ($i > $f_num) {
+                                                        $points = $current_m_pool -> {$f_num} -> {$i} -> gotten;
+                                                    }
                                                     //get scores from matches_table!
 
                                                     if ($i == $f_num) {
-                                                        ?><div class="table_item square filled"></div><?php
+                                                        ?><div class="table_item square filled">X</div><?php
                                                     } else {
-                                                        ?><div class="table_item square"></div><?php
+                                                        ?><div class="table_item square"><?php echo $points ?></div><?php
                                                     }
 
                                                 }
@@ -179,35 +207,50 @@
 
 
 
-
                     <div id="pool_matches">
 
                         <?php
+                            $match_number = 1;
+                            foreach ($order_array as $match_string) {
 
+                                $array_match_ids = explode('-', $match_string);
 
+                                $f1_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> id;
+                                $f2_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> enemy;
 
+                                $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
+                                $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
+
+                                if ($f1_score == 0) {
+                                    $f1_score = "";
+                                }
+                                if ($f2_score == 0) {
+                                    $f2_score = "";
+                                }
+
+                                //get fencer names from array
+                                $f1_name = $name_array[$f1_id];
+                                $f2_name = $name_array[$f2_id];
                         ?>
-                        <div class="match <?php echo $szin = ($f1_sc == NULL ? "red" : "green") ?>">
+                        <div class="match <?php echo $szin = ($f1_score == "" ? "red" : "green") ?>">
                             <div class="match_number">
-                                <p>Match num</p>
+                                <p><?php echo $match_number ?></p>
                             </div>
                             <div>
-                                <p>fencer 1</p>
-                                <input type="number" form="savepool" placeholder="#" name="" id="" class="number_input" value="">
+                                <p><?php echo $f1_name ?></p>
+                                <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" form="savepool" placeholder="#" name="" id="" class="number_input" value="">
-                                <p>fencer 2</p>
+                                <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                <p><?php echo $f2_name ?></p>
                             </div>
                         </div>
-
-
                         <?php
-
-
+                                $match_number++;
+                            }
 
                         ?>
 

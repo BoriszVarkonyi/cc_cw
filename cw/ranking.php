@@ -26,16 +26,21 @@
 </head>
 <body>
     <?php include "cw_header.php"; ?>
-    <main role="main">
+    <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title"><?php echo $comp_name . "'s ranking" ?></p>
+                <p class="stripe_title">
+                    <a class="back_button" href="rankings.php" aria-label="Go back to Rankings">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                    </a>
+                    <?php echo $comp_name . "'s ranking" ?>
+                </p>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
                         <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
                 <div class="table cw">
