@@ -46,7 +46,6 @@
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
                         <p class="article_title"><?php echo $title ?></p>
-                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
                         <p class="article_brief"><?php echo $body ?></p>
                         <div class="article_info">
                             <p>POSTED: <?php echo $date ?></p>

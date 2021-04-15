@@ -43,7 +43,6 @@
                         <p><?php echo $date ?></p>
                     </div>
                     <div class="body">
-                        <img src="<?php echo $pic ?>" alt="<?php echo $title ?>">
                         <p><?php echo $body ?></p>
                     </div>
                 </article>
