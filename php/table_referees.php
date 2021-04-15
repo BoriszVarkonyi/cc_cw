@@ -329,19 +329,19 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                                     <div class="table_item referee refname">
                                                         <p><?php echo $matches->referees->ref->name ?></p>
                                                     </div>
-                                                    <div class="table_item nation referee">
+                                                    <div class="table_item nation referee refnat">
                                                         <p><?php echo $matches->referees->ref->nation ?></p>
                                                     </div>
-                                                    <div class="table_item club referee hidden">
+                                                    <div class="table_item club referee refclub hidden">
                                                         <p><?php echo $matches->referees->ref->club ?></p>
                                                     </div>
                                                     <div class="table_item video hidden vrefname">
                                                         <p><?php echo $matches->referees->vref->name ?></p>
                                                     </div>
-                                                    <div class="table_item nation video hidden">
+                                                    <div class="table_item nation video vrefnat hidden">
                                                         <p><?php echo $matches->referees->vref->nation ?></p>
                                                     </div>
-                                                    <div class="table_item club video hidden">
+                                                    <div class="table_item club video vrefclub hidden">
                                                         <p><?php echo $matches->referees->vref->club ?></p>
                                                     </div>
                                                 </div>

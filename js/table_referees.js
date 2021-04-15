@@ -30,6 +30,7 @@ var mpr = document.getElementById("mpr")
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
+    return array
 }
 
 
@@ -352,6 +353,7 @@ function try_referees() {
         }
     }
 
+    console.log("MATCHES:");
     console.log(matches);
 
     //Get referees
@@ -364,12 +366,8 @@ function try_referees() {
 
         var id = element.querySelector(".referee_id")
         var name = element.querySelector(".referee_name")
-
-        if (nation.checked == true) {
-            var selector = element.querySelector(".referee_nation")
-        } else {
-            var selector = element.querySelector(".referee_club")
-        }
+        var nat = element.querySelector(".referee_nation")
+        var club = element.querySelector(".referee_club")
 
         if (!referees) {
 
@@ -377,20 +375,23 @@ function try_referees() {
 
             referees.push({
                 ref_id: id.innerHTML,
-                n1: selector.innerHTML,
+                n1: nat.innerHTML,
+                c1: club.innerHTML,
                 name: name.innerHTML
             })
 
         } else {
             referees.push({
                 ref_id: id.innerHTML,
-                n1: selector.innerHTML,
+                n1: nat.innerHTML,
+                c1: club.innerHTML,
                 name: name.innerHTML
             })
         }
 
     }
 
+    console.log("REFEREES:");
     console.log(referees)
 
     if (automatic.checked == true) {
@@ -411,13 +412,31 @@ function try_referees() {
 
                 for (const matchData of matches[key]) {
 
-                    if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
 
-                        console.log("OK")
-                    } else {
+                    if (nation.checked == true) {
 
-                        canUse = false
-                        break
+                        if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
+
+                            console.log("OK")
+                        } else {
+
+                            canUse = false
+                            break
+                        }
+
+                    }
+
+                    if (club.checked == true) {
+
+                        if (matchData.n1 != ref.c1 && matchData.n2 != ref.c1) {
+
+                            console.log("OK")
+                        } else {
+
+                            canUse = false
+                            break
+                        }
+
                     }
 
                 }
@@ -445,45 +464,80 @@ function try_referees() {
 
         //Assign referees to matches manual match num
 
-        change_every = mpr.value
+        // console.log(matches)
 
-        console.log(availableMatches)
+        var change_every = mpr.value
 
         var assignedArray = []
+        var refereesToUse = []
+        var matchesToUse = []
+
+        var array = Array.from(matches);
+
+        var filtered = array.filter(function (el) {
+            return el != null;
+        });
+
+        console.log("TEST")
+        console.log(filtered)
+
+        console.log("____________________________________END OF FIRST TESTS____________________________________")
 
         for (let index = 0; index < 10; index++) {
 
-            if (assignedArray == availableMatches) {
+            console.log("ASSIGNED: " + assignedArray.length + " AVAILABLE: " + availableMatches)
+
+            if (assignedArray.length == availableMatches) {
                 break
             }
 
-            shuffle(referees)
+            refereesToUse = Array.from(referees)
+            matchesToUse = Array.from(filtered)
+
+            refereesToUse = shuffle(refereesToUse)
+
+            console.log("Referees to use")
+            console.log(refereesToUse)
+
+            console.log("Matches to use")
+            console.log(matchesToUse)
 
             assignedArray = []
 
-            for (const key in matches) {
+            //ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE  ISSUE HERE
 
-                //console.log(matches[key])
+            for (const key in matchesToUse) {
 
-                refIndexCounter = 0
+                console.log("CHECKING NEXT PISTE")
 
-                for (const ref of referees) {
+                var refIndexCounter = 0
+
+                for (const ref of refereesToUse) {
+
+                    if (ref == null) {
+                        refIndexCounter++
+                        continue
+                    }
 
                     var canUse = true
 
                     var counter = 0
 
-                    for (const matchData of matches[key]) {
+                    for (const matchData of matchesToUse[key]) {
+
+                        console.log(counter)
 
                         if (counter == change_every) {
+                            //console.log("GEC")
                             break
                         }
 
                         if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
-                            console.log("OK")
+                            //console.log("OK")
                             counter++
                         } else {
                             canUse = false
+                            //console.log("REFEREE CANNOT BE USED HERE")
                             break
                         }
 
@@ -493,28 +547,117 @@ function try_referees() {
 
                         var counter = 0
 
-                        for (const matchData of matches[key]) {
+                        var stopper = matchesToUse[key].length
+
+                        console.log("REMAINING MATCHES: " + stopper)
+
+                        for (const matchData of matchesToUse[key]) {
 
                             if (counter == change_every) {
                                 break
                             }
+                            if (stopper == 0) {
+                                break
+                            }
+                            // if (matchesToUse[key].length == 0) {
+                            //     console.log("HELLO MR GECIKE, TÖRÖK")
+                            //     break
+                            // }
 
                             assignedArray.push([matchData.match_id, ref])
 
                             counter++
+                            stopper--
                         }
 
-                        referees.splice(refIndexCounter, 1)
-                        matches[key].splice(0, change_every)
-                        break
+                        //refereesToUse.splice(refIndexCounter, 1)
+                        //MASIK VERZIO NULL -AL
+
+                        refereesToUse[refIndexCounter] = null
+
+                        console.log(ref.name + " REFEREE ADDED AND REMOVED FROM AVAILABLE REFEREES")
+                        matchesToUse[key].splice(0, counter)
+
+                        if (matchesToUse[key].length == 0) {
+                            console.log("OUT OF MATCHES ON THIS PISTE")
+                            break
+                        }
 
                     } else {
-
+                        console.log("CHECKING NEXT REFEREE")
                         refIndexCounter++
+                        continue
                     }
+                    refIndexCounter++
                 }
             }
+
+            //ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE  ISSUE HERE
             console.log(assignedArray)
+
+
+            if (assignedArray.length != availableMatches && index == 10) {
+
+                alert("Incorrect referee draw")
+
+            }
+
         }
     }
+
+    //KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS |
+    //                                                                                    |
+    //                                                                                    V
+    var table_rows = table_wrapper.querySelectorAll(".table_row")
+
+    console.log(table_rows)
+
+    for (let h = 0; h < table_rows.length; h++) {
+
+        if (match_ref.checked == true) {
+
+            var id_row = table_rows[h].querySelector(".id")
+            var referee_row = table_rows[h].querySelector(".refname")
+            var refnat_row = table_rows[h].querySelector(".refnat")
+            var refclub_row = table_rows[h].querySelector(".refclub")
+
+            for (const match of assignedArray) {
+
+
+                if (match[0] == id_row.children[0].innerHTML) {
+
+                    referee_row.innerHTML = match[1].name
+                    refnat_row.innerHTML = match[1].n1
+                    refclub_row.innerHTML = match[1].c1
+
+                }
+
+            }
+        }
+        if (video_ref.checked == true) {
+
+            var id_row = table_rows[h].querySelector(".id")
+            var referee_row = table_rows[h].querySelector(".vrefname")
+            var refnat_row = table_rows[h].querySelector(".vrefnat")
+            var refclub_row = table_rows[h].querySelector(".vrefclub")
+
+            for (const match of assignedArray) {
+
+
+                if (match[0] == id_row.children[0].innerHTML) {
+
+                    referee_row.innerHTML = match[1].name
+                    refnat_row.innerHTML = match[1].n1
+                    refclub_row.innerHTML = match[1].c1
+
+                }
+
+            }
+        }
+
+
+
+        console.log(referee_row)
+    }
+
 }
