@@ -335,6 +335,18 @@
                                 </div>
                             </div>
                             <div>
+                                <label for="starting_time">SORT BY</label>
+                                <div class="option_container">
+
+                                    <input type="radio" class="option_button" name="sort_by" id="7" value="sb_club" checked/>
+                                    <label for="sb_club">Club</label>
+
+                                    <input type="radio" class="option_button" name="sort_by" id="sb_nationality" value="6"/>
+                                    <label for="sb_nationality">Nationality</label>
+
+                                </div>
+                            </div>
+                            <div>
                                 <label for="interval_of_match">NUMBER OF QUALIFIERS AFTER POOLS</label>
                                 <input type="number" placeholder="#" class="number_input centered">
                             </div>
