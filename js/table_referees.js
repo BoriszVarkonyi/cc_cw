@@ -33,7 +33,6 @@ function shuffle(array) {
     return array
 }
 
-
 //Function for changing nation to club selection
 
 function nation_to_club() {
@@ -396,8 +395,10 @@ function try_referees() {
 
     console.log(change_every + " SZER " + referees.length + " < " + availableMatches)
 
-    if (mpr.value * referees.length < availableMatches) {
-        
+    //WARNING IF INCORRECT REFEREE DRAW
+
+    if (manual.checked == true && mpr.value * referees.length < availableMatches) {
+
         alert("Incorrect referee selection")
         console.log("ASDASDASD")
 
@@ -664,10 +665,37 @@ function try_referees() {
 
             }
         }
-
-
-
         console.log(referee_row)
     }
+
+    //REMOVE REFEREES FROM LIST
+
+    var geci = 0
+
+    var refs = usedContainer.querySelectorAll(".piste")
+
+    for (let s = 0; s < refs.length; s++) {
+
+        var refIndexCounter = 0
+
+        for (const match of assignedArray) {
+
+            var id = refs[s].querySelector(".referee_id").innerHTML
+
+            if (match[1].ref_id == id) {
+
+                refs[s].remove()
+                geci++
+                break
+            }
+        }
+    }
+
+    console.log("I AM MR REMOVER CANCER. I REMOVED: " + geci)
+
+    //Figyelmeztetni a felhasználót, hogyha frissít, elveszik a beosztás
+    //Ha nem egyben osztja be akkor pedig megint az összes lesz használva, így válogatnia kell, vagy újraosztani
+
+    
 
 }
