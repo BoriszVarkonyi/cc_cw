@@ -1844,6 +1844,8 @@ input[type="file"] {
 
 .overlay_panel_controls p:only-child {
 	width: 100%;
+	white-space: nowrap;
+	text-align: center;
 }
 
 .overlay_panel_controls button {
