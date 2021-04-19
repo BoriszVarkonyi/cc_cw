@@ -17,6 +17,7 @@
             public $c_pos;
             public $r_pos;
             public $nation;
+            public $club;
 
             function __construct(object $fencer_obj){
                 $this -> prenom_nom = $fencer_obj->prenom . " " . $fencer_obj->nom;
@@ -24,6 +25,7 @@
                 $this -> c_pos = $fencer_obj->comp_rank;
                 $this -> r_pos = $fencer_obj->classement;
                 $this -> nation = $fencer_obj->nation;
+                $this -> club = $fencer_obj->club;
             }
         }
 
@@ -249,6 +251,7 @@
     if (isset($_POST['submit'])) {
         //initial data from form
         $pool_of = $_POST['pools_of'];
+        $sort_by = $_POST[''];
         //js majd ideadja
         $array_p = explode(";", $pool_of);
         $pool_of = $array_p[0];
