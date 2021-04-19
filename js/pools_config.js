@@ -254,7 +254,7 @@ function drop2(ev, x) {
         }
         idloader();
     }
-    else{
+    else {
         //Removes the classes
         removeOpenAndCollapseClass()
         toggleModal(1);
@@ -262,25 +262,25 @@ function drop2(ev, x) {
 }
 
 //Removes the classes (when the pool table is full)
-function removeOpenAndCollapseClass(){
+function removeOpenAndCollapseClass() {
     var elements = document.querySelectorAll("#pool_listing .opened")
-    for(i=0; i<elements.length; i++){
+    for (i = 0; i < elements.length; i++) {
         elements[i].classList.remove("opened")
     }
     elements = document.querySelectorAll("#pool_listing .collapsed")
-    for(i=0; i<elements.length; i++){
+    for (i = 0; i < elements.length; i++) {
         elements[i].classList.remove("collapsed")
     }
 }
 
 //Checks if the pool table is full
-function checkPoolTable(x){
+function checkPoolTable(x) {
     var table = x.parentNode
     var fencerNumber = table.querySelectorAll(".table_row").length
-    if(fencerNumber < maxFencerNumber){
+    if (fencerNumber < maxFencerNumber) {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
@@ -311,13 +311,11 @@ function idloader() {
     poolsId = poolsId + "]"
     hiddenInput = document.getElementById("savePoolsHiddenInput")
     hiddenInput.value = poolsId
-    hiddenInput.classList.remove("hidden")
 }
 idloader()
 
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
 hiddenInput.value = poolsId
-hiddenInput.classList.remove("hidden")
 //FORM VALIDATION
 var valid1 = false, valid2 = false;
 //It is a var from main.js

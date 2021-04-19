@@ -363,8 +363,8 @@
                         </button>
                     </form>
 
-                    <form class="title_stripe_form" method="POST" action="">
-                        <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput">
+                    <form method="POST" action="">
+                        <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" readonly>
                         <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
                             <p>Save Pools</p>
                             <img src="../assets/icons/save_black.svg"/>
