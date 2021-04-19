@@ -8,7 +8,15 @@
     //1. param: hány darab csoport van,
     //2. param: hány személyesek a csoportok,
     //3. param: a versenyzők tömbje (sortolva, versenyzők objectek egy tömbben)
-    function sorolas($n_pools,int $fencers_in_pools,array $array_of_fencers) {
+    //4. param: Club alapján vagy nationality alapján sortolja a versenyzőket
+    function sorolas($n_pools,int $fencers_in_pools,array $array_of_fencers,$sort_by_club) {
+
+        //determine attribute to sort by
+        if ($sort_by_club) {
+            $sort_by = "club";
+        } else {
+            $sort_by = "nation";
+        }
 
         //kicsit szukitett fencer csak a necessery info van benne
         class fencer {
@@ -39,12 +47,12 @@
             public $time = NULL;
 
             //function amivel hozzárakjuk a fencereket
-            function add_fencer(int $y,object $fencer_obj) {
+            function add_fencer(int $y,object $fencer_obj,$sort_by) {
 
                 $fencer_to_add = new fencer($fencer_obj);
 
                 $this -> {$y} = $fencer_to_add;
-                array_push($this -> nationalitys,$fencer_obj -> nation);
+                array_push($this -> nationalitys,$fencer_obj -> $sort_by);
             }
         }
 
@@ -114,10 +122,10 @@
                     if (!isset($array_of_pools[$x] -> {$y})) {
 
                         //van e mar a poolban ugyan olyan nation u fencer
-                        if (array_search($array_of_fencers[$fencer] -> nation,$array_of_pools[$x] -> nationalitys) === FALSE) {
+                        if (array_search($array_of_fencers[$fencer] -> $sort_by,$array_of_pools[$x] -> nationalitys) === FALSE) {
 
                             //fencer beiras majd fencer +1
-                            $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer]);
+                            $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer],$sort_by);
                             $fencer++;
 
                             //visszalepes
@@ -142,7 +150,7 @@
                                         //odd
                                         $x++;
                                     }
-                                    $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer]);
+                                    $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer],$sort_by);
                                     $fencer++;
                                     $forward -> reset();
                                     if ($y % 2 != 0) {// ha y paratlan átlép a másik ágba
@@ -150,7 +158,7 @@
                                         break;
                                     }
                                 } else {
-                                    $array_of_pools[$n_pools] -> add_fencer($fencers_in_pools, $array_of_fencers[$fencer]);
+                                    $array_of_pools[$n_pools] -> add_fencer($fencers_in_pools, $array_of_fencers[$fencer],$sort_by);
                                     $fencer++;
                                 }
                                 //UTOLSO NEM CSAK PARATLAN LEHET LEHETNE PAROS IS
@@ -175,10 +183,10 @@
                     if (!isset($array_of_pools[$x] -> {$y})) {
 
                         //van e mar a poolban ugyan olyan nation u fencer
-                        if (array_search($array_of_fencers[$fencer] -> nation,$array_of_pools[$x] -> nationalitys)  === FALSE) {
+                        if (array_search($array_of_fencers[$fencer] -> $sort_by,$array_of_pools[$x] -> nationalitys)  === FALSE) {
 
                             //fencer beiras majd fencer +1
-                            $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer]);
+                            $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer],$sort_by);
                             $fencer++;
                             //visszalepes
                             if ($forward -> isSaved()) {
@@ -203,7 +211,7 @@
                                         //odd
                                         $x++;
                                     }
-                                    $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer]);
+                                    $array_of_pools[$x] -> add_fencer($y, $array_of_fencers[$fencer],$sort_by);
                                     $fencer++;
                                     $forward -> reset();
                                     if ($y % 2 == 0) {// ha y paros átlép a másik ágba
@@ -211,7 +219,7 @@
                                         break;
                                     }
                                 } else {
-                                    $array_of_pools[$n_pools] -> add_fencer($fencers_in_pools, $array_of_fencers[$fencer]);
+                                    $array_of_pools[$n_pools] -> add_fencer($fencers_in_pools, $array_of_fencers[$fencer],$sort_by);
                                     $fencer++;
                                 }
                             } else { //elore leptetjuk a pointert meg az fw_countert
@@ -238,7 +246,7 @@
 
 
     //make pools table
-    $qry_make_pools = "CREATE TABLE `ccdatabase`.`pools` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `fencers` LONGTEXT NULL DEFAULT NULL , `matches` LONGTEXT NULL DEFAULT NULL , `pool_of` INT(1) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $qry_make_pools = "CREATE TABLE `ccdatabase`.`pools` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `fencers` LONGTEXT NULL DEFAULT NULL , `matches` LONGTEXT NULL DEFAULT NULL ,  `pool_of` INT(1) NOT NULL , `sort_by_club` BOOLEAN NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     if (!$do_make_pools = mysqli_query($connection, $qry_make_pools)) {
         echo mysqli_error($connection);
     }
@@ -251,7 +259,12 @@
     if (isset($_POST['submit'])) {
         //initial data from form
         $pool_of = $_POST['pools_of'];
-        $sort_by = $_POST[''];
+        $sort_by = $_POST['sort_by'];
+        if ($sort_by == "club") {
+            $sort_by_club = true;
+        } else {
+            $sort_by_club = false;
+        }
         //js majd ideadja
         $array_p = explode(";", $pool_of);
         $pool_of = $array_p[0];
@@ -269,11 +282,11 @@
         }
 
         //I N I T I A T E   S O R O L A S !
-        $array_of_pools = sorolas($number_of_pools,$pool_of,$sorted_fencers);
+        $array_of_pools = sorolas($number_of_pools,$pool_of,$sorted_fencers,$sort_by_club);
 
         $json_string = json_encode($array_of_pools, JSON_UNESCAPED_UNICODE);
         //set up new row for pools
-        $qry_new_row = "INSERT INTO `pools` (`assoc_comp_id`, `fencers`, `pool_of`) VALUES ('$comp_id', '$json_string', '$pool_of')";
+        $qry_new_row = "INSERT INTO `pools` (`assoc_comp_id`, `fencers`, `pool_of`,`sort_by_club`) VALUES ('$comp_id', '$json_string', '$pool_of', '$sort_by_club')";
         if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
             header("Location: ../php/pools_config.php?comp_id=$comp_id");
         }
@@ -338,10 +351,10 @@
                                 <label for="starting_time">SORT BY</label>
                                 <div class="option_container">
 
-                                    <input type="radio" class="option_button" name="sort_by" id="7" value="sb_club" checked/>
+                                    <input type="radio" class="option_button" name="sort_by" id="7" value="club" checked/>
                                     <label for="sb_club">Club</label>
 
-                                    <input type="radio" class="option_button" name="sort_by" id="sb_nationality" value="6"/>
+                                    <input type="radio" class="option_button" name="sort_by" id="sb_nationality" value="nation"/>
                                     <label for="sb_nationality">Nationality</label>
 
                                 </div>
