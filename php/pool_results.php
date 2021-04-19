@@ -63,7 +63,22 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
+    <div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal">
+            <div class="modal_header red">
+                <p class="modal_title">Do you want to disqualify {fencer name} for the follwing reason: {reason}?</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This action cannot be undone.</p>
+                <form class="modal_footer_content">
+                <input type="text" placeholder="fencer id">
+                    <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
+                    <button type="submit" class="modal_confirmation_button">Disqualify</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- header -->
     <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
@@ -76,8 +91,7 @@
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
-
-                    <button class="stripe_button red disabled" type="button" onclick="disqualifyToggle()">
+                    <button class="stripe_button red disabled" type="button" onclick="toggleDisqualifyPanel()">
                         <p>Disqualify</p>
                         <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
@@ -87,25 +101,28 @@
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
-                <div id="disqualify_panel" class="overlay_panel hidden">
-                    <p class="panel_title">Disqualify <?php echo $fencer_name ?>}</p>
-                    <button class="panel_button" onclick="disqualifyToggle()">
+                <div id="disqualify_panel" class="overlay_panel">
+                    <div class="overlay_panel_controls">
+                        <p>Disqualify {Fencer name}</p>
+                    </div>
+                    <button class="panel_button" onclick="toggleDisqualifyPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" name="savepool" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
-                        <label for="ref_type">REASON OF DISQUALIFICATION</label>
-                        <div class="option_container">
-                            <input type="radio" name="ref_type" id="medical" value=""/>
-                            <label for="medical">Medical</label>
+                        <div class="overlay_panel_division visible">
+                            <label>REASON OF DISQUALIFICATION</label>
+                            <div class="option_container">
+                                <input type="radio" name="disqualification_reason" id="medical" value=""/>
+                                <label for="medical">Medical</label>
 
-                            <input type="radio" name="ref_type" id="surrender" value=""/>
-                            <label for="surrender">Surrender</label>
+                                <input type="radio" name="disqualification_reason" id="surrender" value=""/>
+                                <label for="surrender">Surrender</label>
 
-                            <input type="radio" name="ref_type" id="exclusion" value=""/>
-                            <label for="exclusion">Exclusion</label>
+                                <input type="radio" name="disqualification_reason" id="exclusion" value=""/>
+                                <label for="exclusion">Exclusion</label>
+                            </div>
                         </div>
-
-                        <button type="submit" name="submit" class="submit_button" value="Disqualify">Disqualify</button>
+                        <button type="button" class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
                     </form>
                 </div>
             </div>
@@ -144,19 +161,19 @@
                                 <div class="table_item"><?php echo $time ?></div>
                             </div>
                             <div class="entry_panel">
-                                <div class="pool_table_wrapper table">
+                                <div class="pool_table_wrapper table small">
                                     <div class="table_header">
                                         <div class="table_header_text">
-                                            Fencers name
+                                            <p>Fencer's name</p>
                                         </div>
                                         <div class="table_header_text square">
-                                            No.
+                                            <p>No.</p>
                                         </div>
                                         <?php
                                             //echo out fencer number top(horizontal)
                                             for ($i = 1; $i <= $pool_f_in; $i++ ) {
                                         ?>
-                                        <div class="table_header_text square"><?php echo $i ?></div>
+                                        <div class="table_header_text square"><p><?php echo $i ?></p></div>
                                         <?php
                                             }
                                         ?>
@@ -172,8 +189,8 @@
                                         ?>
 
                                         <div id="" class="table_row" onclick="selectRow(this)">
-                                            <div class="table_item"><?php echo $fencer_name ?></div>
-                                            <div class="table_item square row_title"><?php echo $f_num ?></div>
+                                            <div class="table_item"><p><?php echo $fencer_name ?></p></div>
+                                            <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
                                             <?php
                                                 for ($i = 1; $i <= $pool_f_in; $i++) {
                                                     if ($i < $f_num) {
@@ -184,9 +201,9 @@
                                                     //get scores from matches_table!
 
                                                     if ($i == $f_num) {
-                                                        ?><div class="table_item square filled">X</div><?php
+                                                        ?><div class="table_item square filled"><p>X</p></div><?php
                                                     } else {
-                                                        ?><div class="table_item square"><?php echo $points ?></div><?php
+                                                        ?><div class="table_item square"><p><?php echo $points ?></p></div><?php
                                                     }
 
                                                 }
@@ -265,5 +282,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/pool_results.js"></script>
     <script src="../js/overlay_panel.js"></script>
+    <script src="../js/modal.js"></script>
 </body>
 </html>

@@ -1604,7 +1604,6 @@ nav.closed #need_help img {
 /* ///FORMS AND INPUTS/// */
 
 /*
-
 .panel_title {
 	font-family: var(--bold);
 	text-transform: uppercase;
@@ -1841,6 +1840,10 @@ input[type="file"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.overlay_panel_controls p:only-child {
+	width: 100%;
 }
 
 .overlay_panel_controls button {

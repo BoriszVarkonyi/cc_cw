@@ -843,6 +843,10 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	--lineheight: calc(1.4em + 1.25vmin);
 }
 
+.table.small p {		/* Whole table */
+	font-size: var(--f-small) !important;
+}
+
 .table p {
 	font-size: inherit;
 }
