@@ -91,7 +91,7 @@
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
-                    <button class="stripe_button red disabled" type="button" onclick="toggleDisqualifyPanel()">
+                    <button class="stripe_button red disabled" type="button" onclick="toggleDisqualifyPanel()" id="disqualifyButton">
                         <p>Disqualify</p>
                         <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
@@ -101,7 +101,7 @@
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
-                <div id="disqualify_panel" class="overlay_panel">
+                <div id="disqualify_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
                         <p>Disqualify {Fencer name}</p>
                     </div>
