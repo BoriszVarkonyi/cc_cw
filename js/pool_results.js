@@ -157,13 +157,21 @@ matches.forEach(item => {
     item.addEventListener("input", function () {
         var inputs = item.querySelectorAll("input[type=number]")
         var radioInputs = item.querySelectorAll("input[type=radio]")
-        if (inputs[0].value == inputs[1].value && inputs[0].value !="" && inputs[1].value !="") {
+        for (i = 0; i < inputs.length; i++) {
+            if (inputs[i].value > 20) {
+                inputs[i].value = "20";
+            }
+            else if (inputs[i].value.length > 1 && inputs[i].value * 2 < 20) {
+                inputs[i].value = "0";
+            }
+        }
+        if (inputs[0].value == inputs[1].value && inputs[0].value != "" && inputs[1].value != "") {
             for (i = 0; i < radioInputs.length; i++) {
                 radioInputs[i].nextElementSibling.classList.remove("collapsed")
                 radioInputs[i].disabled = false;
             }
         }
-        else{
+        else {
             for (i = 0; i < radioInputs.length; i++) {
                 radioInputs[i].nextElementSibling.classList.add("collapsed")
                 radioInputs[i].disabled = true;
