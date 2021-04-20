@@ -66,7 +66,7 @@
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
             <div class="modal_header red">
-                <p class="modal_title">Do you want to disqualify {fencer name} for the follwing reason: {reason}?</p>
+                <p class="modal_title">Do you want to disqualify for the follwing reason: ?</p>
             </div>
             <div class="modal_footer">
                 <p class="modal_footer_text">This action cannot be undone.</p>
@@ -103,7 +103,7 @@
                 </div>
                 <div id="disqualify_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
-                        <p>Disqualify {Fencer name}</p>
+                        <p>Disqualify</p>
                     </div>
                     <button class="panel_button" onclick="toggleDisqualifyPanel()">
                         <img src="../assets/icons/close_black.svg">
@@ -255,13 +255,21 @@
                             </div>
                             <div>
                                 <p><?php echo $f1_name ?></p>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
+                                <div>
+                                    <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
+                                    <input type="radio" name="match_1_winner" id="f1" value=""/>
+                                    <label for="f1">Winner</label>
+                                </div>
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                <div>
+                                    <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                    <input type="radio" name="match_1_winner" id="f2" value=""/>
+                                    <label for="f2">Winner</label>
+                                </div>
                                 <p><?php echo $f2_name ?></p>
                             </div>
                         </div>

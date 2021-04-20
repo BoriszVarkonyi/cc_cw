@@ -143,7 +143,7 @@ function disqFormValidation() {
 
     var selectedReason = document.querySelector(".option_container input:checked").nextElementSibling
     var modelText = document.querySelector(".modal_title")
-    modelText.innerHTML = "Do you want to disqualify " + getName() + " for the follwing reason: " + selectedReason.innerHTML + "?"
+    modelText.innerHTML = "Do you want to disqualify " + getName() + " for the following reason: " + selectedReason.innerHTML + "?"
 
 }
 

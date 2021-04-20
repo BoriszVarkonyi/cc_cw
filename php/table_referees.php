@@ -50,7 +50,8 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
             <div id="title_stripe">
                 <p class="page_title">Table Referees setup</p>
                 <form class="stripe_button_wrapper">
-                    <input type="text" id="">
+                    <input type="text" id="ref_to_use" name="ref_to_use">
+                    <input type="text" id="vref_to_use" name="vref_to_use">
                     <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
                         <img src="../assets/icons/save_black.svg" />
