@@ -191,7 +191,6 @@
         } else {
             echo $fail;
         }
-
     }
 
     //piste
