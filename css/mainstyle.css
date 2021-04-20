@@ -3471,7 +3471,7 @@ div.title_box > button {
 	padding: 0 !important;
 	width: 40px !important;
 	text-align: center;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .match label {
