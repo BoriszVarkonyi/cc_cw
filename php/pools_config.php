@@ -61,12 +61,20 @@
         }
     }
 
-    $qry_check_row = "SELECT `fencers`, `pool_of` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
+    $qry_check_row = "SELECT `fencers`, `pool_of`, `sort_by_club` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
     if ($row = mysqli_fetch_assoc($do_check_row)) {
         $json_string = $row['fencers'];
         $json_table = json_decode($json_string);
         $pool_of = $row['pool_of'];
+        $sort_by_class = $row['sort_by_club'];
+
+        //detrmine sorting attribute
+        if ($sort_by_class == 1) {
+            $sort_by = "club";
+        } else {
+            $sort_by = "nation";
+        }
     } else {
         echo mysqli_error($connection);
     }
@@ -81,7 +89,7 @@
             for ($fencer_num = 0; $fencer_num < $pool_of; $fencer_num++) {
                 $real_fencer_num = $fencer_num + 1;
                 $json_table[$real_pool_num] -> $real_fencer_num = $saved_fencers_table[$pool_num][$fencer_num];
-                array_push($json_table[$real_pool_num] -> nationality, $saved_fencers_table[$pool_num][$fencer_num] -> nation);
+                array_push($json_table[$real_pool_num] -> nationality, $saved_fencers_table[$pool_num][$fencer_num] -> $sort_by);
             }
         }
 
@@ -98,7 +106,7 @@
     }
 
     //only after piste drawing
-    //referee drwawing
+    //referee drawing
     if (isset($_POST['draw_ref'])) {
         $fail = "";
         $ref_can = $_POST['ref_can'];
@@ -144,7 +152,7 @@
             //referees can't match with own nationality
             for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
                 foreach ($selected_refs_array as $key => $ref_obj) {
-                    if (false === array_search($ref_obj -> nation, $json_table[$pool_num] -> nationalitys)) {
+                    if (false === array_search($ref_obj -> $sort_by, $json_table[$pool_num] -> nationalitys)) {
                         $json_table[$pool_num] -> ref1 = $ref_obj;
                         unset($selected_refs_array[$key]);
                         $selected_refs_array = array_values($selected_refs_array);
@@ -154,13 +162,13 @@
 
                 if ($json_table[$pool_num] -> ref1 == NULL) {
                     $json_table[$pool_num] -> ref1 = $selected_refs_array[0];
-                    $ref1_nat = $selected_refs_array[0] -> nation;
+                    $ref1_nat = $selected_refs_array[0] -> $sort_by;
                     unset($selected_refs_array[0]);
                     $selected_refs_array = array_values($selected_refs_array);
 
                     //search for 2nd ref
                     foreach ($selected_refs_array as $key => $ref2_obj) {
-                        if ($ref2_obj -> nation != $ref1_nat) {
+                        if ($ref2_obj -> $sort_by != $ref1_nat) {
                             $json_table[$pool_num] -> ref2 = $ref2_obj;
                             unset($selected_refs_array[$key]);
                             $selected_refs_array = array_values($selected_refs_array);
@@ -406,7 +414,7 @@
                             foreach ($ref_table as $ref_obj) {
                                 $refid = $ref_obj -> id;
                                 $prenom_nom = $ref_obj -> prenom . $ref_obj -> nom;
-                                $ref_nat = $ref_obj -> nation;
+                                $ref_nat = $ref_obj -> $sort_by;
 
                                 $value_array = [
                                     $refid,
@@ -508,11 +516,11 @@
                                 $ref2nat = "";
                                 if ($json_table[$pool_num] -> ref1 !==  NULL) {
                                     $refname = $json_table[$pool_num] -> ref1 -> prenom . " " . $json_table[$pool_num] -> ref1 -> nom;
-                                    $refnat = $json_table[$pool_num] -> ref1 -> nation;
+                                    $refnat = $json_table[$pool_num] -> ref1 -> $sort_by;
 
                                     if ($json_table[$pool_num] -> ref2 !==  NULL) {
                                         $ref2name = $json_table[$pool_num] -> ref2 -> prenom . " " . $json_table[$pool_num] -> ref2 -> nom;
-                                        $ref2nat = $json_table[$pool_num] -> ref2 -> nation;
+                                        $ref2nat = $json_table[$pool_num] -> ref2 -> $sort_by;
                                     }
                                 }
 
@@ -575,7 +583,7 @@
                                                     for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
 
                                                         $fencer_name = $json_table[$pool_num] -> $fencer_number -> prenom_nom;
-                                                        $fencer_nat = $json_table[$pool_num] -> $fencer_number -> nation;
+                                                        $fencer_nat = $json_table[$pool_num] -> $fencer_number -> $sort_by;
                                                         $fencer_id = $json_table[$pool_num] -> $fencer_number -> id;
                                                         $fencer_cp = $json_table[$pool_num] -> $fencer_number -> c_pos;
                                                         $fencer_rp = $json_table[$pool_num] -> $fencer_number -> r_pos;
