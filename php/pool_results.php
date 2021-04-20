@@ -69,9 +69,20 @@
                 <p class="modal_title">Do you want to disqualify for the follwing reason: ?</p>
             </div>
             <div class="modal_footer">
-                <p class="modal_footer_text">This action cannot be undone.</p>
+                <p class="modal_footer_text">This action cannot be revoked.</p>
                 <form class="modal_footer_content">
-                <input type="text" placeholder="fencer id">
+
+                    <input type="radio" name="disqualification_reason_2" id="medical" value=""/>
+                    <label for="medical">Medical</label>
+
+                    <input type="radio" name="disqualification_reason_2" id="surrender" value=""/>
+                    <label for="surrender">Surrender</label>
+
+                    <input type="radio" name="disqualification_reason_2" id="exclusion" value=""/>
+                    <label for="exclusion">Exclusion</label>
+
+                    <input type="text" placeholder="fencer id">
+
                     <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
                     <button type="submit" class="modal_confirmation_button">Disqualify</button>
                 </form>
@@ -112,14 +123,14 @@
                         <div class="overlay_panel_division visible">
                             <label>REASON OF DISQUALIFICATION</label>
                             <div class="option_container">
-                                <input type="radio" name="disqualification_reason" id="medical" value=""/>
-                                <label for="medical">Medical</label>
+                                <input type="radio" name="disqualification_reason" id="med" value=""/>
+                                <label for="med">Medical</label>
 
-                                <input type="radio" name="disqualification_reason" id="surrender" value=""/>
-                                <label for="surrender">Surrender</label>
+                                <input type="radio" name="disqualification_reason" id="sur" value=""/>
+                                <label for="sur">Surrender</label>
 
-                                <input type="radio" name="disqualification_reason" id="exclusion" value=""/>
-                                <label for="exclusion">Exclusion</label>
+                                <input type="radio" name="disqualification_reason" id="exc" value=""/>
+                                <label for="exc">Exclusion</label>
                             </div>
                         </div>
                         <button type="button" class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
@@ -257,7 +268,7 @@
                                 <p><?php echo $f1_name ?></p>
                                 <div>
                                     <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
-                                    <input type="radio" name="match_1_winner" id="f1" value=""/>
+                                    <input type="radio" name="match_1_winner" id="f1" value="" disabled/>
                                     <label for="f1">Winner</label>
                                 </div>
                             </div>
@@ -267,7 +278,7 @@
                             <div>
                                 <div>
                                     <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
-                                    <input type="radio" name="match_1_winner" id="f2" value=""/>
+                                    <input type="radio" name="match_1_winner" id="f2" value="" disabled/>
                                     <label for="f2">Winner</label>
                                 </div>
                                 <p><?php echo $f2_name ?></p>
