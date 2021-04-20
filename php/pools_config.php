@@ -70,7 +70,7 @@
         $sort_by_class = $row['sort_by_club'];
 
         //detrmine sorting attribute
-        if ($sort_by_class == 1) {
+        if ($sort_by_class) {
             $sort_by = "club";
         } else {
             $sort_by = "nation";
