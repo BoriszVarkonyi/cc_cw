@@ -125,11 +125,11 @@ function buttonDisabler() {
         disqualifyButton.classList.add("disabled")
     }
 }
-
+//Gets the name
 function getName() {
     return selectedFencerName = document.querySelector(".pool_table_wrapper .selected .table_item:first-of-type p").innerHTML
 }
-
+//Sets the name
 function setName() {
     var disqPanelText = document.querySelector("#disqualify_panel .overlay_panel_controls p")
     var selectedFencerId = document.querySelector(".pool_table_wrapper .table_row.selected").id
@@ -137,10 +137,10 @@ function setName() {
     hiddenInput.value = selectedFencerId
     disqPanelText.innerHTML = "Disqualify " + getName();
 }
-
+//Form validation
 function disqFormValidation() {
     submitPanel.disabled = false;
-
+    //Makes the modell
     var selectedReason = document.querySelector(".option_container input:checked").nextElementSibling;
     var modelText = document.querySelector(".modal_title");
     modelText.innerHTML = "Do you want to disqualify " + getName() + " for the following reason: " + selectedReason.innerHTML + "?";
@@ -152,11 +152,14 @@ function disqFormValidation() {
 disqualfyPanel.addEventListener("input", disqFormValidation)
 
 var matches = document.querySelectorAll(".match")
-
+//Set to every input an eventlistener
 matches.forEach(item => {
     item.addEventListener("input", function () {
+        //Gets the input
         var inputs = item.querySelectorAll("input[type=number]")
+        //Gets the radio inputs
         var radioInputs = item.querySelectorAll("input[type=radio]")
+        //Check if theres any forbidden points, and corrects it
         for (i = 0; i < inputs.length; i++) {
             if (inputs[i].value > 20) {
                 inputs[i].value = "20";
@@ -165,13 +168,16 @@ matches.forEach(item => {
                 inputs[i].value = "0";
             }
         }
+        //Checks if theeres a tie
         if (inputs[0].value == inputs[1].value && inputs[0].value != "" && inputs[1].value != "") {
+            //Display the radio inputs
             for (i = 0; i < radioInputs.length; i++) {
                 radioInputs[i].nextElementSibling.classList.remove("collapsed")
                 radioInputs[i].disabled = false;
             }
         }
         else {
+            //Hides the radio inputs
             for (i = 0; i < radioInputs.length; i++) {
                 radioInputs[i].nextElementSibling.classList.add("collapsed")
                 radioInputs[i].disabled = true;
