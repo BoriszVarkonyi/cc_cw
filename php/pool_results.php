@@ -269,7 +269,7 @@
                                 <div>
                                     <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
                                     <input type="radio" name="match_1_winner" id="f1" value="" disabled/>
-                                    <label for="f1">Winner</label>
+                                    <label for="f1" class="collapsed">Winner</label>
                                 </div>
                             </div>
                             <div class="vs">
@@ -279,7 +279,7 @@
                                 <div>
                                     <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
                                     <input type="radio" name="match_1_winner" id="f2" value="" disabled/>
-                                    <label for="f2">Winner</label>
+                                    <label for="f2" class="collapsed">Winner</label>
                                 </div>
                                 <p><?php echo $f2_name ?></p>
                             </div>
