@@ -133,7 +133,7 @@ function getName() {
 function setName() {
     var disqPanelText = document.querySelector("#disqualify_panel .overlay_panel_controls p")
     var selectedFencerId = document.querySelector(".pool_table_wrapper .table_row.selected").id
-    var hiddenInput = document.querySelector(".modal_footer_content input")
+    var hiddenInput = document.querySelector(".modal_footer_content input[type=text]")
     hiddenInput.value = selectedFencerId
     disqPanelText.innerHTML = "Disqualify " + getName();
 }
@@ -141,11 +141,35 @@ function setName() {
 function disqFormValidation() {
     submitPanel.disabled = false;
 
-    var selectedReason = document.querySelector(".option_container input:checked").nextElementSibling
-    var modelText = document.querySelector(".modal_title")
-    modelText.innerHTML = "Do you want to disqualify " + getName() + " for the following reason: " + selectedReason.innerHTML + "?"
+    var selectedReason = document.querySelector(".option_container input:checked").nextElementSibling;
+    var modelText = document.querySelector(".modal_title");
+    modelText.innerHTML = "Do you want to disqualify " + getName() + " for the following reason: " + selectedReason.innerHTML + "?";
+    var reasonInput = document.getElementById(selectedReason.innerHTML.toLowerCase());
+    reasonInput.checked = true;
 
 }
 
 disqualfyPanel.addEventListener("input", disqFormValidation)
+
+var matches = document.querySelectorAll(".match")
+
+matches.forEach(item => {
+    item.addEventListener("input", function () {
+        var inputs = item.querySelectorAll("input[type=number]")
+        var radioInputs = item.querySelectorAll("input[type=radio]")
+        if (inputs[0].value == inputs[1].value && inputs[0].value !="" && inputs[1].value !="") {
+            for (i = 0; i < radioInputs.length; i++) {
+                radioInputs[i].nextElementSibling.classList.remove("collapsed")
+                radioInputs[i].disabled = false;
+            }
+        }
+        else{
+            for (i = 0; i < radioInputs.length; i++) {
+                radioInputs[i].nextElementSibling.classList.add("collapsed")
+                radioInputs[i].disabled = true;
+                radioInputs[i].checked = false;
+            }
+        }
+    })
+})
 
