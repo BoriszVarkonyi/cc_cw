@@ -175,9 +175,7 @@ function tryConfig() {
                 actualTime = new Date("2020-01-01T" + start + ":00");
                 howmany = 0
             }
-
         }
-
         datafield.value = datastring
     }
 
@@ -185,7 +183,6 @@ function tryConfig() {
     // console.log(pistesAvailable)
     // console.log(pisteArray)
     // console.log(matchesArray)
-
 }
 
 //Function for leading zeros

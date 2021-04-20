@@ -66,12 +66,23 @@
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
             <div class="modal_header red">
-                <p class="modal_title">Do you want to disqualify {fencer name} for the follwing reason: {reason}?</p>
+                <p class="modal_title">Do you want to disqualify for the follwing reason: ?</p>
             </div>
             <div class="modal_footer">
-                <p class="modal_footer_text">This action cannot be undone.</p>
+                <p class="modal_footer_text">This action cannot be revoked.</p>
                 <form class="modal_footer_content">
-                <input type="text" placeholder="fencer id">
+
+                    <input type="radio" name="disqualification_reason_2" id="medical" value=""/>
+                    <label for="medical">Medical</label>
+
+                    <input type="radio" name="disqualification_reason_2" id="surrender" value=""/>
+                    <label for="surrender">Surrender</label>
+
+                    <input type="radio" name="disqualification_reason_2" id="exclusion" value=""/>
+                    <label for="exclusion">Exclusion</label>
+
+                    <input type="text" placeholder="fencer id">
+
                     <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
                     <button type="submit" class="modal_confirmation_button">Disqualify</button>
                 </form>
@@ -91,7 +102,7 @@
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
-                    <button class="stripe_button red disabled" type="button" onclick="toggleDisqualifyPanel()">
+                    <button class="stripe_button red disabled" type="button" onclick="toggleDisqualifyPanel()" id="disqualifyButton">
                         <p>Disqualify</p>
                         <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
@@ -101,9 +112,9 @@
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
-                <div id="disqualify_panel" class="overlay_panel">
+                <div id="disqualify_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
-                        <p>Disqualify {Fencer name}</p>
+                        <p>Disqualify</p>
                     </div>
                     <button class="panel_button" onclick="toggleDisqualifyPanel()">
                         <img src="../assets/icons/close_black.svg">
@@ -112,14 +123,14 @@
                         <div class="overlay_panel_division visible">
                             <label>REASON OF DISQUALIFICATION</label>
                             <div class="option_container">
-                                <input type="radio" name="disqualification_reason" id="medical" value=""/>
-                                <label for="medical">Medical</label>
+                                <input type="radio" name="disqualification_reason" id="med" value=""/>
+                                <label for="med">Medical</label>
 
-                                <input type="radio" name="disqualification_reason" id="surrender" value=""/>
-                                <label for="surrender">Surrender</label>
+                                <input type="radio" name="disqualification_reason" id="sur" value=""/>
+                                <label for="sur">Surrender</label>
 
-                                <input type="radio" name="disqualification_reason" id="exclusion" value=""/>
-                                <label for="exclusion">Exclusion</label>
+                                <input type="radio" name="disqualification_reason" id="exc" value=""/>
+                                <label for="exc">Exclusion</label>
                             </div>
                         </div>
                         <button type="button" class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
@@ -255,13 +266,21 @@
                             </div>
                             <div>
                                 <p><?php echo $f1_name ?></p>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
+                                <div>
+                                    <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
+                                    <input type="radio" name="match_1_winner" id="f1" value="" disabled/>
+                                    <label for="f1">Winner</label>
+                                </div>
                             </div>
                             <div class="vs">
                                 <p>VS.</p>
                             </div>
                             <div>
-                                <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                <div>
+                                    <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                    <input type="radio" name="match_1_winner" id="f2" value="" disabled/>
+                                    <label for="f2">Winner</label>
+                                </div>
                                 <p><?php echo $f2_name ?></p>
                             </div>
                         </div>

@@ -5,6 +5,8 @@ var head1 = document.getElementById("f1_head")
 var head2 = document.getElementById("f2_head")
 var vr_name = document.getElementById("vr_name_head")
 var vr_nat = document.getElementById("vr_nat_head")
+var ref_input = document.getElementById("ref_to_use")
+var vref_input = document.getElementById("vref_to_use")
 
 //containers
 var usedContainer = document.getElementById("used_selection_list")
@@ -696,6 +698,16 @@ function try_referees() {
     //Figyelmeztetni a felhasználót, hogyha frissít, elveszik a beosztás
     //Ha nem egyben osztja be akkor pedig megint az összes lesz használva, így válogatnia kell, vagy újraosztani
 
-    
+    var stringToUse = ""
 
+    if (match_ref.checked == true) {
+        
+        firstTime = true
+
+        for (const match of assignedArray) {
+            
+            
+
+        }
+    }
 }

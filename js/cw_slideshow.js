@@ -139,10 +139,8 @@ function slideToLeft() {
   }
   else {
     slideNumber--
-    slides[slideNumber].classList.remove("hidden")    
-    setTimeout(function () {
-      previusSlide.classList.add("hidden")
-    }, 250)
+    slides[slideNumber].classList.remove("hidden")
+    previusSlide.classList.add("hidden")
   }
   slideButtons[slideNumber].classList.add("current")
   myTimer = setInterval(autoSlide, 3000)
