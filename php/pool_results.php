@@ -58,7 +58,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pool No. <?php echo $pool_num ?> 's results</title>
+    <title>Pool No. <?php echo $pool_num ?>'s results</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
@@ -95,7 +95,7 @@
         <!-- navbar -->
         <main>
             <div id="title_stripe">
-                <p class="page_title">Pool No. <?php echo $pool_num ?> 's results</p>
+                <p class="page_title">Pool No. <?php echo $pool_num ?>'s results</p>
                 <input type="text" name="" id="" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
@@ -268,8 +268,8 @@
                                 <p><?php echo $f1_name ?></p>
                                 <div>
                                     <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
-                                    <input type="radio" name="match_1_winner" id="f1" value="" disabled/>
-                                    <label for="f1" class="collapsed">Winner</label>
+                                    <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="" disabled/>
+                                    <label for="<?php echo "1," . $match_number ?>" class="collapsed">Winner</label>
                                 </div>
                             </div>
                             <div class="vs">
@@ -278,8 +278,8 @@
                             <div>
                                 <div>
                                     <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
-                                    <input type="radio" name="match_1_winner" id="f2" value="" disabled/>
-                                    <label for="f2" class="collapsed">Winner</label>
+                                    <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="" disabled/>
+                                    <label for="<?php echo "2," . $match_number ?>" class="collapsed">Winner</label>
                                 </div>
                                 <p><?php echo $f2_name ?></p>
                             </div>
