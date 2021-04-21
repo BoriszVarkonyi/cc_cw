@@ -187,3 +187,54 @@ matches.forEach(item => {
     })
 })
 
+var entry = document.querySelector(".pool_results_column")
+var poolMatches = document.getElementById("pool_matches")
+var viewButtons = document.querySelectorAll("#column_view_controls button")
+
+function hideAllViewButton() {
+    for (i = 0; i < viewButtons.length; i++) {
+        viewButtons[i].classList.add("hidden")
+    }
+}
+
+function viewAllButton(x) {
+    viewButtons[2].classList.remove("hidden")
+    viewButtons[1].classList.remove("hidden")
+    viewButtons[0].classList.add("hidden")
+    poolMatches.classList.remove("collapsed")
+    entry.classList.remove("collapsed")
+    document.cookie = "view = 010;" + setExpireDay(365);
+}
+
+function viewEntryButton(x) {
+    hideAllViewButton();
+    viewButtons[2].classList.remove("hidden")
+    viewButtons[0].classList.remove("hidden")
+    poolMatches.classList.add("collapsed")
+    entry.classList.remove("collapsed")
+    document.cookie = "view = 100;" + setExpireDay(365);
+}
+
+function viewMatchesButton(x) {
+    hideAllViewButton();
+    viewButtons[1].classList.remove("hidden")
+    viewButtons[0].classList.remove("hidden")
+    poolMatches.classList.remove("collapsed")
+    entry.classList.add("collapsed")
+    document.cookie = "view = 001;" + setExpireDay(365);
+}
+
+var view = cookieFinder("view", "010", false, 365)
+
+switch (view) {
+    case "001":
+        viewMatchesButton()
+    break;
+    case "100":
+        viewEntryButton();
+    break;
+    case "010":
+        viewAllButton();
+    break;
+}
+

@@ -231,13 +231,13 @@
                             </div>
                         </div>
                         <div id="column_view_controls">
-                            <button onclick="">
+                            <button onclick="viewAllButton()">
                                 <img src="../assets/icons/vertical_split_black.svg">
                             </button>
-                            <button onclick="">
+                            <button onclick="viewEntryButton()">
                                 <img src="../assets/icons/switch_right_black.svg">
                             </button>
-                            <button onclick="">
+                            <button onclick="viewMatchesButton()">
                                 <img src="../assets/icons/switch_left_black.svg">
                             </button>
                         </div>
