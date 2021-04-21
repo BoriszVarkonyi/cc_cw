@@ -1060,9 +1060,6 @@ nav img {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-#app_name * {
 	line-height: 1;
 }
 
@@ -1099,7 +1096,6 @@ nav img {
 }
 
 .nav_bar_title {
-	font-size: inherit;
 	font-family: var(--bold);
 	text-transform: uppercase;
 	padding: 0;
@@ -1115,12 +1111,13 @@ nav img {
 	padding: 0;
 	background: transparent;
 	overflow: visible;
-	font-size: inherit;
 	color: inherit;
 	border-radius: 5px;
 	padding: 0 15px 0 20px;
 	box-sizing: border-box;
 	float: left;
+	/* needed for burttons */
+	font-size: inherit;
 }
 
 .nav_bar_item:hover {
@@ -3332,7 +3329,7 @@ div.title_box > button {
 	margin: 0 !important;
 	padding: 0 !important;
 	width: 50px !important;
-	text-align: center;
+	text-align: center !important;
 }
 
 .disqualify_button {

@@ -211,6 +211,11 @@ button, input[type="button"] {
 	background: transparent;
 }
 
+input[type="submit"] {
+	cursor: pointer;
+}
+
+
 button, input, textarea {
 	padding: 0;
 	font-size: var(--f-medium);
@@ -907,8 +912,8 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 }
 
 .table_header_text.square, .table_item.square {
-	min-width: --lineheight;
-	max-width: --lineheight;
+	min-width: var(--lineheight);
+	max-width: var(--lineheight);
 }
 
 .table_item.square.red {
@@ -1005,6 +1010,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 .entry > .table_row {
 	background: var(--c-white);
+	height: calc(1.4em + 1.25vmin);
 }
 
 .table_row_wrapper .entry:nth-of-type(even) > .table_row, .table_row_wrapper > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {

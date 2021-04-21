@@ -72,19 +72,19 @@
             <div class="modal_footer">
                 <p class="modal_footer_text">This action cannot be revoked.</p>
                 <form class="modal_footer_content">
+                    <div class="option_container">
+                        <input type="radio" name="disqualification_reason_2" id="medical" value=""/>
+                        <label for="medical">Medical</label>
 
-                    <input type="radio" name="disqualification_reason_2" id="medical" value=""/>
-                    <label for="medical">Medical</label>
+                        <input type="radio" name="disqualification_reason_2" id="surrender" value=""/>
+                        <label for="surrender">Surrender</label>
 
-                    <input type="radio" name="disqualification_reason_2" id="surrender" value=""/>
-                    <label for="surrender">Surrender</label>
+                        <input type="radio" name="disqualification_reason_2" id="exclusion" value=""/>
+                        <label for="exclusion">Exclusion</label>
+                    </div>
+                    <input type="text" readonly style="width:100">
 
-                    <input type="radio" name="disqualification_reason_2" id="exclusion" value=""/>
-                    <label for="exclusion">Exclusion</label>
-
-                    <input type="text" placeholder="fencer id">
-
-                    <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
+                    <button type="button" class="modal_decline_button" onclick="toggleModal(1), toggleDisqualifyPanel()">Cancel</button>
                     <button type="submit" class="modal_confirmation_button">Disqualify</button>
                 </form>
             </div>
@@ -157,9 +157,9 @@
                             $ref2name = $current_f_pool -> ref2 -> prenom . $current_f_pool -> ref2 -> nom;
                         }
                         ?>
-                        <div>
+                        <div id="pool_matches_brief" class="pool_results_column">
                             <div class="entry">
-                                <div class="table_row start">
+                                <div class="table_row">
                                     <div class="table_item bold">No. <?php echo $pool_num ?></div>
                                     <div class="table_item">Piste <?php echo $piste ?></div>
                                     <div class="table_item">Ref:
@@ -231,17 +231,17 @@
                             </div>
                         </div>
                         <div id="column_view_controls">
-                            <button>
+                            <button onclick="">
                                 <img src="../assets/icons/vertical_split_black.svg">
                             </button>
-                            <button>
+                            <button onclick="">
                                 <img src="../assets/icons/switch_right_black.svg">
                             </button>
-                            <button>
+                            <button onclick="">
                                 <img src="../assets/icons/switch_left_black.svg">
                             </button>
                         </div>
-                        <div id="pool_matches">
+                        <div id="pool_matches" class="pool_results_column">
 
                             <?php
                                 $match_number = 1;
@@ -266,7 +266,7 @@
                                     $f1_name = $name_array[$f1_id];
                                     $f2_name = $name_array[$f2_id];
                             ?>
-                            <div class="match <?php echo $szin = ($f1_score == "" ? "red" : "green") ?>">
+                            <div class="match small_scroll <?php echo $szin = ($f1_score == "" ? "red" : "green") ?>">
                                 <div class="match_number">
                                     <p><?php echo $match_number ?></p>
                                 </div>
