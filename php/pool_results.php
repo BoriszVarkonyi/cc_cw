@@ -50,6 +50,24 @@
     if (isset($_POST['submit_savepool'])) {
 
     }
+
+    if (isset($_POST['submit_disq'])) {
+        //get reason
+        $reason = $_POST['disqualification_reason_2'];
+        $fencer_id = $_POST['id_of_fencer'];
+
+        //set all points given and gotten by fencer to disq code
+        //go through matches
+        for ($fencer_number = 1; $fencer_number <= $pool_f_in; $fencer_number++) {
+            for ($opponent_number = $fencer_number + 1; $opponent_number <= $pool_f_in; $opponent_number++) {
+                if ($fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> id || $fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> enemy) {
+                    $matches_table -> {$pool_num-1} -> $fencer_number -> $opponent_number -> given = $reason;
+                    $matches_table -> {$pool_num-1} -> $fencer_number -> $opponent_number -> gotten = $reason;
+                }
+            }
+        }
+        var_dump($_POST);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -70,21 +88,21 @@
             </div>
             <div class="modal_footer">
                 <p class="modal_footer_text">This action cannot be revoked.</p>
-                <form class="modal_footer_content">
+                <form id="form_disq" method="POST" action="" name="form_disq" class="modal_footer_content">
 
-                    <input type="radio" name="disqualification_reason_2" id="medical" value=""/>
+                    <input type="radio" name="disqualification_reason_2" id="medical" value="MED"/>
                     <label for="medical">Medical</label>
 
-                    <input type="radio" name="disqualification_reason_2" id="surrender" value=""/>
+                    <input type="radio" name="disqualification_reason_2" id="surrender" value="ABD"/>
                     <label for="surrender">Surrender</label>
 
-                    <input type="radio" name="disqualification_reason_2" id="exclusion" value=""/>
+                    <input type="radio" name="disqualification_reason_2" id="exclusion" value="EXC"/>
                     <label for="exclusion">Exclusion</label>
 
                     <input type="text" placeholder="fencer id">
 
                     <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
-                    <button type="submit" class="modal_confirmation_button">Disqualify</button>
+                    <button name="submit_disq" type="submit" class="modal_confirmation_button">Disqualify</button>
                 </form>
             </div>
         </div>
@@ -96,7 +114,7 @@
         <main>
             <div id="title_stripe">
                 <p class="page_title">Pool No. <?php echo $pool_num ?>'s results</p>
-                <input type="text" name="" id="" class="selected_list_item_input">
+                <input form="form_disq" type="text" name="id_of_fencer" id="" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
@@ -119,21 +137,21 @@
                     <button class="panel_button" onclick="toggleDisqualifyPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
-                    <form action="" name="savepool" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
+                    <form action="" name="disqualification" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <div class="overlay_panel_division visible">
                             <label>REASON OF DISQUALIFICATION</label>
                             <div class="option_container">
-                                <input type="radio" name="disqualification_reason" id="med" value=""/>
+                                <input type="radio" name="disqualification_reason" id="med" value="MED"/>
                                 <label for="med">Medical</label>
 
-                                <input type="radio" name="disqualification_reason" id="sur" value=""/>
+                                <input type="radio" name="disqualification_reason" id="sur" value="ABD"/>
                                 <label for="sur">Surrender</label>
 
-                                <input type="radio" name="disqualification_reason" id="exc" value=""/>
+                                <input type="radio" name="disqualification_reason" id="exc" value="EXC"/>
                                 <label for="exc">Exclusion</label>
                             </div>
                         </div>
-                        <button type="button" class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
+                        <button name="submit_disq" type="button" class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
                     </form>
                 </div>
             </div>
