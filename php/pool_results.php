@@ -143,7 +143,7 @@
                     <button class="panel_button" onclick="toggleDisqualifyPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
-                    <form action="" name="disqualification" method="post"  autocomplete="off" class="overlay_panel_form" autocomplete="off">
+                    <div class="overlay_panel_form">
                         <div class="overlay_panel_division visible">
                             <label>REASON OF DISQUALIFICATION</label>
                             <div class="option_container">
@@ -157,8 +157,8 @@
                                 <label for="exc">Exclusion</label>
                             </div>
                         </div>
-                        <button name="submit_disq" type="button" class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
-                    </form>
+                        <button class="panel_submit red" onclick="toggleModal(1)">Disqualify</button>
+                    </div>
                 </div>
             </div>
             <div id="page_content_panel_main">
@@ -265,7 +265,7 @@
                             </button>
                         </div>
                         <div id="pool_matches" class="pool_results_column">
-
+                            <input type="number" class="number_input" placeholder="points in pools">
                             <?php
                                 $match_number = 1;
                                 foreach ($order_array as $match_string) {

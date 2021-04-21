@@ -18,24 +18,25 @@
 	box-sizing: border-box;
 	opacity: 1;
 	transition: all var(--t-basic);
+	max-width: 100%;
 }
 
 .pool_results_column.collapsed {
 	width: 0;
 	padding: 30px 0.5vw;
-	max-width: 0px;
 	opacity: 0;
 	flex: 1 1 0;
+	max-width: 0;
 	overflow: hidden;
 }
 
+/* Entry on left side */
 #pool_matches_brief {
 	display: flex;
+	align-items: center;
 }
 
 #pool_results .entry {
-	align-self: center;
-	justify-self: center;
 	box-sizing: border-box;
 	width: 100%;
 	border-radius: 5px;
@@ -46,11 +47,7 @@
 	background: var(--c-lightestgray);
 }
 
-#pool_matches {
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
+/* Buttons in the middle */
 #column_view_controls {
     display: flex;
     flex-direction: column;
@@ -73,6 +70,12 @@
 #column_view_controls img {
 	width: 20px;
 	height: 20px;
+}
+
+/* Matches list on the right */
+#pool_matches {
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .match {
@@ -155,14 +158,19 @@
 	margin-bottom: 0;
 }
 
-.match label {
-	max-height: 100%;
-	transition: all var(--t-basic);
-	opacity: 1;
-}
-
 .match label.collapsed {
 	max-height: 0;
 	overflow: hidden;
 	opacity: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.match label {
+	max-height: 100%;
+	transition: all var(--t-basic);
+	opacity: 1;
+	padding: 3px;
+	margin: 0 !important;
+	margin-top: 3px !important;
 }
