@@ -3138,6 +3138,8 @@ div.title_box > button {
 #match_result_wrapper {
 	background: var(--c-white);
 	padding: 10px;
+	border-radius: 5px;
+    box-shadow: var(--s-black);
 }
 
 .match_fencers_wrapper {

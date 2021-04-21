@@ -16,6 +16,17 @@
     z-index: 0;
 	flex: 1 1 50%;
 	box-sizing: border-box;
+	opacity: 1;
+	transition: all var(--t-basic);
+}
+
+.pool_results_column.collapsed {
+	width: 0;
+	padding: 30px 0.5vw;
+	max-width: 0px;
+	opacity: 0;
+	flex: 1 1 0;
+	overflow: hidden;
 }
 
 #pool_matches_brief {
