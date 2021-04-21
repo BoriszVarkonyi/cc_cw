@@ -700,14 +700,25 @@ function try_referees() {
 
     var stringToUse = ""
 
-    if (match_ref.checked == true) {
-        
-        firstTime = true
+    firstTime = true
 
-        for (const match of assignedArray) {
-            
-            
+    for (const match of assignedArray) {
 
+        if (firstTime == false) {
+
+            stringToUse += "//"
         }
+
+        stringToUse += match[0] + "&&" + '{"ref_id":' + match[1].ref_id + ',"n1":"' + match[1].n1 + '","c1":"' + match[1].c1 + '","name":"' + match[1].name + '"}'
+
+        firstTime = false
+    }
+
+    if (match_ref.checked == true) {
+
+        ref_input.value = stringToUse
+    } else {
+
+        vref_input.value = stringToUse
     }
 }
