@@ -351,7 +351,7 @@
                                 <label for="starting_time">SORT BY</label>
                                 <div class="option_container">
 
-                                    <input type="radio" class="option_button" name="sort_by" id="7" value="club" checked/>
+                                    <input type="radio" class="option_button" name="sort_by" id="sb_club" value="club" checked/>
                                     <label for="sb_club">Club</label>
 
                                     <input type="radio" class="option_button" name="sort_by" id="sb_nationality" value="nation"/>

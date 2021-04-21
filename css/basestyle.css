@@ -211,6 +211,11 @@ button, input[type="button"] {
 	background: transparent;
 }
 
+input[type="submit"] {
+	cursor: pointer;
+}
+
+
 button, input, textarea {
 	padding: 0;
 	font-size: var(--f-medium);
@@ -907,8 +912,8 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 }
 
 .table_header_text.square, .table_item.square {
-	min-width: --lineheight;
-	max-width: --lineheight;
+	min-width: var(--lineheight);
+	max-width: var(--lineheight);
 }
 
 .table_item.square.red {
@@ -1005,6 +1010,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 
 .entry > .table_row {
 	background: var(--c-white);
+	height: calc(1.4em + 1.25vmin);
 }
 
 .table_row_wrapper .entry:nth-of-type(even) > .table_row, .table_row_wrapper > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {
@@ -1117,6 +1123,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 .small_status_item {
 	width: 20px;
 	max-width: 20px;
+	box-sizing: border-box;
 }
 
 .big_status_item {
@@ -1125,14 +1132,15 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	justify-content: center;
 	align-items: center;
 	border: 3px solid transparent;
+	box-sizing: border-box;
 }
 
-.big_status_item > label {
+.big_status_item label {
 	align-self: center;
 	margin: 0 !important;
 }
 
-.big_status_item > img {
+.big_status_item img {
 	height: 65%;
 	width: 65%;
 }

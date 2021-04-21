@@ -386,6 +386,7 @@ function rfrsValidation() {
     }
     if (valid2) {
         rfrsSaveButton.disabled = false;
+        console.log(rfrsSaveButton.disabled)
     }
     else {
         rfrsSaveButton.disabled = true;

@@ -117,7 +117,6 @@ function toggleLanguagePanel() {
         //If not it sets the oldClickedelement to the lang panel.
         oldClickedelement = lang_panel;
     }
-    console.log(oldClickedelement)
     //lang_panel.classList.toggle("hidden");
 }
 

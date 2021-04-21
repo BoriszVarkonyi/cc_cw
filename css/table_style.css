@@ -110,6 +110,7 @@
 	margin-bottom: 10px;
 	box-sizing: border-box;
 	z-index: 0;
+	font-size: var(--f-small);
 }
 
 .table_round_wrapper:focus {
@@ -132,6 +133,7 @@
 	text-overflow: ellipsis;
     overflow: hidden;
 	margin: 2px 0;
+	line-height: 1.5;
 }
 
 .table_round_info div {
@@ -145,7 +147,7 @@
 	flex-direction: column;
 	cursor: pointer;
 	border-radius: 4px;
-	margin: 30px 25px;
+	margin: 0 25px;
 }
 
 .table_fencer::before, .table_round::after, .table_round_wrapper::before {

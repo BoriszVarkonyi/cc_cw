@@ -125,27 +125,116 @@ function buttonDisabler() {
         disqualifyButton.classList.add("disabled")
     }
 }
-
+//Gets the name
 function getName() {
     return selectedFencerName = document.querySelector(".pool_table_wrapper .selected .table_item:first-of-type p").innerHTML
 }
-
+//Sets the name
 function setName() {
     var disqPanelText = document.querySelector("#disqualify_panel .overlay_panel_controls p")
     var selectedFencerId = document.querySelector(".pool_table_wrapper .table_row.selected").id
-    var hiddenInput = document.querySelector(".modal_footer_content input")
+    var hiddenInput = document.querySelector(".modal_footer_content input[type=text]")
     hiddenInput.value = selectedFencerId
     disqPanelText.innerHTML = "Disqualify " + getName();
 }
-
+//Form validation
 function disqFormValidation() {
     submitPanel.disabled = false;
-
-    var selectedReason = document.querySelector(".option_container input:checked").nextElementSibling
-    var modelText = document.querySelector(".modal_title")
-    modelText.innerHTML = "Do you want to disqualify " + getName() + " for the following reason: " + selectedReason.innerHTML + "?"
+    //Makes the modell
+    var selectedReason = document.querySelector(".option_container input:checked").nextElementSibling;
+    var modelText = document.querySelector(".modal_title");
+    modelText.innerHTML = "Do you want to disqualify " + getName() + " for the following reason: " + selectedReason.innerHTML + "?";
+    var reasonInput = document.getElementById(selectedReason.innerHTML.toLowerCase());
+    reasonInput.checked = true;
 
 }
 
 disqualfyPanel.addEventListener("input", disqFormValidation)
+
+var matches = document.querySelectorAll(".match")
+//Set to every input an eventlistener
+matches.forEach(item => {
+    item.addEventListener("input", function () {
+        //Gets the input
+        var inputs = item.querySelectorAll("input[type=number]")
+        //Gets the radio inputs
+        var radioInputs = item.querySelectorAll("input[type=radio]")
+        //Check if theres any forbidden points, and corrects it
+        for (i = 0; i < inputs.length; i++) {
+            if (inputs[i].value > 20) {
+                inputs[i].value = "20";
+            }
+            else if (inputs[i].value.length > 1 && inputs[i].value * 2 < 20) {
+                inputs[i].value = "0";
+            }
+        }
+        //Checks if theeres a tie
+        if (inputs[0].value == inputs[1].value && inputs[0].value != "" && inputs[1].value != "") {
+            //Display the radio inputs
+            for (i = 0; i < radioInputs.length; i++) {
+                radioInputs[i].nextElementSibling.classList.remove("collapsed")
+                radioInputs[i].disabled = false;
+            }
+        }
+        else {
+            //Hides the radio inputs
+            for (i = 0; i < radioInputs.length; i++) {
+                radioInputs[i].nextElementSibling.classList.add("collapsed")
+                radioInputs[i].disabled = true;
+                radioInputs[i].checked = false;
+            }
+        }
+    })
+})
+
+var entry = document.querySelector(".pool_results_column")
+var poolMatches = document.getElementById("pool_matches")
+var viewButtons = document.querySelectorAll("#column_view_controls button")
+
+function hideAllViewButton() {
+    for (i = 0; i < viewButtons.length; i++) {
+        viewButtons[i].classList.add("hidden")
+    }
+}
+
+function viewAllButton(x) {
+    viewButtons[2].classList.remove("hidden")
+    viewButtons[1].classList.remove("hidden")
+    viewButtons[0].classList.add("hidden")
+    poolMatches.classList.remove("collapsed")
+    entry.classList.remove("collapsed")
+    document.cookie = "view = 010;" + setExpireDay(365);
+}
+
+function viewEntryButton(x) {
+    hideAllViewButton();
+    viewButtons[2].classList.remove("hidden")
+    viewButtons[0].classList.remove("hidden")
+    poolMatches.classList.add("collapsed")
+    entry.classList.remove("collapsed")
+    document.cookie = "view = 100;" + setExpireDay(365);
+}
+
+function viewMatchesButton(x) {
+    hideAllViewButton();
+    viewButtons[1].classList.remove("hidden")
+    viewButtons[0].classList.remove("hidden")
+    poolMatches.classList.remove("collapsed")
+    entry.classList.add("collapsed")
+    document.cookie = "view = 001;" + setExpireDay(365);
+}
+
+var view = cookieFinder("view", "010", false, 365)
+
+switch (view) {
+    case "001":
+        viewMatchesButton()
+    break;
+    case "100":
+        viewEntryButton();
+    break;
+    case "010":
+        viewAllButton();
+    break;
+}
 

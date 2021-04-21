@@ -1060,9 +1060,6 @@ nav img {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-#app_name * {
 	line-height: 1;
 }
 
@@ -1099,7 +1096,6 @@ nav img {
 }
 
 .nav_bar_title {
-	font-size: inherit;
 	font-family: var(--bold);
 	text-transform: uppercase;
 	padding: 0;
@@ -1115,12 +1111,13 @@ nav img {
 	padding: 0;
 	background: transparent;
 	overflow: visible;
-	font-size: inherit;
 	color: inherit;
 	border-radius: 5px;
 	padding: 0 15px 0 20px;
 	box-sizing: border-box;
 	float: left;
+	/* needed for burttons */
+	font-size: inherit;
 }
 
 .nav_bar_item:hover {
@@ -3141,6 +3138,8 @@ div.title_box > button {
 #match_result_wrapper {
 	background: var(--c-white);
 	padding: 10px;
+	border-radius: 5px;
+    box-shadow: var(--s-black);
 }
 
 .match_fencers_wrapper {
@@ -3332,7 +3331,7 @@ div.title_box > button {
 	margin: 0 !important;
 	padding: 0 !important;
 	width: 50px !important;
-	text-align: center;
+	text-align: center !important;
 }
 
 .disqualify_button {
@@ -3351,139 +3350,6 @@ div.title_box > button {
 
 .vs {
 	justify-content: center;
-}
-
-/* Pool Results */
-
-#pool_results {
-	display: flex;
-	max-width: 100%;
-}
-
-#pool_results > div {
-	width: 100%;
-	display: flex;
-}
-
-#pool_results > div > div {
-	width: 50%;
-}
-
-#pool_results > div > div:first-of-type {
-	display: flex;
-}
-
-#pool_results .entry {
-	align-self: center;
-	justify-self: center;
-	box-sizing: border-box;
-	width: 100%;
-	margin: 0 10px;
-	border-radius: 5px;
-	overflow: hidden;
-}
-
-#pool_results .entry > .table_row {
-	background: var(--c-lightestgray);
-}
-
-#pool_matches {
-	padding: 30px 10px;
-	width: 100%;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
-.match {
-	box-sizing: border-box;
-	width: 100%;
-	display: flex;
-	position: relative;
-	background: var(--c-white);
-	border: 5px solid;
-	margin: 7px 0;
-	overflow: auto;
-	border-radius: 5px;
-}
-
-.match.red {
-	border-color: var(--c-red);
-}
-
-.match.green {
-	border-color: var(--c-green);
-}
-
-.match > div {
-	display: flex;
-	flex: 1 1 0;
-	align-items: center;
-	padding: 8px 0;
-}
-
-.match > div > p {
-	font-family: var(--bold);
-	text-overflow: ellipsis;
-}
-
-.match_number {
-	font-size: var(--f-large);
-	font-family: var(--bold);
-	color: var(--c-darkgray);
-	justify-content: center;
-	background: var(--c-lightestgray);
-	flex: 0 0 30px !important;
-}
-
-.match > div:nth-of-type(2) {
-	justify-content: flex-end;
-	text-align: end;
-}
-
-.match > div:last-of-type {
-	justify-content: flex-start;
-	text-align: start;
-}
-
-.match > div:nth-of-type(2) p {
-	padding-right: 5%;
-}
-
-.match > div:last-of-type p {
-	padding-left: 5%;
-}
-
-.match .vs {
-	flex: 0 0 5px;
-	color: var(--c-gray);
-	font-size: var(--f-large);
-}
-
-.match > div > div {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-}
-
-.match input[type="number"] {
-	padding: 0 !important;
-	width: 40px !important;
-	text-align: center;
-	margin-bottom: 0;
-}
-
-.match label {
-	max-height: 100%;
-	transition: all var(--t-basic);
-	opacity: 1;
-}
-
-.match label.collapsed {
-	max-height: 0;
-	overflow: hidden;
-	opacity: 0;
 }
 
 /* Tournaments timatable */

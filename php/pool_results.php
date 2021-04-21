@@ -79,6 +79,7 @@
     <title>Pool No. <?php echo $pool_num ?>'s results</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/pool_results_style.min.css">
 </head>
 <body>
     <div class="modal_wrapper hidden" id="modal_1">
@@ -160,7 +161,7 @@
                     <div>
 
 
-                    <?php
+                        <?php
 
                         //get pools data
                         $piste = $current_f_pool -> piste;
@@ -173,142 +174,147 @@
                             $ref2nat = $current_f_pool -> ref2 -> nation;
                             $ref2name = $current_f_pool -> ref2 -> prenom . $current_f_pool -> ref2 -> nom;
                         }
-                    ?>
-                    <div>
-                        <div class="entry">
-                            <div class="table_row start">
-                                <div class="table_item bold">No. <?php echo $pool_num ?></div>
-                                <div class="table_item">Piste <?php echo $piste ?></div>
-                                <div class="table_item">Ref:
-                                <?php
-                                //echo out ref(s)
-                                echo $ref1name . " (" . $ref1nat . ")";
-                                if ($current_f_pool -> ref2 != NULL) {
-                                    echo "Ref 2: " . $ref2name . " (" . $ref2nat . ") ";
-                                }
-                                ?></div>
-                                <div class="table_item"><?php echo $time ?></div>
-                            </div>
-                            <div class="entry_panel">
-                                <div class="pool_table_wrapper table small">
-                                    <div class="table_header">
-                                        <div class="table_header_text">
-                                            <p>Fencer's name</p>
-                                        </div>
-                                        <div class="table_header_text square">
-                                            <p>No.</p>
-                                        </div>
-                                        <?php
-                                            //echo out fencer number top(horizontal)
-                                            for ($i = 1; $i <= $pool_f_in; $i++ ) {
-                                        ?>
-                                        <div class="table_header_text square"><p><?php echo $i ?></p></div>
-                                        <?php
-                                            }
-                                        ?>
-                                    </div>
-
-                                    <div class="table_row_wrapper alt">
-                                        <?php
-                                            //echo the fencers vertical
-                                            for ($f_num = 1; $f_num <= $pool_f_in; $f_num++) {
-                                                //get fencers data
-                                                $fencer_name = $current_f_pool -> $f_num -> prenom_nom;
-
-                                        ?>
-
-                                        <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row" onclick="selectRow(this)">
-                                            <div class="table_item"><p><?php echo $fencer_name ?></p></div>
-                                            <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
+                        ?>
+                        <div id="pool_matches_brief" class="pool_results_column">
+                            <div class="entry">
+                                <div class="table_row">
+                                    <div class="table_item bold">No. <?php echo $pool_num ?></div>
+                                    <div class="table_item">Piste <?php echo $piste ?></div>
+                                    <div class="table_item">Ref:
+                                    <?php
+                                    //echo out ref(s)
+                                    echo $ref1name . " (" . $ref1nat . ")";
+                                    if ($current_f_pool -> ref2 != NULL) {
+                                        echo "Ref 2: " . $ref2name . " (" . $ref2nat . ") ";
+                                    }
+                                    ?></div>
+                                    <div class="table_item"><?php echo $time ?></div>
+                                </div>
+                                <div class="entry_panel">
+                                    <div class="pool_table_wrapper table small">
+                                        <div class="table_header">
+                                            <div class="table_header_text">
+                                                <p>Fencer's name</p>
+                                            </div>
+                                            <div class="table_header_text square">
+                                                <p>No.</p>
+                                            </div>
                                             <?php
-                                                for ($i = 1; $i <= $pool_f_in; $i++) {
-                                                    if ($i < $f_num) {
-                                                        $points = $current_m_pool -> {$i} -> {$f_num} -> given;
-                                                    } else if ($i > $f_num) {
-                                                        $points = $current_m_pool -> {$f_num} -> {$i} -> gotten;
-                                                    }
-                                                    //get scores from matches_table!
-
-                                                    if ($i == $f_num) {
-                                                        ?><div class="table_item square filled"><p>X</p></div><?php
-                                                    } else {
-                                                        ?><div class="table_item square"><p><?php echo $points ?></p></div><?php
-                                                    }
-
+                                                //echo out fencer number top(horizontal)
+                                                for ($i = 1; $i <= $pool_f_in; $i++ ) {
+                                            ?>
+                                            <div class="table_header_text square"><p><?php echo $i ?></p></div>
+                                            <?php
                                                 }
                                             ?>
                                         </div>
-                                    <?php
-                                        }
-                                    ?>
+
+                                        <div class="table_row_wrapper alt">
+                                            <?php
+                                                //echo the fencers vertical
+                                                for ($f_num = 1; $f_num <= $pool_f_in; $f_num++) {
+                                                    //get fencers data
+                                                    $fencer_name = $current_f_pool -> $f_num -> prenom_nom;
+
+                                            ?>
+
+                                            <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row" onclick="selectRow(this)">
+                                                <div class="table_item"><p><?php echo $fencer_name ?></p></div>
+                                                <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
+                                                <?php
+                                                    for ($i = 1; $i <= $pool_f_in; $i++) {
+                                                        if ($i < $f_num) {
+                                                            $points = $current_m_pool -> {$i} -> {$f_num} -> given;
+                                                        } else if ($i > $f_num) {
+                                                            $points = $current_m_pool -> {$f_num} -> {$i} -> gotten;
+                                                        }
+                                                        //get scores from matches_table!
+
+                                                        if ($i == $f_num) {
+                                                            ?><div class="table_item square filled"><p>X</p></div><?php
+                                                        } else {
+                                                            ?><div class="table_item square"><p><?php echo $points ?></p></div><?php
+                                                        }
+
+                                                    }
+                                                ?>
+                                            </div>
+                                        <?php
+                                            }
+                                        ?>
+                                        </div>
+
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
-
-
-
-
-                    <div id="pool_matches">
-
-                        <?php
-                            $match_number = 1;
-                            foreach ($order_array as $match_string) {
-
-                                $array_match_ids = explode('-', $match_string);
-
-                                $f1_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> id;
-                                $f2_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> enemy;
-
-                                $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
-                                $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
-
-                                if ($f1_score == 0) {
-                                    $f1_score = "";
-                                }
-                                if ($f2_score == 0) {
-                                    $f2_score = "";
-                                }
-
-                                //get fencer names from array
-                                $f1_name = $name_array[$f1_id];
-                                $f2_name = $name_array[$f2_id];
-                        ?>
-                        <div class="match <?php echo $szin = ($f1_score == "" ? "red" : "green") ?>">
-                            <div class="match_number">
-                                <p><?php echo $match_number ?></p>
-                            </div>
-                            <div>
-                                <p><?php echo $f1_name ?></p>
-                                <div>
-                                    <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
-                                    <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="" disabled/>
-                                    <label for="<?php echo "1," . $match_number ?>" class="collapsed">Winner</label>
-                                </div>
-                            </div>
-                            <div class="vs">
-                                <p>VS.</p>
-                            </div>
-                            <div>
-                                <div>
-                                    <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
-                                    <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="" disabled/>
-                                    <label for="<?php echo "2," . $match_number ?>" class="collapsed">Winner</label>
-                                </div>
-                                <p><?php echo $f2_name ?></p>
-                            </div>
+                        <div id="column_view_controls">
+                            <button onclick="viewAllButton()">
+                                <img src="../assets/icons/vertical_split_black.svg">
+                            </button>
+                            <button onclick="viewEntryButton()">
+                                <img src="../assets/icons/switch_right_black.svg">
+                            </button>
+                            <button onclick="viewMatchesButton()">
+                                <img src="../assets/icons/switch_left_black.svg">
+                            </button>
                         </div>
-                        <?php
-                                $match_number++;
-                            }
+                        <div id="pool_matches" class="pool_results_column">
 
-                        ?>
+                            <?php
+                                $match_number = 1;
+                                foreach ($order_array as $match_string) {
 
+                                    $array_match_ids = explode('-', $match_string);
 
+                                    $f1_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> id;
+                                    $f2_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> enemy;
+
+                                    $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
+                                    $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
+
+                                    if ($f1_score == 0) {
+                                        $f1_score = "";
+                                    }
+                                    if ($f2_score == 0) {
+                                        $f2_score = "";
+                                    }
+
+                                    //get fencer names from array
+                                    $f1_name = $name_array[$f1_id];
+                                    $f2_name = $name_array[$f2_id];
+                            ?>
+                            <div class="match small_scroll <?php echo $szin = ($f1_score == "" ? "red" : "green") ?>">
+                                <div class="match_number">
+                                    <p><?php echo $match_number ?></p>
+                                </div>
+                                <div>
+                                    <p><?php echo $f1_name ?></p>
+                                    <div>
+                                        <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
+                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="" disabled/>
+                                        <label for="<?php echo "1," . $match_number ?>" class="collapsed">Winner</label>
+                                    </div>
+                                </div>
+                                <div class="vs">
+                                    <p>VS.</p>
+                                </div>
+                                <div>
+                                    <div>
+                                        <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="" disabled/>
+                                        <label for="<?php echo "2," . $match_number ?>" class="collapsed">Winner</label>
+                                    </div>
+                                    <p><?php echo $f2_name ?></p>
+                                </div>
+                            </div>
+                            <?php
+                                    $match_number++;
+                                }
+
+                            ?>
+
+                        </div>
                     </div>
                 </div>
             </div>

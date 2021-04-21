@@ -26,6 +26,56 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
 }
 
 
+if (isset($_POST["submit_referees"])) {
+
+    echo ("BEFORE<br>");
+    print_r(json_encode($out_table));
+    echo("<br>");
+
+    $table_round = $_GET["table_round"];
+
+    $ref_to_use_string = $_POST["ref_to_use"];
+    $vref_to_use_string = $_POST["vref_to_use"];
+
+    $ref_separated = explode("//", $ref_to_use_string);
+    $vref_separated = explode("//", $vref_to_use_string);
+
+    foreach ($out_table->$table_round as $matchkey => $matches) {
+
+        echo ($matchkey);
+
+        foreach ($ref_separated as $fullrefobject) {
+
+            $fullRefArray = explode("&&", $fullrefobject); //[0] match id to assign to - [1] ref object
+            //print_r($fullRefArray);
+            $refobject = json_decode($fullRefArray[1]);
+
+            if ($matchkey == $fullRefArray[0]) {
+                echo "OK<br>";
+                print_r($refobject);
+
+                $out_table->$table_round->$matchkey->referees->ref->name = $refobject->name;
+                $out_table->$table_round->$matchkey->referees->ref->nation = $refobject->n1;
+                $out_table->$table_round->$matchkey->referees->ref->club = $refobject->c1;
+                $out_table->$table_round->$matchkey->referees->ref->id = $refobject->ref_id;
+            }
+        }
+    }
+    echo ("AFTER");
+    echo("<br>");
+    print_r(json_encode($out_table));
+    echo("<br>");
+
+    $table_upload = json_encode($out_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
+
+    header("Location: table.php?comp_id=$comp_id");
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +99,10 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
         <main>
             <div id="title_stripe">
                 <p class="page_title">Table Referees setup</p>
-                <form class="stripe_button_wrapper">
+                <form class="stripe_button_wrapper" method="POST" action="">
                     <input type="text" id="ref_to_use" name="ref_to_use">
                     <input type="text" id="vref_to_use" name="vref_to_use">
-                    <button name="submit_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
+                    <button name="submit_referees" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
                         <p>Save</p>
                         <img src="../assets/icons/save_black.svg" />
                     </button>
