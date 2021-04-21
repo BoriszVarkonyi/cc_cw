@@ -206,6 +206,8 @@ if (isset($_POST["generate_table"])) {
         $tablesize = $tablesize / 2;
         $isfirst++;
     }
+    $firstplace = "1";
+    $table_object->t_1->m_1->$firstplace = "";
 
     print_r($fencer_ids);
 
@@ -269,6 +271,7 @@ if (isset($_POST["generate_table"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -296,7 +299,7 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table">
                             <p>Generate Table</p>
-                            <img src="../assets/icons/add_box_black.svg"/>
+                            <img src="../assets/icons/add_box_black.svg" />
                         </button>
                     </div>
 
@@ -304,15 +307,15 @@ if (isset($_POST["generate_table"])) {
                     <div class="stripe_button_wrapper">
                         <button class="stripe_button disabled" type="button">
                             <p>Message Fencer</p>
-                            <img src="../assets/icons/message_black.svg"/>
+                            <img src="../assets/icons/message_black.svg" />
                         </button>
                         <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
-                            <img src="../assets/icons/ballot_black.svg"/>
+                            <img src="../assets/icons/ballot_black.svg" />
                         </a>
                         <a class="stripe_button bold" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
                             <p>Referees</p>
-                            <img src="../assets/icons/ballot_black.svg"/>
+                            <img src="../assets/icons/ballot_black.svg" />
                         </a>
                     </div>
 
@@ -327,16 +330,16 @@ if (isset($_POST["generate_table"])) {
                 <?php } ?>
                 <div class="view_button_wrapper first">
                     <button onclick="tableZoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out_black.svg"/>
+                        <img src="../assets/icons/zoom_out_black.svg" />
                     </button>
                     <button onclick="tableZoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in_black.svg"/>
+                        <img src="../assets/icons/zoom_in_black.svg" />
                     </button>
                 </div>
 
                 <div class="view_button_wrapper second">
                     <button onclick="toggleThisPanel(this)" id="">
-                        <img src="../assets/icons/list_alt_black.svg"/>
+                        <img src="../assets/icons/list_alt_black.svg" />
                     </button>
                 </div>
 
@@ -350,14 +353,14 @@ if (isset($_POST["generate_table"])) {
 
                 <div class="view_button_wrapper third">
                     <button onclick="toggleThisPanel(this)" id="">
-                        <img src="../assets/icons/settings_black.svg"/>
+                        <img src="../assets/icons/settings_black.svg" />
                     </button>
                 </div>
 
                 <div class="view_panel third hidden" id="view_panel_2">
                     <label for="">DISPLAY FENCERS'</label>
                     <div class="option_container">
-                        <input type="checkbox" name="fencer_type" id="club" value="1"/>
+                        <input type="checkbox" name="fencer_type" id="club" value="1" />
                         <label for="club">Club</label>
                     </div>
                 </div>
@@ -391,7 +394,14 @@ if (isset($_POST["generate_table"])) {
                             $out_table = json_decode($row["data"]);
                         }
                         $r_counter = 1;
-                        foreach ($out_table as $key => $tablerounds) { ?>
+
+                        foreach ($out_table as $key => $tablerounds) { 
+                            
+                            if ($key == "t_1") {
+                                break;
+                            }
+                            
+                            ?>
 
                             <div id="e_<?php echo $r_counter ?>" class="elimination">
                                 <div class="elimination_label">Table of <?php echo ltrim($key, "t_") ?></div>
@@ -446,16 +456,16 @@ if (isset($_POST["generate_table"])) {
                                                 </div>
                                                 <?php
                                                 if ($firstrun == 0) { ?>
-                                                <div class="table_round_info">
-                                                    <div>
-                                                        <p>Ref: <?php echo $tablematches->referees->ref->name ?> (<?php echo $tablematches->referees->ref->nation ?>)</p>
-                                                        <p><?php echo $tablematches->pistetime->time ?></p>
+                                                    <div class="table_round_info">
+                                                        <div>
+                                                            <p>Ref: <?php echo $tablematches->referees->ref->name ?> (<?php echo $tablematches->referees->ref->nation ?>)</p>
+                                                            <p><?php echo $tablematches->pistetime->time ?></p>
+                                                        </div>
+                                                        <div>
+                                                            <p>VRef: <?php echo $tablematches->referees->vref->name ?> (<?php echo $tablematches->referees->vref->nation ?>)</p>
+                                                            <p>Piste: <?php echo $tablematches->pistetime->pistename ?></p>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <p>VRef: <?php echo $tablematches->referees->vref->name ?> (<?php echo $tablematches->referees->vref->nation ?>)</p>
-                                                        <p>Piste: <?php echo $tablematches->pistetime->pistename ?></p>
-                                                    </div>
-                                                </div>
                                             <?php }
                                                 $firstrun++;
                                             } ?>
@@ -478,13 +488,15 @@ if (isset($_POST["generate_table"])) {
                                 <div class="table_round" onclick="tableRoundConfig(this)">
                                     <div class="table_fencer">
                                         <div class="table_fencer_number">
-                                            <p>25</p>
+                                            <p>1</p>
                                         </div>
                                         <div class="table_fencer_name">
-                                            <p>Bida Sergey Bida Sergey Bida</p>
+                                            <p><?php
+                                            $firstplace = "1";
+                                            echo $out_table->t_1->m_1->$firstplace->name; ?></p>
                                         </div>
                                         <div class="table_fencer_nat">
-                                            <p>rus</p>
+                                            <p><?php echo $out_table->t_1->m_1->$firstplace->nation; ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -502,4 +514,5 @@ if (isset($_POST["generate_table"])) {
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/search.js"></script>
 </body>
+
 </html>

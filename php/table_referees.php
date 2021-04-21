@@ -60,6 +60,22 @@ if (isset($_POST["submit_referees"])) {
                 $out_table->$table_round->$matchkey->referees->ref->id = $refobject->ref_id;
             }
         }
+        foreach ($vref_separated as $fullrefobject) {
+
+            $fullRefArray = explode("&&", $fullrefobject); //[0] match id to assign to - [1] ref object
+            //print_r($fullRefArray);
+            $refobject = json_decode($fullRefArray[1]);
+
+            if ($matchkey == $fullRefArray[0]) {
+                echo "OK<br>";
+                print_r($refobject);
+
+                $out_table->$table_round->$matchkey->referees->vref->name = $refobject->name;
+                $out_table->$table_round->$matchkey->referees->vref->nation = $refobject->n1;
+                $out_table->$table_round->$matchkey->referees->vref->club = $refobject->c1;
+                $out_table->$table_round->$matchkey->referees->vref->id = $refobject->ref_id;
+            }
+        }
     }
     echo ("AFTER");
     echo("<br>");
