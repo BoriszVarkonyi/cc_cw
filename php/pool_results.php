@@ -61,12 +61,17 @@
         for ($fencer_number = 1; $fencer_number <= $pool_f_in; $fencer_number++) {
             for ($opponent_number = $fencer_number + 1; $opponent_number <= $pool_f_in; $opponent_number++) {
                 if ($fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> id || $fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> enemy) {
-                    $matches_table -> {$pool_num-1} -> $fencer_number -> $opponent_number -> given = $reason;
-                    $matches_table -> {$pool_num-1} -> $fencer_number -> $opponent_number -> gotten = $reason;
+                    $matches_table[$pool_num - 1] -> $fencer_number -> $opponent_number -> given = $reason;
+                    $matches_table[$pool_num-1] -> $fencer_number -> $opponent_number -> gotten = $reason;
                 }
             }
         }
-        var_dump($_POST);
+
+        $matches_string = json_encode($matches_table);
+        $qry_update = "UPDATE `pools` SET `matches` = '$matches_string' WHERE `id` = '$comp_id'";
+        if ($do_update = mysqli_query($connection, $qry_update)) {
+            header("Refresh:0");
+        }
     }
 ?>
 
