@@ -110,7 +110,7 @@
 	margin-bottom: 10px;
 	box-sizing: border-box;
 	z-index: 0;
-	font-size: var(--f-small);
+	font-size: var(--f-xsmall);
 }
 
 .table_round_wrapper:focus {
@@ -128,7 +128,7 @@
 .table_round_info {
 	display: flex;
 	flex-direction: column;
-	font-size: var(--f-small);
+	font-size: var(--f-xsmall);
 	white-space: nowrap;
 	text-overflow: ellipsis;
     overflow: hidden;
