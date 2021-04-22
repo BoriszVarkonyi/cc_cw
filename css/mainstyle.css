@@ -8,7 +8,7 @@ body, html {	/* Gives placeholder background and default font*/
 
 /* ///SCROLL BAR// */
 
-*.small_scroll::-webkit-scrollbar { /* Width */
+.small_scroll::-webkit-scrollbar { /* Width */
     width: 7px;
 	height: 7px;
 }
@@ -1114,7 +1114,6 @@ nav:hover #nav_bar_pin {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	flex-wrap: nowrap;
 	height: 100%;
 	color: var(--cd-primarycontrast);
 }
@@ -1142,6 +1141,10 @@ nav:hover #nav_bar_pin {
 	float: left;
 	/* needed for burttons */
 	font-size: inherit;
+}
+
+.nav_bar_item:nth-last-child(2) {
+	margin-bottom: 20px;
 }
 
 .nav_bar_item:hover {
@@ -1254,8 +1257,6 @@ nav:hover #nav_bar_pin {
 	border-radius: 5px;
 	padding: 3px 10px;
 	align-self: center;
-	/* Very Bad execution :( */
-	border-top: 10px solid transparent;
 }
 
 #need_help:hover {
