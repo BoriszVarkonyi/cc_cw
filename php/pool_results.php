@@ -48,7 +48,45 @@
     }
 
     if (isset($_POST['submit_savepool'])) {
+        var_dump($_POST);
 
+        $match_counter = 0;
+        foreach ($order_array as $match_string) {
+            $match_id_array = explode('-',$match_string);
+            $match_string_rev = strrev($match_string);
+
+            //get points and match obj
+            $given = $_POST[$match_string];
+            $gotten = $_POST[$match_string_rev];
+            $match_obj = $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]};
+
+            //get winner
+            if ($given > $gotten) {
+                $winner = $match_obj -> id;
+            } else if ($gotten > $given) {
+                $winner = $match_obj -> enemy;
+            } else { //draw radio button decides
+                if (isset($_POST[$match_counter])) {
+                    $winner_id_draw = $_POST[$match_counter];
+                    $winner = $match_obj -> $winner_id_draw;
+                }
+            }
+
+
+            //set data
+            $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> given  = $given;
+            $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> gotten = $gotten;
+
+            $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> winner = $winner;
+
+            //update database
+            $matches_string = json_encode($matches_table);
+            $qry_update = "UPDATE pools SET matches = '$matches_string' WHERE assoc_comp_id = '$comp_id'";
+            if ($do_update = mysqli_query($connection, $qry_update)) {
+                header("Location: ../php/pools_view.php?comp_id=$comp_id");
+            }
+            $match_counter++;
+        }
     }
 
     if (isset($_POST['submit_disq'])) {
@@ -68,7 +106,7 @@
         }
 
         $matches_string = json_encode($matches_table);
-        $qry_update = "UPDATE `pools` SET `matches` = '$matches_string' WHERE `id` = '$comp_id'";
+        $qry_update = "UPDATE `pools` SET `matches` = '$matches_string' WHERE `assoc_comp_id` = '$comp_id'";
         if ($do_update = mysqli_query($connection, $qry_update)) {
             header("Refresh:0");
         }
@@ -131,7 +169,7 @@
                         <img src="../assets/icons/highlight_off_black.svg"/>
                     </button>
                     <form id="savepool" action="" method="POST"></form>
-                    <button value="1" form="savepool" class="stripe_button primary" type="submit">
+                    <button value="1" form="savepool" name="submit_savepool" class="stripe_button primary" type="submit">
                         <p>Save Pool</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
@@ -265,7 +303,18 @@
                             </button>
                         </div>
                         <div id="pool_matches" class="pool_results_column">
-                            <input type="number" class="number_input" placeholder="points in pools" readonly>
+                            <?php
+                                //get max points from formula
+                                $qry_get_point = "SELECT `data` FROM `formulas` WHERE `assoc_comp_id` = '$comp_id'";
+                                $do_get_point = mysqli_query($connection, $qry_get_point);
+                                if ($row = mysqli_fetch_assoc($do_get_point)) {
+                                    $formula_string = $row['data'];
+                                    $formula_table = json_decode($formula_string);
+
+                                    $max_points = $formula_table -> poolPoints;
+                                }
+                            ?>
+                            <input type="number" class="number_input" placeholder="points in pools" value="<?php echo $max_points ?>" readonly>
                             <?php
                                 $match_number = 1;
                                 foreach ($order_array as $match_string) {
@@ -278,27 +327,28 @@
                                     $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
                                     $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
 
-                                    if ($f1_score == 0) {
-                                        $f1_score = "";
-                                    }
-                                    if ($f2_score == 0) {
-                                        $f2_score = "";
-                                    }
+
 
                                     //get fencer names from array
                                     $f1_name = $name_array[$f1_id];
                                     $f2_name = $name_array[$f2_id];
+
+                                    //changable class name
+                                    $class_cancel = "";
+                                    if (isDisqualified($f1_score) || isDisqualified($f2_score)) {
+                                        $class_cancel = " cancelled";
+                                    }
                             ?>
-                            <div class="match small_scroll <?php echo $szin = ($f1_score == "" ? "red" : "green") ?>">
+                            <div class="match small_scroll <?php echo $szin = ($f1_score == 0 ? "red" : "green"); echo $class_cancel?>">
                                 <div class="match_number">
                                     <p><?php echo $match_number ?></p>
                                 </div>
                                 <div>
                                     <p><?php echo $f1_name ?></p>
                                     <div>
-                                        <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
-                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="" disabled/>
-                                        <label for="<?php echo "1," . $match_number ?>" class="collapsed">Winner</label>
+                                        <input type="text" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
+                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="id" />
+                                        <label for="<?php echo "1," . $match_number ?>" class="">Winner</label>
                                     </div>
                                 </div>
                                 <div class="vs">
@@ -306,9 +356,9 @@
                                 </div>
                                 <div>
                                     <div>
-                                        <input type="number" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
-                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="" disabled/>
-                                        <label for="<?php echo "2," . $match_number ?>" class="collapsed">Winner</label>
+                                        <input type="text" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
+                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="enemy" />
+                                        <label for="<?php echo "2," . $match_number ?>" class="">Winner</label>
                                     </div>
                                     <p><?php echo $f2_name ?></p>
                                 </div>

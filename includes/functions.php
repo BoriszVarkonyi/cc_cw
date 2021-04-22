@@ -361,4 +361,26 @@ function getFencersInPool($current_pool) {
     }
     return false;
 }
+
+
+function isDisqualified($points) {
+    switch ($points) {
+        case "MED"://medical
+            return true;
+        break;
+        case "ABD"://abandone
+            return true;
+        break;
+        case "EXC"://exclusion
+            return true;
+        break;
+        default://not disqualified
+            return false;
+        break;
+    }
+}
+
+
+
+
 ?>
