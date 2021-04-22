@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/chat_style.min.css">
 </head>
 <body>
-    <div id="header" class="white_glass to_r">
+    <header class="white_glass to_r">
         <p id="app_name">CC CHAT APLHA</p>
         <div id="indentity_wrapper" class="white_glass base">
             <img src="../assets/icons/profile_picture.svg" alt="Your profile picture" width="30px" height="30px">
@@ -17,9 +17,9 @@
                 <p id="role">Role</p>
             </div>
         </div>
-    </div>
-    <div id="content_wrapper">
-        <div id="nav_bar" class="white_glass base">
+    </header>
+    <main>
+        <nav class="white_glass base">
             <div id="nav_bar_selector">
                 <button class="selected">Individuals</button>
                 <button>Groups</button>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
         <div id="content" class="white_glass content">
             <div id="content_inner">
                 <div id="title_stripe" class="white_glass light">
@@ -148,6 +148,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

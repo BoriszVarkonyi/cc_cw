@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">
-                <div class="column no_top">
+                <div class="column big no_top">
                     <?php
                     $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
                     $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
@@ -154,7 +154,7 @@
                                     <div class="table_header_text">Equipment's name</div>
                                     <div class="table_header_text">Needed Quantity</div>
                                 </div>
-                                <div class="table_row_wrapper">
+                                <div class="table_row_wrapper alt">
                                     <?php
                                         $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
@@ -233,7 +233,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column no_top">
+                    <div class="column small no_top">
                         <div id="competition_controls" class="column_panel no_bottom">
                             <p class="column_panel_title">Competition Controls:</p>
                             <div class="competition_controls_wrapper">

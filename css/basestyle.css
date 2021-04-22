@@ -1087,7 +1087,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 .table_row_drop.opened {
 	display: flex !important;
 	background: var(--c-lightprimary) !important;
-	height: --lineheight;
+	height: var(--lineheight);
 	border-radius: 0px;
 	max-width: 100% !important;
 }

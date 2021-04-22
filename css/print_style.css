@@ -98,7 +98,7 @@
         height: auto !important;
 	}
 
-    header, #nav_bar, #title_stripe {
+    header, nav, #title_stripe {
         display: none !important;
         width: 0 !important;
         max-width: 0 !important;

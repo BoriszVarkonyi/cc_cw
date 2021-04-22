@@ -347,8 +347,8 @@
                                     <p><?php echo $f1_name ?></p>
                                     <div>
                                         <input type="text" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
-                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="id" />
-                                        <label for="<?php echo "1," . $match_number ?>" class="">Winner</label>
+                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="id" disabled/>
+                                        <label for="<?php echo "1," . $match_number ?>" class="collapsed">Winner</label>
                                     </div>
                                 </div>
                                 <div class="vs">
@@ -357,8 +357,8 @@
                                 <div>
                                     <div>
                                         <input type="text" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
-                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="enemy" />
-                                        <label for="<?php echo "2," . $match_number ?>" class="">Winner</label>
+                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="enemy" disabled/>
+                                        <label for="<?php echo "2," . $match_number ?>" class="collapsed">Winner</label>
                                     </div>
                                     <p><?php echo $f2_name ?></p>
                                 </div>

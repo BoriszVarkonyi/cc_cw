@@ -992,7 +992,31 @@ nav {
 	transition: all var(--t-basic);
 	position: relative;
 	font-size: var(--f-large);
-	overflow: hidden; /* Buttons might overflow into main content == bad */
+	overflow-x: hidden; /* Buttons might overflow into main content == bad */
+	overflow-y: auto;
+}
+
+nav::-webkit-scrollbar { /* Width */
+    width: 7px;
+	height: 7px;
+}
+
+nav::-webkit-scrollbar { /* Width */
+    width: 7px;
+	height: 7px;
+}
+
+nav::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+nav::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-transparent-white);
+	border-radius: 10px;
+}
+
+nav::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: rgba(255, 255, 255, .5);
 }
 
 /*
@@ -1043,7 +1067,7 @@ nav img {
 	background: #ffffff;
 }
 
-#nav_bar:hover #nav_bar_pin {
+nav:hover #nav_bar_pin {
 	opacity: 1;
 }
 
@@ -1139,7 +1163,6 @@ nav img {
 	animation-fill-mode: forwards;
 }
 
-
 .nav_bar_item img:not(.dropdown_icon) {
 	height: 1.05em;
 	width: 1.05em;
@@ -1231,6 +1254,8 @@ nav img {
 	border-radius: 5px;
 	padding: 3px 10px;
 	align-self: center;
+	/* Very Bad execution :( */
+	border-top: 10px solid transparent;
 }
 
 #need_help:hover {

@@ -229,12 +229,12 @@ var view = cookieFinder("view", "010", false, 365)
 switch (view) {
     case "001":
         viewMatchesButton()
-    break;
+        break;
     case "100":
         viewEntryButton();
-    break;
+        break;
     case "010":
         viewAllButton();
-    break;
+        break;
 }
 
