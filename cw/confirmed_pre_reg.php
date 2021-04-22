@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pre-Registration confiscation</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
 </head>
-<body id="basic_body">
+<body id="barebone_body">
     <div class="basic_panel">
         <p>Your Pre-Registration for <strong>Competitions name</strong> has been <strong class="red">disapproved.</strong><strong class="green">approved.</strong></p>
         <strong>If you think the decisison is invalid contact the organiser of the competition!</strong>

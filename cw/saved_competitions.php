@@ -59,11 +59,17 @@
                         <div class="table_row">
                             <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                 <p><?php echo $comp_name ?></p>
-                                <div class="big_status_item">
+                            </div>
+                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                <p>Start date&nbsp;&nbsp;-&nbsp;&nbsp;End date</p>
+                            </div>
+                            <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                <p>Status</p>
+                            </div>
+                            <div class="big_status_item">
                                 <button value="<?php echo $current_comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                                 </button>
-                            </div>
                             </div>
                         </div>
                         <?php

@@ -9,6 +9,7 @@
     <title>{Comp name}'s final results</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/cw_round_live_style.min.css">
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>

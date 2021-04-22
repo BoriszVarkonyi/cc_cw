@@ -303,7 +303,7 @@ if (isset($_POST["time_change"])) {
                 }
 
                 ?>
-                <p class="page_title"><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?> vs <?php echo $fencer_2->name . "(" . $fencer_2->nation . ")" ?></p>
+                <p class="page_title"><?php echo $fencer_1->name . " (" . $fencer_1->nation . ")" ?> vs <?php echo $fencer_2->name . " (" . $fencer_2->nation . ")" ?></p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
                         <p>Save Match</p>
@@ -315,14 +315,14 @@ if (isset($_POST["time_change"])) {
                 <div class="wrapper" id="match_result_wrapper">
                     <div class="match_fencers_wrapper">
                         <div>
-                            <p><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?></p>
+                            <p><?php echo $fencer_1->name . " (" . $fencer_1->nation . ")" ?></p>
                             <button>
                                 <img src="../assets/icons/message_black.svg">
                             </button>
                         </div>
 
                         <div>
-                            <p><?php echo $fencer_2->name . "(" . $fencer_2->nation . ")"  ?></p>
+                            <p><?php echo $fencer_2->name . " (" . $fencer_2->nation . ")"  ?></p>
                             <button>
                                 <img src="../assets/icons/message_black.svg">
                             </button>

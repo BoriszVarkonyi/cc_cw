@@ -120,7 +120,7 @@
         <main>
             <div id="title_stripe">
                 <p class="page_title">Pool No. <?php echo $pool_num ?>'s results</p>
-                <input form="form_disq" type="text" name="id_of_fencer" id="" class="selected_list_item_input">
+                <input form="form_disq" type="text" name="id_of_fencer" id="" class="selected_list_item_input hidden" readonly>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
@@ -265,7 +265,7 @@
                             </button>
                         </div>
                         <div id="pool_matches" class="pool_results_column">
-                            <input type="number" class="number_input" placeholder="points in pools">
+                            <input type="number" class="number_input" placeholder="points in pools" readonly>
                             <?php
                                 $match_number = 1;
                                 foreach ($order_array as $match_string) {
