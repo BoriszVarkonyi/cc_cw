@@ -46,7 +46,7 @@ function nation_to_club() {
         var nation_row = table_rows[h].querySelectorAll(".nation")
         var club_row = table_rows[h].querySelectorAll(".club")
 
-        console.log(nation_row)
+        //console.log(nation_row)
 
         for (let i = 0; i < nation_row.length; i++) {
 
@@ -126,7 +126,7 @@ function club_to_nation() {
         var nation_row = table_rows[h].querySelectorAll(".nation")
         var club_row = table_rows[h].querySelectorAll(".club")
 
-        console.log(nation_row)
+        //console.log(nation_row)
 
         for (let i = 0; i < nation_row.length; i++) {
 
@@ -354,8 +354,8 @@ function try_referees() {
         }
     }
 
-    console.log("MATCHES:");
-    console.log(matches);
+    //console.log("MATCHES:");
+    //console.log(matches);
 
     //Get referees
 
@@ -392,17 +392,17 @@ function try_referees() {
 
     }
 
-    console.log("REFEREES:");
-    console.log(referees)
+    //console.log("REFEREES:");
+    //console.log(referees)
 
-    console.log(change_every + " SZER " + referees.length + " < " + availableMatches)
+    //console.log(change_every + " SZER " + referees.length + " < " + availableMatches)
 
     //WARNING IF INCORRECT REFEREE DRAW
 
     if (manual.checked == true && mpr.value * referees.length < availableMatches) {
 
         alert("Incorrect referee selection")
-        console.log("ASDASDASD")
+        //console.log("ASDASDASD")
 
     }
 
@@ -415,7 +415,7 @@ function try_referees() {
 
         for (const key in matches) {
 
-            //console.log(matches[key])
+            ////console.log(matches[key])
 
             refIndexCounter = 0
 
@@ -430,7 +430,7 @@ function try_referees() {
 
                         if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
 
-                            console.log("OK")
+                            //console.log("OK")
                         } else {
 
                             canUse = false
@@ -443,7 +443,7 @@ function try_referees() {
 
                         if (matchData.n1 != ref.c1 && matchData.n2 != ref.c1) {
 
-                            console.log("OK")
+                            //console.log("OK")
                         } else {
 
                             canUse = false
@@ -470,14 +470,14 @@ function try_referees() {
                 }
             }
         }
-        console.log(assignedArray)
+        //console.log(assignedArray)
     }
 
     if (manual.checked == true) {
 
         //Assign referees to matches manual match num
 
-        // console.log(matches)
+        // //console.log(matches)
 
         var change_every = mpr.value
 
@@ -491,29 +491,37 @@ function try_referees() {
             return el != null;
         });
 
-        console.log("TEST")
-        console.log(filtered)
+        //console.log("TEST")
+        //console.log(filtered)
 
-        console.log("____________________________________END OF FIRST TESTS____________________________________")
+        //console.log("____________________________________END OF FIRST TESTS____________________________________")
 
         for (let index = 0; index < 10; index++) {
 
-            console.log("ASSIGNED: " + assignedArray.length + " AVAILABLE: " + availableMatches)
+            //console.log("ASSIGNED: " + assignedArray.length + " AVAILABLE: " + availableMatches)
 
             if (assignedArray.length == availableMatches) {
                 break
             }
 
             refereesToUse = Array.from(referees)
-            matchesToUse = Array.from(filtered)
+
+            for (const asd in matches) {
+
+                matchesToUse[asd] = matches[asd]
+
+            }
+
+            //matchesToUse = Array.from(matches)
+            console.log(matchesToUse)
 
             refereesToUse = shuffle(refereesToUse)
 
-            console.log("Referees to use")
-            console.log(refereesToUse)
+            //console.log("Referees to use")
+            //console.log(refereesToUse)
 
-            console.log("Matches to use")
-            console.log(matchesToUse)
+            //console.log("Matches to use")
+            //console.log(matchesToUse)
 
             assignedArray = []
 
@@ -521,7 +529,7 @@ function try_referees() {
 
             for (const key in matchesToUse) {
 
-                console.log("CHECKING NEXT PISTE")
+                console.log(array)
 
                 var refIndexCounter = 0
 
@@ -538,19 +546,19 @@ function try_referees() {
 
                     for (const matchData of matchesToUse[key]) {
 
-                        console.log(counter)
+                        //console.log(counter)
 
                         if (counter == change_every) {
-                            //console.log("GEC")
+                            ////console.log("GEC")
                             break
                         }
 
                         if (matchData.n1 != ref.n1 && matchData.n2 != ref.n1) {
-                            //console.log("OK")
+                            ////console.log("OK")
                             counter++
                         } else {
                             canUse = false
-                            //console.log("REFEREE CANNOT BE USED HERE")
+                            ////console.log("REFEREE CANNOT BE USED HERE")
                             break
                         }
 
@@ -562,7 +570,7 @@ function try_referees() {
 
                         var stopper = matchesToUse[key].length
 
-                        console.log("REMAINING MATCHES: " + stopper)
+                        //console.log("REMAINING MATCHES: " + stopper)
 
                         for (const matchData of matchesToUse[key]) {
 
@@ -573,7 +581,7 @@ function try_referees() {
                                 break
                             }
                             // if (matchesToUse[key].length == 0) {
-                            //     console.log("HELLO MR GECIKE, TÖRÖK")
+                            //     //console.log("HELLO MR GECIKE, TÖRÖK")
                             //     break
                             // }
 
@@ -588,16 +596,16 @@ function try_referees() {
 
                         refereesToUse[refIndexCounter] = null
 
-                        console.log(ref.name + " REFEREE ADDED AND REMOVED FROM AVAILABLE REFEREES")
+                        //console.log(ref.name + " REFEREE ADDED AND REMOVED FROM AVAILABLE REFEREES")
                         matchesToUse[key].splice(0, counter)
 
                         if (matchesToUse[key].length == 0) {
-                            console.log("OUT OF MATCHES ON THIS PISTE")
+                            //console.log("OUT OF MATCHES ON THIS PISTE")
                             break
                         }
 
                     } else {
-                        console.log("CHECKING NEXT REFEREE")
+                        //console.log("CHECKING NEXT REFEREE")
                         refIndexCounter++
                         continue
                     }
@@ -606,7 +614,7 @@ function try_referees() {
             }
 
             //ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE ISSUE HERE  ISSUE HERE
-            console.log(assignedArray)
+            //console.log(assignedArray)
 
 
             if (assignedArray.length != availableMatches && index == 10) {
@@ -623,7 +631,7 @@ function try_referees() {
     //                                                                                    V
     var table_rows = table_wrapper.querySelectorAll(".table_row")
 
-    console.log(table_rows)
+    //console.log(table_rows)
 
     for (let h = 0; h < table_rows.length; h++) {
 
@@ -667,7 +675,7 @@ function try_referees() {
 
             }
         }
-        console.log(referee_row)
+        //console.log(referee_row)
     }
 
     //REMOVE REFEREES FROM LIST
@@ -693,7 +701,7 @@ function try_referees() {
         }
     }
 
-    console.log("I AM MR REMOVER CANCER. I REMOVED: " + geci)
+    //console.log("I AM MR REMOVER CANCER. I REMOVED: " + geci)
 
     //Figyelmeztetni a felhasználót, hogyha frissít, elveszik a beosztás
     //Ha nem egyben osztja be akkor pedig megint az összes lesz használva, így válogatnia kell, vagy újraosztani

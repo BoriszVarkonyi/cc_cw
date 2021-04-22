@@ -152,6 +152,7 @@ if (isset($_POST["save_match"])) {
             if ($nextplace == $key) {
                 $json_table->$next_table->$m_key->$key->name = $objtomove->name;
                 $json_table->$next_table->$m_key->$key->nation = $objtomove->nation;
+                $json_table->$next_table->$m_key->$key->club = $objtomove->club;
                 $json_table->$next_table->$m_key->$key->id = $objtomove->id;
                 $json_table->$next_table->$m_key->$key->score = "";
                 $json_table->$next_table->$m_key->$key->cards = [];
