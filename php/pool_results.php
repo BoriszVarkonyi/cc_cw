@@ -134,16 +134,18 @@
                 <p class="modal_footer_text">This action cannot be revoked.</p>
                 <form id="form_disq" method="POST" action="" name="form_disq" class="modal_footer_content">
 
-                    <input type="radio" name="disqualification_reason_2" id="medical" value="MED"/>
-                    <label for="medical">Medical</label>
+                    <div class="hidden_input_wrapper">
+                        <input type="radio" name="disqualification_reason_2" id="medical" value="MED"/>
+                        <label for="medical">Medical</label>
 
-                    <input type="radio" name="disqualification_reason_2" id="surrender" value="ABD"/>
-                    <label for="surrender">Surrender</label>
+                        <input type="radio" name="disqualification_reason_2" id="surrender" value="ABD"/>
+                        <label for="surrender">Surrender</label>
 
-                    <input type="radio" name="disqualification_reason_2" id="exclusion" value="EXC"/>
-                    <label for="exclusion">Exclusion</label>
+                        <input type="radio" name="disqualification_reason_2" id="exclusion" value="EXC"/>
+                        <label for="exclusion">Exclusion</label>
 
-                    <input type="text" placeholder="fencer id">
+                        <input type="text" placeholder="fencer id">
+                    </div>
 
                     <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
                     <button name="submit_disq" type="submit" class="modal_confirmation_button">Disqualify</button>
@@ -261,7 +263,7 @@
 
                                             ?>
 
-                                            <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row" onclick="selectRow(this)">
+                                            <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row disqualified" onclick="selectRow(this)">
                                                 <div class="table_item"><p><?php echo $fencer_name ?></p></div>
                                                 <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
                                                 <?php

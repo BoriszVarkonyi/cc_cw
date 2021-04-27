@@ -1582,6 +1582,10 @@ nav.closed #need_help img {
 	border-radius: 0;
 }
 
+.hidden_input_wrapper {
+	display: none;
+}
+
 /* Small Pages */
 
 .panel, #login_panel {		/* Sets basic attributes of a panel */
