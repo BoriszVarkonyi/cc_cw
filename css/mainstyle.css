@@ -1143,7 +1143,7 @@ nav:hover #nav_bar_pin {
 	font-size: inherit;
 }
 
-.nav_bar_item:nth-last-child(2) {
+#nav_bar_content > .nav_bar_item:nth-last-child(2) {
 	margin-bottom: 20px;
 }
 
