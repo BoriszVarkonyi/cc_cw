@@ -116,8 +116,9 @@ for (i = 0; i < tableRows.length; i++) {
 }
 
 function buttonDisabler() {
-    var selectedItem = document.querySelector(".pool_table_wrapper .selected")
-    if (selectedItem !== null) {
+    var selectedItem = document.querySelector(".pool_table_wrapper .table_row.selected")
+    if (selectedItem !== null && !selectedItem.classList.contains("disqualified")) {
+        console.log(selectedItem)
         disqualifyButton.classList.remove("disabled")
         setName();
     }
