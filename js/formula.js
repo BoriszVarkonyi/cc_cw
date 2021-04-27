@@ -28,3 +28,18 @@ function dontUseOption() {
     }
 }
 dontUseOption();
+
+var pointsInPools = document.getElementById("pIP");
+pointsInPools.addEventListener("input", function(){
+    inputValueLimiter(this, 5)
+})
+
+var pointsInTable = document.getElementById("pIT")
+pointsInTable.addEventListener("input", function(){
+    inputValueLimiter(this, 15)
+})
+
+var numOfQualifiersAfterPools = document.getElementById("nOQAP")
+numOfQualifiersAfterPools.addEventListener("input", function(){
+    inputValueLimiter(this, 30)
+})

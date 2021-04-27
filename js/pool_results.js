@@ -151,20 +151,25 @@ function disqFormValidation() {
 
 disqualfyPanel.addEventListener("input", disqFormValidation)
 
+var maxValue = parseInt(document.getElementById("maxValueInput").value)
+
 var matches = document.querySelectorAll(".match")
 //Set to every input an eventlistener
 matches.forEach(item => {
     item.addEventListener("input", function () {
         //Gets the input
-        var inputs = item.querySelectorAll("input[type=number]")
+        var inputs = item.querySelectorAll("input[type=text]")
         //Gets the radio inputs
         var radioInputs = item.querySelectorAll("input[type=radio]")
         //Check if theres any forbidden points, and corrects it
         for (i = 0; i < inputs.length; i++) {
-            if (inputs[i].value > 20) {
-                inputs[i].value = "20";
+            if (isNaN(inputs[i].value) || inputs[i].value[inputs[i].value.length - 1] == ".") {
+                inputs[i].value = inputs[i].value.slice(0, -1);
             }
-            else if (inputs[i].value.length > 1 && inputs[i].value * 2 < 20) {
+            if (inputs[i].value > maxValue) {
+                inputs[i].value = maxValue;
+            }
+            else if (inputs[i].value.length > 1 && inputs[i].value[0] == "0") {
                 inputs[i].value = "0";
             }
         }
@@ -184,6 +189,14 @@ matches.forEach(item => {
                 radioInputs[i].checked = false;
             }
         }
+    })
+})
+
+var pointInputs = document.querySelectorAll(".pool_results_column input[type=text]")
+
+pointInputs.forEach(item => {
+    item.addEventListener("focus", function () {
+        this.value = ""
     })
 })
 

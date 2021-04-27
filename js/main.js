@@ -305,7 +305,7 @@ if (suti_list.includes("lastlogin=" + 2)) {
 }
 
 //Prevents typing invalid chars. to the number input
-var invalidChars = ["-", "+", "e", "E"];
+var invalidChars = ["-", "+", "e", "E", ".", ","];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => {
     item.addEventListener("keydown", function (e) {
@@ -373,3 +373,15 @@ textAreas.forEach(item => {
         somethingIsFocused = false
     });
 })
+
+function inputValueLimiter(x, maxValue, minValue){
+    if(x.value > maxValue){
+        x.value = maxValue
+    }
+    else if(x.value.length > 1 && x.value[0] == "0"){
+        x.value = "0"
+    }
+    else if(x.value < minValue){
+        x.value = minValue
+    }
+}

@@ -107,15 +107,15 @@
                         <div>
                             <div>
                                 <label for="points_pools">POINTS IN POOLS</label>
-                                <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>">
+                                <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>" id="pIP">
                             </div>
                             <div>
                                 <label for="points_table">POINTS IN TABLE</label>
-                                <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>">
+                                <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>" id="pIT">
                             </div>
                             <div>
                                 <label for="nb_qualifier">NUMBER OF QUALIFIERS AFTER POOLS</label>
-                                <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>">
+                                <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>" id="nOQAP">
                             </div>
                             <div>
                                 <label for="elimnation_type">ELIMINATION TYPE</label>
