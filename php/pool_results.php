@@ -263,7 +263,7 @@
 
                                             ?>
 
-                                            <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row disqualified" onclick="selectRow(this)">
+                                            <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row" onclick="selectRow(this)">
                                                 <div class="table_item"><p><?php echo $fencer_name ?></p></div>
                                                 <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
                                                 <?php

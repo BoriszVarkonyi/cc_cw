@@ -12,10 +12,6 @@
 	top: 0;
 }
 
-.modal_wrapper.hidden {
-    display: none;
-}
-
 .modal {
 	background: var(--c-white);
 	border-radius: 5px;
