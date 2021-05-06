@@ -60,6 +60,14 @@
             $gotten = $_POST[$match_string_rev];
             $match_obj = $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]};
 
+            if ($given == "") {
+                $given = 0;
+            }
+
+            if ($gotten == "") {
+                $gotten = 0;
+            }
+
             //get winner
             if ($given > $gotten) {
                 $winner = $match_obj -> id;
@@ -77,7 +85,7 @@
             $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> given  = $given;
             $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> gotten = $gotten;
 
-            $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> winner = $winner;
+            $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> w_id = $winner;
 
             //update database
             $matches_string = json_encode($matches_table);
@@ -329,7 +337,8 @@
                                     $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
                                     $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
 
-
+                                    var_dump(isDisqualified($f1_score));
+                                    var_dump(isDisqualified($f2_score));
 
                                     //get fencer names from array
                                     $f1_name = $name_array[$f1_id];
@@ -338,7 +347,7 @@
                                     //changable class name
                                     $class_cancel = "";
                                     if (isDisqualified($f1_score) || isDisqualified($f2_score)) {
-                                        $class_cancel = " canceled";
+                                        $class_cancel = " canceled"; //not her majesty's english |:(
                                     }
                             ?>
                             <div class="match small_scroll <?php echo $szin = ($f1_score == 0 ? "red" : "green"); echo $class_cancel?>">
