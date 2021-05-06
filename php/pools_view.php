@@ -138,12 +138,12 @@
                                                             <?php
                                                                 if ($n > $l) {
                                                                     //ha forditva van a givent meg a gottent kell megcserelni
-                                                                    $given = $matches_table[$pool_num-1] -> {$l} -> {$n} -> given;
+                                                                    $given = $matches_table[$pool_num-1] -> {$l} -> {$n} -> gotten;
                                                                     echo $given;
                                                                 } else if ($n == $l) {
                                                                     echo "x";
                                                                 } else {
-                                                                    $gotten = $matches_table[$pool_num-1] -> {$n} -> {$l} -> gotten;
+                                                                    $gotten = $matches_table[$pool_num-1] -> {$n} -> {$l} -> given;
                                                                     echo $gotten;
                                                                 }
                                                             ?>
