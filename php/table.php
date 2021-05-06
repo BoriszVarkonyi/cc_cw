@@ -361,7 +361,7 @@ if (isset($_POST["generate_table"])) {
                     <label for="">DISPLAY FENCERS'</label>
                     <div class="option_container">
                         <input type="checkbox" name="fencer_type" id="club" value="1" />
-                        <label for="club">Club</label>
+                        <label for="club">CLUB</label>
                     </div>
                 </div>
             </div>
@@ -395,12 +395,12 @@ if (isset($_POST["generate_table"])) {
                         }
                         $r_counter = 1;
 
-                        foreach ($out_table as $key => $tablerounds) { 
-                            
+                        foreach ($out_table as $key => $tablerounds) {
+
                             if ($key == "t_1") {
                                 break;
                             }
-                            
+
                             ?>
 
                             <div id="e_<?php echo $r_counter ?>" class="elimination">

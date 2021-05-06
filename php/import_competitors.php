@@ -61,7 +61,7 @@
                             <div class="table_header_text"><p>First name</p></div>
                             <div class="table_header_text"><p>Last name</p></div>
                             <div class="table_header_text"><p>Nation</p></div>
-                            <div class="table_header_text"><p>Club</p></div>
+                            <div class="table_header_text"><p>CLUB</p></div>
                             <div class="table_header_text"><p>Rank</p></div>
                         </div>
                         <div class="table_row_wrapper">

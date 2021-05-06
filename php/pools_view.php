@@ -136,30 +136,16 @@
                                                         <div class="table_item square <?php echo $filled ?>">
 
                                                             <?php
-                                                            $front = 0;
-                                                            $back = 0;
-                                                            if ($l > $n) {
-
-                                                                $front = $n;
-                                                                $back = $l;
-                                                            } else {
-
-                                                                $front = $l;
-                                                                $back = $n;
-                                                            }
-                                                            if ($l != $n) {
-                                                                $scorenow = 0;
-                                                                $m_id = $front . "-" . $back;
-
-                                                                if ($l > $n) {
-                                                                    $scorenow = "";
-                                                                    echo $scorenow;
-                                                                } elseif ($n > $l) {
-                                                                    $scorenow = "";
-                                                                    echo $scorenow;
+                                                                if ($n > $l) {
+                                                                    //ha forditva van a givent meg a gottent kell megcserelni
+                                                                    $given = $matches_table[$pool_num-1] -> {$l} -> {$n} -> gotten;
+                                                                    echo $given;
+                                                                } else if ($n == $l) {
+                                                                    echo "x";
+                                                                } else {
+                                                                    $gotten = $matches_table[$pool_num-1] -> {$n} -> {$l} -> given;
+                                                                    echo $gotten;
                                                                 }
-                                                            }
-
                                                             ?>
 
                                                         </div>

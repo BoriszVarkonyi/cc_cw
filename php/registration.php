@@ -99,12 +99,14 @@
                     <!-- add fencers drop-down -->
                     <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <div class="overlay_panel_division visible" overlay_division_title="Identification">
-                            <label for="referee_username">USERNAME</label>
-                            <input type="text" placeholder="Type the referees's id" class="username_input" name="id" id="referee_username">
-                            <label for="referee_firsname">FIRST NAME</label>
-                            <input type="text" placeholder="Type the referees's first name" class="full_name_input" name="prenom" id="referee_firsname">
-                            <label for="referee_lastname">LAST NAME</label>
-                            <input type="text" placeholder="Type the referees's last name" class="full_name_input" name="nom" id="referee_lastname">
+                            <label for="fencer_firsname">FIRST NAME</label>
+                            <input type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname">
+                            <label for="fencer_lastname">LAST NAME</label>
+                            <input type="text" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname">
+                            <label for="fencer_id">ID NUMBER</label>
+                            <input type="number" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id">
+                            <label for="fencer_licence">License</label>
+                            <input type="text" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Identification 2">
                             <label>SEX</label>
@@ -114,24 +116,24 @@
                                 <input type="radio" name="sexe" id="female" value="f" />
                                 <label for="female">Female</label>
                             </div>
-                            <label for="referee_dob">Date of Birth</label>
-                            <input type="date" class="date_input" name="date_naissance" id="referee_dob">
-                            <label for="referee_licence">License</label>
-                            <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence" id="referee_licence">
-                            <label for="referee_image">Image link</label>
-                            <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image" id="referee_image">
+                            <label for="fencer_dob">DATE OF BIRTH</label>
+                            <input type="date" class="date_input" name="date_naissance" id="fencer_dob">
+                            <label for="fencer_image">IMAGE LINK</label>
+                            <input type="text" placeholder="Type in the link to the fencer's image" class="full_name_input" name="fencer_image" id="fencer_image">
+                            <label for="fencer_licence">POINTS</label>
+                            <input type="text" placeholder="Type the fencer's points" class="full_name_input" name="fencer_points" id="fencer_points">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
-                            <label for="set_club_input">Club</label>
+                            <label for="set_club_input">CLUB</label>
                             <div class="search_wrapper wide higher">
                                 <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                <?php include "../includes/nations.php"; ?>
+                                    <?php include "../includes/nations.php"; ?>
                                 </div>
                             </div>
-                            <label for="referee_categorie">Categorie</label>
-                            <input type="text" placeholder="Type the referees's categorie" class="full_name_input" name="categorie" id="referee_categorie">
+                            <label for="fencer_classement">CLASSEMENT</label>
+                            <input type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement">
                             <label>Lateralite</label>
                             <div class="option_container row">
                                 <input type="radio" name="lateralite" id="g" value="g"/>
@@ -144,7 +146,7 @@
                                 <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                <?php include "../includes/nations.php"; ?>
+                                    <?php include "../includes/nations.php"; ?>
                                 </div>
                             </div>
                         </div>
