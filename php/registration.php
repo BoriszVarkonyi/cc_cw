@@ -87,23 +87,69 @@
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
+                    <div class="overlay_panel_controls">
+                        <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button"></button>
+                        <p>Identification</p>
+                        <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios_black.svg"></button>
+                        <p class="overlay_panel_controls_counter">3 / 3</p>
+                    </div>
                     <button class="panel_button" onclick="toggleAddFencerPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <!-- add fencers drop-down -->
                     <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
-                        <label for="fencers_name">NAME</label>
-                        <input type="text" placeholder="Type the fencers's name" class="username_input" name="fencer_name">
-                        <label for="fencers_nationality">NATION / CLUB</label>
-                        <div class="search_wrapper wide">
-                            <input type="text" name="f_nat" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input" id="nationInput">
-                            <button type="button" onclick=""><img src="../assets/icons/close_black.svg"></button>
-                            <div class="search_results">
-                                <?php include "../includes/nations.php"; ?>
+                        <div class="overlay_panel_division visible" overlay_division_title="Identification">
+                            <label for="fencer_firsname">FIRST NAME</label>
+                            <input type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname">
+                            <label for="fencer_lastname">LAST NAME</label>
+                            <input type="text" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname">
+                            <label for="fencer_id">ID NUMBER</label>
+                            <input type="number" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id">
+                            <label for="fencer_licence">License</label>
+                            <input type="text" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence">
+                        </div>
+                        <div class="overlay_panel_division" overlay_division_title="Identification 2">
+                            <label>SEX</label>
+                            <div class="option_container row">
+                                <input type="radio" name="sexe" id="male" value="m" />
+                                <label for="male">Male</label>
+                                <input type="radio" name="sexe" id="female" value="f" />
+                                <label for="female">Female</label>
+                            </div>
+                            <label for="fencer_dob">DATE OF BIRTH</label>
+                            <input type="date" class="date_input" name="date_naissance" id="fencer_dob">
+                            <label for="fencer_image">IMAGE LINK</label>
+                            <input type="text" placeholder="Type in the link to the fencer's image" class="full_name_input" name="fencer_image" id="fencer_image">
+                            <label for="fencer_licence">POINTS</label>
+                            <input type="text" placeholder="Type the fencer's points" class="full_name_input" name="fencer_points" id="fencer_points">
+                        </div>
+                        <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
+                            <label for="set_club_input">CLUB</label>
+                            <div class="search_wrapper wide higher">
+                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
+                                <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
+                                <div class="search_results">
+                                    <?php include "../includes/nations.php"; ?>
+                                </div>
+                            </div>
+                            <label for="fencer_classement">CLASSEMENT</label>
+                            <input type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement">
+                            <label>Lateralite</label>
+                            <div class="option_container row">
+                                <input type="radio" name="lateralite" id="g" value="g"/>
+                                <label for="g">Left</label>
+                                <input type="radio" name="lateralite" id="d" value="d"/>
+                                <label for="d">Right</label>
+                            </div>
+                            <label for="set_nation_input">NATION</label>
+                            <div class="search_wrapper wide">
+                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
+                                <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
+                                <div class="search_results">
+                                    <?php include "../includes/nations.php"; ?>
+                                </div>
                             </div>
                         </div>
-                        <label for="fencers_points">POSITION</label>
-                        <input type="number" placeholder="##" id="ranking_points" class="number_input centered" name="fencer_position">
                         <button type="submit" name="add_fencer" class="panel_submit">Save</button>
                     </form>
                 </div>

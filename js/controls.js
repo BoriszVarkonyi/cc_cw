@@ -84,7 +84,7 @@ document.onkeydown = (keyDownEvent) => {
     //importOverlayClosed is a var. from importoverlay.js
     if (!searchBarClosed && importOverlayClosed) {
         if (keyDownEvent.key == "Enter") {
-            var selected = document.querySelector(".search_results .selected")
+            var selected = document.querySelector(".search_results a:not(.hidden).selected")
             var selectedElementId = document.querySelector(".search_results .selected").id.slice(0, -1);
             var selectedElements = document.querySelectorAll("main .selected")
             var selectedTableElement = document.getElementById(selectedElementId)

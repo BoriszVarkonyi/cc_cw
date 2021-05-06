@@ -1919,7 +1919,7 @@ input[type="file"] {
 }
 
 .overlay_panel_division > *:last-child {
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 }
 
 /* ///LOGIN PAGE ELEMENTS/// */
