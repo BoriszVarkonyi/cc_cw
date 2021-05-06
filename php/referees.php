@@ -268,7 +268,7 @@
                                 <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                <?php include "../includes/nations.php"; ?>
+                                <?php include "../includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="referee_categorie">Categorie</label>
