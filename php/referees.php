@@ -241,11 +241,11 @@
                     <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
                         <div class="overlay_panel_division visible" overlay_division_title="Identification">
                             <label for="referee_username">USERNAME</label>
-                            <input type="text" placeholder="Type the referees's id" class="username_input" name="id" id="referee_username">
+                            <input type="text" placeholder="Type the referee's id" class="username_input" name="id" id="referee_username">
                             <label for="referee_firsname">FIRST NAME</label>
-                            <input type="text" placeholder="Type the referees's first name" class="full_name_input" name="prenom" id="referee_firsname">
+                            <input type="text" placeholder="Type the referee's first name" class="full_name_input" name="prenom" id="referee_firsname">
                             <label for="referee_lastname">LAST NAME</label>
-                            <input type="text" placeholder="Type the referees's last name" class="full_name_input" name="nom" id="referee_lastname">
+                            <input type="text" placeholder="Type the referee's last name" class="full_name_input" name="nom" id="referee_lastname">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Identification 2">
                             <label>SEX</label>
@@ -255,24 +255,24 @@
                                 <input type="radio" name="sexe" id="female" value="f" />
                                 <label for="female">Female</label>
                             </div>
-                            <label for="referee_dob">Date of Birth</label>
+                            <label for="referee_dob">DATE OF BIRTH</label>
                             <input type="date" class="date_input" name="date_naissance" id="referee_dob">
                             <label for="referee_licence">License</label>
-                            <input type="text" placeholder="Type the referees's license number" class="full_name_input" name="licence" id="referee_licence">
-                            <label for="referee_image">Image link</label>
+                            <input type="text" placeholder="Type the referee's license number" class="full_name_input" name="licence" id="referee_licence">
+                            <label for="referee_image">IMAGE LINK</label>
                             <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image" id="referee_image">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
-                            <label for="set_club_input">Club</label>
+                            <label for="set_club_input">CLUB</label>
                             <div class="search_wrapper wide higher">
                                 <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                <?php include "../includes/nations.php"; ?>
+                                    <?php include "../includes/nations.php"; ?>
                                 </div>
                             </div>
-                            <label for="referee_categorie">Categorie</label>
-                            <input type="text" placeholder="Type the referees's categorie" class="full_name_input" name="categorie" id="referee_categorie">
+                            <label for="referee_categorie">CATEGORIE</label>
+                            <input type="text" placeholder="Type the referee's categorie" class="full_name_input" name="categorie" id="referee_categorie">
                             <label>Lateralite</label>
                             <div class="option_container row">
                                 <input type="radio" name="lateralite" id="g" value="g"/>
@@ -282,10 +282,10 @@
                             </div>
                             <label for="set_nation_input">NATION</label>
                             <div class="search_wrapper wide">
-                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
+                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                <?php include "../includes/nations.php"; ?>
+                                    <?php include "../includes/nations.php"; ?>
                                 </div>
                             </div>
                         </div>

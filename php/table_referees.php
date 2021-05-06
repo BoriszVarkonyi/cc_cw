@@ -188,7 +188,7 @@ if (isset($_POST["submit_referees"])) {
                                                 <label for="">SEPARATE BY</label>
                                                 <div class="option_container row">
                                                     <input type="radio" name="separate_by" id="club" value="" onclick="nation_to_club()" />
-                                                    <label for="club">Club</label>
+                                                    <label for="club">CLUB</label>
                                                     <input type="radio" name="separate_by" id="nat" checked value="" onclick="club_to_nation()" />
                                                     <label for="nat">Nationality</label>
                                                 </div>
