@@ -338,7 +338,7 @@
                                     //changable class name
                                     $class_cancel = "";
                                     if (isDisqualified($f1_score) || isDisqualified($f2_score)) {
-                                        $class_cancel = " cancelled";
+                                        $class_cancel = " canceled";
                                     }
                             ?>
                             <div class="match small_scroll <?php echo $szin = ($f1_score == 0 ? "red" : "green"); echo $class_cancel?>">
