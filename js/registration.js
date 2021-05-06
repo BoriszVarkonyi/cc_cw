@@ -7,7 +7,7 @@ function toggleAddFencerPanel() {
 }
 
 function setNation(x) {
-    var field = document.getElementById("nationInput");
+    var field = document.getElementById("set_nation_input");
     field.value = x.innerHTML;
     formvariableDeclaration()
 }
