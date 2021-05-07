@@ -309,15 +309,15 @@ if (isset($_POST["generate_table"])) {
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message_black.svg" />
                         </button>
-                        <a class="stripe_button" type="button" onclick="PrintTable()">
+                        <a class="stripe_button bold" type="button" onclick="PrintTable()">
                             <p>Print Table</p>
                             <img src="../assets/icons/print_black.svg" />
                         </a>
-                        <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot_black.svg" />
                         </a>
-                        <a class="stripe_button bold" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
                             <p>Referees</p>
                             <img src="../assets/icons/ballot_black.svg" />
                         </a>
@@ -365,7 +365,7 @@ if (isset($_POST["generate_table"])) {
                     <label for="">DISPLAY FENCERS'</label>
                     <div class="option_container">
                         <input type="checkbox" name="fencer_type" id="club" value="1" />
-                        <label for="club">CLUB</label>
+                        <label for="club">Club</label>
                     </div>
                 </div>
             </div>

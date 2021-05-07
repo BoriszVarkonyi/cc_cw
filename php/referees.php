@@ -173,7 +173,7 @@
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </a>
                     <button class="stripe_button" onclick="toggle_import_technician()">
-                        <p>Import Referees from Competition</p>
+                        <p>Import Referees from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </button>
                     <button class="stripe_button primary" type="button" onclick="window.print()">
@@ -200,7 +200,7 @@
                                 <div class="table_header_text"><p>NAME</p></div>
                             </div>
                             <div class="select_competition_wrapper table_row_wrapper alt">
-                            <input type="text" name="selected_comp_id" id="selected_comp_input">
+                            <input type="text" name="selected_comp_id" id="selected_comp_input" class="hidden">
                                 <?php
                                 //get oragasniser id
                                 $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
@@ -338,10 +338,10 @@
                     ?>
 
                         <div class="table_header">
-                            <div class="table_header_text">FULL NAME</div>
-                            <div class="table_header_text">NATION</div>
-                            <div class="table_header_text">CLUB</div>
-                            <div class="table_header_text">STATUS</div>
+                            <div class="table_header_text"><p>FULL NAME</p></div>
+                            <div class="table_header_text"><p>NATION</p></div>
+                            <div class="table_header_text"><p>CLUB</p></div>
+                            <div class="table_header_text"><p>STATUS</p></div>
                             <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">

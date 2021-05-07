@@ -58,11 +58,11 @@
                     <div class="table">
                         <div class="table_header">
                             <div class="table_header_text"><p>ID</p></div>
-                            <div class="table_header_text"><p>First name</p></div>
-                            <div class="table_header_text"><p>Last name</p></div>
-                            <div class="table_header_text"><p>Nation</p></div>
+                            <div class="table_header_text"><p>FIRST NAME</p></div>
+                            <div class="table_header_text"><p>LAST NAME</p></div>
+                            <div class="table_header_text"><p>NATION</p></div>
                             <div class="table_header_text"><p>CLUB</p></div>
-                            <div class="table_header_text"><p>Rank</p></div>
+                            <div class="table_header_text"><p>RANK</p></div>
                         </div>
                         <div class="table_row_wrapper">
                         </div>

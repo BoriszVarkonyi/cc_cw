@@ -142,7 +142,7 @@
                 <p class="page_title">Technicians</p>
                 <div class="stripe_button_wrapper">
                     <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()" shortcut="SHIFT+I">
-                        <p>Import Technicians</p>
+                        <p>Import Technicians from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </button>
                     <button class="stripe_button primary" type="button" onclick="window.print()">

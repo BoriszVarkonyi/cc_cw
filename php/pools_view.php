@@ -41,7 +41,7 @@
                 <p class="page_title">View Pools</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button primary" href="print_pool_matches.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
-                        <p>Print Pools</p>
+                        <p>Print Pool Matches</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </a>
                     <a class="stripe_button primary <?php echo $is_disabled ?>" href="pools_process.php?comp_id=<?php echo $comp_id ?>" target="_blank">

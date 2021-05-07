@@ -1673,10 +1673,6 @@ nav.closed #need_help img {
 	margin: 0 20px 0 0;
 }
 
-.option_container + .option_container {
-	margin-top: 0;
-}
-
 .option_container.grid {
 	display: flex;
 	margin: 20px 0;
