@@ -66,7 +66,7 @@
             <form id="title_stripe" method="POST" action="">
                 <p class="page_title">Immediate Weapon Control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>">
+                    <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg"/>
                     </a>

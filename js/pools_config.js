@@ -121,7 +121,7 @@ function dragEnd(x) {
 }
 
 function drop(ev) {
-    if (dragStart !== ev.target) {
+    if (dragStart !== ev.target && !ev.target.classList.contains("drag_fencer")) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
