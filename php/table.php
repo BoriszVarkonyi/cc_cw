@@ -8,6 +8,11 @@
 error_reporting(E_ERROR | E_PARSE);
 //This section checks if table has already been gererated;
 
+$qry_create_table = "CREATE TABLE `ccdatabase`.`tables` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `ass_comp_id` INT(11) NOT NULL , `fencer_num` INT(11) NOT NULL , `type` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+if (!$do_create_table = mysqli_query($connection, $qry_create_table)) {
+    echo mysqli_error($connection);
+}
+
 $qry_check_existance = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
 $qry_check_existance_do = mysqli_query($connection, $qry_check_existance);
 
