@@ -337,8 +337,8 @@
                                     $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
                                     $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
 
-                                    var_dump(isDisqualified($f1_score));
-                                    var_dump(isDisqualified($f2_score));
+                                    var_dump($f2_score);
+                                    var_dump($f1_score);
 
                                     //get fencer names from array
                                     $f1_name = $name_array[$f1_id];

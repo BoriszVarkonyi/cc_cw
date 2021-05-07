@@ -84,8 +84,8 @@
         $saved_fencers_table = json_decode($saved_pools_string);
 
         for ($pool_num = 0; $pool_num < count($saved_fencers_table); $pool_num++) {
-            $json_table[$real_pool_num] -> nationality = [];
             $real_pool_num = $pool_num + 1;
+            $json_table[$real_pool_num] -> nationality = [];
             for ($fencer_num = 0; $fencer_num < $pool_of; $fencer_num++) {
                 $real_fencer_num = $fencer_num + 1;
                 $json_table[$real_pool_num] -> $real_fencer_num = $saved_fencers_table[$pool_num][$fencer_num];
@@ -94,13 +94,14 @@
         }
 
         $json_table = array_values($json_table);
+        print_r($json_table);
         //update db
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
         $qry_update = "UPDATE `pools` SET `fencers` = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
 
-        header("Refresh:0");
+        //header("Refresh:0");
 
         //print_r($json_table);
     }
