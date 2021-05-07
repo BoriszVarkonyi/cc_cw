@@ -363,13 +363,13 @@ function getFencersInPool($current_pool) {
 }
 
 function isDisqualified($points) {
-    if ($points == 0) {
+    if ($points === 0) {
         return false;
-    } else if ($points == "EXC") {
+    } else if ($points === "EXC") {
         return true;
-    } else if ($points == "MED") {
+    } else if ($points === "MED") {
         return true;
-    } else if ($points == "ABD") {
+    } else if ($points === "ABD") {
         return true;
     } else {
         return false;
