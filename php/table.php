@@ -40,7 +40,7 @@ if (isset($_POST["generate_table"])) {
         echo mysqli_error($connection);
     }
 
-    $objects = new ObjSorter($json_table, 'classement');
+    $objects = new ObjSorter($json_table, 'temp_rank');
 
     $objects_array  = $objects->sorted;
 
