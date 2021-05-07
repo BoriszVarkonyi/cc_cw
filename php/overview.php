@@ -18,6 +18,8 @@
     <title>Overview</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
 <!-- header -->
@@ -29,6 +31,10 @@
                 <p class="page_title">Overview</p>
                 <div class="stripe_button_wrapper">
                     <input type="text" class="selected_list_item_input">
+                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                        <p>Print Overview</p>
+                        <img src="../assets/icons/print_black.svg"/>
+                    </button>
                 </div>
                 <div class="search_wrapper">
                     <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
@@ -41,9 +47,9 @@
             <div id="page_content_panel_main">
                 <div class="wrapper table" id="overview_wrapper">
                     <div class="table_header">
-                        <div class="table_header_text">POSITION</div>
-                        <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">NATION / CLUB</div>
+                        <div class="table_header_text"><p>POSITION</p></div>
+                        <div class="table_header_text"><p>NAME</p></div>
+                        <div class="table_header_text"><p>NATION / CLUB</p></div>
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">

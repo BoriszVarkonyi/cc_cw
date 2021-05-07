@@ -148,7 +148,7 @@ if (file_exists("../uploads/$comp_id.png")) {
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_invitation_style.min.css">
-    <link rel="stylesheet" href="../css/print_style.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
 </head>
 
 <body>

@@ -316,7 +316,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -324,8 +323,10 @@
     <title>Pools of <?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_pools_style.min.css" media="print">
 </head>
-
 <body>
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
@@ -361,6 +362,11 @@
                     <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
                         <p>Pistes & Time</p>
                         <img src="../assets/icons/ballot_black.svg"/>
+                    </button>
+
+                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                        <p>Print Pools</p>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
 
                     <form action="" method="POST">
@@ -558,21 +564,21 @@
                                         </div>
                                     </div>
                                     <div class="entry_panel">
-                                        <div class="pool_table_wrapper table">
+                                        <div class="pool_table_wrapper table small">
                                             <div class="table_header">
                                                 <div class="table_header_text">
-                                                    name
+                                                    <p>NAME</p>
                                                 </div>
                                                 <div class="table_header_text">
-                                                    nation
+                                                    <P>CLUB</P>
                                                 </div>
 
                                                 <div class="table_header_text square">
-                                                    Cp
+                                                    <p>CP</p>
                                                 </div>
 
                                                 <div class="table_header_text square">
-                                                    Rp
+                                                    <p>PR</p>
                                                 </div>
 
                                             </div>
@@ -617,7 +623,7 @@
                         }
                             ?>
 
-                        <input type="text" name="pool_of" id="pool_of" value="<?php echo $pool_of ?>"/>
+                        <input type="text" name="pool_of" id="pool_of" class="hidden" value="<?php echo $pool_of ?>" readonly/>
 
                     </div>
                     <div id="pools_drag_panel">

@@ -72,7 +72,6 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,8 +79,9 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <title>Competitiors</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
-
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -95,6 +95,10 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
+                    </button>
+                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                        <p>Print Competitors</p>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                     <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
                         <p>Import Competitors from XML</p>
@@ -121,16 +125,16 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                     usort($json_table, "cmp");
 
                 ?>
-                <div class="wrapper table w90 first_column_centered">
+                <div class="wrapper table xsmall w90">
                     <div class="table_header">
-                        <div class="table_header_text">C. POS</div>
-                        <div class="table_header_text">R. POS</div>
-                        <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">NATION</div>
-                        <div class="table_header_text">CLUB</div>
-                        <div class="table_header_text">REGISTRATION</div>
+                        <div class="table_header_text"><p>C. POS</p></div>
+                        <div class="table_header_text"><p>R. POS</p></div>
+                        <div class="table_header_text"><p>NAME</p></div>
+                        <div class="table_header_text"><p>NATION</p></div>
+                        <div class="table_header_text"><p>CLUB</p></div>
+                        <div class="table_header_text"><p>REGISTRATION</p></div>
                         <div class="small_status_header"></div>
-                        <div class="table_header_text">WEAPON CONTROL</div>
+                        <div class="table_header_text"><p>WEAPON CONTROL</p></div>
                         <div class="small_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
@@ -177,7 +181,9 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                                                                 }
                                                                 ?>">
                                 </div>
-                                <div class="table_item"><?php
+                                <div class="table_item">
+                                    <p>
+                                                        <?php
                                                         if ($json_obj->wc == 0) {
 
                                                             echo "Not ready";
@@ -186,6 +192,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                                                             echo "Ready";
                                                         }
                                                         ?>
+                                    </p>
                                 </div>
                                 <div class="small_status_item <?php
                                                                 if ($json_obj->wc == 0) {

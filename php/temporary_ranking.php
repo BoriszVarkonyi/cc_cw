@@ -42,26 +42,34 @@ echo count($objects_array) . " VÍVÓ";
     <title>Temporary Ranking</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
-        <div id="content_wrapper">
-            <?php include "../includes/navbar.php"; ?>
-            <!-- navbar -->
+    <div id="content_wrapper">
+        <?php include "../includes/navbar.php"; ?>
+        <!-- navbar -->
         <main>
             <form id="title_stripe" method="POST" action="">
                 <p class="page_title">Temporary Ranking</p>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                        <p>Print Temporary Ranking</p>
+                        <img src="../assets/icons/print_black.svg"/>
+                    </button>
+                </div>
             </form>
             <div id="page_content_panel_main">
-                <div class="table wrapper first_column_centered">
-                <div class="table_header">
-                    <div class="table_header_text">TEMPORARY RANK</div>
-                    <div class="table_header_text">NAME</div>
-                    <div class="table_header_text">NATION / CLUB</div>
-                </div>
-                        <div class="table_row_wrapper">
+                <div class="table wrapper">
+                    <div class="table_header">
+                        <div class="table_header_text"><p>TEMPORARY RANK</p></div>
+                        <div class="table_header_text"><p>NAME</p></div>
+                        <div class="table_header_text"><p>NATION / CLUB</p></div>
+                    </div>
+                    <div class="table_row_wrapper">
                         <?php
 
                         foreach ($objects_array as $key => $value) {
@@ -76,7 +84,6 @@ echo count($objects_array) . " VÍVÓ";
                         <?php
                         }
                         ?>
-                        </div>
                     </div>
                 </div>
             </div>
