@@ -65,6 +65,71 @@
                     header("Refresh:0");
                 }
 
+                class tireur {
+                    public $sexe;
+                    public $id;
+                    public $image;
+                    public $points;
+                    public $classement;
+                    public $club;
+                    public $lateralite;
+                    public $date_naissance;
+                    public $licence;
+                    public $nation;
+                    public $prenom;
+                    public $nom;
+                    public $reg;
+                    public $wc;
+                    public $comp_rank;
+                    public $temp_rank;
+                    public $final_rank;
+
+                    function __construct($sexe, $id, $image, $points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, $reg, $wc, $comp_rank, $temp_rank, $final_rank) {
+                        $this->sexe = $sexe;
+                        $this->id = $id;
+                        $this->image = $image;
+                        $this->points = $points;
+                        $this->classement = $classement;
+                        $this->club = $club;
+                        $this->lateralite = $lateralite;
+                        $this->date_naissance = $date_naissance;
+                        $this->licence = $licence;
+                        $this->nation = $nation;
+                        $this->prenom = $prenom;
+                        $this->nom = $nom;
+                        $this->reg = $reg;
+                        $this->wc = $wc;
+                        $this->comp_rank = $comp_rank;
+                        $this->temp_rank = $temp_rank;
+                        $this->final_rank = $final_rank;
+                    }
+                }
+
+                if (isset($_POST['add_fencer'])) {
+                    $prenom = $_POST['prenom'];
+                    $nom = $_POST['nom'];
+                    $id = $_POST['id'];
+                    $licence = $_POST['licence'];
+                    $sexe = $_POST['sexe'];
+                    $date_naissance = $_POST['date_naissance'];
+                    $fencer_image = $_POST['fencer_image'];
+                    $fencer_points = $_POST['fencer_points'];
+                    $club = $_POST['club'];
+                    $nation = $_POST['nation'];
+                    $classement = $_POST['classement'];
+                    $lateralite = $_POST['lateralite'];
+
+                    $tiruer_obj = new tiruer($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL);
+
+                    array_push($json_table, $tiruer_obj);
+
+                    //update database
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+                    $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+                    $do_update = mysqli_query($connection, $qry_update);
+                    echo mysqli_error($connection);
+                }
             ?>
                 <form id="title_stripe" method="POST" action="">
                     <p class="page_title">Registration</p>
@@ -103,7 +168,7 @@
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <!-- add fencers drop-down -->
-                    <form action="registration.php?comp_id=<?php echo $comp_id ?>" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
+                    <form action="" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <div class="overlay_panel_division visible" overlay_division_title="Identification">
                             <label for="fencer_firsname">FIRST NAME</label>
                             <input type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname">
