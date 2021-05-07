@@ -44,7 +44,7 @@
                         <p>Print Pools</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </a>
-                    <a class="stripe_button primary <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                    <a class="stripe_button primary <?php echo $is_disabled ?>" href="pools_process.php?comp_id=<?php echo $comp_id ?>" target="_blank">
                         <p>Finish Pools</p>
                         <img src="../assets/icons/save_black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>
