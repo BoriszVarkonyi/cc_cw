@@ -40,7 +40,7 @@ if (isset($_POST["generate_table"])) {
         echo mysqli_error($connection);
     }
 
-    $objects = new ObjSorter($json_table, 'classement');
+    $objects = new ObjSorter($json_table, 'temp_rank');
 
     $objects_array  = $objects->sorted;
 
@@ -484,7 +484,6 @@ if (isset($_POST["generate_table"])) {
                             $r_counter++;
                         }
                         ?>
-
 
                         <div id="e_5" class="elimination">
                             <div class="elimination_label">Table of __</div>

@@ -271,10 +271,10 @@
                         <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                             <label for="set_club_input">CLUB</label>
                             <div class="search_wrapper wide higher">
-                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
+                                <input type="text" name="club" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
+                                <?php include "../includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="referee_categorie">CATEGORIE</label>
