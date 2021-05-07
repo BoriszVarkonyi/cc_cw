@@ -55,16 +55,6 @@
                     }
                 }
 
-                if(isset($_POST["add_fencer"])){
-
-                    $n_fname = $_POST["fencer_name"];
-                    $f_nat = $_POST["f_nat"];
-                    $f_pos = $_POST["fencer_position"];
-
-
-                    header("Refresh:0");
-                }
-
                 class tireur {
                     public $sexe;
                     public $id;
@@ -106,6 +96,9 @@
                 }
 
                 if (isset($_POST['add_fencer'])) {
+
+                    var_dump($_POST);
+
                     $prenom = $_POST['prenom'];
                     $nom = $_POST['nom'];
                     $id = $_POST['id'];
@@ -116,10 +109,10 @@
                     $fencer_points = $_POST['fencer_points'];
                     $club = $_POST['club'];
                     $nation = $_POST['nation'];
-                    $classement = $_POST['classement'];
+                    $classement = $_POST['fencer_classement'];
                     $lateralite = $_POST['lateralite'];
 
-                    $tiruer_obj = new tiruer($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL);
+                    $tiruer_obj = new tireur($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL);
 
                     array_push($json_table, $tiruer_obj);
 
@@ -129,6 +122,8 @@
                     $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
                     $do_update = mysqli_query($connection, $qry_update);
                     echo mysqli_error($connection);
+
+                    header("Refresh: 0");
                 }
             ?>
                 <form id="title_stripe" method="POST" action="">
@@ -171,57 +166,57 @@
                     <form action="" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <div class="overlay_panel_division visible" overlay_division_title="Identification">
                             <label for="fencer_firsname">FIRST NAME</label>
-                            <input type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname">
+                            <input form="new_fencer" type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname">
                             <label for="fencer_lastname">LAST NAME</label>
-                            <input type="text" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname">
+                            <input type="text" form="new_fencer" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname">
                             <label for="fencer_id">ID NUMBER</label>
-                            <input type="number" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id">
+                            <input type="number" form="new_fencer" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id">
                             <label for="fencer_licence">LICENSE</label>
-                            <input type="text" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence">
+                            <input type="text" form="new_fencer" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Identification 2">
                             <label>SEX</label>
                             <div class="option_container row">
-                                <input type="radio" name="sexe" id="male" value="m" />
+                                <input form="new_fencer" type="radio" name="sexe" id="male" value="m" />
                                 <label for="male">Male</label>
-                                <input type="radio" name="sexe" id="female" value="f" />
+                                <input form="new_fencer" type="radio" name="sexe" id="female" value="f" />
                                 <label for="female">Female</label>
                             </div>
                             <label for="fencer_dob">DATE OF BIRTH</label>
-                            <input type="date" class="date_input" name="date_naissance" id="fencer_dob">
+                            <input form="new_fencer" type="date" class="date_input" name="date_naissance" id="fencer_dob">
                             <label for="fencer_image">IMAGE LINK</label>
-                            <input type="text" placeholder="Type in the link to the fencer's image" class="full_name_input" name="fencer_image" id="fencer_image">
+                            <input  form="new_fencer" type="text" placeholder="Type in the link to the fencer's image" class="full_name_input" name="fencer_image" id="fencer_image">
                             <label for="fencer_licence">POINTS</label>
-                            <input type="text" placeholder="Type the fencer's points" class="full_name_input" name="fencer_points" id="fencer_points">
+                            <input form="new_fencer" type="text" placeholder="Type the fencer's points" class="full_name_input" name="fencer_points" id="fencer_points">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                             <label for="set_club_input">CLUB</label>
                             <div class="search_wrapper wide higher">
-                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
+                                <input form="new_fencer" type="text" name="club" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
                                     <?php include "../includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="fencer_classement">CLASSEMENT</label>
-                            <input type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement">
+                            <input form="new_fencer" type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement">
                             <label>LATERALITE</label>
                             <div class="option_container row">
-                                <input type="radio" name="lateralite" id="g" value="g"/>
+                                <input form="new_fencer" type="radio" name="lateralite" id="g" value="g"/>
                                 <label for="g">Left</label>
-                                <input type="radio" name="lateralite" id="d" value="d"/>
+                                <input form="new_fencer" type="radio" name="lateralite" id="d" value="d"/>
                                 <label for="d">Right</label>
                             </div>
                             <label for="set_nation_input">NATION</label>
                             <div class="search_wrapper wide">
-                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
+                                <input form="new_fencer"  type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" name="add_fencer" class="panel_submit">Save</button>
+                        <button form="new_fencer" type="submit" name="add_fencer" class="panel_submit">Save</button>
                     </form>
                 </div>
                 <div id="page_content_panel_main">
