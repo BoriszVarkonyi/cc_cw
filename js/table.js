@@ -56,9 +56,11 @@ for (i = 0; i < eleminitaions.length; i++) {
 }
 //Shows eleminiations by index
 disabler();
-for (i = firstIndex; i < secondIndex; i++) {
-    eleminitaions[i].classList.remove("hidden")
+if (eleminitaions.length > 0) {
+    for (i = firstIndex; i < secondIndex; i++) {
+        eleminitaions[i].classList.remove("hidden")
 
+    }
 }
 
 function buttonLeft() {
@@ -112,50 +114,52 @@ window.addEventListener("DOMContentLoaded", windowSize);
 var vw;
 //Chagnes the shown table numbers by the window size
 function windowSize() {
-    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    if (vw > 1600 && eleminitaions.length >= 4) {
-        for (i = 0; i < eleminitaions.length; i++) {
-            eleminitaions[i].classList.add("hidden")
-        }
-        secondIndex = firstIndex + 4;
-        for (i = firstIndex; i < secondIndex; i++) {
-            eleminitaions[i].classList.remove("hidden")
+    if (document.querySelector("#call_room") != null) {
+        vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        if (vw > 1600 && eleminitaions.length >= 4) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 4;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
 
+            }
         }
-    }
-    else if (vw > 1100 && vw < 1600 && eleminitaions.length >= 3) {
-        for (i = 0; i < eleminitaions.length; i++) {
-            eleminitaions[i].classList.add("hidden")
-        }
-        secondIndex = firstIndex + 3;
-        for (i = firstIndex; i < secondIndex; i++) {
-            eleminitaions[i].classList.remove("hidden")
+        else if (vw > 1100 && vw < 1600 && eleminitaions.length >= 3) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 3;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
 
+            }
         }
-    }
-    else if (vw > 700 && vw < 1100 && eleminitaions.length >= 2) {
-        for (i = 0; i < eleminitaions.length; i++) {
-            eleminitaions[i].classList.add("hidden")
-        }
-        secondIndex = firstIndex + 2;
-        for (i = firstIndex; i < secondIndex; i++) {
-            eleminitaions[i].classList.remove("hidden")
+        else if (vw > 700 && vw < 1100 && eleminitaions.length >= 2) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 2;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
 
+            }
         }
-    }
-    else if (vw < 700) {
-        for (i = 0; i < eleminitaions.length; i++) {
-            eleminitaions[i].classList.add("hidden")
-        }
-        secondIndex = firstIndex + 1;
-        for (i = firstIndex; i < secondIndex; i++) {
-            eleminitaions[i].classList.remove("hidden")
+        else if (vw < 700) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 1;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
 
+            }
         }
-    }
-    var shownEliminations = document.querySelectorAll(".elimination:not(.hidden)")
-    if (shownEliminations.length == eleminitaions.length) {
-        btRight.classList.add("disabled")
+        var shownEliminations = document.querySelectorAll(".elimination:not(.hidden)")
+        if (shownEliminations.length == eleminitaions.length) {
+            btRight.classList.add("disabled")
+        }
     }
 }
 //Automaticly sets the table title
@@ -364,7 +368,9 @@ var index1 = cookieFinder("index1", 0, true)
 var index2 = cookieFinder("index2", 0, true)
 var index3 = cookieFinder("index3", 0, true)
 //eleminitaions[index1].classList.add("selected")
-tableInArray[index1][index2][index3].focus();
+if (document.querySelector("#call_room") != null) {
+    tableInArray[index1][index2][index3].focus();
+}
 //tableInArray[index1][index2][index3].classList.add("focus");
 //tableInArray[index1][index2][index3].scrollIntoView()
 document.onkeydown = (keyDownEvent) => {
@@ -503,4 +509,10 @@ function PrintTable() {
         elims[i].classList.remove("hidden")
     }
     window.print();
+}
+
+function cookieRester() {
+    document.cookie = "index1=0";
+    document.cookie = "index2=0";
+    document.cookie = "index3=0";
 }
