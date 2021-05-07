@@ -139,7 +139,11 @@
                         </button>
                         <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
                             <p>Add Fencer</p>
-                            <img src="../assets/icons/person_add_alt_1_black.svg"/>
+                            <img src="../assets/icons/person_add_alt_black.svg"/>
+                        </button>
+                        <button type="button" class="stripe_button" onclick="" shortcut="SHIFT+D" disabled>
+                            <p>Remove Fencer</p>
+                            <img src="../assets/icons/person_remove_black.svg"/>
                         </button>
                         <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
                             <p>Register out</p>

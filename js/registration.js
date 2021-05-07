@@ -6,6 +6,12 @@ function toggleAddFencerPanel() {
     addFencerPanel.classList.remove("hidden");
 }
 
+function setClub(x) {
+    var field = document.getElementById("set_club_input");
+    field.value = x.innerHTML;
+    formvariableDeclaration()
+}
+
 function setNation(x) {
     var field = document.getElementById("set_nation_input");
     field.value = x.innerHTML;

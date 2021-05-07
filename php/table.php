@@ -314,7 +314,7 @@ if (isset($_POST["generate_table"])) {
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message_black.svg" />
                         </button>
-                        <a class="stripe_button bold" type="button" onclick="PrintTable()">
+                        <a class="stripe_button bold" type="button" onclick="printTable()">
                             <p>Print Table</p>
                             <img src="../assets/icons/print_black.svg" />
                         </a>

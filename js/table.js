@@ -503,7 +503,7 @@ function toggleThisPanel(x) {
     x.parentNode.nextElementSibling.classList.toggle("hidden")
 }
 
-function PrintTable() {
+function printTable() {
     var elims = document.getElementsByClassName("elimination");
     for (i = 0; i < elims.length - 1; i++) {
         elims[i].classList.remove("hidden")

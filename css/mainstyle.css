@@ -636,7 +636,7 @@ header {
 	margin-right: -25px;
 }
 
-.stripe_button.disabled {
+.stripe_button.disabled, .stripe_button:disabled {
 	background: var(--c-gray) !important;
 	box-shadow: var(--s-black) !important;
 	cursor: default !important;
@@ -645,7 +645,7 @@ header {
 	filter: contrast(50%) !important;
 }
 
-.stripe_button.disabled:hover {
+.stripe_button.disabled:hover, .stripe_button:disabled:hover {
 	background: var(--c-white) !important;
 }
 
