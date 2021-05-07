@@ -41,5 +41,5 @@ pointsInTable.addEventListener("input", function(){
 
 var numOfQualifiersAfterPools = document.getElementById("nOQAP")
 numOfQualifiersAfterPools.addEventListener("input", function(){
-    inputValueLimiter(this, 30)
+    inputValueLimiter(this, 1024)
 })

@@ -16,7 +16,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 
 //KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA
 
-$objects = new ObjSorter($json_table, 'classement');
+$objects = new ObjSorter($json_table, 'temp_rank');
 
 $objects_array  = $objects->sorted;
 
