@@ -1015,6 +1015,10 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	height: calc(1.4em + 1.25vmin);
 }
 
+.entry > .table_row:hover {
+	filter: none !important;
+}
+
 .table_row_wrapper .entry:nth-of-type(even) > .table_row, .table_row_wrapper > #add_entry:nth-of-type(even) .table_row, #add_entry:nth-of-type(even) + #adding_entry .table_row {
 	background: var(--c-lightestgray);
 }

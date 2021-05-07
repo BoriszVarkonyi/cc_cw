@@ -127,6 +127,7 @@
     //add the dead and calculate points
     $ranking -> addDead($array_of_dead);
     foreach ($ranking as $id_key => $obj){
+        $ranking -> {$id_key} -> setDead();
         $ranking -> {$id_key} -> calculate();
     }
 

@@ -3070,6 +3070,8 @@ div.title_box > button {
 	flex-wrap: wrap;
 	border-radius: 10px;
 	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #pools_drag_panel > div.holder {
@@ -3090,6 +3092,7 @@ div.title_box > button {
 	background: var(--c-lightestgray);
 	font-family: var(--bold);
 	position: relative;
+	font-size: var(--f-small);
 }
 
 #pools_drag_panel > div:before {
