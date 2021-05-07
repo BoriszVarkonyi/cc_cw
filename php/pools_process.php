@@ -155,6 +155,7 @@
     $qry_update = "UPDATE `competitors` SET `data` = '$compet_string' WHERE `assoc_comp_id` = '$comp_id'";
     if ($do_update = mysqli_query($connection, $qry_update)) {
         echo "MYSQLI UPDATE SUCCESSFUL!";
+        header("Location: ../php/temporary_ranking.php?comp_id=$comp_id");
     } else {
         echo "MYSQLI UPDATE WAS UNSUCCESSFUL!:   " . mysqli_error($connection) . "  LAST PART?";
     }
