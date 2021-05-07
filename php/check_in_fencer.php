@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_check_out_fencer_style.min.css">
-    <link rel="stylesheet" href="../css/print_style.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
 </head>
 <body>
 <!-- header -->

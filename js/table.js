@@ -326,7 +326,7 @@ zoomInButton.addEventListener('mousemove', function (e) {
     mousePosition = e;
 })
 
-//Controls 
+//Controls
 var tableFencer = document.querySelectorAll(".table_round_wrapper");
 function makeArray() {
     var tableArray = []
@@ -344,11 +344,11 @@ function makeArray() {
     return tableArray
 }
 
-function selectedClassRemover(){
+function selectedClassRemover() {
     var selectedEleminitaions = document.querySelectorAll("#call_room .selected")
-    for(i=0; i<selectedEleminitaions.length; i++){
+    for (i = 0; i < selectedEleminitaions.length; i++) {
         selectedEleminitaions[i].classList.remove("selected")
-    }   
+    }
 }
 
 //Removes the focus class from every element
@@ -373,7 +373,7 @@ document.onkeydown = (keyDownEvent) => {
     //somethingIsFocused is a var. form main.js
     //Arrowsystem
     if (searchBarClosed && !somethingisOpened && !somethingIsFocused) {
-        if (keyDownEvent.key == "ArrowUp") {    
+        if (keyDownEvent.key == "ArrowUp") {
             if (index2 > 0) {
                 focusClassRemover()
                 if (index3 <= 0) {
@@ -456,7 +456,7 @@ document.onkeydown = (keyDownEvent) => {
                 //tableInArray[index1][index2][index3].scrollIntoView()
             }
         }
-        if(keyDownEvent.key =="Enter"){
+        if (keyDownEvent.key == "Enter") {
             tableInArray[index1][index2][index3].click();
         }
         //eleminitaions[index1].classList.add("selected")
@@ -466,12 +466,12 @@ document.onkeydown = (keyDownEvent) => {
     }
 }
 
-function indexFinder(findRound){
+function indexFinder(findRound) {
     var indexArray = []
-    for(i=0; i<tableInArray.length; i++){
-        for(j=0; j<tableInArray[i].length; j++){
-            for(k=0; k<tableInArray[i][j].length; k++){
-                if(findRound == tableInArray[i][j][k]){
+    for (i = 0; i < tableInArray.length; i++) {
+        for (j = 0; j < tableInArray[i].length; j++) {
+            for (k = 0; k < tableInArray[i][j].length; k++) {
+                if (findRound == tableInArray[i][j][k]) {
                     indexArray.push(i)
                     indexArray.push(j)
                     indexArray.push(k)
@@ -482,7 +482,7 @@ function indexFinder(findRound){
     }
 }
 
-function selectRound(x){
+function selectRound(x) {
     var indexArray = indexFinder(x);
     index1 = indexArray[0]
     index2 = indexArray[1]
@@ -493,6 +493,14 @@ function selectRound(x){
     document.cookie = "index3=" + index3;
 }
 
-function toggleThisPanel(x){
+function toggleThisPanel(x) {
     x.parentNode.nextElementSibling.classList.toggle("hidden")
+}
+
+function PrintTable() {
+    var elims = document.getElementsByClassName("elimination");
+    for (i = 0; i < elims.length - 1; i++) {
+        elims[i].classList.remove("hidden")
+    }
+    window.print();
 }

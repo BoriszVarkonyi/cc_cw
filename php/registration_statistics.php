@@ -87,7 +87,6 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -95,9 +94,8 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
     <title>Registration Statistics</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/print_registration.min.css">
+    <link rel="stylesheet" href="../css/print_registration_style.min.css">
 </head>
-
 <body>
     <!-- header -->
     <div id="content_wrapper">
