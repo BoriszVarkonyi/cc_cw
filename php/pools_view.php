@@ -23,7 +23,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +31,6 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -42,11 +40,11 @@
             <div id="title_stripe">
                 <p class="page_title">View Pools</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button primary" href="print_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
+                    <a class="stripe_button primary" href="print_pool_matches.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
                         <p>Print Pools</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </a>
-                    <a class="stripe_button primary <?php echo $is_disabled ?>" href="process_pools.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                    <a class="stripe_button primary <?php echo $is_disabled ?>" href="pools_process.php?comp_id=<?php echo $comp_id ?>" target="_blank">
                         <p>Finish Pools</p>
                         <img src="../assets/icons/save_black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>

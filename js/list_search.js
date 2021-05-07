@@ -1,7 +1,8 @@
 function searchButton(x) {
     var button = x;
-    var search = button.previousElementSibling;
+    var search = button.previousElementSibling.previousElementSibling;
     if (search.classList.contains("opened")) {
+        console.log(search)
         search.querySelector(".search").value = ""
         serachInLists();
     }

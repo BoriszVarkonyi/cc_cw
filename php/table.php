@@ -40,7 +40,7 @@ if (isset($_POST["generate_table"])) {
         echo mysqli_error($connection);
     }
 
-    $objects = new ObjSorter($json_table, 'classement');
+    $objects = new ObjSorter($json_table, 'temp_rank');
 
     $objects_array  = $objects->sorted;
 
@@ -271,7 +271,6 @@ if (isset($_POST["generate_table"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -280,8 +279,9 @@ if (isset($_POST["generate_table"])) {
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/table_style.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_table_style.min.css" media="print">
 </head>
-
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -309,6 +309,10 @@ if (isset($_POST["generate_table"])) {
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message_black.svg" />
                         </button>
+                        <a class="stripe_button" type="button" onclick="PrintTable()">
+                            <p>Print Table</p>
+                            <img src="../assets/icons/print_black.svg" />
+                        </a>
                         <a class="stripe_button bold" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot_black.svg" />
@@ -481,7 +485,6 @@ if (isset($_POST["generate_table"])) {
                         }
                         ?>
 
-
                         <div id="e_5" class="elimination">
                             <div class="elimination_label">Table of __</div>
                             <div class="table_round_wrapper finished purple">
@@ -514,5 +517,4 @@ if (isset($_POST["generate_table"])) {
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/search.js"></script>
 </body>
-
 </html>

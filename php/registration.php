@@ -7,6 +7,8 @@
     <title>Registration</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
     <?php include "../includes/headerburger.php"; ?>
@@ -71,6 +73,10 @@
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
+                        <button class="stripe_button" type="button" onclick="window.print()">
+                            <p>Print Registration</p>
+                            <img src="../assets/icons/print_black.svg"/>
+                        </button>
                         <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
                             <p>Add Fencer</p>
                             <img src="../assets/icons/person_add_alt_1_black.svg"/>
@@ -105,7 +111,7 @@
                             <input type="text" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname">
                             <label for="fencer_id">ID NUMBER</label>
                             <input type="number" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id">
-                            <label for="fencer_licence">License</label>
+                            <label for="fencer_licence">LICENSE</label>
                             <input type="text" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Identification 2">
@@ -129,12 +135,12 @@
                                 <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
+                                    <?php include "../includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="fencer_classement">CLASSEMENT</label>
                             <input type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement">
-                            <label>Lateralite</label>
+                            <label>LATERALITE</label>
                             <div class="option_container row">
                                 <input type="radio" name="lateralite" id="g" value="g"/>
                                 <label for="g">Left</label>
@@ -143,7 +149,7 @@
                             </div>
                             <label for="set_nation_input">NATION</label>
                             <div class="search_wrapper wide">
-                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_nation_input" placeholder="Search Country by Name" class="search input">
+                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>
@@ -164,7 +170,7 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                NAME
+                                <p>NAME</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
@@ -176,7 +182,7 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                NATION
+                                <p>NATION</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
@@ -188,7 +194,7 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                CLUB
+                                <p>CLUB</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
@@ -207,7 +213,7 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                STATUS
+                                <p>STATUS</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>

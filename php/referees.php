@@ -156,6 +156,8 @@
     <title>Referees</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
 <!-- header -->
@@ -173,6 +175,10 @@
                     <button class="stripe_button" onclick="toggle_import_technician()">
                         <p>Import Referees from Competition</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
+                    </button>
+                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                        <p>Print Referees</p>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                     <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                         <p>Remove Referee</p>
@@ -257,7 +263,7 @@
                             </div>
                             <label for="referee_dob">DATE OF BIRTH</label>
                             <input type="date" class="date_input" name="date_naissance" id="referee_dob">
-                            <label for="referee_licence">License</label>
+                            <label for="referee_licence">LICENSE</label>
                             <input type="text" placeholder="Type the referee's license number" class="full_name_input" name="licence" id="referee_licence">
                             <label for="referee_image">IMAGE LINK</label>
                             <input type="text" placeholder="Type in the link to the referee's image" class="full_name_input" name="image" id="referee_image">
@@ -265,15 +271,15 @@
                         <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                             <label for="set_club_input">CLUB</label>
                             <div class="search_wrapper wide higher">
-                                <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
+                                <input type="text" name="club" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
+                                <?php include "../includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="referee_categorie">CATEGORIE</label>
                             <input type="text" placeholder="Type the referee's categorie" class="full_name_input" name="categorie" id="referee_categorie">
-                            <label>Lateralite</label>
+                            <label>LATERALITE</label>
                             <div class="option_container row">
                                 <input type="radio" name="lateralite" id="g" value="g"/>
                                 <label for="g">Left</label>

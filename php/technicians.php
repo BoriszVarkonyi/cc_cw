@@ -128,9 +128,8 @@
     <title>Technicians</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/test_navbar.js"></script>
-
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body class="preload">
 <!-- header -->
@@ -146,12 +145,16 @@
                         <p>Import Technicians</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </button>
+                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                        <p>Print Technicians</p>
+                        <img src="../assets/icons/print_black.svg"/>
+                    </button>
                     <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button" shortcut="SHIFT+R">
                         <p>Remove Technician</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
                     <button class="stripe_button primary" onclick="toggle_add_technician()" shortcut="SHIFT+A">
-                        <p>Add Technicians</p>
+                        <p>Add Technician</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
                 </div>

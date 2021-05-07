@@ -54,6 +54,8 @@
     <title>Immediate Weapon Control</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
 <!-- header -->
@@ -71,6 +73,10 @@
                     <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/chat_black.svg"/>
+                    </button>
+                    <button class="stripe_button" type="button" onclick="window.print()">
+                        <p>Print Weapon Control</p>
+                        <img src="../assets/icons/print_black.svg"/>
                     </button>
                     <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
                         <p>Add weapon control</p>
@@ -98,9 +104,9 @@
             <div id="page_content_panel_main">
                 <div class="wrapper table">
                     <div class="table_header">
-                        <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">NATION / CLUB</div>
-                        <div class="table_header_text">STATUS</div>
+                        <div class="table_header_text"><p>NAME</p></div>
+                        <div class="table_header_text"><p>NATION / CLUB</p></div>
+                        <div class="table_header_text"><p>STATUS</p></div>
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
