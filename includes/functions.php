@@ -364,9 +364,9 @@ function getFencersInPool($current_pool) {
 
 function isDisqualified($points) {
     if ($points == "EXC") {
-        return false;
+        return true;
     } else if ($points == "MED") {
-        return false;
+        return true;
     } else if ($points == "ABD") {
         return true;
     } else {
