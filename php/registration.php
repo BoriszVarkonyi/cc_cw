@@ -234,6 +234,9 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
                                 <p>NAME</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
@@ -246,6 +249,9 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
                                 <p>NATION</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
@@ -258,6 +264,9 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
                                 <p>CLUB</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
@@ -277,6 +286,9 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
                                 <p>STATUS</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">

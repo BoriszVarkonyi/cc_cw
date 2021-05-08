@@ -959,7 +959,7 @@ label + .search_wrapper.wide .search, .search.has_icon  {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: 5px;
+	margin: 0 5px;
 }
 
 .table_header_text > button > img {
