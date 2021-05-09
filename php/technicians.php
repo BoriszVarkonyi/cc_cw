@@ -257,13 +257,84 @@
                     <?php } else { ?>
 
                         <div class="table_header">
-                            <div class="table_header_text" id="drag-left">
+                            <div class="table_header_text">
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
                                 <p>NAME</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
                             </div>
-                                <div class="table_header_text" id="drag-right"><p>USERNAME</p></div>
-                                <div class="table_header_text" id="drag-right"><p>ROLE</p></div>
-                                <div class="table_header_text"><p>STATUS</p></div>
-                                <div class="small_status_header">
+                            <div class="table_header_text">
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Username" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>USERNAME</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel option">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" class="search page hidden">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                    <div class="option_container">
+                                        <input type="radio" name="status" id="listsearch_semi" value="Semi"/>
+                                        <label for="listsearch_semi">Semi</label>
+                                        <input type="radio" name="status" id="listsearch_dt" value="DT"/>
+                                        <label for="listsearch_dt">DT</label>
+                                        <input type="radio" name="status" id="listsearch_wc" value="Weapon Control"/>
+                                        <label for="listsearch_wc">Weapon Control</label>
+                                        <input type="radio" name="status" id="listsearch_reg" value="Registration"/>
+                                        <label for="listsearch_reg">Registration</label>
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>ROLE</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel option">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" class="search page hidden">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                    <div class="option_container">
+                                        <input type="radio" name="status" id="listsearch_online" value="Online"/>
+                                        <label for="listsearch_online">Online</label>
+                                        <input type="radio" name="status" id="listsearch_offline" value="Offline"/>
+                                        <label for="listsearch_offline">Offline</label>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>STATUS</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                            <div class="small_status_header">
                             </div>
                         </div>
                         <div class="table_row_wrapper" id="table">
@@ -322,5 +393,6 @@
     <script src="../js/importoverlay.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/overlay_panel.js"></script>
+    <script src="../js/list_search.js"></script>
 </body>
 </html>

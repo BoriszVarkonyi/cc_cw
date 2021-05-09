@@ -47,9 +47,51 @@
             <div id="page_content_panel_main">
                 <div class="wrapper table" id="overview_wrapper">
                     <div class="table_header">
-                        <div class="table_header_text"><p>POSITION</p></div>
-                        <div class="table_header_text"><p>NAME</p></div>
-                        <div class="table_header_text"><p>NATION / CLUB</p></div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Position" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>POSITION</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NAME</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Nationality" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NATION / CLUB</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
@@ -91,5 +133,6 @@
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/list_search.js"></script>
 </body>
 </html>

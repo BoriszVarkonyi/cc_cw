@@ -127,21 +127,133 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                 ?>
                 <div class="wrapper table xsmall w90">
                     <div class="table_header">
-                        <div class="table_header_text"><p>C. POS</p></div>
-                        <div class="table_header_text"><p>R. POS</p></div>
-                        <div class="table_header_text"><p>NAME</p></div>
-                        <div class="table_header_text"><p>NATION</p></div>
-                        <div class="table_header_text"><p>CLUB</p></div>
-                        <div class="table_header_text"><p>REGISTRATION</p></div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Competition Position" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>C. POS</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Classement Position" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>R. POS</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NAME</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NATION</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Club" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>CLUB</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel option">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" class="search page hidden">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                                <div class="option_container">
+                                    <input type="radio" name="reg_status" id="listsearch_reg_not_ready" value="Not ready"/>
+                                    <label for="listsearch_reg_not_ready">Not ready</label>
+                                    <input type="radio" name="reg_status" id="listsearch_reg_ready" value="Ready"/>
+                                    <label for="listsearch_reg_ready">Ready</label>
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>REGISTRATION</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
                         <div class="small_status_header"></div>
-                        <div class="table_header_text"><p>WEAPON CONTROL</p></div>
+                        <div class="table_header_text">
+                            <div class="search_panel option">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" class="search page hidden">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                                <div class="option_container">
+                                    <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Not ready"/>
+                                    <label for="listsearch_wc_not_ready">Not ready</label>
+                                    <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Ready"/>
+                                    <label for="listsearch_wc_not_ready">Ready</label>
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>WEAPON CONTROL</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
                         <div class="small_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
                         <?php
                         foreach ($json_table as $json_obj) {
                         ?>
-                            <div class="table_row" onclick="selectRow(this)" tabindex="0" loading="lazy">
+                            <div class="table_row" onclick="selectRow(this)" loading="lazy">
                                 <div class="table_item">
                                     <p><?php echo $json_obj->comp_rank ?></p>
                                 </div>
@@ -161,7 +273,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                                     <p>
                                         <?php
 
-                                        if ($json_obj->wc == 0) {
+                                        if ($json_obj->reg == 0) {
 
                                             echo "Not ready";
                                         } else {
@@ -172,26 +284,26 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                                     </p>
                                 </div>
                                 <div class="small_status_item <?php
-                                                                if ($json_obj->reg == 0) {
+                                                    if ($json_obj->reg == 0) {
 
-                                                                    echo "red";
-                                                                } else {
+                                                        echo "red";
+                                                    } else {
 
-                                                                    echo "green";
-                                                                }
-                                                                ?>">
+                                                        echo "green";
+                                                    }
+                                                    ?>">
                                 </div>
                                 <div class="table_item">
                                     <p>
-                                                        <?php
-                                                        if ($json_obj->wc == 0) {
+                                        <?php
+                                        if ($json_obj->wc == 0) {
 
-                                                            echo "Not ready";
-                                                        } else {
+                                            echo "Not ready";
+                                        } else {
 
-                                                            echo "Ready";
-                                                        }
-                                                        ?>
+                                            echo "Ready";
+                                        }
+                                        ?>
                                     </p>
                                 </div>
                                 <div class="small_status_item <?php
@@ -215,10 +327,11 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
             </div>
         </div>
     </main>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/controls.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/list_search.js"></script>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/controls.js"></script>
-<script src="../js/search.js"></script>
 </html>

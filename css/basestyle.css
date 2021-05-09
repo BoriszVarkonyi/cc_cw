@@ -689,7 +689,7 @@ input[type="time"] {
 }
 
 .search_panel.opened {
-	max-height: 100px;
+	max-height: 1000px;
 	opacity: 1;
 }
 

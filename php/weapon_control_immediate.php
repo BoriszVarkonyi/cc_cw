@@ -104,9 +104,58 @@
             <div id="page_content_panel_main">
                 <div class="wrapper table">
                     <div class="table_header">
-                        <div class="table_header_text"><p>NAME</p></div>
-                        <div class="table_header_text"><p>NATION / CLUB</p></div>
-                        <div class="table_header_text"><p>STATUS</p></div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NAME</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Nationality" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NATION / CLUB</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel option">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" class="search page hidden">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                                <div class="option_container">
+                                    <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Not ready"/>
+                                    <label for="listsearch_wc_not_ready">Not ready</label>
+                                    <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready"/>
+                                    <label for="listsearch_wc_ready">Ready</label>
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>STATUS</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
@@ -139,5 +188,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/list_search.js"></script>
 </body>
 </html>

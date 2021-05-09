@@ -64,9 +64,51 @@ echo count($objects_array) . " VÍVÓ";
             <div id="page_content_panel_main">
                 <div class="table wrapper">
                     <div class="table_header">
-                        <div class="table_header_text"><p>TEMPORARY RANK</p></div>
-                        <div class="table_header_text"><p>NAME</p></div>
-                        <div class="table_header_text"><p>NATION / CLUB</p></div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Temporary Position" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>TEMPORARY RANK</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NAME</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
+                        <div class="table_header_text">
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Nationality" class="search page">
+                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
+                            </div>
+                            <button type="button" onclick="sortButton(this)">
+                                <img src="../assets/icons/switch_full_black.svg">
+                            </button>
+                            <p>NATION / CLUB</p>
+                            <button type="button" onclick="searchButton(this)">
+                                <img src="../assets/icons/search_black.svg">
+                            </button>
+                        </div>
                     </div>
                     <div class="table_row_wrapper">
                         <?php
@@ -93,5 +135,6 @@ echo count($objects_array) . " VÍVÓ";
     <script src="../js/list.js"></script>
     <script src="../js/registration.js"></script>
     <script src="../js/controls.js"></script>
+    <script src="../js/list_search.js"></script>
 </body>
 </html>

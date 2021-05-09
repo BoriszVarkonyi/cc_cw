@@ -279,10 +279,10 @@
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="option_container">
-                                        <input type="radio" name="status" id="a" value="Not registered"/>
-                                        <label for="a">Not registered</label>
-                                        <input type="radio" name="status" id="b" value="Registered"/>
-                                        <label for="b">Registered</label>
+                                        <input type="radio" name="status" id="listsearch_reg_not_reg" value="Not registered"/>
+                                        <label for="listsearch_reg_not_reg">Not registered</label>
+                                        <input type="radio" name="status" id="listsearch_reg_reg" value="Registered"/>
+                                        <label for="listsearch_reg_reg">Registered</label>
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>

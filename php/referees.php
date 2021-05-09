@@ -338,10 +338,72 @@
                     ?>
 
                         <div class="table_header">
-                            <div class="table_header_text"><p>FULL NAME</p></div>
-                            <div class="table_header_text"><p>NATION</p></div>
-                            <div class="table_header_text"><p>CLUB</p></div>
-                            <div class="table_header_text"><p>STATUS</p></div>
+                            <div class="table_header_text">
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Full name" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>FULL NAME</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                            <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NATION</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" placeholder="Search by Club" class="search page">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>CLUB</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
+                                <div class="search_panel option">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="serachInLists()" class="search page hidden">
+                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                    <div class="option_container">
+                                        <input type="radio" name="status" id="listsearch_not_available" value="Not available"/>
+                                        <label for="listsearch_not_available">Not available</label>
+                                        <input type="radio" name="status" id="listsearch_available" value="Available"/>
+                                        <label for="listsearch_available">Available</label>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>STATUS</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
                             <div class="small_status_header"></div>
                         </div>
                         <div class="table_row_wrapper">
@@ -399,5 +461,6 @@
     <script src="../js/importoverlay.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/overlay_panel.js"></script>
+    <script src="../js/list_search.js"></script>
 </body>
 </html>
