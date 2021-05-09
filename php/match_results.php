@@ -161,6 +161,26 @@ if (isset($_POST["save_match"])) {
         }
     }
 
+    //              További ág törlése, ha módosul valami az ágon
+    //----------------------------------------------------------------------------------
+    $from_delete_table = "t_" . ltrim($next_table, "t_") / 2;
+
+    while (ltrim($from_delete_table, "t_") > 0) {
+        foreach ($json_table->$from_delete_table as $m_key => $nextmatch) {
+
+            foreach ($nextmatch as $key => $value) {
+
+                if ($key == "referees" || $key == "pistetime") {
+                    continue;
+                } else {
+                    $json_table->$from_delete_table->$m_key->$key = null;
+                }
+            }
+        }
+        $from_delete_table = "t_" . ltrim($from_delete_table, "t_") / 2;
+    }
+    //---------------------------------------------------------------------------------
+
     echo $table_upload = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
@@ -308,7 +328,7 @@ if (isset($_POST["time_change"])) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
                         <p>Save Match</p>
-                        <img src="../assets/icons/save_black.svg"/>
+                        <img src="../assets/icons/save_black.svg" />
                     </button>
                 </div>
             </div>
@@ -438,8 +458,14 @@ if (isset($_POST["time_change"])) {
                     <form class="match_fencers_results" id="save_match" method="POST">
                         <div id="fencer_1" class="fencer_wrapper">
                             <div>
-                                <p><?php echo $fencer_1->name . "(" . $fencer_1->nation . ")" ?></p>
-                                <input type="number" name="fencid_1" class="" placeholder="fencers id" value="<?php echo $fencer_1->id ?>">
+                                <p class="fencer_name"><?php
+                                                        if ($fencer_1->name == "") {
+                                                            echo "No opponent yet";
+                                                        } else {
+                                                            echo $fencer_1->name . "(" . $fencer_1->nation . ")";
+                                                        }
+                                                        ?></p>
+                                <input type="number" name="fencid_1" class="hidden" placeholder="fencers id" value="<?php echo $fencer_1->id ?>">
                                 <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_1->score)) {
                                                                                                         echo $fencer_1->score;
                                                                                                     } else {
@@ -447,7 +473,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f1" id="points_f1">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f1"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1"/>
+                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
                                     <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
                                 </div>
                             </div>
@@ -488,8 +514,15 @@ if (isset($_POST["time_change"])) {
 
                         <div id="fencer_2" class="fencer_wrapper">
                             <div>
-                                <p><?php echo $fencer_2->name . "(" . $fencer_2->nation . ")" ?></p>
-                                <input type="number" name="fencid_2" class="" placeholder="fencers id" value="<?php echo $fencer_2->id ?>">
+                                <p class="fencer_name"><?php
+
+                                                        if ($fencer_2->name == "") {
+                                                            echo "No opponent yet";
+                                                        } else {
+                                                            echo $fencer_2->name . "(" . $fencer_2->nation . ")";
+                                                        }
+                                                        ?></p>
+                                <input type="number" name="fencid_2" class="hidden" placeholder="fencers id" value="<?php echo $fencer_2->id ?>">
                                 <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_2->score)) {
                                                                                                         echo $fencer_2->score;
                                                                                                     } else {
@@ -497,7 +530,7 @@ if (isset($_POST["time_change"])) {
                                                                                                     } ?>" name="points_f2" id="points_f2">
                                 <div class="result_advanced_choice">
                                     <p class="winner_text" id="winner_f2"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2"/>
+                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
                                     <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
                                 </div>
                             </div>
@@ -547,4 +580,5 @@ if (isset($_POST["time_change"])) {
     <script src="../js/controls.js"></script>
     <script src="../js/overlay_panel.js"></script>
 </body>
+
 </html>

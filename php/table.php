@@ -257,8 +257,6 @@ if (isset($_POST["generate_table"])) {
                     }
                 }
             }
-            //print_r($keys);
-            //print_r($fencers);
         }
         break;
     }
@@ -276,6 +274,7 @@ if (isset($_POST["generate_table"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -287,6 +286,7 @@ if (isset($_POST["generate_table"])) {
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_table_style.min.css" media="print">
 </head>
+
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -410,7 +410,7 @@ if (isset($_POST["generate_table"])) {
                                 break;
                             }
 
-                            ?>
+                        ?>
 
                             <div id="e_<?php echo $r_counter ?>" class="elimination">
                                 <div class="elimination_label">Table of <?php echo ltrim($key, "t_") ?></div>
@@ -490,7 +490,7 @@ if (isset($_POST["generate_table"])) {
                         }
                         ?>
 
-                        <div id="e_5" class="elimination">
+                        <div id="winner" class="elimination">
                             <div class="elimination_label">Table of __</div>
                             <div class="table_round_wrapper finished purple">
                                 <div class="table_round" onclick="tableRoundConfig(this)">
@@ -500,8 +500,8 @@ if (isset($_POST["generate_table"])) {
                                         </div>
                                         <div class="table_fencer_name">
                                             <p><?php
-                                            $firstplace = "1";
-                                            echo $out_table->t_1->m_1->$firstplace->name; ?></p>
+                                                $firstplace = "1";
+                                                echo $out_table->t_1->m_1->$firstplace->name; ?></p>
                                         </div>
                                         <div class="table_fencer_nat">
                                             <p><?php echo $out_table->t_1->m_1->$firstplace->nation; ?></p>
@@ -522,4 +522,5 @@ if (isset($_POST["generate_table"])) {
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/search.js"></script>
 </body>
+
 </html>

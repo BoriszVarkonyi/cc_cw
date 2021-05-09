@@ -8,15 +8,15 @@ if(isset($_POST["submit"])) {
 $ass_tourn_id = $_GET["t_id"];
 
 $comp_name = $_POST["comp_name"];
-//$comp_wc_type = $_POST["wc_type"];
-//$comp_sex = $_POST["sex"];
-//$comp_w_type = $_POST["w_type"];
+$comp_wc_type = $_POST["wc_type"];
+$comp_sex = $_POST["sex"];
+$comp_w_type = $_POST["w_type"];
 $org_id = $_COOKIE["org_id"];
 $minimum = 3;
 $maximum = 255;
 
 
-        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id)";
+        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id, comp_wc_type, comp_sex, comp_weapon) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id, $comp_wc_type, $comp_sex, $comp_w_type)";
         $query_create = mysqli_query($connection, $query);
 
         if (!$query_create) {
@@ -68,8 +68,8 @@ $maximum = 255;
                     <div>
                         <label for="wc_type">TYPE OF WEAPON CONTROL</label>
                         <div class="option_container">
-                        <input type="radio" name="wc_type" id="none" value="" checked/>
-                            <label for="imm">No Weapon Control</label>
+                        <input type="radio" name="wc_type" id="none" value="0" checked/>
+                            <label for="none">No Weapon Control</label>
                             <input type="radio" name="wc_type" id="imm" value="1"/>
                             <label for="imm">Immediate</label>
                             <input type="radio" name="wc_type" id="adm" value="2"/>

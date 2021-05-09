@@ -1,3 +1,21 @@
+//Nem engedi clickelni a lyukas táblát
+
+var firstTableRound = document.getElementById("e_1")
+
+var tableNames = firstTableRound.querySelectorAll(".table_fencer_name")
+
+console.log(tableNames)
+
+for (const iterator of tableNames) {
+
+    if (iterator.firstElementChild.innerHTML == "") {
+
+        iterator.parentElement.parentElement.parentElement.removeAttribute("onclick")
+
+    }
+
+}
+
 function useAllReferees() {
     var selectReferees = document.getElementById("select_referees_panel");
     selectReferees.classList.add("disabled");

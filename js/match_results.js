@@ -1,3 +1,14 @@
+var fencerNames = document.querySelectorAll(".fencer_name")
+
+for (const iterator of fencerNames) {
+    
+    if (iterator.innerHTML == "No opponent yet") {
+
+        iterator.parentElement.parentElement.parentElement.classList.add("disabled")
+    }
+
+}
+
 function getElements(id) {
     var element = document.getElementById(id)
     return element;
