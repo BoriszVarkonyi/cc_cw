@@ -1,8 +1,7 @@
 function searchButton(x) {
     var button = x;
-    var search = button.previousElementSibling.previousElementSibling;
+    var search = button.previousElementSibling.previousElementSibling.previousElementSibling;
     if (search.classList.contains("opened")) {
-        console.log(search)
         search.querySelector(".search").value = ""
         serachInLists();
     }
@@ -83,3 +82,16 @@ radioButtons.forEach(item => {
         serachInLists();
     });
 })
+
+function sortButton(x){
+
+    sortttt(2);
+}
+
+function sortttt(index){
+    var sortByArray = [];
+    var names = document.querySelectorAll(".table_row .table_item:nth-of-type(" + index + ") p")
+    for(i=0; i<names.length; i++){
+        sortByArray.push(names[i].innerHTML)
+    }
+}
