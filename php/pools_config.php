@@ -528,6 +528,9 @@
                                         $ref2name = $json_table[$pool_num] -> ref2 -> prenom . " " . $json_table[$pool_num] -> ref2 -> nom;
                                         $ref2nat = $json_table[$pool_num] -> ref2 -> $sort_by;
                                     }
+                                } else {
+                                    $refname = "";
+                                    $refnat = "";
                                 }
 
                                 $piste = $json_table[$pool_num] -> piste;

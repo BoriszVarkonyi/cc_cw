@@ -219,9 +219,13 @@
                         //get pools data
                         $piste = $current_f_pool -> piste;
                         $time =  $current_f_pool -> time;
+                        $ref1name = "";
+                        $ref1nat = "";
 
-                        $ref1name = $current_f_pool -> ref1 -> prenom . $current_f_pool -> ref1 -> nom;
-                        $ref1nat = $current_f_pool -> ref1 -> nation;
+                        if ($current_f_pool -> ref1 !== NULL) {
+                            $ref1name = $current_f_pool -> ref1 -> prenom . $current_f_pool -> ref1 -> nom;
+                            $ref1nat = $current_f_pool -> ref1 -> nation;
+                        }
 
                         if ($current_f_pool -> ref2 != NULL) {
                             $ref2nat = $current_f_pool -> ref2 -> nation;

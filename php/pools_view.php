@@ -58,7 +58,9 @@
                         $current_pool = $fencers_table[$pool_num];
 
                         $piste = $current_pool -> piste;
-                        $ref1name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
+                        if ($current_pool -> ref1 !== NULL) {
+                            $ref1name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
+                        }
 
                         if ($current_pool -> ref2 != NULL) {
                             $ref2name = $current_pool -> ref2 -> prenom . " " . $current_pool -> ref2 -> nom;
@@ -75,8 +77,10 @@
                                 <div class="table_row start">
                                     <div class="table_item bold">No. <?php echo $pool_num ?></div>
                                     <div class="table_item">Piste <?php echo $piste ?></div>
-                                    <div class="table_item">Ref1: <?php echo $ref1name ?></div>
                                     <?php
+                                    if ($current_pool -> ref2 != NULL) {
+                                        ?>><div class="table_item">Ref1: <?php echo $ref1name ?></div><?php
+                                    }
                                     if ($current_pool -> ref2 != NULL) {
                                         ?><div class="table_item">Ref2: <?php echo $ref2name ?></div><?php
                                     }
