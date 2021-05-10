@@ -64,7 +64,7 @@
     if ($row = mysqli_fetch_assoc($do_get_data)) {
         $json_string = $row['data'];
     } else {
-        $json_string = '{"poolPoints":"0","tablePoints":"0","qualifiers":"0","isDirectElim":true,"isOnePhase":true,"fencingThird":true}';
+        $json_string = '{"poolPoints":"","tablePoints":"","qualifiers":"","isDirectElim":true,"isOnePhase":true,"fencingThird":true}';
     }
 
     $json_table = json_decode($json_string);
