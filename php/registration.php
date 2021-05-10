@@ -279,7 +279,7 @@
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search page hidden">
+                                        <input type="text" onkeyup="searchInLists()" class="hidden">
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="listsearch_reg_reg" value="Registered"/>

@@ -289,9 +289,12 @@
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel option">
+                                    <div class="search_panel_buttons">
+                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search page hidden">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        <input type="text" onkeyup="searchInLists()" class="hidden">
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="listsearch_semi" value="Semi"/>
@@ -302,7 +305,6 @@
                                         <label for="listsearch_wc">Weapon Control</label>
                                         <input type="radio" name="status" id="listsearch_reg" value="Registration"/>
                                         <label for="listsearch_reg">Registration</label>
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 <button type="button" onclick="sortButton(this)">
@@ -315,9 +317,12 @@
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel option">
+                                    <div class="search_panel_buttons">
+                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search page hidden">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        <input type="text" onkeyup="searchInLists()" class="hidden">
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="listsearch_online" value="Online"/>

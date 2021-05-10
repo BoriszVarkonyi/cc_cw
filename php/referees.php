@@ -385,15 +385,18 @@
                             </div>
                             <div class="table_header_text">
                                 <div class="search_panel option">
+                                    <div class="search_panel_buttons">
+                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search page hidden">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        <input type="text" onkeyup="searchInLists()" class="hidden">
                                     </div>
                                     <div class="option_container">
-                                        <input type="radio" name="status" id="listsearch_not_available" value="Not available"/>
-                                        <label for="listsearch_not_available">Not available</label>
                                         <input type="radio" name="status" id="listsearch_available" value="Available"/>
                                         <label for="listsearch_available">Available</label>
+                                        <input type="radio" name="status" id="listsearch_not_available" value="Not available"/>
+                                        <label for="listsearch_not_available">Not available</label>
                                     </div>
                                 </div>
                                 <button type="button" onclick="sortButton(this)">
