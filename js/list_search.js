@@ -83,15 +83,44 @@ radioButtons.forEach(item => {
     });
 })
 
-function sortButton(x){
-
-    sortttt(2);
+function sortButton(x, mode) {
+    //Gets the column index
+    var columnIndex
+    var allButtons = document.querySelectorAll(".table_header_text > button:first-of-type")
+    for (i = 0; i < allButtons.length; i++) {
+        if (allButtons[i] === x) {
+            columnIndex = i
+        }
+    }
+    rowSort(columnIndex + 1);
 }
 
-function sortttt(index){
+function rowSort(index, mode) {
+    //Makes an array from A-Z (whith strings)
     var sortByArray = [];
     var names = document.querySelectorAll(".table_row .table_item:nth-of-type(" + index + ") p")
-    for(i=0; i<names.length; i++){
+    for (i = 0; i < names.length; i++) {
         sortByArray.push(names[i].innerHTML)
+    }
+    sortByArray.sort();
+    console.log(sortByArray)
+    var rows = document.querySelectorAll(".table_row")
+    var rowNode = document.querySelector(".table_row_wrapper")
+    for (i= rows.length -1; i>=0; i--) {
+        rowNode.insertBefore(rows[indexFinder(sortByArray[i])], rowNode.firstElementChild)
+        rows = document.querySelectorAll(".table_row")
+    }
+
+}
+//Gets the div index
+function indexFinder(nameSearchFor) {
+    console.log(i)
+    //console.log(nameSearchFor)
+    var rows = document.querySelectorAll(".table_row")
+    for (j = 0; j < rows.length; j++) {
+        var currentName = rows[j].querySelector(".table_item:first-of-type p")
+        if (nameSearchFor === currentName.innerHTML && j > i) {
+            return j
+        }
     }
 }
