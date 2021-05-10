@@ -1,16 +1,27 @@
 <?php include "../includes/headerburger.php"; ?>
 <?php include "../includes/db.php" ?>
+<?php include '../includes/sortfunction.php' ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
 <?php
 
+$qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+$do_check_row = mysqli_query($connection, $qry_check_row);
+if ($row = mysqli_fetch_assoc($do_check_row)) {
+    $json_string = $row['data'];
+    $json_table = json_decode($json_string);
+}
 
+$objects = new ObjSorter($json_table, 'final_rank');
+
+$json_table = $objects->sorted;
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,8 +32,9 @@
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
+
 <body>
-<!-- header -->
+    <!-- header -->
     <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
@@ -33,7 +45,7 @@
                     <input type="text" class="selected_list_item_input">
                     <button class="stripe_button primary" type="button" onclick="window.print()">
                         <p>Print Overview</p>
-                        <img src="../assets/icons/print_black.svg"/>
+                        <img src="../assets/icons/print_black.svg" />
                     </button>
                 </div>
                 <div class="search_wrapper">
@@ -95,36 +107,45 @@
                         <div class="big_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
-                        <div class="table_row">
-                            <div class="table_item"><p>1.</p></div>
-                            <div class="table_item"><p>Néve</p></div>
-                            <div class="table_item"><p>Náté</p></div>
-                            <div class="big_status_item gold"></div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item"><p>1.</p></div>
-                            <div class="table_item"><p>Néve</p></div>
-                            <div class="table_item"><p>Náté</p></div>
-                            <div class="big_status_item silver"></div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item"><p>1.</p></div>
-                            <div class="table_item"><p>Néve</p></div>
-                            <div class="table_item"><p>Náté</p></div>
-                            <div class="big_status_item bronze"></div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item"><p>1.</p></div>
-                            <div class="table_item"><p>Néve</p></div>
-                            <div class="table_item"><p>Náté</p></div>
-                            <div class="big_status_item"></div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item"><p>1.</p></div>
-                            <div class="table_item"><p>Néve</p></div>
-                            <div class="table_item"><p>Náté</p></div>
-                            <div class="big_status_item"></div>
-                        </div>
+
+                        <?php
+
+                        $counter = 1;
+
+                        $thirdplace = false;
+
+                        foreach ($json_table as $key => $value) {
+
+                        ?>
+                            <div class="table_row">
+                                <div class="table_item">
+                                    <p><?php echo $value->final_rank ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo $value->prenom . " " . $value->nom ?></p>
+                                </div>
+                                <div class="table_item">
+                                    <p><?php echo $value->nation ?></p>
+                                </div>
+                                <div class="big_status_item <?php
+
+                                                            if ($counter == 1) {
+                                                                echo "gold";
+                                                            } elseif ($counter == 2) {
+                                                                echo "silver";
+                                                            } elseif ($counter == 3 && $thirdplace == false) {
+                                                                echo "bronze";
+                                                                $thirdplace = true;
+                                                            } elseif ($counter == 4 && $thirdplace == true) {
+                                                                echo "bronze";
+                                                            } else {
+                                                                echo "";
+                                                            }
+
+                                                            ?>"></div>
+                            </div>
+                        <?php $counter++;
+                        } ?>
                     </div>
                 </div>
             </div>
@@ -135,4 +156,5 @@
     <script src="../js/list.js"></script>
     <script src="../js/list_search.js"></script>
 </body>
+
 </html>
