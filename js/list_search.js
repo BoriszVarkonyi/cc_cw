@@ -3,12 +3,13 @@ function searchButton(x) {
     var search = button.previousElementSibling.previousElementSibling.previousElementSibling;
     if (search.classList.contains("opened")) {
         search.querySelector(".search").value = ""
-        serachInLists();
+        searchInLists();
     }
-    search.classList.toggle("opened")
+    search.classList.toggle("opened");
+    button.classList.toggle("active");
 }
 
-function serachInLists() {
+function searchInLists() {
     var searches = document.querySelectorAll(".table_header .search")
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
@@ -71,7 +72,7 @@ function searchDelete(x) {
     else {
         x.previousElementSibling.value = ""
     }
-    serachInLists()
+    searchInLists()
 }
 
 //Deals with the radio button search inputs
@@ -79,19 +80,19 @@ radioButtons.forEach(item => {
     item.addEventListener("input", function () {
         var searchInput = this.parentNode.previousElementSibling.firstElementChild
         searchInput.value = this.value;
-        serachInLists();
+        searchInLists();
     });
 })
 
-function sortButton(x){
+function sortButton(x) {
 
     sortttt(2);
 }
 
-function sortttt(index){
+function sortttt(index) {
     var sortByArray = [];
     var names = document.querySelectorAll(".table_row .table_item:nth-of-type(" + index + ") p")
-    for(i=0; i<names.length; i++){
+    for (i = 0; i < names.length; i++) {
         sortByArray.push(names[i].innerHTML)
     }
 }
