@@ -318,7 +318,17 @@
             $formula_string = json_encode($formula_table, JSON_UNESCAPED_UNICODE);
 
             $qry_update_formula = "UPDATE `formulas` SET `data` = '$formula_string' WHERE assoc_comp_id = '$comp_id'";
-            $do_update_formula = mysqli_query($connection, $qry_update_formula);
+            if ($do_update_formula = mysqli_query($connection, $qry_update_formula)) {
+                $error = false;
+            } else {
+                $error = true;
+            }
+        }
+
+        if ($error) {
+            echo "meghalt minden rossz gg";
+        } else {
+            header("Location: ../php/pools_config.php"));
         }
 
     }
