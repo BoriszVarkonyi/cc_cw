@@ -5,6 +5,20 @@
 <?php checkComp($connection); ?>
 
 <?php
+
+    //get formula info
+    $qry_get_form = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+    $do_get_form = mysqli_query($connection, $qry_get_form);
+
+    if ($row = mysqli_fetch_assoc($do_get_form)) {
+        $formula_string = $row['data'];
+        $formula_table = json_decode($formula_string);
+        $quilifiers_a_p = $formula_table -> qualifiers;
+    } else {
+        $quilifiers_a_p = "";
+    }
+
+
     //1. param: hány darab csoport van,
     //2. param: hány személyesek a csoportok,
     //3. param: a versenyzők tömbje (sortolva, versenyzők objectek egy tömbben)
@@ -288,8 +302,25 @@
         //set up new row for pools
         $qry_new_row = "INSERT INTO `pools` (`assoc_comp_id`, `fencers`, `pool_of`,`sort_by_club`) VALUES ('$comp_id', '$json_string', '$pool_of', '$sort_by_club')";
         if ($do_new_row = mysqli_query($connection, $qry_new_row)) {
-            header("Location: ../php/pools_config.php?comp_id=$comp_id");
+
+            $error = false;
+
+        } else {
+            $error = true;
         }
+
+        //test for new formula
+        $post_qualifiers = $_POST['qualifiers'];
+        if ($post_qualifiers != $quilifiers_a_p) {
+            //update db with new data
+            $formula_table -> qualifiers = $post_qualifiers;
+
+            $formula_string = json_encode($formula_table, JSON_UNESCAPED_UNICODE);
+
+            $qry_update_formula = "UPDATE `formulas` SET `data` = '$formula_string' WHERE assoc_comp_id = '$comp_id'";
+            $do_update_formula = mysqli_query($connection, $qry_update_formula);
+        }
+
     }
 
 ?>
@@ -361,7 +392,7 @@
                             </div>
                             <div>
                                 <label for="interval_of_match">NUMBER OF QUALIFIERS AFTER POOLS</label>
-                                <input type="number" placeholder="#" class="number_input centered">
+                                <input type="number" name="qualifiers" placeholder="#" class="number_input centered" value="<?php echo $quilifiers_a_p ?>">
                             </div>
                         </div>
                         <div>

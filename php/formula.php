@@ -61,12 +61,13 @@
     //get data for display from db
     $qry_get_data = "SELECT * FROM formulas WHERE assoc_comp_id = '$comp_id'";
     $do_get_data = mysqli_query($connection, $qry_get_data);
-
     if ($row = mysqli_fetch_assoc($do_get_data)) {
         $json_string = $row['data'];
-
-        $json_table = json_decode($json_string);
+    } else {
+        $json_string = '{"poolPoints":"0","tablePoints":"0","qualifiers":"0","isDirectElim":true,"isOnePhase":true,"fencingThird":true}';
     }
+
+    $json_table = json_decode($json_string);
 
 ?>
 
