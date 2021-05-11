@@ -382,7 +382,7 @@
                                     $max_points = $formula_table -> poolPoints;
                                 }
                             ?>
-                            <input type="number" class="number_input" placeholder="points in pools" value="<?php echo $max_points ?>" readonly id="maxValueInput">
+                            <input type="number" class="number_input hidden" placeholder="points in pools" value="<?php echo $max_points ?>" readonly id="maxValueInput">
                             <?php
                                 $match_number = 1;
                                 foreach ($order_array as $match_string) {
