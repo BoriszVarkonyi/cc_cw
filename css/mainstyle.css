@@ -1929,12 +1929,32 @@ input[type="file"] {
 
 /* ///PROFILE PANEL ELEMENTS/// */
 
+.profile_picture_wrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.profile_picture_wrapper div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.profile_picture_wrapper .file_label {
+	font-size: var(--f-small);
+}
+
 .profile_picture {
 	width: 5rem;
 	height: 5rem;
 	margin: 5px auto;
-	border: .2rem solid var(--c-gray);
-	border-radius: 5px;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: var(--c-white);
+	border: 3px solid var(--c-primary);
 }
 
 /* ///FORMS WRAPPER ELEMENTS/// */
@@ -2384,6 +2404,7 @@ textarea.standalone {
 
 #file_text {
 	font-size: var(--f-small);
+	margin-bottom: 0 !important;
 }
 
 /* ///INVITION IN SEPARATE FILE/// */
