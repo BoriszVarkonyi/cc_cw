@@ -310,7 +310,7 @@
                                                             $win_id = $matches_table[$pool_num-1] -> {$f_num} -> {$i} -> w_id;
 
                                                             if (isDisqualified($given) || isDisqualified($gotten)) {
-                                                                $color_class = " purple disqualified";
+                                                                $color_class = " disqualified";
                                                             } else if ($win_id == $fencer_id) {
                                                                 $color_class = " green";
                                                             } else {
@@ -325,7 +325,7 @@
                                                             $win_id = $matches_table[$pool_num-1] -> {$i} -> {$f_num} -> w_id;
 
                                                             if (isDisqualified($given) || isDisqualified($gotten)) {
-                                                                $color_class = " purple disqualified";
+                                                                $color_class = " disqualified";
                                                             } else if ($win_id == $fencer_id) {
                                                                 $color_class = " green";
                                                             } else {
