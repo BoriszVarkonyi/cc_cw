@@ -63,8 +63,12 @@
             <div class="form_wrapper">
                 <div>
                     <div>
-                        <label for="name">NAME</label>
+                        <label for="name">USERNAME</label>
                         <p><?php echo $username ?></p>
+                    </div>
+                    <div>
+                        <label for="name">PASSWORD</label>
+                        <p>{password}</p>
                     </div>
                     <div>
                         <label for="name">EMAIL ADDRESS</label>
@@ -75,10 +79,14 @@
                     <?php if ($needed_profile_pic) { ?>
                     <div class="separate_column">
                         <label for="name">PROFILE PICTURE</label>
-                        <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
-                        <label for="file" class="file_label">Upload File (max. 0.5MB)</label>
-                        <input form="fileToUpload" type="file" name="fileToUpload" id="file">
-                        <p id="file_text">File name</p>
+                        <div class="profile_picture_wrapper">
+                            <img src="<?php echo $profile_pic ?>"  class="profile_picture not_icon">
+                            <div>
+                                <label for="file" class="file_label">Upload File (max. 0.5MB)</label>
+                                <input form="fileToUpload" type="file" name="fileToUpload" id="file">
+                                <p id="file_text">File name</p>
+                            </div>
+                        </div>
                     </div>
                     <?php } ?>
                 </div>
