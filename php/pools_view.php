@@ -119,10 +119,20 @@
                                                 $fencer_nat = $current_pool -> {$n} -> nation;
                                                 $fencer_name = $current_pool -> {$n} -> prenom_nom;
                                                 $fencer_id = $current_pool -> {$n} -> id;
+
+                                                if ($n < 4) {
+                                                    $points = $matches_table[$pool_num-1] -> {$n} -> {$number_of_fencers} -> given;
+                                                } else {
+                                                    $points = $matches_table[$pool_num-1] -> {1} -> {$number_of_fencers} -> gotten;
+                                                }
+
+                                                $disq_class = "";
+                                                if (isDisqualified($points)) {
+                                                    $disq_class = "disqualified";
+                                                }
+
                                                 ?>
-
-
-                                                <div class="table_row">
+                                                <div class="table_row <?php echo $disq_class ?>">
                                                     <div class="table_item"><?php echo $fencer_name ?></div>
                                                     <div class="table_item"><?php echo $fencer_nat ?></div>
                                                     <div class="table_item square row_title"><?php echo $n?></div>
@@ -143,7 +153,7 @@
                                                             $win_id = $matches_table[$pool_num-1] -> {$l} -> {$n} -> w_id;
 
                                                             if (isDisqualified($given) || isDisqualified($gotten)) {
-                                                                $color_class = " purple";
+                                                                $color_class = " purple disqualified";
                                                             } else if ($win_id == $fencer_id) {
                                                                 $color_class = " green";
                                                             } else {
@@ -158,7 +168,7 @@
                                                             $win_id = $matches_table[$pool_num-1] -> {$n} -> {$l} -> w_id;
 
                                                             if (isDisqualified($given) || isDisqualified($gotten)) {
-                                                                $color_class = " purple";
+                                                                $color_class = " purple disqualified";
                                                             } else if ($win_id == $fencer_id) {
                                                                 $color_class = " green";
                                                             } else {
