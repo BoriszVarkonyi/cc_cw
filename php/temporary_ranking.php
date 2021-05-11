@@ -67,7 +67,7 @@ echo count($objects_array) . " VÍVÓ";
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Temporary Position" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Temporary Position" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@ echo count($objects_array) . " VÍVÓ";
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ echo count($objects_array) . " VÍVÓ";
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Nationality" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Nationality" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>

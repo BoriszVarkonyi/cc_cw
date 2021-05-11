@@ -130,7 +130,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Competition Position" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Competition Position" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Classement Position" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Classement Position" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Name" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Nation" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="table_header_text">
                             <div class="search_panel">
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" placeholder="Search by Club" class="search page">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
                                     <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
@@ -204,16 +204,18 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         </div>
                         <div class="table_header_text">
                             <div class="search_panel option">
+                                <div class="search_panel_buttons">
+                                    <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" class="search page hidden">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <input type="text" onkeyup="searchInLists()" class="hidden">
                                 </div>
                                 <div class="option_container">
-                                    <input type="radio" name="reg_status" id="listsearch_reg_not_ready" value="Not ready"/>
-                                    <label for="listsearch_reg_not_ready">Not ready</label>
                                     <input type="radio" name="reg_status" id="listsearch_reg_ready" value="Ready"/>
                                     <label for="listsearch_reg_ready">Ready</label>
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <input type="radio" name="reg_status" id="listsearch_reg_not_ready" value="Not ready"/>
+                                    <label for="listsearch_reg_not_ready">Not ready</label>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
@@ -227,16 +229,18 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="small_status_header"></div>
                         <div class="table_header_text">
                             <div class="search_panel option">
+                                <div class="search_panel_buttons">
+                                    <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </div>
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="serachInLists()" class="search page hidden">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <input type="text" onkeyup="searchInLists()" class="hidden">
                                 </div>
                                 <div class="option_container">
+                                    <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready"/>
+                                    <label for="listsearch_wc_ready">Ready</label>
                                     <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Not ready"/>
                                     <label for="listsearch_wc_not_ready">Not ready</label>
-                                    <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Ready"/>
-                                    <label for="listsearch_wc_not_ready">Ready</label>
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
