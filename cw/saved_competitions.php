@@ -59,13 +59,13 @@
                             ?>
                             <!-- Ezten kell loopba tenni -->
                             <div class="table_row">
-                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
                                     <p><?php echo $comp_name ?></p>
                                 </div>
-                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
                                     <p><?php echo $comp_start ?>&nbsp;&nbsp;-&nbsp;&nbsp;<?php echo $comp_end ?></p>
                                 </div>
-                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
                                     <p><?php echo statusConverter($comp_status) ?></p>
                                 </div>
                                 <div class="big_status_item">

@@ -1,4 +1,4 @@
-<?php $statusofpage = 3; ?>
+<?php $statusofpage = 4; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,7 @@
                             ?>
                         </div>
                     </div>
-                    <!-- sex drop-down -->
+                    <!-- sex: drop-down -->
                     <div class="search_wrapper narrow">
                         <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Sex">
                             <input type="text" name="" placeholder="-Sex-">

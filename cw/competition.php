@@ -16,7 +16,6 @@
         $json_string = $row['data'];
 
         $json_table = json_decode($json_string);
-        var_dump($json_table);
 
         if ($json_table != "") {
             $host_country = $json_table -> host_country;
@@ -70,8 +69,7 @@
                 <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                 </button>
-                <p id="comp_status">ONGOING</p>
-                <!-- <p id="comp_status"><?php echo statusConverter($comp_status) . " \ "; print_r($_COOKIE[$cookie_name]); echo " \ " . $ttest ?></p>-->
+                <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
                 <div>
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
