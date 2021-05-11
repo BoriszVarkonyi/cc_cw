@@ -1,7 +1,7 @@
 <footer>
     <div>
         <div>
-            <p>CompetitionView &copy 2020</p>
+            <p>CompetitionView &copy 2021</p>
             <img src="../assets/img/favicon.svg" alt="CompetitionView logo" class="footer_logo">
         </div>
         <div>

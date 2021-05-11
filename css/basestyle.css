@@ -1271,6 +1271,10 @@ th {
 	overflow: hidden;
 }
 
+.table_item.disqualified {
+	background: var(--c-gray);
+}
+
 .table_item.hidden, .table_header_text.hidden {
 	display: none;
 }
