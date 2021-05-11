@@ -274,6 +274,8 @@
                                                 for ($f_num = 1; $f_num <= $pool_f_in; $f_num++) {
                                                     //get fencers data
                                                     $fencer_name = $current_f_pool -> $f_num -> prenom_nom;
+                                                    $fencer_nat = $current_f_pool -> {$f_num} -> nation;
+                                                    $fencer_id = $current_f_pool -> {$f_num} -> id;
 
                                             ?>
 
@@ -282,6 +284,45 @@
                                                 <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
                                                 <?php
                                                     for ($i = 1; $i <= $pool_f_in; $i++) {
+
+                                                        $color_class = "";
+
+                                                        if ($i == $f_num) {//middle strip
+
+                                                            $color_class = " filled";
+
+                                                        } else if ($i > $f_num) { //right upper
+
+                                                            //get points
+                                                            $gotten = $matches_table[$pool_num-1] -> {$f_num} -> {$i} -> gotten;
+                                                            $given = $matches_table[$pool_num-1] -> {$f_num} -> {$i} -> given;
+                                                            $win_id = $matches_table[$pool_num-1] -> {$f_num} -> {$i} -> w_id;
+
+                                                            if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                                $color_class = " purple";
+                                                            } else if ($win_id == $fencer_id) {
+                                                                $color_class = " green";
+                                                            } else {
+                                                                $color_class = " red";
+                                                            }
+
+                                                        } else { //left downer
+
+                                                            //get points rev
+                                                            $gotten = $matches_table[$pool_num-1] -> {$i} -> {$f_num} -> gotten;
+                                                            $given = $matches_table[$pool_num-1] -> {$i} -> {$f_num} -> given;
+                                                            $win_id = $matches_table[$pool_num-1] -> {$i} -> {$f_num} -> w_id;
+
+                                                            if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                                $color_class = " purple";
+                                                            } else if ($win_id == $fencer_id) {
+                                                                $color_class = " green";
+                                                            } else {
+                                                                $color_class = " red";
+                                                            }
+                                                        }
+
+
                                                         if ($i < $f_num) {
                                                             $points = $current_m_pool -> {$i} -> {$f_num} -> gotten;
                                                         } else if ($i > $f_num) {
@@ -290,9 +331,9 @@
                                                         //get scores from matches_table!
 
                                                         if ($i == $f_num) {
-                                                            ?><div class="table_item square filled"><p>X</p></div><?php
+                                                            ?><div class="table_item square <?php echo $color_class ?>"><p>X</p></div><?php
                                                         } else {
-                                                            ?><div class="table_item square"><p><?php echo $points ?></p></div><?php
+                                                            ?><div class="table_item square <?php echo $color_class ?>"><p><?php echo $points ?></p></div><?php
                                                         }
 
                                                     }

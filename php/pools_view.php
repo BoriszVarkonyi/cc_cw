@@ -127,45 +127,42 @@
                                                     <div class="table_item"><?php echo $fencer_nat ?></div>
                                                     <div class="table_item square row_title"><?php echo $n?></div>
                                                     <?php
-                                                    $filled = "";
                                                     for ($l = 1; $l <= $number_of_fencers; $l++) {
 
                                                         $color_class = "";
 
-                                                        //get colors (ew american eng)
-                                                        if ($n > $l) { //given
+                                                        if ($n == $l) {//middle strip
+
+                                                            $color_class = " filled";
+
+                                                        } else if ($n > $l) { //right upper
+
+                                                            //get points
                                                             $gotten = $matches_table[$pool_num-1] -> {$l} -> {$n} -> gotten;
                                                             $given = $matches_table[$pool_num-1] -> {$l} -> {$n} -> given;
                                                             $win_id = $matches_table[$pool_num-1] -> {$l} -> {$n} -> w_id;
 
-                                                        } else if ($n < $l) { //gotten
-                                                            $given = $matches_table[$pool_num-1] -> {$n} -> {$l} -> given;
-                                                            $gotten = $matches_table[$pool_num-1] -> {$n} -> {$l} -> gotten;
-                                                            $win_id = $matches_table[$pool_num-1] -> {$n} -> {$l} -> w_id;
-                                                        } else {
-                                                            $given = -1;
-                                                            $gotten = -1;
-                                                            $color_class = "";
-                                                        }
-
-                                                        if (isDisqualified($given) || isDisqualified($gotten)) {
-                                                            $color_class = " purple";
-                                                        } else if ($given > $gotten) {
-                                                            $color_class = " green";
-                                                        } else if ($given < $gotten) {
-                                                            $color_class = " red";
-                                                        } else {
-                                                            if ($given == -1 && $gotten == -1) {
-                                                                $color_class = "filled";
+                                                            if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                                $color_class = " purple";
+                                                            } else if ($win_id == $fencer_id) {
+                                                                $color_class = " green";
                                                             } else {
-                                                                //get win_id
-                                                                if ($win_id == $fencer_id) {
-                                                                    if ($n > $l) {
-                                                                        $color_class = "red";
-                                                                    } else {
-                                                                        $color_class = "green";
-                                                                    }
-                                                                }
+                                                                $color_class = " red";
+                                                            }
+
+                                                        } else { //left downer
+
+                                                            //get points rev
+                                                            $gotten = $matches_table[$pool_num-1] -> {$n} -> {$l} -> gotten;
+                                                            $given = $matches_table[$pool_num-1] -> {$n} -> {$l} -> given;
+                                                            $win_id = $matches_table[$pool_num-1] -> {$n} -> {$l} -> w_id;
+
+                                                            if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                                $color_class = " purple";
+                                                            } else if ($win_id == $fencer_id) {
+                                                                $color_class = " green";
+                                                            } else {
+                                                                $color_class = " red";
                                                             }
                                                         }
                                                     ?>
