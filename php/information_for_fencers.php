@@ -5,40 +5,40 @@
 
 <?php
 
-$equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
-$hasequipment = array();
+    $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+    $hasequipment = array();
 
-if(isset($_POST["submit"])) {
+    if(isset($_POST["submit"])) {
 
-$i = 0;
+        $i = 0;
 
-for($i = 0; $i < 13; $i++){
+        for($i = 0; $i < 13; $i++) {
 
-${'item' . $i} = $_POST[$i];
+        ${'item' . $i} = $_POST[$i];
 
-$checkitem = ${'item' . $i};
+        $checkitem = ${'item' . $i};
 
-if($checkitem != 0){
+        if($checkitem != 0){
 
-    $hasequipment[$equipment[$i]] = $checkitem;
-}
-elseif($checkitem == NULL){
+            $hasequipment[$equipment[$i]] = $checkitem;
 
-    $hasequipment[$equipment[$i]] = 0;
+        } else if($checkitem == NULL){
 
-}
-}
+            $hasequipment[$equipment[$i]] = 0;
 
-$hasstring = implode(",", $hasequipment);
+        }
+    }
 
-
-$addinfo = $_POST["additional"];
-
-$query_upload_equipment = "UPDATE competitions SET comp_equipment = '$hasstring', comp_info = '$addinfo' WHERE comp_id = $comp_id";
-$query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
+    $hasstring = implode(",", $hasequipment);
 
 
-}
+    $addinfo = $_POST["text_body"];
+
+    $query_upload_equipment = "UPDATE competitions SET comp_equipment = '$hasstring', comp_info = '$addinfo' WHERE comp_id = $comp_id";
+    $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
+
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -85,12 +85,14 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                                 </div>
                                 <div class="table_row_wrapper alt">
                                     <?php
-                                    $query_get_data = "SELECT comp_equipment FROM competitions WHERE comp_id = $comp_id";
+                                    $query_get_data = "SELECT comp_equipment,comp_info FROM competitions WHERE comp_id = $comp_id";
                                     $query_get_data_do = mysqli_query($connection, $query_get_data);
 
-                                    $assocdataget = mysqli_fetch_assoc($query_get_data_do);
-                                    $assocdataprocess = implode(",", $assocdataget);
-                                    $assocdatapost = explode(",", $assocdataprocess);
+                                    if ($row = mysqli_fetch_assoc($query_get_data_do)) {
+                                        $assocdataget = $row['comp_equipment'];
+                                        $text = $row['comp_info'];
+                                        $assocdatapost = explode(",", $assocdataget);
+                                    }
 
                                     for($i = 0; $i < 13; $i++){?>
                                     <div class="table_row" id="<?php echo $i ?>">
@@ -122,7 +124,7 @@ $query_upload_equipment_do = mysqli_query($connection, $query_upload_equipment);
                             <p>Set Additional Information</p>
                         </div>
                         <div class="db_panel_main column">
-                            <textarea name="text_body" class="standalone" placeholder="Type the information's body text here">SZÖVEGEGEGEE</textarea>
+                            <textarea name="text_body" class="standalone" placeholder="Type the information's body text here"><?php echo $text ?></textarea>
                         </div>
                     </div>
                 </form>
