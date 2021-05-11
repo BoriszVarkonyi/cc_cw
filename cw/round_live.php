@@ -69,7 +69,7 @@
                     </div>
                     <div id="round_info">
                         <p>Ref: {Referee's Name}</p>
-                        <p>20 / 12 / 2020 15:20</p>
+                        <p>20 / 12 / 2021 15:20</p>
                         <p>Piste No.: 5</p>
                         <p>Ref: {Referee's Name}</p>
                     </div>
