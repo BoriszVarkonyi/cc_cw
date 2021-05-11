@@ -118,6 +118,7 @@
 
                                                 $fencer_nat = $current_pool -> {$n} -> nation;
                                                 $fencer_name = $current_pool -> {$n} -> prenom_nom;
+                                                $fencer_id = $current_pool -> {$n} -> id;
                                                 ?>
 
 
@@ -129,13 +130,47 @@
                                                     $filled = "";
                                                     for ($l = 1; $l <= $number_of_fencers; $l++) {
 
-                                                        if ($l == $n) {
+                                                        $color_class = "";
 
-                                                            $filled = "filled";
+                                                        //get colors (ew american eng)
+                                                        if ($n > $l) { //given
+                                                            $gotten = $matches_table[$pool_num-1] -> {$l} -> {$n} -> gotten;
+                                                            $given = $matches_table[$pool_num-1] -> {$l} -> {$n} -> given;
+                                                            $win_id = $matches_table[$pool_num-1] -> {$l} -> {$n} -> w_id;
+
+                                                        } else if ($n < $l) { //gotten
+                                                            $given = $matches_table[$pool_num-1] -> {$n} -> {$l} -> given;
+                                                            $gotten = $matches_table[$pool_num-1] -> {$n} -> {$l} -> gotten;
+                                                            $win_id = $matches_table[$pool_num-1] -> {$n} -> {$l} -> w_id;
+                                                        } else {
+                                                            $given = -1;
+                                                            $gotten = -1;
+                                                            $color_class = "";
+                                                        }
+
+                                                        if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                            $color_class = " purple";
+                                                        } else if ($given > $gotten) {
+                                                            $color_class = " green";
+                                                        } else if ($given < $gotten) {
+                                                            $color_class = " red";
+                                                        } else {
+                                                            if ($given == -1 && $gotten == -1) {
+                                                                $color_class = "filled";
+                                                            } else {
+                                                                //get win_id
+                                                                if ($win_id == $fencer_id) {
+                                                                    if ($n > $l) {
+                                                                        $color_class = "red";
+                                                                    } else {
+                                                                        $color_class = "green";
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     ?>
 
-                                                        <div class="table_item square <?php echo $filled ?>">
+                                                        <div class="table_item square <?php echo $color_class ?>">
 
                                                             <?php
                                                                 if ($n > $l) {

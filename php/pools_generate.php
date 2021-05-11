@@ -328,7 +328,7 @@
         if ($error) {
             echo "meghalt minden rossz gg";
         } else {
-            header("Location: ../php/pools_config.php"));
+            header("Location: ../php/pools_config.php?comp_id=$comp_id");
         }
 
     }

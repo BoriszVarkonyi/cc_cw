@@ -106,9 +106,11 @@
         //go through matches
         for ($fencer_number = 1; $fencer_number <= $pool_f_in; $fencer_number++) {
             for ($opponent_number = $fencer_number + 1; $opponent_number <= $pool_f_in; $opponent_number++) {
-                if ($fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> id || $fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> enemy) {
-                    $matches_table[$pool_num - 1] -> $fencer_number -> $opponent_number -> given = $reason;
+                if ($fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> enemy) {
                     $matches_table[$pool_num-1] -> $fencer_number -> $opponent_number -> gotten = $reason;
+                }
+                if ($fencer_id == $current_m_pool -> $fencer_number -> $opponent_number -> id) {
+                    $matches_table[$pool_num - 1] -> $fencer_number -> $opponent_number -> given = $reason;
                 }
             }
         }
@@ -281,9 +283,9 @@
                                                 <?php
                                                     for ($i = 1; $i <= $pool_f_in; $i++) {
                                                         if ($i < $f_num) {
-                                                            $points = $current_m_pool -> {$i} -> {$f_num} -> given;
+                                                            $points = $current_m_pool -> {$i} -> {$f_num} -> gotten;
                                                         } else if ($i > $f_num) {
-                                                            $points = $current_m_pool -> {$f_num} -> {$i} -> gotten;
+                                                            $points = $current_m_pool -> {$f_num} -> {$i} -> given;
                                                         }
                                                         //get scores from matches_table!
 
@@ -340,9 +342,6 @@
 
                                     $f1_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> given;
                                     $f2_score = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> gotten;
-
-                                    var_dump($f2_score);
-                                    var_dump($f1_score);
 
                                     //get fencer names from array
                                     $f1_name = $name_array[$f1_id];

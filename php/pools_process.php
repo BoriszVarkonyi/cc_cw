@@ -28,13 +28,14 @@
 
             return $tmp_id;
         }
+    }
 
-        function addDead($array_of_dead) {
-            foreach ($array_of_dead as $id) {
-                $this -> {$id} = new fencer_ranking($id);
-                $this -> {$id} -> setDead();
-            }
+    function addDead($array_of_dead, $ranked_id_array) {
+        foreach ($array_of_dead as $id) {
+            array_push($ranked_id_array, $id);
         }
+
+        return $ranked_id_array;
     }
 
     class fencer_ranking {
@@ -65,7 +66,7 @@
         }
 
         function setDead() {
-            $this -> given_points = 0;
+            $this -> given_points = -2048;
             $this -> won_games = -2048;
             $this -> gotten_points = 2048;
             $this -> random = 2048;
@@ -113,9 +114,9 @@
                 } else { //deal with med exc ...
                     if ($given_points != "exc" && $gotten_points != "exc") {
                         if (isDisqualified($given_points)) { //our player is dead
-                            array_push($array_of_dead, $id);
+                            $array_of_dead[$id] = $gotten_points;
                         } else { //enemy is dead
-                            array_push($array_of_dead, $enemy_id);
+                            $array_of_dead[$enemy_id] = $given_points;
                         } //at the end we put them at last place with worst possible stats
                     }
                 }
@@ -125,14 +126,14 @@
 
 
     //add the dead and calculate points
-    $ranking -> addDead($array_of_dead);
     foreach ($ranking as $id_key => $obj){
-        $ranking -> {$id_key} -> setDead();
         $ranking -> {$id_key} -> calculate();
     }
 
     $sorted = $ranking -> sort();
+
     var_dump($sorted);
+
 
     //update give temp rank to fencers in db
         //get competitors from db
@@ -144,6 +145,8 @@
         $compet_table = json_decode($competitors_string);
     }
 
+
+
     //get updated compet table
     foreach ($sorted as $key => $id_to_find) {
         $array_id = findObject($compet_table, $id_to_find, "id");
@@ -151,12 +154,20 @@
         $compet_table[$array_id] -> temp_rank = $key + 1;
     }
 
+//for the future
+    //add dead fencers to last places
+    // foreach ($array_of_dead as $id_to_find => $text) {
+    //     $array_id = findObject($compet_table, $id_to_find, "id");
+
+    //     $compet_table[$array_id] -> temp_rank = 99999;
+    // }
+
     //update database
     $compet_string = json_encode($compet_table, JSON_UNESCAPED_UNICODE);
     $qry_update = "UPDATE `competitors` SET `data` = '$compet_string' WHERE `assoc_comp_id` = '$comp_id'";
     if ($do_update = mysqli_query($connection, $qry_update)) {
         echo "MYSQLI UPDATE SUCCESSFUL!";
-        header("Location: ../php/temporary_ranking.php?comp_id=$comp_id");
+        //header("Location: ../php/temporary_ranking.php?comp_id=$comp_id");
     } else {
         echo "MYSQLI UPDATE WAS UNSUCCESSFUL!:   " . mysqli_error($connection) . "  LAST PART?";
     }
@@ -175,6 +186,6 @@
     <title>Process pools</title>
 </head>
 <body>
-
+    Ha ezt olvasod valami nagy vaj van!
 </body>
 </html>
