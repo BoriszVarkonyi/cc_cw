@@ -206,32 +206,6 @@ function weaponConenverterReversed($weapon_name_in) {
     return $output;
 }
 
-//test fav_comps star (filled or not)
-function getStar($comp_id) {
-
-    $cookie_name = "fav_comp";
-
-    if (isset($_COOKIE[$cookie_name])) {
-        $cookie_value = $_COOKIE[$cookie_name];
-    } else {
-        $cookie_value = "%";
-    }
-
-    $contains = strrpos($cookie_value, $comp_id . "%");
-
-    if ($contains != FALSE) {
-        $contains = TRUE;
-    }
-
-    if ($contains) {
-        $star = "../assets/icons/star_black.svg";
-    } else {
-        $star = "../assets/icons/star_border_black.svg";
-    }
-
-    return $star;
-}
-
 function sexConverterReversed($sex_name_in) {
     switch ($sex_name_in) {
         case "Male":
