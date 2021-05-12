@@ -204,11 +204,9 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         </div>
                         <div class="table_header_text">
                             <div class="search_panel option">
-                                <!--
                                 <div class="search_panel_buttons">
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                                -->
 
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" class="hidden">
@@ -231,11 +229,9 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <div class="small_status_header"></div>
                         <div class="table_header_text">
                             <div class="search_panel option">
-                                <!--
                                 <div class="search_panel_buttons">
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                                 -->
 
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" class="hidden">
