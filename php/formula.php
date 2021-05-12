@@ -5,6 +5,8 @@
 
 <?php
 
+    $array_numbers = [64,32,16,8,4,2];
+
     $comp_id = $_GET['comp_id'];
 
     //make formulas table
@@ -34,7 +36,13 @@
         }
 
         if ($_POST['call_room_usage']) {
-            $call_room = $_POST['call_room'];
+            $call_room = "";
+            foreach ($array_numbers as $number) {
+                if (isset($_POST['call_room_' . $number])) {
+                    $call_room .= $number . ",";
+                }
+            }
+            $call_room = substr($call_room, 0, -1);
         } else {
             $call_room = NULL;
         }
@@ -72,7 +80,7 @@
     if ($row = mysqli_fetch_assoc($do_get_data)) {
         $json_string = $row['data'];
     } else {
-        $json_string = '{"poolPoints":"","tablePoints":"","qualifiers":"","isDirectElim":true,"isOnePhase":true,"fencingThird":true}';
+        $json_string = '{"poolPoints":"","tablePoints":"","qualifiers":"","isDirectElim":true,"isOnePhase":true,"fencingThird":true,"callRoom":false}';
     }
 
     $json_table = json_decode($json_string);
@@ -160,7 +168,7 @@
                             </div>
                             <div>
                                 <?php
-                                    if ($json_table -> callRoom == NULL) {
+                                    if ($json_table -> callRoom == false) {
                                         $call_room_check = "";
                                         $call_room_n_check = "checked";
                                         $call_room_number=0;
@@ -190,8 +198,10 @@
                                             } else {
                                                 $call_room_numbers_checked = "";
                                             }
+
+
                                     ?>
-                                    <input type="checkbox" name="call_room <?php echo $numbers ?>" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
+                                    <input type="checkbox" name="call_room_<?php echo $numbers ?>" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
                                     <label for="<?php echo $numbers ?>"><?php echo $numbers ?></label>
                                     <?php } ?>
                                 </div>
