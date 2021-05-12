@@ -33,6 +33,12 @@
             $fencing_for_third = FALSE;
         }
 
+        if ($_POST['call_room_usage']) {
+            $call_room = $_POST['call_room'];
+        } else {
+            $call_room = NULL;
+        }
+
         $formula_table = new stdClass();
 
         $formula_table -> poolPoints = $pool_points;
@@ -41,6 +47,7 @@
         $formula_table -> isDirectElim = $is_direct_elim;
         $formula_table -> isOnePhase = $is_one_phase;
         $formula_table -> fencingThird = $fencing_for_third;
+        $formula_table -> callRoom = $call_room;
 
         $json_table = json_encode($formula_table);
 
@@ -54,7 +61,8 @@
         }
 
         if ($do_mane_row = mysqli_query($connection, $qry_make_row)) {
-            header("Refresh: 0");
+            //header("Refresh: 0");
+            var_dump($_POST);
         }
     }
 
@@ -151,27 +159,41 @@
                                 </div>
                             </div>
                             <div>
+                                <?php
+                                    if ($json_table -> callRoom == NULL) {
+                                        $call_room_check = "";
+                                        $call_room_n_check = "checked";
+                                        $call_room_number=0;
+                                    } else {
+                                        $call_room_check = "checked";
+                                        $call_room_n_check = "";
+
+                                        $call_room_number = $json_table -> callRoom;
+
+                                    }
+
+                                ?>
                                 <label for="third_place">USAGE OF CALL ROOM</label>
                                 <div class="option_container row no_bottom">
-                                    <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value=""/>
+                                    <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value="true" <?php echo $call_room_check ?>/>
                                     <label for="used">Use</label>
 
-                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="" checked/>
+                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="false" <?php echo $call_room_n_check ?>/>
                                     <label for="not_used">Don't use</label>
                                 </div>
                                 <div class="option_container" id="useOptionContainer">
-                                    <input type="checkbox" name="call_room" id="64" value="64"/>
-                                    <label for="64">64</label>
-                                    <input type="checkbox" name="call_room" id="32" value="32"/>
-                                    <label for="32">32</label>
-                                    <input type="checkbox" name="call_room" id="16" value="16"/>
-                                    <label for="16">16</label>
-                                    <input type="checkbox" name="call_room" id="8" value="8"/>
-                                    <label for="8">8</label>
-                                    <input type="checkbox" name="call_room" id="4" value="4"/>
-                                    <label for="4">4</label>
-                                    <input type="checkbox" name="call_room" id="2" value="2"/>
-                                    <label for="2">2</label>
+                                    <?php
+                                        foreach ($array_numbers as $numbers) {
+
+                                            if ($call_room_number == $numbers) {
+                                                $call_room_numbers_checked = "checked";
+                                            } else {
+                                                $call_room_numbers_checked = "";
+                                            }
+                                    ?>
+                                    <input type="checkbox" name="call_room <?php echo $numbers ?>" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
+                                    <label for="<?php echo $numbers ?>"><?php echo $numbers ?></label>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
