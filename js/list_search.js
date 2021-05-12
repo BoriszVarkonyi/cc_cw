@@ -86,13 +86,13 @@ radioButtons.forEach(item => {
 
 //Sort system
 var defaultArray = [];
-var defaultNameSequence = document.querySelectorAll(".table_row .table_item:first-of-type p")
+var defaultNameSequence = document.querySelectorAll("#page_content_panel_main .table_row .table_item:first-of-type p")
 for (i = 0; i < defaultNameSequence.length; i++) {
     defaultArray.push(defaultNameSequence[i].innerHTML)
 }
 
 
-var allButtons = document.querySelectorAll(".table_header_text > button:first-of-type");
+var allButtons = document.querySelectorAll("#page_content_panel_main .table_header_text > button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
 for(i= 0; i<sortButtonCookie[1]; i++){
     sortButton(allButtons[sortButtonCookie[0]])
@@ -130,49 +130,49 @@ function sortButton(x) {
             // Current: Default Swtiches to: A-Z
             sortImg.src = "../assets/icons/switch_down_black.svg"
             rowSort(columnIndex + 1, "A-Z");
-            document.cookie = "sortCookie=" + columnIndex + "1"
+        document.cookie = "sortCookie=" + columnIndex + "1"
     }
 }
 
 function rowSort(index, mode) {
     //Makes an array from A-Z (whith strings)
     var sortByArray = [];
-    var names = document.querySelectorAll(".table_row .table_item:nth-of-type(" + index + ") p")
+    var names = document.querySelectorAll("#page_content_panel_main .table_row .table_item:nth-of-type(" + index + ") p")
     for (i = 0; i < names.length; i++) {
         sortByArray.push(names[i].innerHTML)
     }
     sortByArray.sort();
-    var rows = document.querySelectorAll(".table_row")
-    var rowNode = document.querySelector(".table_row_wrapper")
+    var rows = document.querySelectorAll("#page_content_panel_main .table_row")
+    var rowNode = document.querySelector("#page_content_panel_main .table_row_wrapper")
     switch (mode) {
         case "A-Z":
             for (i = rows.length - 1; i > 0; i--) {
                 rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll(".table_row")
+                rows = document.querySelectorAll("#page_content_panel_main .table_row")
             }
             break;
         case "Z-A":
             for (i = 0; i < rows.length; i++) {
                 rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll(".table_row")
+                rows = document.querySelectorAll("#page_content_panel_main .table_row")
             }
             break;
         default:
             for (i = rows.length - 1; i >= 0; i--) {
                 rowNode.insertBefore(rows[indexFinder(defaultArray[i], 1, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll(".table_row")
+                rows = document.querySelectorAll("#page_content_panel_main .table_row")
             }
     }
 }
 //Gets the div index
 function indexFinder(nameSearchFor, index, mode) {
-    var rows = document.querySelectorAll(".table_row")
+    var rows = document.querySelectorAll("#page_content_panel_main .table_row")
     for (j = 0; j < rows.length; j++) {
-        var currentName = rows[j].querySelector(".table_item:nth-of-type(" + index + ") p")
+        var currentName = rows[j].querySelector("#page_content_panel_main .table_item:nth-of-type(" + index + ") p")
         if (nameSearchFor === currentName.innerHTML) {
             switch (mode) {
                 case "A-Z":
-                    if (j < rows.length - 1 - i) {
+                    if (j < rows.length - 2 - i) {
                         continue;
                     }
                     else {
@@ -186,7 +186,7 @@ function indexFinder(nameSearchFor, index, mode) {
                         return j
                     }
                 default:
-                    if (j < rows.length - 1 - i) {
+                    if (j < rows.length - 2 - i) {
                         continue;
                     }
                     else {
