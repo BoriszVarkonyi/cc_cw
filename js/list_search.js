@@ -9,43 +9,44 @@ function searchButton(x) {
     button.classList.toggle("active");
 }
 
+var previousSearches = [];
+
+
 function searchInLists() {
     var searches = document.querySelectorAll(".table_header .search")
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
-        if (!searches[j].value == "") {
-            var filter = searches[j].value.toUpperCase();
-            if (j > 0) {
-                var li = document.querySelectorAll('.table_row_wrapper .table_row:not( .hidden) > div:nth-of-type(' + (j + 1) + ')');
-            }
-            else {
-                var li = document.querySelectorAll('.table_row_wrapper .table_row > div:nth-of-type(' + (j + 1) + ')');
-            }
-            //Loops throught the rows
-            for (i = 0; i < li.length; i++) {
-                a = li[i].querySelector("p");
-                txtValue = a.textContent || a.innerText;
-                //if the input is a radio button the search is stricter
-                if (searches[j].parentNode.parentNode.classList.contains("option")) {
-                    if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
-                        li[i].parentNode.classList.remove("hidden")
-                    } else {
-                        li[i].parentNode.classList.add("hidden")
-                    }
-                }
-                else {
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].parentNode.classList.remove("hidden")
-                    } else {
-                        li[i].parentNode.classList.add("hidden")
-                    }
-                }
-            }
+        //previousSearches.push(searches[j].value)
+        var filter = searches[j].value.toUpperCase();
+        if (j > 0) {
+            var li = document.querySelectorAll('.table_row_wrapper .table_row:not( .hidden) > div:nth-of-type(' + (j + 1) + ')');
         }
         else {
-            continue;
+            var li = document.querySelectorAll('.table_row_wrapper .table_row > div:nth-of-type(' + (j + 1) + ')');
+        }
+        //Loops throught the rows
+        for (i = 0; i < li.length; i++) {
+            a = li[i].querySelector("p");
+            txtValue = a.textContent || a.innerText;
+            //if the input is a radio button the search is stricter
+            if (searches[j].parentNode.parentNode.classList.contains("option")) {
+                if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
+                    li[i].parentNode.classList.remove("hidden")
+                } else {
+                    li[i].parentNode.classList.add("hidden")
+                }
+            }
+            else {
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].parentNode.classList.remove("hidden")
+                } else {
+                    li[i].parentNode.classList.add("hidden")
+                }
+            }
+
         }
     }
+    //console.log(previousSearches)
     //setas the row bg color
     var visibleRows = document.querySelectorAll(".table_row:not( .hidden)")
     for (i = 0; i < visibleRows.length; i++) {
@@ -147,19 +148,20 @@ function rowSort(index, mode) {
     var names = document.querySelectorAll("#page_content_panel_main .table_row .table_item:nth-of-type(" + index + ") p")
     var isNumberArray = true;
     for (i = 0; i < names.length; i++) {
-        if (isNaN(names[i.innerHTML])) {
-            sortByArray.push(parseInt(names[i].innerHTML))
-        }
-        else {
+        if (isNaN(names[i].innerHTML)) {
             sortByArray.push(names[i].innerHTML)
             isNumberArray = false;
         }
+        else {
+
+            sortByArray.push(parseInt(names[i].innerHTML))
+        }
     }
     if (isNumberArray) {
-        sortByArray.sort(function(a, b){
-            return a-b;
+        sortByArray.sort(function (a, b) {
+            return a - b;
         });
-        for(i=0; i<sortByArray.length; i++){
+        for (i = 0; i < sortByArray.length; i++) {
             sortByArray[i] = sortByArray[i].toString();
         }
     }
