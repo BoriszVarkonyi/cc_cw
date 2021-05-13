@@ -33,20 +33,11 @@
                 <div id="guide_choose">
                     <a class="guide_option" href="">
                         <div>
-                            <img src="../assets/icons/directions_black.svg">
-                        </div>
-                        <div>
-                            <p>Getting Started</p>
-                            <p>Guide for new Organisers!</p>
-                        </div>
-                    </a>
-                    <a class="guide_option" href="">
-                        <div>
                             <img src="../assets/icons/menu_book_black.svg">
                         </div>
                         <div>
-                            <p>Everything explained</p>
-                            <p>User Guide covering all.</p>
+                            <p>Documentation</p>
+                            <p>Everything you need to know in one place.</p>
                         </div>
                     </a>
                     <a class="guide_option" href="">
@@ -56,6 +47,15 @@
                         <div>
                             <p>Patch Notes</p>
                             <p>See what updates we made!</p>
+                        </div>
+                    </a>
+                    <a class="guide_option" href="">
+                        <div>
+                            <img src="../assets/icons/people_black.svg">
+                        </div>
+                        <div>
+                            <p>About us</p>
+                            <p>Learn about the developers.</p>
                         </div>
                     </a>
                 </div>

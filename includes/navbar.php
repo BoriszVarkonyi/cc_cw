@@ -103,9 +103,9 @@
         </a>
 
         <!-- ?help -->
-        <a href="user_guide.php?comp_id=<?php echo $comp_id ?>" id="need_help">
+        <a href="user_guide.php?comp_id=<?php echo $comp_id ?>" id="documentation_label">
             <img src="../assets/icons/help_black.svg">
-            <p>Need help?</p>
+            <p>Docs and more</p>
         </a>
     </div>
 </nav>

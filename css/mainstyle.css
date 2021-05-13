@@ -1247,7 +1247,7 @@ nav:hover #nav_bar_pin {
 }
 */
 
-#need_help {
+#documentation_label {
 	margin: auto 0 10px 0;
 	font-size: var(--f-medium);
 	display: flex;
@@ -1259,18 +1259,18 @@ nav:hover #nav_bar_pin {
 	align-self: center;
 }
 
-#need_help:hover {
+#documentation_label:hover {
 	background: var(--c-transparent-white);
 }
 
-#need_help p {
+#documentation_label p {
 	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-#need_help img {
+#documentation_label img {
 	height: 1.05em;
 	width: 1.05em;
 	margin-right: 5px;
@@ -1332,18 +1332,18 @@ nav.closed .nav_bar_item .dropdown_icon {
 	animation-fill-mode: forwards;
 }
 
-nav.closed #need_help {
+nav.closed #documentation_label {
 	width: 100%;
 }
 
-nav.closed #need_help p {
+nav.closed #documentation_label p {
 	-webkit-animation: hideNavTitles var(--t-basic);
 	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-nav.closed #need_help img {
+nav.closed #documentation_label img {
 	padding: 0;
 	margin: 0;
 }

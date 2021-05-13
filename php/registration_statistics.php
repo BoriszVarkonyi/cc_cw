@@ -94,7 +94,9 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
     <title>Registration Statistics</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/print_registration_style.min.css">
+    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_paper_style.min.css">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
     <!-- header -->
@@ -103,7 +105,7 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
         <!-- navbar -->
         <main>
             <div id="title_stripe">
-                <p class="page_title">Weapon Control Statistics</p>
+                <p class="page_title">Registration Statistics</p>
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="button" onclick="printPage()">
                         <p>Print Statistics</p>
@@ -138,11 +140,13 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                         <div class="paper_content">
                             <div class="overview_wrapper">
                                 <p class="label">OVERVIEW</p>
-                                <div class="grid_table">
-                                    <div class="grid_header breakpoint">
-                                        <div class="grid_header_text">SECTION NAME</div>
-                                        <div class="grid_header_text">QUANTITY</div>
-                                    </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>SECTION NAME</th>
+                                            <th>QUANTITY</th>
+                                        </tr>
+                                    </thead>
 
                                     <?php
 
@@ -163,32 +167,34 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
                                     ?>
 
-                                    <div class="grid_row_wrapper">
-                                        <div class="grid_row breakpoint">
-                                            <div class="grid_item">All Fencers</div>
-                                            <div class="grid_item"><?php echo ($ready + $notready) ?></div>
-                                        </div>
-                                        <div class="grid_row breakpoint">
-                                            <div class="grid_item">Fencers Registered in</div>
-                                            <div class="grid_item"><?php echo $ready ?></div>
-                                        </div>
-                                        <div class="grid_row breakpoint">
-                                            <div class="grid_item">Fencers not Registered in</div>
-                                            <div class="grid_item"><?php echo $notready ?></div>
-                                        </div>
-                                    </div>
+                                    <tbody>
+                                        <tr>
+                                            <td>All Fencers</td>
+                                            <td><?php echo ($ready + $notready) ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fencers Registered in</td>
+                                            <td><?php echo $ready ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fencers not Registered in</td>
+                                            <td><?php echo $notready ?></td>
+                                        </tr>
+                                    </tbody>
                                 </div>
                             </div>
                             <div class="overview_wrapper">
                                 <p class="label">REGISTERED AND NOT REGISTERED FENCERS BY NATIONS</p>
-                                <div class="grid_table">
-                                    <div class="grid_header breakpoint">
-                                        <div class="grid_header_text">NATIONALITY</div>
-                                        <div class="grid_header_text">ALL FENCERS</div>
-                                        <div class="grid_header_text">REGISTERED IN</div>
-                                        <div class="grid_header_text">NOT REGISTERED IN</div>
-                                    </div>
-                                    <div class="grid_row_wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>NATIONALITY</th>
+                                            <th>ALL FENCERS</th>
+                                            <th>REGISTERED IN</th>
+                                            <th>NOT REGISTERED IN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
                                         <?php
 
@@ -218,16 +224,16 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                         foreach ($nations as $country_code => $country_value) { ?>
 
 
-                                            <div class="grid_row breakpoint">
-                                                <div class="grid_item"><?php echo $country_code ?></div>
-                                                <div class="grid_item"><?php echo ($country_value->ready + $country_value->notready) ?></div>
-                                                <div class="grid_item"><?php echo $country_value->ready ?></div>
-                                                <div class="grid_item"><?php echo $country_value->notready ?></div>
-                                            </div>
+                                            <tr>
+                                                <td><?php echo $country_code ?></td>
+                                                <td><?php echo ($country_value->ready + $country_value->notready) ?></td>
+                                                <td><?php echo $country_value->ready ?></td>
+                                                <td><?php echo $country_value->notready ?></td>
+                                            </tr>
 
                                         <?php } ?>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div class="overview_wrapper">
@@ -251,14 +257,14 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
                                 if ($fencer->nation == $toCompare) { ?>
 
-                                    <div class="grid_row breakpoint">
-                                        <div class="grid_item"><?php echo $fencer->prenom . " " . $fencer->nom ?></div>
-                                        <div class="grid_item"><?php if ($fencer->reg == true) {
+                                    <tr>
+                                        <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
+                                        <td><?php if ($fencer->reg == true) {
                                                                     echo "Registered";
                                                                 } else {
                                                                     echo "Not registered";
-                                                                } ?></div>
-                                    </div>
+                                                                } ?></td>
+                                    </tr>
 
                                 <?php
                                 } else {
@@ -281,22 +287,24 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
 
                                     <p class="nat_label"><?php echo $fencer->nation ?></p>
-                                    <div class="grid_table">
-                                        <div class="grid_header breakpoint">
-                                            <div class="grid_header_text">NAME</div>
-                                            <div class="grid_header_text">STATUS</div>
-                                        </div>
-                                        <div class="grid_row_wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>NAME</th>
+                                                <th>STATUS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
 
-                                            <div class="grid_row breakpoint">
-                                                <div class="grid_item"><?php echo $fencer->prenom . " " . $fencer->nom ?></div>
-                                                <div class="grid_item"><?php if ($fencer->reg == true) {
+                                            <tr>
+                                                <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
+                                                <td><?php if ($fencer->reg == true) {
                                                                             echo "Registered";
                                                                         } else {
                                                                             echo "Not registered";
-                                                                        } ?></div>
-                                            </div>
+                                                                        } ?></td>
+                                            </tr>
 
 
                                     <?php
@@ -310,13 +318,15 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                         </div>
                                         <div class="overview_wrapper">
                                             <p class="label">ALL FENCERS</p>
-                                            <div class="grid_table">
-                                                <div class="grid_header breakpoint">
-                                                    <div class="grid_header_text">NAME</div>
-                                                    <div class="grid_header_text">NATIONALITY</div>
-                                                    <div class="grid_header_text">STATUS</div>
-                                                </div>
-                                                <div class="grid_row_wrapper">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>NATIONALITY</th>
+                                                        <th>STATUS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
 
                                                     <?php
 
@@ -324,23 +334,23 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
 
                                                     foreach ($tablearray as $fencer2) { ?>
 
-                                                        <div class="grid_row breakpoint">
-                                                            <div class="grid_item"><?php echo $fencer2["nom"] . " " . $fencer2["prenom"] ?></div>
-                                                            <div class="grid_item"><?php echo $fencer2["nation"] ?></div>
-                                                            <div class="grid_item"><?php if ($fencer2["reg"] != NULL) {
+                                                        <tr>
+                                                            <td><?php echo $fencer2["nom"] . " " . $fencer2["prenom"] ?></td>
+                                                            <td><?php echo $fencer2["nation"] ?></td>
+                                                            <td><?php if ($fencer2["reg"] != NULL) {
                                                                             echo "Registered";
                                                                         } else {
                                                                             echo "Not registered";
-                                                                        } ?></div>
-                                                        </div>
+                                                                        } ?></td>
+                                                        </tr>
 
                                                     <?php }
 
                                                     ?>
 
 
-                                                </div>
-                                            </div>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                         </div>

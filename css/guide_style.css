@@ -9,16 +9,14 @@
 	background: var(--c-white);
 	border: 2px solid var(--c-darkgray);
 	box-shadow: var(--s-black);
-	flex-grow: 1;
-	flex-basis: 300px;
+	flex: 1 1 300px;
 	border-radius: 10px;
 	height: 300px;
 	margin: 0 20px;
-	display: flex;
-	flex-direction: column;
 	overflow: hidden;
 	cursor: pointer;
 	transition: transform var(--t-basic);
+	white-space: unset !important;
 }
 
 .guide_option:hover {
@@ -32,11 +30,12 @@
 
 .guide_option > div:first-of-type {
 	width: 100%;
+	background: var(--c-gray);
+	height: 40%;
+	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: var(--c-gray);
-	height: 40%;
 }
 
 .guide_option div img {
@@ -49,8 +48,29 @@
 .guide_option > div:last-of-type {
 	padding: 10px;
 	width: 100%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
 	height: 60%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.guide_option > div:last-of-type > * {
+	position: relative;
+	z-index: 0;
+}
+
+.guide_option > div:last-of-type::before {
+	content: '';
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border-radius: 100% 0 0 0;
+	background: var(--c-lightestgray);
+	transition: all var(--t-basic);
+}
+
+.guide_option:hover > div:last-of-type::before {
+	transform: scale(1.1);
+	background: var(--c-lightergray);
 }
