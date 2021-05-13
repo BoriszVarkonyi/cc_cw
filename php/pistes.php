@@ -36,6 +36,7 @@ if (isset($_POST["create_piste"])) {
         public $color;
         public $available;
         public $url;
+        public $connectable;
 
         function __construct($name, $color)
         {
@@ -43,6 +44,7 @@ if (isset($_POST["create_piste"])) {
             $this->color = $color;
             $this->available = true;
             $this->url = "";
+            $this->connectable = 0;
         }
     }
 
@@ -52,35 +54,33 @@ if (isset($_POST["create_piste"])) {
 
         $p_name = $_POST["one_piste_name"];
 
-            foreach ($json_table as $value) {
+        foreach ($json_table as $value) {
 
-                if ($p_name == $value->name) {
+            if ($p_name == $value->name) {
 
-                    $issue = true;
-                }
+                $issue = true;
             }
+        }
 
         $piste_obj = new piste($p_name, 0);
 
         array_push($json_table, $piste_obj);
-
     } else if ($_POST["piste_type"] == "colored") {
 
         $p_name = $_POST["colored_piste_name"];
         $p_color = $_POST["piste_color"];
 
-            foreach ($json_table as $value) {
+        foreach ($json_table as $value) {
 
-                if ($p_name == $value->name) {
+            if ($p_name == $value->name) {
 
-                    $issue = true;
-                }
+                $issue = true;
             }
+        }
 
         $piste_obj = new piste($p_name, $p_color);
 
         echo array_push($json_table, $piste_obj);
-
     } else if ($_POST["piste_type"] == "numbered") {
 
         $quantity = $_POST["quantity"];
@@ -88,13 +88,13 @@ if (isset($_POST["create_piste"])) {
 
         for ($i = 0; $i < $quantity; $i++) {
 
-                foreach ($json_table as $value) {
+            foreach ($json_table as $value) {
 
-                    if ($startnum == $value->name) {
+                if ($startnum == $value->name) {
 
-                        $issue = true;
-                    }
+                    $issue = true;
                 }
+            }
 
             $piste_obj = new piste($startnum, 0);
 
@@ -118,6 +118,82 @@ if (isset($_POST["create_piste"])) {
 
         header("Location: pistes.php?comp_id=$comp_id");
     }
+}
+
+if (isset($_POST["delete_piste"])) {
+
+    $piste_name = $_POST["id_to_change"];
+
+    $counter = 0;
+    foreach ($json_table as $key => $value) {
+
+        if ($value->name == $piste_name) {
+
+            if (count($json_table) == 1) {
+                $json_table = [];
+            } else {
+                unset($json_table[$counter]);
+            }
+        }
+        $counter++;
+    }
+
+    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+    $qry_update = "UPDATE pistes SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+    if (!$do_update = mysqli_query($connection, $qry_update)) {
+        echo mysqli_error($connection);
+    }
+
+    header("Location: pistes.php?comp_id=$comp_id");
+}
+
+if (isset($_POST["add_live"])) {
+
+    echo "WORKING";
+
+    $piste_name = $_POST["id_to_change"];
+    $url = $_POST["piste_link"];
+
+    foreach ($json_table as $key => $value) {
+
+        if ($piste_name == $value->name) {
+
+            $value->url = $url;
+        }
+    }
+    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+    $qry_update = "UPDATE pistes SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+    if (!$do_update = mysqli_query($connection, $qry_update)) {
+        echo mysqli_error($connection);
+    }
+    header("Location: pistes.php?comp_id=$comp_id");
+}
+
+print_r($_POST);
+
+if (isset($_POST["allow_connect"])) {
+
+    echo "ASD";
+
+    $piste_name = $_POST["id_to_change"];
+
+    foreach ($json_table as $key => $value) {
+
+        if ($piste_name == $value->name) {
+
+            if ($value->connectable == 1) {
+                $value->connectable = 0;
+            } else {
+                $value->connectable = 1;
+            }
+        }
+    }
+    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+    $qry_update = "UPDATE pistes SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+    if (!$do_update = mysqli_query($connection, $qry_update)) {
+        echo mysqli_error($connection);
+    }
+    header("Location: pistes.php?comp_id=$comp_id");
 }
 
 ?>
@@ -146,7 +222,7 @@ if (isset($_POST["create_piste"])) {
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" onclick="toggleAddPistePanel()">
                         <p>Add Piste</p>
-                        <img src="../assets/icons/add_black.svg"/>
+                        <img src="../assets/icons/add_black.svg" />
                     </button>
                 </div>
 
@@ -158,13 +234,13 @@ if (isset($_POST["create_piste"])) {
                     <form action="pistes.php?comp_id=<?php echo $comp_id ?>" id="create_piste" autocomplete="off" class="overlay_panel_form flex" method="POST">
                         <label for="username">TYPE</label>
                         <div class="option_container row">
-                            <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main"/>
+                            <input type="radio" onclick="mainPiste()" name="piste_type" id="main" value="main" />
                             <label for="main">Single</label>
 
-                            <input type="radio" onclick="coloredPiste()" name="piste_type" id="colored" value="colored"/>
+                            <input type="radio" onclick="coloredPiste()" name="piste_type" id="colored" value="colored" />
                             <label for="colored">Colored</label>
 
-                            <input type="radio" onclick="numberedPiste()" name="piste_type" id="numbered" value="numbered"/>
+                            <input type="radio" onclick="numberedPiste()" name="piste_type" id="numbered" value="numbered" />
                             <label for="numbered">Multiple</label>
                         </div>
 
@@ -203,72 +279,6 @@ if (isset($_POST["create_piste"])) {
             <div id="page_content_panel_main">
                 <div id="pistes_wrapper">
 
-                    <!-- <div id="main_pistes_wrapper" class="piste_wrapper">
-                            <div id="<?php echo $piste_id ?>" class="piste main">
-                                <div>M</div>
-                                <div>
-                                    <p>Main Piste</p>
-                                    <p><?php echo $value->name ?></p>
-                                    <div class="piste_status_indicator <?php
-
-                                                                        if ($piste_activity == 0) {
-
-                                                                            echo "green";
-                                                                        } else {
-
-                                                                            echo "red";
-                                                                        }
-
-                                                                        ?>"></div>
-                                </div>
-                                <div>
-                                    <button class="piste_config_button" onclick="togglePisteSettings(this)">
-                                        <img src="../assets/icons/settings_black.svg">
-                                    </button>
-                                </div>
-                                <form method="POST" class="piste_settings_panel">
-                                    <div class="link_wrapper hidden">
-                                        <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
-                                        <input type="text" class="link_input">
-                                        <button type="button" onclick="closeLinkWrapper(this)">
-                                            <img src="../assets/icons/close_black.svg">
-                                        </button>
-                                        <button type="submit">
-                                            <img src="../assets/icons/send_black.svg">
-                                        </button>
-                                    </div>
-                                    <div class="settings_wrapper">
-                                        <div>
-                                            <p>Control</p>
-                                            <button class="selected">
-                                                <img src="../assets/icons/smartphone_black.svg">
-                                            </button>
-                                            <button>
-                                                <img src="../assets/icons/laptop_black.svg">
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <p>Live</p>
-                                            <button type="button" onclick="liveButton(this)">
-                                                <img src="../assets/icons/live_tv_black.svg">
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <p>Delete</p>
-                                            <button name="delete_piste" id="delete_piste" type="submit">
-                                                <img src="../assets/icons/delete_black.svg">
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                        <div class="piste ghost"></div>
-                        <div class="piste ghost"></div>
-                        <div class="piste ghost"></div>
-
-                    </div> -->
-
                     <div id="colored_pistes_wrapper" class="piste_wrapper">
 
                         <?php
@@ -306,12 +316,12 @@ if (isset($_POST["create_piste"])) {
                                 </div>
                                 <form method="POST" class="piste_settings_panel">
                                     <div class="link_wrapper hidden">
-                                        <input name="id_to_change" class="hidden" value="<?php echo $value->name ?>"/>
-                                        <input type="text" class="link_input">
+                                        <input type="text" name="id_to_change" class="hidden" value="<?php echo $value->name ?>" />
+                                        <input type="text" class="link_input" name="piste_link" value="<?php echo $value->url ?>">
                                         <button type="button" onclick="closeLinkWrapper(this)">
                                             <img src="../assets/icons/close_black.svg">
                                         </button>
-                                        <button type="submit">
+                                        <button name="add_live" type="submit">
                                             <img src="../assets/icons/send_black.svg">
                                         </button>
                                     </div>
@@ -321,13 +331,15 @@ if (isset($_POST["create_piste"])) {
                                             <button class="selected">
                                                 <img src="../assets/icons/smartphone_black.svg">
                                             </button>
-                                            <button>
+                                            <button name="allow_connect" type="submit" class="<?php if ($value->connectable == 1) {
+                                                                                                    echo "selected";
+                                                                                                } ?>">
                                                 <img src="../assets/icons/laptop_black.svg">
                                             </button>
                                         </div>
                                         <div>
                                             <p>Live</p>
-                                            <button type="button" onclick="liveButton(this)">
+                                            <button type="button" name="add_link" onclick="liveButton(this)">
                                                 <img src="../assets/icons/live_tv_black.svg">
                                             </button>
                                         </div>
@@ -391,12 +403,12 @@ if (isset($_POST["create_piste"])) {
                                 </div>
                                 <form method="POST" class="piste_settings_panel">
                                     <div class="link_wrapper hidden">
-                                        <input name="id_to_change" class="hidden" value="<?php echo $piste_id ?>"/>
-                                        <input type="text" class="link_input">
+                                        <input name="id_to_change" class="hidden" value="<?php echo $value->name; ?>" />
+                                        <input type="text" class="link_input" name="piste_link" value="<?php echo $value->url ?>">
                                         <button type="button" onclick="closeLinkWrapper(this)">
                                             <img src="../assets/icons/close_black.svg">
                                         </button>
-                                        <button type="submit">
+                                        <button name="add_live" type="submit">
                                             <img src="../assets/icons/send_black.svg">
                                         </button>
                                     </div>
@@ -406,7 +418,9 @@ if (isset($_POST["create_piste"])) {
                                             <button class="selected">
                                                 <img src="../assets/icons/smartphone_black.svg">
                                             </button>
-                                            <button>
+                                            <button name="allow_connect" type="submit" class="<?php if ($value->connectable == 1) {
+                                                                                                    echo "selected";
+                                                                                                } ?>">
                                                 <img src="../assets/icons/laptop_black.svg">
                                             </button>
                                         </div>
@@ -442,4 +456,5 @@ if (isset($_POST["create_piste"])) {
     <script src="../js/pistes.js"></script>
     <script src="../js/overlay_panel.js"></script>
 </body>
+
 </html>
