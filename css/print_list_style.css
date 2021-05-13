@@ -13,7 +13,7 @@
     display: none !important;
 }
 
-.table {		/* Whole table */
+.table, table {		/* Whole table */
 	display: table;
 	color: var(--c-black);
 	font-size: 10pt !important;
@@ -35,7 +35,7 @@
 	font-size: var(--fontsize) !important;
 }
 
-.table_row_wrapper {	/* Wraps table_row elements */
+.table_row_wrapper, tbody {	/* Wraps table_row elements */
 	display: table-row-group;
 	border-radius: unset !important;
 	border: none !important;
@@ -46,14 +46,14 @@
 
 /* Header */
 
-.table_header {		/* Wraps table_header text elements */
+.table_header, thead {		/* Wraps table_header text elements */
 	font-family: var(--light);
 	border: none !important;
 	text-transform: uppercase;
     display: table-header-group;
 }
 
-.table_header_text {
+.table_header_text, th {
 	flex-wrap: wrap;
 	position: relative;
 	align-content: flex-end;
@@ -65,9 +65,10 @@
 	justify-content: flex-start;
 }
 
-.table_header_text.square, .table_item.square {
-	min-width: var(--lineheight);
-	max-width: var(--lineheight);
+.table_header_text.square, .table_item.square, th.square, td.square {
+	min-width: var(--lineheight) !important;
+	max-width: var(--lineheight) !important;
+	padding: 0 !important;
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
@@ -76,10 +77,8 @@
 
 /* General */
 
-.table_row {
+.table_row, tr {
 	outline: none;
-	cursor: pointer;
-	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 	height: var(--lineheight);
     display: table-row;
 	border: 1pt solid black !important;
@@ -175,7 +174,7 @@
 
 /* Universal Table */
 
-.table_header_text, .table_item {
+.table_header_text, .table_item, th, td {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	max-width: 50%;
@@ -185,7 +184,7 @@
 	border: 1pt solid black !important;
 }
 
-.table_item {
+.table_item, td {
 	overflow: hidden;
     display: table-cell;
 }
@@ -194,7 +193,7 @@
 	display: none;
 }
 
-.table_item p {
+.table_item p, td p {
 	padding: 0 !important;
 	overflow: hidden;
 	white-space: nowrap;

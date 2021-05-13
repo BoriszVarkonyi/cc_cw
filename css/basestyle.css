@@ -573,6 +573,14 @@ input[type="time"] {
 	width: 300px;
 }
 
+.search_wrapper.wide.fixed {
+	width: 300px;
+	max-width: 300px;
+	position: fixed;
+	top: 200px;
+	height: unset !important;
+}
+
 .search_wrapper.narrow {
 	width: 200px;
 }

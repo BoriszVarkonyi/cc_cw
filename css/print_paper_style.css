@@ -6,6 +6,8 @@
     background: var(--cs-white);
     display: flex;
     flex-direction: column;
+    padding: 25pt;
+    box-sizing: border-box;
 }
 
 .title_container {
@@ -79,6 +81,14 @@
     flex-direction: column;
 }
 
+.paper_content.full {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
 .paper_wrapper {
     transform: scale(.5);
     transition: all var(--t-basic);
@@ -120,6 +130,10 @@
 
 	.paper_content {
 		height: 90vh !important;
+    }
+
+    .paper_content.full {
+        height: 100vh !important;
     }
 
 }
