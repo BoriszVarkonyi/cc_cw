@@ -534,3 +534,9 @@ function cookieRester() {
     document.cookie = "index2=0";
     document.cookie = "index3=0";
 }
+
+function toggleResetTable() {
+    var panel = document.getElementById("reset_table_panel");
+
+    panel.classList.toggle("hidden");
+}

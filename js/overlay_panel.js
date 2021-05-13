@@ -6,8 +6,8 @@ var somethingisOpened = false;
 function overlayPanel() {
     var overlayPanelsHidden = [];
     //Push to appropriate array by class.
-    for(i=0; i<overlayPanelAll.length; i++) {
-        if(overlayPanelAll[i].classList.contains("hidden")) {
+    for (i = 0; i < overlayPanelAll.length; i++) {
+        if (overlayPanelAll[i].classList.contains("hidden")) {
             overlayPanelsHidden.push(overlayPanelAll[i]);
         }
         else {
@@ -15,8 +15,8 @@ function overlayPanel() {
         }
     }
     //It updates the overlayPanelsOepened array.
-    if(overlayPanelsOepened.length>1){
-        for(i=0; i<overlayPanelsOepened.length; i++) {
+    if (overlayPanelsOepened.length > 1) {
+        for (i = 0; i < overlayPanelsOepened.length; i++) {
             overlayPanelsOepened.pop()
         }
         overlayPanelsOepened[0].classList.add("hidden")
@@ -24,21 +24,21 @@ function overlayPanel() {
     }
     //Check if the first array element contains hidden.
     else {
-        for(i=0; i<overlayPanelsOepened.length; i++) {
+        for (i = 0; i < overlayPanelsOepened.length; i++) {
             //If yes it pops.
-            if(overlayPanelsOepened[i].classList.contains("hidden")) {
+            if (overlayPanelsOepened[i].classList.contains("hidden")) {
                 overlayPanelsOepened.pop()
             }
         }
     }
-    if(overlayPanelsOepened.length == 1){
+    if (overlayPanelsOepened.length == 1) {
         somethingisOpened = true;
         var firstInput = overlayPanelsOepened[0].querySelector("input:first-of-type:not(input[type=radio])")
-        if(firstInput != null && !firstInput.classList.contains("hidden")){
+        if (firstInput != null && !firstInput.classList.contains("hidden")) {
             firstInput.focus();
-        }   
+        }
     }
-    else{
+    else {
         somethingisOpened = false;
     }
 }
@@ -53,18 +53,18 @@ function callback(mutationsList, observer) {
         }
     })
 }
-    
+
 const mutationObserver = new MutationObserver(callback)
-for(i=0; i<overlayPanelAll.length; i++){
-mutationObserver.observe(overlayPanelAll[i], { attributes: true })
+for (i = 0; i < overlayPanelAll.length; i++) {
+    mutationObserver.observe(overlayPanelAll[i], { attributes: true })
 }
 
 //FORM VALIDATION
 function formvariableDeclaration() {
-    if(overlayPanelsOepened.length == 1) {
+    if (overlayPanelsOepened.length == 1) {
         var formelement = overlayPanelsOepened[0].querySelector(".overlay_panel_form")
-        if(formelement != null){
-            var overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form"); 
+        if (formelement != null) {
+            var overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form");
             var inputs = document.querySelectorAll(".overlay_panel:not( .hidden) .overlay_panel_form input:not(input[type=radio])");
             var saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit");
             var optionContainers = overlayForm.querySelectorAll(".option_container");
@@ -72,6 +72,7 @@ function formvariableDeclaration() {
         }
     }
 }
+/*
 var canAutoValidate = true;
 function formValidation(overlayForm, inputs, saveButton, optionContainers){
     if(canAutoValidate){
@@ -84,11 +85,11 @@ function formValidation(overlayForm, inputs, saveButton, optionContainers){
                 if(inputs[i].value == ""){
                     //If it finds an empty input, then it disable the "Save" button.
                     valid1 = false;
-                    break;      
+                    break;
                 }
                 else {
                     //If everything has a value then it enable the "Save" Button. The user can save.
-                    valid1 = true;      
+                    valid1 = true;
                 }
             }
             if(optionContainers.length == 0){
@@ -110,7 +111,7 @@ function formValidation(overlayForm, inputs, saveButton, optionContainers){
                         }
                     }
                 }
-            }   
+            }
             if(valid1 && valid2){
                 saveButton.disabled = false;
             }
@@ -120,5 +121,6 @@ function formValidation(overlayForm, inputs, saveButton, optionContainers){
         }
         validation();
         overlayForm.addEventListener("input", validation)
-    }    
+    }
 }
+*/

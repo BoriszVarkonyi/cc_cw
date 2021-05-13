@@ -318,6 +318,10 @@ if (isset($_POST["generate_table"])) {
                             <p>Print Table</p>
                             <img src="../assets/icons/print_black.svg" />
                         </a>
+                        <a class="stripe_button bold" type="button" onclick="toggleResetTable()">
+                            <p>Reset Table</p>
+                            <img src="../assets/icons/restart_alt_black.svg" />
+                        </a>
                         <a class="stripe_button primary" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot_black.svg" />
@@ -332,7 +336,7 @@ if (isset($_POST["generate_table"])) {
                         <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
                         <button type="button"><img src="../assets/icons/close_black.svg"></button>
                         <div class="search_results">
-                            <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Example</button>
+                            <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Jump to {Match id}</button>
                         </div>
                     </div>
 
@@ -372,6 +376,30 @@ if (isset($_POST["generate_table"])) {
                         <input type="checkbox" name="fencer_type" id="club" value="1" />
                         <label for="club">Club</label>
                     </div>
+                </div>
+
+                <div id="reset_table_panel" class="overlay_panel hidden">
+                    <button class="panel_button" onclick="toggleResetTable()">
+                        <img src="../assets/icons/close_black.svg">
+                    </button>
+                    <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="" autocomplete="off">
+                        <label for="name">SELECT TABLE</label>
+                        <div id="table_select_wrapper">
+                        <div class="search_wrapper wide">
+                            <button type="button" class="search select altalt" onfocus="isOpen(this)" onblur="isClosed(this)">
+                                <!-- Ebbe az inputba rakódik a kiválasztott tábla -->
+                                <input type="text" readonly z-index="-1" name="" placeholder="Select a Table" value="">
+                            </button>
+                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
+                            <div class="search_results">
+                                <button type="button" onclick="selectSystem(this)">Table of 32</button>
+                                <button type="button" onclick="selectSystem(this)">Table of 16</button>
+                                <button type="button" onclick="selectSystem(this)">Table of 8</button>
+                            </div>
+                        </div>
+                    </div>
+                        <button type="submit" name="" class="panel_submit">Reset</button>
+                    </form>
                 </div>
             </div>
             <div id="page_content_panel_main">
