@@ -201,7 +201,7 @@ if (isset($_POST["generate_table"])) {
                 $table_object->$namevariable->$matchname->$postoplace = "";
                 $table_object->$namevariable->$matchname->referees->ref = $ref_empty;
                 $table_object->$namevariable->$matchname->referees->vref = $ref_empty;
-                $table_object->$namevariable->$matchname->pistetime = $pistetime_empty;;
+                $table_object->$namevariable->$matchname->pistetime = $pistetime_empty;
             }
 
 
