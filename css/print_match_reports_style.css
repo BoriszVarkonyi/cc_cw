@@ -20,6 +20,18 @@
 
 */
 
+.paper_content .match_report {
+    page-break-inside: avoid !important;
+	page-break-after: auto !important;
+	page-break-before: avoid !important;
+}
+
+.paper_content .match_report:nth-child(3) {
+    page-break-inside: avoid !important;
+	page-break-after: always !important;
+	page-break-before: avoid !important;
+}
+
 .match_report > div {
     width: 100%;
     box-sizing: border-box;

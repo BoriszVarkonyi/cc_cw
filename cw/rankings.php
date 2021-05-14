@@ -24,12 +24,14 @@
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
-                <div class="table cw">
-                    <div class="table_header">
-                        <div class="table_header_text">RANKINGS NAME</div>
-                        <div class="table_header_text">PLACEHOLDER</div>
-                    </div>
-                    <div class="table_row_wrapper alt">
+                <table class="cw">
+                    <thead>
+                        <tr>
+                            <th>RANKINGS NAME</th>
+                            <th>PLACEHOLDER</th>
+                        </tr>
+                    </thead>
+                    <tbody class="alt">
 
                         <?php
                         //get comp_
@@ -44,15 +46,15 @@
                             $ranking_password = $row['password'];
 
                             ?>
-                            <div class="table_row" onclick="window.location.href='ranking.php?comp_id=<?php echo $ass_comp_id ?>'">
-                                <div class="table_item"><p><?php echo $ranking_name ?></p></div>
-                                <div class="table_item"><p><?php echo $ranking_id ?></p></div>
-                            </div>
+                            <tr onclick="window.location.href='ranking.php?comp_id=<?php echo $ass_comp_id ?>'">
+                                <td><p><?php echo $ranking_name ?></p></td>
+                                <td><p><?php echo $ranking_id ?></p></td>
+                            </tr>
                         <?php
                             }
                         ?>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

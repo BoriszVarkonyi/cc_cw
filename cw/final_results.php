@@ -29,16 +29,19 @@
                     </div>
                     <input type="button" value="Search" onclick="cwSearchEngine()">
                 </form>
-                <div class="table cw">
-                    <div class="table_header">
-                        <div class="table_header_text">POSITION</div>
-                        <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">NATION / CLUB</div>
-                        <div class="big_status_header"></div>
-                    </div>
-                    <div class="table_row_wrapper alt">
-                        <div class="table_row">
-                            <div class="table_item">
+                <table class="cw">
+                    <thead>
+                        <tr>
+                            <div class="table_header_text">POSITION</div>
+                            <div class="table_header_text">NAME</div>
+                            <div class="table_header_text">NATION / CLUB</div>
+                            <div class="big_status_header"></div>
+                        </tr>
+
+                    </thead>
+                    <tbody class="alt">
+                        <tr>
+                            <td>
                                 <p>
                                     1.
                                 </p>
@@ -56,7 +59,7 @@
                             <div class="big_status_item gold">
                                 <img src="../assets/icons/emoji_events_black.svg" alt="Winner Icon">
                             </div>
-                        </div>
+                        </tr>
                         <div class="table_row">
                             <div class="table_item">
                                 <p>
@@ -133,8 +136,8 @@
                             <div class="big_status_item">
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

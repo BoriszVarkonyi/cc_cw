@@ -85,6 +85,7 @@
     page-break-inside: avoid !important;
 	page-break-after: auto !important;
 	page-break-before: auto !important;
+	background: transparent !important;
 }
 
 .table_row.selected {
