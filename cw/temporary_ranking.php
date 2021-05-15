@@ -42,7 +42,7 @@
                             <th><p>POSITION</p></th>
                             <th><p>NAME</p></th>
                             <th><p>NATION / CLUB</p></th>
-                            <th class="half"></th>
+                            <th class="small"></th>
                         </tr>
                     </thead>
                     <tbody class="alt">
@@ -74,7 +74,7 @@
                                     <?php echo $fencer_nat ?>
                                 </p>
                             </td>
-                            <td class="half red"></td>
+                            <td class="small red"></td>
                         </tr>
 
                         <?php } ?>

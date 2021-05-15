@@ -15,8 +15,9 @@
 	margin: 0 20px;
 	overflow: hidden;
 	cursor: pointer;
-	transition: transform var(--t-basic);
+	transition: transform ease-in .05s;
 	white-space: unset !important;
+	position: relative;
 }
 
 .guide_option:hover {
@@ -58,19 +59,34 @@
 	z-index: 0;
 }
 
-.guide_option > div:last-of-type::before {
+.guide_option::before {
 	content: '';
 	width: 150px;
 	height: 150px;
 	position: absolute;
-	bottom: 0;
-	right: 0;
-	border-radius: 100% 0 0 0;
-	background: var(--c-lightestgray);
+	top: 0;
+	left: 0;
+	border-radius: 0 0 100% 0;
+	background: rgba(255, 255, 255, 0.1);
 	transition: all var(--t-basic);
 }
 
-.guide_option:hover > div:last-of-type::before {
+.guide_option::after {
+	content: '';
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border-radius: 100% 0 0 0;
+	background: rgba(0, 0, 0, 0.03);
+	transition: all var(--t-basic);
+}
+
+.guide_option:hover::before {
 	transform: scale(1.1);
-	background: var(--c-lightergray);
+}
+
+.guide_option:hover::after {
+	transform: scale(1.1);
 }

@@ -50,7 +50,7 @@ $json_table = json_decode($json_string);
             <div id="title_stripe">
                 <p class="page_title">Print Match Reports</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button" onclick="window.close()" shortcut="SHIFT+C">
+                    <button class="stripe_button bold" onclick="window.close()" shortcut="SHIFT+C">
                         <p>Close Page</p>
                         <img src="../assets/icons/close_black.svg" />
                     </button>
@@ -100,7 +100,7 @@ $json_table = json_decode($json_string);
                 if (isset($_GET["table_round"])) {
 
                 ?>
-                    <div>
+
                         <div id="pool_print_wrapper" class="paper_wrapper">
 
                             <?php
@@ -233,7 +233,7 @@ $json_table = json_decode($json_string);
                                 $counter++;
                             } ?>
                         </div>
-                    </div>
+
 
                 <?php
                 }

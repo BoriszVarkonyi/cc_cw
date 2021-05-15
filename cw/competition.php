@@ -74,7 +74,7 @@
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
                     <p><?php echo $starting_date ?></p>
-                    <p>INVIDIUDAL</p>
+                    <p>{IDE KIÍRNI INDIVIDUAL VAGY TEAM}</p>
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">

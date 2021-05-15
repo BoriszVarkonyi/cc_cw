@@ -1098,13 +1098,13 @@ nav:hover #nav_bar_pin {
 	font-size: 50px;
 	z-index: 0;
 	text-transform: uppercase;
-	color: var(--c-lightestgray);
+	color: var(--c-lightergray);
 	position: absolute;
 	transition: all var(--t-basic);
 }
 
-#app_name p:last-child:hover {
-	color: var(--c-lightergray);
+#app_name:hover p:last-child {
+	color: var(--c-lightgray);
 }
 
 #nav_bar_content {
@@ -1139,7 +1139,7 @@ nav:hover #nav_bar_pin {
 	padding: 0 15px 0 20px;
 	box-sizing: border-box;
 	float: left;
-	/* needed for burttons */
+	/* needed for buttons */
 	font-size: inherit;
 }
 
