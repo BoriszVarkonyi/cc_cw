@@ -32,110 +32,64 @@
                 <table class="cw">
                     <thead>
                         <tr>
-                            <div class="table_header_text">POSITION</div>
-                            <div class="table_header_text">NAME</div>
-                            <div class="table_header_text">NATION / CLUB</div>
-                            <div class="big_status_header"></div>
+                            <th><p>POSITION</p></th>
+                            <th><p>NAME</p></th>
+                            <th><p>NATION / CLUB</p></th>
+                            <th class="square"></th>
                         </tr>
-
                     </thead>
                     <tbody class="alt">
                         <tr>
                             <td>
-                                <p>
-                                    1.
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    Néve
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    HUN
-                                </p>
-                            </div>
-                            <div class="big_status_item gold">
+                                <p>1.</p>
+                            </td>
+                            <td>
+                                <p>NAME</p>
+                            </td>
+                            <td>
+                                <p>HUN</p>
+                            </td>
+                            <td class="square gold">
                                 <img src="../assets/icons/emoji_events_black.svg" alt="Winner Icon">
-                            </div>
+                            </td>
                         </tr>
-                        <div class="table_row">
-                            <div class="table_item">
-                                <p>
-                                    1.
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    Néve
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    HUN
-                                </p>
-                            </div>
-                            <div class="big_status_item silver">
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">
-                                <p>
-                                    1.
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    Néve
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    HUN
-                                </p>
-                            </div>
-                            <div class="big_status_item bronze">
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">
-                                <p>
-                                    1.
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    Néve
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    HUN
-                                </p>
-                            </div>
-                            <div class="big_status_item bronze">
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_item">
-                                <p>
-                                    1.
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    Néve
-                                </p>
-                            </div>
-                            <div class="table_item">
-                                <p>
-                                    HUN
-                                </p>
-                            </div>
-                            <div class="big_status_item">
-                            </div>
-                        </div>
+                        <tr>
+                            <td>
+                                <p>2.</p>
+                            </td>
+                            <td>
+                                <p>NAME</p>
+                            </td>
+                            <td>
+                                <p>HUN</p>
+                            </td>
+                            <td class="square silver"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>3.</p>
+                            </td>
+                            <td>
+                                <p>NAME</p>
+                            </td>
+                            <td>
+                                <p>HUN</p>
+                            </td>
+                            <td class="square bronze"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>4.</p>
+                            </td>
+                            <td>
+                                <p>NAME</p>
+                            </td>
+                            <td>
+                                <p>HUN</p>
+                            </td>
+                            <td class="square"></td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

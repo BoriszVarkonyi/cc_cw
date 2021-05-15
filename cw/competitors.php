@@ -96,17 +96,17 @@
                             $nat = $row['nationality'];
                         ?>
 
-                            <div class="table_row">
-                                <div class="table_item bold">
+                            <tr>
+                                <td>
                                     <p><?php echo $pos ?></p>
-                                </div>
-                                <div class="table_item">
+                                </td>
+                                <td>
                                     <p><?php echo $name ?></p>
-                                </div>
-                                <div class="table_item">
+                                </td>
+                                <td>
                                     <p><?php echo $nat ?></p>
-                                </div>
-                            </div>
+                                </td>
+                            </tr>
 
                         <?php
                         }

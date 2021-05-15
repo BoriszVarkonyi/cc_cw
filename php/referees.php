@@ -180,6 +180,10 @@
                         <p>Print Referees</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
+                    <a class="stripe_button primary" href="" target="_blank">
+                        <p>Print Referee Cards</p>
+                        <img src="../assets/icons/print_black.svg"/>
+                    </a>
                     <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
                         <p>Remove Referee</p>
                         <img src="../assets/icons/delete_black.svg"/>
@@ -195,12 +199,14 @@
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
-                        <div class="table t_c_0">
-                            <div class="table_header">
-                                <div class="table_header_text"><p>NAME</p></div>
-                            </div>
-                            <div class="select_competition_wrapper table_row_wrapper alt">
-                            <input type="text" name="selected_comp_id" id="selected_comp_input" class="hidden">
+                        <table class="select_competition_wrapper small">
+                            <thead>
+                                <tr>
+                                    <th><p>NAME</p></th>
+                                </tr>
+                            </thead>
+                            <tbody class="alt">
+                                <input type="text" name="selected_comp_id" id="selected_comp_input" class="hidden">
                                 <?php
                                 //get oragasniser id
                                 $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
@@ -220,13 +226,16 @@
                                     $import_comp_id = $row['comp_id'];
                                 ?>
 
-                            <div class="table_row" id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)"><div class="table_item" id="<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p></div></div>
+                                    <tr id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)">
+                                        <td id="<?php echo $import_comp_id; ?>"><p><?php echo $import_comp_name; ?></p>
+                                        </td>
+                                    </tr>
 
-                            <?php
-                                }
-                            ?>
-                            </div>
-                        </div>
+                                <?php
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
                         <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
                     </form>
                 </div>
@@ -384,6 +393,12 @@
                                 </button>
                             </div>
                             <div class="table_header_text">
+                                <p>PASSWORD</p>
+                                <button type="button" onclick="hidePasswordButton(this)">
+                                    <img src="../assets/icons/visibility_off_black.svg">
+                                </button>
+                            </div>
+                            <div class="table_header_text">
                                 <div class="search_panel option">
                                     <div class="search_panel_buttons">
                                         <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
@@ -420,6 +435,7 @@
                                 <div class="table_item"><p><?php echo $json_object -> prenom . " " . $json_object -> nom; ?></p></div>
                                 <div class="table_item"><p><?php echo $json_object -> nation ?></p></div>
                                 <div class="table_item"><p><?php echo $json_object -> club; ?></p></div>
+                                <div class="table_item"><p> password </p></div>
                                 <div class="table_item"><p><?php
 
                                 if($json_object -> isOnline == false){

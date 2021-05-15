@@ -27,8 +27,8 @@
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="slides">
-                <img src="../article_pics/4.png" alt="slide_1" class="slide">
-                <img src="../article_pics/7.png" alt="slide_2" class="slide hidden">
+                <img src="../article_pics/kovi1.jpg" alt="slide_1" class="slide">
+                <img src="../article_pics/kovi2.jpg" alt="slide_2" class="slide hidden">
                 <img src="../assets/img/fencers_bg_d.svg" alt="slide_3" class="slide hidden">
                 <img src="../assets/img/fencers_bg_v.svg" alt="slide_4" class="slide hidden">
             </div>
@@ -44,8 +44,15 @@
             <div id="content_wrapper" class="columns">
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
-                    <div class="table t_c_1">
-                        <div class="table_row_wrapper alt">
+                    <table class="cw">
+                        <thead>
+                            <tr>
+                                <th><p>NAME</p></th>
+                                <th></th>
+                                <th class="square"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="alt">
                         <?php
                             //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)
                             $qry = "SELECT * FROM competitions WHERE comp_status = 3 ORDER BY comp_start DESC";
@@ -58,26 +65,26 @@
 
                                 //displays the compnames in a table with href button (live)
                                 ?>
-                                <div class="table_row">
+                                <tr>
                                     <!-- comp_name displayed -->
-                                    <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
+                                    <td onclick="window.location.href='competition.php?comp_id=<?php echo $comp_id ?>'">
                                         <p><?php echo $comp_name ?></p>
-                                    </div>
+                                    </td>
                                     <!-- live button href -->
-                                    <div class="table_item live">
+                                    <td>
                                         <a href="competition.php?comp_id=<?php echo $comp_id ?>">Live</a>
-                                    </div>
-                                    <div class="big_status_item">
+                                    </td>
+                                    <td class="square">
                                         <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                                             <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                                         </button>
-                                    </div>
-                                </div>
+                                    </td>
+                                </tr>
                             <?php
                             }
                             ?>
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
                 <!-- latest videos (right) (placeholder)  -->
                 <div class="column">

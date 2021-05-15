@@ -22,7 +22,7 @@
 
 .paper_content .match_report {
     page-break-inside: avoid !important;
-	page-break-after: auto !important;
+	page-break-after: auto;
 	page-break-before: avoid !important;
 }
 

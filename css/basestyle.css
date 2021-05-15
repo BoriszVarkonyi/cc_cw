@@ -895,11 +895,11 @@ table.fixed {
 	table-layout: fixed;
 }
 
-.table.small p {		/* Makea all elements of tbale small */
+.table.small p, table.small p {		/* Makea all elements of table small */
 	font-size: var(--f-small) !important;
 }
 
-.table p {
+.table p, table p {
 	font-size: inherit;
 }
 
@@ -913,7 +913,7 @@ table.fixed {
 	flex: 1 1 100% !important;
 }
 
-.table.full {		/* 100% width no ppading */
+.table.full, table.full {		/* 100% width no ppading */
     width: 100%;
 }
 

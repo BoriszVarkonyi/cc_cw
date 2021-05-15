@@ -976,8 +976,8 @@ input[value="Search"]:hover {
 	align-items: center;
 }
 
-#equipment_panel > div {
-	width: 100%;
+#equipment_panel > table {
+	width: 90%;
 	margin: 25px 0;
 }
 
