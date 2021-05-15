@@ -82,7 +82,7 @@
                                     ?>
                                     <tr>
                                         <td colspan="4">
-                                            <p>You have no Competitions bookmarked.</p>
+                                            <p>You have no Competitions bookmarked</p>
                                         </td>
                                     </tr>
                                     <?php
@@ -91,7 +91,7 @@
                                 ?>
                                 <tr>
                                     <td colspan="4">
-                                        <p>You have no Competitions bookmarked.</p>
+                                        <p>You have no Competitions bookmarked</p>
                                     </td>
                                 </tr>
                                 <?php

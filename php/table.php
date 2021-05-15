@@ -472,7 +472,7 @@ if (isset($_POST["generate_table"])) {
                                     }
                                 ?>
 
-                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" id="<?php echo $keyofmatch ?>" tabindex="1" onclick="selectRound(this), window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" id="<?php echo $key . "_" . $keyofmatch ?>" tabindex="1" onclick="selectRound(this), window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
                                         <div class="table_round">
 
                                             <?php

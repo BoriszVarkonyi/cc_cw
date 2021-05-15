@@ -147,7 +147,7 @@
                         <div id="equipment_panel" class="column_panel breakpoint">
                             <p class="column_panel_title">Equipment needed to be checked:</p>
                             <!-- weapons check table rows -->
-                            <table>
+                            <table class="fixed">
                                 <thead>
                                     <tr>
                                         <th><p>Equipment's name</p></th>
@@ -172,6 +172,13 @@
                                             }
                                         }
                                     ?>
+
+                                    <!-- ha üres
+
+                                                    <tr>
+                                                        <td colspan="1">No equipment</td>
+                                                    </tr>
+                                    -->
                                 </tbody>
                             </table>
                         </div>

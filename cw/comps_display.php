@@ -51,10 +51,20 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
                 <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                 </button>
-            </td class="square">
+            </td>
             <!-- HA ONGOING -->
             <td class="square"></td>
         </tr>
+
+        <!-- ha üres
+            <tr>
+                <td colspan="4">
+                    <p>
+                    No competitions are in this category
+                    </p>
+                </td>
+            </tr>
+        -->
 
 <?php } ?>
     </tbody>
