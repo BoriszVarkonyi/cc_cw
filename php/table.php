@@ -337,10 +337,10 @@ if (isset($_POST["generate_table"])) {
                     </div>
 
                     <div class="search_wrapper">
-                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
+                        <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
                         <button type="button"><img src="../assets/icons/close_black.svg"></button>
                         <div class="search_results">
-                            <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Jump to <span id="match_id_text">{Match id}</span></button>
+                            <button id="jumpToButton" href="#" onclick="selectSearchedRound()" type="button">Jump to <span id="match_id_text">{Match id}</span></button>
                         </div>
                     </div>
 
