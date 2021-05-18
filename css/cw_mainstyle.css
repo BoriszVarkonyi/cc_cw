@@ -878,6 +878,12 @@ input[value="Search"]:hover {
 	transform: translate(0, -50%);
 }
 
+#title_stripe > button img {
+	width: 50px;
+	height: 50px;
+}
+
+
 #title_stripe > div {
 	display: flex;
 	flex-wrap: wrap;
@@ -976,8 +982,8 @@ input[value="Search"]:hover {
 	align-items: center;
 }
 
-#equipment_panel > div {
-	width: 100%;
+#equipment_panel > table {
+	width: 90%;
 	margin: 25px 0;
 }
 
@@ -1226,22 +1232,8 @@ input[value="Search"]:hover {
 
 /* Saved Competitions */
 
-.table .bookmark_button {
-	width: var(--lineheight);
-	height: var(--lineheight);
-	background: transparent;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .bookmark_button:hover {
 	transform: scale(1.1);
-}
-
-.bookmark_button img {
-	width: 90%;
-	height: 90%;
 }
 
 .big_status_item .bookmark_button {

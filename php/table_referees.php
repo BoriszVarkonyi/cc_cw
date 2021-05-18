@@ -102,9 +102,9 @@ if (isset($_POST["submit_referees"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table Pistes & Time setup</title>
-    <link rel="stylesheet" href="../css/table_pistes_and_time_style.min.css">
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/table_config_style.min.css">
 </head>
 
 <body>
@@ -280,6 +280,7 @@ if (isset($_POST["submit_referees"])) {
                                     </div>
                                 </div>
                             </div>
+                            <button class="try_button" onclick="try_referees()">Try</button>
                             <div class="db_panel full" id="matches_preview_panel">
                                 <div class="db_panel_title_stripe">
                                     <img src="../assets/icons/build_black.svg">
@@ -418,7 +419,6 @@ if (isset($_POST["submit_referees"])) {
                                             ?>
                                         </div>
                                     </div>
-                                    <button class="try_button" onclick="try_referees()">Try</button>
                                 </div>
                             </div>
                             <div class="db_panel full hidden" id="referees_preview_panel">

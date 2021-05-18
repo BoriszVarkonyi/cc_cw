@@ -74,7 +74,7 @@
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
                     <p><?php echo $starting_date ?></p>
-                    <p>INVIDIUDAL</p>
+                    <p>{IDE KIÍRNI INDIVIDUAL VAGY TEAM}</p>
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">
@@ -147,12 +147,14 @@
                         <div id="equipment_panel" class="column_panel breakpoint">
                             <p class="column_panel_title">Equipment needed to be checked:</p>
                             <!-- weapons check table rows -->
-                            <div class="table no_interaction">
-                                <div class="table_header">
-                                    <div class="table_header_text">Equipment's name</div>
-                                    <div class="table_header_text">Needed Quantity</div>
-                                </div>
-                                <div class="table_row_wrapper alt">
+                            <table class="fixed">
+                                <thead>
+                                    <tr>
+                                        <th><p>Equipment's name</p></th>
+                                        <th><p>Needed Quantity</p></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
                                     <?php
                                         $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
 
@@ -162,16 +164,23 @@
 
                                             if ($array_equipment[$i] != 0) {
                                                 ?>
-                                                    <div class="table_row">
-                                                        <div class="table_item"><?php echo $equipment[$i] ?></div>
-                                                        <div class="table_item"><?php echo $array_equipment[$i] ?></div>
-                                                    </div>
+                                                    <tr>
+                                                        <td><?php echo $equipment[$i] ?></td>
+                                                        <td><?php echo $array_equipment[$i] ?></td>
+                                                    </tr>
                                                 <?php
                                             }
                                         }
                                     ?>
-                                </div>
-                            </div>
+
+                                    <!-- ha üres
+
+                                                    <tr>
+                                                        <td colspan="1">No equipment</td>
+                                                    </tr>
+                                    -->
+                                </tbody>
+                            </table>
                         </div>
 
                         <!-- additional info panel -->

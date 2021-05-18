@@ -43,6 +43,10 @@ $json_table = $objects->sorted;
                 <p class="page_title">Overview</p>
                 <div class="stripe_button_wrapper">
                     <input type="text" class="selected_list_item_input">
+                    <button class="stripe_button primary" type="button" onclick="">
+                        <p>Export Results</p>
+                        <img src="../assets/icons/upgrade_black.svg" />
+                    </button>
                     <button class="stripe_button primary" type="button" onclick="window.print()">
                         <p>Print Overview</p>
                         <img src="../assets/icons/print_black.svg" />

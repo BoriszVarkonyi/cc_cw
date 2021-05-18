@@ -71,7 +71,7 @@
                     <input name="submit_search" type="submit" value="Search">
                 </form>
 
-                <div class="table cw">
+                <table class="cw">
                     <?php
                     $qry = "SELECT * FROM `cptrs_$comp_id` " . $WHERE_CLAUSE . " ORDER BY `rank` ASC";
                     $do = mysqli_query($connection, $qry);
@@ -81,12 +81,12 @@
                         <?php
                     } else {
                         ?>
-                        <div class="table_header">
-                            <div class="table_header_text"><p>POSITION</p></div>
-                            <div class="table_header_text"><p>NAME</p></div>
-                            <div class="table_header_text"><p>NATION / CLUB</p></div>
-                        </div>
-                        <div class="table_row_wrapper alt">
+                        <thead>
+                            <th><p>POSITION</p></th>
+                            <th><p>NAME</p></th>
+                            <th><p>NATION / CLUB</p></th>
+                        </thead>
+                        <tbody class="alt">
                         <?php
                         while ($row = mysqli_fetch_assoc($do)) {
 
@@ -96,23 +96,26 @@
                             $nat = $row['nationality'];
                         ?>
 
-                            <div class="table_row">
-                                <div class="table_item bold">
+                            <tr>
+                                <td>
                                     <p><?php echo $pos ?></p>
-                                </div>
-                                <div class="table_item">
+                                </td>
+                                <td>
                                     <p><?php echo $name ?></p>
-                                </div>
-                                <div class="table_item">
+                                </td>
+                                <td>
                                     <p><?php echo $nat ?></p>
-                                </div>
-                            </div>
+                                </td>
+                            </tr>
 
                         <?php
                         }
+                        ?>
+                        </tbody>
+                        <?php
                     }
                     ?>
-                </div>
+                </table>
             </div>
         </div>
     </main>

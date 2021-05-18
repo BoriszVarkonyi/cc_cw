@@ -1098,13 +1098,13 @@ nav:hover #nav_bar_pin {
 	font-size: 50px;
 	z-index: 0;
 	text-transform: uppercase;
-	color: var(--c-lightestgray);
+	color: var(--c-lightergray);
 	position: absolute;
 	transition: all var(--t-basic);
 }
 
-#app_name p:last-child:hover {
-	color: var(--c-lightergray);
+#app_name:hover p:last-child {
+	color: var(--c-lightgray);
 }
 
 #nav_bar_content {
@@ -1139,7 +1139,7 @@ nav:hover #nav_bar_pin {
 	padding: 0 15px 0 20px;
 	box-sizing: border-box;
 	float: left;
-	/* needed for burttons */
+	/* needed for buttons */
 	font-size: inherit;
 }
 
@@ -1247,7 +1247,7 @@ nav:hover #nav_bar_pin {
 }
 */
 
-#need_help {
+#documentation_label {
 	margin: auto 0 10px 0;
 	font-size: var(--f-medium);
 	display: flex;
@@ -1259,18 +1259,18 @@ nav:hover #nav_bar_pin {
 	align-self: center;
 }
 
-#need_help:hover {
+#documentation_label:hover {
 	background: var(--c-transparent-white);
 }
 
-#need_help p {
+#documentation_label p {
 	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-#need_help img {
+#documentation_label img {
 	height: 1.05em;
 	width: 1.05em;
 	margin-right: 5px;
@@ -1332,18 +1332,18 @@ nav.closed .nav_bar_item .dropdown_icon {
 	animation-fill-mode: forwards;
 }
 
-nav.closed #need_help {
+nav.closed #documentation_label {
 	width: 100%;
 }
 
-nav.closed #need_help p {
+nav.closed #documentation_label p {
 	-webkit-animation: hideNavTitles var(--t-basic);
 	animation: hideNavTitles var(--t-basic);
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-nav.closed #need_help img {
+nav.closed #documentation_label img {
 	padding: 0;
 	margin: 0;
 }
@@ -2277,44 +2277,18 @@ textarea.standalone {
 	right: 200px;
 }
 
-.select_competition_wrapper {
-	border: none !important;
+.select_competition_wrapper tbody {
 	width: 350px;
-	overflow: auto;
 	max-height: 400px;
 }
 
-.select_competition_wrapper .table_row {
-	height: calc(1.2em + 1.0vmin);
-}
-
-#import_technician, #import_ref {
-	display: flex;
-	justify-content: center;
+.select_competition_wrapper tr, .select_competition_wrapper td, .select_competition_wrapper th {
+	height: calc(1.2em + 1.0vmin) !important;
 	width: 350px;
 }
 
-#visibility_button {
-	max-width: var(--f-medium);
-	max-height: var(--f-medium);
-	background: transparent;
-	vertical-align: middle;
-	margin-left: 3px;
-}
-
-#visibility_button > img {
-	width: 100%;
-	height: 100%;
-}
-
-/* ///INFORMATION FOR FENCERS/// */
-
-#reset_button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-left: 5px;
-	background: transparent;
+#import_technician, #import_ref {
+	width: 350px;
 }
 
 /* ///REGISTRTION/// */

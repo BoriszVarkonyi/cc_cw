@@ -43,15 +43,17 @@
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
-                <div class="table cw">
-                    <div class="table_header">
-                        <div class="table_header_text">POSITION</div>
-                        <div class="table_header_text">FENCER'S NAME</div>
-                        <div class="table_header_text">NATION / CLUB</div>
-                        <div class="table_header_text">DATE OF BIRTH</div>
-                        <div class="table_header_text">POINTS</div>
-                    </div>
-                    <div class="table_row_wrapper alt">
+                <table class="cw">
+                    <thead>
+                        <tr>
+                            <th><p>POSITION</p></th>
+                            <th><p>FENCER'S NAME</p></th>
+                            <th><p>NATION / CLUB</p></th>
+                            <th><p>DATE OF BIRTH</p></th>
+                            <th><p>POINTS</p></th>
+                        </tr>
+                    </thead>
+                    <tbody class="alt">
                     <?php
                         //echo out rankings fencers
                         $qry_get_fencer = "SELECT * FROM rk_$ranking_id ORDER BY position ASC";
@@ -66,18 +68,18 @@
                             $fencer_points = $row['points'];
 
                     ?>
-                        <div class="table_row">
-                            <div class="table_item"><p><?php echo $fencer_position ?></p></div>
-                            <div class="table_item"><p><?php echo $fencer_name?></p></div>
-                            <div class="table_item"><p><?php echo $fencer_nat?></p></div>
-                            <div class="table_item"><p><?php echo $fencer_dob?></p></div>
-                            <div class="table_item"><p><?php echo $fencer_points?></p></div>
-                        </div>
+                        <tr>
+                            <td><p><?php echo $fencer_position ?></p></td>
+                            <td><p><?php echo $fencer_name?></p></td>
+                            <td><p><?php echo $fencer_nat?></p></td>
+                            <td><p><?php echo $fencer_dob?></p></td>
+                            <td><p><?php echo $fencer_points?></p></td>
+                        </tr>
                     <?php
                         }
                     ?>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

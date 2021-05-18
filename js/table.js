@@ -4,7 +4,6 @@ var firstTableRound = document.getElementById("e_1")
 
 var tableNames = firstTableRound.querySelectorAll(".table_fencer_name")
 
-console.log(tableNames)
 
 for (const iterator of tableNames) {
 
@@ -534,3 +533,43 @@ function cookieRester() {
     document.cookie = "index2=0";
     document.cookie = "index3=0";
 }
+
+function toggleResetTable() {
+    var panel = document.getElementById("reset_table_panel");
+
+    panel.classList.toggle("hidden");
+}
+
+
+//Search system
+var searchInput = document.querySelector(".search_wrapper .search")
+var jumpToButton = document.getElementById("jumpToButton")
+var searchResults = document.querySelector(".search_wrapper .search_results")
+var searchForRoundDiv;
+searchInput.addEventListener("input", function(){
+    breakLoop:
+    for(i=0; i<tableInArray.length; i++){
+        for(j=0; j<tableInArray[i].length; j++){
+            for(k=0; k<tableInArray[i][j].length; k++){
+                if(tableInArray[i][j][k] != undefined && tableInArray[i][j][k].id === searchInput.value){
+                    //searchResults.classList.remove("empty");
+                    jumpToButton.classList.remove("hidden")
+                    var span = document.getElementById("match_id_text")
+                    span.innerHTML = searchInput.value
+                    searchForRoundDiv = tableInArray[i][j][k]
+                    break breakLoop;
+                }
+                else{
+                    //searchResults.classList.add("empty");
+                    jumpToButton.classList.add("hidden")
+                }
+            }
+        }   
+    }
+})
+
+function selectSearchedRound(){
+    selectRound(searchForRoundDiv)
+    tableInArray[index1][index2][index3].click();
+}
+

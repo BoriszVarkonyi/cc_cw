@@ -28,14 +28,16 @@
                         <p>These are only stored in your browser and will be deleted after the removal of <a href="https://www.allaboutcookies.org/cookies/">cookies</a>.</p>
                     </div>
                 </div>
-                <div class="table cw middle">
-                    <div class="table_header">
-                        <div class="table_header_text"><p>COMPETITION'S NAME</p></div>
-                        <div class="table_header_text"><p>STARTING AND ENDING DATE</p></div>
-                        <div class="table_header_text"><p>STATUS</p></div>
-                        <div class="big_status_header"></div>
-                    </div>
-                    <div class="table_row_wrapper alt">
+                <table class="cw middle">
+                    <thead>
+                        <tr>
+                            <th><p>COMPETITION'S NAME</p></th>
+                            <th><p>STARTING AND ENDING DATE</p></th>
+                            <th><p>STATUS</p></th>
+                            <th class="square"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="alt">
 
                         <?php
                             if (isset($_COOKIE['bookmarks'])) {
@@ -58,45 +60,45 @@
 
                             ?>
                             <!-- Ezten kell loopba tenni -->
-                            <div class="table_row">
-                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
+                            <tr>
+                                <td onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
                                     <p><?php echo $comp_name ?></p>
-                                </div>
-                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
+                                </td>
+                                <td onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
                                     <p><?php echo $comp_start ?>&nbsp;&nbsp;-&nbsp;&nbsp;<?php echo $comp_end ?></p>
-                                </div>
-                                <div class="table_item" onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
+                                </td>
+                                <td onclick="window.location.href='competition.php?comp_id=<?php echo $current_comp_id ?>'">
                                     <p><?php echo statusConverter($comp_status) ?></p>
-                                </div>
-                                <div class="big_status_item">
+                                </td>
+                                <td class="square">
                                     <button value="<?php echo $current_comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                                         <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                                     </button>
-                                </div>
-                            </div>
+                                </td>
+                            </tr>
                             <?php
                                     }
                                 } else {
                                     ?>
-                                    <div class="table_row">
-                                        <div class="table_item">
-                                            <p>You have no Competitions bookmarked.</p>
-                                        </div>
-                                    </div>
+                                    <tr>
+                                        <td colspan="4">
+                                            <p>You have no Competitions bookmarked</p>
+                                        </td>
+                                    </tr>
                                     <?php
                                 }
                             } else {
                                 ?>
-                                <div class="table_row">
-                                    <div class="table_item">
-                                        <p>You have no Competitions bookmarked.</p>
-                                    </div>
-                                </div>
+                                <tr>
+                                    <td colspan="4">
+                                        <p>You have no Competitions bookmarked</p>
+                                    </td>
+                                </tr>
                                 <?php
                             }
                         ?>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

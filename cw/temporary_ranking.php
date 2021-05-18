@@ -36,14 +36,16 @@
                     <button id="passed_lengend" value="Ongoing Table" aria-label="Select Passsed"></button>
                     <p>Passed</p>
                 </div>
-                <div class="table cw">
-                    <div class="table_header">
-                        <div class="table_header_text">POSITION</div>
-                        <div class="table_header_text">NAME</div>
-                        <div class="table_header_text">NATION / CLUB</div>
-                        <div class="small_status_header"></div>
-                    </div>
-                    <div class="table_row_wrapper alt">
+                <table class="cw">
+                    <thead>
+                        <tr>
+                            <th><p>POSITION</p></th>
+                            <th><p>NAME</p></th>
+                            <th><p>NATION / CLUB</p></th>
+                            <th class="small"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="alt">
                         <?php
                             //get competitors sorted by temp rank
                             $qry = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank ASC";
@@ -56,32 +58,32 @@
                                 $fencer_temp_rank = $row['temporary_rank'];
                         ?>
 
-                        <div class="table_row">
-                            <div class="table_item">
-                                    <p>
-                                        <?php echo $fencer_temp_rank ?>
-                                    </p>
-                                </div>
-                                <div class="table_item">
-                                    <p>
-                                        <?php echo $fencer_name ?>
-                                    </p>
-                                </div>
-                                <div class="table_item">
-                                    <p>
-                                        <?php echo $fencer_nat ?>
-                                    </p>
-                                </div>
-                                <div class="small_status_item red"></div>
-                            </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
+                        <tr>
+                            <td>
+                                <p>
+                                    <?php echo $fencer_temp_rank ?>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <?php echo $fencer_name ?>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <?php echo $fencer_nat ?>
+                                </p>
+                            </td>
+                            <td class="small red"></td>
+                        </tr>
+
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <?php include "cw_footer.php"; ?>
     </main>
+    <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/competitions.js"></script>

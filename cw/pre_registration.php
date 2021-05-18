@@ -142,20 +142,22 @@ if(isset($_POST["send_pre"])){
                         <div id="browsing_bar" class="single">
                             <input type="text" name="" placeholder="Search by Name" class="search alt" onkeyup="">
                         </div>
-                        <div class="table full">
-                            <div class="table_header">
-                                <div class="table_header_text">POSITION</div>
-                                <div class="table_header_text">NAME</div>
-                                <div class="table_header_text">DATE OF BIRTH</div>
-                            </div>
-                            <div class="table_row_wrapper">
-                                <div class="table_row" id="" onclick="selectFencer(this)">
-                                    <div class="table_item">pos</div>
-                                    <div class="table_item" id="">name</div>
-                                    <div class="table_item">dob</div>
-                                </div>
-                            </div>
-                        </div>
+                        <table class="full">
+                            <thead>
+                                <tr>
+                                    <th><p>POSITION</p></th>
+                                    <th><p>NAME</p></th>
+                                    <th><p>DATE OF BIRTH</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="" onclick="selectFencer(this)">
+                                    <td><p>pos</p></td>
+                                    <td><p>name</p></td>
+                                    <td><p>dob</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="send_panel">

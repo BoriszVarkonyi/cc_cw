@@ -28,6 +28,10 @@
             <div id="title_stripe">
                 <p class="page_title">Import Competitiors from XML</p>
                 <div class="stripe_button_wrapper">
+                    <a class="stripe_button bold" href="competitors.php?comp_id=<?php echo $comp_id ?>">
+                        <p>Go back to Competitiors</p>
+                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                    </a>
                     <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">
                         <p>Import</p>
                         <img src="../assets/icons/get_app_black.svg"/>

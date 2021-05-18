@@ -9,36 +9,58 @@ function searchButton(x) {
     button.classList.toggle("active");
 }
 
+
+var typingTimer;
+var doneTypingInterval = 500;
+
+
+function startTimer(){
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(searchInLists, doneTypingInterval)
+}
+
+function clearTimer(){
+    //clearTimeout(typingTimer);
+}
+
+var previousSearches = [];
 function searchInLists() {
     var searches = document.querySelectorAll(".table_header .search")
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
-        var filter = searches[j].value.toUpperCase();
-        if (j > 0) {
-            var li = document.querySelectorAll('.table_row_wrapper .table_row:not( .hidden) > div:nth-of-type(' + (j + 1) + ')');
-        }
-        else {
-            var li = document.querySelectorAll('.table_row_wrapper .table_row > div:nth-of-type(' + (j + 1) + ')');
-        }
-        //Loops throught the rows
-        for (i = 0; i < li.length; i++) {
-            a = li[i].querySelector("p");
-            txtValue = a.textContent || a.innerText;
-            //if the input is a radio button the search is stricter
-            if (searches[j].parentNode.parentNode.classList.contains("option")) {
-                if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
-                    li[i].parentNode.classList.remove("hidden")
-                } else {
-                    li[i].parentNode.classList.add("hidden")
-                }
+        if (previousSearches[j] != searches[j].value || j == 0) {
+            previousSearches.push(searches[j].value)
+            var filter = searches[j].value.toUpperCase();
+            if (j > 0) {
+                var li = document.querySelectorAll('.table_row_wrapper .table_row:not( .hidden) > div:nth-of-type(' + (j + 1) + ')');
             }
             else {
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[i].parentNode.classList.remove("hidden")
-                } else {
-                    li[i].parentNode.classList.add("hidden")
-                }
+                var li = document.querySelectorAll('.table_row_wrapper .table_row > div:nth-of-type(' + (j + 1) + ')');
             }
+            //Loops throught the rows
+            for (i = li.length; i--;) {
+                a = li[i].querySelector("p");
+                txtValue = a.textContent || a.innerText;
+                //if the input is a radio button the search is stricter
+                if (searches[j].parentNode.parentNode.classList.contains("option")) {
+                    if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
+                        li[i].parentNode.classList.remove("hidden")
+                    } else {
+                        li[i].parentNode.classList.add("hidden")
+                    }
+                }
+                else {
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].parentNode.classList.remove("hidden")
+                    } else {
+                        li[i].parentNode.classList.add("hidden")
+                    }
+                }
+
+            }
+        }
+        else {
+            continue;
         }
     }
     //setas the row bg color
@@ -63,8 +85,8 @@ function searchInLists() {
 var radioButtons = document.querySelectorAll(".table_header .option_container input")
 // Displays all row when click the X
 function searchDelete(x) {
-    if (x.previousElementSibling.value == undefined) {
-        x.parentNode.previousElementSibling.firstElementChild.value = ""
+    if (x.previousElementSibling == undefined) {
+        x.parentNode.nextElementSibling.firstElementChild.value = ""
         for (i = 0; i < radioButtons.length; i++) {
             radioButtons[i].checked = false;
         }
@@ -79,10 +101,12 @@ function searchDelete(x) {
 radioButtons.forEach(item => {
     item.addEventListener("input", function () {
         var searchInput = this.parentNode.previousElementSibling.firstElementChild
+        console
         searchInput.value = this.value;
         searchInLists();
     });
 })
+
 
 //Sort system
 var defaultArray = [];
@@ -94,7 +118,7 @@ for (i = 0; i < defaultNameSequence.length; i++) {
 
 var allButtons = document.querySelectorAll("#page_content_panel_main .table_header_text > button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
-for(i= 0; i<sortButtonCookie[1]; i++){
+for (i = 0; i < sortButtonCookie[1]; i++) {
     sortButton(allButtons[sortButtonCookie[0]])
 }
 
@@ -130,7 +154,7 @@ function sortButton(x) {
             // Current: Default Swtiches to: A-Z
             sortImg.src = "../assets/icons/switch_down_black.svg"
             rowSort(columnIndex + 1, "A-Z");
-        document.cookie = "sortCookie=" + columnIndex + "1"
+            document.cookie = "sortCookie=" + columnIndex + "1"
     }
 }
 
@@ -138,15 +162,33 @@ function rowSort(index, mode) {
     //Makes an array from A-Z (whith strings)
     var sortByArray = [];
     var names = document.querySelectorAll("#page_content_panel_main .table_row .table_item:nth-of-type(" + index + ") p")
+    var isNumberArray = true;
     for (i = 0; i < names.length; i++) {
-        sortByArray.push(names[i].innerHTML)
+        if (isNaN(names[i].innerHTML)) {
+            sortByArray.push(names[i].innerHTML)
+            isNumberArray = false;
+        }
+        else {
+
+            sortByArray.push(parseInt(names[i].innerHTML))
+        }
     }
-    sortByArray.sort();
+    if (isNumberArray) {
+        sortByArray.sort(function (a, b) {
+            return a - b;
+        });
+        for (i = 0; i < sortByArray.length; i++) {
+            sortByArray[i] = sortByArray[i].toString();
+        }
+    }
+    else {
+        sortByArray.sort();
+    }
     var rows = document.querySelectorAll("#page_content_panel_main .table_row")
     var rowNode = document.querySelector("#page_content_panel_main .table_row_wrapper")
     switch (mode) {
         case "A-Z":
-            for (i = rows.length - 1; i > 0; i--) {
+            for (i = rows.length - 1; i >= 0; i--) {
                 rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
                 rows = document.querySelectorAll("#page_content_panel_main .table_row")
             }
