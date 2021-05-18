@@ -552,7 +552,7 @@ searchInput.addEventListener("input", function(){
         for(j=0; j<tableInArray[i].length; j++){
             for(k=0; k<tableInArray[i][j].length; k++){
                 if(tableInArray[i][j][k] != undefined && tableInArray[i][j][k].id === searchInput.value){
-                    searchResults.classList.remove("empty");
+                    //searchResults.classList.remove("empty");
                     jumpToButton.classList.remove("hidden")
                     var span = document.getElementById("match_id_text")
                     span.innerHTML = searchInput.value
@@ -560,7 +560,7 @@ searchInput.addEventListener("input", function(){
                     break breakLoop;
                 }
                 else{
-                    searchResults.classList.add("empty");
+                    //searchResults.classList.add("empty");
                     jumpToButton.classList.add("hidden")
                 }
             }
