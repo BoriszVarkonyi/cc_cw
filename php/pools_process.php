@@ -132,7 +132,7 @@
 
     $sorted = $ranking -> sort();
 
-    var_dump($sorted);
+    //var_dump($sorted);
 
 
     //update give temp rank to fencers in db
