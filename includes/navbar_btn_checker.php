@@ -171,6 +171,8 @@
                             $pool_phase = 2;
                         }
                         //phase 3 a pool done
+                    } else {
+                        $pool_phase = 0;
                     }
                 } else { // pools generate;
                     $pool_phase = 0;
