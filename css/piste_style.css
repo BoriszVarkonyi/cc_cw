@@ -126,8 +126,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: var(--f-xxxlarge);
+	font-size: 2vh;
 	font-family: var(--bold);
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .piste.main > div:first-of-type, .piste.main > div:last-of-type {

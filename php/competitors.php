@@ -90,11 +90,17 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
         <main>
             <div id="title_stripe">
                 <p class="page_title">Competitors</p>
-                <input type="text" class="selected_list_item_input">
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
+                    </button>
+                    <form action="" id="IDE KELL A FOR IDJE">
+                        <input type="text" class="selected_list_item_input" readonly>
+                    </form>
+                    <button class="stripe_button red" type="submit" form="IDE KELL A FOR IDJE">
+                        <p>Remove Fencer</p>
+                        <img src="../assets/icons/delete_black.svg"/>
                     </button>
                     <button class="stripe_button primary" type="button" onclick="window.print()">
                         <p>Print Competitors</p>
