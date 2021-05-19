@@ -72,7 +72,7 @@ function formvariableDeclaration() {
         }
     }
 }
-/*
+
 var canAutoValidate = true;
 function formValidation(overlayForm, inputs, saveButton, optionContainers){
     if(canAutoValidate){
@@ -123,4 +123,3 @@ function formValidation(overlayForm, inputs, saveButton, optionContainers){
         overlayForm.addEventListener("input", validation)
     }
 }
-*/

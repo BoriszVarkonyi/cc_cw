@@ -394,7 +394,7 @@
                             </div>
                             <div class="table_header_text">
                                 <p>PASSWORD</p>
-                                <button type="button" onclick="hidePasswordButton(this)">
+                                <button type="button" onclick="hidePasswordButton(this)" id="visibility_button">
                                     <img src="../assets/icons/visibility_off_black.svg">
                                 </button>
                             </div>
@@ -435,7 +435,7 @@
                                 <div class="table_item"><p><?php echo $json_object -> prenom . " " . $json_object -> nom; ?></p></div>
                                 <div class="table_item"><p><?php echo $json_object -> nation ?></p></div>
                                 <div class="table_item"><p><?php echo $json_object -> club; ?></p></div>
-                                <div class="table_item"><p> password </p></div>
+                                <div class="table_item password"><p> password </p></div>
                                 <div class="table_item"><p><?php
 
                                 if($json_object -> isOnline == false){

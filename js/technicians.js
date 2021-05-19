@@ -8,10 +8,10 @@ function toggle_import_technician() {
     var element = document.getElementById("import_technician_panel");
     element.classList.toggle("hidden");
     //importOverlayClosed is a var. from importoverlay.js
-    if(element.classList.contains("hidden")){
+    if (element.classList.contains("hidden")) {
         importOverlayClosed = true;
     }
-    else{
+    else {
         importOverlayClosed = false;
     }
 }
@@ -19,12 +19,12 @@ function toggle_import_technician() {
 
 //Generates a random password with 10 character to the password field of new technician
 
-function randomPassword(){
+function randomPassword() {
 
     var alphabet = "abcdefghijklmnopqrstuvwxyz" + 'abcdefghijklmnopqrstuvwxyz'.toUpperCase() + "0123456789";
     var randompasswordarray = [];
 
-    for (i = 0;i < 10; i++) {
+    for (i = 0; i < 10; i++) {
 
         var randomnumber = Math.floor(Math.random() * 62);
         var randomletter = alphabet.charAt(randomnumber);
@@ -35,66 +35,37 @@ function randomPassword(){
     randompassword = randompasswordarray.join("");
     var passfield = document.getElementById("password_input");
     passfield.value = randompassword;
-    }
-
-
-//Counts the characters of technician's passwords and replaces with as many stars as many characters the password had
-
-var visib = 1;
-var sajtos = [];
-var change_id = document.getElementsByClassName("password_table_item");
-for(i = 0; i < change_id.length; i++) {
-
-   var sajt = change_id.item(i).innerHTML;
-   sajtos.push(sajt);
-
 }
-var test = [];
+//Counts the characters of ranking information's passwords and replaces with as many stars as many characters the password had
+var buttonIcon = document.querySelector("#visibility_button > img")
+var passwordText = document.getElementById("password")
+//Saves the password
+var password = passwordText.innerHTML
+var stars = "";
+var visible = false;
+//Hides the password
+for (i = 0; i < passwordText.innerHTML.length; i++) {
+    stars += "*"
+}
+passwordText.innerHTML = stars
+buttonIcon.src = "../assets/icons/visibility_off_black.svg";
 
-    sajtos.forEach(element => test.push(element.length));
-
-var star = "*";
-
-    for(i = 0; i < change_id.length; i++) {
-
-        change_id.item(i).innerHTML = star.repeat(test[i]);
-
-     }
-
-
-//Changes between the shown end the hidden password.
-
-function hidePasswords(x) {
-
-    var buttonIcon = document.querySelector("#visibility_button > img");
-
-    buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-
-    if (visib == 1){
-
+function hidePasswordButton(x) {
+    if (visible) {
+        //Hides the password changes the image
         buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-
-    for(i = 0; i < change_id.length; i++) {
-
-        change_id.item(i).innerHTML = sajtos[i];
-
+        var stars = "";
+        for (i = 0; i < passwordText.innerHTML.length; i++) {
+            stars += "*"
+        }
+        passwordText.innerHTML = stars
+        visible = false;
     }
-
-    visib = 2;
-
-
-    }
-    else{
-
-        for(i = 0; i < change_id.length; i++) {
-
-            change_id.item(i).innerHTML = star.repeat(test[i]);
-
-         }
-
-         buttonIcon.src = "../assets/icons/visibility_black.svg";
-
-         visib = 1;
+    else {
+        //Show the password, changes the image
+        passwordText.innerHTML = password
+        buttonIcon.src = "../assets/icons/visibility_black.svg";
+        visible = true;
     }
 }
 
@@ -104,24 +75,24 @@ var oldSelectedTechImport;
 function importTechnicians(x) {
     var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
     var clickedImportTechrow = x
-    if(oldSelectedTechImport != clickedImportTechrow){
-    //removes selected class from every row
-    for(i = 0; i < importTechTablerows.length; i++){
-        importTechTablerows[i].classList.remove("selected");
+    if (oldSelectedTechImport != clickedImportTechrow) {
+        //removes selected class from every row
+        for (i = 0; i < importTechTablerows.length; i++) {
+            importTechTablerows[i].classList.remove("selected");
+        }
+        //Adds selected class
+        clickedImportTechrow.classList.add("selected")
+        //Saves the id into the hidden input
+        importTechHiddenInput.value = clickedImportTechrow.id
+        //Saves the clicked row
+        oldSelectedTechImport = clickedImportTechrow;
     }
-    //Adds selected class
-    clickedImportTechrow.classList.add("selected")
-    //Saves the id into the hidden input
-    importTechHiddenInput.value = clickedImportTechrow.id
-    //Saves the clicked row
-    oldSelectedTechImport = clickedImportTechrow;
-    }
-    else{
-    //Adds selected class
-    clickedImportTechrow.classList.remove("selected")
-    //Saves the id into the hidden input
-    importTechHiddenInput.value = ""
-    //Saves the clicked row
-    oldSelectedTechImport = undefined;
+    else {
+        //Adds selected class
+        clickedImportTechrow.classList.remove("selected")
+        //Saves the id into the hidden input
+        importTechHiddenInput.value = ""
+        //Saves the clicked row
+        oldSelectedTechImport = undefined;
     }
 }

@@ -39,65 +39,32 @@ function randomPassword() {
     passfield.value = randompassword;
 }
 
+//Counts the characters of ranking information's passwords and replaces with as many stars as many characters the password had
+var buttonIcon = document.querySelector("#visibility_button > img")
+var passwordText = document.querySelectorAll(".password p")
 
-//Counts the characters of technician's passwords and replaces with as many stars as many characters the password had
-
-var visib = 1;
-var sajtos = [];
-var change_id = document.getElementsByClassName("password_table_item");
-for (i = 0; i < change_id.length; i++) {
-
-    var sajt = change_id.item(i).innerHTML;
-    sajtos.push(sajt);
-
+//Saves the password
+var tableRows = document.querySelectorAll(".wrapper .table_row")
+var passwordDict = {};
+for(i=0; i<tableRows.length; i++){
+    passwordDict[tableRows[i].id] = passwordText[i].innerHTML
 }
-var test = [];
+var stars ="";
+var visible = false;
+//Hides the password
 
-sajtos.forEach(element => test.push(element.length));
-
-var star = "*";
-
-for (i = 0; i < change_id.length; i++) {
-
-    change_id.item(i).innerHTML = star.repeat(test[i]);
-
-}
-
-
-//Changes between the shown end the hidden password.
-
-function hidePasswords(x) {
-
-    var buttonIcon = document.querySelector("#visibility_button > img");
-
+buttonIcon.src = "../assets/icons/visibility_off_black.svg";
+function hidePasswordButton(x) {
+  if(visible){
+    //Hides the password changes the image
     buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-
-    if (visib == 1) {
-
-        buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-
-        for (i = 0; i < change_id.length; i++) {
-
-            change_id.item(i).innerHTML = sajtos[i];
-
-        }
-
-        visib = 2;
-
-
-    }
-    else {
-
-        for (i = 0; i < change_id.length; i++) {
-
-            change_id.item(i).innerHTML = star.repeat(test[i]);
-
-        }
-
-        buttonIcon.src = "../assets/icons/visibility_black.svg";
-
-        visib = 1;
-    }
+    visible = false;
+  }
+  else {
+    //Show the password, changes the image
+    buttonIcon.src = "../assets/icons/visibility_black.svg";
+    visible = true;
+  }
 }
 
 //Selects the competition that the technicians will be imported from

@@ -573,3 +573,16 @@ function selectSearchedRound(){
     tableInArray[index1][index2][index3].click();
 }
 
+//Form validation
+//It is a var from main.js
+canAutoValidate = false;
+var selectInput = document.querySelector("#table_select_wrapper .search input")
+var resetButton = document.querySelector("#reset_table_panel .panel_submit")
+function formValidation(){
+    if(selectInput.value != ""){
+        resetButton.disabled = false;
+    }
+    else{
+        resetButton.disabled = true;
+    }
+}
