@@ -429,13 +429,21 @@
 
                                 foreach ($json_table as $json_object) {
 
+
+                                    $string_chars = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+
+                                    $password = "";
+                                    for ($i = 0; $i < 20; $i++) { //change lenght of password and random characters;
+                                        $random_number = rand(0, strlen($string_chars) - 1);
+                                        $password[$i] = $string_chars[$random_number];
+                                    }
                             ?>
 
                             <div class="table_row" id="<?php echo $json_object -> id; ?>" onclick="selectRow(this)">
                                 <div class="table_item"><p><?php echo $json_object -> prenom . " " . $json_object -> nom; ?></p></div>
                                 <div class="table_item"><p><?php echo $json_object -> nation ?></p></div>
                                 <div class="table_item"><p><?php echo $json_object -> club; ?></p></div>
-                                <div class="table_item password"><p> password </p></div>
+                                <div class="table_item password"><p> <?php echo $password ?> </p></div>
                                 <div class="table_item"><p><?php
 
                                 if($json_object -> isOnline == false){

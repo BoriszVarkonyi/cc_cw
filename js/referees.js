@@ -42,29 +42,48 @@ function randomPassword() {
 //Counts the characters of ranking information's passwords and replaces with as many stars as many characters the password had
 var buttonIcon = document.querySelector("#visibility_button > img")
 var passwordText = document.querySelectorAll(".password p")
+var passwords= [];
+var tableRows = document.querySelectorAll(".wrapper .table_row")
+
+//Saves all the passwords
+for(i=0; i<passwordText.length; i++){
+    passwords.push(passwordText[i].innerHTML)
+}
 
 //Saves the password
-var tableRows = document.querySelectorAll(".wrapper .table_row")
-var passwordDict = {};
-for(i=0; i<tableRows.length; i++){
-    passwordDict[tableRows[i].id] = passwordText[i].innerHTML
+for (i = 0; i < tableRows.length; i++) {
+    var stars = "";
+    for (j = 0; j < passwordText[i].innerHTML.length; j++) {
+        stars += "*";
+    }
+    passwordText[i].innerHTML = stars
 }
-var stars ="";
-var visible = false;
-//Hides the password
 
+var visible = true;
+
+//Hides the password
 buttonIcon.src = "../assets/icons/visibility_off_black.svg";
 function hidePasswordButton(x) {
-  if(visible){
-    //Hides the password changes the image
-    buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-    visible = false;
-  }
-  else {
-    //Show the password, changes the image
-    buttonIcon.src = "../assets/icons/visibility_black.svg";
-    visible = true;
-  }
+    if (visible) {
+        //Hides the password changes the image
+        buttonIcon.src = "../assets/icons/visibility_black.svg";
+        for(i=0; i<passwordText.length; i++){
+            passwordText[i].innerHTML = passwords[i]
+        }
+        visible = false;
+    }
+    else {
+        //Show the password, changes the image
+        buttonIcon.src = "../assets/icons/visibility_off_black.svg";
+        for (i = 0; i < passwordText.length; i++) {
+            var stars = "";
+            for (j = 0; j < passwordText[i].innerHTML.length; j++) {
+                stars += "*";
+            }
+            passwordText[i].innerHTML = stars
+        }
+        visible = true;
+    }
 }
 
 //Selects the competition that the technicians will be imported from
