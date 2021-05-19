@@ -28,7 +28,7 @@
             </button>
             <div id="slides">
                 <img src="../article_pics/kovi1.jpg" alt="slide_1" class="slide">
-                <img src="../article_pics/kovi2.jpg" alt="slide_2" class="slide hidden">
+                <img src="../article_pics/borisz1.jpg" alt="slide_2" class="slide hidden">
                 <img src="../assets/img/fencers_bg_d.svg" alt="slide_3" class="slide hidden">
                 <img src="../assets/img/fencers_bg_v.svg" alt="slide_4" class="slide hidden">
             </div>

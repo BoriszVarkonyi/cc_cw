@@ -1,0 +1,60 @@
+body {
+    overflow: hidden !important;
+}
+
+.small_scroll::-webkit-scrollbar { /* Width */
+    width: 7px;
+	height: 7px;
+}
+
+::-webkit-scrollbar { /* Width */
+    width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+	background: var(--c-darkgray);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: var(--c-gray);
+}
+
+header {
+    width: 100%;
+    height: 50px;
+}
+
+#content_wrapper {
+    min-height: calc(100vh - 50px);
+    max-height: calc(100vh - 50px);
+    display: flex;
+}
+
+nav {
+    flex: 0 0 20vw;
+    min-width: 300px;
+	width: 20vw;
+	max-width: 375px;
+    min-height: calc(100vh - 50px);
+    max-height: calc(100vh - 50px);
+    background: var(--c-lightestgray);
+}
+
+main {
+    min-height: calc(100vh - 50px);
+    max-height: calc(100vh - 50px);
+    flex: 1 1 100%;
+    border-top: 3px solid var(--c-orange);
+    border-left: 3px solid var(--c-orange);
+    overflow-y: scroll;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}

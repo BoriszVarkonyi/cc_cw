@@ -1158,6 +1158,10 @@ nav:hover #nav_bar_pin {
 	filter: contrast(50%);
 }
 
+.nav_bar_item.hidden {
+	display: none;
+}
+
 .nav_bar_item p {
 	padding: 1.5px 0 1.5px 5px;
 	-webkit-animation: showNavTitles var(--t-basic);
