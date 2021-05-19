@@ -221,6 +221,8 @@
                 $call_room = $formula_json -> callRoom;
 
                 $this -> setCallRoom($call_room);
+            } else {
+                echo mysqli_error($this -> conn);
             }
         }
 
@@ -228,7 +230,7 @@
             if ($call_room) {
                 $this -> href = $this -> path_beg . 'call_room' . $this -> path_end;
             } else {
-                $this -> clas = "hidden";
+                $this -> class = "hidden";
             }
         }
     }
