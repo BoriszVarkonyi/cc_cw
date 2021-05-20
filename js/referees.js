@@ -39,64 +39,50 @@ function randomPassword() {
     passfield.value = randompassword;
 }
 
+//Counts the characters of ranking information's passwords and replaces with as many stars as many characters the password had
+var buttonIcon = document.querySelector("#visibility_button > img")
+var passwordText = document.querySelectorAll(".password p")
+var passwords= [];
+var tableRows = document.querySelectorAll(".wrapper .table_row")
 
-//Counts the characters of technician's passwords and replaces with as many stars as many characters the password had
-
-var visib = 1;
-var sajtos = [];
-var change_id = document.getElementsByClassName("password_table_item");
-for (i = 0; i < change_id.length; i++) {
-
-    var sajt = change_id.item(i).innerHTML;
-    sajtos.push(sajt);
-
-}
-var test = [];
-
-sajtos.forEach(element => test.push(element.length));
-
-var star = "*";
-
-for (i = 0; i < change_id.length; i++) {
-
-    change_id.item(i).innerHTML = star.repeat(test[i]);
-
+//Saves all the passwords
+for(i=0; i<passwordText.length; i++){
+    passwords.push(passwordText[i].innerHTML)
 }
 
+//Saves the password
+for (i = 0; i < tableRows.length; i++) {
+    var stars = "";
+    for (j = 0; j < passwordText[i].innerHTML.length; j++) {
+        stars += "*";
+    }
+    passwordText[i].innerHTML = stars
+}
 
-//Changes between the shown end the hidden password.
+var visible = true;
 
-function hidePasswords(x) {
-
-    var buttonIcon = document.querySelector("#visibility_button > img");
-
-    buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-
-    if (visib == 1) {
-
-        buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-
-        for (i = 0; i < change_id.length; i++) {
-
-            change_id.item(i).innerHTML = sajtos[i];
-
+//Hides the password
+buttonIcon.src = "../assets/icons/visibility_off_black.svg";
+function hidePasswordButton(x) {
+    if (visible) {
+        //Hides the password changes the image
+        buttonIcon.src = "../assets/icons/visibility_black.svg";
+        for(i=0; i<passwordText.length; i++){
+            passwordText[i].innerHTML = passwords[i]
         }
-
-        visib = 2;
-
-
+        visible = false;
     }
     else {
-
-        for (i = 0; i < change_id.length; i++) {
-
-            change_id.item(i).innerHTML = star.repeat(test[i]);
-
+        //Show the password, changes the image
+        buttonIcon.src = "../assets/icons/visibility_off_black.svg";
+        for (i = 0; i < passwordText.length; i++) {
+            var stars = "";
+            for (j = 0; j < passwordText[i].innerHTML.length; j++) {
+                stars += "*";
+            }
+            passwordText[i].innerHTML = stars
         }
-
-        buttonIcon.src = "../assets/icons/visibility_black.svg";
-
-        visib = 1;
+        visible = true;
     }
 }
 

@@ -392,13 +392,13 @@ if (isset($_POST["generate_table"])) {
                         <div class="search_wrapper wide">
                             <button type="button" class="search select altalt" onfocus="isOpen(this)" onblur="isClosed(this)">
                                 <!-- Ebbe az inputba rakódik a kiválasztott tábla -->
-                                <input type="text" readonly z-index="-1" name="" placeholder="Select a Table" value="">
+                                <input type="text" readonly z-index="-1" name="" placeholder="Select a Table" value="" onchange="test()">
                             </button>
                             <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                             <div class="search_results">
-                                <button type="button" onclick="selectSystem(this)">Table of 32</button>
-                                <button type="button" onclick="selectSystem(this)">Table of 16</button>
-                                <button type="button" onclick="selectSystem(this)">Table of 8</button>
+                                <button type="button" onclick="selectSystem(this), formValidation()">Table of 32</button>
+                                <button type="button" onclick="selectSystem(this), formValidation()">Table of 16</button>
+                                <button type="button" onclick="selectSystem(this), formValidation()">Table of 8</button>
                             </div>
                         </div>
                     </div>
@@ -550,8 +550,8 @@ if (isset($_POST["generate_table"])) {
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/table.js"></script>
     <script src="../js/overlay_panel.js"></script>
+    <script src="../js/table.js"></script>
     <script src="../js/search.js"></script>
 </body>
 
