@@ -42,50 +42,52 @@ function randomPassword() {
 //Counts the characters of ranking information's passwords and replaces with as many stars as many characters the password had
 var buttonIcon = document.querySelector("#visibility_button > img")
 var passwordText = document.querySelectorAll(".password p")
-var passwords= [];
+var passwords = [];
 var tableRows = document.querySelectorAll(".wrapper .table_row")
+if (tableRows.length > 0) {
 
-//Saves all the passwords
-for(i=0; i<passwordText.length; i++){
-    passwords.push(passwordText[i].innerHTML)
-}
 
-//Saves the password
-for (i = 0; i < tableRows.length; i++) {
-    var stars = "";
-    for (j = 0; j < passwordText[i].innerHTML.length; j++) {
-        stars += "*";
+    //Saves all the passwords
+    for (i = 0; i < passwordText.length; i++) {
+        passwords.push(passwordText[i].innerHTML)
     }
-    passwordText[i].innerHTML = stars
-}
 
-var visible = true;
-
-//Hides the password
-buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-function hidePasswordButton(x) {
-    if (visible) {
-        //Hides the password changes the image
-        buttonIcon.src = "../assets/icons/visibility_black.svg";
-        for(i=0; i<passwordText.length; i++){
-            passwordText[i].innerHTML = passwords[i]
+    //Saves the password
+    for (i = 0; i < tableRows.length; i++) {
+        var stars = "";
+        for (j = 0; j < passwordText[i].innerHTML.length; j++) {
+            stars += "*";
         }
-        visible = false;
+        passwordText[i].innerHTML = stars
     }
-    else {
-        //Show the password, changes the image
-        buttonIcon.src = "../assets/icons/visibility_off_black.svg";
-        for (i = 0; i < passwordText.length; i++) {
-            var stars = "";
-            for (j = 0; j < passwordText[i].innerHTML.length; j++) {
-                stars += "*";
+
+    var visible = true;
+
+    //Hides the password
+    buttonIcon.src = "../assets/icons/visibility_off_black.svg";
+    function hidePasswordButton(x) {
+        if (visible) {
+            //Hides the password changes the image
+            buttonIcon.src = "../assets/icons/visibility_black.svg";
+            for (i = 0; i < passwordText.length; i++) {
+                passwordText[i].innerHTML = passwords[i]
             }
-            passwordText[i].innerHTML = stars
+            visible = false;
         }
-        visible = true;
+        else {
+            //Show the password, changes the image
+            buttonIcon.src = "../assets/icons/visibility_off_black.svg";
+            for (i = 0; i < passwordText.length; i++) {
+                var stars = "";
+                for (j = 0; j < passwordText[i].innerHTML.length; j++) {
+                    stars += "*";
+                }
+                passwordText[i].innerHTML = stars
+            }
+            visible = true;
+        }
     }
 }
-
 //Selects the competition that the technicians will be imported from
 var importTechHiddenInput = document.getElementById("selected_comp_input")
 var oldSelectedTechImport;
