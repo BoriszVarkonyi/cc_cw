@@ -80,7 +80,7 @@ function searchInLists() {
     }
     //selectedElementIndexAr is a var from list.js
     selectedElementIndexAr = 0;
-
+    /*
     var rowLenght = document.querySelectorAll('.table.wrapper .table_row_wrapper .table_row:not( .hidden)').length
     if(rowLenght == 0 && !hasAdded){
         console.log("add")
@@ -89,11 +89,13 @@ function searchInLists() {
         hasAdded = true;
     }
     else if(rowLenght > 0){
+
         console.log("remove")
         //var tableRowWrapper = document.querySelector(".table.wrapper .table_row_wrapper")
         //tableRowWrapper.innerHTML -= '<div class="table_row"><div class="table_item"><p>No result</p></div></div>'
         hasAdded = true;
     }
+    */
 }
 
 var radioButtons = document.querySelectorAll(".table_header .option_container input")
