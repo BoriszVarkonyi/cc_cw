@@ -61,12 +61,15 @@
     $fencer_id = $_GET['fencer_id'];
 
     $qry_get_fencers = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-    $do_get_data = mysqli_query($connection, $qry_get_fencers);
+    $do_get_f_data = mysqli_query($connection, $qry_get_fencers);
 
     if ($row = mysqli_fetch_assoc($do_get_f_data)) {
 	    	$json_string = $row['data'];
-		$json_table = json_decode($json_string);
-	   }
+		    $json_table = json_decode($json_string);
+    }
+
+    $id_to_find = findObject($json_table, $fencer_id, "id");
+    $fencer_name = $json_table[$id_to_find] -> nom . " " . $json_table[$id_to_find] -> prenom;
 
     //check wc
     $qry_wc = "SELECT data FROM weapon_control WHERE assoc_comp_id = $comp_id";
@@ -87,14 +90,6 @@
             }
         }
     }
-
-
-
-
-    $id_to_find = findObject($json_table, $fencer_id, "id");
-    $fencer_name = $json_table[$id_to_find] -> nom . " " . $json_table[$id_to_find] -> prenom;
-
-
 
     if (isset($_POST['submit_wc'])) {
 
@@ -129,6 +124,21 @@
         header("Refresh: 0");
     }
 
+    //get wc type and page
+    $qry_get_wc_type = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
+    $do_get_wc_type = mysqli_query($connection, $qry_get_wc_type);
+    if ($row = mysqli_fetch_assoc($do_get_wc_type)) {
+        $wc_type = $row['comp_wc_type'];
+
+        switch ($wc_type) {
+            case 1://immidiate
+                $wc_page = "weapon_control_immediate";
+            break;
+            case 2://administrative
+                $wc_page = "weapon_control_administrated";
+            break;
+        }
+    }
 
 ?>
 
@@ -151,7 +161,7 @@
             <div id="title_stripe">
                 <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button" <?php echo $wc_page ?>>
+                    <a class="stripe_button" href="../php/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
                         <p>Back</p>
                         <img src="../assets/icons/close_black.svg"/>
                     </a>

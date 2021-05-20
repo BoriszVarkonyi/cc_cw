@@ -10,16 +10,13 @@
 
     $test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
     $do_test = mysqli_query($connection, $test_for_row_qry);
-
-
-
     if ($row = mysqli_fetch_assoc($do_test)) {
         $json_string = $row['data'];
-        $json_table = json_decode($json_string);
+        $wc_table = json_decode($json_string);
     } else {
-        $qry_insert_new_row = "INSERT INTO weapon_control (assoc_comp_id) VALUES ($comp_id);";
+        $qry_insert_new_row = "INSERT INTO `weapon_control` (`assoc_comp_id`) VALUES ($comp_id);";
         $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
-        $json_table = [];
+        $wc_table = [];
     }
 
     if (isset($_POST['add_wc'])) {
@@ -27,22 +24,15 @@
         header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 
-   $qry_get_fencers = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+   $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
     $do_get_data = mysqli_query($connection, $qry_get_fencers);
 
     if ($row = mysqli_fetch_assoc($do_get_data)) {
 	    	$json_string = $row['data'];
-		$json_table = json_decode($json_sring);
+		$json_table = json_decode($json_string);
     } else {
 	    echo mysqli_error($connection);
-
-
     }
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -90,8 +80,8 @@
                     <div class="search_results">
                     <?php
                         foreach ($json_table as $obj) {
-                $idke = $obj -> id;
-                $nevecske = $obj -> prenom . " " . $obj -> nom;
+                            $idke = $obj -> id;
+                            $nevecske = $obj -> prenom . " " . $obj -> nom;
 
                         ?>
                         <button id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" type="button"><?php echo $nevecske ?></button>
@@ -164,19 +154,26 @@
                     <?php
 
                         foreach ($json_table as $obj) {
-                    $fencer_name = $obj -> nom . " " . $obj -> prenom;
-                    $fencer_nat = $obj -> nation;
-                    $fencer_id = $obj -> id;
+                            $fencer_name = $obj -> nom . " " . $obj -> prenom;
+                            $fencer_nat = $obj -> nation;
+                            $fencer_id = $obj -> id;
 
-                    ?>
-                    <!-- while -->
-                    <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">
-                        <div class="table_item"><p><?php echo $fencer_name ?></p></div>
-                        <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
-                        <div class="table_item"><p><?php echo "placeholder!" ?></p></div>
-                        <div class="big_status_item <?php echo "red" ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
-                    </div>
-                    <?php
+                            if ($id_to_find = findObject($wc_table,$fencer_id,'id') === false) {
+                                $color = "red";
+                                $status = "Not ready";
+                            } else {
+                                $status = "Ready";
+                                $color = "green";
+                            }
+                            ?>
+                            <!-- while -->
+                            <div class="table_row" onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">
+                                <div class="table_item"><p><?php echo $fencer_name ?></p></div>
+                                <div class="table_item"><p><?php echo $fencer_nat ?></p></div>
+                                <div class="table_item"><p><?php echo $status ?></p></div>
+                                <div class="big_status_item <?php echo $color ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
+                            </div>
+                            <?php
                         }
                     ?>
                     </div>
