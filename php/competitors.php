@@ -4,68 +4,91 @@
 <?php checkComp($connection); ?>
 
 <?php
-class tireur
-{
-    public $sexe;
-    public $id;
-    public $image;
-    public $points;
-    public $classement;
-    public $club;
-    public $lateralite;
-    public $date_naissance;
-    public $licence;
-    public $nation;
-    public $prenom;
-    public $nom;
-    public $reg;
-    public $wc;
-    public $comp_rank;
-    public $temp_rank;
-    public $final_rank;
-
-    function __construct($sexe, $id, $image, $points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, $reg, $wc, $comp_rank, $temp_rank, $final_rank)
+    class tireur
     {
-        $this->sexe = $sexe;
-        $this->id = $id;
-        $this->image = $image;
-        $this->points = $points;
-        $this->classement = $classement;
-        $this->club = $club;
-        $this->lateralite = $lateralite;
-        $this->date_naissance = $date_naissance;
-        $this->licence = $licence;
-        $this->nation = $nation;
-        $this->prenom = $prenom;
-        $this->nom = $nom;
-        $this->reg = $reg;
-        $this->wc = $wc;
-        $this->comp_rank = $comp_rank;
-        $this->temp_rank = $temp_rank;
-        $this->final_rank = $final_rank;
+        public $sexe;
+        public $id;
+        public $image;
+        public $points;
+        public $classement;
+        public $club;
+        public $lateralite;
+        public $date_naissance;
+        public $licence;
+        public $nation;
+        public $prenom;
+        public $nom;
+        public $reg;
+        public $wc;
+        public $comp_rank;
+        public $temp_rank;
+        public $final_rank;
+
+        function __construct($sexe, $id, $image, $points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, $reg, $wc, $comp_rank, $temp_rank, $final_rank)
+        {
+            $this->sexe = $sexe;
+            $this->id = $id;
+            $this->image = $image;
+            $this->points = $points;
+            $this->classement = $classement;
+            $this->club = $club;
+            $this->lateralite = $lateralite;
+            $this->date_naissance = $date_naissance;
+            $this->licence = $licence;
+            $this->nation = $nation;
+            $this->prenom = $prenom;
+            $this->nom = $nom;
+            $this->reg = $reg;
+            $this->wc = $wc;
+            $this->comp_rank = $comp_rank;
+            $this->temp_rank = $temp_rank;
+            $this->final_rank = $final_rank;
+        }
     }
-}
 
-$qry_create_table = "CREATE TABLE `ccdatabase`.`competitors` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-if (!$do_create_table = mysqli_query($connection, $qry_create_table)) {
-    echo mysqli_error($connection);
-}
-
-//check for existing row
-$qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-$do_check_row = mysqli_query($connection, $qry_check_row);
-if ($row = mysqli_fetch_assoc($do_check_row)) {
-    $json_string = $row['data'];
-    $json_table = json_decode($json_string);
-} else {
-    $json_table = [];
-
-    //make new row
-    $qry_new_row = "INSERT INTO competitors (assoc_comp_id, data) VALUES ('$comp_id', '[ ]')";
-    if (!$do_new_row = mysqli_query($connection, $qry_new_row)) {
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`competitors` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    if (!$do_create_table = mysqli_query($connection, $qry_create_table)) {
         echo mysqli_error($connection);
     }
-}
+
+    //check for existing row
+    $qry_check_row = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
+    } else {
+        $json_table = [];
+
+        //make new row
+        $qry_new_row = "INSERT INTO competitors (assoc_comp_id, data) VALUES ('$comp_id', '[ ]')";
+        if (!$do_new_row = mysqli_query($connection, $qry_new_row)) {
+            echo mysqli_error($connection);
+        }
+    }
+
+    if (isset($_POST['remove_fencer'])) {
+        $selected_id = $_POST['selected_id'];
+
+        if ($id_to_remove = findObject($json_table, $selected_id, "id") === false) {
+            echo "ERROR during search for id to delete!";
+        } else {
+
+
+
+            unset($json_table[$id_to_remove]);
+            $json_table = array_values($json_table);
+
+            //update database
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+            $qry_update = "UPDATE `competitors` SET `data` = '$json_string'";
+            if (!$do_update = mysqli_query($connection, $qry_update)) {
+                echo "ERROR during the updateing of database record(deleting)";
+            } else {
+                header("Refresh:0");
+            }
+        }
+    }
 
 
 ?>
@@ -95,10 +118,10 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
-                    <form action="" id="IDE KELL A FOR IDJE">
-                        <input type="text" class="selected_list_item_input" readonly>
+                    <form action="" method="POST" id="IDE KELL A FORM IDJE">
+                        <input type="text" class="selected_list_item_input" name="selected_id" readonly>
                     </form>
-                    <button class="stripe_button red" type="submit" form="IDE KELL A FOR IDJE">
+                    <button class="stripe_button red" name="remove_fencer" type="submit" form="IDE KELL A FORM IDJE">
                         <p>Remove Fencer</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
@@ -263,7 +286,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                         <?php
                         foreach ($json_table as $json_obj) {
                         ?>
-                            <div class="table_row" onclick="selectRow(this)" loading="lazy">
+                            <div class="table_row" id="<?php echo $json_obj -> id ?>" onclick="selectRow(this)" loading="lazy">
                                 <div class="table_item">
                                     <p><?php echo $json_obj->comp_rank ?></p>
                                 </div>

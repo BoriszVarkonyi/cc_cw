@@ -20,7 +20,7 @@
             <?php
 
                 //get competitors
-                $qry_get_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+                $qry_get_data = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
                 $do_get_data = mysqli_query($connection, $qry_get_data);
 
                 if ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -47,9 +47,10 @@
                     $id_to_change = findObject($json_table, $fencer_id, "id");
 
                     $json_table[$id_to_change] -> reg = false;
+
                     //update database
                     $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-                    $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+                    $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
                     if (!$do_update = mysqli_query($connection, $qry_update)) {
                         echo mysqli_error($connection);
                     }
@@ -95,6 +96,30 @@
                     }
                 }
 
+                //remove fencer
+                if (isset($_POST['remove_fencer'])) {
+                    $selected_id = $_POST['fencer_ids'];
+
+                    if ($id_to_remove = findObject($json_table, $selected_id, "id") === false) {
+                        echo "ERROR during search for id to delete!";
+                    } else {
+
+
+
+                        unset($json_table[$id_to_remove]);
+                        $json_table = array_values($json_table);
+
+                        //update database
+                        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                        $qry_update = "UPDATE competitors SET data = '$json_string'";
+                        if (!$do_update = mysqli_query($connection, $qry_update)) {
+                            echo "ERROR during the updateing of database record(deleting)";
+                        } else {
+                            header("Refresh:0");
+                        }
+                    }
+                }
+
                 if (isset($_POST['add_fencer'])) {
 
                     var_dump($_POST);
@@ -119,7 +144,7 @@
                     //update database
                     $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
-                    $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+                    $qry_update = "UPDATE competitors SET data = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
                     $do_update = mysqli_query($connection, $qry_update);
                     echo mysqli_error($connection);
 
@@ -141,7 +166,7 @@
                             <p>Add Fencer</p>
                             <img src="../assets/icons/person_add_alt_black.svg"/>
                         </button>
-                        <button type="button" class="stripe_button" onclick="" shortcut="SHIFT+D" disabled>
+                        <button type="submit" name="remove_fencer" class="stripe_button" onclick="" shortcut="SHIFT+D">
                             <p>Remove Fencer</p>
                             <img src="../assets/icons/person_remove_black.svg"/>
                         </button>
