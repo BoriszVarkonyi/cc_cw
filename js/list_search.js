@@ -1,6 +1,9 @@
 function searchButton(x) {
     var button = x;
     var search = button.previousElementSibling.previousElementSibling.previousElementSibling;
+    if(search.querySelector("input").type == "text"){
+        search.querySelector("input").focus()
+    }
     if (search.classList.contains("opened")) {
         search.querySelector(".search").value = ""
         searchInLists();
