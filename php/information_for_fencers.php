@@ -22,7 +22,7 @@
 
             $hasequipment[$equipment[$i]] = $checkitem;
 
-        } else if($checkitem == NULL){
+        } else {
 
             $hasequipment[$equipment[$i]] = 0;
 

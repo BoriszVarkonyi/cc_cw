@@ -16,7 +16,7 @@ $feedback = array(
 $kuka_disable = "panel_button";
 
 //array of colums I need from database
-$array_getdata = array("comp_name", "comp_sex", "comp_weapon", "comp_equipment", "comp_info", "comp_host", "comp_location", "comp_postal", "comp_start", "comp_end", "comp_pre_end", "comp_wc_info", "comp_entry");
+$array_getdata = array("comp_name", "comp_status","comp_sex", "comp_weapon", "comp_equipment", "comp_info", "comp_wc_type");
 
 //connecting to database
 $qry_getdata = "SELECT * FROM competitions WHERE comp_id = $comp_id";
@@ -47,7 +47,6 @@ if (file_exists("../uploads/" . $comp_id . ".png")) {
     $logo = "../assets/icons/no_image_black.svg";
     $delete_btn_class = "panel_button disabled";
 }
-
 
 
 
@@ -261,15 +260,51 @@ if (file_exists("../uploads/$comp_id.png")) {
 
                     <div id="cw_preview" class="paper_wrapper">
                         <div id="invitation_title_stripe">
+                            <?php
+                                $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
+                                $do_get_basic_info = mysqli_query($connection, $qry_get_basic_info);
+
+                                if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
+                                    $json_string = $row['data'];
+
+                                    $json_table = json_decode($json_string);
+
+                                    if ($json_table != "") {
+                                        $host_country = $json_table->host_country;
+                                        $city_street = $json_table->city_street;
+                                        $zip_code = $json_table->zip_code;
+                                        $entry_fee = $json_table->entry_fee;
+                                        $starting_date = $json_table->starting_date;
+                                        $ending_date = $json_table->ending_date;
+                                        $end_of_pre_reg = $json_table->end_of_pre_reg;
+                                    } else {
+                                        $host_country = "Not set";
+                                        $city_street = "Not set";
+                                        $zip_code = "Not set";
+                                        $entry_fee = "Not set";
+                                        $starting_date = "Not set";
+                                        $ending_date = "Not set";
+                                        $end_of_pre_reg = "Not set";
+                                    }
+                                } else {
+                                    $host_country = "Not set";
+                                    $city_street = "Not set";
+                                    $zip_code = "Not set";
+                                    $entry_fee = "Not set";
+                                    $starting_date = "Not set";
+                                    $ending_date = "Not set";
+                                    $end_of_pre_reg = "Not set";
+                                }
+                            ?>
                             <img src=<?php echo $logo ?>>
 
                             <p class="stripe_title"><?php echo $comp_name ?></p>
-                            <p id="comp_status">ONGOING</p>
+                            <p id="comp_status"><?php echo statusConverter($assoc_array_data['comp_status']) ?></p>
 
                             <div>
-                                <p><?php echo sexConverter($assoc_array_data['comp_name']) . "'s" ?></p>
+                                <p><?php echo sexConverter($assoc_array_data['comp_sex']) . "'s" ?></p>
                                 <p><?php echo weaponConverter($assoc_array_data['comp_weapon']) ?></p>
-                                <p><?php echo date('Y', strtotime($assoc_array_data['comp_start'])) ?></p>
+                                <p><?php echo substr($starting_date, 0, 4) ?></p>
                                 <p>INVIDIUDAL</p>
                             </div>
                         </div>
@@ -278,6 +313,8 @@ if (file_exists("../uploads/$comp_id.png")) {
                             <?php
                             $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
                             $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
+
+                            $json_table = [];
 
                             if ($row = mysqli_fetch_assoc($do_get_announcements)) {
                                 $string_json = $row['data'];
@@ -307,43 +344,6 @@ if (file_exists("../uploads/$comp_id.png")) {
                                 <p class="column_panel_title">Basic Information:</p>
                                 <div>
                                     <div class="invitation_form_wrapper">
-                                        <?php
-                                        $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
-                                        $do_get_basic_info = mysqli_query($connection, $qry_get_basic_info);
-
-                                        if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
-                                            $json_string = $row['data'];
-
-                                            $json_table = json_decode($json_string);
-                                            var_dump($json_table);
-
-                                            if ($json_table != "") {
-                                                $host_country = $json_table->host_country;
-                                                $city_street = $json_table->city_street;
-                                                $zip_code = $json_table->zip_code;
-                                                $entry_fee = $json_table->entry_fee;
-                                                $starting_date = $json_table->starting_date;
-                                                $ending_date = $json_table->ending_date;
-                                                $end_of_pre_reg = $json_table->end_of_pre_reg;
-                                            } else {
-                                                $host_country = "Not set";
-                                                $city_street = "Not set";
-                                                $zip_code = "Not set";
-                                                $entry_fee = "Not set";
-                                                $starting_date = "Not set";
-                                                $ending_date = "Not set";
-                                                $end_of_pre_reg = "Not set";
-                                            }
-                                        } else {
-                                            $host_country = "Not set";
-                                            $city_street = "Not set";
-                                            $zip_code = "Not set";
-                                            $entry_fee = "Not set";
-                                            $starting_date = "Not set";
-                                            $ending_date = "Not set";
-                                            $end_of_pre_reg = "Not set";
-                                        }
-                                        ?>
                                         <div>
                                             <div>
                                                 <label>HOST COUNTRY</label>
@@ -415,6 +415,9 @@ if (file_exists("../uploads/$comp_id.png")) {
                                 </div>
                             </div>
 
+                        <?php
+                            if ($assoc_array_data['comp_wc_type'] != 0) {
+                        ?>
                             <!-- weapon control panel -->
                             <div id="weapon_control_panel" class="breakpoint">
                                 <p class="column_panel_title">Weapon Control appointments and bookings:</p>
@@ -425,7 +428,9 @@ if (file_exists("../uploads/$comp_id.png")) {
                                     </div>
                                 </div>
                             </div>
-
+                        <?php
+                            }
+                        ?>
                             <div id="plus_information_panel">
                                 <p class="column_panel_title">Plus Information:</p>
                                 <div>

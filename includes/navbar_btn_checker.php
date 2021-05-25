@@ -64,7 +64,6 @@
         }
 
         protected function setByState() {
-            $this -> state = 2;
             switch ($this -> state) {
                 case 1:
                     $disabled_buttons = ["temporary_ranking", "competitors", "pools", "table", "overview", "manage_entries"];
