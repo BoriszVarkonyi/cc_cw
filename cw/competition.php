@@ -7,9 +7,9 @@
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
     }
-    $qry_get_comp_data = "SELECT * FROM `competitors` WHERE `comp_id` = '$comp_id'";ű
+    $qry_get_comp_data = "SELECT * FROM `competitors` WHERE `comp_id` = '$comp_id'";
     $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
-    if ($row = mysqli_query()) {
+    if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
 
     }
 
