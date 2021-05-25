@@ -398,7 +398,7 @@
                             <label for="true">True</label>
                         </div>
                         <label for="all_ref">SELECT REFEREES</label>
-                        <div class="option_container row">
+                        <div class="option_container row no_bottom">
                             <input type="radio" name="ref_select" checked id="all_ref" onclick="useAllReferees()" value="all_ref"/>
                             <label for="all_ref">Use all</label>
 
@@ -460,7 +460,7 @@
                         </div>
 
                         <label for="pistes_type">PISTES</label>
-                        <div class="option_container row">
+                        <div class="option_container row no_bottom">
                             <input type="radio" name="pistes_usage_type" checked id="all" onclick="useAllPistes()" value="1"/>
                             <label for="all">Use all</label>
 

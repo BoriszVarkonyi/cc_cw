@@ -81,7 +81,7 @@ $maximum = 255;
                         <div class="option_container">
                             <input type="radio" name="comp_type" id="individual" value="" checked/>
                             <label for="individual">Individual</label>
-                            <input type="radio" name="comp_type" id="team" value="" disabled/>
+                            <input type="radio" name="comp_type" id="team" value=""/>
                             <label for="team">Team</label>
                         </div>
                     </div>

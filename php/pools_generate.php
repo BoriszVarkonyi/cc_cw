@@ -410,21 +410,25 @@
                                 <label for="pistes_type">STATISTICS</label>
                                 <table class="pools_stat_table">
                                     <thead>
-                                        <th>Percent</th>
-                                        <th>Number of Fencers</th>
+                                        <tr>
+                                            <th>Percent</th>
+                                            <th>Number of Fencers</th>
+                                        </tr>
                                     </thead>
-                                    <tr>
-                                        <td>All</td>
-                                        <td><?php echo $number_of_fencers ?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>80%</td>
-                                        <td><?php echo $number_of_fencers * 0.8?></td>
-                                    <tr>
-                                    <tr>
-                                        <td>70%</td>
-                                        <td><?php echo $number_of_fencers * 0.7?></td>
-                                    <tr>
+                                    <tbody class="alt">
+                                        <tr>
+                                            <td>All</td>
+                                            <td><?php echo $number_of_fencers ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>80%</td>
+                                            <td><?php echo $number_of_fencers * 0.8?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>70%</td>
+                                            <td><?php echo $number_of_fencers * 0.7?></td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

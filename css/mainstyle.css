@@ -1670,7 +1670,6 @@ nav.closed #documentation_label img {
 
 .option_container.no_bottom {
 	margin: 3px 0 0 !important;
-	border-bottom: 1px solid var(--c-gray);
 }
 
 .option_container.row > label {
@@ -1687,15 +1686,15 @@ nav.closed #documentation_label img {
 	padding: 10px;
 	background: var(--c-lightergray);
 	box-shadow: none;
-	max-height: 125px;
+	max-height: 145px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	justify-content: space-around;
-	margin-bottom: 35px;
+	margin: 10px 0 0 0 !important;
 	opacity: 1;
 	transition: opacity var(--t-basic);
-	width: 350px;
-	max-width: 330px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .option_container.grid.piste_select.disabled {
@@ -2389,6 +2388,12 @@ textarea.standalone {
 
 /* ///WEAPON CONTROL/// */
 
+#wc_notes {
+	width: 100%;
+	min-height: 200px;
+	resize: vertical;
+}
+
 /* ///FENCERS WEAPON CONTROL/// */
 
 #fencers_weapon_control_wrapper {
@@ -2936,8 +2941,6 @@ div.title_box > button {
 
 .pools_stat_table {
 	width: 350px;
-	vertical-align: middle;
-	text-align: center;
 }
 
 #pools_wrapper {
@@ -3095,7 +3098,7 @@ div.title_box > button {
 }
 
 #pools_drag_panel > div:before {
-	width: 100%;
+	width: 90%;
 	align-self: center;
 	font-family: var(--bold);
 	position: absolute;
@@ -3140,6 +3143,7 @@ div.title_box > button {
 	display: flex;
 	margin: 5px;
 	padding: 2px 6px;
+	font-size: var(--f-small);
 }
 
 .piste_select > label {
