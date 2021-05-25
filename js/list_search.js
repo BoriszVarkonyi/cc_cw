@@ -1,6 +1,9 @@
 function searchButton(x) {
     var button = x;
     var search = button.previousElementSibling.previousElementSibling.previousElementSibling;
+    if(search.querySelector("input").type == "text"){
+        search.querySelector("input").focus()
+    }
     if (search.classList.contains("opened")) {
         search.querySelector(".search").value = ""
         searchInLists();
@@ -14,12 +17,12 @@ var typingTimer;
 var doneTypingInterval = 500;
 
 
-function startTimer(){
+function startTimer() {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(searchInLists, doneTypingInterval)
 }
 
-function clearTimer(){
+function clearTimer() {
     //clearTimeout(typingTimer);
 }
 
@@ -63,6 +66,11 @@ function searchInLists() {
             continue;
         }
     }
+    //If there is the no search found row it removes the hidden class
+    var emptyRow = document.getElementById("emptyRow")
+    if (emptyRow != null) {
+        emptyRow.classList.remove("hidden")
+    }
     //setas the row bg color
     var visibleRows = document.querySelectorAll(".table_row:not( .hidden)")
     for (i = 0; i < visibleRows.length; i++) {
@@ -80,22 +88,21 @@ function searchInLists() {
     }
     //selectedElementIndexAr is a var from list.js
     selectedElementIndexAr = 0;
-    /*
+    //Handles the no search found row
     var rowLenght = document.querySelectorAll('.table.wrapper .table_row_wrapper .table_row:not( .hidden)').length
-    if(rowLenght == 0 && !hasAdded){
-        console.log("add")
+    if (rowLenght === 0 && !hasAdded) {
         var tableRowWrapper = document.querySelector(".table.wrapper .table_row_wrapper")
-        tableRowWrapper.innerHTML += '<div class="table_row"><div class="table_item"><p>No result</p></div></div>'
+        tableRowWrapper.innerHTML += '<div class="table_row" id="emptyRow"><div class="table_item"><p>No result</p></div></div>'
         hasAdded = true;
     }
-    else if(rowLenght > 0){
+    else if (rowLenght > 1 && hasAdded) {
+        if (emptyRow != null) {
+            var table = document.querySelector("#page_content_panel_main .table_row_wrapper")
+            table.removeChild(table.lastElementChild)
+        }
+        hasAdded = false;
+    }
 
-        console.log("remove")
-        //var tableRowWrapper = document.querySelector(".table.wrapper .table_row_wrapper")
-        //tableRowWrapper.innerHTML -= '<div class="table_row"><div class="table_item"><p>No result</p></div></div>'
-        hasAdded = true;
-    }
-    */
 }
 
 var radioButtons = document.querySelectorAll(".table_header .option_container input")
