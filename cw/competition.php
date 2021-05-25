@@ -7,7 +7,11 @@
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
     }
+    $qry_get_comp_data = "SELECT * FROM `competitors` WHERE `comp_id` = '$comp_id'";ű
+    $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
+    if ($row = mysqli_query()) {
 
+    }
 
     $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
     $do_get_basic_info = mysqli_query($connection, $qry_get_basic_info);
@@ -22,7 +26,7 @@
             $city_street = $json_table -> city_street;
             $zip_code = $json_table -> zip_code;
             $entry_fee = $json_table -> entry_fee;
-            $starting_date = $json_table -> starting_date;
+
             $ending_date = $json_table -> ending_date;
             $end_of_pre_reg = $json_table -> end_of_pre_reg;
 
@@ -74,7 +78,7 @@
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
                     <p><?php echo $starting_date ?></p>
-                    <p>{IDE KIÍRNI INDIVIDUAL VAGY TEAM}</p>
+                    <p><?php echo "" ?></p>
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">

@@ -6,7 +6,13 @@
             <th><p>HOSTING COUNTRY</p></th>
             <th class="square"></th>
             <!-- HA ONGOING -->
-            <th class="square"></th>
+            <?php
+                if ($statusofpage == 3) {
+                    ?>
+                    <th class="square"></th>
+                    <?php
+                }
+            ?>
         </tr>
     </thead>
     <tbody class="alt">
@@ -20,14 +26,35 @@ include "../cw/competition_filtering.php";
 $query = "SELECT * FROM competitions " . $WHERE_CLAUSE;
 $select_all_comps = mysqli_query($connection, $query);
 
+$empty = true;
 while ($row = mysqli_fetch_assoc($select_all_comps)){
+    $empty = false;
     $comp_name = $row['comp_name'];
     $comp_start = $row['comp_start'];
     $comp_end = $row['comp_end'];
     $comp_host = $row['comp_host'];
     $comp_id = $row['comp_id'];
 
+    $color_class = "purple";
 
+    if ($statusofpage == 3) {
+
+        //test for table
+        $qry_test_table = "SELECT `id` FROM `tables` WHERE `ass_comp_id` = '$comp_id'";
+        $do_test_table = mysqli_query($connection, $qry_test_table);
+
+        if (mysqli_num_rows($do_test_table) == NULL) {
+            $color_class = "blue";
+
+            //test for started pools
+            $qry_test_pool = "SELECT `id` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
+            $do_test_pool = mysqli_query($connection, $qry_test_pool);
+
+            if (mysqli_num_rows($do_test_pool) == NULL) {
+                $color_class = "yellow";
+            }
+        }
+    }
     ?>
 
         <!-- outputting the table -->
@@ -53,10 +80,18 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
                 </button>
             </td>
             <!-- HA ONGOING -->
-            <td class="square"></td>
+            <?php
+                if ($statusofpage == 3) {
+                    ?>
+                    <td class="square <?php echo $color_class ?>"></td>
+                    <?php
+                }
+            ?>
         </tr>
-
-        <!-- ha üres
+<?php } ?>
+        <?php
+            if ($empty) {
+        ?>
             <tr>
                 <td colspan="4">
                     <p>
@@ -64,9 +99,10 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
                     </p>
                 </td>
             </tr>
-        -->
 
-<?php } ?>
+        <?php
+            }
+        ?>
     </tbody>
 
 </table>
