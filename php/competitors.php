@@ -284,7 +284,12 @@
                     </div>
                     <div class="table_row_wrapper">
                         <?php
+                        $big_c = 0;
                         foreach ($json_table as $json_obj) {
+                        $big_c++;
+                        if ($big_c == 21) {
+                            break;
+                        }
                         ?>
                             <div class="table_row" id="<?php echo $json_obj -> id ?>" onclick="selectRow(this)" loading="lazy">
                                 <div class="table_item">
