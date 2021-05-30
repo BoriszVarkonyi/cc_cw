@@ -395,11 +395,11 @@
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/technicians.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/controls.js"></script>
+    <script src="../js/list_2.js"></script>
+    <script src="../js/controls_2.js"></script>
     <script src="../js/importoverlay.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/overlay_panel.js"></script>
-    <script src="../js/list_search.js"></script>
+    <script src="../js/list_search_2.js"></script>
 </body>
 </html>
