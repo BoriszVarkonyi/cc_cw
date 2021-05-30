@@ -227,23 +227,6 @@
                         <button type="submit" name="submit_tech" class="panel_submit" form="new_technician">Save</button>
                     </form>
                 </div>
-
-                <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
-                    <div class="search_results">
-                        <?php
-                        foreach ($json_table as $json_object) {
-                            $username = $json_object -> username;
-                            $name = $json_object -> name;
-
-                            ?>
-                            <a id="<?php echo $username ?>A" href="#<?php echo $username ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
-                            <?php
-                        }
-                            ?>
-                    </div>
-                </div>
             </div>
             <div id="page_content_panel_main">
                 <table class="wrapper">

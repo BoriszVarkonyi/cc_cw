@@ -1084,7 +1084,7 @@ tr.entry {
 
 tr.entry.collapsed {
 	min-height: 0 !important;
-
+	height: 0 !important;
 	max-height: 0 !important;
 	overflow: hidden;
 }
@@ -1092,6 +1092,15 @@ tr.entry.collapsed {
 tr.entry td {
 	position: relative;
 	height: 100%;
+}
+
+
+tr.entry.collapsed td {
+	min-height: 0 !important;
+	height: 0 !important;
+	max-height: 0 !important;
+	overflow: hidden;
+	display: none;
 }
 
 .entry_header {
@@ -1193,7 +1202,7 @@ tr.entry td {
 	background: var(--c-lightergray);
 }
 
-.table_row.selected {
+.table_row.selected, tr.selected {
 	background: var(--c-primary) !important;
 	box-shadow: var(--s-black);
 	transform: scale(1.01);
