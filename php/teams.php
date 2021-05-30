@@ -81,7 +81,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr onclick="this.nextElementSibling.classList.toggle('collapsed')">
                             <td>
                                 <p>Ez a neve</p>
                             </td>
@@ -89,9 +89,37 @@
                         <tr class="entry">
                             <td>
                                 <div class="entry_header">
-                                    <p>f</p>
+                                    <form>
+                                        <div>
+                                            <label for="">TEAM LEADER</label>
+                                            <input type="text" class="name_input" placeholder="Type in the team leader's name">
+                                        </div>
+                                        <div>
+                                            <label for="">COACH</label>
+                                            <input type="text" class="name_input" placeholder="Type in the team leader's name">
+                                        </div>
+                                        <div class="hidden">
+                                            <button type="submit">SAVE</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <table></table>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>NAME</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>JANI KICSI JÜ</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                            <td>
+                                <p>Ez a neve</p>
                             </td>
                         </tr>
                     </tbody>
