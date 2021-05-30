@@ -103,7 +103,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <table>
+                                <table class="smallc">
                                     <thead>
                                         <tr>
                                             <th>NAME</th>

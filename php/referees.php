@@ -340,31 +340,6 @@ if (isset($_POST['submit_import'])) {
                         <button type="submit" name="new_technician" class="panel_submit" form="new_technician" value="Save" id="newTechSaveButton">Save</button>
                     </form>
                 </div>
-
-                <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
-                    <div class="search_results">
-                        <?php
-                        // $ref_list_query = "SELECT * FROM $table_name";
-                        // $ref_list_query_do = mysqli_query($connection, $ref_list_query);
-                        // while($row = mysqli_fetch_assoc($ref_list_query_do)){
-
-                        //     $ref_id = $row['id'];
-                        //     $ref_name = $row['name'];
-
-                        ?>
-
-                        <a id="<?php //echo $ref_id 
-                                ?>" href="#" onclick="selectSearch(this), autoFill(this)"><?php //echo $ref_name 
-                                                                                            ?></a>
-
-                        <?php
-
-                        // }
-                        ?>
-                    </div>
-                </div>
             </div>
             <div id="page_content_panel_main">
                 <div class="wrapper table">
@@ -436,7 +411,6 @@ if (isset($_POST['submit_import'])) {
                             <div class="table_header_text">
                                 <div class="search_panel option">
                                     <div class="search_panel_buttons">
-                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="search_wrapper">

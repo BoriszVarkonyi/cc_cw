@@ -133,7 +133,6 @@
 </head>
 <body class="preload">
 <!-- header -->
-    <script>console.log("body")</script>
     <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
@@ -274,7 +273,6 @@
                                 <th>
                                     <div class="search_panel option">
                                         <div class="search_panel_buttons">
-                                            <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
                                             <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                         </div>
                                         <div class="search_wrapper">
@@ -302,7 +300,6 @@
                                 <th>
                                     <div class="search_panel option">
                                         <div class="search_panel_buttons">
-                                            <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
                                             <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                         </div>
                                         <div class="search_wrapper">
@@ -381,7 +378,6 @@
     <script src="../js/list_2.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/importoverlay.js"></script>
-    <script src="../js/search.js"></script>
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/list_search_2.js"></script>
 </body>

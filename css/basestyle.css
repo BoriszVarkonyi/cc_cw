@@ -1092,8 +1092,9 @@ tr.entry.collapsed {
 tr.entry td {
 	position: relative;
 	height: 100%;
-}
+	vertical-align: middle;
 
+}
 
 tr.entry.collapsed td {
 	min-height: 0 !important;
@@ -1103,12 +1104,20 @@ tr.entry.collapsed td {
 	display: none;
 }
 
+tr.entry td table {
+	margin: 20px auto;
+	width: 100%;
+}
+
+tr.entry td table.smallc {
+	margin: 20px auto;
+	width: 300px;
+}
+
 .entry_header {
 	width: 100%;
 	background: var(--c-lightgray);
-	position: absolute;
-	left: 0;
-	top: 0;
+	border-radius: 0 0 5px 5px;
 	padding: 10px 0;
 	display: flex;
 	justify-content: center;
