@@ -81,11 +81,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>
+                                <p>Ez a neve</p>
+                            </td>
+                        </tr>
                         <tr class="entry">
-                            <p>fasz</p>
-                            <div>
-                                <p>g</p>
-                            </div>
+                            <td>
+                                <div class="entry_header">
+                                    <p>f</p>
+                                </div>
+                                <table></table>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

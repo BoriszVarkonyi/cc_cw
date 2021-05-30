@@ -1071,13 +1071,23 @@ thead tr {
 }
 
 tr.entry {
-	display: inline-flex;
+	height: 300px;
+	position: relative;
 }
 
-tr.entry div {
-	height: 50px;
-	background: red;
+tr.entry.collapsed {
+	height: 0;
 }
+
+
+tr.entry td {
+	position: relative;
+}
+
+.entry_header {
+	width: 100%;
+}
+
 
 .entry > .table_row {
 	background: var(--c-white);
@@ -1290,6 +1300,11 @@ th {
 	height: var(--lineheight);
 	box-sizing: border-box;
 }
+
+th, td {
+	max-width: unset !important;
+}
+
 
 td > button {
 	height: var(--lineheight);

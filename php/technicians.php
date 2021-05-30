@@ -295,7 +295,7 @@
                                             <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                         </div>
                                         <div class="search_wrapper">
-                                            <input type="text" onkeyup="searchInLists()" class="hidden">
+                                            <input type="text" onkeyup="searchInLists()" class="search hidden">
                                         </div>
                                         <div class="option_container">
                                             <input type="radio" name="status" id="listsearch_semi" value="Semi"/>
