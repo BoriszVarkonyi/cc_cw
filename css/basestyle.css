@@ -1086,6 +1086,11 @@ tr.entry td {
 
 .entry_header {
 	width: 100%;
+	background: var(--c-lightgray);
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 10px 0;
 }
 
 
