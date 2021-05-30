@@ -1070,6 +1070,15 @@ thead tr {
 	height: var(--lineheight);
 }
 
+tr.entry {
+	display: inline-flex;
+}
+
+tr.entry div {
+	height: 50px;
+	background: red;
+}
+
 .entry > .table_row {
 	background: var(--c-white);
 	height: calc(1.4em + 1.25vmin);
