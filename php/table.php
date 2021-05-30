@@ -302,7 +302,7 @@ if (isset($_POST["generate_table"])) {
                     <form id="generate_table" method="POST" action="">
                     </form>
                     <div class="stripe_button_wrapper">
-                        <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table" onclick="cookieRester()">
+                        <button class="stripe_button primary" type="submit" name="generate_table" form="generate_table" onclick="document.cookie = 'index1=0'; document.cookie = 'index2=0'; document.cookie = 'index3=0'">
                             <p>Generate Table</p>
                             <img src="../assets/icons/add_box_black.svg" />
                         </button>

@@ -30,23 +30,23 @@ var previousSearches = [];
 var hasAdded = false;
 function searchInLists() {
     var counter = 0;
-    var searches = document.querySelectorAll(".table_header .search")
-    console.log(searches)
+    var searches = document.querySelectorAll("th .search")
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
-        if (previousSearches[j] != searches[j].value || j == 0) {
+       // if (previousSearches[j] != searches[j].value || j == 0) {
             previousSearches.push(searches[j].value)
             var filter = searches[j].value.toUpperCase();
             if (j > 0) {
-                var li = document.querySelectorAll('.table_row_wrapper .table_row:not( .hidden) > div:nth-of-type(' + (j + 1) + ')');
+                var li = document.querySelectorAll('tbody tr:not( .hidden) > td:nth-of-type(' + (j + 1) + ')');
             }
             else {
-                var li = document.querySelectorAll('.table_row_wrapper .table_row > div:nth-of-type(' + (j + 1) + ')');
+                var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
             }
             //Loops throught the rows
             for (i = li.length; i--;) {
                 a = li[i].querySelector("p");
                 txtValue = a.textContent || a.innerText;
+                //console.log(txtValue)
                 //if the input is a radio button the search is stricter
                 if (searches[j].parentNode.parentNode.classList.contains("option")) {
                     if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
@@ -65,10 +65,10 @@ function searchInLists() {
                 counter++;
 
             }
-        }
-        else {
-            continue;
-        }
+        //}
+        //else {
+           // continue;
+        //}
     }
     //If there is the no search found row it removes the hidden class
     var emptyRow = document.getElementById("emptyRow")
@@ -76,9 +76,9 @@ function searchInLists() {
         emptyRow.classList.remove("hidden")
     }
     //setas the row bg color
-    var visibleRows = document.querySelectorAll(".table_row:not( .hidden)")
+    var visibleRows = document.querySelectorAll("tr:not( .hidden)")
     for (i = 0; i < visibleRows.length; i++) {
-        if (i % 2 == 0) {
+        if (i % 2 != 0) {
             visibleRows[i].style.backgroundColor = "rgb(255, 255, 255)"
         }
         else {
@@ -93,24 +93,23 @@ function searchInLists() {
     //selectedElementIndexAr is a var from list.js
     selectedElementIndexAr = 0;
     //Handles the no search found row
-    var rowLenght = document.querySelectorAll('.table.wrapper .table_row_wrapper .table_row:not( .hidden)').length
+    var rowLenght = document.querySelectorAll('table tbody tr:not( .hidden)').length
     if (rowLenght === 0 && !hasAdded) {
-        var tableRowWrapper = document.querySelector(".table.wrapper .table_row_wrapper")
-        tableRowWrapper.innerHTML += '<div class="table_row" id="emptyRow"><div class="table_item"><p>No result</p></div></div>'
+        var tableRowWrapper = document.querySelector("table tbody")
+        tableRowWrapper.innerHTML += '<tr id="emptyRow"><td colspan="4"><p>No result</p></td></tr>'
         hasAdded = true;
     }
     else if (rowLenght > 1 && hasAdded) {
         if (emptyRow != null) {
-            var table = document.querySelector("#page_content_panel_main .table_row_wrapper")
+            var table = document.querySelector("#page_content_panel_main tbody")
             table.removeChild(table.lastElementChild)
         }
         hasAdded = false;
     }
-    console.log(counter)
 
 }
 
-var radioButtons = document.querySelectorAll(".table_header .option_container input")
+var radioButtons = document.querySelectorAll("thead .option_container input")
 // Displays all row when click the X
 function searchDelete(x) {
     if (x.previousElementSibling == undefined) {
@@ -138,13 +137,13 @@ radioButtons.forEach(item => {
 
 //Sort system
 var defaultArray = [];
-var defaultNameSequence = document.querySelectorAll("#page_content_panel_main .table_row .table_item:first-of-type p")
+var defaultNameSequence = document.querySelectorAll("#page_content_panel_main tr td:first-of-type p")
 for (i = 0; i < defaultNameSequence.length; i++) {
-    defaultArray.push(defaultNameSequence[i].innerHTML)
+    defaultArray.push(defaultNameSequence[i].innerHTML.toLowerCase())
 }
 
 
-var allButtons = document.querySelectorAll("#page_content_panel_main .table_header_text > button:first-of-type");
+var allButtons = document.querySelectorAll("#page_content_panel_main th > button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
 for (i = 0; i < sortButtonCookie[1]; i++) {
     sortButton(allButtons[sortButtonCookie[0]])
@@ -189,11 +188,11 @@ function sortButton(x) {
 function rowSort(index, mode) {
     //Makes an array from A-Z (whith strings)
     var sortByArray = [];
-    var names = document.querySelectorAll("#page_content_panel_main .table_row .table_item:nth-of-type(" + index + ") p")
+    var names = document.querySelectorAll("#page_content_panel_main tr td:nth-of-type(" + index + ") p")
     var isNumberArray = true;
     for (i = 0; i < names.length; i++) {
         if (isNaN(names[i].innerHTML)) {
-            sortByArray.push(names[i].innerHTML)
+            sortByArray.push(names[i].innerHTML.toLowerCase())
             isNumberArray = false;
         }
         else {
@@ -212,34 +211,34 @@ function rowSort(index, mode) {
     else {
         sortByArray.sort();
     }
-    var rows = document.querySelectorAll("#page_content_panel_main .table_row")
-    var rowNode = document.querySelector("#page_content_panel_main .table_row_wrapper")
+    var rows = document.querySelectorAll("#page_content_panel_main tbody tr")
+    var rowNode = document.querySelector("#page_content_panel_main tbody")
     switch (mode) {
         case "A-Z":
             for (i = rows.length - 1; i >= 0; i--) {
                 rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll("#page_content_panel_main .table_row")
+                rows = document.querySelectorAll("#page_content_panel_main tbody tr")
             }
             break;
         case "Z-A":
             for (i = 0; i < rows.length; i++) {
                 rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll("#page_content_panel_main .table_row")
+                rows = document.querySelectorAll("#page_content_panel_main tbody tr")
             }
             break;
         default:
             for (i = rows.length - 1; i >= 0; i--) {
                 rowNode.insertBefore(rows[indexFinder(defaultArray[i], 1, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll("#page_content_panel_main .table_row")
+                rows = document.querySelectorAll("#page_content_panel_main tbody tr")
             }
     }
 }
 //Gets the div index
 function indexFinder(nameSearchFor, index, mode) {
-    var rows = document.querySelectorAll("#page_content_panel_main .table_row")
+    var rows = document.querySelectorAll("#page_content_panel_main tbody tr")
     for (j = 0; j < rows.length; j++) {
-        var currentName = rows[j].querySelector("#page_content_panel_main .table_item:nth-of-type(" + index + ") p")
-        if (nameSearchFor === currentName.innerHTML) {
+        var currentName = rows[j].querySelector("#page_content_panel_main td:nth-of-type(" + index + ") p")
+        if (nameSearchFor === currentName.innerHTML.toLowerCase()) {
             switch (mode) {
                 case "A-Z":
                     if (j < rows.length - 2 - i) {
