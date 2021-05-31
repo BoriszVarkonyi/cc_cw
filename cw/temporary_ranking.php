@@ -48,14 +48,19 @@
                     <tbody class="alt">
                         <?php
                             //get competitors sorted by temp rank
-                            $qry = "SELECT * FROM cptrs_$comp_id ORDER BY temporary_rank ASC";
+                            $qry = "SELECT data FROM `competitors` WHERE assoc_comp_id = '$comp_id'";
                             $qry_do = mysqli_query($connection, $qry);
                             echo mysqli_error($connection);
-                            while ($row = mysqli_fetch_assoc($qry_do)) {
-                                $fencer_name = $row['name'];
-                                $fencer_nat = $row['nationality'];
-                                $fencer_id = $row['id'];
-                                $fencer_temp_rank = $row['temporary_rank'];
+                            if ($row = mysqli_fetch_assoc($qry_do)) {
+                                $json_string = $row['data'];
+
+                                $json_table = json_decode($json_string);
+
+                                foreach ($json_table as $fencer_obj) {
+
+                                    $fencer_temp_rank = $fencer_obj -> temp_rank;
+                                    $fencer_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
+                                    $fencer_nat = $fencer_obj -> nation;
                         ?>
 
                         <tr>
@@ -77,7 +82,7 @@
                             <td class="small red"></td>
                         </tr>
 
-                        <?php } ?>
+                        <?php } }?>
                     </tbody>
                 </table>
             </div>
