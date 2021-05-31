@@ -9,18 +9,20 @@ $do_check_row = mysqli_query($connection, $qry_check_row);
 if ($row = mysqli_fetch_assoc($do_check_row)) {
     $json_string = $row['data'];
     $json_table = json_decode($json_string);
+    $objects = new ObjSorter($json_table, 'temp_rank');
+
+    $objects_array  = $objects->sorted;
 } else {
+    $objects_array = [];
     echo mysqli_error($connection);
 }
 
 
 //KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA//KICSI SORTOLÓ FUNKCIÓKA
 
-$objects = new ObjSorter($json_table, 'temp_rank');
 
-$objects_array  = $objects->sorted;
 
-echo count($objects_array) . " VÍVÓ";
+//echo count($objects_array) . " VÍVÓ";
 
 //CHECK//CHECK//CHECK//CHECK//CHECK//CHECK
 
@@ -113,6 +115,7 @@ echo count($objects_array) . " VÍVÓ";
                     <div class="table_row_wrapper">
                         <?php
 
+                    if (isset($objects_array[0])) {
                         foreach ($objects_array as $key => $value) {
 
                         ?>
@@ -124,6 +127,9 @@ echo count($objects_array) . " VÍVÓ";
                         </div>
                         <?php
                         }
+                    } else {
+                        ?><p>No competitors set up yet!</p> <?php
+                    }
                         ?>
                     </div>
                 </div>
