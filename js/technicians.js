@@ -83,6 +83,7 @@ function hidePasswordButton(x) {
         visible = true;
     }
 }
+
 */
 
 //Selects the competition that the technicians will be imported from

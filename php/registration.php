@@ -300,7 +300,6 @@
                             <div class="table_header_text">
                                 <div class="search_panel option">
                                     <div class="search_panel_buttons">
-                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
                                         <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="search_wrapper">

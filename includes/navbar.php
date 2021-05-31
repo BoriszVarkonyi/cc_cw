@@ -22,7 +22,7 @@
 
         <p id="controls_text" class="nav_bar_title">CONTROLS</p>
         <!-- DT -->
-        <button class="nav_bar_item" onclick="toggle_dtDropdown(this)" type="button">
+        <button class="nav_bar_item" onclick="toggleDropdown(this)" type="button">
             <img src="../assets/icons/list_alt_black.svg">
             <p>DT</p>
             <img src="../assets/icons/arrow_drop_down_black.svg" id="dt_dropdown_icon" class="dropdown_icon">
@@ -40,7 +40,7 @@
         <!-- callroom -->
         <a href="<?php echo $navbar -> call_room -> href ?>" class="nav_bar_item <?php echo $navbar -> call_room -> class ?>">
             <img src="../assets/icons/account_tree_black.svg">
-            <p>Call Room</p>
+            <p>Callroom</p>
         </a>
 
         <!-- registration -->
@@ -63,7 +63,7 @@
         <p id="setup_text" class="nav_bar_title">SETUP</p>
 
         <!-- general -->
-        <button type="button"class="nav_bar_item" onclick="toggle_dtDropdown(this)">
+        <button type="button"class="nav_bar_item" onclick="toggleDropdown(this)">
             <img src="../assets/icons/widgets_black.svg">
             <p>General</p>
             <img src="../assets/icons/arrow_drop_down_black.svg" id="general_dropdown_icon" class="dropdown_icon">
@@ -77,7 +77,7 @@
         </div>
 
         <!-- technical -->
-        <button type="button"class="nav_bar_item" onclick="toggle_dtDropdown(this)">
+        <button type="button"class="nav_bar_item" onclick="toggleDropdown(this)">
             <img src="../assets/icons/home_repair_service_black.svg">
             <p>Technical</p>
             <img src="../assets/icons/arrow_drop_down_black.svg" id="technical_dropdown_icon" class="dropdown_icon">

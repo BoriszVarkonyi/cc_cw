@@ -134,13 +134,6 @@
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
                 </div>
-                <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
-                    <div class="search_results">
-                        <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button"></button>
-                    </div>
-                </div>
             </div>
             <div id="page_content_panel_main">
 

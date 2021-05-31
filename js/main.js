@@ -76,7 +76,7 @@ if (navbar_status == "notPinned" && navBar != null) {
 }
 
 /* Toggle Nav Dropdow  */
-function toggle_dtDropdown(x) {
+function toggleDropdown(x) {
     //Gets the right index
     var index = Array.from(navbarItems).indexOf(x);
     navbarItems[index].nextElementSibling.classList.toggle("hidden");

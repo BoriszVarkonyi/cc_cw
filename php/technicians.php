@@ -133,7 +133,6 @@
 </head>
 <body class="preload">
 <!-- header -->
-    <script>console.log("body")</script>
     <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
@@ -227,26 +226,9 @@
                         <button type="submit" name="submit_tech" class="panel_submit" form="new_technician">Save</button>
                     </form>
                 </div>
-
-                <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
-                    <div class="search_results">
-                        <?php
-                        foreach ($json_table as $json_object) {
-                            $username = $json_object -> username;
-                            $name = $json_object -> name;
-
-                            ?>
-                            <a id="<?php echo $username ?>A" href="#<?php echo $username ?>" onclick="selectSearch(this), autoFill(this)" tabindex="1"><?php echo $name ?></a>
-                            <?php
-                        }
-                            ?>
-                    </div>
-                </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="table wrapper">
+                <table class="wrapper">
 
                     <?php if(count($json_table) == 0){ ?>
 
@@ -256,93 +238,93 @@
 
                     <?php } else { ?>
 
-                        <div class="table_header">
-                            <div class="table_header_text">
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="search_panel">
+                                        <div class="search_wrapper">
+                                            <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                            <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        </div>
                                     </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>NAME</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </div>
-                            <div class="table_header_text">
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Username" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>NAME</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </th>
+                                <th>
+                                    <div class="search_panel">
+                                        <div class="search_wrapper">
+                                            <input type="text" onkeyup="searchInLists()" placeholder="Search by Username" class="search page">
+                                            <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        </div>
                                     </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>USERNAME</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </div>
-                            <div class="table_header_text">
-                                <div class="search_panel option">
-                                    <div class="search_panel_buttons">
-                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>USERNAME</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </th>
+                                <th>
+                                    <div class="search_panel option">
+                                        <div class="search_panel_buttons">
+                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        </div>
+                                        <div class="search_wrapper">
+                                            <input type="text" onkeyup="searchInLists()" class="search hidden">
+                                        </div>
+                                        <div class="option_container">
+                                            <input type="radio" name="status" id="listsearch_semi" value="Semi"/>
+                                            <label for="listsearch_semi">Semi</label>
+                                            <input type="radio" name="status" id="listsearch_dt" value="DT"/>
+                                            <label for="listsearch_dt">DT</label>
+                                            <input type="radio" name="status" id="listsearch_wc" value="Weapon Control"/>
+                                            <label for="listsearch_wc">Weapon Control</label>
+                                            <input type="radio" name="status" id="listsearch_reg" value="Registration"/>
+                                            <label for="listsearch_reg">Registration</label>
+                                        </div>
                                     </div>
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="hidden">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>ROLE</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </th>
+                                <th>
+                                    <div class="search_panel option">
+                                        <div class="search_panel_buttons">
+                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        </div>
+                                        <div class="search_wrapper">
+                                            <input type="text" onkeyup="searchInLists()" class="search hidden">
+                                        </div>
+                                        <div class="option_container">
+                                            <input type="radio" name="status" id="listsearch_online" value="Online"/>
+                                            <label for="listsearch_online">Online</label>
+                                            <input type="radio" name="status" id="listsearch_offline" value="Offline"/>
+                                            <label for="listsearch_offline">Offline</label>
+                                        </div>
                                     </div>
-                                    <div class="option_container">
-                                        <input type="radio" name="status" id="listsearch_semi" value="Semi"/>
-                                        <label for="listsearch_semi">Semi</label>
-                                        <input type="radio" name="status" id="listsearch_dt" value="DT"/>
-                                        <label for="listsearch_dt">DT</label>
-                                        <input type="radio" name="status" id="listsearch_wc" value="Weapon Control"/>
-                                        <label for="listsearch_wc">Weapon Control</label>
-                                        <input type="radio" name="status" id="listsearch_reg" value="Registration"/>
-                                        <label for="listsearch_reg">Registration</label>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>ROLE</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </div>
-                            <div class="table_header_text">
-                                <div class="search_panel option">
-                                    <div class="search_panel_buttons">
-                                        <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="hidden">
-                                    </div>
-                                    <div class="option_container">
-                                        <input type="radio" name="status" id="listsearch_online" value="Online"/>
-                                        <label for="listsearch_online">Online</label>
-                                        <input type="radio" name="status" id="listsearch_offline" value="Offline"/>
-                                        <label for="listsearch_offline">Offline</label>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>STATUS</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </div>
-                            <div class="small_status_header">
-                            </div>
-                        </div>
-                        <div class="table_row_wrapper" id="table">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>STATUS</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </th>
+                                <th class="small">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <?php
                                     foreach ($json_table as $json_object) {
 
@@ -353,11 +335,11 @@
 
 
                                 ?>
-                                <div class="table_row" id="<?php echo $username; ?>" onclick="selectRow(this)" tabindex="0">
-                                    <div class="table_item"><p><?php echo $name; ?></p></div>
-                                    <div class="table_item"><p><?php echo $username; ?></p></div>
-                                    <div class="table_item"><p><?php echo roleConverter($role); ?></p></div>
-                                    <div class="table_item">
+                                <tr id="<?php echo $username; ?>" onclick="selectRow(this)">
+                                    <td><p><?php echo $name; ?></p></td>
+                                    <td><p><?php echo $username; ?></p></td>
+                                    <td><p><?php echo roleConverter($role); ?></p></td>
+                                    <td>
                                         <p>
                                         <?php
                                         if($online == 0){
@@ -368,8 +350,8 @@
                                         }
                                         ?>
                                         </p>
-                                    </div>
-                                    <div class="small_status_item <?php
+                                    </td>
+                                    <td class="small <?php
                                         if($online == 0){
                                             echo "red";
                                         }
@@ -377,15 +359,15 @@
                                              echo "green";
                                         }
                                     ?>">
-                                    </div> <!-- red or green style added to small_status item to inidcate status -->
-                                </div>
+                                    </td> <!-- red or green style added to small_status item to inidcate status -->
+                                </tr>
                                 <?php
                                 }
                             }
                             //Check,read,display technicians END
                             ?>
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
@@ -393,11 +375,10 @@
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/technicians.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/controls.js"></script>
+    <script src="../js/list_2.js"></script>
+    <script src="../js/controls_2.js"></script>
     <script src="../js/importoverlay.js"></script>
-    <script src="../js/search.js"></script>
     <script src="../js/overlay_panel.js"></script>
-    <script src="../js/list_search.js"></script>
+    <script src="../js/list_search_2.js"></script>
 </body>
 </html>

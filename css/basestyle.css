@@ -1058,6 +1058,10 @@ table.fixed {
 
 /* General */
 
+tr.hidden {
+	display: none;
+}
+
 thead tr {
 	background: transparent !important;
 }
@@ -1069,6 +1073,97 @@ thead tr {
 	min-height: var(--lineheight);
 	height: var(--lineheight);
 }
+
+tr.entry {
+	position: relative;
+	max-height: 600px;
+	overflow: hidden;
+	transition: all	var(--t-basic);
+	min-height: 300px !important;
+}
+
+tr.entry.collapsed {
+	min-height: 0 !important;
+	height: 0 !important;
+	max-height: 0 !important;
+	overflow: hidden;
+}
+
+tr.entry td {
+	position: relative;
+	height: 100%;
+	vertical-align: middle;
+
+}
+
+tr.entry.collapsed td {
+	min-height: 0 !important;
+	height: 0 !important;
+	max-height: 0 !important;
+	overflow: hidden;
+	display: none;
+}
+
+tr.entry td table {
+	margin: 20px auto;
+	width: 100%;
+}
+
+tr.entry td table.smallc {
+	margin: 20px auto;
+	width: 300px;
+}
+
+.entry_header {
+	width: 100%;
+	background: var(--c-lightgray);
+	border-radius: 0 0 5px 5px;
+	padding: 10px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.entry_header form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.entry_header form div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 5px 10px;
+	max-height: 100px;
+	opacity: 1;
+	transition: var(--t-basic);
+}
+
+.entry_header form div.hidden {
+	max-height: 0;
+	opacity: 0;
+}
+
+.entry_header div:last-of-type {
+	flex: 1 1 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+.entry_header div:last-of-type button {
+	background: var(--c-primary);
+	padding: 5px 10px;
+	font-family: var(--bold);
+	border-radius: 5px;
+}
+
+.entry_header form input {
+	margin: 0 !important;
+}
+
 
 .entry > .table_row {
 	background: var(--c-white);
@@ -1116,7 +1211,7 @@ thead tr {
 	background: var(--c-lightergray);
 }
 
-.table_row.selected {
+.table_row.selected, tr.selected {
 	background: var(--c-primary) !important;
 	box-shadow: var(--s-black);
 	transform: scale(1.01);
@@ -1281,6 +1376,11 @@ th {
 	height: var(--lineheight);
 	box-sizing: border-box;
 }
+
+th, td {
+	max-width: unset !important;
+}
+
 
 td > button {
 	height: var(--lineheight);

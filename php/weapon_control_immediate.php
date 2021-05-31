@@ -74,22 +74,6 @@
                     </button>
                 </div>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
-                <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search by Name" class="search page">
-                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
-                    <div class="search_results">
-                    <?php
-                        foreach ($json_table as $obj) {
-                            $idke = $obj -> id;
-                            $nevecske = $obj -> prenom . " " . $obj -> nom;
-
-                        ?>
-                        <button id="<?php echo $idke ?>A" href="#<?php echo $idke ?>" onclick="selectSearch(this), autoFill(this)" type="button"><?php echo $nevecske ?></button>
-                        <?php
-                    }
-                        ?>
-                    </div>
-                </div>
             </form>
             <div id="page_content_panel_main">
                 <div class="wrapper table">
@@ -127,7 +111,6 @@
                         <div class="table_header_text">
                             <div class="search_panel option">
                                 <div class="search_panel_buttons">
-                                    <button type="button" onclick="searchClear(this)"><img src="../assets/icons/clear_all_black.svg"></button>
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                                 <div class="search_wrapper">
