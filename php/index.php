@@ -9,9 +9,9 @@
 
     if($row = mysqli_fetch_assoc($check_comp_query)){
 
-    $comp_name = $row["comp_name"];
+        $comp_name = $row["comp_name"];
 
-    $comp_status = $row['comp_status'];
+        $comp_status = $row['comp_status'];
     }
 
     //get logo image
