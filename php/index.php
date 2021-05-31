@@ -2,7 +2,7 @@
 <?php include "../includes/db.php"; ?>
 <?php
 
-checkComp($connection);
+    checkComp($connection);
 
     $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $check_comp_query = mysqli_query($connection, $query);
@@ -11,6 +11,7 @@ checkComp($connection);
 
     $comp_name = $row["comp_name"];
 
+    $comp_status = $row['comp_status'];
     }
 
     //get logo image
@@ -39,7 +40,7 @@ checkComp($connection);
         <div class="modal">
             <div class="modal_header gray">
                 <p class="modal_title">Confieramtion</p>
-                <p class="modal_subtitle">Szia</p>
+                <p class="modal_subtitle">Szija</p>
             </div>
             <div class="modal_main">
                 <img src="../assets/icons/arrow_back_ios_black.svg" class="modal_main_image margin_bottom">
