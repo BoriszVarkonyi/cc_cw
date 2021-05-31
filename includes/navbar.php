@@ -1,6 +1,7 @@
 <?php $comp_id = $_GET["comp_id"] ?>
 <?php include "db.php" ?>
 <?php include "navbar_btn_checker.php" ?>
+<?php include "tech_safety_sys.php" ?>
 <?php setOnline($connection); ?>
 
 <nav>
