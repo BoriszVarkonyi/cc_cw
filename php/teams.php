@@ -12,8 +12,6 @@
     <title>Teams</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/print_style.min.css" media="print">
-    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
     <!-- header -->
@@ -44,7 +42,7 @@
                         <p>Teams Order Reports</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
-                    <a class="stripe_button primary" href="team_order_reports.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="assign_fencers_to_teams.php?comp_id=<?php echo $comp_id ?>">
                         <p>Assign Fencers to Teams</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
@@ -103,15 +101,19 @@
                                         </div>
                                     </form>
                                 </div>
-                                <table class="smallc">
+                                <table class="small">
                                     <thead>
                                         <tr>
-                                            <th>NAME</th>
+                                            <th>
+                                                <p>NAME</p>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>JANI KICSI JÜ</td>
+                                            <td>
+                                                <p>JANI KICSI JÜ</p>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

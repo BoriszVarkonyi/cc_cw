@@ -3,7 +3,7 @@ removeButton.classList.add("disabled")
 removeButton.disabled = true;
 //Event listener to class change
 function removeButtonDisabler(){
-    var selectedItem = document.querySelector(".table_row_wrapper .selected")
+    var selectedItem = document.querySelector("tbody .selected")
     if(selectedItem !== null){
         removeButton.disabled = false;
         removeButton.classList.remove("disabled")
@@ -14,7 +14,7 @@ function removeButtonDisabler(){
     }
 }
 //An event listener to class change
-var wcRows = document.querySelectorAll("#page_content_panel_main .table_row_wrapper .table_row")
+var wcRows = document.querySelectorAll("#page_content_panel_main tbody tr")
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.attributeName === 'class') {

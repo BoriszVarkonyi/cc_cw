@@ -895,6 +895,10 @@ table.fixed {
 	table-layout: fixed;
 }
 
+.table.small, table.small {		/* Makea all elements of table small */
+	--lineheight: calc(1.2em + 1.0vmin) !important;
+}
+
 .table.small p, table.small p {		/* Makea all elements of table small */
 	font-size: var(--f-small) !important;
 }
@@ -921,16 +925,18 @@ table.fixed {
 	margin: 100px auto;
 }
 
-/*
-.table.no_interaction * {
-	cursor: default;
+table.no_interaction tr {
+	cursor: default !important;
 }
 
-.table.no_interaction .table_row:hover {
-	-webkit-filter: brightness(1) !important;
-	filter: brightness(1) !important;
+table.no_interaction tr:hover {
+	-webkit-filter: none !important;
+	filter: none !important;
 }
-*/
+
+tbody.no_scale tr.selected {
+	transform: none !important;
+}
 
 .table_row_wrapper, tbody {	/* Wraps table_row elements */
 	flex-direction: column;
@@ -1066,6 +1072,10 @@ thead tr {
 	background: transparent !important;
 }
 
+tr.selected + tr.entry {
+	border: 3px solid var(--c-primary) !important;
+}
+
 .table_row, tr {
 	outline: none;
 	cursor: pointer;
@@ -1080,6 +1090,7 @@ tr.entry {
 	overflow: hidden;
 	transition: all	var(--t-basic);
 	min-height: 300px !important;
+	transition: min-height var(--t-basic);
 }
 
 tr.entry.collapsed {
@@ -1089,14 +1100,13 @@ tr.entry.collapsed {
 	overflow: hidden;
 }
 
-tr.entry td {
+tr.entry > td {
 	position: relative;
 	height: 100%;
 	vertical-align: middle;
-
 }
 
-tr.entry.collapsed td {
+tr.entry.collapsed > td {
 	min-height: 0 !important;
 	height: 0 !important;
 	max-height: 0 !important;
@@ -1109,9 +1119,15 @@ tr.entry td table {
 	width: 100%;
 }
 
-tr.entry td table.smallc {
+tr.entry td table.small {
 	margin: 20px auto;
 	width: 300px;
+	min-width: 30%;
+	max-width: 60%;
+}
+
+tr.entry > td form {
+	margin: 30px 0;
 }
 
 .entry_header {
@@ -1163,7 +1179,6 @@ tr.entry td table.smallc {
 .entry_header form input {
 	margin: 0 !important;
 }
-
 
 .entry > .table_row {
 	background: var(--c-white);
@@ -1297,7 +1312,7 @@ tr.entry td table.smallc {
 	box-sizing: border-box;
 }
 
-.big_status_item label {
+.big_status_item label, td label, td label::before {
 	align-self: center;
 	margin: 0 !important;
 }

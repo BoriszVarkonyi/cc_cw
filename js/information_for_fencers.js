@@ -8,11 +8,9 @@ function removeEquipmentValues() {
 }
 
 //Max input value 5. Else it makes it empty
-var inputs = document.querySelectorAll(".table_row input");
+var inputs = document.querySelectorAll("#page_content_panel_main input[type=number]")
 inputs.forEach(item => {
     item.addEventListener("input", function () {
-        if(item.value > 5 || item.value < 0 || item.value == "00"){
-            item.value = ""
-        }
-    });
+        inputValueLimiter(this, 5, 0)
+    })
 })

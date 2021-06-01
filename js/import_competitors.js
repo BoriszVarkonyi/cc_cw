@@ -52,8 +52,6 @@ input.addEventListener("input", function() {
         tableitems[4].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Club")
         tableitems[5].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Classement")
       }
-      //This is a function from list.js
-      automaticWidth();
     }
   }
 })

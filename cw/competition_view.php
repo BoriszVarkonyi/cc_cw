@@ -83,6 +83,15 @@
                             <?php
                             }
                             ?>
+
+                            <!-- eztat else ágra -->
+
+                            <tr>
+                                <td colspan="3">
+                                    <p>There are no ongoing competitions</p>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
