@@ -37,7 +37,7 @@
                     </a>
                     <button class="stripe_button bold" type="submit" form="auto_team_assignment">
                         <p>Assign Fencers Automatically</p>
-                        <img src="../assets/icons/delete_black.svg"/>
+                        <img src="../assets/icons/list_alt_black.svg"/>
                     </button>
                     <button class="stripe_button primary" type="submit" form="save_team_assignments">
                         <p>Save</p>
