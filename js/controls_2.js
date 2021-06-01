@@ -16,7 +16,7 @@ document.onkeydown = (keyDownEvent) => {
     //importOverlayClosed is a var. from importoverlay.js
     //searchBarClosed is a var from search.js
     if (searchBarClosed && importOverlayClosed) {
-        var tableRows = document.querySelectorAll("tbody tr:not( .hidden)");
+        var tableRows = document.querySelectorAll("#page_content_panel_main tbody tr:not( .hidden)");
         if (keyDownEvent.key == "ArrowUp" && tableRows.length > 0) {
             if (selectedElementIndexAr == 0) {
                 selectedElementIndexAr++
