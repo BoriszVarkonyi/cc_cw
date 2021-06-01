@@ -342,7 +342,7 @@ if (isset($_POST['submit_import'])) {
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table">
+                <table class="wrapper">
 
                     <?php
 
@@ -356,8 +356,9 @@ if (isset($_POST['submit_import'])) {
                     } else {
                     ?>
 
-                        <div class="table_header">
-                            <div class="table_header_text">
+                    <thead>
+                        <tr>
+                            <th>
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="searchInLists()" placeholder="Search by Full name" class="search page">
@@ -371,8 +372,8 @@ if (isset($_POST['submit_import'])) {
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
-                            </div>
-                            <div class="table_header_text">
+                            </th>
+                            <th>
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
@@ -386,8 +387,8 @@ if (isset($_POST['submit_import'])) {
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
-                            </div>
-                            <div class="table_header_text">
+                            </th>
+                            <th>
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
@@ -401,14 +402,14 @@ if (isset($_POST['submit_import'])) {
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
-                            </div>
-                            <div class="table_header_text">
+                            </th>
+                            <th>
                                 <p>PASSWORD</p>
                                 <button type="button" onclick="hidePasswordButton(this)" id="visibility_button">
                                     <img src="../assets/icons/visibility_off_black.svg">
                                 </button>
-                            </div>
-                            <div class="table_header_text">
+                            </th>
+                            <th>
                                 <div class="search_panel option">
                                     <div class="search_panel_buttons">
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
@@ -430,70 +431,71 @@ if (isset($_POST['submit_import'])) {
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
-                            </div>
-                            <div class="small_status_header"></div>
-                        </div>
-                        <div class="table_row_wrapper">
-                            <?php
+                            </th>
+                            <th class="small"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
-                            foreach ($json_table as $json_object) {
+                        foreach ($json_table as $json_object) {
 
-                            ?>
+                        ?>
 
-                                <div class="table_row" id="<?php echo $json_object->id; ?>" onclick="selectRow(this)">
-                                    <div class="table_item">
-                                        <p><?php echo $json_object->prenom . " " . $json_object->nom; ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php echo $json_object->nation ?></p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php echo $json_object->club; ?></p>
-                                    </div>
-                                    <div class="table_item password">
-                                        <p> <?php echo $json_object->password ?> </p>
-                                    </div>
-                                    <div class="table_item">
-                                        <p><?php
+                            <tr id="<?php echo $json_object->id; ?>" onclick="selectRow(this)" tabindex="0">
+                                <td>
+                                    <p><?php echo $json_object->prenom . " " . $json_object->nom; ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $json_object->nation ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $json_object->club; ?></p>
+                                </td>
+                                <td class="password">
+                                    <p> <?php echo $json_object->password ?> </p>
+                                </td>
+                                <td>
+                                    <p><?php
 
-                                            if ($json_object->isOnline == false) {
+                                        if ($json_object->isOnline == false) {
 
-                                                echo "Not available";
-                                            } else {
-                                                echo "Available";
-                                            }
+                                            echo "Not available";
+                                        } else {
+                                            echo "Available";
+                                        }
 
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <div class="small_status_item <?php
+                                        ?>
+                                    </p>
+                                </td>
+                                <td class="small <?php
 
-                                                                    if ($json_object->isOnline == false) {
+                                                                if ($json_object->isOnline == false) {
 
-                                                                        echo "red";
-                                                                    } else {
-                                                                        echo "green";
-                                                                    }
+                                                                    echo "red";
+                                                                } else {
+                                                                    echo "green";
+                                                                }
 
-                                                                    ?>"></div> <!-- red or green style added to small_status item to inidcate status -->
-                                </div>
+                                                                ?>"></td> <!-- red or green style added to small_status item to inidcate status -->
+                            </tr>
                         <?php
                             }
                         }
                         //Check,read,display technicians END
                         ?>
-                        </div>
-                </div>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
+    <script src="../js/list_2.js"></script>
     <script src="../js/referees.js"></script>
-    <script src="../js/controls.js"></script>
+    <script src="../js/controls_2.js"></script>
     <script src="../js/importoverlay.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/list_search.js"></script>
+    <script src="../js/list_search_2.js"></script>
     <script src="../js/overlay_panel.js"></script>
 </body>
 

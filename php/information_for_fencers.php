@@ -74,7 +74,7 @@
                             <p>Equipment needed to be checked</p>
                         </div>
                         <div class="db_panel_main small">
-                            <table class="full">
+                            <table class="full no_interaction">
                                 <thead>
                                     <tr>
                                         <th>

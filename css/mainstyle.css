@@ -1539,6 +1539,10 @@ nav.closed #documentation_label img {
 	overflow: hidden;
 }
 
+#page_content_panel_main.no_wrap {
+	flex-wrap: nowrap !important;
+}
+
 #page_content_panel_main.scroll {
 	overflow: auto;
 }
@@ -1568,7 +1572,9 @@ nav.closed #documentation_label img {
 }
 
 .splitscreen.small {
-	flex: 1 1 150px;
+	min-width: 250px;
+	flex: 1 1 20vw;
+	max-width: 350px;
 	background: var(--c-lightgray);
 	flex-direction: column;
 	justify-content: flex-start;
@@ -1592,17 +1598,16 @@ nav.closed #documentation_label img {
 .splitscreen_select {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	padding: 7px 15px;
 	box-sizing: border-box;
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	background: var(--c-white);
 	font-family: var(--bold);
 	margin: 7px 0;
-	transition: transform var(--t-basic), background var(--t-basic);
+	transition: transform var(--t-basic) background var(--t-basic);
 	cursor: pointer;
+	overflow: hidden;
 }
 
 .splitscreen_select.selected {
@@ -1610,9 +1615,28 @@ nav.closed #documentation_label img {
 	background: var(--c-primary);
 }
 
+.splitscreen_select > p {
+	margin-left: 15px;
+}
+
 .splitscreen_select div {
 	display: flex;
 	align-items: center;
+	height: 100%;
+	padding: 7px 15px 7px 15px;
+	margin: 0 0 0 auto;
+}
+
+.splitscreen_select div.red {
+	background: var(--c-red);
+}
+
+.splitscreen_select div.green {
+	background: var(--c-green);
+}
+
+.splitscreen_select div.gray {
+	background: var(--c-gray);
 }
 
 /* Title Stripe Elements */
@@ -2382,29 +2406,7 @@ textarea.standalone {
 	text-transform: none;
 }
 
-#add_entry:hover > .table_row {
-	background: var(--c-lightgray) !important;
-}
 
-#add_entry, #adding_entry {
-	display: block;
-	opacity: 1;
-	transition: opacity var(--t-basic);
-	width: 100%;
-	font-family: var(--bold);
-}
-
-#add_entry.hidden, #adding_entry.hidden {
-	opacity: 0;
-	max-height: 0;
-	overflow: hidden;
-	border: none;
-}
-
-#add_entry > button {
-	width: 100%;
-	background: transparent;
-}
 
 .save_entry {
 	padding: 3px 10px;
@@ -2415,19 +2417,6 @@ textarea.standalone {
 	margin: 0 0 0 auto;
 	width: auto;
 	cursor: pointer;
-}
-
-#adding_entry > .table_row {
-	cursor: default;
-}
-
-#adding_entry > .table_row > .table_item {
-	justify-content: flex-start;
-	padding: 0 15px;
-}
-
-#adding_entry > .table_row > .table_item > input[type="text"] {
-	margin: 0;
 }
 
 #file_text {

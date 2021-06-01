@@ -342,7 +342,7 @@
 
 
                                 ?>
-                                <tr id="<?php echo $username; ?>" onclick="selectRow(this)">
+                                <tr id="<?php echo $username; ?>" onclick="selectRow(this)" tabindex="0">
                                     <td><p><?php echo $name; ?></p></td>
                                     <td><p><?php echo $username; ?></p></td>
                                     <td><p><?php echo roleConverter($role); ?></p></td>
@@ -363,7 +363,7 @@
                                             echo "red";
                                         }
                                         else{
-                                             echo "green";
+                                            echo "green";
                                         }
                                     ?>">
                                     </td> <!-- red or green style added to small_status item to inidcate status -->

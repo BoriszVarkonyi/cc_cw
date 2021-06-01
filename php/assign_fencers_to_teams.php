@@ -49,23 +49,13 @@
                     <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Team" class="search page">
                     <button type="button"><img src="../assets/icons/close_black.svg"></button>
                     <div class="search_results">
-                        <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button"></button>
+                        <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Ide kell a kuki</button>
+                        <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Ide kell a kuki</button>
+                        <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button">Ide kell a kuki</button>
                     </div>
                 </div>
-
-                <div id="add_team_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleAddTeamPanel()">
-                        <img src="../assets/icons/close_black.svg">
-                    </button>
-                    <form action="" id="add_team" method="POST" class="overlay_panel_form" autocomplete="off">
-                        <label for="">TEAM NAME</label>
-                        <input type="text" placeholder="Type in the team's name">
-
-                        <button type="submit" name="submit_add_team" class="panel_submit" value="">Add</button>
-                    </form>
-                </div>
             </div>
-            <div id="page_content_panel_main">
+            <div id="page_content_panel_main" class="no_scroll no_wrap">
                 <div class="splitscreen big">
                     <table>
                         <thead>
@@ -127,9 +117,23 @@
                         </div>
                     </div>
                     <div class="splitscreen_section">
+                        <div class="splitscreen_select selected">
+                            <p>Team 1</p>
+                            <div class="red">
+                                <p>5</p>
+                                <img src="../assets/icons/person_black.svg">
+                            </div>
+                        </div>
                         <div class="splitscreen_select">
-                            <p>Unselected Fencers</p>
-                            <div>
+                            <p>Team 1</p>
+                            <div class="gray">
+                                <p>5</p>
+                                <img src="../assets/icons/person_black.svg">
+                            </div>
+                        </div>
+                        <div class="splitscreen_select">
+                            <p>Team 1</p>
+                            <div class="green">
                                 <p>5</p>
                                 <img src="../assets/icons/person_black.svg">
                             </div>

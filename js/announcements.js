@@ -4,10 +4,10 @@ var addingEntryPanel = document.getElementById("adding_entry");
 var textArea = document.querySelector(".title_input")
 
 //Toggles the classes.
-function hideNshow () {
-  addEntryPanel.classList.toggle("hidden");
-  addingEntryPanel.classList.toggle("hidden");
-  textArea.focus()
+function hideNshow() {
+    addEntryPanel.classList.toggle("hidden");
+    addingEntryPanel.classList.toggle("hidden");
+    textArea.focus()
 }
 
 var addInformationInput = addingEntryPanel.querySelector("input")
@@ -17,11 +17,11 @@ addInformationButton.classList.add("disabled")
 
 addingEntryPanel.addEventListener("input", entryformvalidation)
 //Entry form validation
-function entryformvalidation(){
-    if(addInformationInput.value == ""){
+function entryformvalidation() {
+    if (addInformationInput.value == "") {
         addInformationButton.classList.add("disabled")
     }
-    else{
+    else {
         addInformationButton.classList.remove("disabled")
     }
 }
@@ -31,19 +31,19 @@ function toggleEntry(x) {
     var tableRow = x;
     var entry = tableRow.parentNode;
     var entryPanel = tableRow.nextElementSibling;
-    var entrys =  document.querySelectorAll(".entry");
+    var entrys = document.querySelectorAll(".entry");
 
     //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
         entrys[i].lastElementChild.classList.add("collapsed")
         entrys[i].classList.remove("opened")
-        if(entrys[i] == entry){
+        if (entrys[i] == entry) {
             selectedElementIndexAnn = i;
         }
 
     }
     //Checking if the oldentry var. equals the entry.
-    if(entry == oldentry){
+    if (entry == oldentry) {
         //If yes then it adds opened, and remove collapsed.
         entryPanel.classList.remove("collapsed");
         entry.classList.add("opened");
@@ -53,7 +53,7 @@ function toggleEntry(x) {
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
     //Checking if we clicked the same entry.
-    if(entry.classList.contains("opened")){
+    if (entry.classList.contains("opened")) {
         //If yes it saves the entry.
         oldentry = entry
     }
@@ -63,27 +63,32 @@ function toggleEntry(x) {
     }
 }
 
-document.onkeyup=function(e){
+document.onkeyup = function (e) {
     var newAnn = document.getElementById("new_announcement_top")
     var titleBar = document.querySelector(".title_input")
     //somethingisOpened is a var. from main.js
-    if(!somethingisOpened && IsNotFocused){
-        if(e.shiftKey && e.which == 78) {
+    if (!somethingisOpened && IsNotFocused) {
+        if (e.shiftKey && e.which == 78) {
             newAnn.click()
             titleBar.focus()
         }
     }
 }
 var IsNotFocused = true;
-var openedForm =  document.querySelectorAll(".db_panel_main .entry_panel textarea")
+var openedForm = document.querySelectorAll(".db_panel_main .entry_panel textarea")
 openedForm.forEach(item => {
-    item.addEventListener("focus", function(){
+    item.addEventListener("focus", function () {
         IsNotFocused = false;
     })
-    item.addEventListener("blur", function(){
+    item.addEventListener("blur", function () {
         IsNotFocused = true;
     })
 })
+
+function toggleAddPanel() {
+    var panel = document.getElementById("add_announcement_panel");
+    panel.classList.toggle("hidden")
+}
 
 
 

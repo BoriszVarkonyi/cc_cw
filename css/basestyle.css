@@ -925,16 +925,18 @@ table.fixed {
 	margin: 100px auto;
 }
 
-/*
-.table.no_interaction * {
-	cursor: default;
+table.no_interaction tr {
+	cursor: default !important;
 }
 
-.table.no_interaction .table_row:hover {
-	-webkit-filter: brightness(1) !important;
-	filter: brightness(1) !important;
+table.no_interaction tr:hover {
+	-webkit-filter: none !important;
+	filter: none !important;
 }
-*/
+
+tbody.no_scale tr.selected {
+	transform: none !important;
+}
 
 .table_row_wrapper, tbody {	/* Wraps table_row elements */
 	flex-direction: column;
@@ -1070,6 +1072,10 @@ thead tr {
 	background: transparent !important;
 }
 
+tr.selected + tr.entry {
+	border: 3px solid var(--c-primary) !important;
+}
+
 .table_row, tr {
 	outline: none;
 	cursor: pointer;
@@ -1084,6 +1090,7 @@ tr.entry {
 	overflow: hidden;
 	transition: all	var(--t-basic);
 	min-height: 300px !important;
+	transition: min-height var(--t-basic);
 }
 
 tr.entry.collapsed {
@@ -1097,7 +1104,6 @@ tr.entry > td {
 	position: relative;
 	height: 100%;
 	vertical-align: middle;
-
 }
 
 tr.entry.collapsed > td {
@@ -1118,6 +1124,10 @@ tr.entry td table.small {
 	width: 300px;
 	min-width: 30%;
 	max-width: 60%;
+}
+
+tr.entry > td form {
+	margin: 30px 0;
 }
 
 .entry_header {
@@ -1169,7 +1179,6 @@ tr.entry td table.small {
 .entry_header form input {
 	margin: 0 !important;
 }
-
 
 .entry > .table_row {
 	background: var(--c-white);
@@ -1303,7 +1312,7 @@ tr.entry td table.small {
 	box-sizing: border-box;
 }
 
-.big_status_item label, td label {
+.big_status_item label, td label, td label::before {
 	align-self: center;
 	margin: 0 !important;
 }

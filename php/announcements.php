@@ -112,6 +112,24 @@
         <main>
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button primary" type="button" onclick="toggleAddPanel()">
+                        <p>Add Announcement</p>
+                        <img src="../assets/icons/add_black.svg"/>
+                    </button>
+
+                    <div id="add_announcement_panel" class="overlay_panel hidden">
+                        <button class="panel_button" onclick="toggleAddPanel()">
+                            <img src="../assets/icons/close_black.svg">
+                        </button>
+                        <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="new_announcement" autocomplete="off">
+                            <label for="name">TITLE</label>
+                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="title">
+
+                            <button type="submit" name="submit_announcement" class="panel_submit">Add</button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div id="page_content_panel_main">
                 <div id="announcements_wrapper" class="wrapper">
@@ -121,62 +139,47 @@
                             <p>Manage Announcements</p>
                         </div>
                         <div class="db_panel_main table">
-                            <div class="table t_c_0">
-                                <div class="table_header">
-                                    <div class="table_header_text">TITLE</div>
-                                </div>
-                                <div class="table_row_wrapper alt">
+                            <table class="full">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>TITLE</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt no_scale">
                                     <?php
 
                                     for ($i = 0; $i < count($json_table); $i++) {
 
                                     ?>
 
-                                    <!-- ezt kell whileozni csorom -->
-                                    <div class="entry">
 
-                                        <!-- csak a cim kell -->
-                                        <div class="table_row" onclick="toggleEntry(this)">
-                                            <div class="table_item invitation"><p><?php echo $json_table[$i] -> title; ?></p></div>
-                                        </div>
+                                    <tr onclick="this.nextElementSibling.classList.toggle('collapsed')" class="selected">
+                                        <td><p><?php echo $json_table[$i] -> title; ?></td>
+                                    </tr>
 
-                                        <!-- updateing entry -->
-                                        <form class="entry_panel collapsed" id="update" method="POST" action="">
-                                            <button class="panel_button" type="submit" name="submit_delete" id="update">
-                                                <img src="../assets/icons/delete_black.svg">
-                                            </button>
-                                            <textarea id="update" name="text_body" placeholder="Type the Announcement's body text here"><?php echo $json_table[$i] -> body ?></textarea>
-                                            <input id="update" name="text_title_to_change" type="text" value="<?php echo $i ?>" class="hidden">
-                                            <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
-                                        </form>
 
-                                    </div>
-                                    <!-- eddig mondjuk -->
+                                    <!-- updateing entry -->
+                                    <tr class="entry collapsed">
+                                        <td>
+                                            <form id="update" method="POST" action="">
+                                                <button class="panel_button" type="submit" name="submit_delete" id="update">
+                                                    <img src="../assets/icons/delete_black.svg">
+                                                </button>
+                                                <textarea name="text_body" placeholder="Type the Announcement's body text here"><?php echo $json_table[$i] -> body ?></textarea>
+                                                <input name="submit_body" type="submit" value="Save" class="panel_submit">
+                                            </form>
+                                        </td>
+                                    </tr>
+
                                 <?php
                                 }
 
                                 ?>
 
-                                    <!-- adding entry by title -->
-                                    <div id="add_entry" onclick="hideNshow()">
-                                        <div class="table_row" onclick="">
-                                            <div class="table_item">
-                                                Add information
-                                                <img src="../assets/icons/add_black.svg">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <form action="../php/announcements.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
-                                        <div class="table_row">
-                                            <div class="table_item">
-                                                <input name="input_title" type="text" class="title_input" placeholder="Type in the title">
-                                                <input name="input_submit" type="submit" class="save_entry" value="Create">
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
