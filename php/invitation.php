@@ -252,7 +252,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                             <form action="../uploads/uploads.php?comp_id=<?php echo $comp_id ?>" method="POST" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload Image (max. 0.5MB)</label>
-                                <p id="file_text">Fájl neve ide</p>
+                                 <p id="file_text"></p>
                                 <input type="submit" value="Upload Image" name="submit" class="panel_submit" id="uploadButton" disabled>
                             </form>
                         </div>

@@ -202,7 +202,7 @@ if (isset($_POST['submit_import'])) {
                         <p>Import Referees from XML</p>
                         <img src="../assets/icons/save_alt_black.svg" />
                     </a>
-                    <button class="stripe_button" onclick="toggle_import_technician()">
+                    <button class="stripe_button" onclick="toggleImportPanel()">
                         <p>Import Referees from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg" />
                     </button>
@@ -218,18 +218,19 @@ if (isset($_POST['submit_import'])) {
                         <p>Remove Referee</p>
                         <img src="../assets/icons/delete_black.svg" />
                     </button>
-                    <button class="stripe_button primary" onclick="toggle_add_technician()">
+                    <button class="stripe_button primary" onclick="toggleAddPanel()">
                         <p>Add Referees</p>
                         <img src="../assets/icons/add_black.svg" />
                     </button>
                 </div>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggle_import_technician()">
+                    <button class="panel_button" onclick="toggleImportPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
-                        <table class="select_competition_wrapper small">
+                        <input type="text" name="selected_comp_id" id="selected_comp_input" class="hidden" readonly>
+                        <table class="small">
                             <thead>
                                 <tr>
                                     <th>
@@ -238,7 +239,6 @@ if (isset($_POST['submit_import'])) {
                                 </tr>
                             </thead>
                             <tbody class="alt">
-                                <input type="text" name="selected_comp_id" id="selected_comp_input" class="hidden">
                                 <?php
                                 //get oragasniser id
                                 $qry_get_org_id = "SELECT `id` FROM `organisers` WHERE `username` = '$username'";
@@ -258,7 +258,7 @@ if (isset($_POST['submit_import'])) {
                                     $import_comp_id = $row['comp_id'];
                                 ?>
 
-                                    <tr id="<?php echo $import_comp_id; ?>" onclick="importTechnicians(this)">
+                                    <tr id="<?php echo $import_comp_id; ?>" onclick="selectForImport(this)">
                                         <td id="<?php echo $import_comp_id; ?>">
                                             <p><?php echo $import_comp_name; ?></p>
                                         </td>
@@ -272,9 +272,9 @@ if (isset($_POST['submit_import'])) {
                         <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
                     </form>
                 </div>
-
-                <input type="text" name='id' form="remove_technician" class="selected_list_item_input hidden">
-                <form action="" method="POST" id="remove_technician" class="hidden"></form>
+                <form action="" method="POST" id="remove_referee" class="hidden">
+                    <input type="text" name="id" class="selected_list_item_input hidden" readonly>
+                </form>
 
                 <div id="add_technician_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
@@ -283,7 +283,7 @@ if (isset($_POST['submit_import'])) {
                         <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios_black.svg"></button>
                         <p class="overlay_panel_controls_counter">3 / 3</p>
                     </div>
-                    <button class="panel_button" onclick="toggle_add_technician()">
+                    <button class="panel_button" onclick="toggleAddPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">
@@ -414,7 +414,7 @@ if (isset($_POST['submit_import'])) {
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="hidden">
+                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="status" id="listsearch_available" value="Available" />

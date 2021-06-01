@@ -140,7 +140,7 @@
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
                 <div class="stripe_button_wrapper">
-                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggle_import_technician()" shortcut="SHIFT+I">
+                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggleImportPanel()" shortcut="SHIFT+I">
                         <p>Import Technicians from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </button>
@@ -152,24 +152,25 @@
                         <p>Remove Technician</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" onclick="toggle_add_technician()" shortcut="SHIFT+A">
+                    <button class="stripe_button primary" onclick="toggleAddPanel()" shortcut="SHIFT+A">
                         <p>Add Technician</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
                 </div>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggle_import_technician()">
+                    <button class="panel_button" onclick="toggleImportPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form" autocomplete="off">
-                        <div class="table t_c_0">
-                            <div class="table_header">
-                                <div class="table_header_text"><p>NAME</p></div>
-                            </div>
-                            <div class="select_competition_wrapper table_row_wrapper alt">
-                                <input type="text" name="id" form="remove_technician" class="selected_list_item_input hidden" id="selected_row_input">
-                                <input type="text" name="id" form="import_technician" class="selected_list_item_input hidden" id="selected_row_input_import">
+                        <input type="text" name="selected_comp_id" id="selected_comp_input" class="hidden" readonly>
+                        <table class="small">
+                            <thead>
+                                <tr>
+                                    <th><p>NAME</p></th>
+                                </tr>
+                            </thead>
+                            <tbody class="alt">
                                 <?php
                                     //qry
                                     $qry_get_tables = "SELECT assoc_comp_id FROM technicians;";
@@ -186,23 +187,29 @@
                                                 $comp_name = $row['comp_name'];
                                             }
                                     ?>
-                                        <div class="table_row" id="<?php echo $id_to_get; ?>" onclick="importTechnicians(this)"><div class="table_item" id="in_<?php echo $id_to_get; ?>"><p><?php echo $comp_name; ?></p></div></div>
+                                        <tr id="<?php echo $id_to_get; ?>" onclick="selectForImport(this)">
+                                            <td id="in_<?php echo $id_to_get; ?>">
+                                                <p><?php echo $comp_name; ?></p>
+                                            </td>
+                                        </tr>
 
                                     <?php
                                         }
                                     }
 
                                 ?>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                         <button type="submit" name="submit_import" class="panel_submit" form="import_technician" value="Import">Import</button>
                     </form>
                 </div>
 
-                <form action="" method="POST" id="remove_technician"></form>
+                <form action="" method="POST" id="remove_technician">
+                    <input type="text" name="id" class="selected_list_item_input hidden" id="selected_row_input" readonly>
+                </form>
 
                 <div id="add_technician_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggle_add_technician()">
+                    <button class="panel_button" onclick="toggleAddPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">

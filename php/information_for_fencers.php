@@ -74,16 +74,21 @@
                             <p>Equipment needed to be checked</p>
                         </div>
                         <div class="db_panel_main small">
-                            <div class="table">
-                                <div class="table_header">
-                                    <div class="table_header_text">EQUIPMENT</div>
-                                    <div class="table_header_text">QUANTITY
-                                        <button onclick="removeEquipmentValues()" type="button" id="reset_button">
-                                            <img src="../assets/icons/cached_black.svg">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="table_row_wrapper alt">
+                            <table class="full">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>EQUIPMENT</p>
+                                        </th>
+                                        <th>
+                                            <p>QUANTITY</p>
+                                            <button onclick="removeEquipmentValues()" type="button">
+                                                <img src="../assets/icons/cached_black.svg">
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
                                     <?php
                                     $query_get_data = "SELECT comp_equipment,comp_info FROM competitions WHERE comp_id = $comp_id";
                                     $query_get_data_do = mysqli_query($connection, $query_get_data);
@@ -95,9 +100,12 @@
                                     }
 
                                     for($i = 0; $i < 13; $i++){?>
-                                    <div class="table_row" id="<?php echo $i ?>">
-                                        <div class="table_item"><?php echo $equipment[$i]?></div>
-                                        <div class="table_item"><input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
+                                    <tr id="<?php echo $i ?>">
+                                        <td>
+                                            <p><?php echo $equipment[$i]?></p>
+                                        </td>
+                                        <td>
+                                            <input id="input_<?php echo $i ?>" name="<?php echo $i ?>" type="number" placeholder="#" value="<?php
 
                                         if($assocdatapost[$i] == 0){
 
@@ -108,14 +116,14 @@
                                             echo $assocdatapost[$i];
 
                                         }
-                                        ?>"></div>
-                                    </div>
+                                        ?>"></td>
+                                    </tr>
 
                                     <?php
                                     }
                                     ?>
-                                </div>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="db_panel">

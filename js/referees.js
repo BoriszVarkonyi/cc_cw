@@ -1,10 +1,10 @@
 //Toggles technician and import technician panel
-function toggle_add_technician() {
+function toggleAddPanel() {
     var element = document.getElementById("add_technician_panel");
     element.classList.toggle("hidden");
 }
 
-function toggle_import_technician() {
+function toggleImportPanel() {
     var element = document.getElementById("import_technician_panel");
     element.classList.toggle("hidden");
     //importOverlayClosed is a var. from importoverlay.js
@@ -91,7 +91,7 @@ if (tableRows.length > 0) {
 //Selects the competition that the technicians will be imported from
 var importTechHiddenInput = document.getElementById("selected_comp_input")
 var oldSelectedTechImport;
-function importTechnicians(x) {
+function selectForImport(x) {
     var importTechTablerows = document.querySelectorAll(".select_competition_wrapper .table_row")
     var clickedImportTechrow = x
     if (oldSelectedTechImport != clickedImportTechrow) {

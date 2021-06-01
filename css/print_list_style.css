@@ -77,6 +77,18 @@
 
 /* General */
 
+th button {
+	display: none;
+}
+
+th p {
+	font-family: var(--bold);
+}
+
+td.square, td.small, th.small {
+	display: none;
+}
+
 .table_row, tr {
 	outline: none;
 	height: var(--lineheight);

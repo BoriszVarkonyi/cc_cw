@@ -862,8 +862,8 @@ header {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	bottom: 10px;
-	right: 10px;
+	bottom: 8px;
+	right: 8px;
 	cursor: pointer;
 	color: var(--c-white);
 }
@@ -1550,6 +1550,67 @@ nav.closed #documentation_label img {
 #page_content_panel_main.loose > div {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.splitscreen {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: flex;
+}
+
+.splitscreen.big {
+	flex: 1 1 800px;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.splitscreen.small {
+	flex: 1 1 150px;
+	background: var(--c-lightgray);
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.splitscreen table {
+	width: 100%;
+	margin: 50px;
+}
+
+.splitscreen_section {
+	padding: 20px 0;
+	width: 80%;
+}
+
+.splitscreen_section.header {
+	border-bottom: 2px solid var(--c-gray);
+}
+
+.splitscreen_select {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 7px 15px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	box-shadow: var(--s-black);
+	background: var(--c-white);
+	font-family: var(--bold);
+	margin: 7px 0;
+	transition: transform var(--t-basic), background var(--t-basic);
+	cursor: pointer;
+}
+
+.splitscreen_select.selected {
+	transform: scale(1.05);
+	background: var(--c-primary);
+}
+
+.splitscreen_select div {
 	display: flex;
 	align-items: center;
 }
@@ -2278,16 +2339,6 @@ textarea.standalone {
 
 #import_technician_panel {
 	right: 200px;
-}
-
-.select_competition_wrapper tbody {
-	width: 350px;
-	max-height: 400px;
-}
-
-.select_competition_wrapper tr, .select_competition_wrapper td, .select_competition_wrapper th {
-	height: calc(1.2em + 1.0vmin) !important;
-	width: 350px;
 }
 
 #import_technician, #import_ref {
