@@ -244,7 +244,7 @@
                                     <div class="search_panel">
                                         <div class="search_wrapper">
                                             <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                            <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                         </div>
                                     </div>
                                     <button type="button" onclick="sortButton(this)">
@@ -259,7 +259,7 @@
                                     <div class="search_panel">
                                         <div class="search_wrapper">
                                             <input type="text" onkeyup="searchInLists()" placeholder="Search by Username" class="search page">
-                                            <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                         </div>
                                     </div>
                                     <button type="button" onclick="sortButton(this)">

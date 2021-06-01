@@ -361,7 +361,7 @@ if (isset($_POST['submit_import'])) {
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="searchInLists()" placeholder="Search by Full name" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 <button type="button" onclick="sortButton(this)">
@@ -376,7 +376,7 @@ if (isset($_POST['submit_import'])) {
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 <button type="button" onclick="sortButton(this)">
@@ -391,7 +391,7 @@ if (isset($_POST['submit_import'])) {
                                 <div class="search_panel">
                                     <div class="search_wrapper">
                                         <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
-                                        <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
                                 <button type="button" onclick="sortButton(this)">

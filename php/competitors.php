@@ -153,7 +153,7 @@
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Competition Position" class="search page">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
@@ -168,7 +168,7 @@
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Classement Position" class="search page">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
@@ -183,7 +183,7 @@
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
@@ -198,7 +198,7 @@
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
@@ -213,7 +213,7 @@
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                             </div>
                             <button type="button" onclick="sortButton(this)">
@@ -227,7 +227,7 @@
                         <div class="table_header_text">
                             <div class="search_panel option">
                                 <div class="search_panel_buttons">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
 
                                 <div class="search_wrapper">
@@ -252,7 +252,7 @@
                         <div class="table_header_text">
                             <div class="search_panel option">
                                 <div class="search_panel_buttons">
-                                    <button type="button" onclick="searchDelete(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
 
                                 <div class="search_wrapper">

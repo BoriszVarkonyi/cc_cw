@@ -112,7 +112,7 @@ function searchInLists() {
 
 var radioButtons = document.querySelectorAll(".table_header .option_container input")
 // Displays all row when click the X
-function searchDelete(x) {
+function closeSearch(x) {
     if (x.previousElementSibling == undefined) {
         x.parentNode.nextElementSibling.firstElementChild.value = ""
         for (i = 0; i < radioButtons.length; i++) {
