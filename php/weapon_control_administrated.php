@@ -5,62 +5,37 @@
 
 <?php
 
-    $table_name = "wc_$comp_id";
-    //feedback
-    $feedback = array(
-        "getrankid" => "no",
-        "getfencers" => "no",
-        "getcompdata" => "no"
-    );
+    //create table
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);
 
-
-    //get ranking id by comp_id
-    $qry_getrankid = "SELECT * FROM ranking WHERE ass_comp_id = $comp_id";
-
-    $qry_getrankid_do = mysqli_query($connection, $qry_getrankid);
-    if ($row = mysqli_fetch_assoc($qry_getrankid_do)) {
-        $feedback['getrankid'] = "ok!";
-        $ranking_id = $row['id'];
+    //get json from wc table
+    $test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_test = mysqli_query($connection, $test_for_row_qry);
+    if ($row = mysqli_fetch_assoc($do_test)) {
+        $json_string = $row['data'];
+        $wc_table = json_decode($json_string);
     } else {
-        $feedback['getrankid'] = "ERROR " . mysqli_error($connection);
+        $qry_insert_new_row = "INSERT INTO `weapon_control` (`assoc_comp_id`) VALUES ($comp_id);";
+        $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
+        $wc_table = [];
     }
 
-    if (isset($_POST['add_wc'])) {
+    //get competitors table
+    $qry_get_compet = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_get_compet = mysqli_query($connection, $qry_get_compet);
+
+    if ($row = mysqli_fetch_assoc($do_get_compet)) {
+        $compet_string = $row['data'];
+        $compet_table = json_decode($compet_string);
+    }
+
+    //check in button (make wc for fencers onto db)
+    if (isset($_POST['check_in_submit'])) {
         $fencer_id = $_POST['fencer_id'];
-        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&rankid=$ranking_id");
-    }
 
-    //checking for dupli tables
-    $check_d_table_qry = "SELECT COUNT(*)
-    FROM information_schema.tables
-    WHERE table_schema = 'ccdatabase'
-    AND table_name = '$table_name';";
+        header("Location: ../php/check_in_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
 
-    if ($check_d_table_do = mysqli_query($connection, $check_d_table_qry)) {
-        $num_rows = mysqli_num_rows($check_d_table_do);
-        $feedback['ttest'] = "ok!";
-
-        if ($num_rows != 0) {
-            //creating weapon control  table
-            $qry_creating_wc_table = "CREATE TABLE `ccdatabase`. $table_name (`id` VARCHAR(11) NOT NULL ,
-                                                                `name` VARCHAR(255) NOT NULL ,
-                                                                `nat` VARCHAR(255) NOT NULL ,
-                                                                `weapon_errors` VARCHAR(255) NOT NULL ,
-                                                                `notes` TEXT NOT NULL )
-                                                                ENGINE = InnoDB;";
-
-            if ($do_qry_creating_table = mysqli_query($connection, $qry_creating_wc_table)) {
-                $feedback['create_table'] = "ok!";
-            } else {
-                $feedback['create_table'] = "ERROR " . mysqli_error($connection);
-            }
-
-        } else {
-            $feedback['misc'] = "ERROR valami szar van a palacsintaban" . $num_rows;
-        }
-
-    } else {
-        $feedback['ttest'] = "ERROR " . mysqli_error($connection);
     }
 ?>
 
@@ -97,10 +72,10 @@
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" id="checkInButton" href="check_in_fencer.php?comp_id=<?php echo $comp_id ?>">
+                    <button class="stripe_button primary" id="checkInButton" name="check_in_submit" type="submit" >
                         <p>Check In</p>
                         <img src="../assets/icons/check_circle_outline_black.svg"/>
-                    </a>
+                    </button>
                     <a class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                         <p>Add Weapon Control</p>
                         <img src="../assets/icons/add_black.svg"/>
@@ -199,38 +174,69 @@
                         <div class="small_status_header"></div>
                     </div>
                     <div class="table_row_wrapper">
-                        <div class="table_row cheked_out" onclick="selectRow(this), buttonShower(this)" id="" tabindex="0">
-                            <div class="table_item"><p>NAME</p></div>
-                            <div class="table_item"><p>NATION / CLUB</p></div>
-                            <div class="table_item"><p>Checked In</p></div>
-                            <div class="small_status_item green"></div>
-                            <div class="table_item"><p>Checked Out</p></div>
-                            <div class="small_status_item green"></div>
-                        </div>
-                        <div class="table_row not_cheked_out" onclick="selectRow(this), buttonShower(this)" id="" tabindex="0">
-                            <div class="table_item"><p>NAME</p></div>
-                            <div class="table_item"><p>NATION / CLUB</p></div>
-                            <div class="table_item"><p>Checked In</p></div>
-                            <div class="small_status_item green"></div>
-                            <div class="table_item"><p>Ready</p></div>
-                            <div class="small_status_item green"></div>
-                        </div>
-                        <div class="table_row not_ready" onclick="selectRow(this), buttonShower(this)" id="" tabindex="0">
-                            <div class="table_item"><p>NAME</p></div>
-                            <div class="table_item"><p>NATION / CLUB</p></div>
-                            <div class="table_item"><p>Checked In</p></div>
-                            <div class="small_status_item green"></div>
-                            <div class="table_item"><p>Not ready</p></div>
-                            <div class="small_status_item red"></div>
-                        </div>
-                        <div class="table_row red" onclick="selectRow(this), buttonShower(this)" id="" tabindex="0">
-                            <div class="table_item"><p>NAME</p></div>
-                            <div class="table_item"><p>NATION / CLUB</p></div>
-                            <div class="table_item"><p>Not checked In</p></div>
-                            <div class="small_status_item red"></div>
-                            <div class="table_item"><p>Not ready</p></div>
-                            <div class="small_status_item red"></div>
-                        </div>
+                        <?php
+                            $qry_get_nat_club = "SELECT sort_by_club FROM pools WHERE assoc_comp_id = '$comp_id'";
+                            $do_get_nat_club = mysqli_query($connection, $qry_get_nat_club);
+
+                            if ($row = mysqli_fetch_assoc($do_get_nat_club)) {
+                                $sort_by_club = $row['sort_by_club'];
+                            } else {
+                                $sort_by_club = false;
+                            }
+
+                            if ($sort_by_club) {
+                                $c_or_n = "club";
+                            } else {
+                                $c_or_n = "nation";
+                            }
+
+                            foreach ($compet_table as $fencer_obj) {
+
+                                $name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
+                                $nat = $fencer_obj -> $c_or_n;
+
+                                //get wc data
+                                $checked_in = false;
+                                $checked_out = false;
+                                $ready_wc = false;
+                                $class = "red";
+                                if ($id_to_find = findObject($wc_table, $fencer_obj->id, "id") !== false) {
+
+                                    if ($wc_table[$id_to_find] -> equipment != NULL) {
+                                        $checked_in = true;
+                                    }
+
+                                    if ($wc_table[$id_to_find] -> faulty != NULL) {
+                                        $ready_wc = true;
+                                    }
+
+                                    $checked_out = $wc_table[$id_to_find] -> checked_out;
+
+                                    //determine class
+                                    if ($ready_wc == false) {
+                                        $class = "not_ready";
+                                    } elseif ($checked_out == false) {
+                                        $class = "not_cheked_out";
+                                    } else {
+                                        $class = "cheked_out";
+                                    }
+
+
+                                }
+                        ?>
+                                    <div class="table_row <?php echo $class ?>" onclick="selectRow(this), buttonShower(this)" id="<?php echo $fencer_obj->id ?>" tabindex="0">
+                                        <div class="table_item"><p><?php echo $name ?></p></div>
+                                        <div class="table_item"><p><?php echo $nat ?></p></div>
+                                        <div class="table_item"><p><?php echo $is_checked_in = ($checked_in) ? "Checked in" : "Not checked in" ?></p></div>
+                                        <div class="small_status_item <?php echo $is_checked_in_c = ($checked_in) ? "green" : "red" ?>"></div>
+                                        <div class="table_item"><p><?php echo $is_ready = ($checked_out) ? "Ready" : "Not ready" ?></p></div>
+                                        <div class="small_status_item <?php echo $is_ready = ($checked_out) ? "green" : "red" ?>"></div>
+                                    </div>
+
+                        <?php
+                            }
+                        ?>
+
                     </div>
                 </div>
             </div>
