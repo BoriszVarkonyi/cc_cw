@@ -201,24 +201,28 @@
                                 $ready_wc = false;
                                 $class = "red";
                                 if ($id_to_find = findObject($wc_table, $fencer_obj->id, "id") !== false) {
+                                    //this shouldnt be needed but the function returns 1 when there is only one element in the table instaed of 0
+                                    if (count($wc_table) == 1) {
+                                        $id_to_find = 0;
+                                    }
 
-                                    if ($wc_table[$id_to_find] -> equipment != NULL) {
+                                    if ($wc_table[$id_to_find] -> equipment != null) {
                                         $checked_in = true;
                                     }
 
-                                    if ($wc_table[$id_to_find] -> faulty != NULL) {
+                                    if ($wc_table[$id_to_find] -> array_of_issues != null) {
                                         $ready_wc = true;
                                     }
 
                                     $checked_out = $wc_table[$id_to_find] -> checked_out;
 
                                     //determine class
-                                    if ($ready_wc == false) {
-                                        $class = "not_ready";
-                                    } elseif ($checked_out == false) {
-                                        $class = "not_cheked_out";
-                                    } else {
+                                    if ($checked_out == true) {
                                         $class = "cheked_out";
+                                    } else if($ready_wc == true) {
+                                        $class = "not_cheked_out";
+                                    } else if ($checked_in == true) {
+                                        $class = "not_ready";
                                     }
 
 

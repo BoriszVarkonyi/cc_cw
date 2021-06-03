@@ -14,9 +14,9 @@
 
     class wc {
         public $checked_out = false;
-        public $issues = NULL;
+        public $array_of_issues = NULL;
         public $equipment = NULL;
-        public $notes;
+        public $notes = "";
         public $id;
 
         public function __construct($id){
@@ -39,13 +39,52 @@
     }
 
     //search for existing equipment turned in
-    if ($id_to_find = searchObject($wc_table, $fencer_id, "id") !== false) {
+    if ($id_to_find = findObject($wc_table, $fencer_id, "id") !== false) {
         //get data from existing check in
     } else {
         //make new check in
+        $temp_wc_obj = new wc($fencer_id);
+        //add to table then upload
+        array_push($wc_table, $temp_wc_obj);
+
+        $wc_string = json_encode($wc_table, JSON_UNESCAPED_UNICODE);
+
+        //update db
+        $qry_update = "UPDATE weapon_control SET data = '$wc_string' WHERE assoc_comp_id = '$comp_id'";
+        $do_update = mysqli_query($connection, $qry_update);
     }
 
+    if (isset($_POST['submit_check_in'])) {
+        $array_of_equipment = [];
+        foreach ($all_equipment as $key => $name) {
+            if ($_POST[$key] != "") {
+                $value = $_POST[$key];
+                $array_of_equipment[$key] = $value;
+            } else {
+                $array_of_equipment[$key] = 0;
+            }
+        }
 
+        //update (trade old to new) in wc_table
+        if ($id_to_find = findObject($wc_table, $fencer_id, "id") !== false) {
+            $wc_table[$id_to_find] -> equipment = $array_of_equipment;
+        } else {
+            echo "fencer can't be found by id";
+        }
+        $json_string = json_encode($wc_table);
+
+        //update database
+        $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        if ($do_update = mysqli_query($connection, $qry_update)) {
+            echo "vsvsvsvssv";
+            header("Location: ../php/weapon_control_administrated.php?comp_id=$comp_id");
+        } else {
+            echo "asdadadads";
+        }
+
+    }
+
+    echo "asdasdasdd";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +111,7 @@
                         <p>Print Check In</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <button name="" class="stripe_button primary" type="submit" form="" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
+                    <button name="submit_check_in" class="stripe_button primary" type="submit" form="check_in" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
                         <p>Save Check In</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
@@ -96,7 +135,7 @@
             </div>
             <div id="page_content_panel_main">
                 <div class="wrapper">
-                    <form action="" id="" method="POST" class="db_panel">
+                    <form action="" id="check_in" method="POST" class="db_panel">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/backpack_black.svg"/>
                             Contents of fencer's bag
@@ -109,30 +148,45 @@
                                     <div class="big_status_header"></div>
                                 </div>
                                 <div class="table_row_wrapper alt">
+
+                                    <?php
+                                        $all_equipment = ["Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove"];
+
+                                        //display equipment that can be given to check (from info for fencers db:competitions)
+                                        $qry_get_equipment = "SELECT comp_equipment FROM competitions WHERE comp_id = '$comp_id'";
+                                        $do_get_equipment = mysqli_query($connection, $qry_get_equipment);
+
+                                        if ($row = mysqli_fetch_assoc($do_get_equipment)) {
+                                            $equipments_string = $row['comp_equipment'];
+
+                                            $given_equipment = explode(',', $equipments_string);
+                                        } else {
+                                            echo mysqli_error($connection);
+                                        }
+                                        foreach ($given_equipment as $key => $value) {
+
+                                            if ($value != 0) {
+                                                $name = $all_equipment[$key];
+                                                //USE THIS ATIKÁM A MAX BEIRÁSHOZ
+                                                /**/$max = $value;//*************
+                                                /*   így:    id ="<?php echo $max ?>"   */
+
+                                    ?>
+
                                     <div class="table_row">
-                                        <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
+                                        <div class="table_item"><p><?php echo $name ?></p></div>
+                                        <div class="table_item"><input value="" name="<?php $key ?>" type="number" placeholder="#"></div>
                                         <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="epee" value=""/>
-                                            <label for="epee"></label>
+                                            <input type="checkbox" name="bag_content" id="<?php $name ?>" value=""/>
+                                            <label for="<?php $name ?>"></label>
                                         </div>
                                     </div>
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
-                                        <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="foil" value=""/>
-                                            <label for="foil"></label>
-                                        </div>
-                                    </div>
-                                    <div class="table_row">
-                                        <div class="table_item"><p>Epee</p></div>
-                                        <div class="table_item"><input value="" name="" type="number" placeholder="#"></div>
-                                        <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="sabre" value=""/>
-                                            <label for="sabre"></label>
-                                        </div>
-                                    </div>
+                                    <?php
+                                            }
+                                        }
+
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
@@ -183,42 +237,17 @@
                                         <div class="grid_header_text">QUANTITY</div>
                                     </div>
                                     <div class="grid_row_wrapper">
+
+
+
                                         <div class="grid_row">
                                             <div class="grid_item">Name</div>
                                             <div class="grid_item">1</div>
                                         </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
+
+
+
+
                                     </div>
                                 </div>
                             </div>
