@@ -3542,8 +3542,77 @@ div.title_box > button {
 	background: var(--cs-transparent-white);
 }
 
-
 .team_order_report a img {
 	width: 35px;
 	height: 35px;
 }
+
+/* Team ordr report */
+
+
+#team_order_report_panel {
+	background: var(--c-white);
+	padding: 10px;
+	border-radius: 5px;
+    box-shadow: var(--s-black);
+}
+
+#team_order_report_header {
+	width: 100%;
+	background: var(--c-lightergray);
+	padding: 5px 20px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+}
+
+.team_order_report_select {
+	padding: 7px;
+	font-size: var(--f-large);
+	font-family: var(--bold);
+	border-radius: 5px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.team_order_report_select:hover {
+	filter: brightness(.9);
+}
+
+.team_order_report_select.gray {
+	background: var(--c-gray);
+}
+
+.team_order_report_select.green {
+	background: var(--c-green);
+}
+
+.team_order_report_select.current {
+	background: var(--c-primary);
+}
+
+#team_order_report_wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	padding: 25px;
+	box-sizing: border-box;
+}
+
+#team_order_report_wrapper > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#team_order_report_wrapper > div.hidden {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#team_order_report_wrapper table {
+	width: 500px;
+}
+

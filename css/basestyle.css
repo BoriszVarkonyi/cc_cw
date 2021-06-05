@@ -667,7 +667,6 @@ input[type="time"] {
 /* Search select */
 
 .search_panel {
-	bottom: 100%;
 	border-radius: 5px;
 	overflow: hidden;
 	max-height: 0;
@@ -676,8 +675,12 @@ input[type="time"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 200px;
 	opacity: 0;
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .search_panel.option {
@@ -688,6 +691,11 @@ input[type="time"] {
 
 .search_panel .search {
 	border: 3px solid var(--cs-lightgray) !important;
+	font-size: var(--f-small);
+}
+
+.search_panel .search::placeholder {
+	font-size: var(--f-small);
 }
 
 .search_panel > .option_container {
@@ -901,6 +909,11 @@ table.fixed {
 
 .table.small p, table.small p {		/* Makea all elements of table small */
 	font-size: var(--f-small) !important;
+}
+
+
+.table.xsmall p, table.xsmall p {		/* Makea all elements of table small */
+	font-size: var(--f-xsmall) !important;
 }
 
 .table p, table p {
@@ -1315,6 +1328,8 @@ tr.entry > td form {
 .big_status_item label, td label, td label::before {
 	align-self: center;
 	margin: 0 !important;
+	padding: 0 !important;
+	justify-content: center;
 }
 
 .big_status_item img {
@@ -1377,6 +1392,7 @@ tr.entry > td form {
 th {
 	font-weight: normal;
 	vertical-align: bottom !important;
+	position: relative;
 }
 
 .table_header_text, .table_item, th, td {
