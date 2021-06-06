@@ -172,6 +172,8 @@
                                                 //USE THIS ATIKÁM A MAX BEIRÁSHOZ
                                                 /**/$max = $value;//*************
                                                 /*   így:    id ="<?php echo $max ?>"   */
+                                                //ha kellek buta js es vagy
+                                                //ja de amugy sem tudsz olvasni lma o
 
                                                 if ($saved_equipment_array != null) {
                                                     $saved_value = $saved_equipment_array[$key];
