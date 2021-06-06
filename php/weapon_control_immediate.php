@@ -141,7 +141,7 @@
                             $fencer_nat = $obj -> nation;
                             $fencer_id = $obj -> id;
 
-                            if ($id_to_find = findObject($wc_table,$fencer_id,'id') === false) {
+                            if (!isset($wc_table -> $fencer_id)) {
                                 $color = "red";
                                 $status = "Not ready";
                             } else {
