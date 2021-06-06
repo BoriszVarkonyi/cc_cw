@@ -194,27 +194,24 @@
 
                                 $name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
                                 $nat = $fencer_obj -> $c_or_n;
+                                $fencer_id = $fencer_obj -> id;
 
                                 //get wc data
                                 $checked_in = false;
                                 $checked_out = false;
                                 $ready_wc = false;
                                 $class = "red";
-                                if ($id_to_find = findObject($wc_table, $fencer_obj->id, "id") !== false) {
-                                    //this shouldnt be needed but the function returns 1 when there is only one element in the table instaed of 0
-                                    if (count($wc_table) == 1) {
-                                        $id_to_find = 0;
-                                    }
+                                if (isset($wc_table -> $fencer_id)) {
 
-                                    if ($wc_table[$id_to_find] -> equipment != null) {
+                                    if ($wc_table->$fencer_id -> equipment != null) {
                                         $checked_in = true;
                                     }
 
-                                    if ($wc_table[$id_to_find] -> array_of_issues != null) {
+                                    if ($wc_table->$fencer_id -> array_of_issues != null) {
                                         $ready_wc = true;
                                     }
 
-                                    $checked_out = $wc_table[$id_to_find] -> checked_out;
+                                    $checked_out = $wc_table->$fencer_id -> checked_out;
 
                                     //determine class
                                     if ($checked_out == true) {
