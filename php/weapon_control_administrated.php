@@ -37,6 +37,13 @@
         header("Location: ../php/check_in_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
 
     }
+
+    //add weapon_control
+    if (isset($_POST['submit_wc'])) {
+        $fencer_id = $_POST['fencer_id'];
+
+        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -76,10 +83,10 @@
                         <p>Check In</p>
                         <img src="../assets/icons/check_circle_outline_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
+                    <button class="stripe_button primary" name="submit_wc" id="addWcButton" type="submit" >
                         <p>Add Weapon Control</p>
                         <img src="../assets/icons/add_black.svg"/>
-                    </a>
+                    </button>
                     <a class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                         <p>Edit Weapon Control</p>
                         <img src="../assets/icons/edit_black.svg"/>
