@@ -52,7 +52,6 @@ function selectRow(x) {
     //Select the clicked table row
     else {
         var rows = document.querySelectorAll("#page_content_panel_main tbody tr");
-        console.log(rows)
         //Removes selected from all row
         for (i = 0; i < rows.length; i++) {
             rows[i].classList.remove("selected")

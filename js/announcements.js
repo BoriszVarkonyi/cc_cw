@@ -1,7 +1,8 @@
+
 //Add entry button.
 var addEntryPanel = document.getElementById("add_entry")
-var addingEntryPanel = document.getElementById("adding_entry");
-var textArea = document.querySelector(".title_input")
+var addingEntryPanel = document.getElementById("add_announcement_panel");
+var textArea = addingEntryPanel.querySelector(".overlay_panel_form input")
 
 //Toggles the classes.
 function hideNshow() {
@@ -11,7 +12,8 @@ function hideNshow() {
 }
 
 var addInformationInput = addingEntryPanel.querySelector("input")
-var addInformationButton = addingEntryPanel.querySelector(".save_entry")
+var addInformationButton = addingEntryPanel.querySelector(".panel_submit")
+console.log(addInformationButton)
 
 addInformationButton.classList.add("disabled")
 
@@ -64,18 +66,15 @@ function toggleEntry(x) {
 }
 
 document.onkeyup = function (e) {
-    var newAnn = document.getElementById("new_announcement_top")
-    var titleBar = document.querySelector(".title_input")
-    //somethingisOpened is a var. from main.js
-    if (!somethingisOpened && IsNotFocused) {
+    if (addingEntryPanel.classList.contains("hidden") && IsNotFocused) {
         if (e.shiftKey && e.which == 78) {
-            newAnn.click()
-            titleBar.focus()
+            addEntryPanel.click()
+            textArea.focus()
         }
     }
 }
 var IsNotFocused = true;
-var openedForm = document.querySelectorAll(".db_panel_main .entry_panel textarea")
+var openedForm = document.querySelectorAll(".db_panel_main .entry textarea")
 openedForm.forEach(item => {
     item.addEventListener("focus", function () {
         IsNotFocused = false;

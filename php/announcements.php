@@ -113,7 +113,7 @@
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button primary" type="button" onclick="toggleAddPanel()">
+                    <button class="stripe_button primary" type="button" onclick="hideNshow()" id="add_entry">
                         <p>Add Announcement</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
@@ -155,7 +155,7 @@
                                     ?>
 
 
-                                    <tr onclick="this.nextElementSibling.classList.toggle('collapsed')" class="selected">
+                                    <tr onclick="toggleEntry(this)" class="selected">
                                         <td><p><?php echo $json_table[$i] -> title; ?></td>
                                     </tr>
 

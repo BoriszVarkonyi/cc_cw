@@ -18,7 +18,7 @@ function setNation(x) {
     formvariableDeclaration()
 }
 
-var tableRows = document.querySelectorAll(".table_row_wrapper .table_row")
+var tableRows = document.querySelectorAll("#page_content_panel_main table tr")
 //Event listener to class change
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
@@ -33,12 +33,12 @@ for (i = 0; i < tableRows.length; i++) {
     mutationObserver3.observe(tableRows[i], { attributes: true })
 }
 
-var registrationtable = document.querySelector(".table_row_wrapper")
+var registrationtable = document.querySelector("#page_content_panel_main table")
 registrationtable.addEventListener("click", buttonDisabler)
 var isselected = false;
 
 function buttonDisabler() {
-    var selectedItem = document.querySelector(".table_row_wrapper .selected")
+    var selectedItem = document.querySelector("#page_content_panel_main table .selected")
     if (selectedItem !== null) {
         regInButton.classList.remove("disabled");
         regOutButton.classList.remove("disabled");
@@ -74,16 +74,6 @@ document.addEventListener("keyup", function (e) {
         }
     }
 })
-var searchFor = ""
-var nat = document.querySelectorAll(".table_item:nth-of-type(2) > p");
-for (i = 0; i < nat.length; i++) {
-    nat[i].parentNode.parentNode.style.display = "";
-}
-for (i = 0; i < nat.length; i++) {
-    if (nat[i].innerHTML != searchFor && searchFor != "") {
-        nat[i].parentNode.parentNode.style.display = "none";
-    }
-}
 
 //Add fencer overlay button and title system
 var leftDivisionButton = document.getElementById("overlayPanelButtonLeft");
