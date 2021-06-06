@@ -124,9 +124,9 @@
                         </button>
                         <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="new_announcement" autocomplete="off">
                             <label for="name">TITLE</label>
-                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="title">
+                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="input_title">
 
-                            <button type="submit" name="submit_announcement" class="panel_submit">Add</button>
+                            <button type="submit" name="input_submit" class="panel_submit">Add</button>
                         </form>
                     </div>
                 </div>
