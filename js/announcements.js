@@ -13,7 +13,6 @@ function hideNshow() {
 
 var addInformationInput = addingEntryPanel.querySelector("input")
 var addInformationButton = addingEntryPanel.querySelector(".panel_submit")
-console.log(addInformationButton)
 
 addInformationButton.classList.add("disabled")
 
@@ -31,19 +30,21 @@ function entryformvalidation() {
 var oldentry;
 function toggleEntry(x) {
     var tableRow = x;
-    var entry = tableRow.parentNode;
+    var entry = tableRow;
     var entryPanel = tableRow.nextElementSibling;
     var entrys = document.querySelectorAll(".entry");
 
+    
     //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
-        entrys[i].lastElementChild.classList.add("collapsed")
-        entrys[i].classList.remove("opened")
+        entrys[i].classList.add("collapsed")
+        entrys[i].parentNode.classList.remove("opened")
         if (entrys[i] == entry) {
             selectedElementIndexAnn = i;
         }
 
     }
+    
     //Checking if the oldentry var. equals the entry.
     if (entry == oldentry) {
         //If yes then it adds opened, and remove collapsed.
@@ -51,9 +52,10 @@ function toggleEntry(x) {
         entry.classList.add("opened");
         selectedElementIndexAnn = 0;
     }
-
+    
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
+    
     //Checking if we clicked the same entry.
     if (entry.classList.contains("opened")) {
         //If yes it saves the entry.
@@ -62,7 +64,7 @@ function toggleEntry(x) {
     else {
         //If no it sets the oldentry var. undifened
         oldentry = undefined
-    }
+    } 
 }
 
 document.onkeyup = function (e) {
@@ -83,11 +85,6 @@ openedForm.forEach(item => {
         IsNotFocused = true;
     })
 })
-
-function toggleAddPanel() {
-    var panel = document.getElementById("add_announcement_panel");
-    panel.classList.toggle("hidden")
-}
 
 
 
