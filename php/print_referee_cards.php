@@ -177,7 +177,6 @@ if (isset($_POST['submit_import'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -186,9 +185,9 @@ if (isset($_POST['submit_import'])) {
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
-    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_paper_style.min.css">
+    <link rel="stylesheet" href="../css/print_referee_cards_style.min.css">
 </head>
-
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -202,169 +201,49 @@ if (isset($_POST['submit_import'])) {
                         <p>Go back to Referees</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
-                    <button class="stripe_button primary" onclick="window.print()">
+                    <button class="stripe_button primary" onclick="printPage()">
                         <p>Print Cards</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
                 </div>
+                <div class="view_button_wrapper first">
+                    <button onclick="zoomOut()" id="zoomOutButton">
+                        <img src="../assets/icons/zoom_out_black.svg"/>
+                    </button>
+                    <button onclick="zoomIn()" id="zoomInButton">
+                        <img src="../assets/icons/zoom_in_black.svg"/>
+                    </button>
+                </div>
             </div>
-            <div id="page_content_panel_main">
-                <table class="wrapper">
+            <div id="page_content_panel_main" class="loose">
+                <div id="pool_print_wrapper" class="paper_wrapper">
 
-                    <?php
-
-                    if (!isset($json_table[0])) {
-
-                    ?>
-                        <div id="no_something_panel">
-                            <p>You have no referees set up!</p>
+                    <div class="paper">
+                        <div class="paper_content full">
+                            <div class="referee_card_wrapper">
+                                <div class="referee_card">
+                                    g
+                                </div>
+                            </div>
                         </div>
-                    <?php
-                    } else {
-                    ?>
+                    </div>
 
-                    <thead>
-                        <tr>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Full name" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
+                    <div class="paper">
+                        <div class="paper_content full">
+                            <div class="referee_card_wrapper">
+                                <div class="referee_card">
+                                    g
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>FULL NAME</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </th>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>NATION</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </th>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>CLUB</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </th>
-                            <th>
-                                <p>PASSWORD</p>
-                                <button type="button" onclick="hidePasswordButton(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility_off_black.svg">
-                                </button>
-                            </th>
-                            <th>
-                                <div class="search_panel option">
-                                    <div class="search_panel_buttons">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
-                                    </div>
-                                    <div class="option_container">
-                                        <input type="radio" name="status" id="listsearch_available" value="Available" />
-                                        <label for="listsearch_available">Available</label>
-                                        <input type="radio" name="status" id="listsearch_not_available" value="Not available" />
-                                        <label for="listsearch_not_available">Not available</label>
-                                    </div>
-                                </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>STATUS</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
-                            </th>
-                            <th class="small"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+                            </div>
+                        </div>
+                    </div>
 
-                        foreach ($json_table as $json_object) {
-
-                        ?>
-
-                            <tr id="<?php echo $json_object->id; ?>" onclick="selectRow(this)" tabindex="0">
-                                <td>
-                                    <p><?php echo $json_object->prenom . " " . $json_object->nom; ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $json_object->nation ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $json_object->club; ?></p>
-                                </td>
-                                <td class="password">
-                                    <p> <?php echo $json_object->password ?> </p>
-                                </td>
-                                <td>
-                                    <p><?php
-
-                                        if ($json_object->isOnline == false) {
-
-                                            echo "Not available";
-                                        } else {
-                                            echo "Available";
-                                        }
-
-                                        ?>
-                                    </p>
-                                </td>
-                                <td class="small <?php
-
-                                                                if ($json_object->isOnline == false) {
-
-                                                                    echo "red";
-                                                                } else {
-                                                                    echo "green";
-                                                                }
-
-                                                                ?>"></td> <!-- red or green style added to small_status item to inidcate status -->
-                            </tr>
-                        <?php
-                            }
-                        }
-                        //Check,read,display technicians END
-                        ?>
-                    </tbody>
-                </table>
+                </div>
             </div>
         </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list_2.js"></script>
-    <script src="../js/referees.js"></script>
-    <script src="../js/technicans_referees.js"></script>
-    <script src="../js/controls_2.js"></script>
-    <script src="../js/importoverlay.js"></script>
-    <script src="../js/list_search_2.js"></script>
-    <script src="../js/overlay_panel.js"></script>
+    <script src="../js/print.js"></script>
 </body>
-
 </html>

@@ -69,44 +69,48 @@ $query_comps = mysqli_query($connection, $query);
             </div>
         </div>
         <div id="panel_main">
-            <div class="table wrapper t_c_2">
-                <div class="table_header">
-                    <div class="table_header_text">NAME</div>
-                    <div class="table_header_text">STATUS</div>
-                </div>
-                <div class="table_row_wrapper">
-                <?php
-                while($row = mysqli_fetch_assoc($query_comps)) {
-                    $comp_id = $row["comp_id"];
-                    $comp_name = $row["comp_name"];
-                    $comp_status = $row["comp_status"];
-                    //Fetches the data into the row array
-                    //Saves the data separately to variables from the row array
-                ?>
-                <?php   ?>
-                <div class="table_row" onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>'" title="<?php echo $comp_name; ?>">
-                    <div class="table_item"><p><?php echo $comp_name; ?></p></div>
-                    <div class="table_item"><?php echo statusConverter($comp_status); ?></div>
-                </div>
-                <?php
-                }
-                ?>
-                <?php
-                if(mysqli_num_rows($query_comps) == 0){
-                //If there is no row in competitions table, shows the message below.
-                ?>
-                <div id="no_something_panel">
-                    <p>You have no competitions yet!</p>
-                </div>
-                <?php
-                }
-                ?>
-                </div>
-            </div>
+            <table class="wrapper">
+                <thead>
+                    <tr>
+                        <th><p>NAME</p></th>
+                        <th><p>STATUS</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    while($row = mysqli_fetch_assoc($query_comps)) {
+                        $comp_id = $row["comp_id"];
+                        $comp_name = $row["comp_name"];
+                        $comp_status = $row["comp_status"];
+                        //Fetches the data into the row array
+                        //Saves the data separately to variables from the row array
+                        ?>
+                        <?php   ?>
+                        <tr onclick="location.href='index.php?comp_id=<?php echo $comp_id ?>'" title="<?php echo $comp_name; ?>">
+                            <td><p><?php echo $comp_name; ?></p></td>
+                            <td><p><?php echo statusConverter($comp_status); ?></p></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    <?php
+
+                    if(mysqli_num_rows($query_comps) == 0){
+                        //If there is no row in competitions table, shows the message below.
+                        ?>
+                        <tr>
+                            <td colspan="2">
+                                <p>This tournament has no competitions yet.</p>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

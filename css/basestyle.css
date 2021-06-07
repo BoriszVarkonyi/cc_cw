@@ -1393,6 +1393,11 @@ th {
 	font-weight: normal;
 	vertical-align: bottom !important;
 	position: relative;
+	position: sticky;
+	top: 0;
+	/*
+	background-color: var(--c-gray);
+	*/
 }
 
 .table_header_text, .table_item, th, td {

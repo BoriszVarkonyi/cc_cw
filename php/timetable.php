@@ -18,20 +18,6 @@
 </head>
 <body>
 <!-- header -->
-    <div id="confirmation" class="hidden">
-        <form id="confirmation_form" action="timetable.php?comp_id=" method="POST">
-            <button class="panel_button" type="button" onclick="removeWcDay(this)">
-                <img src="../assets/icons/close_black.svg">
-            </button>
-            <p id="remove_warning"></p>
-            <p>You cannot withdraw this action!</p>
-            <div id="confirmation_button_section">
-            <input class="hidden" type="text" id="remove_date" name="remove_date">
-            <button onclick="closeConf()" type="button" value="Cancel">Cancel</button>
-            <button onclick="" name="sure_delete" type="submit" value="{Action}" class="action">Remove</button>
-            </div>
-        </form>
-    </div>
     <div id="content_wrapper">
         <!-- navbar -->
         <main>

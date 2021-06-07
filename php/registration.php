@@ -162,13 +162,13 @@
                             <p>Print Registration</p>
                             <img src="../assets/icons/print_black.svg"/>
                         </button>
-                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
-                            <p>Add Fencer</p>
-                            <img src="../assets/icons/person_add_alt_black.svg"/>
-                        </button>
                         <button type="submit" name="remove_fencer" class="stripe_button" onclick="" shortcut="SHIFT+D">
                             <p>Remove Fencer</p>
                             <img src="../assets/icons/person_remove_black.svg"/>
+                        </button>
+                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
+                            <p>Add Fencer</p>
+                            <img src="../assets/icons/person_add_alt_black.svg"/>
                         </button>
                         <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
                             <p>Register out</p>
@@ -298,7 +298,7 @@
                                         <img src="../assets/icons/search_black.svg">
                                     </button>
                                 </th>
-                                <th>
+                                <th colspan="2">
                                     <div class="search_panel option">
                                         <div class="search_panel_buttons">
                                             <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
@@ -321,7 +321,6 @@
                                         <img src="../assets/icons/search_black.svg">
                                     </button>
                                 </th>
-                                <th class="square"></th>
                             </tr>
                         </thead>
                         <tbody>

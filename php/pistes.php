@@ -292,7 +292,7 @@ if (isset($_POST["allow_connect"])) {
                         ?>
 
                             <div id="<?php echo $value->name ?>" class="piste <?php echo pisteColor($value->color); ?>">
-                                <div><?php echo pisteColorLetter($value->color); ?></div>
+                                <div><p><?php echo pisteColorLetter($value->color); ?></p></div>
                                 <div>
                                     <p>Piste</p>
                                     <p><?php echo $value->name ?></p>
@@ -379,7 +379,7 @@ if (isset($_POST["allow_connect"])) {
 
 
                             <div id="<?php echo $value->name ?>" class="piste numbered">
-                                <div><?php echo $value->name ?></div>
+                                <div><p><?php echo $value->name ?></p></div>
                                 <div>
                                     <p>Piste</p>
                                     <p>No.: <?php echo $value->name ?></p>

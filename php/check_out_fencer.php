@@ -96,8 +96,9 @@
     <title>Check out <?php echo $name ?></title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/print_check_out_fencer_style.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_paper_style.min.css" media="print">
 </head>
 <body>
 <!-- header -->
@@ -108,7 +109,11 @@
             <div id="title_stripe">
                 <p class="page_title">Check out <?php echo $name ?></p>
                 <form method="POST" action="" id="check_out" class="stripe_button_wrapper">
-                    <button name="" id="" class="stripe_button" shortcut="SHIFT+P" onclick="printPage()">
+                    <a class="stripe_button" shortcut="SHIFT+P" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
+                        <p>Go back to Weapon Control</p>
+                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                    </a>
+                    <button type="button" class="stripe_button" shortcut="SHIFT+P" onclick="window.print()">
                         <p>Print Check Out</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
@@ -117,99 +122,10 @@
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </form>
-                <div class="view_button_wrapper first">
-                    <button onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out_black.svg"/>
-                    </button>
-                    <button onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in_black.svg"/>
-                    </button>
-                </div>
-                <div class="view_button_wrapper fourth">
-                    <button onclick="viewButton(this)" id="panelViewButton">
-                        <img src="../assets/icons/view_grid_black.svg"/>
-                    </button>
-                    <button onclick="viewButton(this)" id="printViewButton">
-                        <img src="../assets/icons/print_black.svg"/>
-                    </button>
-                </div>
             </div>
             <div id="page_content_panel_main" class="scroll">
-                <div class="wrapper">
-                    <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/backpack_black.svg"/>
-                            Contents of Fencer's bag
-                        </div>
-                        <div class="db_panel_main">
-                            <div class="table no_interaction">
-                                <div class="table_header">
-                                    <div class="table_header_text">ISSUE</div>
-                                    <div class="table_header_text">QUANTITY</div>
-                                </div>
-                                <div class="table_row_wrapper alt">
-                                    <?php
-                                        foreach($equipment_sent_in as $key => $value) {
 
-                                            if ($value != 0) {
-
-                                                $eq_name = $equipment_name[$key];
-                                    ?>
-                                                <div class="table_row">
-                                                    <div class="table_item"><p><?php echo $eq_name ?></p></div>
-                                                    <div class="table_item"><p><?php echo $value ?></p></div>
-                                                </div>
-                                    <?php
-                                            }
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/report_problem_black.svg"/>
-                            Issues of Fencers's equipment
-                        </div>
-                        <div class="db_panel_main">
-                            <div class="table no_interaction">
-                                <div class="table_header">
-                                    <div class="table_header_text">ISSUE</div>
-                                    <div class="table_header_text">QUANTITY</div>
-                                </div>
-                                <div class="table_row_wrapper alt">
-                                    <?php
-                                        foreach ($array_of_issues as $key => $issue_count) {
-                                            if ($issue_count != 0) {
-
-                                                $issue_name = $issue_names[$key];
-
-                                    ?>
-                                    <div class="table_row">
-                                        <div class="table_item"><p><?php echo $issue_name ?></p></div>
-                                        <div class="table_item"><p><?php echo $issue_count ?></p></div>
-                                    </div>
-                                    <?php
-                                            }
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/notes_black.svg"/>
-                            Notes of Fencers's equipment
-                        </div>
-                        <div class="db_panel_main">
-                            <div class="notes_wrapper">
-                                <p><?php echo $note ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- PAPER PRINT TOP -->
                 <?php
                 //get comp_data for printing
                 $qry_get_comp_data = "SELECT * FROM `competitions` WHERE `comp_id` = '$comp_id'";
@@ -232,107 +148,134 @@
                     $start_time = "start time: Not defined!";
                 }
                 ?>
-                <div class="paper_wrapper hidden">
-                    <div class="paper">
-                        <div class="title_container">
-                            <div><p class="title"><?php echo $name ?>'S CHECKING OUT CERTIFICATE</p></div>
-                            <div class="comp_info small">
-                                <p class="info_label"><?php echo $comp_name ?></p>
-                                <div>
-                                    <p><?php echo sexConverter($sex) ?></p>
-                                    <p><?php echo weaponConverter($w_type) ?></p>
-                                </div>
-                                <p><?php echo $start_time ?></p>
-                            </div>
+                <div class="title_container">
+                    <div><p class="title"><?php echo $name ?>'S CHECKING OUT CERTIFICATE</p></div>
+                    <div class="comp_info small">
+                        <p class="info_label"><?php echo $comp_name ?></p>
+                        <div>
+                            <p><?php echo sexConverter($sex) ?></p>
+                            <p><?php echo weaponConverter($w_type) ?></p>
                         </div>
-                        <div class="paper_content">
-                            <div class="bag_content">
-                                <p class="label">BAG CONTENT</p>
-                                <div class="grid_table">
-                                    <div class="grid_header">
-                                        <div class="grid_header_text">EQIPMENT</div>
-                                        <div class="grid_header_text">QUANTITY</div>
-                                    </div>
-                                    <div class="grid_row_wrapper">
+                        <p><?php echo $start_time ?></p>
+                    </div>
+                </div>
 
-                                        <?php
+                <!-- PAPER PRINT CONTENT -->
+                <div class="wrapper">
+                    <div class="db_panel other">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/backpack_black.svg"/>
+                            Contents of Fencer's bag
+                        </div>
+                        <div class="db_panel_main">
+                            <table class="no_interaction">
+                                <thead>
+                                    <th>
+                                        <p>ISSUE</p>
+                                    </th>
+                                    <th>
+                                        <p>QUANTITY</p>
+                                    </th>
+                                </thead>
 
-                                            foreach($equipment_sent_in as $key => $value) {
+                                <tbody class="alt">
+                                    <?php
+                                        foreach($equipment_sent_in as $key => $value) {
 
-                                                if ($value != 0) {
+                                            if ($value != 0) {
 
-                                                    $eq_name = $equipment_name[$key];
-                                        ?>
-
-                                        <div class="grid_row">
-                                            <div class="grid_item"><?php echo $eq_name ?></div>
-                                            <div class="grid_item"><?php echo $value ?></div>
-                                        </div>
-                                        <?php
-                                                }
+                                                $eq_name = $equipment_name[$key];
+                                    ?>
+                                                <tr>
+                                                    <td><p><?php echo $eq_name ?></p></td>
+                                                    <td><p><?php echo $value ?></p></td>
+                                                </tr>
+                                    <?php
                                             }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="issues">
-                                <p class="label">REPORTED ISSUES</p>
-                                <div class="grid_table">
-                                    <div class="grid_header">
-                                        <div class="grid_header_text">ISSUE</div>
-                                        <div class="grid_header_text">QUANTITY</div>
-                                    </div>
-                                    <div class="grid_row_wrapper">
-                                        <?php
-                                            foreach ($array_of_issues as $key => $issue_count) {
-                                                if ($issue_count != 0) {
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="db_panel other">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/report_problem_black.svg"/>
+                            Issues of Fencers's equipment
+                        </div>
+                        <div class="db_panel_main">
+                            <table class="no_interaction">
+                                <thead>
+                                    <tr>
+                                        <th><p>ISSUE</p></th>
+                                        <th><p>QUANTIT</p></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
+                                    <?php
+                                        foreach ($array_of_issues as $key => $issue_count) {
+                                            if ($issue_count != 0) {
 
-                                                    $issue_name = $issue_names[$key];
-                                        ?>
-                                        <div class="grid_row">
-                                            <div class="grid_item"><?php echo $issue_name ?></div>
-                                            <div class="grid_item"><?php echo $issue_count ?></div>
-                                        </div>
-                                        <?php
-                                                }
+                                                $issue_name = $issue_names[$key];
+
+                                    ?>
+                                    <tr>
+                                        <td><p><?php echo $issue_name ?></p></td>
+                                        <td><p><p><?php echo $issue_count ?></p></td>
+                                    </tr>
+                                    <?php
                                             }
-                                        ?>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="notes">
-                                <p class="label">NOTES</p>
-                                <div>
-                                    <p><?php echo $note ?></p>
-                                </div>
-                            </div>
-                            <div class="signatures">
-                                <p class="label">SIGNATURES</p>
-                                <div class="grid_table">
-                                        <div class="grid_header">
-                                            <div class="grid_header_text">NAME</div>
-                                            <div class="grid_header_text signature">SIGNATURE</div>
-                                        </div>
-                                        <div class="grid_row_wrapper">
-                                            <div class="grid_row">
-                                                <div class="grid_item"><?php echo $name ?></div>
-                                                <div class="grid_item signature"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="db_panel other">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/notes_black.svg"/>
+                            Notes of Fencers's equipment
+                        </div>
+                        <div class="db_panel_main">
+                            <div class="notes_wrapper">
+                                <p><?php echo $note ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- PRINT PAPER SIGANTURES -->
+                <div class="signatures hidden">
+                    <p class="label">SIGNATURES</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>NAME</p>
+                                </th>
+                                <th>
+                                    <p>SIGNATURE</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p><?php echo $name ?></p>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
             </div>
         </main>
     </div>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
-<script src="../js/print.js"></script>
-<script src="../js/check_fencer.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list.js"></script>
+    <script src="../js/check_fencer.js"></script>
 </body>
 </html>

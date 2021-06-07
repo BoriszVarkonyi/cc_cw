@@ -113,6 +113,13 @@
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
                 <div class="stripe_button_wrapper">
+
+                    <input type="text" class="selected_list_item_input" name="" id="" readonly>
+
+                    <button class="stripe_button red" type="button" onclick="hideNshow()" id="add_entry">
+                        <p>Remove Announcement</p>
+                        <img src="../assets/icons/delete_black.svg"/>
+                    </button>
                     <button class="stripe_button primary" type="button" onclick="hideNshow()" id="add_entry">
                         <p>Add Announcement</p>
                         <img src="../assets/icons/add_black.svg"/>
@@ -155,7 +162,7 @@
                                     ?>
 
 
-                                    <tr onclick="toggleEntry(this)" class="selected">
+                                    <tr onclick="toggleEntry(this)">
                                         <td><p><?php echo $json_table[$i] -> title; ?></td>
                                     </tr>
 
@@ -164,9 +171,6 @@
                                     <tr class="entry collapsed">
                                         <td>
                                             <form id="update" method="POST" action="">
-                                                <button class="panel_button" type="submit" name="submit_delete" id="update">
-                                                    <img src="../assets/icons/delete_black.svg">
-                                                </button>
                                                 <textarea name="text_body" placeholder="Type the Announcement's body text here"><?php echo $json_table[$i] -> body ?></textarea>
                                                 <input name="submit_body" type="submit" value="Save" class="panel_submit">
                                             </form>

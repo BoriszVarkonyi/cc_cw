@@ -156,24 +156,29 @@
                 <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button" href="../php/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
-                        <p>Back</p>
-                        <img src="../assets/icons/close_black.svg"/>
+                        <p>Go back to Weapon Control</p>
+                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
                     <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
-                        <p>Save weapon control</p>
+                        <p>Save Weapon Control</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
                 </div>
             </div>
             <div id="page_content_panel_main">
                 <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
-                    <div id="issues_panel" class="table">
-                        <div class="table_header">
-                            <div class="table_header_text">ISSUE</div>
-                            <div class="table_header_text">QUANTITY</div>
-                            <div class="big_status_header"></div>
-                        </div>
-                        <div class="table_row_wrapper">
+                    <table id="issues_panel">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>ISSUE</p>
+                                </th>
+                                <th>
+                                    <p>QUANTITY</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
                             <?php
                                 foreach ($array_issues as $issue) {
@@ -186,20 +191,16 @@
                                 }
                             ?>
 
-                            <div class="table_row">
-                                <div class="table_item"><p><?php echo $issue ?></p></div>
-                                <div class="table_item"><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></div>
-                                <div class="big_status_item"> <!-- The inputs's id has to be identical with the label's for attribute or it WILL NOT WORK-->
-                                    <input type="checkbox" name="issue_<?php echo $issue_id ?>" id="<?php echo $issue_id ?>" value=""/>
-                                    <label for="<?php echo $issue_id ?>"></label>
-                                </div>
-                            </div>
+                            <tr>
+                                <td><p><?php echo $issue ?></p></td>
+                                <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
+                            </tr>
 
                             <?php
                                 }
                             ?>
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                     <div id="notes_panel">
                         <div class="table_header">
                             <div class="table_header_text title">NOTES</div>
@@ -212,6 +213,5 @@
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
 </body>
 </html>

@@ -1549,9 +1549,10 @@ nav.closed #documentation_label img {
 
 #page_content_panel_main.loose {
 	overflow: auto;
+	display: block;
 }
 
-#page_content_panel_main.loose > div {
+#page_content_panel_main.loose {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -3616,3 +3617,8 @@ div.title_box > button {
 	width: 500px;
 }
 
+/* PRINTS EXTRA */
+
+.title_container.hidden, .signatures.hidden {
+    display: none;
+}

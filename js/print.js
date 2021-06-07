@@ -1,12 +1,12 @@
 var paperWrapper = document.querySelector(".paper_wrapper");
 var zoomNumber = 0.5;
 
-function zoomOut(){
+function zoomOut() {
     zoomNumber = zoomNumber - 0.1
     paperWrapper.style.transform = "scale(" + zoomNumber + ")";
     zoomButtonDisabler();
 }
-function zoomIn(){
+function zoomIn() {
     zoomNumber = zoomNumber + 0.1
     paperWrapper.style.transform = "scale(" + zoomNumber + ")";
     zoomButtonDisabler();
@@ -15,17 +15,17 @@ function zoomIn(){
 var zoomOutButton = document.getElementById("zoomOutButton")
 var zoomInButton = document.getElementById("zoomInButton")
 
-function zoomButtonDisabler(){
-    if(paperWrapper.style.transform == "scale(0.1)"){
+function zoomButtonDisabler() {
+    if (paperWrapper.style.transform == "scale(0.1)") {
         zoomOutButton.disabled = true;
     }
-    else{
+    else {
         zoomOutButton.disabled = false;
     }
-    if(paperWrapper.style.transform == "scale(2)"){
+    if (paperWrapper.style.transform == "scale(2)") {
         zoomInButton.disabled = true;
     }
-    else{
+    else {
         zoomInButton.disabled = false;
     }
 }

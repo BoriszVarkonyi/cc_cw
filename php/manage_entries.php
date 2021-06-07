@@ -140,18 +140,50 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 </head>
 <body>
 <!-- header -->
-    <div id="confirmation" class="hidden">
-        <form id="confirmation_form">
-            <button class="panel_button" onclick="">
-                <img src="../assets/icons/close_black.svg">
-            </button>
-            <p>Are you sure you want to {action} {object}?</p>
-            <p>You cannot withdraw this action!</p>
-            <div id="confirmation_button_section">
-                <button type="submit" value="Cancel">Cancel</button>
-                <button type="submit" value="{Action}" class="action">{Action}</button>
+<div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal">
+            <div class="modal_header gray">
+                <p class="modal_title">Confieramtion</p>
+                <p class="modal_subtitle">Szija</p>
             </div>
-        </form>
+            <div class="modal_main">
+                <img src="../assets/icons/arrow_back_ios_black.svg" class="modal_main_image margin_bottom">
+                <p class="modal_main_title margin_bottom primary big">Bruh</p>
+                <p class="modal_main_title margin_bottom big">Bruh</p>
+                <p class="modal_main_title margin_bottom primary">Bruh</p>
+                <p class="modal_main_title margin_bottom margin_top primary">Bruh</p>
+                <p class="modal_main_title margin_bottom centered">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph centered">Bruh</p>
+                <p class="modal_paragraph margin_top">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph big">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph margin_bottom">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+                <p class="modal_paragraph">Bruh</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be undone.</p>
+                <div class="modal_footer_content">
+                    <button class="modal_decline_button" onclick="toggleModal(1)">Decline</button>
+                    <button class="modal_confirmation_button">Accept</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="content_wrapper">
         <?php include "../includes/navbar.php"; ?>

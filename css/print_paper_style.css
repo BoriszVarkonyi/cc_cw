@@ -90,7 +90,7 @@
 }
 
 .paper_wrapper {
-    transform: scale(.5);
+    zoom: 50%;
     transition: all var(--t-basic);
 }
 
@@ -109,7 +109,7 @@
         display: block !important;
         flex-wrap: nowrap !important;
         justify-content: initial !important;
-        transform: scale(1) !important;
+        zoom: 100% !important;
     }
 
     .paper {
@@ -126,6 +126,10 @@
 
     .title_container {
 		height: 10vh !important;
+    }
+
+    .title_container.hidden, .signatures.hidden {
+        display: flex !important;
     }
 
 	.paper_content {

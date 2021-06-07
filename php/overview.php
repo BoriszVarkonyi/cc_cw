@@ -54,56 +54,58 @@ $json_table = $objects->sorted;
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper table" id="overview_wrapper">
-                    <div class="table_header">
-                        <div class="table_header_text">
-                            <div class="search_panel">
-                                <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Position" class="search page">
-                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                <table class="wrapper">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Position" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" onclick="sortButton(this)">
-                                <img src="../assets/icons/switch_full_black.svg">
-                            </button>
-                            <p>POSITION</p>
-                            <button type="button" onclick="searchButton(this)">
-                                <img src="../assets/icons/search_black.svg">
-                            </button>
-                        </div>
-                        <div class="table_header_text">
-                            <div class="search_panel">
-                                <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>POSITION</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" onclick="sortButton(this)">
-                                <img src="../assets/icons/switch_full_black.svg">
-                            </button>
-                            <p>NAME</p>
-                            <button type="button" onclick="searchButton(this)">
-                                <img src="../assets/icons/search_black.svg">
-                            </button>
-                        </div>
-                        <div class="table_header_text">
-                            <div class="search_panel">
-                                <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Nationality" class="search page">
-                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NAME</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Nationality" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" onclick="sortButton(this)">
-                                <img src="../assets/icons/switch_full_black.svg">
-                            </button>
-                            <p>NATION / CLUB</p>
-                            <button type="button" onclick="searchButton(this)">
-                                <img src="../assets/icons/search_black.svg">
-                            </button>
-                        </div>
-                        <div class="big_status_header"></div>
-                    </div>
-                    <div class="table_row_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NATION / CLUB</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                            <th class="square"></div>
+                        </tr>
+                    </thead>
+                    <tbody>
 
                         <?php
 
@@ -114,17 +116,17 @@ $json_table = $objects->sorted;
                         foreach ($json_table as $key => $value) {
 
                         ?>
-                            <div class="table_row">
-                                <div class="table_item">
+                            <tr>
+                                <td>
                                     <p><?php echo $value->final_rank ?></p>
-                                </div>
-                                <div class="table_item">
+                                </td>
+                                <td>
                                     <p><?php echo $value->prenom . " " . $value->nom ?></p>
-                                </div>
-                                <div class="table_item">
+                                </td>
+                                <td>
                                     <p><?php echo $value->nation ?></p>
-                                </div>
-                                <div class="big_status_item <?php
+                                </td>
+                                <td class="square <?php
 
                                                             if ($counter == 1) {
                                                                 echo "gold";
@@ -139,12 +141,12 @@ $json_table = $objects->sorted;
                                                                 echo "";
                                                             }
 
-                                                            ?>"></div>
-                            </div>
+                                                            ?>"></td>
+                            </tr>
                         <?php $counter++;
                         } ?>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
