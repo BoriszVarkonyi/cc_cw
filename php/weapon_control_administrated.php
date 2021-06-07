@@ -44,6 +44,20 @@
 
         header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
+
+    //edit weapon_control
+    if (isset($_POST['edit_wc'])) {
+        $fencer_id = $_POST['fencer_id'];
+
+        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
+
+    //check out fencer button
+    if (isset($_POST['submit_check_out'])) {
+        $fencer_id = $_POST['fencer_id'];
+
+        header("Location: ../php/check_out_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -87,14 +101,14 @@
                         <p>Add Weapon Control</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
-                    <a class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
+                    <button class="stripe_button" id="editWcButton" name="edit_wc" type="submit">
                         <p>Edit Weapon Control</p>
                         <img src="../assets/icons/edit_black.svg"/>
-                    </a>
-                    <a class="stripe_button primary" id="checkOutButton" href="check_out_fencer.php?comp_id=<?php echo $comp_id ?>">
+                    </button>
+                    <button class="stripe_button primary" id="checkOutButton" name="submit_check_out" type="submit">
                         <p>Check Out</p>
                         <img src="../assets/icons/check_circle_black.svg"/>
-                    </a>
+                    </button>
                 </div>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
             </form>

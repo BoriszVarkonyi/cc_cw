@@ -215,7 +215,6 @@
                 if ($row = mysqli_fetch_assoc($do_get_bi)) {
                     $json_string = $row['data'];
                     $json_table = json_decode($json_string);
-                    echo "asdasdasdasda";
                     $start_time = $json_table -> starting_date;
                 } else {
                     $start_time = "start time: Not defined!";
