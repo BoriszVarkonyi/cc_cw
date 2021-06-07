@@ -138,7 +138,6 @@ if (file_exists("../uploads/$comp_id.png")) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,7 +148,6 @@ if (file_exists("../uploads/$comp_id.png")) {
     <link rel="stylesheet" href="../css/print_invitation_style.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
 </head>
-
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -381,8 +379,18 @@ if (file_exists("../uploads/$comp_id.png")) {
                                 <p class="column_panel_title">Equipment needed to be checked:</p>
                                 <div>
                                     <!-- weapons check table rows -->
-                                    <div class="table">
-                                        <div class="table_row_wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <p>EQUIPMENT</p>
+                                                </th>
+                                                <th>
+                                                    <p>QUANTITY</p>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="alt">
                                             <?php
                                             $equipment = array("Epee", "Foil", "Sabre", "Electric Jacket", "Plastron", "Under-Plastron", "Socks", "Mask", "Gloves", "Bodywire", "Maskwire", "Chest protector", "Metallic glove");
 
@@ -392,16 +400,20 @@ if (file_exists("../uploads/$comp_id.png")) {
 
                                                 if ($array_equipment[$i] != 0) {
                                             ?>
-                                                    <div class="table_row">
-                                                        <div class="table_item"><?php echo $equipment[$i] ?></div>
-                                                        <div class="table_item"><?php echo $array_equipment[$i] ?></div>
-                                                    </div>
+                                                    <tr>
+                                                        <td>
+                                                            <p><?php echo $equipment[$i] ?></p>
+                                                        </td>
+                                                        <td>
+                                                            <p><?php echo $array_equipment[$i] ?></p>
+                                                        </td>
+                                                    </tr>
                                             <?php
                                                 }
                                             }
                                             ?>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
 

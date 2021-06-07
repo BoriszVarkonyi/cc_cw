@@ -119,7 +119,7 @@
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
                     <form action="" method="POST" id="IDE KELL A FORM IDJE">
-                        <input type="text" class="selected_list_item_input" name="selected_id" readonly>
+                        <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
                     </form>
                     <button class="stripe_button red" name="remove_fencer" type="submit" form="IDE KELL A FORM IDJE">
                         <p>Remove Fencer</p>
