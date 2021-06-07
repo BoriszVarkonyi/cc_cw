@@ -1,6 +1,8 @@
 <?php include "../includes/headerburger.php"; ?>
 <?php include "../includes/db.php" ?>
+<?php
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
