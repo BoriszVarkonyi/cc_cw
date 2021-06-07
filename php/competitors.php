@@ -355,5 +355,6 @@
     <script src="../js/list_2.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
+    <script src="../js/competitiors.js"></script>
 </body>
 </html>

@@ -34,12 +34,11 @@ function toggleEntry(x) {
     var entryPanel = tableRow.nextElementSibling;
     var entrys = document.querySelectorAll(".entry");
 
-    
     //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
         entrys[i].classList.add("collapsed")
-        entrys[i].parentNode.classList.remove("opened")
-        if (entrys[i] == entry) {
+        entrys[i].previousElementSibling.classList.remove("selected")
+        if (entrys[i].previousElementSibling == entry) {
             selectedElementIndexAnn = i;
         }
 
@@ -47,24 +46,24 @@ function toggleEntry(x) {
     
     //Checking if the oldentry var. equals the entry.
     if (entry == oldentry) {
-        //If yes then it adds opened, and remove collapsed.
+        //If yes then it adds selected, and remove collapsed.
         entryPanel.classList.remove("collapsed");
-        entry.classList.add("opened");
+        entry.classList.add("selected");
         selectedElementIndexAnn = 0;
     }
     
-    entry.classList.toggle("opened");
+    entry.classList.toggle("selected");
     entryPanel.classList.toggle("collapsed");
     
     //Checking if we clicked the same entry.
-    if (entry.classList.contains("opened")) {
+    if (entry.classList.contains("selected")) {
         //If yes it saves the entry.
         oldentry = entry
     }
     else {
         //If no it sets the oldentry var. undifened
         oldentry = undefined
-    } 
+    }
 }
 
 document.onkeyup = function (e) {
@@ -76,8 +75,8 @@ document.onkeyup = function (e) {
     }
 }
 var IsNotFocused = true;
-var openedForm = document.querySelectorAll(".db_panel_main .entry textarea")
-openedForm.forEach(item => {
+var selectedForm = document.querySelectorAll(".db_panel_main .entry textarea")
+selectedForm.forEach(item => {
     item.addEventListener("focus", function () {
         IsNotFocused = false;
     })

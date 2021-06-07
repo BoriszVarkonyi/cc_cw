@@ -1,7 +1,7 @@
 function searchButton(x) {
     var button = x;
     var search = button.previousElementSibling.previousElementSibling.previousElementSibling;
-    if(search.querySelector("input").type == "text"){
+    if (search.querySelector("input").type == "text") {
         search.querySelector("input").focus()
     }
     if (search.classList.contains("opened")) {
@@ -33,41 +33,41 @@ function searchInLists() {
     var searches = document.querySelectorAll("th .search")
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
-       // if (previousSearches[j] != searches[j].value || j == 0) {
-            previousSearches.push(searches[j].value)
-            var filter = searches[j].value.toUpperCase();
-            if (j > 0) {
-                var li = document.querySelectorAll('tbody tr:not( .hidden) > td:nth-of-type(' + (j + 1) + ')');
+        // if (previousSearches[j] != searches[j].value || j == 0) {
+        previousSearches.push(searches[j].value)
+        var filter = searches[j].value.toUpperCase();
+        if (j > 0) {
+            var li = document.querySelectorAll('tbody tr:not( .hidden) > td:nth-of-type(' + (j + 1) + ')');
+        }
+        else {
+            var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
+        }
+        //Loops throught the rows
+        for (i = li.length; i--;) {
+            a = li[i].querySelector("p");
+            txtValue = a.textContent || a.innerText;
+            //console.log(txtValue)
+            //if the input is a radio button the search is stricter
+            if (searches[j].parentNode.parentNode.classList.contains("option")) {
+                if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
+                    li[i].parentNode.classList.remove("hidden")
+                } else {
+                    li[i].parentNode.classList.add("hidden")
+                }
             }
             else {
-                var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].parentNode.classList.remove("hidden")
+                } else {
+                    li[i].parentNode.classList.add("hidden")
+                }
             }
-            //Loops throught the rows
-            for (i = li.length; i--;) {
-                a = li[i].querySelector("p");
-                txtValue = a.textContent || a.innerText;
-                //console.log(txtValue)
-                //if the input is a radio button the search is stricter
-                if (searches[j].parentNode.parentNode.classList.contains("option")) {
-                    if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
-                        li[i].parentNode.classList.remove("hidden")
-                    } else {
-                        li[i].parentNode.classList.add("hidden")
-                    }
-                }
-                else {
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].parentNode.classList.remove("hidden")
-                    } else {
-                        li[i].parentNode.classList.add("hidden")
-                    }
-                }
-                counter++;
+            counter++;
 
-            }
+        }
         //}
         //else {
-           // continue;
+        // continue;
         //}
     }
     //If there is the no search found row it removes the hidden class
@@ -196,8 +196,9 @@ function rowSort(index, mode) {
             isNumberArray = false;
         }
         else {
-
-            sortByArray.push(parseInt(names[i].innerHTML))
+            if (!isNaN(parseInt(names[i].innerHTML))) {
+                sortByArray.push(parseInt(names[i].innerHTML))
+            }
         }
     }
     if (isNumberArray) {
@@ -211,26 +212,28 @@ function rowSort(index, mode) {
     else {
         sortByArray.sort();
     }
-    var rows = document.querySelectorAll("#page_content_panel_main tbody tr")
-    var rowNode = document.querySelector("#page_content_panel_main tbody")
-    switch (mode) {
-        case "A-Z":
-            for (i = rows.length - 1; i >= 0; i--) {
-                rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll("#page_content_panel_main tbody tr")
-            }
-            break;
-        case "Z-A":
-            for (i = 0; i < rows.length; i++) {
-                rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll("#page_content_panel_main tbody tr")
-            }
-            break;
-        default:
-            for (i = rows.length - 1; i >= 0; i--) {
-                rowNode.insertBefore(rows[indexFinder(defaultArray[i], 1, mode)], rowNode.firstElementChild)
-                rows = document.querySelectorAll("#page_content_panel_main tbody tr")
-            }
+    if (sortByArray.length > 1) {
+        var rows = document.querySelectorAll("#page_content_panel_main tbody tr")
+        var rowNode = document.querySelector("#page_content_panel_main tbody")
+        switch (mode) {
+            case "A-Z":
+                for (i = rows.length - 1; i >= 0; i--) {
+                    rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
+                    rows = document.querySelectorAll("#page_content_panel_main tbody tr")
+                }
+                break;
+            case "Z-A":
+                for (i = 0; i < rows.length; i++) {
+                    rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
+                    rows = document.querySelectorAll("#page_content_panel_main tbody tr")
+                }
+                break;
+            default:
+                for (i = rows.length - 1; i >= 0; i--) {
+                    rowNode.insertBefore(rows[indexFinder(defaultArray[i], 1, mode)], rowNode.firstElementChild)
+                    rows = document.querySelectorAll("#page_content_panel_main tbody tr")
+                }
+        }
     }
 }
 //Gets the div index
