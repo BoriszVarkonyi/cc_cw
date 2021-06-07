@@ -100,7 +100,7 @@ td.square, td.small, th.small {
 	background: transparent !important;
 }
 
-.table_row.selected {
+.table_row.selected, tr.selected {
 	outline: none !important;
     filter: none !important;
     background: none !important;
