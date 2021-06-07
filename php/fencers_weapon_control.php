@@ -6,15 +6,12 @@
 <?php
 
     class wc {
-        public $id;
         public $array_of_issues;
         public $notes;
 
-
-        function  __construct($id, $array_of_issues, $notes) {
+        function  __construct($array_of_issues, $notes) {
             $this -> array_of_issues = $array_of_issues;
             $this -> notes = $notes;
-            $this -> id = $id;
         }
     }
 
@@ -83,16 +80,13 @@
         $notes = "";
         $array_of_real_issues = [];
 
-        foreach ($json_table as $json_object) {
-            if ( $json_object -> id == $fencer_id) {
-                $notes = $json_object -> notes;
-                $array_of_real_issues = $json_object -> array_of_issues;
-            }
+        if (isset($json_table -> $fencer_id)) {
+            $notes = $json_table -> $fencer_id -> notes;
+            $array_of_real_issues = $json_table -> $fencer_id -> array_of_issues;
         }
     }
 
     if (isset($_POST['submit_wc'])) {
-
 
         $notes = $_POST['wc_notes'];
         $array_to_push = [];
@@ -106,15 +100,15 @@
             }
         }
 
-        $json_object = new wc($fencer_id, $array_to_push, $notes);
-        //delete existing object
-        foreach ($json_table as $json_object_to_delete) {
-            if ($json_object_to_delete -> id == $fencer_id) {
-                unset($json_object_to_delete);
-            }
+
+        if (!isset($json_table -> $fencer_id)) {
+            $json_object = new wc($array_to_push, $notes);
+            $json_table -> $fencer_id = $json_object;
+        } else {
+            $json_table -> $fencer_id -> array_of_issues = $array_to_push;
+            $json_table -> $fencer_id -> notes = $notes;
         }
 
-        array_push($json_table, $json_object);
 
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 

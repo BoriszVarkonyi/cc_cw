@@ -37,6 +37,13 @@
         header("Location: ../php/check_in_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
 
     }
+
+    //add weapon_control
+    if (isset($_POST['submit_wc'])) {
+        $fencer_id = $_POST['fencer_id'];
+
+        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -76,10 +83,10 @@
                         <p>Check In</p>
                         <img src="../assets/icons/check_circle_outline_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" id="addWcButton" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
+                    <button class="stripe_button primary" name="submit_wc" id="addWcButton" type="submit" >
                         <p>Add Weapon Control</p>
                         <img src="../assets/icons/add_black.svg"/>
-                    </a>
+                    </button>
                     <a class="stripe_button" id="editWcButton" type="submit" href="fencers_weapon_control.php?comp_id=<?php echo $comp_id ?>">
                         <p>Edit Weapon Control</p>
                         <img src="../assets/icons/edit_black.svg"/>
@@ -194,27 +201,24 @@
 
                                 $name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
                                 $nat = $fencer_obj -> $c_or_n;
+                                $fencer_id = $fencer_obj -> id;
 
                                 //get wc data
                                 $checked_in = false;
                                 $checked_out = false;
                                 $ready_wc = false;
                                 $class = "red";
-                                if ($id_to_find = findObject($wc_table, $fencer_obj->id, "id") !== false) {
-                                    //this shouldnt be needed but the function returns 1 when there is only one element in the table instaed of 0
-                                    if (count($wc_table) == 1) {
-                                        $id_to_find = 0;
-                                    }
+                                if (isset($wc_table -> $fencer_id)) {
 
-                                    if ($wc_table[$id_to_find] -> equipment != null) {
+                                    if ($wc_table->$fencer_id -> equipment != null) {
                                         $checked_in = true;
                                     }
 
-                                    if ($wc_table[$id_to_find] -> array_of_issues != null) {
+                                    if ($wc_table->$fencer_id -> array_of_issues != null) {
                                         $ready_wc = true;
                                     }
 
-                                    $checked_out = $wc_table[$id_to_find] -> checked_out;
+                                    $checked_out = $wc_table->$fencer_id -> checked_out;
 
                                     //determine class
                                     if ($checked_out == true) {

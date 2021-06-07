@@ -113,7 +113,7 @@
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button primary" type="button" onclick="toggleAddPanel()">
+                    <button class="stripe_button primary" type="button" onclick="hideNshow()" id="add_entry">
                         <p>Add Announcement</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
@@ -124,9 +124,9 @@
                         </button>
                         <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="new_announcement" autocomplete="off">
                             <label for="name">TITLE</label>
-                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="title">
+                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="input_title">
 
-                            <button type="submit" name="submit_announcement" class="panel_submit">Add</button>
+                            <button type="submit" name="input_submit" class="panel_submit">Add</button>
                         </form>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                                     ?>
 
 
-                                    <tr onclick="this.nextElementSibling.classList.toggle('collapsed')" class="selected">
+                                    <tr onclick="toggleEntry(this)" class="selected">
                                         <td><p><?php echo $json_table[$i] -> title; ?></td>
                                     </tr>
 

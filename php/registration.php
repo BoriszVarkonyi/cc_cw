@@ -369,6 +369,7 @@
     <script src="../js/registration.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/overlay_panel.js"></script>
 </body>
 </html>

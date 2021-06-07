@@ -1,7 +1,8 @@
+
 //Add entry button.
 var addEntryPanel = document.getElementById("add_entry")
-var addingEntryPanel = document.getElementById("adding_entry");
-var textArea = document.querySelector(".title_input")
+var addingEntryPanel = document.getElementById("add_announcement_panel");
+var textArea = addingEntryPanel.querySelector(".overlay_panel_form input")
 
 //Toggles the classes.
 function hideNshow() {
@@ -11,7 +12,7 @@ function hideNshow() {
 }
 
 var addInformationInput = addingEntryPanel.querySelector("input")
-var addInformationButton = addingEntryPanel.querySelector(".save_entry")
+var addInformationButton = addingEntryPanel.querySelector(".panel_submit")
 
 addInformationButton.classList.add("disabled")
 
@@ -29,19 +30,21 @@ function entryformvalidation() {
 var oldentry;
 function toggleEntry(x) {
     var tableRow = x;
-    var entry = tableRow.parentNode;
+    var entry = tableRow;
     var entryPanel = tableRow.nextElementSibling;
     var entrys = document.querySelectorAll(".entry");
 
+    
     //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
-        entrys[i].lastElementChild.classList.add("collapsed")
-        entrys[i].classList.remove("opened")
+        entrys[i].classList.add("collapsed")
+        entrys[i].parentNode.classList.remove("opened")
         if (entrys[i] == entry) {
             selectedElementIndexAnn = i;
         }
 
     }
+    
     //Checking if the oldentry var. equals the entry.
     if (entry == oldentry) {
         //If yes then it adds opened, and remove collapsed.
@@ -49,9 +52,10 @@ function toggleEntry(x) {
         entry.classList.add("opened");
         selectedElementIndexAnn = 0;
     }
-
+    
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
+    
     //Checking if we clicked the same entry.
     if (entry.classList.contains("opened")) {
         //If yes it saves the entry.
@@ -60,22 +64,19 @@ function toggleEntry(x) {
     else {
         //If no it sets the oldentry var. undifened
         oldentry = undefined
-    }
+    } 
 }
 
 document.onkeyup = function (e) {
-    var newAnn = document.getElementById("new_announcement_top")
-    var titleBar = document.querySelector(".title_input")
-    //somethingisOpened is a var. from main.js
-    if (!somethingisOpened && IsNotFocused) {
+    if (addingEntryPanel.classList.contains("hidden") && IsNotFocused) {
         if (e.shiftKey && e.which == 78) {
-            newAnn.click()
-            titleBar.focus()
+            addEntryPanel.click()
+            textArea.focus()
         }
     }
 }
 var IsNotFocused = true;
-var openedForm = document.querySelectorAll(".db_panel_main .entry_panel textarea")
+var openedForm = document.querySelectorAll(".db_panel_main .entry textarea")
 openedForm.forEach(item => {
     item.addEventListener("focus", function () {
         IsNotFocused = false;
@@ -84,11 +85,6 @@ openedForm.forEach(item => {
         IsNotFocused = true;
     })
 })
-
-function toggleAddPanel() {
-    var panel = document.getElementById("add_announcement_panel");
-    panel.classList.toggle("hidden")
-}
 
 
 

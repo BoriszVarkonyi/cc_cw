@@ -3,6 +3,21 @@
 <?php
     $fencer_id = $_GET['fencer_id'];
 
+    $all_equipment = ["Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove"];
+
+    //display equipment that can be given to check (from info for fencers db:competitions)
+    $qry_get_equipment = "SELECT comp_equipment FROM competitions WHERE comp_id = '$comp_id'";
+    $do_get_equipment = mysqli_query($connection, $qry_get_equipment);
+
+    if ($row = mysqli_fetch_assoc($do_get_equipment)) {
+        $equipments_string = $row['comp_equipment'];
+
+        $given_equipment = explode(',', $equipments_string);
+    } else {
+        echo mysqli_error($connection);
+    }
+
+    $given_equipment = array_values($given_equipment);
     //get base table
     $qry_get_wc = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
     $do_get_wc = mysqli_query($connection, $qry_get_wc);
@@ -17,11 +32,6 @@
         public $array_of_issues = NULL;
         public $equipment = NULL;
         public $notes = "";
-        public $id;
-
-        public function __construct($id){
-            $this -> id = $id;
-        }
     }
 
     //get fencers data
@@ -39,13 +49,11 @@
     }
 
     //search for existing equipment turned in
-    if ($id_to_find = findObject($wc_table, $fencer_id, "id") !== false) {
-        //get data from existing check in
-    } else {
+    if (!isset($wc_table->$fencer_id)) {
         //make new check in
         $temp_wc_obj = new wc($fencer_id);
         //add to table then upload
-        array_push($wc_table, $temp_wc_obj);
+        $wc_table->$fencer_id = $temp_wc_obj;
 
         $wc_string = json_encode($wc_table, JSON_UNESCAPED_UNICODE);
 
@@ -56,20 +64,25 @@
 
     if (isset($_POST['submit_check_in'])) {
         $array_of_equipment = [];
-        foreach ($all_equipment as $key => $name) {
-            if ($_POST[$key] != "") {
-                $value = $_POST[$key];
-                $array_of_equipment[$key] = $value;
+        foreach ($given_equipment as $key => $value) {
+            if ($value != 0) {
+                if ($_POST[$key] != "") {
+                    $value = $_POST[$key];
+                    $array_of_equipment[$key] = $value;
+                } else {
+                    $array_of_equipment[$key] = 0;
+                }
             } else {
                 $array_of_equipment[$key] = 0;
             }
         }
 
         //update (trade old to new) in wc_table
-        if ($id_to_find = findObject($wc_table, $fencer_id, "id") !== false) {
-            $wc_table[$id_to_find] -> equipment = $array_of_equipment;
+        if (isset($wc_table->$fencer_id)) {
+            $wc_table -> $fencer_id -> equipment = $array_of_equipment;
         } else {
-            echo "fencer can't be found by id";
+            $wc_table -> $fencer_id = new wc;
+            $wc_table -> $fencer_id -> equipment = $array_of_equipment;
         }
         $json_string = json_encode($wc_table);
 
@@ -79,12 +92,9 @@
             echo "vsvsvsvssv";
             header("Location: ../php/weapon_control_administrated.php?comp_id=$comp_id");
         } else {
-            echo "asdadadads";
+            echo "<br>nope g->g<br>";
         }
-
     }
-
-    echo "asdasdasdd";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -135,7 +145,7 @@
             </div>
             <div id="page_content_panel_main">
                 <div class="wrapper">
-                    <form action="" id="check_in" method="POST" class="db_panel">
+                    <form action=""  id="check_in" method="POST" class="db_panel">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/backpack_black.svg"/>
                             Contents of fencer's bag
@@ -145,46 +155,42 @@
                                 <div class="table_header">
                                     <div class="table_header_text">ISSUE</div>
                                     <div class="table_header_text">QUANTITY</div>
-                                    <div class="big_status_header"></div>
                                 </div>
                                 <div class="table_row_wrapper alt">
 
                                     <?php
-                                        $all_equipment = ["Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove"];
+                                        //get already set value from database
 
-                                        //display equipment that can be given to check (from info for fencers db:competitions)
-                                        $qry_get_equipment = "SELECT comp_equipment FROM competitions WHERE comp_id = '$comp_id'";
-                                        $do_get_equipment = mysqli_query($connection, $qry_get_equipment);
+                                        $saved_equipment_array = $wc_table->$fencer_id -> equipment;
 
-                                        if ($row = mysqli_fetch_assoc($do_get_equipment)) {
-                                            $equipments_string = $row['comp_equipment'];
 
-                                            $given_equipment = explode(',', $equipments_string);
-                                        } else {
-                                            echo mysqli_error($connection);
-                                        }
+
                                         foreach ($given_equipment as $key => $value) {
 
                                             if ($value != 0) {
-                                                $name = $all_equipment[$key];
+                                                $eqname = $all_equipment[$key];
                                                 //USE THIS ATIKÁM A MAX BEIRÁSHOZ
                                                 /**/$max = $value;//*************
                                                 /*   így:    id ="<?php echo $max ?>"   */
+                                                //ha kellek buta js es vagy
+                                                //ja de amugy sem tudsz olvasni lma o
+
+                                                if ($saved_equipment_array != null) {
+                                                    $saved_value = $saved_equipment_array[$key];
+
+                                                }
+
+
 
                                     ?>
 
                                     <div class="table_row">
-                                        <div class="table_item"><p><?php echo $name ?></p></div>
-                                        <div class="table_item"><input value="" name="<?php $key ?>" type="number" placeholder="#"></div>
-                                        <div class="big_status_item">
-                                            <input type="checkbox" name="bag_content" id="<?php $name ?>" value=""/>
-                                            <label for="<?php $name ?>"></label>
-                                        </div>
+                                        <div class="table_item"><p><?php echo $eqname ?></p></div>
+                                        <div class="table_item"><input form="check_in" value="<?php echo $saved_value ?>" name="<?php echo $key ?>" type="number" placeholder="#"></div>
                                     </div>
                                     <?php
                                             }
                                         }
-
                                     ?>
 
                                 </div>
@@ -237,17 +243,29 @@
                                         <div class="grid_header_text">QUANTITY</div>
                                     </div>
                                     <div class="grid_row_wrapper">
+                                        <?php
+                                            if ($wc_table->$fencer_id -> equipment === null) {
+                                                echo "No equipment has been handed in yet!";
+                                            } else {
 
+                                                //get saved equipment
 
+                                                foreach ($saved_equipment_array as $key => $value) {
+                                                    if ($value != 0) {
 
-                                        <div class="grid_row">
-                                            <div class="grid_item">Name</div>
-                                            <div class="grid_item">1</div>
-                                        </div>
+                                                        $eq_name = $all_equipment[$key];
 
+                                        ?>
+                                            <div class="grid_row">
+                                                <div class="grid_item"><?php echo $eq_name ?></div>
+                                                <div class="grid_item"><?php echo $value ?></div>
+                                            </div>
+                                        <?php
+                                                    }
+                                                }
+                                            }
 
-
-
+                                        ?>
                                     </div>
                                 </div>
                             </div>
