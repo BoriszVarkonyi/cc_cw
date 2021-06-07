@@ -12,11 +12,17 @@ $comp_wc_type = $_POST["wc_type"];
 $comp_sex = $_POST["sex"];
 $comp_w_type = $_POST["w_type"];
 $org_id = $_COOKIE["org_id"];
+$comp_type = $_POST['comp_type'];
 $minimum = 3;
 $maximum = 255;
 
+if ($comp_type == "individual") {
+    $is_individual = 1;
+} else {
+    $is_individual = 0;
+}
 
-        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id, comp_wc_type, comp_sex, comp_weapon) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id, $comp_wc_type, $comp_sex, $comp_w_type)";
+        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id, comp_wc_type, comp_sex, comp_weapon, is_individual) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id, $comp_wc_type, $comp_sex, $comp_w_type, $is_individual)";
         $query_create = mysqli_query($connection, $query);
 
         if (!$query_create) {
@@ -79,9 +85,9 @@ $maximum = 255;
                     <div>
                         <label for="competition_type">TYPE OF COMPETITIORS</label>
                         <div class="option_container">
-                            <input type="radio" name="comp_type" id="individual" value="" checked/>
+                            <input type="radio" name="comp_type" id="individual" value="individual" checked/>
                             <label for="individual">Individual</label>
-                            <input type="radio" name="comp_type" id="team" value=""/>
+                            <input type="radio" name="comp_type" id="team" value="team"/>
                             <label for="team">Team</label>
                         </div>
                     </div>
