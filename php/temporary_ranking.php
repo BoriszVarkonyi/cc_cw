@@ -64,55 +64,58 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                 </div>
             </form>
             <div id="page_content_panel_main">
-                <div class="table wrapper">
-                    <div class="table_header">
-                        <div class="table_header_text">
-                            <div class="search_panel">
-                                <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Temporary Position" class="search page">
-                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                <table class="wrapper">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Temporary Position" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" onclick="sortButton(this)">
-                                <img src="../assets/icons/switch_full_black.svg">
-                            </button>
-                            <p>TEMPORARY RANK</p>
-                            <button type="button" onclick="searchButton(this)">
-                                <img src="../assets/icons/search_black.svg">
-                            </button>
-                        </div>
-                        <div class="table_header_text">
-                            <div class="search_panel">
-                                <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>TEMPORARY RANK</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" onclick="sortButton(this)">
-                                <img src="../assets/icons/switch_full_black.svg">
-                            </button>
-                            <p>NAME</p>
-                            <button type="button" onclick="searchButton(this)">
-                                <img src="../assets/icons/search_black.svg">
-                            </button>
-                        </div>
-                        <div class="table_header_text">
-                            <div class="search_panel">
-                                <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Nationality" class="search page">
-                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NAME</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Nationality" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" onclick="sortButton(this)">
-                                <img src="../assets/icons/switch_full_black.svg">
-                            </button>
-                            <p>NATION / CLUB</p>
-                            <button type="button" onclick="searchButton(this)">
-                                <img src="../assets/icons/search_black.svg">
-                            </button>
-                        </div>
-                    </div>
-                    <div class="table_row_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NATION / CLUB</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
                         <?php
 
                     if (isset($objects_array[0])) {
@@ -120,27 +123,27 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 
                         ?>
 
-                        <div class="table_row" id="<?php echo $value->temp_rank ?>" onclick="selectRow(this)" tabindex="0">
-                            <div class="table_item"><p><?php echo $value->temp_rank ?></p></div>
-                            <div class="table_item"><p><?php echo $value->prenom . " " . $value->nom ?></p></div>
-                            <div class="table_item"><p><?php echo $value->nation ?></p></div>
-                        </div>
+                        <tr id="<?php echo $value->temp_rank ?>" onclick="selectRow(this)" tabindex="0">
+                            <td><p><?php echo $value->temp_rank ?></p></td>
+                            <td><p><?php echo $value->prenom . " " . $value->nom ?></p></td>
+                            <td><p><?php echo $value->nation ?></p></td>
+                        </tr>
                         <?php
                         }
                     } else {
                         ?><p>No competitors set up yet!</p> <?php
                     }
                         ?>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
+    <script src="../js/list_2.js"></script>
     <script src="../js/registration.js"></script>
-    <script src="../js/controls.js"></script>
-    <script src="../js/list_search.js"></script>
+    <script src="../js/controls_2.js"></script>
+    <script src="../js/list_search_2.js"></script>
 </body>
 </html>

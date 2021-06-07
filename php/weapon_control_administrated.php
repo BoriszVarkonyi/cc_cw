@@ -45,7 +45,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrated Weapon Control</title>
+    <title>Weapon Control</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
@@ -58,7 +58,7 @@
         <!-- navbar -->
         <main>
             <form id="title_stripe" method="POST" action="">
-                <p class="page_title">Administrated Weapon Control</p>
+                <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
                         <p>Weapon Control Statistics</p>

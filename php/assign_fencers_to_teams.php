@@ -145,9 +145,10 @@
     </main>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/controls.js"></script>
+    <script src="../js/list_2.js"></script>
+    <script src="../js/controls_2.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/list_search.js"></script>
     <script>
         function toggleAddTeamPanel() {
             var panel = document.getElementById("add_team_panel");
