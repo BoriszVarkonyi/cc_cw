@@ -70,22 +70,14 @@
             </div>
             <div id="page_content_panel_main">
 
-                <table class="wrapper w90">
-                    <thead>
-                        <tr>
-                            <th>
+                <div class="wrapper list w90">
+
+                    <div>
+                        <div class="entry">
+                            <div class="tr bold">
                                 <p>NAME</p>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr onclick="this.nextElementSibling.classList.toggle('collapsed')">
-                            <td>
-                                <p>Ez a neve</p>
-                            </td>
-                        </tr>
-                        <tr class="entry collapsed">
-                            <td>
+                            </div>
+                            <div class="entry_panel small">
                                 <div class="entry_header">
                                     <form>
                                         <div>
@@ -109,7 +101,7 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="alt">
                                         <tr>
                                             <td>
                                                 <p>JANI KICSI JÜ</p>
@@ -117,16 +109,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </td>
-                        </tr>
-                        <tr onclick="this.nextElementSibling.classList.toggle('collapsed')">
-                            <td>
-                                <p>Ez a neve</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -135,11 +121,5 @@
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
-    <script>
-        function toggleAddTeamPanel() {
-            var panel = document.getElementById("add_team_panel");
-            panel.classList.toggle("hidden");
-        }
-    </script>
 </body>
 </html>

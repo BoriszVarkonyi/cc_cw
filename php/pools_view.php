@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div id="pool_listing" class="state_2 wrapper">
+                <div id="pool_listing" class="wrapper state_2 list">
                     <?php
 
                     for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++){
@@ -94,13 +94,13 @@
                                     <div class="pool_table_wrapper table">
                                         <div class="table_header">
                                             <div class="table_header_text">
-                                                Fencers name
+                                                <p>NAME</p>
                                             </div>
                                             <div class="table_header_text">
-                                                Fencers nationality
+                                                <p>NATION</p>
                                             </div>
                                             <div class="table_header_text square">
-                                                No.
+                                                <p>NO.</p>
                                             </div>
                                             <?php
                                             for ($k = 1; $k <= $number_of_fencers; $k++) { ?>

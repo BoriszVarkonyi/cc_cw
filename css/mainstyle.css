@@ -2998,12 +2998,13 @@ div.title_box > button {
 	width: 77.5%;
 }
 
-#pool_listing > div {
+.wrapper.list > div {
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 50px;
 	border-radius: 5px;
 }
+
 /*
 #pool_listing > div::before {
 	content: "";
@@ -3030,6 +3031,7 @@ div.title_box > button {
 	}
 }
 */
+
 #pool_listing .entry {
 	margin: 3px;
 	border-radius: 5px;
