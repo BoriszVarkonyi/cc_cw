@@ -148,7 +148,7 @@
                     $start_time = "start time: Not defined!";
                 }
                 ?>
-                <div class="title_container">
+                <div class="title_container hidden">
                     <div><p class="title"><?php echo $name ?>'S CHECKING OUT CERTIFICATE</p></div>
                     <div class="comp_info small">
                         <p class="info_label"><?php echo $comp_name ?></p>

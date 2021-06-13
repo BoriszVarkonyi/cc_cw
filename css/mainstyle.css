@@ -1216,7 +1216,6 @@ nav:hover #nav_bar_pin {
 }
 
 .dropdown_menu a {
-	transition: var(--t-basic);
 	overflow: visible;
 	font-size: var(--f-medium);
 	width: 100%;

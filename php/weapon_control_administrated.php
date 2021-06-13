@@ -113,9 +113,12 @@
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
             </form>
             <div id="page_content_panel_main">
-                <div class="wrapper table">
-                    <div class="table_header">
-                        <div class="table_header_text">
+                <table class="wrapper">
+                    <thead>
+                        <tr>
+
+                        </tr>
+                        <th>
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
@@ -129,8 +132,8 @@
                             <button type="button" onclick="searchButton(this)">
                                 <img src="../assets/icons/search_black.svg">
                             </button>
-                        </div>
-                        <div class="table_header_text">
+                        </th>
+                        <th>
                             <div class="search_panel">
                                 <div class="search_wrapper">
                                     <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
@@ -144,8 +147,8 @@
                             <button type="button" onclick="searchButton(this)">
                                 <img src="../assets/icons/search_black.svg">
                             </button>
-                        </div>
-                        <div class="table_header_text">
+                        </th>
+                        <th>
                             <div class="search_panel option">
                                 <div class="search_panel_buttons">
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
@@ -167,9 +170,9 @@
                             <button type="button" onclick="searchButton(this)">
                                 <img src="../assets/icons/search_black.svg">
                             </button>
-                        </div>
-                        <div class="small_status_header"></div>
-                        <div class="table_header_text">
+                        </th>
+                        <th class="small"></th>
+                        <th>
                             <div class="search_panel option">
                                 <div class="search_panel_buttons">
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
@@ -191,10 +194,10 @@
                             <button type="button" onclick="searchButton(this)">
                                 <img src="../assets/icons/search_black.svg">
                             </button>
-                        </div>
-                        <div class="small_status_header"></div>
-                    </div>
-                    <div class="table_row_wrapper">
+                        </th>
+                        <th class="small"></th>
+                    </thead>
+                    <tbody>
                         <?php
                             $qry_get_nat_club = "SELECT sort_by_club FROM pools WHERE assoc_comp_id = '$comp_id'";
                             $do_get_nat_club = mysqli_query($connection, $qry_get_nat_club);
@@ -246,21 +249,21 @@
 
                                 }
                         ?>
-                                    <div class="table_row <?php echo $class ?>" onclick="selectRow(this), buttonShower(this)" id="<?php echo $fencer_obj->id ?>" tabindex="0">
-                                        <div class="table_item"><p><?php echo $name ?></p></div>
-                                        <div class="table_item"><p><?php echo $nat ?></p></div>
-                                        <div class="table_item"><p><?php echo $is_checked_in = ($checked_in) ? "Checked in" : "Not checked in" ?></p></div>
-                                        <div class="small_status_item <?php echo $is_checked_in_c = ($checked_in) ? "green" : "red" ?>"></div>
-                                        <div class="table_item"><p><?php echo $is_ready = ($checked_out) ? "Ready" : "Not ready" ?></p></div>
-                                        <div class="small_status_item <?php echo $is_ready = ($checked_out) ? "green" : "red" ?>"></div>
-                                    </div>
+                                    <tr class="<?php echo $class ?>" onclick="selectRow(this), buttonShower(this)" id="<?php echo $fencer_obj->id ?>" tabindex="0">
+                                        <td><p><?php echo $name ?></p></td>
+                                        <td><p><?php echo $nat ?></p></td>
+                                        <td><p><?php echo $is_checked_in = ($checked_in) ? "Checked in" : "Not checked in" ?></p></td>
+                                        <td class="small <?php echo $is_checked_in_c = ($checked_in) ? "green" : "red" ?>"></td>
+                                        <td><p><?php echo $is_ready = ($checked_out) ? "Ready" : "Not ready" ?></p></td>
+                                        <td class="small <?php echo $is_ready = ($checked_out) ? "green" : "red" ?>"></td>
+                                    </tr>
 
                         <?php
                             }
                         ?>
 
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>

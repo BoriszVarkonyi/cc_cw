@@ -225,7 +225,7 @@
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
                             </th>
-                            <th colspan="2">
+                            <th>
                                 <div class="search_panel option">
                                     <div class="search_panel_buttons">
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
@@ -249,6 +249,7 @@
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
                             </th>
+                            <th class="square"></th>
                             <th>
                                 <div class="search_panel option">
                                     <div class="search_panel_buttons">
