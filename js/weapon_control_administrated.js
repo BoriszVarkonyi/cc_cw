@@ -17,10 +17,10 @@ function buttonShower(x){
     var selectedItem = x
     var className = selectedItem.classList[1]
     switch(className){
-        case "cheked_out" :
+        case "checked_out" :
             hideAllButton();
         break;
-        case "not_cheked_out" :
+        case "not_checked_out" :
             hideAllButton();
             editWcButton.style.display = "";
             checkOutButton.style.display = "";

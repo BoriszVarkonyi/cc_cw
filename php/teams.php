@@ -84,7 +84,7 @@
                                 <p>Ez a neve</p>
                             </td>
                         </tr>
-                        <tr class="entry">
+                        <tr class="entry collapsed">
                             <td>
                                 <div class="entry_header">
                                     <form>

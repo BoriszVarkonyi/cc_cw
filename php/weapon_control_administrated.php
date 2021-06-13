@@ -239,9 +239,9 @@
 
                                     //determine class
                                     if ($checked_out == true) {
-                                        $class = "cheked_out";
+                                        $class = "checked_out";
                                     } else if($ready_wc == true) {
-                                        $class = "not_cheked_out";
+                                        $class = "not_checked_out";
                                     } else if ($checked_in == true) {
                                         $class = "not_ready";
                                     }
@@ -270,8 +270,8 @@
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/weapon_control_administrated.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/controls.js"></script>
-    <script src="../js/list_search.js"></script>
+    <script src="../js/list_2.js"></script>
+    <script src="../js/controls_2.js"></script>
+    <script src="../js/list_search_2.js"></script>
 </body>
 </html>
