@@ -3,21 +3,28 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
+    class equipes{
 
-    class equipes {
-        public $nation;
+    }
+
+    class equipe {
+        public $id;
+        public $nation = "";
         public $statut = "N";
-        public $club;
-        public $classement;
-        public $points;
+        public $club = "";
+        public $classement = "";
+        public $points = "";
+        public $leader = "";
+        public $coach = "";
         public $tireurs = [];
 
-        public function __construct($nation, $club, $classement, $points, $statut) {
+        public function __construct($id, $nation, $club, $classement, $points, $statut) {
             $this -> nation = $nation;
             $this -> statut = $statut;
             $this -> club = $club;
             $this -> classement = $classement;
             $this -> points = $points;
+            $this -> id = $id;
         }
     }
 
@@ -25,7 +32,53 @@
     $qry_new_table = "CREATE TABLE `ccdatabase`.`teams` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '{ }', PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_new_table = mysqli_query($connection, $qry_new_table);
 
+    //get equipes table from database
+    $qry_get_data = "SELECT `data` FROM `teams` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $json_string = $row['data'];
+        $equipes_table = json_decode($json_string);
+    } else {
+        $equipes_table = new equipes;
+        //make new row in database
+        $qry_insert = "INSERT INTO teams (assoc_comp_id) VALUES ('$comp_id')";
+        $do_insert = mysqli_query($connection, $qry_insert);
+    }
 
+    if (isset($_POST['submit_add_team'])) {
+        $team_nation = $_POST['input_team_nation'];
+        $team_club = $_POST['input_team_club'];
+        $team_name = $_POST['input_team_name'];
+
+        $new_equipe = new equipe($team_name, $team_nation, $team_club, "999", "0", "n");
+        $equipes_table -> $team_name = $new_equipe;
+
+        $json_string = json_encode($equipes_table, JSON_UNESCAPED_UNICODE);
+        //update database with new data
+        $qry_update = "UPDATE teams SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        if ($do_update = mysqli_query($connection, $qry_update)) {
+            header("Refresh: 0");
+        } else {
+            echo "ERROR: " . mysqli_error($connection);
+        }
+    }
+
+    if (isset($_POST['submit_coach_leader'])) {
+        $coach_name = $_POST['coach_input'];
+        $leader_name = $_POST['leader_input'];
+        $team_name = $_POST['team_name'];
+
+        $equipes_table -> {$team_name} -> coach = $coach_name;
+        $equipes_table -> {$team_name} -> leader = $leader_name;
+
+        $json_string = json_encode($equipes_table, JSON_UNESCAPED_UNICODE);
+        $qry_update = "UPDATE teams SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        if ($do_update = mysqli_query($connection, $qry_update)) {
+            header("Refresh: 0");
+        } else {
+            echo "ERROR: " . mysqli_error($connection);
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,8 +138,12 @@
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="add_team" method="POST" class="overlay_panel_form" autocomplete="off">
-                        <label for="">TEAM NAME</label>
-                        <input type="text" placeholder="Type in the team's name">
+                        <label for="name">TEAM NAME</label>
+                        <input id="name" name="input_team_name" type="text" placeholder="Type in the team's name">
+                        <label for="nation">TEAM NATION</label>
+                        <input id="nation" name="input_team_nation" type="text" placeholder="Type in the team's nation">
+                        <label for="club">TEAM CLUB</label>
+                        <input id="club" name="input_team_club" type="text" placeholder="Type in the team's club">
 
                         <button type="submit" name="submit_add_team" class="panel_submit" value="">Add</button>
                     </form>
@@ -96,25 +153,39 @@
 
                 <div class="wrapper list w90">
 
+                    <?php
+                        $empty = true;
+                        foreach ($equipes_table as $equipe_obj) {
+                            $name = $equipe_obj -> id;
+                            $fencers_array = $equipe_obj -> tireurs;
+                            $nationality = $equipe_obj -> nation;
+                            $club = $equipe_obj -> club;
+                            $leader = $equipe_obj -> leader;
+                            $coach = $equipe_obj -> coach;
+
+                            $empty = false;
+
+                    ?>
                     <!-- EZT KELL LOOPOLNI -->
                     <div>
                         <div class="entry">
                             <div class="tr bold">
-                                <p>NAME</p>
+                                <p><?php echo $name ?></p>
                             </div>
                             <div class="entry_panel small">
                                 <div class="entry_header">
-                                    <form>
+                                    <form  method="POST">
                                         <div>
                                             <label for="">TEAM LEADER</label>
-                                            <input type="text" class="name_input" placeholder="Type in the team leader's name">
+                                            <input type="text" name="leader_input" class="name_input" value="<?php echo $leader ?>" placeholder="Type in the team leader's name">
                                         </div>
                                         <div>
                                             <label for="">COACH</label>
-                                            <input type="text" class="name_input" placeholder="Type in the team leader's name">
+                                            <input type="text" name="coach_input" value="<?php echo $coach ?>" class="name_input" placeholder="Type in the team leader's name">
                                         </div>
-                                        <div class="hidden">
-                                            <button type="submit">SAVE</button>
+                                        <input name="team_name" type="text" class="hidden" value="<?php echo $name ?>">
+                                        <div class="">
+                                            <button name="submit_coach_leader" type="submit">SAVE</button>
                                         </div>
                                     </form>
                                 </div>
@@ -127,17 +198,43 @@
                                         </tr>
                                     </thead>
                                     <tbody class="alt">
+                                        <?php
+                                            if (count($fencers_array) === 0) {
+
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <p>No fencers added yet!</p>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                            } else {
+                                                foreach ($fencers_array as $fencer_obj) {
+                                                    $fencers_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
+                                                }
+
+                                        ?>
                                         <tr>
                                             <td>
-                                                <p>JANI KICSI JÜ</p>
+                                                <p><?php echo $fencers_name ?></p>
                                             </td>
                                         </tr>
+                                        <?php
+                                            }
+
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                     <!-- EDDIG -->
+
+                    <?php }
+                        if ($empty) {
+                            echo "There are no teams set up yet!";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
