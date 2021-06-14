@@ -163,7 +163,6 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/login_style.min.css">
 </head>
-
 <body class="bg_fencers">
     <div id="login_panel">
         <div id="title_stripe">

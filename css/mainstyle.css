@@ -2345,6 +2345,12 @@ textarea.standalone {
 
 .to_do_sublist > div > :is(a, img) {
 	margin: 0 5px;
+	padding: 3px;
+	border-radius: 2px;
+}
+
+.to_do_sublist > div > a:hover {
+	background-color: var(--c-lightgray);
 }
 
 .to_do_sublist > div img {
@@ -3600,6 +3606,7 @@ div.title_box > button {
 }
 
 .team_order_report_select:hover {
+	-webkit-filter: brightness(.9);
 	filter: brightness(.9);
 }
 

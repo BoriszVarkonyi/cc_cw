@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Team" class="search page">
+                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Team" class="search page">
                     <button type="button"><img src="../assets/icons/close_black.svg"></button>
                     <div class="search_results">
                         <button id="" href="#" onclick="selectSearch(this), autoFill(this)" type="button"></button>
@@ -96,6 +96,7 @@
 
                 <div class="wrapper list w90">
 
+                    <!-- EZT KELL LOOPOLNI -->
                     <div>
                         <div class="entry">
                             <div class="tr bold">
@@ -136,6 +137,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- EDDIG -->
                 </div>
             </div>
         </div>
@@ -145,5 +147,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/teams.js"></script>
 </body>
 </html>

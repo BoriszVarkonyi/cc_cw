@@ -692,6 +692,22 @@ input[type="time"] {
 	font-size: var(--f-small);
 }
 
+.search_panel .search::-webkit-input-placeholder {
+	font-size: var(--f-small);
+}
+
+.search_panel .search::-moz-placeholder {
+	font-size: var(--f-small);
+}
+
+.search_panel .search:-ms-input-placeholder {
+	font-size: var(--f-small);
+}
+
+.search_panel .search::-ms-input-placeholder {
+	font-size: var(--f-small);
+}
+
 .search_panel .search::placeholder {
 	font-size: var(--f-small);
 }
@@ -1240,6 +1256,7 @@ th {
 	font-weight: normal;
 	vertical-align: bottom !important;
 	position: relative;
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	/*
