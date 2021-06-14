@@ -121,5 +121,6 @@
     <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/teams.js"></script>
 </body>
 </html>

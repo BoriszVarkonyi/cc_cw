@@ -21,7 +21,7 @@
     margin-left: 10px;
 }
 
-/* Needs to be button or itt will get messed up */
+/* Needs to be button or it will get messed up */
 
 .login_link_button {
 	color: var(--c-white);

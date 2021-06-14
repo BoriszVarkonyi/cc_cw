@@ -38,6 +38,66 @@
 <body>
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
+            <div class="modal_header primary">
+                <p class="modal_title">Do you want to publish this competition?</p>
+                <p class="modal_subtitle">The Competition will be shown on CompetitionView.</p>
+            </div>
+            <div class="modal_main">
+                <p class="modal_main_title margin_bottom big">All public information about the Competition could be accesed by everybody.</p>
+                <p class="modal_main_title margin_bottom big">Fencing Federations can now Pre-Register.</p>
+                <p class="modal_main_title big">Fencers now can book Weapon Control Appointments.</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be undone.</p>
+                <form class="modal_footer_content">
+                    <button type="button" class="modal_decline_button" onclick="toggleModal(1)">Cancel</button>
+                    <button type="submit" class="modal_confirmation_button">Publish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal_wrapper hidden" id="modal_2">
+        <div class="modal">
+            <div class="modal_header primary">
+                <p class="modal_title">Do you want to start this competition?</p>
+                <p class="modal_subtitle">The Competition will begun.</p>
+            </div>
+            <div class="modal_main">
+                <p class="modal_main_title margin_bottom big">All public information about the Competition could be accesed by everybody.</p>
+                <p class="modal_main_title margin_bottom big">Fencing Federations can now Pre-Register.</p>
+                <p class="modal_main_title big">Fencers now can book Weapon Control Appointments.</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be undone.</p>
+                <form class="modal_footer_content">
+                    <button type="button" class="modal_decline_button" onclick="toggleModal(2)">Cancel</button>
+                    <button type="submit" class="modal_confirmation_button">Start</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal_wrapper hidden" id="modal_3">
+        <div class="modal">
+            <div class="modal_header primary">
+                <p class="modal_title">Do you want to finish this competition?</p>
+                <p class="modal_subtitle">The Competition will be finished.</p>
+            </div>
+            <div class="modal_main">
+                <p class="modal_main_title margin_bottom big">All public information about the Competition could be accesed by everybody.</p>
+                <p class="modal_main_title margin_bottom big">Fencing Federations can now Pre-Register.</p>
+                <p class="modal_main_title big">Fencers now can book Weapon Control Appointments.</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be undone.</p>
+                <form class="modal_footer_content">
+                    <button type="button" class="modal_decline_button" onclick="toggleModal(3)">Cancel</button>
+                    <button type="submit" class="modal_confirmation_button">Finish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal_wrapper hidden" id="modal_4">
+        <div class="modal">
             <div class="modal_header gray">
                 <p class="modal_title">Confieramtion</p>
                 <p class="modal_subtitle">Szija</p>
@@ -81,7 +141,7 @@
             </div>
         </div>
     </div>
-    <div class="modal_wrapper hidden" id="modal_2">
+    <div class="modal_wrapper hidden" id="modal_5">
         <div class="modal">
             <div class="modal_header red">
                 <p class="modal_title">Confieramtion</p>
@@ -108,20 +168,41 @@
                 <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
                 <p class="page_title"><?php echo $comp_name; ?></p>
 
-                <div id="publishcomp" class="stripe_button_wrapper">
-                    <button class="stripe_button primary <?php echo $publish_comp_disabled ?>">
+
+                <!-- PUBLISH COMPETITION (1) >> (2) -->
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button primary <?php echo $publish_comp_disabled ?>" onclick="toggleModal(1)">
                         <p>Publish Competition</p>
-                        <img src="../assets/icons/send_black.svg"/>
+                        <img src="../assets/icons/publish_black.svg"/>
                     </button>
                 </div>
+
+                <!-- START COMPETITION (2) >> (3) -->
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button primary <?php echo $publish_comp_disabled ?>" onclick="toggleModal(2)">
+                        <p>Start Competition</p>
+                        <img src="../assets/icons/flag_black.svg"/>
+                    </button>
+                </div>
+
+                <!-- FINISH COMPETITION (3) >> (4) -->
+                <div class="stripe_button_wrapper">
+                    <button class="stripe_button primary <?php echo $publish_comp_disabled ?>" onclick="toggleModal(3)">
+                        <p>Finish Competition</p>
+                        <img src="../assets/icons/outlined_flag_black.svg"/>
+                    </button>
+                </div>
+
+
+
             </div>
 
             <!-- dashboard body -->
             <div id="page_content_panel_main">
                 <div id="db_panel_wrapper">
                     <div class="db_panel main">
-                    <button onclick="toggleModal(1)">Example Modal</button>
-                    <button onclick="toggleModal(2)">Example Modal 2</button>
+                    <button onclick="toggleModal(4)">Example Modal</button>
+                    <button onclick="toggleModal(5)">Example Modal 2</button>
                     <button onclick="toggleModal('EULA')">EULA Modal</button>
                     <button onclick="toggleModal('cookies')">Cookies Modal</button>
                     <button onclick="toggleModal('bug')">Bug report Modal</button>
@@ -130,7 +211,7 @@
                 <!-- competition status -->
                 <div class="db_panel status">
                     <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/beenhere_black.svg">
+                        <img src="../assets/icons/task_alt_black.svg">
                         <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
                     </div>
 
