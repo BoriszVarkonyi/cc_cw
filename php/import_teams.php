@@ -26,7 +26,7 @@
         <!-- navbar -->
         <main>
             <div id="title_stripe">
-                <p class="page_title">Import Referees from XML</p>
+                <p class="page_title">Import Teams from XML</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button bold" href="teams.php?comp_id=<?php echo $comp_id ?>">
                         <p>Go back to Teams</p>
@@ -115,6 +115,6 @@
     <script src="../js/main.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/list.js"></script>
-    <script src="../js/import_referees.js"></script>
+    <script src="../js/import_teams.js"></script>
 </body>
 </html>
