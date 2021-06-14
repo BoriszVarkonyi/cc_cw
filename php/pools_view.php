@@ -74,45 +74,46 @@
                     ?>
                         <div>
                             <div class="entry">
-                                <div class="table_row start">
-                                    <div class="table_item bold">No. <?php echo $pool_num ?></div>
-                                    <div class="table_item">Piste <?php echo $piste ?></div>
+                                <div class="tr">
+                                    <div class="td bold">No. <?php echo $pool_num ?></div>
+                                    <div class="td">Piste <?php echo $piste ?></div>
                                     <?php
                                     if ($current_pool -> ref2 != NULL) {
-                                        ?>><div class="table_item">Ref1: <?php echo $ref1name ?></div><?php
+                                        ?>><div class="td">Ref1: <?php echo $ref1name ?></div><?php
                                     }
                                     if ($current_pool -> ref2 != NULL) {
-                                        ?><div class="table_item">Ref2: <?php echo $ref2name ?></div><?php
+                                        ?><div class="td">Ref2: <?php echo $ref2name ?></div><?php
                                     }
                                     ?>
-                                    <div class="table_item"><?php echo $time ?></div>
-                                    <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $pool_num ?>'" class="pool_config">
+                                    <div class="td"><?php echo $time ?></div>
+                                    <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $pool_num ?>'" class="pool_config td">
                                         <img src="../assets/icons/open_in_new_black.svg">
                                     </button>
                                 </div>
                                 <div class="entry_panel">
-                                    <div class="pool_table_wrapper table">
-                                        <div class="table_header">
-                                            <div class="table_header_text">
-                                                <p>NAME</p>
-                                            </div>
-                                            <div class="table_header_text">
-                                                <p>NATION</p>
-                                            </div>
-                                            <div class="table_header_text square">
-                                                <p>NO.</p>
-                                            </div>
+                                    <table class="pool_table_wrapper no_interaction">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <p>NAME</p>
+                                                </th>
+                                                <th>
+                                                    <p>NATION</p>
+                                                </th>
+                                                <th class="square">
+                                                    <p>NO.</p>
+                                                </th>
                                             <?php
                                             for ($k = 1; $k <= $number_of_fencers; $k++) { ?>
-                                                <div class="table_header_text square">
+                                                <th class="square">
                                                     <?php echo $k; ?>
-                                                </div>
+                                                </th>
                                             <?php
                                             }
                                             ?>
-
-                                        </div>
-                                        <div class="table_row_wrapper alt">
+                                            </tr>
+                                        </thead>
+                                        <tbody class="alt">
                                             <?php
                                             for ($n = 1; $n <= $number_of_fencers; $n++) {
 
@@ -132,10 +133,10 @@
                                                 }
 
                                                 ?>
-                                                <div class="table_row <?php echo $disq_class ?>">
-                                                    <div class="table_item"><?php echo $fencer_name ?></div>
-                                                    <div class="table_item"><?php echo $fencer_nat ?></div>
-                                                    <div class="table_item square row_title"><?php echo $n?></div>
+                                                <tr class="<?php echo $disq_class ?>">
+                                                    <td><?php echo $fencer_name ?></td>
+                                                    <td><?php echo $fencer_nat ?></td>
+                                                    <td class="square row_title"><?php echo $n?></td>
                                                     <?php
                                                     for ($l = 1; $l <= $number_of_fencers; $l++) {
 
@@ -177,7 +178,7 @@
                                                         }
                                                     ?>
 
-                                                        <div class="table_item square <?php echo $color_class ?>">
+                                                        <td class="square <?php echo $color_class ?>">
 
                                                             <?php
                                                                 if ($n > $l) {
@@ -192,19 +193,19 @@
                                                                 }
                                                             ?>
 
-                                                        </div>
+                                                        </td>
 
                                                     <?php
                                                         $filled = "";
                                                     }
 
                                                     ?>
-                                                </div>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

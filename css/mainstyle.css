@@ -228,11 +228,12 @@ header {
 .username_big {
 	font-size: var(--f-large);
 	font-family: var(--bold);
+	line-height: 1.2;
 }
 
 .role_big {
 	font-size: var(--f-small);
-	margin: -5px 0 15px;
+	line-height: 1.2;
 }
 
 .settings_section {
@@ -245,6 +246,27 @@ header {
 	margin-right: 20px;
 	line-height: 1.2;
 	cursor: pointer;
+}
+
+.profile_controls {
+	width: 60%;
+	margin: 1px 0;
+}
+
+.profile_controls a {
+	font-size: var(--f-xsmall);
+	font-family: var(--bold);
+	width: 100%;
+	margin: 3px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3px 0;
+	background: var(--c-lightgray);
+	border-radius: 4px;
+	border: 2px solid var(--c-gray);
+	box-sizing: border-box;
+	line-height: 1;
 }
 
 #username {
@@ -260,7 +282,6 @@ header {
 	min-width: 40px;
 	width: 2vw;
 	max-width: 80px;
-	background: var(--c-white);
 	float: right;
 	cursor: pointer;
 	display: flex;
@@ -620,7 +641,7 @@ header {
 
 .stripe_button:before {
 	content: attr(shortcut);
-	background: #25252595;
+	background: rgba(37, 37, 37, 0.584);
 	position: absolute;
 	font-size: var(--f-small);
 	font-family: var(--bold);
@@ -1064,7 +1085,7 @@ nav img {
 
 #nav_bar_pin.pinned:hover {
 	opacity: 1 !important;
-	background: #ffffff;
+	background: rgb(255, 255, 255);
 }
 
 nav:hover #nav_bar_pin {
@@ -2976,7 +2997,9 @@ div.title_box > button {
 /* ///POOLS/// */
 
 .pool_table_wrapper {
-	width: 90%;
+	width: 90% !important;
+	min-width: unset !important;
+	max-width: unset !important;
 }
 
 .pools_stat_table {
@@ -3081,7 +3104,6 @@ div.title_box > button {
 }
 
 .pool_config {
-	background: transparent;
 	height: 28px;
 	width: 28px;
 	margin-left: auto;

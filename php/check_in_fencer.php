@@ -170,9 +170,10 @@
                     <form action=""  id="check_in" method="POST" class="db_panel">
                         <div class="db_panel_title_stripe">
                             <img src="../assets/icons/backpack_black.svg"/>
-                            Contents of fencer's bag
+                            Contents of Fencer's Bag
                         </div>
                         <div class="db_panel_main">
+                            <input type="text" value="ide kéne a max valuek minden eggyes inpurta">
                             <table class="no_interaction">
                                 <thead>
                                     <tr>

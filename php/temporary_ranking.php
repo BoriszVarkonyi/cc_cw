@@ -123,7 +123,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 
                         ?>
 
-                        <tr id="<?php echo $value->temp_rank ?>" onclick="selectRow(this)" tabindex="0">
+                        <tr id="<?php echo $value->temp_rank ?>">
                             <td><p><?php echo $value->temp_rank ?></p></td>
                             <td><p><?php echo $value->prenom . " " . $value->nom ?></p></td>
                             <td><p><?php echo $value->nation ?></p></td>
@@ -142,8 +142,6 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/list_2.js"></script>
-    <script src="../js/registration.js"></script>
-    <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
 </body>
 </html>

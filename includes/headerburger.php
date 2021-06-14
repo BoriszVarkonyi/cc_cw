@@ -75,7 +75,7 @@ if (isset($_POST["logout"])) {
             </div>
             <div class="small_scroll">
                 <p>TOURNAMENT'S PAGES</p>
-                <button class="competition_button separate" onclick="location.href=''">Tournament's timetable</button>
+                <button class="competition_button separate" onclick="location.href=''">Tournament's Timetable</button>
                 <button class="competition_button separate" onclick="location.href=''">Manage Weapon Control Bookings</button>
                 <p>TOURNAMENT'S COMPETITIONS</p>
                 <?php
@@ -199,6 +199,10 @@ if (isset($_POST["logout"])) {
         <img src="<?php echo $profile_pic ?>" class="profile_picture_big" height="55" width="55">
         <p class="username_big"><?php echo $username; ?></p>
         <p class="role_big"><?php echo $role; ?></p>
+        <div class="profile_controls">
+            <a href="choose_tournament.php">Your Tournaments</a>
+            <a href="choose_competition.php">Your Competitions</a>
+        </div>
         <form action="" method="POST" id="logout_form">
             <button type="submit" name="logout" class="logout_button">Log out</button>
         </form>

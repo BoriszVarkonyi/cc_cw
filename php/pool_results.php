@@ -138,7 +138,7 @@
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
             <div class="modal_header red">
-                <p class="modal_title">Do you want to disqualify for the follwing reason: ?</p>
+                <p class="modal_title">Do you want to disqualify for the following reason: ?</p>
             </div>
             <div class="modal_footer">
                 <p class="modal_footer_text">This action cannot be revoked.</p>
@@ -236,10 +236,10 @@
                         ?>
                         <div id="pool_matches_brief" class="pool_results_column">
                             <div class="entry">
-                                <div class="table_row">
-                                    <div class="table_item bold">No. <?php echo $pool_num ?></div>
-                                    <div class="table_item">Piste <?php echo $piste ?></div>
-                                    <div class="table_item">Ref:
+                                <div class="tr">
+                                    <div class="td bold">No. <?php echo $pool_num ?></div>
+                                    <div class="td">Piste <?php echo $piste ?></div>
+                                    <div class="td">Ref:
                                     <?php
                                     //echo out ref(s)
                                     echo $ref1name . " (" . $ref1nat . ")";
@@ -247,28 +247,30 @@
                                         echo "Ref 2: " . $ref2name . " (" . $ref2nat . ") ";
                                     }
                                     ?></div>
-                                    <div class="table_item"><?php echo $time ?></div>
+                                    <div class="td"><?php echo $time ?></div>
                                 </div>
                                 <div class="entry_panel">
-                                    <div class="pool_table_wrapper table small">
-                                        <div class="table_header">
-                                            <div class="table_header_text">
-                                                <p>Fencer's name</p>
-                                            </div>
-                                            <div class="table_header_text square">
-                                                <p>No.</p>
-                                            </div>
-                                            <?php
-                                                //echo out fencer number top(horizontal)
-                                                for ($i = 1; $i <= $pool_f_in; $i++ ) {
-                                            ?>
-                                            <div class="table_header_text square"><p><?php echo $i ?></p></div>
-                                            <?php
-                                                }
-                                            ?>
-                                        </div>
+                                    <table class="pool_table_wrapper small">
+                                        <thead>
+                                            <tr>
+                                            <th>
+                                                    <p>Fencer's name</p>
+                                                </th>
+                                                <th class="square">
+                                                    <p>No.</p>
+                                                </th>
+                                                <?php
+                                                    //echo out fencer number top(horizontal)
+                                                    for ($i = 1; $i <= $pool_f_in; $i++ ) {
+                                                ?>
+                                                <th class="square"><p><?php echo $i ?></p></th>
+                                                <?php
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
 
-                                        <div class="table_row_wrapper alt">
+                                        <tbody class="alt">
                                             <?php
                                                 //echo the fencers vertical
                                                 for ($f_num = 1; $f_num <= $pool_f_in; $f_num++) {
@@ -290,9 +292,9 @@
 
                                             ?>
 
-                                            <div id="<?php echo $current_f_pool -> $f_num -> id ?>" class="table_row <?php echo $disq_class ?>" onclick="selectRow(this)">
-                                                <div class="table_item"><p><?php echo $fencer_name ?></p></div>
-                                                <div class="table_item square row_title"><p><?php echo $f_num ?></p></div>
+                                            <tr id="<?php echo $current_f_pool -> $f_num -> id ?>" class="<?php echo $disq_class ?>" onclick="selectRow(this)">
+                                                <td><p><?php echo $fencer_name ?></p></td>
+                                                <td class="square row_title"><p><?php echo $f_num ?></p></td>
                                                 <?php
                                                     for ($i = 1; $i <= $pool_f_in; $i++) {
 
@@ -342,20 +344,20 @@
                                                         //get scores from matches_table!
 
                                                         if ($i == $f_num) {
-                                                            ?><div class="table_item square <?php echo $color_class ?>"><p>X</p></div><?php
+                                                            ?><td class="square <?php echo $color_class ?>"><p>X</p></td><?php
                                                         } else {
-                                                            ?><div class="table_item square <?php echo $color_class ?>"><p><?php echo $points ?></p></div><?php
+                                                            ?><td class="square <?php echo $color_class ?>"><p><?php echo $points ?></p></td><?php
                                                         }
 
                                                     }
                                                 ?>
-                                            </div>
+                                            </tr>
                                         <?php
                                             }
                                         ?>
-                                        </div>
+                                        </tbody>
 
-                                    </div>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -445,7 +447,7 @@
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
+    <script src="../js/list_2.js"></script>
     <script src="../js/pool_results.js"></script>
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/modal.js"></script>
