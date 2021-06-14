@@ -2,7 +2,31 @@
 <?php include "../includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
+<?php
 
+    class equipes {
+        public $nation;
+        public $statut = "N";
+        public $club;
+        public $classement;
+        public $points;
+        public $tireurs = [];
+
+        public function __construct($nation, $club, $classement, $points, $statut) {
+            $this -> nation = $nation;
+            $this -> statut = $statut;
+            $this -> club = $club;
+            $this -> classement = $classement;
+            $this -> points = $points;
+        }
+    }
+
+    //make new db table
+    $qry_new_table = "CREATE TABLE `ccdatabase`.`teams` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '{ }', PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_new_table = mysqli_query($connection, $qry_new_table);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
