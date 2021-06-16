@@ -154,7 +154,6 @@ for (i = 0; i < columns.length; i++) {
     defaultArrayIndex = i + 1;
     break;
 }
-console.log(defaultArray)
 
 var allButtons = document.querySelectorAll("#page_content_panel_main th > button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
@@ -171,6 +170,7 @@ function sortButton(x) {
 
         }
         else {
+            allButtons[i].classList.remove("active")
             allButtons[i].querySelector("img").src = "../assets/icons/switch_full_black.svg"
         }
     }
@@ -183,17 +183,20 @@ function sortButton(x) {
             sortImg.src = "../assets/icons/switch_up_black.svg"
             rowSort(columnIndex + 1, "Z-A");
             document.cookie = "sortCookie=" + columnIndex + "2"
+            x.classList.add("active")
             break;
         case "switch_up_black.svg":
             // Current: Z-A Swtiches to: Default
             sortImg.src = "../assets/icons/switch_full_black.svg"
             rowSort(columnIndex + 1, "Default");
             document.cookie = "sortCookie=";
+            x.classList.remove("active")
             break;
         default:
             // Current: Default Swtiches to: A-Z
             sortImg.src = "../assets/icons/switch_down_black.svg"
             rowSort(columnIndex + 1, "A-Z");
+            x.classList.add("active")
             document.cookie = "sortCookie=" + columnIndex + "1"
     }
 }
@@ -234,6 +237,7 @@ function rowSort(index, mode) {
                     rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
                     rows = document.querySelectorAll("#page_content_panel_main tbody tr")
                 }
+
                 break;
             case "Z-A":
                 for (i = 0; i < rows.length; i++) {
