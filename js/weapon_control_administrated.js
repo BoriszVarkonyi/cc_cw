@@ -15,7 +15,8 @@ hideAllButton();
 //Shows the correct button
 function buttonShower(x){
     var selectedItem = x
-    var className = selectedItem.classList[1]
+    var className = selectedItem.classList[0]
+    console.log(className)
     switch(className){
         case "checked_out" :
             hideAllButton();

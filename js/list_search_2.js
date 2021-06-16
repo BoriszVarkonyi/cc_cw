@@ -137,11 +137,24 @@ radioButtons.forEach(item => {
 
 //Sort system
 var defaultArray = [];
-var defaultNameSequence = document.querySelectorAll("#page_content_panel_main tr td:first-of-type p")
-for (i = 0; i < defaultNameSequence.length; i++) {
-    defaultArray.push(defaultNameSequence[i].innerHTML.toLowerCase())
+var defaultArrayIndex;
+var columns = document = document.querySelectorAll("#page_content_panel_main tr:first-of-type td")
+outterLoop:
+for (i = 0; i < columns.length; i++) {
+    var defaultNameSequence = document.querySelectorAll("#page_content_panel_main tr td:nth-of-type(" + (i + 1) + ") p")
+    for (j = 0; j < defaultNameSequence.length; j++) {
+        if(defaultNameSequence[j].innerHTML == ""){
+            defaultArray = [];
+            continue outterLoop
+        }
+        else{
+            defaultArray.push(defaultNameSequence[j].innerHTML.toLowerCase())
+        }
+    }
+    defaultArrayIndex = i + 1;
+    break;
 }
-
+console.log(defaultArray)
 
 var allButtons = document.querySelectorAll("#page_content_panel_main th > button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
@@ -230,7 +243,7 @@ function rowSort(index, mode) {
                 break;
             default:
                 for (i = rows.length - 1; i >= 0; i--) {
-                    rowNode.insertBefore(rows[indexFinder(defaultArray[i], 1, mode)], rowNode.firstElementChild)
+                    rowNode.insertBefore(rows[indexFinder(defaultArray[i], defaultArrayIndex, mode)], rowNode.firstElementChild)
                     rows = document.querySelectorAll("#page_content_panel_main tbody tr")
                 }
         }
