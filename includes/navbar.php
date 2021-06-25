@@ -30,7 +30,7 @@
 
         <!-- DT drop-down -->
         <div id="dt_dropdown_menu" class="dropdown_menu hidden">
-            <a href="<?php echo $navbar -> competitors -> href ?>" class="nav_bar_item <?php echo $navbar -> competitors -> class ?>">Competitiors</a>
+            <a href="<?php echo $navbar -> competitors -> href ?>" class="nav_bar_item <?php echo $navbar -> competitors -> class ?>">Competitors</a>
             <a href="<?php echo $navbar -> pools -> href ?>" class="nav_bar_item <?php echo $navbar -> pools -> class ?>">Pools</a>
             <a href="<?php echo $navbar -> temporary_ranking -> href ?>" class="nav_bar_item <?php echo $navbar -> temporary_ranking -> class ?>">Temporary Ranking</a>
             <a href="<?php echo $navbar -> table -> href ?>" class="nav_bar_item <?php echo $navbar -> table -> class ?>">Table</a>

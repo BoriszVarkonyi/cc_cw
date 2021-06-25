@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Competitiors</title>
+    <title>Competitors</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
@@ -158,6 +158,6 @@
     <script src="../js/list_2.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
-    <script src="../js/competitiors.js"></script>
+    <script src="../js/competitors.js"></script>
 </body>
 </html>
