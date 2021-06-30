@@ -209,7 +209,7 @@
                         </div>
                         <div class="db_panel_main small">
 
-                            <p class="stat_wrapper_title">PARTICIPATORS (INDIVIDUAL)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">PARTICIPATORS (INDIVIDUAL)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
@@ -228,7 +228,7 @@
                                 </div>
                             </div>
 
-                            <p class="stat_wrapper_title">PARTICIPATORS (TEAM)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">PARTICIPATORS (TEAM)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
@@ -252,7 +252,7 @@
                                 </div>
                             </div>
 
-                            <p class="stat_wrapper_title">REGISTARTION<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">REGISTARTION<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
@@ -261,17 +261,17 @@
                                 </a>
                                 <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
-                                    <p class="stat_title">No registered in</p>
+                                    <p class="stat_title">Not registered in</p>
                                     <p class="stat_number">159 / 19</p>
                                 </a>
                             </div>
 
-                            <p class="stat_wrapper_title">WEAPON CONTROL (ADMINISTRATED)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">WEAPON CONTROL (ADMINISTRATED)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/check_circle_outline_black.svg">
                                     <p class="stat_title">Check-ins</p>
-                                    <p class="stat_subtitle">READY</p>
+                                    <p class="stat_subtitle">33%</p>
                                     <p class="stat_number">159 / 159</p>
                                 </a>
                                 <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
@@ -291,7 +291,7 @@
                                 </a>
                             </div>
 
-                            <p class="stat_wrapper_title">WEAPON CONTROL (IMMEDIATE)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">WEAPON CONTROL (IMMEDIATE)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/weapon_control_black.svg">
@@ -305,7 +305,7 @@
                                 </a>
                             </div>
 
-                            <p class="stat_wrapper_title">TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper closed">
                                 <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/badge_black.svg">
@@ -325,7 +325,7 @@
 
                             </div>
 
-                            <p class="stat_wrapper_title">REFEREES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">REFEREES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
@@ -344,7 +344,7 @@
                                 </a>
                             </div>
 
-                            <p class="stat_wrapper_title">PISTES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title" onclick="openStatsWrapper()">PISTES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
