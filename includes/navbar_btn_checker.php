@@ -88,14 +88,19 @@
         protected function setByTeam() {
             if (!$this -> is_individual) {
                 //team competition
-                $to_change_array_url = ["pools" => null, "competitors" => "competitors_team", "formula" => "formula_team", "table" => "table_team", "overview" => "overview_team", "call_room" => "call_room_team"]; //cock and balls array
-                $name = $this -> name;
-                if (array_search($this -> name, array_keys($to_change_array_url)) !== false) {
-                    if ($to_change_array_url[$name] == null) {
-                        $this -> class = "hidden";
-                    } else {
-                        $this -> href = $this -> path_beg . $this -> name . $this -> path_end;
-                    }
+                $to_change_array_url = ["temp_ranking" => null,"pools" => null, "competitors" => "competitors_team", "formula" => "formula_team", "table" => "table_team", "overview" => "overview_team", "call_room" => "call_room_team"];
+            } else {
+                //individual competition
+                $to_change_array_url = ["competitors" => "competitors_individual", "formula" => "formula_individual","table" => "table_individual","overview" => "overview_individual","call_room" => "call_room_individual"];
+            }
+            $name = $this -> name;
+
+            if (array_search($name, array_keys($to_change_array_url)) !== false) {
+                if ($to_change_array_url[$name] == null) {
+                    $this -> class = "hidden";
+                } else {
+                    $url = $to_change_array_url[$name];
+                    $this -> href = $this -> path_beg . $url . $this -> path_end;
                 }
             }
         }
@@ -124,14 +129,7 @@
                 //class & href if disabled
                 $this -> class = "disabled";
             } else {
-                //class & href if active
-                $has_team_counterpart = ["competitors", "table", "call_room", "formula", "overview"]; //cock and balls team +
-                if (array_search($this -> name, $has_team_counterpart) !== false) {
-                    $name = $this -> name . "_individual";
-                } else {
-                    $name =  $this -> name;
-                }
-                $this -> href = $this -> path_beg . $name . $this -> path_end;
+                $this -> href = $this -> path_beg . $this -> name . $this -> path_end;
             }
         }
     }
@@ -258,16 +256,13 @@
             } else {
                 echo mysqli_error($this -> conn);
             }
+
+
+            $this -> setByTeam();
         }
 
         protected function setCallRoom($call_room) {
-            if ($call_room) {
-                if ($this -> is_individual) {
-                    $this -> href = $this -> path_beg . $this -> name . "_individual" . $this -> path_end;
-                } else {
-                    $this -> href = $this -> path_beg . $this -> name . "_team" . $this -> path_end;
-                }
-            } else {
+            if (!$call_room) {
                 $this -> class = "hidden";
             }
         }
