@@ -3,24 +3,27 @@
     class navbar {
 
         function __construct($connection, $comp_id) {
-            $array_names = ['overview','table','temporary_ranking','pools','competitors','call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+            $array_names = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
 
             //get competition state
-            $qry_get_state = "SELECT comp_status FROM competitions WHERE comp_id = '$comp_id'";
+            $qry_get_state = "SELECT `comp_status`, `is_individual` FROM `competitions` WHERE `comp_id` = '$comp_id'";
             $do_get_state = mysqli_query($connection, $qry_get_state);
             if ($row = mysqli_fetch_assoc($do_get_state)) {
                 $state = $row['comp_status'];
+                $is_individual = $row['is_individual'];
             }
 
             foreach ($array_names as $name) {
                 if ($name == 'weapon_control') {
-                    $button_obj = new wc_button($state, $comp_id, $connection);
+                    $button_obj = new wc_button($is_individual, $state, $comp_id, $connection);
                 } else if ($name == 'pools') {
-                    $button_obj = new pool_button($state, $comp_id, $connection);
+                    $button_obj = new pool_button($is_individual, $state, $comp_id, $connection);
                 } else if ($name == 'call_room') {
-                    $button_obj = new call_room_button($state, $comp_id, $connection);
+                    $button_obj = new call_room_button($is_individual, $state, $comp_id, $connection);
+                } else if ($name == "teams") {
+                    $button_obj = new teams_button($is_individual, $state, $comp_id);
                 } else {
-                    $button_obj = new button($name, $state, $comp_id, $connection);
+                    $button_obj = new button($is_individual, $name, $state, $comp_id, $connection);
                 }
 
                 $this -> {$name} = $button_obj;
@@ -31,12 +34,13 @@
     class button {
         public $href = "";
         public $class = "";
-        protected $name;
+        public $name;
         protected $state;
         protected $path_beg = "../php/";
         protected $path_end;
         protected $role;
         protected $comp_id;
+        protected $is_individual;
         public $conn;
 
         protected function setComp_id($comp_id) {
@@ -44,13 +48,16 @@
             $this -> comp_id = $comp_id;
         }
 
-        public function __construct($name, $state, $comp_id, $connection) {
+        public function __construct($is_individual, $name, $state, $comp_id, $connection) {
             $this -> conn = $connection;
             $this -> state = $state;
             $this -> name = $name;
+            $this -> is_individual = $is_individual;
             $this -> setComp_id($comp_id);
 
             $this -> determineRole();
+
+            $this -> setByTeam();
         }
 
         protected function determineRole() {//when there will be technician login needs to be redone!
@@ -66,16 +73,31 @@
         protected function setByState() {
             switch ($this -> state) {
                 case 1:
-                    $disabled_buttons = ["temporary_ranking", "competitors", "pools", "table", "overview", "manage_entries"];
+                    $disabled_buttons = ["teams","temporary_ranking", "competitors", "pools", "table", "overview", "manage_entries"];
                 break;
                 case 2:
                     $disabled_buttons = ["basic_information", "information_for_fencers", "ranking"];
                 break;
                 case 3:
-                    $disabled_buttons = ["general", "basic_information", "info_for_fencers", "timetable", "invitation", "ranking", "manage_entries"];
+                    $disabled_buttons = ["general", "basic_information", "info_for_fencers", "invitation", "ranking", "manage_entries"];
                 break;
             }
             $this -> setHrefClass($disabled_buttons);
+        }
+
+        protected function setByTeam() {
+            if (!$this -> is_individual) {
+                //team competition
+                $to_change_array_url = ["pools" => null, "competitors" => "competitors_team", "formula" => "formula_team", "table" => "table_team", "overview" => "overview_team", "call_room" => "call_room_team"]; //cock and balls array
+                $name = $this -> name;
+                if (array_search($this -> name, array_keys($to_change_array_url)) !== false) {
+                    if ($to_change_array_url[$name] == null) {
+                        $this -> class = "hidden";
+                    } else {
+                        $this -> href = $this -> path_beg . $this -> name . $this -> path_end;
+                    }
+                }
+            }
         }
 
         protected function setByTechnician() {
@@ -87,10 +109,10 @@
                     $disabled_buttons = ['call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
                 break;
                 case 3: // weapon control
-                    $disabled_buttons = ['overview','table','temporary_ranking','pools','competitors','call_room','registration','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+                    $disabled_buttons = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','registration','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
                 break;
                 case 4: //registration
-                    $disabled_buttons = ['overview','table','temporary_ranking','pools','competitors','call_room','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+                    $disabled_buttons = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
                 break;
 
                 $this -> setHrefClass($disabled_buttons);
@@ -103,17 +125,24 @@
                 $this -> class = "disabled";
             } else {
                 //class & href if active
-                $this -> href = $this -> path_beg . $this -> name . $this -> path_end;
+                $has_team_counterpart = ["competitors", "table", "call_room", "formula", "overview"]; //cock and balls team +
+                if (array_search($this -> name, $has_team_counterpart) !== false) {
+                    $name = $this -> name . "_individual";
+                } else {
+                    $name =  $this -> name;
+                }
+                $this -> href = $this -> path_beg . $name . $this -> path_end;
             }
         }
     }
 
     class wc_button extends button {
 
-        public function __construct($state, $comp_id, $connection) {
+        public function __construct($is_individual, $state, $comp_id, $connection) {
             $this -> name = "weapon_control";
             $this -> state = $state;
             $this -> conn = $connection;
+            $this -> is_individual = $is_individual;
             $this -> setComp_id($comp_id);
 
             $this -> determineRole();
@@ -130,6 +159,8 @@
                     $this -> setWeaponControl($wc_type);
                 }
             }
+
+            $this -> setByTeam();
         }
 
         protected function setWeaponControl($wc_type) {
@@ -149,10 +180,11 @@
 
     class pool_button extends button {
 
-        public function __construct($state, $comp_id, $connection) {
+        public function __construct($is_individual, $state, $comp_id, $connection) {
             $this -> name = "pools";
             $this -> state = $state;
             $this -> conn = $connection;
+            $this -> is_individual = $is_individual;
             $this -> setComp_id($comp_id);
 
             $this -> determineRole();
@@ -179,6 +211,8 @@
 
                 $this -> setPoolPhase($pool_phase);
             }
+
+            $this -> setByTeam();
         }
 
         public function setPoolPhase($pool_phase) {
@@ -201,10 +235,11 @@
 
     class call_room_button extends button {
 
-        public function __construct($state, $comp_id, $connection) {
+        public function __construct($is_individual, $state, $comp_id, $connection) {
             $this -> name = "call_room";
             $this -> state = $state;
             $this -> conn = $connection;
+            $this -> is_individual = $is_individual;
             $this -> setComp_id($comp_id);
 
             $this -> determineRole();
@@ -227,8 +262,27 @@
 
         protected function setCallRoom($call_room) {
             if ($call_room) {
-                $this -> href = $this -> path_beg . 'call_room' . $this -> path_end;
+                if ($this -> is_individual) {
+                    $this -> href = $this -> path_beg . $this -> name . "_individual" . $this -> path_end;
+                } else {
+                    $this -> href = $this -> path_beg . $this -> name . "_team" . $this -> path_end;
+                }
             } else {
+                $this -> class = "hidden";
+            }
+        }
+    }
+
+    class teams_button extends button {
+        function __construct($is_individual, $state, $comp_id) {
+            $this -> name = "teams";
+            $this -> state = $state;
+            $this -> is_individual = $is_individual;
+            $this -> setComp_id($comp_id);
+
+            $this -> determineRole();
+
+            if ($is_individual) {
                 $this -> class = "hidden";
             }
         }
