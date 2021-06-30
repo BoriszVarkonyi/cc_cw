@@ -57,12 +57,12 @@
                             //query comp_status = 3 (comps with ongoing comp_status orederd by comp_start)
                             $qry = "SELECT * FROM competitions WHERE comp_status = 3 ORDER BY comp_start DESC";
                             $qry_do = mysqli_query($connection, $qry);
-
+                            $empty = true;
                             //displays row in the table with parameters
                             while ($row = mysqli_fetch_assoc($qry_do)) {
                                 $comp_name =  $row['comp_name'];
                                 $comp_id = $row['comp_id'];
-
+                                $empty = false;
                                 //displays the compnames in a table with href button (live)
                                 ?>
                                 <tr>
@@ -82,16 +82,16 @@
                                 </tr>
                             <?php
                             }
+                                if ($empty) {
                             ?>
 
                             <!-- eztat else ágra -->
-
                             <tr>
                                 <td colspan="3">
                                     <p>There are no ongoing competitions</p>
                                 </td>
                             </tr>
-
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
