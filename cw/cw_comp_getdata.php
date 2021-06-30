@@ -19,6 +19,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     $comp_ranking_id = $row['comp_ranking_id'];
     //$comp_wc_info = $row['comp_wc_info'];
     $comp_name = $row['comp_name'];
+    $is_individual = $row['is_individual'];
 } else {
     echo mysqli_error($connection);
 }

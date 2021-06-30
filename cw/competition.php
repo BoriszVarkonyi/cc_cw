@@ -2,10 +2,12 @@
 <?php include "../includes/db.php"; ?>
 <?php
 
-    $logo_path = "../assets/icons/delete_black.svg";
+
 
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
+    } else {
+        $logo_path = "../assets/icons/delete_black.svg";
     }
     $qry_get_comp_data = "SELECT * FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
     $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
@@ -78,7 +80,14 @@
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
                     <p><?php echo $starting_date ?></p>
-                    <p><?php echo "" ?></p>
+                    <p><?php
+                        if ($is_individual) {
+                            echo "individual";
+                        } else {
+                            echo "team";
+                        }
+
+                    ?></p>
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">
@@ -166,25 +175,27 @@
 
                                         $array_equipment = explode(",", $comp_equipment);
 
-                                        for ($i = 0; $i < count($equipment); $i++) {
+                                        if (count($array_equipment) < 1) {
+                                            for ($i = 0; $i < count($equipment); $i++) {
 
-                                            if ($array_equipment[$i] != 0) {
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $equipment[$i] ?></td>
-                                                        <td><?php echo $array_equipment[$i] ?></td>
-                                                    </tr>
-                                                <?php
+                                                if ($array_equipment[$i] != 0) {
+                                                    ?>
+                                                        <tr>
+                                                            <td><?php echo $equipment[$i] ?></td>
+                                                            <td><?php echo $array_equipment[$i] ?></td>
+                                                        </tr>
+                                                    <?php
+                                                }
                                             }
-                                        }
+                                        } else {
                                     ?>
 
-                                    <!-- ha üres
+                                    <!--ha üres-->
 
                                                     <tr>
-                                                        <td colspan="1">No equipment</td>
+                                                        <td colspan="2">No equipment</td>
                                                     </tr>
-                                    -->
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
