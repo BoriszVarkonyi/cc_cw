@@ -83,7 +83,7 @@ if ($comp_type == "individual") {
                         </div>
                     </div>
                     <div>
-                        <label for="competition_type">TYPE OF COMPETITIORS</label>
+                        <label for="competition_type">TYPE OF COMPETITORS</label>
                         <div class="option_container">
                             <input type="radio" name="comp_type" id="individual" value="individual" checked/>
                             <label for="individual">Individual</label>

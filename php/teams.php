@@ -139,11 +139,11 @@
                     </button>
                     <form action="" id="add_team" method="POST" class="overlay_panel_form" autocomplete="off">
                         <label for="name">TEAM NAME</label>
-                        <input id="name" name="input_team_name" type="text" placeholder="Type in the team's name">
+                        <input id="name" name="input_team_name" type="text" placeholder="Type in the Team's name">
                         <label for="nation">TEAM NATION</label>
-                        <input id="nation" name="input_team_nation" type="text" placeholder="Type in the team's nation">
+                        <input id="nation" name="input_team_nation" type="text" placeholder="Type in the Team's nation">
                         <label for="club">TEAM CLUB</label>
-                        <input id="club" name="input_team_club" type="text" placeholder="Type in the team's club">
+                        <input id="club" name="input_team_club" type="text" placeholder="Type in the Team's club">
 
                         <button type="submit" name="submit_add_team" class="panel_submit" value="">Add</button>
                     </form>
@@ -174,7 +174,7 @@
                             </div>
                             <div class="entry_panel small">
                                 <div class="entry_header">
-                                    <form  method="POST">
+                                    <form method="POST" autocomplete="off">
                                         <div>
                                             <label for="">TEAM LEADER</label>
                                             <input type="text" name="leader_input" class="name_input" value="<?php echo $leader ?>" placeholder="Type in the team leader's name">

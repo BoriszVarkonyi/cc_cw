@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Import Competitiors from XML</title>
+    <title>Import Competitors from XML</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
@@ -26,10 +26,10 @@
         <!-- navbar -->
         <main>
             <div id="title_stripe">
-                <p class="page_title">Import Competitiors from XML</p>
+                <p class="page_title">Import Competitors from XML</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button bold" href="competitors.php?comp_id=<?php echo $comp_id ?>">
-                        <p>Go back to Competitiors</p>
+                        <p>Go back to Competitors</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
                     <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">

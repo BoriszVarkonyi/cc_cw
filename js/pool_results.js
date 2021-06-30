@@ -1,4 +1,4 @@
-var table = document.querySelector(".table")
+var table = document.querySelector("#page_content_panel_main table")
 var oldClickedRow;
 var hiddenInput = document.querySelector(".selected_list_item_input")
 function selectRow(x) {
@@ -14,7 +14,7 @@ function selectRow(x) {
         oldClickedRow = undefined;
     }
     else {
-        var tableRows = document.querySelectorAll(".table_row");
+        var tableRows = document.querySelectorAll("#page_content_panel_main tbody tr");
         var selectedElements = table.querySelectorAll(".selected")
         //Removes selected class from all selected element
         for (i = 0; i < selectedElements.length; i++) {
@@ -34,9 +34,9 @@ function selectRow(x) {
                 break;
             }
         }
-        selectedElementIndexPr = selectIndex - 1
+        selectedElementIndexPr = selectIndex
         //Gets the column
-        var selectColumn = table.querySelectorAll('.table_row > div:nth-of-type(' + (selectIndex + 2) + ')')
+        var selectColumn = table.querySelectorAll('#page_content_panel_main tbody tr > td:nth-of-type(' + (selectIndex + 3) + ')')
         //Adds selected class to the column
         for (i = 0; i < selectColumn.length; i++) {
             selectColumn[i].classList.add("selected")
@@ -50,7 +50,7 @@ function selectRow(x) {
 var selectedElementIndexPr = 0;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system
-    var tableRows = document.querySelectorAll(".table .table_row:not( .hidden)");
+    var tableRows = document.querySelectorAll("#page_content_panel_main tbody tr:not( .hidden)");
     if (keyDownEvent.key == "ArrowUp" && tableRows.length > 0) {
         if (selectedElementIndexPr > 0) {
             selectedElementIndexPr--
@@ -88,6 +88,7 @@ document.onkeydown = (keyDownEvent) => {
 var disqualfyPanel = document.getElementById("disqualify_panel")
 var disqualifyButton = document.getElementById("disqualifyButton")
 var submitPanel = document.querySelector(".panel_submit")
+var msgFencerButton = document.getElementById("msg_fencer")
 
 function toggleDisqualifyPanel() {
     disqualfyPanel.classList.toggle("hidden")
@@ -99,7 +100,7 @@ function toggleDisqualifyPanel() {
 
 }
 
-var tableRows = document.querySelectorAll(".table_row")
+var tableRows = document.querySelectorAll("#page_content_panel_main tbody tr")
 
 //Event listener to class change
 function callback(mutationsList, observer) {
@@ -116,24 +117,25 @@ for (i = 0; i < tableRows.length; i++) {
 }
 
 function buttonDisabler() {
-    var selectedItem = document.querySelector(".pool_table_wrapper .table_row.selected")
+    var selectedItem = document.querySelector("#page_content_panel_main tbody tr.selected")
     if (selectedItem !== null && !selectedItem.classList.contains("disqualified")) {
-        console.log(selectedItem)
         disqualifyButton.classList.remove("disabled")
+        msgFencerButton.classList.remove("disabled")
         setName();
     }
     else {
         disqualifyButton.classList.add("disabled")
+        msgFencerButton.classList.add("disabled")
     }
 }
 //Gets the name
 function getName() {
-    return selectedFencerName = document.querySelector(".pool_table_wrapper .selected .table_item:first-of-type p").innerHTML
+    return selectedFencerName = document.querySelector("#page_content_panel_main tbody .selected td:first-of-type p").innerHTML
 }
 //Sets the name
 function setName() {
     var disqPanelText = document.querySelector("#disqualify_panel .overlay_panel_controls p")
-    var selectedFencerId = document.querySelector(".pool_table_wrapper .table_row.selected").id
+    var selectedFencerId = document.querySelector("#page_content_panel_main tbody tr.selected").id
     var hiddenInput = document.querySelector(".modal_footer_content input[type=text]")
     hiddenInput.value = selectedFencerId
     disqPanelText.innerHTML = "Disqualify " + getName();

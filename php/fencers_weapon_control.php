@@ -125,7 +125,7 @@
         $wc_type = $row['comp_wc_type'];
 
         switch ($wc_type) {
-            case 1://immidiate
+            case 1://immediate
                 $wc_page = "weapon_control_immediate";
             break;
             case 2://administrative

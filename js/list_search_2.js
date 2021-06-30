@@ -137,11 +137,23 @@ radioButtons.forEach(item => {
 
 //Sort system
 var defaultArray = [];
-var defaultNameSequence = document.querySelectorAll("#page_content_panel_main tr td:first-of-type p")
-for (i = 0; i < defaultNameSequence.length; i++) {
-    defaultArray.push(defaultNameSequence[i].innerHTML.toLowerCase())
+var defaultArrayIndex;
+var columns = document = document.querySelectorAll("#page_content_panel_main tr:first-of-type td")
+outterLoop:
+for (i = 0; i < columns.length; i++) {
+    var defaultNameSequence = document.querySelectorAll("#page_content_panel_main tr td:nth-of-type(" + (i + 1) + ") p")
+    for (j = 0; j < defaultNameSequence.length; j++) {
+        if(defaultNameSequence[j].innerHTML == ""){
+            defaultArray = [];
+            continue outterLoop
+        }
+        else{
+            defaultArray.push(defaultNameSequence[j].innerHTML.toLowerCase())
+        }
+    }
+    defaultArrayIndex = i + 1;
+    break;
 }
-
 
 var allButtons = document.querySelectorAll("#page_content_panel_main th > button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
@@ -158,6 +170,7 @@ function sortButton(x) {
 
         }
         else {
+            allButtons[i].classList.remove("active")
             allButtons[i].querySelector("img").src = "../assets/icons/switch_full_black.svg"
         }
     }
@@ -170,17 +183,20 @@ function sortButton(x) {
             sortImg.src = "../assets/icons/switch_up_black.svg"
             rowSort(columnIndex + 1, "Z-A");
             document.cookie = "sortCookie=" + columnIndex + "2"
+            x.classList.add("active")
             break;
         case "switch_up_black.svg":
             // Current: Z-A Swtiches to: Default
             sortImg.src = "../assets/icons/switch_full_black.svg"
             rowSort(columnIndex + 1, "Default");
             document.cookie = "sortCookie=";
+            x.classList.remove("active")
             break;
         default:
             // Current: Default Swtiches to: A-Z
             sortImg.src = "../assets/icons/switch_down_black.svg"
             rowSort(columnIndex + 1, "A-Z");
+            x.classList.add("active")
             document.cookie = "sortCookie=" + columnIndex + "1"
     }
 }
@@ -221,6 +237,7 @@ function rowSort(index, mode) {
                     rowNode.insertBefore(rows[indexFinder(sortByArray[i], index, mode)], rowNode.firstElementChild)
                     rows = document.querySelectorAll("#page_content_panel_main tbody tr")
                 }
+
                 break;
             case "Z-A":
                 for (i = 0; i < rows.length; i++) {
@@ -230,7 +247,7 @@ function rowSort(index, mode) {
                 break;
             default:
                 for (i = rows.length - 1; i >= 0; i--) {
-                    rowNode.insertBefore(rows[indexFinder(defaultArray[i], 1, mode)], rowNode.firstElementChild)
+                    rowNode.insertBefore(rows[indexFinder(defaultArray[i], defaultArrayIndex, mode)], rowNode.firstElementChild)
                     rows = document.querySelectorAll("#page_content_panel_main tbody tr")
                 }
         }

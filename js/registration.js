@@ -1,6 +1,7 @@
 var addFencerPanel = document.getElementById("add_fencer_panel");
 var regInButton = document.getElementById("regIn")
 var regOutButton = document.getElementById("regOut")
+var removeFencerButton = document.querySelector("button[name=remove_fencer]")
 
 function toggleAddFencerPanel() {
     addFencerPanel.classList.remove("hidden");
@@ -37,16 +38,19 @@ var registrationtable = document.querySelector("#page_content_panel_main table")
 registrationtable.addEventListener("click", buttonDisabler)
 var isselected = false;
 
+
 function buttonDisabler() {
     var selectedItem = document.querySelector("#page_content_panel_main table .selected")
     if (selectedItem !== null) {
         regInButton.classList.remove("disabled");
         regOutButton.classList.remove("disabled");
+        removeFencerButton.classList.remove("disabled");
         isselected = true;
     }
     else {
         regInButton.classList.add("disabled");
         regOutButton.classList.add("disabled");
+        removeFencerButton.classList.add("disabled");
         isselected = false;
     }
 }

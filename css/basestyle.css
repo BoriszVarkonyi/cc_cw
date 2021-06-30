@@ -1051,7 +1051,7 @@ tbody.no_scale tr.selected {
 	background: var(--c-lightgray);
 }
 
-.table_header_text > button.active {
+.table_header_text > button.active, th > button.active {
 	background: var(--c-primary);
 }
 

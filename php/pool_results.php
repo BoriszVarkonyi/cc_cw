@@ -172,7 +172,7 @@
                 <p class="page_title">Pool No. <?php echo $pool_num ?>'s results</p>
                 <input form="form_disq" type="text" name="id_of_fencer" id="" class="selected_list_item_input hidden" readonly>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button disabled" type="button">
+                    <button class="stripe_button disabled" type="button" id="msg_fencer">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
                     </button>

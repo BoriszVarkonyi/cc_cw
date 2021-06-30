@@ -200,92 +200,250 @@
             <!-- dashboard body -->
             <div id="page_content_panel_main">
                 <div id="db_panel_wrapper">
-                    <div class="db_panel main">
-                    <button onclick="toggleModal(4)">Example Modal</button>
-                    <button onclick="toggleModal(5)">Example Modal 2</button>
-                    <button onclick="toggleModal('EULA')">EULA Modal</button>
-                    <button onclick="toggleModal('cookies')">Cookies Modal</button>
-                    <button onclick="toggleModal('bug')">Bug report Modal</button>
-                </div>
 
-                <!-- competition status -->
-                <div class="db_panel status">
-                    <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/task_alt_black.svg">
-                        <p>Competition's status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
-                    </div>
+                    <!-- competition status -->
+                    <div id="stats_panel" class="db_panel">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/bar_chart_black.svg">
+                            <p>Competition's Stats:</p>
+                        </div>
+                        <div class="db_panel_main small">
 
-                    <!-- competiton status table -->
-                    <div class="db_panel_main list">
-                        <div class="to_do_list">
-                            <button onclick="toggleToDoSublist()">
-                                <p>General</p>
-                                <p>(4 / 1)</p>
-                                <img src="<?php echo $assoc_comp_table_elements['general'] ?>">
-                            </button>
-                            <div class="to_do_sublist">
-                                <div>
-                                    <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Basic Information</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>">
+                            <p class="stat_wrapper_title">PARTICIPATORS (INDIVIDUAL)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/person_black.svg">
+                                    <p class="stat_title">Competitors</p>
+                                    <p class="stat_number">159</p>
+                                </a>
+                                <div class="stat">
+                                    <img src="../assets/icons/language_black.svg">
+                                    <p class="stat_title">Nations</p>
+                                    <p class="stat_number">4</p>
                                 </div>
-                                <div>
-                                    <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Information for fencers</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>">
-                                </div>
-                                <div>
-                                    <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Invitation</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>">
+                                <div class="stat">
+                                    <img src="../assets/icons/groups_black.svg">
+                                    <p class="stat_title">Clubs</p>
+                                    <p class="stat_number">7</p>
                                 </div>
                             </div>
 
-                            <button onclick="toggleToDoSublist()">
-                                <p>Technical</p>
-                                <p>(4 / 1)</p>
-                                <img src="<?php echo $assoc_comp_table_elements['technical'] ?>">
-                            </button>
-                            <div class="to_do_sublist">
-                                <div>
-                                    <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Technicians</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>">
+                            <p class="stat_wrapper_title">PARTICIPATORS (TEAM)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/person_black.svg">
+                                    <p class="stat_title">Competitors</p>
+                                    <p class="stat_number">159</p>
+                                </a>
+                                <a class="stat" href="teams.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/people_black.svg">
+                                    <p class="stat_title">Teams</p>
+                                    <p class="stat_number">10</p>
+                                </a>
+                                <div class="stat">
+                                    <img src="../assets/icons/language_black.svg">
+                                    <p class="stat_title">Nations</p>
+                                    <p class="stat_number">4</p>
                                 </div>
-                                <div>
-                                    <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Referees</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
-                                </div>
-                                <div>
-                                    <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Pistes</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
-                                </div>
-                                <div>
-                                    <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                    <p>Formula</p>
-                                    <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                <div class="stat">
+                                    <img src="../assets/icons/groups_black.svg">
+                                    <p class="stat_title">Clubs</p>
+                                    <p class="stat_number">7</p>
                                 </div>
                             </div>
 
-                            <button class="done">
-                                <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
-                                <p>Ranking</p>
-                                <img src="<?php echo $assoc_comp_table_elements['ranking'] ?>">
-                            </button>
-                        </div>
-                        <div class="progress_bar">
-                            <div class="progress" x-progress="25"></div>
+                            <p class="stat_wrapper_title">REGISTARTION<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/how_to_reg_black.svg">
+                                    <p class="stat_title">Registered in</p>
+                                    <p class="stat_number">159 / 19</p>
+                                </a>
+                                <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/how_to_unreg_black.svg">
+                                    <p class="stat_title">No registered in</p>
+                                    <p class="stat_number">159 / 19</p>
+                                </a>
+                            </div>
+
+                            <p class="stat_wrapper_title">WEAPON CONTROL (ADMINISTRATED)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/check_circle_outline_black.svg">
+                                    <p class="stat_title">Check-ins</p>
+                                    <p class="stat_subtitle">READY</p>
+                                    <p class="stat_number">159 / 159</p>
+                                </a>
+                                <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/check_circle_black.svg">
+                                    <p class="stat_title">Check-outs</p>
+                                    <p class="stat_number">159 / 120</p>
+                                </a>
+                                <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/weapon_control_black.svg">
+                                    <p class="stat_title">Weapon Controls</p>
+                                    <p class="stat_number">159 / 138</p>
+                                </a>
+                                <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/report_problem_black.svg">
+                                    <p class="stat_title">Issues Reported</p>
+                                    <p class="stat_number">56</p>
+                                </a>
+                            </div>
+
+                            <p class="stat_wrapper_title">WEAPON CONTROL (IMMEDIATE)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/weapon_control_black.svg">
+                                    <p class="stat_title">Weapon Controls</p>
+                                    <p class="stat_number">159 / 138</p>
+                                </a>
+                                <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/report_problem_black.svg">
+                                    <p class="stat_title">Issues Reported</p>
+                                    <p class="stat_number">56</p>
+                                </a>
+                            </div>
+
+                            <p class="stat_wrapper_title">TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper closed">
+                                <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/badge_black.svg">
+                                    <p class="stat_title">Total Technicians</p>
+                                    <p class="stat_number">19</p>
+                                </a>
+                                <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/check_circle_outline_black.svg">
+                                    <p class="stat_title">Online</p>
+                                    <p class="stat_number">10</p>
+                                </a>
+                                <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/highlight_off_black.svg">
+                                    <p class="stat_title">Offline</p>
+                                    <p class="stat_number">9</p>
+                                </a>
+
+                            </div>
+
+                            <p class="stat_wrapper_title">REFEREES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/style_black.svg">
+                                    <p class="stat_title">Total Referees</p>
+                                    <p class="stat_number">3</p>
+                                </a>
+                                <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/check_circle_outline_black.svg">
+                                    <p class="stat_title">Online</p>
+                                    <p class="stat_number">1</p>
+                                </a>
+                                <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/highlight_off_black.svg">
+                                    <p class="stat_title">Offline</p>
+                                    <p class="stat_number">2</p>
+                                </a>
+                            </div>
+
+                            <p class="stat_wrapper_title">PISTES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <div class="stats_wrapper">
+                                <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/style_black.svg">
+                                    <p class="stat_title">Total Pistes</p>
+                                    <p class="stat_number">4</p>
+                                </a>
+                                <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/style_black.svg">
+                                    <p class="stat_title">Free to use</p>
+                                    <p class="stat_number">3</p>
+                                </a>
+                                <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/style_black.svg">
+                                    <p class="stat_title">In use</p>
+                                    <p class="stat_number">1</p>
+                                </a>
+                                <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/style_black.svg">
+                                    <p class="stat_title">Connected to CCC</p>
+                                    <p class="stat_number">1</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- chat panel -->
-                <div class="db_panel chat">
-                    <div class="db_panel_title_stripe">
-                        <img src="../assets/icons/chat_black.svg">
-                        <p>Chat</p>
+
+                    <!-- competition status -->
+                    <div id="status_panel" class="db_panel">
+                        <div class="db_panel_title_stripe">
+                            <img src="../assets/icons/task_alt_black.svg">
+                            <p>Competition's Status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
+                        </div>
+
+                        <!-- competiton status table -->
+                        <div class="db_panel_main list">
+                            <div class="to_do_list">
+                                <button onclick="toggleToDoSublist()">
+                                    <p>General</p>
+                                    <p>(4 / 1)</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['general'] ?>">
+                                </button>
+                                <div class="to_do_sublist">
+                                    <div>
+                                        <a href="basic_information.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Basic Information</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['g_basic_info'] ?>">
+                                    </div>
+                                    <div>
+                                        <a href="information_for_fencers.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Information for fencers</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['g_info_for_fencers'] ?>">
+                                    </div>
+                                    <div>
+                                        <a href="invitation.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Invitation</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['g_invitations'] ?>">
+                                    </div>
+                                </div>
+
+                                <button onclick="toggleToDoSublist()">
+                                    <p>Technical</p>
+                                    <p>(4 / 1)</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['technical'] ?>">
+                                </button>
+                                <div class="to_do_sublist">
+                                    <div>
+                                        <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Technicians</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['t_technicians'] ?>">
+                                    </div>
+                                    <div>
+                                        <a href="referees.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Referees</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                    </div>
+                                    <div>
+                                        <a href="pistes.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Pistes</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                    </div>
+                                    <div>
+                                        <a href="formula.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                        <p>Formula</p>
+                                        <img src="<?php echo $assoc_comp_table_elements['t_referees'] ?>">
+                                    </div>
+                                </div>
+
+                                <button class="done">
+                                    <a href="choose_ranking.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                    <p>Ranking</p>
+                                    <img src="<?php echo $assoc_comp_table_elements['ranking'] ?>">
+                                </button>
+                            </div>
+                            <div class="progress_bar">
+                                <div class="progress" x-progress="25"></div>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
         </main>

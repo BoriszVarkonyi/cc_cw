@@ -1,4 +1,4 @@
-var wctable = document.querySelector(".table_row_wrapper")
+var wctable = document.querySelector("#page_content_panel_main tbody")
 var addWeaponControlButton = document.getElementById("wcButton")
 var sendMessageButton = document.getElementById("sendMessageButton")
 addWeaponControlButton.disabled = true;
@@ -6,7 +6,7 @@ sendMessageButton.disabled = true;
 addWeaponControlButton.classList.add("disabled")
 sendMessageButton.classList.add("disabled")
 function buttonDisabler() {
-    var selectedItem = document.querySelector(".table_row_wrapper .selected")
+    var selectedItem = document.querySelector("#page_content_panel_main tbody .selected")
     if (selectedItem !== null) {
         addWeaponControlButton.disabled = false;
         sendMessageButton.disabled = false;
@@ -21,7 +21,7 @@ function buttonDisabler() {
     }
 }
 
-var wcRows = document.querySelectorAll(".table_row_wrapper .table_row")
+var wcRows = document.querySelectorAll("#page_content_panel_main tbody tr")
 //Event listener to class change
 function callback(mutationsList, observer) {
     mutationsList.forEach(mutation => {
