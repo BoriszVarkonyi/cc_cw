@@ -38,88 +38,50 @@
 
                     <form id="save_form" action="" class="form_wrapper" method="POST">
                         <div>
+
                             <div>
-                                <label for="points_pools">POINTS IN POOLS</label>
-                                <input type="number" name="points_pools" placeholder="#" class="number_input centered" value="<?php echo $json_table -> poolPoints ?>" id="pIP">
-                            </div>
-                            <div>
-                                <label for="points_table">POINTS IN TABLE</label>
-                                <input type="number" name="points_table" placeholder="#" class="number_input centered" value="<?php echo $json_table -> tablePoints ?>" id="pIT">
-                            </div>
-                            <div>
-                                <label for="nb_qualifier">NUMBER OF QUALIFIERS AFTER POOLS</label>
-                                <input type="number" name="nb_qualifier" placeholder="#" class="number_input centered" value="<?php echo $json_table -> qualifiers ?>" id="nOQAP">
-                            </div>
-                            <div>
-                                <label for="elimnation_type">ELIMINATION TYPE</label>
+                                <label for="team_ranking">RANK TEAMS BY</label>
                                 <div class="option_container">
-                                    <input type="radio" name="elimnation_type" id="direct_et" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
-                                    <label for="direct_et">Direct-Elimination Tournament</label>
-                                    <input type="radio" name="elimnation_type" id="double_et" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
-                                    <label for="double_et">Double-Elimination Tournament</label>
+                                    <input type="radio" name="team_ranking" id="team_ranking_class" value=""/>
+                                    <label for="team_ranking_fencer_class">Classesment</label>
+
+                                    <input type="radio" name="team_ranking" id="team_ranking_fencer_perf" value=""/>
+                                    <label for="team_ranking_fencer_perf">Fencer Performance</label>
                                 </div>
                             </div>
-                        </div>
-                        <div>
 
                             <div>
-                                <label for="type_of_elimination">TYPE OF DIRECT ELIMINTION</label>
-                                <div class="option_container">
-                                    <input type="radio" name="type_of_elimination" id="one_phase_table" value="1" <?php echo $is_checked = ($json_table -> isOnePhase == 1) ? "checked" : "" ?> />
-                                    <label for="one_phase_table">One Phase Table</label>
-
-                                    <input type="radio" name="type_of_elimination" id="two_phase_table" value="0" <?php echo $is_checked = ($json_table -> isOnePhase == 0) ? "checked" : "" ?> />
-                                    <label for="two_phase_table">Two Phase Table</label>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="third_place">FENCING FOR 3RD PLACE</label>
-                                <div class="option_container">
-                                    <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
-                                    <label for="third_place_no">Yes</label>
-
-                                    <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> />
-                                    <label for="third_place_no">No</label>
-                                </div>
-                            </div>
-                            <div>
-                                <?php
-                                    if ($json_table -> callRoom == false) {
-                                        $call_room_check = "";
-                                        $call_room_n_check = "checked";
-                                        $call_room_number=0;
-                                    } else {
-                                        $call_room_check = "checked";
-                                        $call_room_n_check = "";
-
-                                        $call_room_number = $json_table -> callRoom;
-
-                                    }
-
-                                ?>
                                 <label for="third_place">USAGE OF CALL ROOM</label>
                                 <div class="option_container row no_bottom">
-                                    <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value="true" <?php echo $call_room_check ?>/>
+                                    <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value="true"/>
                                     <label for="used">Use</label>
 
-                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="false" <?php echo $call_room_n_check ?>/>
+                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="false"/>
                                     <label for="not_used">Don't use</label>
                                 </div>
                                 <div class="option_container" id="useOptionContainer">
-                                    <?php
-                                        foreach ($array_numbers as $numbers) {
 
-                                            if ($call_room_number == $numbers) {
-                                                $call_room_numbers_checked = "checked";
-                                            } else {
-                                                $call_room_numbers_checked = "";
-                                            }
-                                    ?>
-                                    <input type="radio" name="call_room_number" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
-                                    <label for="<?php echo $numbers ?>"><?php echo $numbers ?></label>
-                                    <?php } ?>
+                                    <input type="radio" name="call_room_number" id="T64" value="64"/>
+                                    <label for="T64">T64</label>
+
                                 </div>
                             </div>
+
+                            <div>
+                                <label for="callroom_type">CALLROOM TYPE</label>
+                                <div class="option_container">
+                                    <input type="radio" name="callroom_type" id="callroom_type_single" value=""/>
+                                    <label for="callroom_type_single">Singe-Elimination Like</label>
+
+                                    <input type="radio" name="callroom_type" id="callroom_type_complex" value=""/>
+                                    <label for="callroom_type_complex">Complex Callroom</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div>
+
                         </div>
                     </form>
                 </div>

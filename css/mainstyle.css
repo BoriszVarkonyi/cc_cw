@@ -3566,6 +3566,47 @@ div.title_box > button {
 	justify-content: center;
 }
 
+/* TEAM */
+
+#team_match_results {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#winner_wrapper {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+}
+
+#winner_wrapper > div {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.disqualify_panel {
+	background: var(--c-lightergray);
+	padding: 20px;
+	border: 2px solid var(--c-gray);
+	border-radius: 3px;
+	transition: all var(--t-basic);
+	opacity: 1;
+}
+
+.disqualify_panel.collapsed {
+	height: 0;
+	overflow: hidden;
+	padding: 0 20px;
+	opacity: 0;
+}
+
 /* Tournaments timatable */
 
 #tournament_timetable, #tournament_weapon_control {
@@ -3700,12 +3741,15 @@ div.title_box > button {
 }
 
 .team_order_report_select {
-	padding: 7px;
+	padding: 4px;
 	font-size: var(--f-large);
 	font-family: var(--bold);
 	border-radius: 5px;
 	margin: 5px;
 	cursor: pointer;
+	border: 3px solid;
+	box-shadow: var(--s-black);
+	transition: all var(--t-basic) hover none;
 }
 
 .team_order_report_select:hover {
@@ -3715,14 +3759,18 @@ div.title_box > button {
 
 .team_order_report_select.gray {
 	background: var(--c-gray);
+	border-color: var(--c-darkgray);
 }
 
 .team_order_report_select.green {
-	background: var(--c-green);
+	background: var(--c-lightgreen);
+	border-color: var(--c-green);
 }
 
 .team_order_report_select.current {
-	background: var(--c-primary);
+	background: var(--c-lightprimary);
+	border-color: var(--c-primary);
+	transform: scale(1.1);
 }
 
 #team_order_report_wrapper {
