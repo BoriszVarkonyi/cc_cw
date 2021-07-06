@@ -32,7 +32,7 @@
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
                     <div class="db_panel_title_stripe">
                         <img src="../assets/icons/build_black.svg">
-                        <p>Set Formula of Pools and Table</p>
+                        <p>Set Formula of Table</p>
                     </div>
                     <div class="db_panel_main">
 
@@ -42,11 +42,11 @@
                             <div>
                                 <label for="team_ranking">RANK TEAMS BY</label>
                                 <div class="option_container">
-                                    <input type="radio" name="team_ranking" id="team_ranking_class" value=""/>
-                                    <label for="team_ranking_fencer_class">Classesment</label>
+                                    <input type="radio" name="team_ranking" id="team_ranking_class" value="" checked/>
+                                    <label for="team_ranking_class">Classesment</label>
 
                                     <input type="radio" name="team_ranking" id="team_ranking_fencer_perf" value=""/>
-                                    <label for="team_ranking_fencer_perf">Fencer Performance</label>
+                                    <label for="team_ranking_fencer_perf">Fencers' Performance</label>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                     <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value="true"/>
                                     <label for="used">Use</label>
 
-                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="false"/>
+                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="false" checked/>
                                     <label for="not_used">Don't use</label>
                                 </div>
                                 <div class="option_container" id="useOptionContainer">
@@ -70,7 +70,7 @@
                             <div>
                                 <label for="callroom_type">CALLROOM TYPE</label>
                                 <div class="option_container">
-                                    <input type="radio" name="callroom_type" id="callroom_type_single" value=""/>
+                                    <input type="radio" name="callroom_type" id="callroom_type_single" value="" checked/>
                                     <label for="callroom_type_single">Singe-Elimination Like</label>
 
                                     <input type="radio" name="callroom_type" id="callroom_type_complex" value=""/>
@@ -81,7 +81,11 @@
 
                         </div>
                         <div>
-
+                            <div>
+                                <label for="team_ranking">MAX. POINTS IN BOUTS</label>
+                                <!-- ALAP ÉRTÉK 5 -->
+                                <input type="number" name="" id="" class="number_input centered" placeholder="exp. 5" value="5">
+                            </div>
                         </div>
                     </form>
                 </div>
