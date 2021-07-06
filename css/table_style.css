@@ -1,4 +1,4 @@
-#call_room {
+#call_room, .call_room {
 	margin: 0 50px;
 	display: flex;
 	position: relative;
@@ -6,12 +6,12 @@
 	box-shadow: var(--s-black);
 }
 
-#call_room.cc {
+#call_room.cc, .call_room.cc {
 	margin: 50px 20px;
 	width: 100%;
 }
 
-#call_room.cw {
+#call_room.cw, .call_room.cw {
 	margin-bottom: 50px;
 }
 

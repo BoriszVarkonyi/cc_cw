@@ -149,7 +149,7 @@ if (isset($_POST["submit_referees"])) {
 
                                 foreach ($out_table as $round_name => $tableround) { ?>
 
-                                    <a type="button" href="table_referees.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
+                                    <a type="button" href="table_referees_individual.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
                                 <?php
                                 }
                                 ?>

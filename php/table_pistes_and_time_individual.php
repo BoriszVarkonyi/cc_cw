@@ -120,7 +120,7 @@ if (isset($_POST["save_piste_time"])) {
 
                                 foreach ($out_table as $round_name => $tableround) { ?>
 
-                                    <a type="button" id="gr" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
+                                    <a type="button" id="gr" href="table_pistes_and_time_individual.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
                                 <?php
                                 }
                                 ?>

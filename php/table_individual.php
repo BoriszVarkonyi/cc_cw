@@ -326,11 +326,11 @@ if (isset($_POST["generate_table"])) {
                             <p>Reset Table</p>
                             <img src="../assets/icons/restart_alt_black.svg" />
                         </button>
-                        <a class="stripe_button primary" type="button" href="table_pistes_and_time.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" type="button" href="table_pistes_and_time_individual.php?comp_id=<?php echo $comp_id ?>">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot_black.svg" />
                         </a>
-                        <a class="stripe_button primary" type="button" href="table_referees.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" type="button" href="table_referees_individual.php?comp_id=<?php echo $comp_id ?>">
                             <p>Referees</p>
                             <img src="../assets/icons/ballot_black.svg" />
                         </a>
@@ -472,7 +472,7 @@ if (isset($_POST["generate_table"])) {
                                     }
                                 ?>
 
-                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" id="<?php echo $key . "_" . $keyofmatch ?>" tabindex="1" onclick="selectRound(this), window.location.href='match_results.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+                                    <div class="table_round_wrapper finished <?php echo $writecolor ?>" id="<?php echo $key . "_" . $keyofmatch ?>" tabindex="1" onclick="selectRound(this), window.location.href='match_results_individual.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
                                         <div class="table_round">
 
                                             <?php
@@ -551,7 +551,7 @@ if (isset($_POST["generate_table"])) {
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/overlay_panel.js"></script>
-    <script src="../js/table.js"></script>
+    <script src="../js/table_individual.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/print.js"></script>
 </body>

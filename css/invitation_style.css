@@ -1,3 +1,13 @@
+#cw_preview {
+	background: var(--c-white);
+	width: 100%;
+	padding: 30px;
+	box-sizing: border-box;
+	margin: 10px;
+	border-radius: 5px;
+	box-shadow: var(--s-black);
+}
+
 #title_stripe_cw {
 	padding: 30px 5%;
 	background: var(--c-lightergray);
@@ -45,7 +55,7 @@
 	height: 50px;
 }
 
-#title_stripe > div, #title_stripe_cw > div,  {
+#title_stripe > div, #title_stripe_cw > div {
 	display: flex;
 	flex-wrap: wrap;
 }
