@@ -23,10 +23,6 @@
                 <p class="page_title">Assign Fencers to Teams</p>
                 <div class="stripe_button_wrapper">
 
-                    <form action="" method="POST" id="auto_team_assignment">
-                        <input type="text" class="hidden" readonly>
-                    </form>
-
                     <form action="" method="POST" id="save_team_assignments">
                         <input type="text" class="hidden" readonly>
                     </form>
@@ -35,7 +31,7 @@
                         <p>Go back to Teams</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
-                    <button class="stripe_button bold" type="submit" form="auto_team_assignment">
+                    <button class="stripe_button bold" onclick="toggleAssignAutoPanel()">
                         <p>Assign Fencers Automatically</p>
                         <img src="../assets/icons/list_alt_black.svg"/>
                     </button>
@@ -43,6 +39,23 @@
                         <p>Save</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
+                </div>
+
+                <div id="assign_auto_panel" class="overlay_panel hidden">
+                    <button class="panel_button" onclick="toggleAssignAutoPanel()">
+                        <img src="../assets/icons/close_black.svg">
+                    </button>
+                    <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="assign_auto">
+
+                        <label for="">ASSIGN AUTOMATICALLY BY</label>
+                        <div class="option_container">
+                            <input type="radio" class="option_button" name="role" id="a" value="1"/>
+                            <label for="a">Nation</label>
+                            <input type="radio" class="option_button" name="role" id="b" value="2"/>
+                            <label for="b">Club</label>
+                        </div>
+                        <button type="submit" name="assign_auto_submit" class="panel_submit">Assign</button>
+                    </form>
                 </div>
 
                 <div class="search_wrapper">
@@ -150,11 +163,6 @@
     <script src="../js/controls_2.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/list_search.js"></script>
-    <script>
-        function toggleAddTeamPanel() {
-            var panel = document.getElementById("add_team_panel");
-            panel.classList.toggle("hidden");
-        }
-    </script>
+    <script src="../js/assign_fencers_to_teams.js"></script>
 </body>
 </html>
