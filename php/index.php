@@ -209,7 +209,7 @@
                         </div>
                         <div class="db_panel_main small">
 
-                            <p class="stat_wrapper_title">PARTICIPATORS (INDIVIDUAL)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
+                            <p class="stat_wrapper_title">PARTICIPATORS (INDIVIDUAL)<button onclick="toggleWrapper(this)" ><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
