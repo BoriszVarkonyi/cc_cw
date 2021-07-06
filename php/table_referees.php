@@ -87,7 +87,7 @@ if (isset($_POST["submit_referees"])) {
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
-    header("Location: table.php?comp_id=$comp_id");
+    header("Location: table_individual.php?comp_id=$comp_id");
 
 }
 
