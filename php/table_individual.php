@@ -267,7 +267,7 @@ if (isset($_POST["generate_table"])) {
     echo $insert_table_query = "INSERT INTO tables(`ass_comp_id`, `fencer_num`, `type`, `data`) VALUES ($comp_id,$formula_json->qualifiers,$formula_json->isOnePhase,'$toupload')";
     $insert_table_query_do = mysqli_query($connection, $insert_table_query);
 
-    header("Location: table.php?comp_id=$comp_id");
+    header("Location: table_individual.php?comp_id=$comp_id");
 }
 
 ?>

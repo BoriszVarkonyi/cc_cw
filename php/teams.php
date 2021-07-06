@@ -211,7 +211,7 @@
                                             } else {
                                                 foreach ($fencers_array as $fencer_obj) {
                                                     $fencers_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
-                                                }
+                                                
 
                                         ?>
                                         <tr>
@@ -221,7 +221,7 @@
                                         </tr>
                                         <?php
                                             }
-
+                                        }
                                         ?>
                                     </tbody>
                                 </table>

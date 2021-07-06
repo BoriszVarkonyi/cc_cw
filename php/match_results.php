@@ -190,7 +190,7 @@ if (isset($_POST["save_match"])) {
         echo mysqli_error($connection);
     }
 
-    header("Location: table.php?comp_id=$comp_id");
+    header("Location: table_individual.php?comp_id=$comp_id");
 }
 
 
