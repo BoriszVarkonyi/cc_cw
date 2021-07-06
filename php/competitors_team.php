@@ -129,7 +129,7 @@
                         <p>Print Competitors</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=team">
                         <p>Import Competitors from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>

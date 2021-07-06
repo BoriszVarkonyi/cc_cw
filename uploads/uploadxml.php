@@ -8,6 +8,8 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
+$comptype = $_GET["type"];
+
 // Check if file already exists
 if (file_exists($target_file)) {
 
@@ -180,7 +182,7 @@ if ($uploadOk == 0) {
 
             unlink("../uploads/$comp_id.xml");
 
-            header("Location: ../php/competitors.php?comp_id=$comp_id");
+            header("Location: ../php/competitors_$comptype.php?comp_id=$comp_id");
         }
 
         //Redirected from referees upload
