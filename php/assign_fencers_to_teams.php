@@ -73,6 +73,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php  ?>
                             <tr>
                                 <td>
                                     <p>Ez a neve</p>
