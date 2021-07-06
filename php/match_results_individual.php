@@ -190,7 +190,7 @@ if (isset($_POST["save_match"])) {
         echo mysqli_error($connection);
     }
 
-    header("Location: table.php?comp_id=$comp_id");
+    header("Location: table_individual.php?comp_id=$comp_id");
 }
 
 
@@ -234,7 +234,7 @@ if (isset($_POST["ref_change"])) {
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
     echo $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
-    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+    header("Location: match_results_individual.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
 }
 
 if (isset($_POST["vref_change"])) {
@@ -252,7 +252,7 @@ if (isset($_POST["vref_change"])) {
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
-    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+    header("Location: match_results_individual.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
 }
 
 if (isset($_POST["piste_change"])) {
@@ -265,7 +265,7 @@ if (isset($_POST["piste_change"])) {
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
-    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+    header("Location: match_results_individual.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
 }
 
 if (isset($_POST["time_change"])) {
@@ -279,7 +279,7 @@ if (isset($_POST["time_change"])) {
     $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
     $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 
-    header("Location: match_results.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
+    header("Location: match_results_individual.php?comp_id=$comp_id&table_round=$tableround&match_id=$matchid");
 }
 
 

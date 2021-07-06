@@ -62,7 +62,7 @@
     <title><?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
-    <link rel="stylesheet" href="../css/print_invitation_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/invitation_style.min.css">
 </head>
 <body class="competitions">
     <?php include "cw_header.php"; ?>

@@ -28,7 +28,7 @@
             <div id="title_stripe">
                 <p class="page_title">Import Competitors from XML</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button bold" href="competitors.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button bold" href="competitors_<?php echo $_GET["type"]?>.php?comp_id=<?php echo $comp_id ?>">
                         <p>Go back to Competitors</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
@@ -51,7 +51,7 @@
                                     <img src="../assets/icons/delete_black.svg">
                                 </button>
                             </form>
-                            <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
+                            <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>&type=<?php echo $_GET["type"] ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload XML File</label>
                                  <p id="file_text"></p>
