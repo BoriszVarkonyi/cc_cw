@@ -88,10 +88,10 @@
         protected function setByTeam() {
             if (!$this -> is_individual) {
                 //team competition
-                $to_change_array_url = ["temp_ranking" => null,"pools" => null, "competitors" => "competitors_team", "formula" => "formula_team", "table" => "table_team", "overview" => "overview_team", "call_room" => "call_room_team"];
+                $to_change_array_url = ["temp_ranking" => null,"pools" => null, "competitors" => "competitors_team", "formula" => "formula_team", "table" => "table_team", "overview" => "overview_team", "call_room" => "callroom_team"];
             } else {
                 //individual competition
-                $to_change_array_url = ["competitors" => "competitors_individual", "formula" => "formula_individual","table" => "table_individual","overview" => "overview_individual","call_room" => "call_room_individual"];
+                $to_change_array_url = ["competitors" => "competitors_individual", "formula" => "formula_individual","table" => "table_individual","overview" => "overview_individual","call_room" => "callroom_individual"];
             }
             $name = $this -> name;
 

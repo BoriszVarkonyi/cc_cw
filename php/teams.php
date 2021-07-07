@@ -103,7 +103,7 @@
                         <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
                     </form>
 
-                    <a class="stripe_button" href="import_teams.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button" href="import_teams.php?comp_id=<?php echo $comp_id ?>&type=team">
                         <p>Import Teams from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>

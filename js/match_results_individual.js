@@ -1,7 +1,7 @@
 var fencerNames = document.querySelectorAll(".fencer_name")
 
 for (const iterator of fencerNames) {
-    
+
     if (iterator.innerHTML == "No opponent yet") {
 
         iterator.parentElement.parentElement.parentElement.classList.add("disabled")
@@ -30,7 +30,7 @@ var nc_black_2 = getElements('f2_b_p')
 
 document.addEventListener('keyup', e => {
 
-    if(black_1.value != 0 && black_1.value != "" && black_1 == document.activeElement){
+    if (black_1.value != 0 && black_1.value != "" && black_1 == document.activeElement) {
 
         score1.value = "EXC";
         score2.value = "";
@@ -41,7 +41,7 @@ document.addEventListener('keyup', e => {
         nc_black_2.value = ""
 
     }
-    else if(black_2.value != 0 && black_2.value != "" && black_2 == document.activeElement){
+    else if (black_2.value != 0 && black_2.value != "" && black_2 == document.activeElement) {
 
         score2.value = "EXC";
         score1.value = "";
@@ -52,7 +52,7 @@ document.addEventListener('keyup', e => {
         nc_black_2.value = ""
 
     }
-    else if (nc_black_1.value != 0 && nc_black_1.value != "" && nc_black_1 == document.activeElement){
+    else if (nc_black_1.value != 0 && nc_black_1.value != "" && nc_black_1 == document.activeElement) {
 
         score1.value = "NCB";
         score2.value = "";
@@ -63,7 +63,7 @@ document.addEventListener('keyup', e => {
         nc_black_2.value == ""
 
     }
-    else if(nc_black_2.value != 0 && nc_black_2.value != "" && nc_black_2 == document.activeElement){
+    else if (nc_black_2.value != 0 && nc_black_2.value != "" && nc_black_2 == document.activeElement) {
 
         score2.value = "NCB";
         score1.value = "";
@@ -112,15 +112,15 @@ document.addEventListener('keyup', e => {
     //console.log("SC1:" + parseInt(score1.value))
     //console.log("SC2:" + parseInt(score2.value))
 
-    
-    if(score1.value == "EXC" || score1.value == "NCB"){
+
+    if (score1.value == "EXC" || score1.value == "NCB") {
 
         winnertext1.innerHTML = ""
-        winnertext2.innerHTML = "WINNER"        
+        winnertext2.innerHTML = "WINNER"
 
 
     }
-    else if(score2.value == "EXC" || score2.value == "NCB"){
+    else if (score2.value == "EXC" || score2.value == "NCB") {
 
         winnertext2.innerHTML = ""
         winnertext1.innerHTML = "WINNER"
@@ -174,7 +174,7 @@ function collapser() {
         changeButtons[i].nextElementSibling.classList.add("collapsed")
         changeButtons[i].classList.remove("hidden")
     }
-    for(i=0; i<settings.length; i++){
+    for (i = 0; i < settings.length; i++) {
         settings[i].classList.remove("hidden")
     }
 }
@@ -219,7 +219,7 @@ function changeThis(x) {
     setting.classList.add("hidden")
 }
 
-function setreferee(x) {
+function setSetting(x) {
     var hiddenInput = x.parentNode.parentNode.nextElementSibling;
     var input = x.parentNode.parentNode.querySelector("input")
     input.value = x.innerHTML;

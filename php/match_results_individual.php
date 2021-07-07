@@ -370,7 +370,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setSetting(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -398,7 +398,7 @@ if (isset($_POST["time_change"])) {
                                         foreach ($refereearray as $referee) {
 
                                         ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setreferee(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setSetting(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
                                         <?php }
                                         ?>
                                     </div>
@@ -429,7 +429,7 @@ if (isset($_POST["time_change"])) {
 
                                         ?>
 
-                                            <button type="button" id="<?php echo $piste->name ?>" onclick="setreferee(this)"><?php echo $piste->name ?></button>
+                                            <button type="button" id="<?php echo $piste->name ?>" onclick="setSetting(this)"><?php echo $piste->name ?></button>
 
                                         <?php
                                         }
@@ -575,7 +575,7 @@ if (isset($_POST["time_change"])) {
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/match_results.js"></script>
+    <script src="../js/match_results_individual.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/controls.js"></script>
     <script src="../js/overlay_panel.js"></script>
