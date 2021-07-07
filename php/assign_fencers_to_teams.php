@@ -83,8 +83,25 @@ if (isset($_POST["assign_auto_submit"])) {
                 <p class="page_title">Assign Fencers to Teams</p>
                 <div class="stripe_button_wrapper">
 
+                    <?php
+                    
+                    $teams_members = new stdClass;
+
+                    foreach ($json_teams as $team_name => $team) {
+                        $teams_members->$team_name = [];
+
+                        foreach ($team->tireurs as $value) {
+                            array_push($teams_members->$team_name, $value->id);
+                        }
+
+                    }
+
+                    $json_attila = json_encode($teams_members, JSON_UNESCAPED_UNICODE);
+
+                    ?>
+
                     <form action="" method="POST" id="save_team_assignments">
-                        <input type="text" class="" placeholder="IDE JÖJJÖN AMI KELL" readonly>
+                        <input type="text" class="" value='<?php echo $json_attila ?>' placeholder="IDE JÖJJÖN AMI KELL" readonly>
                     </form>
 
                     <a class="stripe_button bold" href="teams.php?comp_id=<?php echo $comp_id ?>">
