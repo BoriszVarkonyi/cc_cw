@@ -51,6 +51,14 @@ function selectTeam(x) {
     }
 }
 
+function indexFinder(idToSearchFor) {
+    for (i = 0; i < inputInJSON[selectedTeamName].length; i++) {
+        if (inputInJSON[selectedTeamName][i] === idToSearchFor) {
+            return i;
+        }
+    }
+}
+
 function checkFencer(x) {
     var clickedNode = x.parentNode.parentNode
     var clickedRowId = clickedNode.id
@@ -59,11 +67,47 @@ function checkFencer(x) {
         assignedTableNode.insertBefore(clickedNode, assignedTableNode.firstElementChild)
         //Pushes to the array
         inputInJSON[selectedTeamName].push(clickedRowId)
+        statusUpdater(selectedTeamName)
+        updateJSON();
     }
     else {
         unassignedTableNode.insertBefore(clickedNode, unassignedTableNode.firstElementChild)
         //Removes the id from the array
-        var index = inputInJSON[selectedTeamName].indexOf(clickedRowId)
+        var index = indexFinder(clickedRowId)
+        inputInJSON[selectedTeamName].splice(index, 1)
+        statusUpdater(selectedTeamName)
+        updateJSON();
     }
-    console.log(inputInJSON[selectedTeamName])
+}
+
+function statusUpdater(currentTeamName) {
+    //Gets the right status
+    var selections = document.querySelectorAll(".splitscreen_select > p")
+    var index;
+    for (i = 0; i < selections.length; i++) {
+        if (selections[i].innerHTML == currentTeamName) {
+            index = i;
+            break;
+        }
+    }
+
+    var fencerNumber = document.querySelector(".splitscreen_section .splitscreen_select:nth-of-type(" + index + ") > div > p")
+    var statusDiv = document.querySelector(".splitscreen_section .splitscreen_select:nth-of-type(" + index + ") > div")
+    //Updates the number
+    fencerNumber.innerHTML = inputInJSON[selectedTeamName].length;
+    //Handles the status color
+    if (fencerNumber.innerHTML < 5 && fencerNumber.innerHTML > 2) {
+        statusDiv.classList.add("green")
+        statusDiv.classList.remove("red")
+    }
+    else {
+        statusDiv.classList.remove("green")
+        statusDiv.classList.add("red")
+    }
+}
+
+function updateJSON(){
+    teamAssigmentsInput.value = JSON.stringify(inputInJSON)
+    inputInJSON = JSON.parse(teamAssigmentsInput.value)
+    console.log(teamAssigmentsInput.value)
 }
