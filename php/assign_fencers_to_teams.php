@@ -164,27 +164,10 @@ if (isset($_POST["assign_auto_submit"])) {
                             </tr>
                         </thead>
                         <tbody>
-
-                                <tr>
-                                    <td>
-                                        <p>példa</p>
-                                    </td>
-                                    <td>
-                                        <p>példa</p>
-                                    </td>
-                                    <td>
-                                        <p>példa</p>
-                                    </td>
-                                    <td class="square">
-                                        <input type="checkbox" name="emberek" id="pelda">
-                                        <label for="pelda"></label>
-                                    </td>
-                                </tr>
-
                         </tbody>
                     </table>
                     <p class="table_label">UNASSIGNED FENCERS</p>
-                    <table>
+                    <table id="unselected_team_table">
                         <thead class="no_stick">
                             <tr>
                                 <th>
@@ -216,7 +199,7 @@ if (isset($_POST["assign_auto_submit"])) {
                                         <p><?php echo $json_obj->club ?></p>
                                     </td>
                                     <td class="square">
-                                        <input type="checkbox" name="emberek" id="<?php echo $json_obj->id ?>">
+                                        <input onclick="checkFencer(this)" type="checkbox" name="emberek" id="<?php echo $json_obj->id ?>">
                                         <label for="<?php echo $json_obj->id ?>"></label>
                                     </td>
                                 </tr>
@@ -239,7 +222,7 @@ if (isset($_POST["assign_auto_submit"])) {
 
                         foreach ($json_teams as $team_name => $team) {
                         ?>
-                            <div class="splitscreen_select">
+                            <div class="splitscreen_select" onclick="selectTeam(this)">
                                 <p><?php echo $team_name ?></p>
                                 <div class="red">
                                     <p><?php echo count($team->tireurs) ?></p>
