@@ -84,7 +84,7 @@ if (isset($_POST["assign_auto_submit"])) {
                 <div class="stripe_button_wrapper">
 
                     <form action="" method="POST" id="save_team_assignments">
-                        <input type="text" class="hidden" readonly>
+                        <input type="text" class="" placeholder="IDE JÖJJÖN AMI KELL" readonly>
                     </form>
 
                     <a class="stripe_button bold" href="teams.php?comp_id=<?php echo $comp_id ?>">
@@ -130,8 +130,45 @@ if (isset($_POST["assign_auto_submit"])) {
             </div>
             <div id="page_content_panel_main" class="no_scroll no_wrap">
                 <div class="splitscreen big">
+                    <p class="table_label">ASSIGNED FENCERS</p>
+                    <table id="selected_team_table">
+                        <thead class="no_stick">
+                            <tr>
+                                <th>
+                                    <p>NAME</p>
+                                </th>
+                                <th>
+                                    <p>NATION</p>
+                                </th>
+                                <th>
+                                    <p>CLUB</p>
+                                </th>
+                                <th class="square"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                                <tr>
+                                    <td>
+                                        <p>példa</p>
+                                    </td>
+                                    <td>
+                                        <p>példa</p>
+                                    </td>
+                                    <td>
+                                        <p>példa</p>
+                                    </td>
+                                    <td class="square">
+                                        <input type="checkbox" name="emberek" id="pelda">
+                                        <label for="pelda"></label>
+                                    </td>
+                                </tr>
+
+                        </tbody>
+                    </table>
+                    <p class="table_label">UNASSIGNED FENCERS</p>
                     <table>
-                        <thead>
+                        <thead class="no_stick">
                             <tr>
                                 <th>
                                     <p>NAME</p>
@@ -185,7 +222,7 @@ if (isset($_POST["assign_auto_submit"])) {
 
                         foreach ($json_teams as $team_name => $team) {
                         ?>
-                            <div class="splitscreen_select selected">
+                            <div class="splitscreen_select">
                                 <p><?php echo $team_name ?></p>
                                 <div class="red">
                                     <p><?php echo count($team->tireurs) ?></p>
