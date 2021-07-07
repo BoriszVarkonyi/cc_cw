@@ -151,7 +151,7 @@ if (isset($_POST["assign_auto_submit"])) {
 
                             foreach ($json_table as $json_obj) {
                             ?>
-                                <tr id="<?php echo $json_obj->id ?>">
+                                <tr id="f_<?php echo $json_obj->id ?>">
                                     <td>
                                         <p><?php echo $json_obj->prenom . " " . $json_obj->nom ?></p>
                                     </td>
