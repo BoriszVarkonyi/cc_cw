@@ -30,10 +30,6 @@
                         <p>Go back to Team Order Reports</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
-                    <button class="stripe_button primary" type="submit" form="team_order_report_wrapper">
-                        <p>Save</p>
-                        <img src="../assets/icons/save_black.svg"/>
-                    </button>
                 </div>
 
             </div>
@@ -42,93 +38,101 @@
                 <div class="wrapper" id="team_order_report_panel">
                     <div id="team_order_report_header">
                         <div class="team_order_report_select green">
-                            <p>T64</p>
+                            <p>R1</p>
                         </div>
                         <div class="team_order_report_select green">
-                            <p>T32</p>
+                            <p>R2</p>
                         </div>
                         <div class="team_order_report_select current">
-                            <p>T16</p>
+                            <p>R3</p>
                         </div>
                         <div class="team_order_report_select gray">
-                            <p>T8</p>
+                            <p>R4</p>
                         </div>
                         <div class="team_order_report_select gray">
-                            <p>T4</p>
+                            <p>R5</p>
                         </div>
                         <div class="team_order_report_select gray">
-                            <p>T2</p>
+                            <p>R6</p>
                         </div>
                     </div>
-                    <form action="" id="team_order_report_wrapper">
-                        <div id="team_report_t64">
-                            <p>Use number between 1 - 3</p>
-                            <table class="fixed">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <p>NAME</p>
-                                        </th>
-                                        <th>
-                                            <p>ORDER</p>
-                                        </th>
-                                        <th>
-                                            <p>REPLACEMENT</p>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="alt">
-                                    <tr>
-                                        <td>
-                                            <p>NEVE</p>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="" placeholder="#">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="replacement" id="fencer1">
-                                            <label for="fencer1"></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>NEVE</p>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="" placeholder="#">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="replacement" id="fencer2">
-                                            <label for="fencer2"></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>NEVE</p>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="" placeholder="#">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="replacement" id="fencer3">
-                                            <label for="fencer3"></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>NEVE</p>
-                                        </td>
-                                        <td>
-                                            <input type="number" name="" placeholder="#">
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="replacement" id="fencer4">
-                                            <label for="fencer4"></label>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                    <form action="" id="team_positions_wrapper">
+                        <div id="team_postitions_r1">
+                            <div class="rounds_container">
+                                <p>R1 Contains:</p>
+                                <p>1-8</p>
+                            </div>
 
-                            </table>
+                            <tr>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <p></p>
+                                </td>
+                            </tr>
+
+                            <div>
+                                <button class="draw_button">Draw</button>
+                                <button class="save_draw_weapon">Save</button>
+                            </div>
+                            <div class="positions_wrapper">
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+                            </div>
+
                         </div>
                     </form>
                 </div>

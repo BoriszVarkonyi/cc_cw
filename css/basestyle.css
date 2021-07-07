@@ -1264,6 +1264,11 @@ th {
 	*/
 }
 
+thead.no_stick th {
+	position: relative !important;
+}
+
+
 .table_header_text, .table_item, th, td, .tr, .td {
 	white-space: nowrap;
 	text-overflow: ellipsis;
