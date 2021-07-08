@@ -270,6 +270,8 @@ function pisteColorLetter($color_id) {
 
 function tableArrays($tableid){
 
+    $tablearray = [];
+
     switch ($tableid) {
 
         case 128:
