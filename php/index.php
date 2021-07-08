@@ -306,7 +306,7 @@
                             </div>
 
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
-                            <div class="stats_wrapper closed">
+                            <div class="stats_wrapper">
                                 <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/badge_black.svg">
                                     <p class="stat_title">Total Technicians</p>

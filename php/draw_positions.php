@@ -38,55 +38,101 @@
                 <div class="wrapper" id="team_order_report_panel">
                     <div id="team_order_report_header">
                         <div class="team_order_report_select green">
-                            <p>R1</p>
+                            <p>T32</p>
                         </div>
                         <div class="team_order_report_select green">
-                            <p>R2</p>
+                            <p>T16</p>
                         </div>
                         <div class="team_order_report_select current">
+                            <p>R1</p>
+                        </div>
+                        <div class="team_order_report_select gray">
+                            <p>R2</p>
+                        </div>
+                        <div class="team_order_report_select gray">
                             <p>R3</p>
-                        </div>
-                        <div class="team_order_report_select gray">
-                            <p>R4</p>
-                        </div>
-                        <div class="team_order_report_select gray">
-                            <p>R5</p>
-                        </div>
-                        <div class="team_order_report_select gray">
-                            <p>R6</p>
                         </div>
                     </div>
                     <form action="" id="team_positions_wrapper">
-                        <div id="team_postitions_r1">
+                        <div id="t32" class="team_positions hidden">
                             <div class="rounds_container">
-                                <p>R1 Contains:</p>
-                                <p>1-8</p>
+                                <p class="round_text"><span>T32</span> Contains:</p>
+                                <p>1 - 16</p>
                             </div>
 
-                            <tr>
-                                <td>
-                                    <p></p>
-                                </td>
-                                <td>
-                                    <p></p>
-                                </td>
-                                <td>
-                                    <p></p>
-                                </td>
-                                <td>
-                                    <p></p>
-                                </td>
-                            </tr>
-
-                            <div>
-                                <button class="draw_button">Draw</button>
-                                <button class="save_draw_weapon">Save</button>
+                            <div class="positions_button_wrapper">
+                                <button class="draw_button" type="button" id="draw_positions_button" onclick="drawPositions()">Draw</button>
+                                <button class="save_draw_positions hidden" id="save_positions_button" type="submit">Save</button>
                             </div>
+
                             <div class="positions_wrapper">
                                 <div class="positions_grid">
                                     <div>NAME</div>
                                     <div>1 - 3</div>
+                                    <div>NAME 22222222 zjgjfghffgh fdh</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
                                     <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 2</div>
+                                    <div>4 - 6</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="r1" class="team_positions">
+                            <div class="rounds_container">
+                                <p class="round_text"><span>R1</span> Contains:</p>
+                                <p>1 - 8, 4 - 6, 4 - 8, 8 - 4, 6 - 7</p>
+                            </div>
+
+                            <div class="positions_button_wrapper">
+                                <button class="draw_button" type="button" id="draw_positions_button" onclick="drawPositions()">Draw</button>
+                                <button class="save_draw_positions hidden" id="save_positions_button" type="submit">Save</button>
+                            </div>
+
+                            <div class="positions_wrapper">
+                                <div class="positions_grid">
+                                    <div>NAME</div>
+                                    <div>1 - 3</div>
+                                    <div>NAME 22222222 zjgjfghffgh fdh</div>
                                     <div>4 - 6</div>
                                 </div>
 
@@ -142,14 +188,7 @@
     </main>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
     <script src="../js/controls.js"></script>
-    <script src="../js/search.js"></script>
-    <script>
-        function toggleAddTeamPanel() {
-            var panel = document.getElementById("add_team_panel");
-            panel.classList.toggle("hidden");
-        }
-    </script>
+    <script src="../js/draw_positions.js"></script>
 </body>
 </html>

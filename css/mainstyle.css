@@ -1623,7 +1623,7 @@ nav.closed #documentation_label img {
 .splitscreen_select {
 	width: 100%;
 	display: flex;
-	align-items: stretch;
+	align-items: center;
 	justify-content: space-between;
 	box-sizing: border-box;
 	border-radius: 5px;
@@ -1650,10 +1650,9 @@ nav.closed #documentation_label img {
 .splitscreen_select div {
 	display: flex;
 	align-items: center;
-	height: 100%;
 	padding: 8px 15px 8px 15px;
 	margin-left: 10px;
-	align-self: stretch;
+	align-self: normal;
 }
 
 .splitscreen_select div.red {
@@ -2116,6 +2115,7 @@ input[type="file"] {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	width: fit-content;
 }
 
 .stat_wrapper_title:first-of-type {
@@ -2133,7 +2133,7 @@ input[type="file"] {
 }
 
 .stat_wrapper_title button.closed {
-	background: var(--c-lightgray);
+	background: var(--c-lightestgray);
 }
 
 .stat_wrapper_title button:hover {
@@ -2153,18 +2153,17 @@ input[type="file"] {
 
 .stats_wrapper {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(5, 1fr);
 	width: 100%;
-	height: 100%;
 	margin: 10px 0;
-	box-sizing: border-box;
 	gap: 10px;
-	transition: var(--t-basic);
+	transition: all ease-in-out .1s;
 	opacity: 1;
+	max-height: 150px;
 }
 
 .stats_wrapper.closed {
-	height: 0;
+	max-height: 0;
 	overflow: hidden;
 	margin: 0;
 	opacity: 0;
@@ -3818,51 +3817,105 @@ div.title_box > button {
 	box-sizing: border-box;
 }
 
-#team_positions_wrapper > div {
+.team_positions {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-#team_positions_wrapper > div {
-	line-height: 1;
+.team_positions.hidden {
+	display: none;
 }
 
-#team_positions_wrapper button {
+.rounds_container {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	border-bottom: 2px solid var(--c-gray);
+	padding-bottom: 10px;
+}
+
+.round_text {
+	margin: 0 20px 0 0;
+	font-size: var(--f-large);
+	font-family: var(--bold);
+}
+
+.round_text span {
+	color: var(--c-primary);
+}
+
+.positions_button_wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.positions_button_wrapper button {
+	border: 3px solid;
+	border-color: var(--c-primary);
 	padding: 5px 7px;
 	border-radius: 50px;
 	font-family: var(--bold);
 	line-height: 1;
-}
-
-.rounds_container {
-
+	transition: all ease-in-out .1s;
 }
 
 .draw_button {
-	border: 3px solid;
-	border-color: var(--c-primary);
+	position: relative;
 	background: var(--c-lightprimary);
+	z-index: 1;
+}
+
+.draw_button.inactive {
+	background: transparent
+	border-color: var(--c-darkgray);
 }
 
 .draw_button:hover {
-	border: 3px solid;
 	border-color: var(--c-lightprimary);
 	background: var(--c-primary);
 }
 
+.draw_button.inactive:hover {
+	background: var(--c-lightestgray);
+	border-color: var(--c-gray);
+}
+
+.save_draw_positions {
+	border-color: var(--c-primary);
+	background: var(--c-lightprimary);
+	z-index: 0;
+	opacity: 1;
+	margin-left: 10px;
+	font-size: var(--f-medium);
+}
+
+.save_draw_positions.hidden {
+	margin-left: 0;
+	opacity: 0;
+	width: 0;
+	padding: 5px 0;
+	font-size: 1px;
+}
+
+.save_draw_positions:hover {
+	background: var(--c-lightprimary);
+	border-color: var(--c-lightprimary);
+}
+
 .positions_wrapper {
-	width: 150px;
+	min-width: 200px;
+	max-width: 400px;
 }
 
 .positions_grid {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, calc(1.4em + 1.25vmin));
-	margin: 20px;
+	grid-template-rows: repeat(2, 1fr);
+	margin: 20px 0;
 	background: var(--c-black);
-	font-size: small;
 	line-height: 1;
 }
 
@@ -3872,11 +3925,16 @@ div.title_box > button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 5px 15px;
+}
+
+.positions_grid div:nth-child(1), .positions_grid div:nth-child(3) {
+	font-family: var(--bold);
+	font-size: var(--f-small);
 }
 
 .positions_grid div:nth-child(1) {
 	margin: 2px 2px 0 0;
-	font-family: var(--bold);
 }
 
 .positions_grid div:nth-child(2) {
@@ -3885,7 +3943,6 @@ div.title_box > button {
 
 .positions_grid div:nth-child(3) {
 	margin: 0 2px 2px 0;
-	font-family: var(--bold);
 }
 
 .positions_grid div:nth-child(4) {
