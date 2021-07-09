@@ -226,7 +226,7 @@ foreach ($json_teams as $value) {
                         <div class="splitscreen_select">
                             <p>Unselected Fencers</p>
                             <div>
-                                <p>3</p>
+                                <p id="unselected_number">3</p>
                                 <img src="../assets/icons/person_black.svg">
                             </div>
                         </div>
