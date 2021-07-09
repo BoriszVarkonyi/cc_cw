@@ -27,6 +27,8 @@ if (isset($_POST["generate_table"])) {
 
     $objects_array  = $objects->sorted;
 
+    print_r($objects_array);
+
     //---------------------------------------------------
     //Else other sort fuction by fencer performance
 
@@ -61,32 +63,39 @@ if (isset($_POST["generate_table"])) {
             $instring = $r3[0];
             $numinstr = $numarray[$i];
 
-            $team_table->r3->$instring->m_1->$numinstr = $objects_array[$i];
+            $team_table->r3->$instring->m_1->$numinstr = $objects_array[$numinstr];
         }
     }
-
-    if ($teamnum <= 4) {
+    elseif ($teamnum <= 4) {
 
         $changer = 0;
 
-        for ($i = 0; $i < $teamnum; $i++) {
+        $revi = 0;
+
+        for ($i = 0; $i < 4; $i++) {
 
             $numarray = tableArrays(2);
 
-            if ($i >= 2) {
+            if ($i == 2 || $i == 4) {
                 $changer++;
+            }
+            if ($i == 2) {
+                $revi = 0;
             }
 
             $instring = $r3[$changer];
-            $numinstr = $numarray[$i];
+            $numinstr = $numarray[$revi];
 
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
+
+            echo $revi += 1;
         }
-        for ($i = 0; $i < $teamnum; $i++) {
+        $changer = 1;
+        for ($i = 0; $i < 4; $i++) {
 
             $numarray = tableArrays(4);
 
-            if ($i >= 2) {
+            if ($i == 2) {
                 $changer++;
             }
 
@@ -94,7 +103,77 @@ if (isset($_POST["generate_table"])) {
             $numinstr = $numarray[$i];
             $matchstring = "m_" . $changer;
 
-            $team_table->r2->$instring->$matchstring->$numinstr = $objects_array[$i];
+            if (isset($objects_array[$numinstr - 1])) {
+                $team_table->r2->$instring->$matchstring->$numinstr = $objects_array[$numinstr - 1];
+            } else {
+                $team_table->r2->$instring->$matchstring->$numinstr = new stdClass;
+            }
+        }
+    }
+    elseif ($teamnum <= 8) {
+
+        $changer = 0;
+
+        $revi = 0;
+
+        for ($i = 0; $i < 8; $i++) {
+
+            $numarray = tableArrays(2);
+
+            if ($i == 2 || $i == 4 || $i == 6 || $i == 8) {
+                $changer++;
+                $revi = 0;
+            }
+
+            $instring = $r3[$changer];
+            $numinstr = $numarray[$revi];
+
+            $team_table->r3->$instring->m_1->$numinstr = new stdClass;
+
+            echo $revi += 1;
+        }
+        $changer = 1;
+        $revi = 0;
+        $phase = 0;
+        for ($i = 0; $i < 8; $i++) {
+
+            $numarray = tableArrays(4);
+
+            if ($i == 2 || $i == 4 || $i == 6 || $i == 8) {
+                $changer++;
+            }
+            if ($i == 4) {
+                $revi = 0;
+                $phase++;
+                $changer = 1;
+            }
+
+            $instring = $r2[$phase];
+            $numinstr = $numarray[$revi];
+            $matchstring = "m_" . $changer;
+
+            $team_table->r2->$instring->$matchstring->$numinstr = new stdClass;
+
+            $revi++;
+        }
+        $changer = 1;
+        for ($i = 0; $i < 8; $i++) {
+
+            $numarray = tableArrays(8);
+
+            if ($i == 2 || $i == 4 || $i == 6 || $i == 8) {
+                $changer++;
+            }
+
+            $instring = $r1[0];
+            $numinstr = $numarray[$i];
+            $matchstring = "m_" . $changer;
+
+            if (isset($objects_array[$numinstr - 1])) {
+                $team_table->r1->$instring->$matchstring->$numinstr = $objects_array[$numinstr - 1];
+            } else {
+                $team_table->r1->$instring->$matchstring->$numinstr = new stdClass;
+            }
         }
     }
 

@@ -59,6 +59,13 @@ if (isset($_POST["assign_auto_submit"])) {
     echo mysqli_error($connection);
 }
 
+$idsarray = [];
+foreach ($json_teams as $value) {
+    foreach ($value->tireurs as $fencers) {
+        array_push($idsarray, $fencers->id);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +98,9 @@ if (isset($_POST["assign_auto_submit"])) {
                         $teams_members->$team_name = [];
 
                         foreach ($team->tireurs as $value) {
-                            array_push($teams_members->$team_name, $value->id);
+                            $name = $value->prenom . " " . $value->nom;
+                            $teamfarray = [$value->id, $name, $value->nation, $value->club];
+                            array_push($teams_members->$team_name, $teamfarray);
                         }
 
                     }
@@ -187,6 +196,11 @@ if (isset($_POST["assign_auto_submit"])) {
 
 
                             foreach ($json_table as $json_obj) {
+
+                                if (in_array($json_obj->id, $idsarray)) {
+                                    continue;
+                                }
+
                             ?>
                                 <tr id="f_<?php echo $json_obj->id ?>">
                                     <td>
