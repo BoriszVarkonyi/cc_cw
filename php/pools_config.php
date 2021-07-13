@@ -542,7 +542,7 @@
                                     <div class="td">
                                         <p>Piste <?php echo $piste ?></p>
 
-                                        <form class="search_wrapper narrow">
+                                        <form class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                                 <input type="text" name="" placeholder="Select Piste">
                                             </button>
@@ -562,7 +562,7 @@
                                                             $piste_url = $piste_obj -> url;
 
                                                     ?>
-                                                    <button type="button" onclick="selectSystem(this)">Piste <?php echo $piste_name ?></button>
+                                                    <button type="submit">Piste <?php echo $piste_name ?></button>
                                                     <?php } ?>
                                             </div>
                                         </form>
@@ -580,7 +580,7 @@
                                         }
                                         ?>
                                         </p>
-                                        <form class="search_wrapper narrow">
+                                        <form class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                                 <input type="text" name="" placeholder="Select Referee">
                                             </button>
@@ -605,7 +605,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" onclick="selectSystem(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="submit"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </form>
@@ -614,7 +614,7 @@
 
                                     <div class="td">
                                         <p> Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</p>
-                                        <form class="search_wrapper narrow">
+                                        <form class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                                 <input type="text" name="" placeholder="Select Referee">
                                             </button>
@@ -639,7 +639,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" onclick="selectSystem(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="submit"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </form>
@@ -647,7 +647,7 @@
 
                                     <div class="td">
                                         <p><?php echo $time ?></p>
-                                        <input type="time" class="centered">
+                                        <input type="time" class="centered hidden">
                                     </div>
                                     <div class="td square">
                                         <button type="button" onclick="" class="pool_config">

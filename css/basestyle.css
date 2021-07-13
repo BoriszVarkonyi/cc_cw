@@ -1396,6 +1396,10 @@ tbody.altdouble tr {
 	margin: 0 !important;
 }
 
+.td input.hidden {
+	display: none;
+}
+
 /* Entry Panel */
 
 .entry_panel {
