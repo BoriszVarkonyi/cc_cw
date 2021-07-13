@@ -5,7 +5,7 @@
 <?php checkComp($connection); ?>
 
 <?php
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);
 
 if (isset($_POST["generate_table"])) {
 
