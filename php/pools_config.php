@@ -588,8 +588,26 @@
                                                 <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                                 <div class="search_results">
 
-                                                        <button type="button" onclick="selectSystem(this)">Ide ierj</button>
+                                                        <?php
 
+                                                            $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+                                                            $do_get_refs = mysqli_query($connection, $qry_get_refs);
+                                                            if ($row = mysqli_fetch_assoc($do_get_refs)) {
+                                                                $refs_array = json_decode($row['data']);
+                                                            }
+
+                                                            foreach ($refs_array as $ref_obj) {
+
+                                                                $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
+                                                                if ($sort_by_class) {
+                                                                    $ref_nation = $ref_obj -> club;
+                                                                } else {
+                                                                    $ref_nation = $ref_obj -> nation;
+                                                                }
+
+                                                        ?>
+                                                        <button type="button" onclick="selectSystem(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                        <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -603,7 +621,26 @@
                                             <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                             <div class="search_results">
 
-                                                    <button type="button" onclick="selectSystem(this)">Ide ierj</button>
+                                                    <?php
+
+                                                            $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+                                                            $do_get_refs = mysqli_query($connection, $qry_get_refs);
+                                                            if ($row = mysqli_fetch_assoc($do_get_refs)) {
+                                                                $refs_array = json_decode($row['data']);
+                                                            }
+
+                                                            foreach ($refs_array as $ref_obj) {
+
+                                                                $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
+                                                                if ($sort_by_class) {
+                                                                    $ref_nation = $ref_obj -> club;
+                                                                } else {
+                                                                    $ref_nation = $ref_obj -> nation;
+                                                                }
+
+                                                        ?>
+                                                        <button type="button" onclick="selectSystem(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                        <?php } ?>
 
                                             </div>
                                         </div>
