@@ -1159,6 +1159,35 @@ tr.disqualified.selected td:first-child {
 
 
 
+/*  */
+tr.drop {
+	display: none !important;
+	justify-content: center;
+	align-items: center;
+	height: 0 !important;
+}
+
+tr.drop.collapsed {
+	background: var(--c-lightprimary) !important;
+	height: 4px;
+	display: flex !important;
+	border-radius: 5px;
+}
+
+tr.drop.opened {
+	background: var(--c-lightprimary) !important;
+	height: 4px;
+	display: flex !important;
+	border-radius: 5px;
+}
+
+tr.drop.opened::after {
+	content: "Drop Fencer here";
+	color: var(--cd-primarycontrast);
+	font-family: var(--bold);
+}
+
+
 /* Text inside Table elements */
 
 th p, tr p {
@@ -1232,6 +1261,23 @@ tbody.alt tr:nth-child(odd) {
 }
 
 tbody.alt tr {
+    border-top: 1.5px solid var(--c-gray);
+    border-bottom: 1.5px solid var(--c-gray);
+}
+
+
+
+/* Table Rows and Items double alternative automatic coloring */
+
+tbody.altdouble tr:nth-child(5n - 1) {
+    background: var(--c-lightergray) !important;
+}
+
+tbody.altdouble tr:nth-child(1n - 1) {
+    background: var(--c-lightestgray) !important;
+}
+
+tbody.altdouble tr {
     border-top: 1.5px solid var(--c-gray);
     border-bottom: 1.5px solid var(--c-gray);
 }
