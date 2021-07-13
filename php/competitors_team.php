@@ -91,12 +91,38 @@
         }
     }
 
+    if (isset($_POST['submit_import'])) {
+        $import_comp_id = $_POST['selected_comp_id'];
 
+        //get selected competitors array
+        $qry_get_comp_to_import = "SELECT data FROM competitors WHERE assoc_comp_id = '$import_comp_id'";
+        $do_get_comp_to_import = mysqli_query($connection, $qry_get_comp_to_import);
+
+        if ($row = mysqli_fetch_assoc($do_get_comp_to_import)) {
+            $competitor_ids = [];
+            $import_array = json_decode($row['data']);
+            for ($i = 0; $i < count($json_table); $i++) {
+                $competitor_ids[$i] = $json_table[$i] -> id;
+            }
+
+            for ($i = 0; $i < count($import_array); $i++) {
+                if (array_search($import_competitor -> id, $competitor_ids) !== false) {
+                    unset($import_array[$i]);
+                }
+            }
+            $json_table += $import_array;
+        }
+
+        //update database
+        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+        $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE assoc_comp_id = '$comp_id'";
+        if ($do_update = mysqli_query($connection, $qry_update)) {
+            header("Refresh: 0");
+        } else {
+            echo mysqli_error($connection);
+        }
+    }
 ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> a5fee379c7014f937d4cd416a76aa3f3f0b9aacf
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,13 +185,28 @@
                                 </tr>
                             </thead>
                             <tbody class="alt">
+                            <?php
+                                $qry_get_import = "SELECT `assoc_comp_id`,`data` FROM `competitors` WHERE `assoc_comp_id` <> '$comp_id'";
+                                $do_get_import = mysqli_query($connection, $qry_get_import);
 
-                                <tr id="ID" onclick="selectForImport(this)">
+                                while ($row = mysqli_fetch_assoc($do_get_import)) {
+
+                                    $import_comp_id = $row['assoc_comp_id'];
+                                    //get comp_name
+                                    $qry_get_comp_name = "SELECT `comp_name` FROM competitions WHERE comp_id = '$import_comp_id'";
+                                    $do_get_comp_name = mysqli_query($connection, $qry_get_comp_name);
+                                    if ($row = mysqli_fetch_assoc($do_get_comp_name)) {
+                                        $comp_name = $row['comp_name'];
+                                    } else {
+                                        $comp_name = mysqli_error($connection);
+                                    }
+                            ?>
+                                <tr id="<?php echo $import_comp_id ?>" onclick="selectForImport(this)">
                                     <td>
-                                        <p>neve</p>
+                                        <p><?php echo $comp_name ?></p>
                                     </td>
                                 </tr>
-
+                            <?php } ?>
                             </tbody>
                         </table>
                         <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
