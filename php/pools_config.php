@@ -538,7 +538,7 @@
                             ?>
                             <div>
                                 <div class="entry">
-                                    <div class="tr">
+                                    <div class="tr bold">
                                         <div class="td bold">No.<?php echo $pool_num ?></div>
                                         <div class="td">
                                             <p>Piste <?php echo $piste ?></p>
@@ -624,9 +624,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="alt" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
-
-                                            </tbody>
-
                                                 <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php
                                                     for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
@@ -640,23 +637,23 @@
                                                         $json_string_obj = json_encode($json_table[$pool_num] -> $fencer_number,JSON_UNESCAPED_UNICODE);
                                                 ?>
 
-                                                    <tr>
-                                                        <td>
-                                                            <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
-                                                        </td>
-                                                        <td>
-                                                            <p><?php echo $fencer_nat ?></p>
-                                                        </td>
-                                                        <td class="square">
-                                                            <p><?php echo $fencer_cp ?></p>
-                                                        </td>
-                                                        <td class="square">
-                                                            <p><?php echo $fencer_rp ?></p>
-                                                        </td>
-                                                    </tr>
-                                                    <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
+                                                <tr>
+                                                    <td>
+                                                        <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><?php echo $fencer_nat ?></p>
+                                                    </td>
+                                                    <td class="square">
+                                                        <p><?php echo $fencer_cp ?></p>
+                                                    </td>
+                                                    <td class="square">
+                                                        <p><?php echo $fencer_rp ?></p>
+                                                    </td>
+                                                </tr>
+                                                <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php } ?>
-
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

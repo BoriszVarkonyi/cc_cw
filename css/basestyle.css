@@ -1243,6 +1243,17 @@ tbody.alt tr {
 
 
 
+
+/* Entry Listing Wrapper */
+
+#pool_listing .entry {
+	margin-bottom: 25px;
+}
+
+.entry_wrapper .entry {
+	margin-bottom: 35px;
+}
+
 /* Whole entry */
 
 .entry {
@@ -1250,6 +1261,7 @@ tbody.alt tr {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
+	box-shadow: var(--s-black);
 }
 
 
@@ -1261,11 +1273,16 @@ tbody.alt tr {
     display: flex;
     align-items: center;
     height: calc(1.4em + 1.25vmin);
+	background: var(--c-lightestgray);
 }
 
 /* Makes all the child elements the same width */
-.td {
+.tr.fixed .td {
     flex: 1 1 100%;
+}
+
+.tr.bold {
+	font-family: var(--bold);
 }
 
 
@@ -1273,7 +1290,6 @@ tbody.alt tr {
 /* Entry Header Elements */
 
 .td {
-    height: 100%;
     flex: 1 1 auto;
     text-align: center;
 	display: flex;
@@ -1309,10 +1325,6 @@ tbody.alt tr {
     width: calc(1.4em + 1.25vmin);
 }
 
-.td input {
-	margin: 0 !important;
-}
-
 /* Buttons inside square elements */
 .td.square button {
     width: 100%;
@@ -1328,6 +1340,11 @@ tbody.alt tr {
     height: 65%;
 }
 
+/* Inputs inside all td elements */
+.td input {
+	margin: 0 !important;
+}
+
 /* Entry Panel */
 
 .entry_panel {
@@ -1335,4 +1352,10 @@ tbody.alt tr {
     display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 50px;
+	box-sizing: border-box;
+	background: var(--c-white);
 }
+
+/* Table Rows and Items standard automatic coloring */
+

@@ -3172,45 +3172,6 @@ div.title_box > button {
 }
 */
 
-#pool_listing .entry {
-	margin: 3px;
-	border-radius: 5px;
-	box-shadow: var(--s-black);
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 25px;
-}
-
-#pool_listing .entry > .table_row > .table_item {
-	justify-content: flex-start;
-	padding: 0 15px;
-}
-
-#pool_listing .entry > .table_row {
-	cursor: default;
-	background: var(--c-lightestgray);
-}
-
-#pool_listing .table_row > .table_item:first-of-type {
-	font-family: var(--bold) !important;
-}
-
-#pool_listing .pool_table_wrapper .table_row {
-	background: var(--c-lightestgray) !important;
-}
-
-#pool_listing .pool_table_wrapper .table_row:nth-of-type(4n) {
-	background: var(--c-lightergray) !important;
-}
-
-#pool_listing.state_2 .pool_table_wrapper .table_row {
-	background: var(--c-lightestgray) !important;
-}
-
-#pool_listing.state_2 .pool_table_wrapper .table_row:nth-of-type(even) {
-	background: var(--c-lightergray) !important;
-}
-
 .drag_fencer {
 	cursor: -webkit-grab;
 	cursor: grab;
