@@ -51,11 +51,11 @@
                                     <img src="../assets/icons/delete_black.svg">
                                 </button>
                             </form>
-                            <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_teams_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
+                            <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>&type=team" method="POST" id="import_teams_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                 <label for="fileToUpload">Upload XML File</label>
                                  <p id="file_text"></p>
-                                <input type="text" name="type" class="hidden" value="referees">
+                                <input type="text" name="type" class="hidden" value="teams">
                             </form>
                         </div>
                     </div>
@@ -90,8 +90,20 @@
                                 <td>
                                     <p>g</p>
                                 </td>
+                                <td>
+                                    <p>g</p>
+                                </td>
+                                <td>
+                                    <p>g</p>
+                                </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <p>g</p>
+                                </td>
+                                <td>
+                                    <p>g</p>
+                                </td>
                                 <td>
                                     <p>g</p>
                                 </td>

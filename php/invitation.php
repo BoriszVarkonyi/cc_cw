@@ -145,8 +145,8 @@ if (file_exists("../uploads/$comp_id.png")) {
     <title>Invitation</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/print_invitation_style.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/invitation_style.min.css">
 </head>
 <body>
     <!-- header -->
@@ -257,215 +257,201 @@ if (file_exists("../uploads/$comp_id.png")) {
                     </div>
 
                     <div id="cw_preview" class="paper_wrapper">
-                        <div id="invitation_title_stripe">
-                            <?php
-                                $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
-                                $do_get_basic_info = mysqli_query($connection, $qry_get_basic_info);
-
-                                if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
-                                    $json_string = $row['data'];
-
-                                    $json_table = json_decode($json_string);
-
-                                    if ($json_table != "") {
-                                        $host_country = $json_table->host_country;
-                                        $city_street = $json_table->city_street;
-                                        $zip_code = $json_table->zip_code;
-                                        $entry_fee = $json_table->entry_fee;
-                                        $starting_date = $json_table->starting_date;
-                                        $ending_date = $json_table->ending_date;
-                                        $end_of_pre_reg = $json_table->end_of_pre_reg;
-                                    } else {
-                                        $host_country = "Not set";
-                                        $city_street = "Not set";
-                                        $zip_code = "Not set";
-                                        $entry_fee = "Not set";
-                                        $starting_date = "Not set";
-                                        $ending_date = "Not set";
-                                        $end_of_pre_reg = "Not set";
-                                    }
-                                } else {
-                                    $host_country = "Not set";
-                                    $city_street = "Not set";
-                                    $zip_code = "Not set";
-                                    $entry_fee = "Not set";
-                                    $starting_date = "Not set";
-                                    $ending_date = "Not set";
-                                    $end_of_pre_reg = "Not set";
-                                }
-                            ?>
-                            <img src=<?php echo $logo ?>>
+                        <div id="title_stripe_cw">
+                            <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
 
                             <p class="stripe_title"><?php echo $comp_name ?></p>
-                            <p id="comp_status"><?php echo statusConverter($assoc_array_data['comp_status']) ?></p>
-
+                            <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
+                                <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
+                            </button>
+                            <p id="comp_status"><?php echo statusConverter($comp_status) ?></p>
                             <div>
-                                <p><?php echo sexConverter($assoc_array_data['comp_sex']) . "'s" ?></p>
-                                <p><?php echo weaponConverter($assoc_array_data['comp_weapon']) ?></p>
-                                <p><?php echo substr($starting_date, 0, 4) ?></p>
-                                <p>INVIDIUDAL</p>
+                                <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
+                                <p><?php echo weaponConverter($comp_weapon) ?></p>
+                                <p><?php echo $starting_date ?></p>
+                                <p><?php echo "" ?></p>
                             </div>
                         </div>
+                        <div id="invitation_wrapper">
+                            <div class="column big no_top">
+                                <?php
+                                $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
+                                $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
 
-                        <div id="competition_info">
-                            <?php
-                            $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
-                            $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
+                                if ($row = mysqli_fetch_assoc($do_get_announcements)) {
+                                    $string_json = $row['data'];
 
-                            $json_table = [];
+                                    $json_table = json_decode($string_json);
+                                } else {
+                                    $json_table = [];
+                                }
 
-                            if ($row = mysqli_fetch_assoc($do_get_announcements)) {
-                                $string_json = $row['data'];
+                                if (count($json_table) != 0 ) {
+                                ?>
+                                    <div id="announcements" class="column_panel">
 
-                                $json_table = json_decode($string_json);
-                            }
+                                        <?php
+                                            foreach ($json_table as $ann_objects) {
 
-                            if (count($json_table) != 0) {
-                            ?>
-                                <div id="announcements" class="breakpoint">
-
-                                    <?php
-                                    foreach ($json_table as $ann_objects) {
-
-                                        $title = $ann_objects->title;
-                                        $body = $ann_objects->body;
-                                    ?>
+                                            $title = $ann_objects -> title;
+                                            $body = $ann_objects -> body;
+                                        ?>
                                         <div class="breakpoint">
                                             <p><?php echo $title ?></p>
                                             <p><?php echo $body ?></p>
                                         </div>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-                            <!-- basic info panel -->
-                            <div id="basic_information_panel" class="breakpoint">
-                                <p class="column_panel_title">Basic Information:</p>
-                                <div>
-                                    <div class="invitation_form_wrapper">
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                                    <div id="basic_information_panel" class="column_panel breakpoint">
+                                        <p class="column_panel_title">Basic Information:</p>
                                         <div>
-                                            <div>
-                                                <label>HOST COUNTRY</label>
-                                                <p><?php echo $host_country  ?></p>
-                                            </div>
-                                            <div>
-                                                <label>LOCATION AND ADDRESS</label>
-                                                <p><?php echo $city_street . $zip_code ?></p>
-                                            </div>
-                                            <div>
-                                                <label>ENTRY-FEE</label>
-                                                <p><?php echo  $entry_fee; ?></p>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div>
-                                                <label>STARTING DATE</label>
-                                                <p><?php echo $starting_date ?></p>
-                                            </div>
-                                            <div>
-                                                <label>ENDING DATE</label>
-                                                <p><?php echo $ending_date ?></p>
-                                            </div>
-                                            <div>
-                                                <label>END OF PRE-REGISTRTATION</label>
-                                                <p><?php echo $end_of_pre_reg ?></p>
+                                            <div class="form_wrapper">
+                                                <div>
+                                                    <div>
+                                                        <label>HOST COUNTRY</label>
+                                                        <p><?php echo $host_country ?></p>
+                                                    </div>
+                                                    <div>
+                                                        <label>LOCATION AND ADDRESS</label>
+                                                        <p><?php echo $city_street ?></p>
+                                                        <p><?php echo $zip_code ?></p>
+                                                    </div>
+                                                    <div>
+                                                        <label>ENTRY-FEE</label>
+                                                        <p><?php echo $entry_fee ?></p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div>
+                                                        <label>STARTING DATE</label>
+                                                        <p><?php echo $starting_date ?></p>
+                                                    </div>
+                                                    <div>
+                                                        <label>ENDING DATE</label>
+                                                        <p><?php echo $ending_date ?></p>
+                                                    </div>
+                                                    <div>
+                                                        <label>END OF PRE-REGISTRTATION</label>
+                                                        <p><?php echo $end_of_pre_reg ?></p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <!-- equipment panel -->
-                            <div id="equipment_panel" class="breakpoint">
-                                <p class="column_panel_title">Equipment needed to be checked:</p>
-                                <div>
-                                    <!-- weapons check table rows -->
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <p>EQUIPMENT</p>
-                                                </th>
-                                                <th>
-                                                    <p>QUANTITY</p>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="alt">
+                                    <!-- equipment panel -->
+                                    <div id="equipment_panel" class="column_panel breakpoint">
+                                        <p class="column_panel_title">Equipment needed to be checked:</p>
+                                        <!-- weapons check table rows -->
+                                        <table class="fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th><p>Equipment's name</p></th>
+                                                    <th><p>Needed Quantity</p></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="alt">
+                                                <?php
+                                                    $equipment = array("Epee","Foil","Sabre","Electric Jacket","Plastron","Under-Plastron","Socks","Mask","Gloves","Bodywire","Maskwire","Chest protector","Metallic glove");
+
+                                                    $array_equipment = explode(",", $comp_equipment);
+
+                                                    for ($i = 0; $i < count($equipment); $i++) {
+
+                                                        if ($array_equipment[$i] != 0) {
+                                                            ?>
+                                                                <tr>
+                                                                    <td><?php echo $equipment[$i] ?></td>
+                                                                    <td><?php echo $array_equipment[$i] ?></td>
+                                                                </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+
+                                                <!-- ha üres
+
+                                                                <tr>
+                                                                    <td colspan="1">No equipment</td>
+                                                                </tr>
+                                                -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- additional info panel -->
+                                    <div id="additional_panel" class="column_panel breakpoint">
+                                        <p class="column_panel_title">Additional information for Fencers:</p>
+                                        <div>
+                                            <p><?php echo $comp_info ?></p>
+                                        </div>
+                                    </div>
+
+                                    <!-- weapon control panel -->
+                                    <div id="weapon_control_panel" class="column_panel breakpoint">
+                                        <p class="column_panel_title">Weapon Control appointments and bookings:</p>
+                                        <div>
+                                            <div class="weapon_control_day">
+                                                <p>{Weapon Control Date}</p>
+                                            </div>
+
+                                            <div class="weapon_control_day">
+                                                <p>{Weapon Control Date}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="plus_information_panel" class="column_panel breakpoint">
+                                        <p class="column_panel_title">Plus Information:</p>
+                                        <div>
                                             <?php
-                                            $equipment = array("Epee", "Foil", "Sabre", "Electric Jacket", "Plastron", "Under-Plastron", "Socks", "Mask", "Gloves", "Bodywire", "Maskwire", "Chest protector", "Metallic glove");
 
-                                            $array_equipment = explode(",", $assoc_array_data['comp_equipment']);
+                                                //display plus info from DB
 
-                                            for ($i = 0; $i < count($equipment); $i++) {
+                                                $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
+                                                if (!$get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry)) {
+                                                    $feedback = "ERROR: " . mysqli_error($connection);
+                                                }
 
-                                                if ($array_equipment[$i] != 0) {
+                                                if ($get_plsuinfo_do !== FALSE) {//checks whether table exists
+                                                    while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
+
+                                                        $info_title = $row['info_title'];
+                                                        $info_body = $row['info_body'];
                                             ?>
-                                                    <tr>
-                                                        <td>
-                                                            <p><?php echo $equipment[$i] ?></p>
-                                                        </td>
-                                                        <td>
-                                                            <p><?php echo $array_equipment[$i] ?></p>
-                                                        </td>
-                                                    </tr>
+                                                        <div class="breakpoint">
+                                                            <p><?php echo $info_title ?></p>
+                                                            <p><?php echo $info_body ?></p>
+                                                        </div>
+                                            <?php
+                                                    }
+                                                } else  { // displayed when there are no plus infos for comp_id
+                                            ?>
+
+                                                <p>This competition has no plus information!</p>
+
                                             <?php
                                                 }
-                                            }
                                             ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <!-- additional info panel -->
-                            <div id="additional_panel" class="breakpoint">
-                                <p class="column_panel_title">Additional information for Fencers:</p>
-                                <div>
-                                    <div>
-                                        <p><?php echo $assoc_array_data['comp_info'] ?></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <?php
-                            if ($assoc_array_data['comp_wc_type'] != 0) {
-                        ?>
-                            <!-- weapon control panel -->
-                            <div id="weapon_control_panel" class="breakpoint">
-                                <p class="column_panel_title">Weapon Control appointments and bookings:</p>
-                                <div>
-                                    <div class="weapon_control_day">
-                                        <p>{Weapon Control Date}</p>
-                                        <a>Book appointment</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php
-                            }
-                        ?>
-                            <div id="plus_information_panel">
-                                <p class="column_panel_title">Plus Information:</p>
-                                <div>
-                                    <?php
-
-                                    //display plus info from DB
-                                    $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
-                                    $get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry);
-
-                                    while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
-
-                                        $info_title = $row['info_title'];
-                                        $info_body = $row['info_body'];
-                                    ?>
-                                        <div class="breakpoint">
-                                            <p><?php echo $info_title ?></p>
-                                            <p><?php echo $info_body ?></p>
                                         </div>
-
-                                    <?php
-                                    }
-                                    ?>
-
+                                    </div>
+                                </div>
+                                <div class="column small no_top">
+                                    <div id="competition_controls" class="column_panel no_bottom">
+                                        <p class="column_panel_title">Competition Controls:</p>
+                                        <div class="competition_controls_wrapper">
+                                            <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
+                                            <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='book_appointment.php?comp_id=<?php echo $comp_id ?>'">Book Appointment</button>
+                                            <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
+                                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
+                                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                                            <button onclick="printPage()">Print</a>
+                                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

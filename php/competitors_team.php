@@ -93,6 +93,10 @@
 
 
 ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a5fee379c7014f937d4cd416a76aa3f3f0b9aacf
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,17 +133,75 @@
                         <p>Print Competitors</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=team">
                         <p>Import Competitors from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
+                    <button class="stripe_button primary" type="button" onclick="toggleImportPanel()">
+                        <p>Import Competitors from Competition</p>
+                        <img src="../assets/icons/print_black.svg"/>
+                    </button>
+                </div>
+
+
+                <div id="import_competitors_panel" class="overlay_panel hidden">
+                    <button class="panel_button" onclick="toggleImportPanel()">
+                        <img src="../assets/icons/close_black.svg">
+                    </button>
+                    <form action="" id="import_competitors" method="POST" class="overlay_panel_form" autocomplete="off">
+                        <input type="text" name="selected_comp_id" id="selected_comp_input" class="" readonly>
+                        <table class="small">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>NAME</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="alt">
+
+                                <tr id="ID" onclick="selectForImport(this)">
+                                    <td>
+                                        <p>neve</p>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <button type="submit" name="submit_import" class="panel_submit" value="Import">Import</span></button>
+                    </form>
                 </div>
             </div>
             <div id="page_content_panel_main">
 
+                <?php if (isset($json_table[0])) {
+
+                    function cmp($a, $b)
+                    {
+                        return strcmp($a->nation, $b->nation);
+                    }
+
+                    usort($json_table, "cmp");
+
+                ?>
                 <table class="wrapper small w90">
                     <thead>
                         <tr>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Competition Position" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>C. POS</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
                             <th>
                                 <div class="search_panel">
                                     <div class="search_wrapper">
@@ -201,44 +263,127 @@
                                 </button>
                             </th>
                             <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Team" class="search page">
+                                <div class="search_panel option">
+                                    <div class="search_panel_buttons">
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
+                                    </div>
+                                    <div class="option_container">
+                                        <input type="radio" name="reg_status" id="listsearch_reg_ready" value="Ready"/>
+                                        <label for="listsearch_reg_ready">Ready</label>
+                                        <input type="radio" name="reg_status" id="listsearch_reg_not_ready" value="Not ready"/>
+                                        <label for="listsearch_reg_not_ready">Not ready</label>
                                     </div>
                                 </div>
                                 <button type="button" onclick="sortButton(this)">
                                     <img src="../assets/icons/switch_full_black.svg">
                                 </button>
-                                <p>TEAM</p>
+                                <p>REGISTRATION</p>
                                 <button type="button" onclick="searchButton(this)">
                                     <img src="../assets/icons/search_black.svg">
                                 </button>
                             </th>
+                            <th class="square"></th>
+                            <th>
+                                <div class="search_panel option">
+                                    <div class="search_panel_buttons">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
+                                    </div>
+                                    <div class="option_container">
+                                        <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready"/>
+                                        <label for="listsearch_wc_ready">Ready</label>
+                                        <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Not ready"/>
+                                        <label for="listsearch_wc_not_ready">Not ready</label>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>WEAPON CONTROL</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </th>
+                            <th class="square"></th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        foreach ($json_table as $json_obj) {
+                        ?>
+                            <tr id="<?php echo $json_obj -> id ?>" onclick="selectRow(this)" loading="lazy">
+                                <td>
+                                    <p><?php echo $json_obj->comp_rank ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $json_obj->classement ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $json_obj->prenom . " " . $json_obj->nom ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $json_obj->nation ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $json_obj->club ?></p>
+                                </td>
+                                <td>
+                                    <p><?php
 
-                            <tr id="" onclick="selectRow(this)">
-                                <td>
-                                    <p>R. POS</p>
+                                        if ($json_obj->reg == 0) {
+
+                                            echo "Not ready";
+                                        } else {
+
+                                            echo "Ready";
+                                        }
+                                        ?></p>
+                                </td>
+                                <td class="square <?php
+                                                    if ($json_obj->reg == 0) {
+
+                                                        echo "red";
+                                                    } else {
+
+                                                        echo "green";
+                                                    }
+                                                    ?>">
                                 </td>
                                 <td>
-                                    <p>NAME</p>
+                                    <p><?php
+                                        if ($json_obj->wc == 0) {
+
+                                            echo "Not ready";
+                                        } else {
+
+                                            echo "Ready";
+                                        }
+                                        ?></p>
                                 </td>
-                                <td>
-                                    <p>NATION</p>
-                                </td>
-                                <td>
-                                    <p>CLUB</p>
-                                </td>
-                                <td>
-                                    <p>TEAM</p>
+                                <td class="square <?php
+                                                                if ($json_obj->wc == 0) {
+
+                                                                    echo "red";
+                                                                } else {
+
+                                                                    echo "green";
+                                                                }
+                                                                ?>">
                                 </td>
                             </tr>
+
+                    <?php
+                        }
+                    }
+                    ?>
                     </tbody>
-
-
                 </table>
             </div>
         </div>

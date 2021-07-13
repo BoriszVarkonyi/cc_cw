@@ -1,4 +1,8 @@
-<?php include "..\includes\db.php"; ?>
+<?php
+
+use equipe as GlobalEquipe;
+
+include "..\includes\db.php"; ?>
 <?php ob_start() ?>
 <?php
 $comp_id = $_GET['comp_id'];
@@ -7,6 +11,8 @@ $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+$comptype = $_GET["type"];
 
 // Check if file already exists
 if (file_exists($target_file)) {
@@ -180,7 +186,7 @@ if ($uploadOk == 0) {
 
             unlink("../uploads/$comp_id.xml");
 
-            header("Location: ../php/competitors.php?comp_id=$comp_id");
+            header("Location: ../php/competitors_$comptype.php?comp_id=$comp_id");
         }
 
         //Redirected from referees upload
@@ -309,7 +315,102 @@ if ($uploadOk == 0) {
             header("Location: ../php/referees.php?comp_id=$comp_id");
 
 
-        } else {
+        } 
+        elseif ($_POST["type"] == "teams") {
+
+
+            class equipe {
+                public $id;
+                public $nation = "";
+                public $statut = "N";
+                public $club = "";
+                public $classement = "";
+                public $points = 0;
+                public $leader = "";
+                public $coach = "";
+                public $comp_pos = 0;
+                public $final_rank = 0;
+                public $tireurs = [];
+                public $draws = [];
+                public $orders = [];
+        
+                public function __construct($id, $nation, $club, $classement, $points, $statut) {
+                    $this -> nation = $nation;
+                    $this -> statut = $statut;
+                    $this -> club = $club;
+                    $this -> classement = $classement;
+                    $this -> points = $points;
+                    $this -> id = $id;
+                }
+            }
+
+
+            $xml = simplexml_load_file("$comp_id.xml");
+
+            $qry_check_row = "SELECT data FROM teams WHERE assoc_comp_id = '$comp_id'";
+            $do_check_row = mysqli_query($connection, $qry_check_row);
+            if ($row = mysqli_fetch_assoc($do_check_row)) {
+                $json_string = $row['data'];
+                $json_table = json_decode($json_string);
+            } else {
+                echo mysqli_error($connection);
+            }
+
+            foreach ($xml->Equipes->children() as $team) {
+
+                if (isset($team["ID"])) {
+                    $id = str_replace("'", "", reset($team["ID"]));
+                } else {
+                    $id = NULL;
+                }
+                if (isset($team["Points"])) {
+                    $points = str_replace("'", "", reset($team["Points"]));
+                } else {
+                    $points = NULL;
+                }
+                if (isset($team["Classement"])) {
+                    $classement = str_replace("'", "", reset($team["Classement"]));
+                } else {
+                    $classement = NULL;
+                }
+                if (isset($team["Club"])) {
+                    $club = str_replace("'", "", reset($team["Club"]));
+                } else {
+                    $club = NULL;
+                }
+                if (isset($team["Nation"])) {
+                    $nation = str_replace("'", "", reset($team["Nation"]));
+                } else {
+                    $nation = NULL;
+                }
+                if (isset($team["Statut"])) {
+                    $statut = str_replace("'", "", reset($team["Statut"]));
+                } else {
+                    $statut = NULL;
+                }
+
+                if ($classement == NULL || $classement == "") {
+                    $classement = 9999;
+                }
+
+                $equipe_object = new equipe($id, $nation, $club, $classement, $points, $statut);
+
+                $json_table -> $id = $equipe_object;
+            }
+
+            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+
+            echo $qry_update_data = "UPDATE `teams` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+            $do_update_data = mysqli_query($connection, $qry_update_data);
+
+            echo mysqli_error($connection);
+
+            unlink("../uploads/$comp_id.xml");
+
+            header("Location: ../php/teams.php?comp_id=$comp_id");
+        }
+        else {
 
             echo "Sorry, there was an error uploading your file.";
         }
