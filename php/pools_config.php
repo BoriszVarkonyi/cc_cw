@@ -550,8 +550,21 @@
                                                 <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                                 <div class="search_results">
 
-                                                        <button type="button" onclick="selectSystem(this)">Ide ierj</button>
+                                                        <?php
+                                                            $qry_get_pistes = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
+                                                            $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
+                                                            if ($row = mysqli_fetch_assoc($do_get_pistes)) {
+                                                                $pists_array = json_decode($row['data']);
+                                                            }
 
+                                                            foreach ($pists_array as $piste_obj) {
+                                                                $piste_name = $piste_obj -> name;
+                                                                $piste_color = $piste_obj -> color;
+                                                                $piste_url = $piste_obj -> url;
+
+                                                        ?>
+                                                        <button type="button" onclick="selectSystem(this)">Piste <?php echo $piste_name ?></button>
+                                                        <?php } ?>
                                                 </div>
                                             </div>
 
