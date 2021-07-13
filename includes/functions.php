@@ -352,7 +352,34 @@ function isDisqualified($points) {
     }
 }
 
+function teamTableSelector($fencernum) {
 
+    switch ($fencernum) {
 
+        case $fencernum <= 2:
+        $table = 0;
+        break;
+        case $fencernum <= 4:
+        $table = 1;
+        break;
+        case $fencernum <= 8:
+        $table = 2;
+        break;
+        case $fencernum <= 16:
+        $table = 3;
+        break;
+        case $fencernum <= 32:
+        $table = 4;
+        break;
+        case $fencernum <= 64:
+        $table = 5;
+        break;
+        case $fencernum <= 128:
+        $table = 6;
+        break;
 
-?>
+    }
+
+    return $table;
+
+}
