@@ -41,34 +41,46 @@
             </form>
         </div>
         <div id="panel_main">
-            <div class="table full">
-                <div class="table_header">
-                    <div class="table_header_text">NATION / FENCING CLUB</div>
-                    <div class="table_header_text">FEDERATION'S EMAIL ADDRESS</div>
-                    <div class="table_header_text">NUMBER OF FENCERS</div>
-                    <div class="table_header_text">TIME BOOKED</div>
-                    <div class="big_status_header"></div>
-                </div>
-                <div class="table_row_wrapper">
-
-
-                    <div class="table_row" onclick="selectRow(this)" id="">
-                        <div class="table_item">Hungary</div>
-                        <div class="table_item">hunfencing@hfenc.hu</div>
-                        <div class="table_item">12</div>
-                        <div class="table_item">10:00-10:30</div>
-                        <div class="big_status_item gray"></div>
-                    </div>
-
-
-                </div>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <p>NATION / FENCING CLUB</p>
+                        </th>
+                        <th>
+                            <p>FEDERATION'S EMAIL ADDRESS</p>
+                        </th>
+                        <th>
+                            <p>NUMBER OF FENCERS</p>
+                        </th>
+                        <th>
+                            <p>TIME BOOKED</p>
+                        </th>
+                        <th class="square"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="selectRow(this)" id="">
+                        <td>
+                            <p>Hungary</p>
+                        </td>
+                        <td>
+                            <p>hunfencing@hfenc.hu</p>
+                        </td>
+                        <td>
+                            <p>12</p>
+                        </td>
+                        <td>
+                            <p>10:00 - 10:30</p>
+                        </td>
+                        <td class="square gray"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
-    <script src="../js/manage_entries.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/list_2.js"></script>
 </body>
 </html>

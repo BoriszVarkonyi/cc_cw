@@ -148,28 +148,36 @@ if(isset($_POST["submit"]) ){
                                     <input type="text" name="" placeholder="Search by Title" class="search">
                                     <input type="button" name="" value="Search">
                                 </form>
-                                <div class="table t_c_0">
-                                    <div class="table_row_wrapper">
-                                        <?php
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <p>NAME</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
 
-                                            $select_ranking_rows = "SELECT * FROM ranking WHERE ass_comp_id = 0";
-                                            $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
+                                    $select_ranking_rows = "SELECT * FROM ranking WHERE ass_comp_id = 0";
+                                    $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
 
-                                            while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
+                                    while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
 
-                                                $ranking_name = $row['name'];
-                                                $ranking_id = $row['id'];
+                                        $ranking_name = $row['name'];
+                                        $ranking_id = $row['id'];
 
-                                        ?>
+                                    ?>
 
-                                                <div class="table_row" id="<?php echo $ranking_id ?>" onclick="selectRanking(this)">
-                                                    <div class="table_item"><p><?php echo $ranking_name ?></p></div>
-                                                </div>
+                                        <tr>
+                                            <td id="<?php echo $ranking_id ?>" onclick="selectRanking(this)">
+                                                <p><?php echo $ranking_name ?></p>
+                                            </td>
+                                        </tr>
 
-                                        <?php } ?>
-
-                                    </div> <!--From * SELECT table name LIKE sadsadas -->
-                                </div>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
                                 <form>
                                     <input type="button" value="Use Ranking" onclick="getName()">
                                 </form>

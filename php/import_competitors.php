@@ -59,18 +59,31 @@
                             </form>
                         </div>
                     </div>
-                    <div class="table">
-                        <div class="table_header">
-                            <div class="table_header_text"><p>ID</p></div>
-                            <div class="table_header_text"><p>FIRST NAME</p></div>
-                            <div class="table_header_text"><p>LAST NAME</p></div>
-                            <div class="table_header_text"><p>NATION</p></div>
-                            <div class="table_header_text"><p>CLUB</p></div>
-                            <div class="table_header_text"><p>RANK</p></div>
-                        </div>
-                        <div class="table_row_wrapper">
-                        </div>
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>ID</p>
+                                </th>
+                                <th>
+                                    <p>FIRST NAME</p>
+                                </th>
+                                <th>
+                                    <p>LAST NAME</p>
+                                </th>
+                                <th>
+                                    <p>NATION</p>
+                                </th>
+                                <th>
+                                    <p>CLUB</p>
+                                </th>
+                                <th>
+                                    <p>RANK</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
         </main>

@@ -538,55 +538,95 @@
                             ?>
                             <div>
                                 <div class="entry">
-                                    <div class="table_row">
-                                        <div class="table_item bold">No.<?php echo $pool_num ?></div>
-                                        <div class="table_item">Piste <?php echo $piste ?></div>
-                                        <div class="table_item">Ref 1: <?php
-                                                                        if (isset($refname)) {
+                                    <div class="tr">
+                                        <div class="td bold">No.<?php echo $pool_num ?></div>
+                                        <div class="td">
+                                            <p>Piste <?php echo $piste ?></p>
 
-                                                                            echo $refname;
-                                                                            echo "(" . $refnat . ")";
-                                                                        } else {
-                                                                            echo "No ref assigned!";
-                                                                        }
+                                            <div class="search_wrapper narrow">
+                                                <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+                                                    <input type="text" name="" placeholder="Select Piste">
+                                                </button>
+                                                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                                <div class="search_results">
+
+                                                        <button type="button" onclick="selectSystem(this)">Ide ierj</button>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="td">
+                                            <p>
+                                            Ref 1: <?php
+                                            if (isset($refname)) {
+
+                                                echo $refname;
+                                                echo "(" . $refnat . ")";
+                                            } else {
+                                                echo "No ref assigned!";
+                                            }
+                                            ?>
+                                            </p>
+                                            <div class="search_wrapper narrow">
+                                                <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+                                                    <input type="text" name="" placeholder="Select Referee">
+                                                </button>
+                                                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                                <div class="search_results">
+
+                                                        <button type="button" onclick="selectSystem(this)">Ide ierj</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-                                                                        ?></div>
+                                        <div class="td">
+                                            <p> Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</p>
+                                            <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+                                                <input type="text" name="" placeholder="Select Referee">
+                                            </button>
+                                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                            <div class="search_results">
 
-                                        <?php
-                                        if ($ref2name != "") {
-                                        ?>
-                                            <div class="table_item">Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</div>
-                                        <?php
-                                        }
-                                        ?>
-                                        <div class="table_item"><?php echo $time ?></div>
-                                        <div class="big_status_item">
+                                                    <button type="button" onclick="selectSystem(this)">Ide ierj</button>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="td">
+                                            <p><?php echo $time ?></p>
+                                            <input type="time" class="centered">
+                                        </div>
+                                        <div class="td square">
                                             <button type="button" onclick="" class="pool_config">
                                                 <img src="../assets/icons/settings_black.svg">
                                             </button>
                                         </div>
                                     </div>
                                     <div class="entry_panel">
-                                        <div class="pool_table_wrapper table small">
-                                            <div class="table_header">
-                                                <div class="table_header_text">
-                                                    <p>NAME</p>
-                                                </div>
-                                                <div class="table_header_text">
-                                                    <P>CLUB</P>
-                                                </div>
+                                        <table class="small">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <p>NAME</p>
+                                                    </th>
+                                                    <th>
+                                                        <p>CLUB</p>
+                                                    </th>
+                                                    <th>
+                                                        <p>CP</p>
+                                                    </th>
+                                                    <th>
+                                                        <p>PR</p>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="alt" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
 
-                                                <div class="table_header_text square">
-                                                    <p>CP</p>
-                                                </div>
+                                            </tbody>
 
-                                                <div class="table_header_text square">
-                                                    <p>PR</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="table_row_wrapper alt" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
                                                 <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php
                                                     for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
@@ -600,24 +640,24 @@
                                                         $json_string_obj = json_encode($json_table[$pool_num] -> $fencer_number,JSON_UNESCAPED_UNICODE);
                                                 ?>
 
-                                                    <div class="table_row">
-                                                        <div class="table_item">
+                                                    <tr>
+                                                        <td>
                                                             <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
-                                                        </div>
-                                                        <div class="table_item">
+                                                        </td>
+                                                        <td>
                                                             <p><?php echo $fencer_nat ?></p>
-                                                        </div>
-                                                        <div class="table_item square">
+                                                        </td>
+                                                        <td class="square">
                                                             <p><?php echo $fencer_cp ?></p>
-                                                        </div>
-                                                        <div class="table_item square">
+                                                        </td>
+                                                        <td class="square">
                                                             <p><?php echo $fencer_rp ?></p>
-                                                        </div>
-                                                    </div>
+                                                        </td>
+                                                    </tr>
                                                     <div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>
                                                 <?php } ?>
-                                            </div>
-                                        </div>
+
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -643,6 +683,7 @@
     <script src="../js/main.js"></script>
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/modal.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/pools_config.js"></script>
 </body>
 </html>

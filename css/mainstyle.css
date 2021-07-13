@@ -3178,11 +3178,7 @@ div.title_box > button {
 	box-shadow: var(--s-black);
 	position: relative;
 	overflow: hidden;
-}
-
-#pool_listing .entry > .entry_panel {
-	height: 50vh;
-	max-height: 600px;
+	margin-bottom: 25px;
 }
 
 #pool_listing .entry > .table_row > .table_item {
@@ -3868,8 +3864,8 @@ div.title_box > button {
 }
 
 .draw_button.inactive {
-	background: transparent
-	border-color: var(--c-darkgray);
+	background: transparent;
+	border-color: var(--c-primary);
 }
 
 .draw_button:hover {
@@ -3878,8 +3874,8 @@ div.title_box > button {
 }
 
 .draw_button.inactive:hover {
-	background: var(--c-lightestgray);
-	border-color: var(--c-gray);
+	background: var(--c-lightprimary);
+	border-color: var(--c-primary);
 }
 
 .save_draw_positions {
@@ -3948,8 +3944,6 @@ div.title_box > button {
 .positions_grid div:nth-child(4) {
 	margin: 1px 0 0 0;
 }
-
-
 
 /* PRINTS EXTRA */
 

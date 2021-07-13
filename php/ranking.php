@@ -268,7 +268,7 @@ if(mysqli_num_rows($query_do) == 0){
                     }
                 ?>
 
-                    <div class="wrapper w90 table">
+                    <table class="wrapper w90">
 
                         <?php
                             if ($row_cnt == 0) {
@@ -286,60 +286,72 @@ if(mysqli_num_rows($query_do) == 0){
                         <?php
                             if ($row_cnt != 0) {
                         ?>
-                                <div class="table_header">
-                                    <div class="table_header_text">POSITION</div>
-                                    <div class="table_header_text">POINTS</div>
-                                    <div class="table_header_text">NAME</div>
-                                    <div class="table_header_text">NATION / CLUB</div>
-                                    <div class="table_header_text">DATE OF BIRTH</div>
-                                </div>
-                                <div class="table_row_wrapper">
-                        <?php
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>POSITION</p>
+                                        </th>
+                                        <th>
+                                            <p>POINTS</p>
+                                        </th>
+                                        <th>
+                                            <p>NAME</p>
+                                        </th>
+                                        <th>
+                                            <p>NATION / CLUB</p>
+                                        </th>
+                                        <th>
+                                            <p>DATE OF BIRTH</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
 
-                            }
+                                        }
 
-                    $query = "SELECT * FROM $table_name ORDER BY points DESC";
-                    $query_do = mysqli_query($connection, $query);
-                    $pos = 1;
+                                $query = "SELECT * FROM $table_name ORDER BY points DESC";
+                                $query_do = mysqli_query($connection, $query);
+                                $pos = 1;
 
-                    // fencers dinamic table
-                    while($row = mysqli_fetch_assoc($query_do)) {
+                                // fencers dinamic table
+                                while($row = mysqli_fetch_assoc($query_do)) {
 
-                        $id = $row['id'];
-                        $name = $row["name"];
-                        $nat = $row["nationality"];
-                        $points = $row["points"];
-                        $dob = $row["dob"];
+                                    $id = $row['id'];
+                                    $name = $row["name"];
+                                    $nat = $row["nationality"];
+                                    $points = $row["points"];
+                                    $dob = $row["dob"];
 
-                        //postion changing in database and dinamic table
-                        $query_pos = "UPDATE $table_name SET position = $pos WHERE id = $id";
+                                    //postion changing in database and dinamic table
+                                    $query_pos = "UPDATE $table_name SET position = $pos WHERE id = $id";
 
-                        if (mysqli_query($connection, $query_pos)) {
-                            $pos_feedback = "position has been changed in" . $table_name;
-                        } else {
-                            $pos_feedback = mysqli_error($connection);
-                        }
+                                    if (mysqli_query($connection, $query_pos)) {
+                                        $pos_feedback = "position has been changed in" . $table_name;
+                                    } else {
+                                        $pos_feedback = mysqli_error($connection);
+                                    }
 
-                        ?>
+                                    ?>
 
 
-                            <div class="table_row" id="<?php echo $id ?>" onclick="toDelete(this)">
+                                        <tr id="<?php echo $id ?>" onclick="toDelete(this)">
 
-                                <div class="table_item bold"><p><?php echo $pos ?></p></div>
-                                <div class="table_item"><p><?php echo $points ?></p></div>
-                                <div class="table_item"><p><?php echo $name ?></p></div>
-                                <div class="table_item"><p><?php echo $nat ?></p></div>
-                                <div class="table_item"><p><?php echo $dob ?></p></div>
+                                            <td class="bold"><p><?php echo $pos ?></p></td>
+                                            <td><p><?php echo $points ?></p></td>
+                                            <td><p><?php echo $name ?></p></td>
+                                            <td><p><?php echo $nat ?></p></td>
+                                            <td><p><?php echo $dob ?></p></td>
 
-                            </div>
+                                        </tr>
 
-                    <?php
+                                <?php
 
-                    $pos += 1;
-                    }
-                    ?>
-                    </div>
-                </div>
+                                $pos += 1;
+                                }
+                                ?>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>

@@ -185,6 +185,7 @@ if (isset($_POST['submit_import'])) {
     <title>Referees</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
+    <link rel="stylesheet" href="../css/list_style.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>

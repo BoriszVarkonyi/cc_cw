@@ -147,34 +147,6 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                 <p class="modal_subtitle">Szija</p>
             </div>
             <div class="modal_main">
-                <img src="../assets/icons/arrow_back_ios_black.svg" class="modal_main_image margin_bottom">
-                <p class="modal_main_title margin_bottom primary big">Bruh</p>
-                <p class="modal_main_title margin_bottom big">Bruh</p>
-                <p class="modal_main_title margin_bottom primary">Bruh</p>
-                <p class="modal_main_title margin_bottom margin_top primary">Bruh</p>
-                <p class="modal_main_title margin_bottom centered">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph centered">Bruh</p>
-                <p class="modal_paragraph margin_top">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph big">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph margin_bottom">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
-                <p class="modal_paragraph">Bruh</p>
             </div>
             <div class="modal_footer">
                 <p class="modal_footer_text">This change cannot be undone.</p>
@@ -196,17 +168,24 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                 <div id="manage_entries_wrapper">
                     <div id="new_entries_panel">
                         <p>New Entries</p>
-                        <div class="table">
-                            <div class="table_header">
-                                <div class="table_header_text">FEDERATION'S NAME</div>
-                                <div class="table_header_text">FEDERATION'S EMAIL ADDRESS</div>
-                                <div class="table_header_text">CONTACT KEEPER'S NAME</div>
-                                <div class="big_status_header"></div>
-                            </div>
-                            <div class="table_row_wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>FEDERATION'S NAME</p>
+                                    </th>
+                                    <th>
+                                        <p>FEDERATION'S EMAIL ADDRESS</p>
+                                    </th>
+                                    <th>
+                                        <p>CONTACT KEEPER'S NAME</p>
+                                    </th>
+                                    <th class="square"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
                                 <?php
-
 
                                 $query = "SELECT * FROM pre_$comp_id WHERE stat = 0";
                                 $query_do = mysqli_query($connection, $query);
@@ -226,8 +205,6 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 
                                     $entry_id = $row["id"];
 
-
-
                                     //$ids = substr($ids, 0, -1);
 
                                     $get_fencers_query = "SELECT * FROM rk_$rkid WHERE id IN ($ids)";
@@ -237,18 +214,14 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                         echo mysqli_error($connection);
                                     }
 
-
-
-
                                     ?>
 
-
                                     <div class="entry" id="<?php echo $ids ?>">
-                                        <div class="table_row" id="<?php echo $entry_id ?>" onclick="toggleEntry(this)">
-                                            <div class="table_item"><?php echo $f_name ?></div>
-                                            <div class="table_item"><?php echo $f_mail ?></div>
-                                            <div class="table_item"><?php echo $f_country ?></div>
-                                            <div class="big_status_item gray"></div>
+                                        <div class="tr" id="<?php echo $entry_id ?>" onclick="toggleEntry(this)">
+                                            <div class="td"><?php echo $f_name ?></div>
+                                            <div class="td"><?php echo $f_mail ?></div>
+                                            <div class="td"><?php echo $f_country ?></div>
+                                            <div class="td square gray"></div>
                                         </div>
                                         <div class="entry_panel collapsed">
                                             <button type="button" class="entry_info_button" onclick="toggleEntryInfo(this)">
@@ -325,8 +298,8 @@ header("Location: manage_entries.php?comp_id=$comp_id");
                                 <?php
                                 }
                                 ?>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
 
                         <div id="managed_entries_panel">
                             <p>Managed Entries</p>
@@ -369,7 +342,6 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 
                                     $get_fencers_query = "SELECT * FROM rk_$rkid WHERE id IN ($ids)";
                                     $get_fencers_query_do = mysqli_query($connection, $get_fencers_query);
-
 
 
 

@@ -202,9 +202,7 @@
                         </tbody>
                     </table>
                     <div id="notes_panel">
-                        <div class="table_header">
-                            <div class="table_header_text title">NOTES</div>
-                        </div>
+                        <p>NOTES</p>
                         <textarea name="wc_notes" id="wc_notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
                     </div>
                 </form>

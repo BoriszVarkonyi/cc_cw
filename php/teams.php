@@ -99,7 +99,7 @@
             <div id="title_stripe">
                 <p class="page_title">Teams</p>
                 <div class="stripe_button_wrapper">
-                    <form action="" method="POST" id="IDE KELL A FORM IDJE">
+                    <form action="" method="POST" id="remove_team_form">
                         <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
                     </form>
 
@@ -107,7 +107,7 @@
                         <p>Import Teams from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
-                    <button class="stripe_button red" name="remove_team" type="submit" form="IDE KELL A FORM IDJE">
+                    <button class="stripe_button red" name="remove_team" type="submit" form="remove_team_form">
                         <p>Remove Team</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
@@ -181,7 +181,7 @@
                                         </div>
                                         <div>
                                             <label for="">COACH</label>
-                                            <input type="text" name="coach_input" value="<?php echo $coach ?>" class="name_input" placeholder="Type in the team leader's name">
+                                            <input type="text" name="coach_input" value="<?php echo $coach ?>" class="name_input" placeholder="Type in the coach's name">
                                         </div>
                                         <input name="team_name" type="text" class="hidden" value="<?php echo $name ?>">
                                         <div class="">
@@ -211,7 +211,7 @@
                                             } else {
                                                 foreach ($fencers_array as $fencer_obj) {
                                                     $fencers_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
-                                                
+
 
                                         ?>
                                         <tr>

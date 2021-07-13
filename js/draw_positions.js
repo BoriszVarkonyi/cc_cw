@@ -6,4 +6,5 @@ function drawPositions() {
 
     saveButton.classList.toggle("hidden");
     drawButton.classList.toggle("inactive");
+
 }

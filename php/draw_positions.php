@@ -54,6 +54,7 @@
                         </div>
                     </div>
                     <form action="" id="team_positions_wrapper">
+
                         <div id="t32" class="team_positions hidden">
                             <div class="rounds_container">
                                 <p class="round_text"><span>T32</span> Contains:</p>
@@ -61,8 +62,8 @@
                             </div>
 
                             <div class="positions_button_wrapper">
-                                <button class="draw_button" type="button" id="draw_positions_button" onclick="drawPositions()">Draw</button>
-                                <button class="save_draw_positions hidden" id="save_positions_button" type="submit">Save</button>
+                                <button class="draw_button" type="button" id="draw_positions_butto" onclick="drawPositions()">Draw</button>
+                                <button class="save_draw_positions hidden" id="save_positions_butto" type="submit">Save</button>
                             </div>
 
                             <div class="positions_wrapper">

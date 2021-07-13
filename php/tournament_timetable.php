@@ -243,14 +243,24 @@ if (isset($_POST["new_weapon_control"])) {
             </form>
             <div class="table_wrapper" id="wc_phases_table">
                 <label for="">WEAPON CONTROL PHASES</label>
-                <div class="table full" id="wc_phrases_table">
-                    <div class="table_header">
-                        <div class="table_header_text">DATE</div>
-                        <div class="table_header_text">STARTING TIME</div>
-                        <div class="table_header_text">ENDING TIME</div>
-                        <div class="table_header_text">MIN. / FENCER</div>
-                    </div>
-                    <div class="table_row_wrapper">
+                <table class="full" id="wc_phrases_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>DATE</p>
+                            </th>
+                            <th>
+                                <p>STARTING TIME</p>
+                            </th>
+                            <th>
+                                <p>ENDING TIME</p>
+                            </th>
+                            <th>
+                                <p>MIN. / FENCER</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
                         <?php
 
@@ -263,8 +273,8 @@ if (isset($_POST["new_weapon_control"])) {
                                 }
 
                         ?>
-                                <div class="table_row">
-                                    <div class="table_item"><?php echo $keydate ?></div>
+                                <tr>
+                                    <td><?php echo $keydate ?></td>
 
                                     <?php
 
@@ -277,18 +287,18 @@ if (isset($_POST["new_weapon_control"])) {
                                         array_push($valuearray, $empty);
                                     }
                                     ?>
-                                    <div class="table_item"><?php echo $timearray[0]; ?></div>
-                                    <div class="table_item"><?php echo $timearray[count($timearray) - 2]; ?></div>
+                                    <td><?php echo $timearray[0]; ?></td>
+                                    <td><?php echo $timearray[count($timearray) - 2]; ?></td>
 
-                                    <div class="table_item"><?php echo end($valuearray) ?></div>
-                                </div>
+                                    <td><?php echo end($valuearray) ?></td>
+                                </tr
                         <?php
                             }
                         }
 
                         ?>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
 
 
