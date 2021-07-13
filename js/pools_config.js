@@ -276,8 +276,7 @@ function removeOpenAndCollapseClass() {
 //Checks if the pool table is full
 function checkPoolTable(x) {
     var table = x.parentNode
-    var fencerNumber = table.querySelectorAll("tr")
-    console.log(fencerNumber)
+    var fencerNumber = table.querySelectorAll("tr:not(tr.drop)").length
     if (fencerNumber < maxFencerNumber) {
         return true;
     }
