@@ -560,7 +560,10 @@ if (isset($_POST["generate_table"])) {
 
                                     }
                                     ?>
+                                <!-- ELIM LEZÁRÓ -->
                                 </div>
+                            <!-- CALLROOM LEZÁRÓ -->
+                            </div>
                             <?php
 
                     }
@@ -569,7 +572,7 @@ if (isset($_POST["generate_table"])) {
                         ?>
 
 
-                            </div>
+
 
                     <?php
 
