@@ -1268,11 +1268,11 @@ tbody.alt tr {
 
 /* Table Rows and Items double alternative automatic coloring */
 
-tbody.altdouble tr:nth-child(5n - 1) {
-    background: var(--c-lightergray) !important;
+tbody.altdouble tr:nth-child(2n - 2) {
+    background: var(--c-lightergray);
 }
 
-tbody.altdouble tr:nth-child(1n - 1) {
+tbody.altdouble tr:nth-child(4n - 2) {
     background: var(--c-lightestgray) !important;
 }
 

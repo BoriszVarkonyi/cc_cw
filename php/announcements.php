@@ -139,51 +139,12 @@
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div id="announcements_wrapper" class="wrapper">
-                    <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
-                            <img src="../assets/icons/build_black.svg">
-                            <p>Manage Announcements</p>
-                        </div>
-                        <div class="db_panel_main table">
-                            <table class="full">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <p>TITLE</p>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="alt no_scale">
-                                    <?php
-
-                                    for ($i = 0; $i < count($json_table); $i++) {
-
-                                    ?>
-
-
-                                    <tr onclick="toggleEntry(this)">
-                                        <td><p><?php echo $json_table[$i] -> title; ?></td>
-                                    </tr>
-
-
-                                    <!-- updateing entry -->
-                                    <tr class="entry collapsed">
-                                        <td>
-                                            <form id="update" method="POST" action="">
-                                                <textarea name="text_body" placeholder="Type the Announcement's body text here"><?php echo $json_table[$i] -> body ?></textarea>
-                                                <input name="submit_body" type="submit" value="Save" class="panel_submit">
-                                            </form>
-                                        </td>
-                                    </tr>
-
-                                <?php
-                                }
-
-                                ?>
-
-                                </tbody>
-                            </table>
+                <div class="wrapper">
+                    <div class="entry">
+                        <div class="tr">
+                            <div class="td">
+                                <p>Annoucement Cím</p>
+                            </div>
                         </div>
                     </div>
                 </div>
