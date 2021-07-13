@@ -1160,31 +1160,25 @@ tr.disqualified.selected td:first-child {
 
 /* Drop Rows */
 tr.drop {
-	display: none !important;
-	justify-content: center;
-	align-items: center;
-	height: 0 !important;
+	display: none;
+	height: 0;
+	color: var(--black);
+	font-family: var(--bold);
+	font-size: var(--f-small);
 }
 
 tr.drop.collapsed {
-	background: var(--c-lightprimary) !important;
-	height: 4px;
-	display: flex !important;
-	border-radius: 5px;
+	height: 20px;
+	display: table-row;
+	background: var(--c-gray);
 }
 
 tr.drop.opened {
-	background: var(--c-lightprimary) !important;
-	height: 4px;
-	display: flex !important;
-	border-radius: 5px;
+	height: 20px;
+	display: table-row;
+	background: var(--c-lightprimary);
 }
 
-tr.drop.opened::after {
-	content: "Drop Fencer here";
-	color: var(--cd-primarycontrast);
-	font-family: var(--bold);
-}
 
 
 /* Text inside Table elements */
@@ -1273,7 +1267,7 @@ tbody.altdouble tr:nth-child(2n - 2) {
 }
 
 tbody.altdouble tr:nth-child(4n - 2) {
-    background: var(--c-lightestgray) !important;
+    background: var(--c-lightestgray);
 }
 
 tbody.altdouble tr {
@@ -1336,6 +1330,10 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	background: var(--c-lightestgray);
 	position: relative;
 	z-index: 1;
+}
+
+.tr.clickable {
+	cursor: pointer;
 }
 
 /* Makes all the child elements the same width */

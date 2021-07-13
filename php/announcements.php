@@ -139,14 +139,8 @@
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="wrapper">
-                    <div class="entry">
-                        <div class="tr">
-                            <div class="td">
-                                <p>Annoucement Cím</p>
-                            </div>
-                        </div>
-                    </div>
+                <div id="announcements_wrapper" class="wrapper">
+
                 </div>
             </div>
         </div>

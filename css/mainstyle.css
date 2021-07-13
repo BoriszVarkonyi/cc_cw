@@ -2303,7 +2303,7 @@ input[type="file"] {
 	overflow-x: hidden;
 }
 
-.db_panel textarea {
+.entry_panel textarea {
 	padding: 5px;
 	width: 80%;
 	height: 70%;
@@ -2318,7 +2318,7 @@ textarea.standalone {
 	margin: 0 auto;
 }
 
-.db_panel textarea:hover, .db_panel textarea:focus {
+.entry_panel textarea:hover, .entry_panel textarea:focus {
 	background: var(--c-white);
 	border: 2px dashed var(--c-secondary);
 	transition: background-color var(--t-basic), border var(--t-basic);
@@ -3910,4 +3910,10 @@ div.title_box > button {
 
 .title_container.hidden, .signatures.hidden {
     display: none;
+}
+
+/* Announcements */
+
+#announcements_wrapper {
+
 }
