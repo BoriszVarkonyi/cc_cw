@@ -542,7 +542,7 @@
                                     <div class="td">
                                         <p>Piste <?php echo $piste ?></p>
 
-                                        <form class="search_wrapper narrow hidden">
+                                        <form class="search_wrapper narrow">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                                 <input type="text" name="" placeholder="Select Piste">
                                             </button>
@@ -562,7 +562,7 @@
                                                             $piste_url = $piste_obj -> url;
 
                                                     ?>
-                                                    <button type="submit">Piste <?php echo $piste_name ?></button>
+                                                    <button type="button" onclick="selectSystem(this)">Piste <?php echo $piste_name ?></button>
                                                     <?php } ?>
                                             </div>
                                         </form>
@@ -580,7 +580,7 @@
                                         }
                                         ?>
                                         </p>
-                                        <form class="search_wrapper narrow hidden">
+                                        <form class="search_wrapper narrow">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                                 <input type="text" name="" placeholder="Select Referee">
                                             </button>
@@ -605,7 +605,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="submit"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" onclick="selectSystem(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </form>
@@ -614,7 +614,7 @@
 
                                     <div class="td">
                                         <p> Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</p>
-                                        <form class="search_wrapper narrow hidden">
+                                        <form class="search_wrapper narrow">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
                                                 <input type="text" name="" placeholder="Select Referee">
                                             </button>
@@ -639,7 +639,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="submit"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" onclick="selectSystem(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </form>
@@ -647,10 +647,10 @@
 
                                     <div class="td">
                                         <p><?php echo $time ?></p>
-                                        <input type="time" class="centered hidden">
+                                        <input type="time" class="centered">
                                     </div>
                                     <div class="td square">
-                                        <button type="button" onclick="poolConfig(this)" class="pool_config">
+                                        <button type="button" onclick="" class="pool_config">
                                             <img src="../assets/icons/settings_black.svg">
                                         </button>
                                     </div>
@@ -674,7 +674,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="altdouble" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
-                                            <tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"><td colspan="4">Drop Fencer here</td></tr>
+                                            <tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>
                                             <?php
                                                 for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
 
@@ -701,7 +701,7 @@
                                                     <p><?php echo $fencer_rp ?></p>
                                                 </td>
                                             </tr>
-                                            <tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"><td colspan="4">Drop Fencer here</td></tr>
+                                            <tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
