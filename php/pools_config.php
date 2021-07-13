@@ -549,7 +549,7 @@
                                                 <input type="text" class="" readonly>
 
                                                 <!-- IDE KELL BECHOZNI -->
-                                                <input type="text" placeholder="Select Referee" readonly>
+                                                <input type="text" placeholder="Select Piste" readonly>
 
                                             </button>
                                             <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
