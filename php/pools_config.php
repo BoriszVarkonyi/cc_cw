@@ -542,9 +542,15 @@
                                     <div class="td">
                                         <p>Piste <?php echo $piste ?></p>
 
-                                        <form class="search_wrapper narrow hidden">
+                                        <div class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
-                                                <input type="text" name="" placeholder="Select Piste">
+
+                                                <!-- EZ AZ ID -->
+                                                <input type="text" class="" readonly>
+
+                                                <!-- IDE KELL BECHOZNI -->
+                                                <input type="text" placeholder="Select Piste" readonly>
+
                                             </button>
                                             <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                             <div class="search_results">
@@ -562,10 +568,10 @@
                                                             $piste_url = $piste_obj -> url;
 
                                                     ?>
-                                                    <button type="submit">Piste <?php echo $piste_name ?></button>
+                                                    <button type="button" id="" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
                                                     <?php } ?>
                                             </div>
-                                        </form>
+                                        </div>
 
                                     </div>
                                     <div class="td">
@@ -580,9 +586,15 @@
                                         }
                                         ?>
                                         </p>
-                                        <form class="search_wrapper narrow hidden">
+                                        <div class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
-                                                <input type="text" name="" placeholder="Select Referee">
+
+                                                <!-- EZ AZ ID -->
+                                                <input type="text" class="" readonly>
+
+                                                <!-- IDE KELL BECHOZNI -->
+                                                <input type="text" placeholder="Select Referee" readonly>
+
                                             </button>
                                             <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                             <div class="search_results">
@@ -605,18 +617,24 @@
                                                             }
 
                                                     ?>
-                                                    <button type="submit"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
 
 
                                     <div class="td">
                                         <p> Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</p>
-                                        <form class="search_wrapper narrow hidden">
+                                        <div class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
-                                                <input type="text" name="" placeholder="Select Referee">
+
+                                                <!-- EZ AZ ID -->
+                                                <input type="text" class="" readonly>
+
+                                                <!-- IDE KELL BECHOZNI -->
+                                                <input type="text" placeholder="Select Referee" readonly>
+
                                             </button>
                                             <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
                                             <div class="search_results">
@@ -639,10 +657,10 @@
                                                             }
 
                                                     ?>
-                                                    <button type="submit"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
 
                                     <div class="td">
@@ -652,6 +670,9 @@
                                     <div class="td square">
                                         <button type="button" onclick="poolConfig(this)" class="pool_config">
                                             <img src="../assets/icons/settings_black.svg">
+                                        </button>
+                                        <button type="submit">
+                                            save
                                         </button>
                                     </div>
                                 </div>

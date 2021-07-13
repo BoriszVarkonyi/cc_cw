@@ -46,7 +46,7 @@ function searchEngine(x) {
     for (i = 0; i < visibleLi.length; i++) {
         visibleLi[i].classList.remove("selected")
     }
-    if (event.key != "ArrowUp" && event.key != "ArrowDown" && event.key !="Home" && event.key !="End") {
+    if (event.key != "ArrowUp" && event.key != "ArrowDown" && event.key != "Home" && event.key != "End") {
         selectedElementIndex = 0;
     }
     if (visibleLi.length > 0) {
@@ -84,7 +84,7 @@ function searchEngine(x) {
                 }
                 keyDownEvent.preventDefault();
             }
-            if(keyDownEvent.key == "Home" && !ul.classList.contains("empty")){
+            if (keyDownEvent.key == "Home" && !ul.classList.contains("empty")) {
                 selectedElementIndex = 0;
                 for (i = 0; i < visibleLi.length; i++) {
                     visibleLi[i].classList.remove("selected")
@@ -92,10 +92,10 @@ function searchEngine(x) {
                 visibleLi[selectedElementIndex].classList.add("selected")
                 visibleLi[selectedElementIndex].scrollIntoView()
                 keyDownEvent.preventDefault();
-                
+
             }
-            if(keyDownEvent.key == "End" && !ul.classList.contains("empty")){
-                selectedElementIndex = visibleLi.length-1;
+            if (keyDownEvent.key == "End" && !ul.classList.contains("empty")) {
+                selectedElementIndex = visibleLi.length - 1;
                 for (i = 0; i < visibleLi.length; i++) {
                     visibleLi[i].classList.remove("selected")
                 }
@@ -133,7 +133,7 @@ function resultChecker(x) {
     }
 }
 
-//Clears the search 
+//Clears the search
 var clearButton = document.querySelectorAll(".clear_search_button")
 clearButton.forEach(item => {
     item.addEventListener("click", function (event) {
@@ -158,6 +158,15 @@ function selectSystem(x) {
     selectInput.value = clickedOption.textContent
 }
 
+function selectSystemExtended(x) {
+    var clickedOption = x;
+    var selectInput = x.parentNode.parentNode.firstElementChild.lastElementChild;
+    var idInput = x.parentNode.parentNode.firstElementChild.firstElementChild;
+    //Fill the input value
+    selectInput.value = clickedOption.textContent;
+    idInput.value = x.id;
+}
+
 var searchBarClosed = true;
 function isOpen(x) {
     var searchResult = x.nextElementSibling.nextElementSibling;
@@ -168,7 +177,7 @@ function isClosed(x) {
     var searchResult = x.nextElementSibling.nextElementSibling;
     searchResult.classList.remove("opened")
     var removeElemClass = document.querySelectorAll(".search_results .selected")
-    for(i=0; i<removeElemClass.length; i++){
+    for (i = 0; i < removeElemClass.length; i++) {
         removeElemClass[i].classList.remove("selected")
     }
     searchBarClosed = true;
