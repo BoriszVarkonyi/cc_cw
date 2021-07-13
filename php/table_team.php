@@ -458,13 +458,7 @@ if (isset($_POST["generate_table"])) {
 
 
 
-                <!-- HA NINCS
-                    <div id="no_something_panel">
-                        <p>You have no table generated!</p>
-                    </div>
-                    -->
 
-                <!-- HA van -->
 
                 <?php
 
@@ -476,107 +470,118 @@ if (isset($_POST["generate_table"])) {
                     $json_team_table = json_decode($json_string);
                 }
 
-                echo "ANYÁD: " . $numofteams;
-
-                $tabletypes = ["r3", "r2", "r1", "t_16", "t_32", "t_64", "t_128"];
-
-                $headerexistance = false;
-                for ($i = teamTableSelector($numofteams); $i >= 0; $i--) {
-
-                    if ($tabletypes[$i] == "t_16" || $tabletypes[$i] == "t_32" || $tabletypes[$i] == "t_64" || $tabletypes[$i] == "t_128") {
-                        if ($headerexistance == false) {
-
-
+                if (mysqli_num_rows($do_check_row) == 0) {
                 ?>
 
-                            <div id="32_16" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
+                    <div id="no_something_panel">
+                        <p>You have no table generated!</p>
+                    </div>
+
+                    <?php
+                } else {
+
+                    echo "ANYÁD: " . $numofteams;
+
+                    $tabletypes = ["r3", "r2", "r1", "t_16", "t_32", "t_64", "t_128"];
+
+                    $headerexistance = false;
+                    for ($i = teamTableSelector($numofteams); $i >= 0; $i--) {
+
+                        if ($tabletypes[$i] == "t_16" || $tabletypes[$i] == "t_32" || $tabletypes[$i] == "t_64" || $tabletypes[$i] == "t_128") {
+                            if ($headerexistance == false) {
 
 
+                    ?>
 
-                            <?php
-                            $headerexistance = true;
-                        }
-                            ?>
-                            <div id="e_" class="elimination">
-                                <div class="elimination_label"><?php echo $tabletypes[$i] ?></div>
-                                <?php
-
-                                $tablepartstring = $tabletypes[$i];
-
-                                foreach ($json_team_table->$tablepartstring as $matchkey => $matchvalue) {
-                                ?>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
+                                <div id="32_16" class="call_room cc">
+                                    <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                                     </div>
+                                    <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+                                        <img src="../assets/icons/arrow_forward_ios_black.svg">
+                                    </div>
+
+
+
                                 <?php
-
-                                }
+                                $headerexistance = true;
+                            }
                                 ?>
-                            </div>
-                        <?php
+                                <div id="e_" class="elimination">
+                                    <div class="elimination_label"><?php echo $tabletypes[$i] ?></div>
+                                    <?php
 
-                    }
+                                    $tablepartstring = $tabletypes[$i];
 
-                    if ($headerexistance == false) {
-                        ?>
+                                    foreach ($json_team_table->$tablepartstring as $matchkey => $matchvalue) {
+                                    ?>
+                                        <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                            <div class="table_round">
+
+                                                <div class="table_fencer">
+                                                    <div class="table_fencer_number">
+                                                        <p>NUM</p>
+                                                    </div>
+
+                                                    <div class="table_fencer_name">
+                                                        <p>NAME</p>
+                                                    </div>
+
+                                                    <div class="table_fencer_nat">
+                                                        <p>NAT</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="table_round_info">
+                                                    <div>
+                                                        <p>Ref: </p>
+                                                        <p>TIME</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>VRef:</p>
+                                                        <p>Piste:</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="table_fencer">
+                                                    <div class="table_fencer_number">
+                                                        <p>NUM</p>
+                                                    </div>
+
+                                                    <div class="table_fencer_name">
+                                                        <p>NAME</p>
+                                                    </div>
+
+                                                    <div class="table_fencer_nat">
+                                                        <p>NAT</p>
+                                                    </div>
+                                                </div>
 
 
-                            </div>
+                                            </div>
+                                        </div>
+                                    <?php
+
+                                    }
+                                    ?>
+                                </div>
+                            <?php
+
+                        }
+
+                        if ($headerexistance == false) {
+                            ?>
+
+
+                                </div>
 
                     <?php
 
 
-                    }
+                        }
 
-                    if ($tabletypes[$i] == "r1" || $tabletypes[$i] == "r2" || $tabletypes[$i] == "r3") {
+                        if ($tabletypes[$i] == "r1" || $tabletypes[$i] == "r2" || $tabletypes[$i] == "r3") {
+                        }
                     }
                 }
                     ?>
