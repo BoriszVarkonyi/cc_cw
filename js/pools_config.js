@@ -112,7 +112,7 @@ function drag(ev, x) {
 //If we start a drag but we doesn't finish it.
 function dragEnd(x) {
     if (dragEndActive) {
-        var dropAreas = x.parentNode.parentNode.parentNode.querySelectorAll(".table_row_drop")
+        var dropAreas = x.parentNode.parentNode.parentNode.querySelectorAll("tr.drop")
         for (i = 0; i < dropAreas.length; i++) {
             //It removes the droparea classes
             dropAreas[i].classList.remove("collapsed")
@@ -147,10 +147,10 @@ function drop(ev) {
 }
 function regenerate() {
     var table = regenerateTable;
-    var tableElements = table.querySelectorAll(".table_row")
+    var tableElements = table.querySelectorAll("tr")
     if (tableElements.length == 0) {
-        var dropAreas = table.querySelector(".table_row_drop")
-        dropAreas.outerHTML = '<div class="table_row_drop opened" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondrop="drop2(event, this)"></div>'
+        var dropAreas = table.querySelector("tr.drop")
+        dropAreas.outerHTML = '<tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>'
     }
     /*
     var tableheader = table.previousElementSibling
@@ -189,7 +189,7 @@ var active = true;
 //Add class for every droparea in the table
 function tableWrapperHoverOn(x) {
     active = false;
-    var dropAreas = x.querySelectorAll(".table_row_drop")
+    var dropAreas = x.querySelectorAll("tr.drop")
     for (i = 0; i < dropAreas.length; i++) {
         dropAreas[i].classList.add("collapsed")
     }
@@ -198,7 +198,7 @@ function tableWrapperHoverOn(x) {
 //Removes class from every droparea in the table
 function tableWrapperHoverOff(x) {
     if (active) {
-        var dropAreas = x.querySelectorAll(".table_row_drop")
+        var dropAreas = x.querySelectorAll("tr.drop")
         for (i = 0; i < dropAreas.length; i++) {
             dropAreas[i].classList.remove("collapsed")
         }
@@ -219,16 +219,16 @@ function drop2(ev, x) {
         //Denies the dragEnd function
         dragEndActive = false;
         ev.preventDefault();
-        var dropAreas = x.parentNode.querySelectorAll(".table_row_drop")
+        var dropAreas = x.parentNode.querySelectorAll("tr.drop")
         regenerateTable = x.parentNode
         //If the droparea that we dropped in equals the saved droparea
         if (dragPlaceTodelete == x) {
             //It doesnt generate the top droparea
-            x.outerHTML = draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+            x.outerHTML = draggedElement + '<tr colspan="4" class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>'
         }
         else {
             //Else it does generate the top droparea
-            x.outerHTML = '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>' + draggedElement + '<div class="table_row_drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></div>'
+            x.outerHTML = '<tr colspan="4" class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>' + draggedElement + '<tr colspan="4" class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>'
         }
         //Delertes the dragged row if we dropped down.
         if (rowToDelete !== undefined) {
@@ -276,7 +276,8 @@ function removeOpenAndCollapseClass() {
 //Checks if the pool table is full
 function checkPoolTable(x) {
     var table = x.parentNode
-    var fencerNumber = table.querySelectorAll(".table_row").length
+    var fencerNumber = table.querySelectorAll("tr")
+    console.log(fencerNumber)
     if (fencerNumber < maxFencerNumber) {
         return true;
     }
@@ -292,7 +293,7 @@ function idloader() {
     var entries = document.querySelectorAll(".entry")
     for (i = 0; i < entries.length; i++) {
         poolsId = poolsId + "["
-        var tablerowsJSONAttribute = entries[i].querySelectorAll(".table_row .table_item:first-of-type > p")
+        var tablerowsJSONAttribute = entries[i].querySelectorAll("tr td:first-of-type > p")
         for (d = 0; d < tablerowsJSONAttribute.length; d++) {
             if (d < tablerowsJSONAttribute.length - 1) {
                 poolsId = poolsId + tablerowsJSONAttribute[d].getAttribute("x-fencersave") + ","
@@ -393,3 +394,24 @@ function rfrsValidation() {
     }
 }
 refereesForm.addEventListener("input", rfrsValidation)
+
+function poolConfig(x) {
+    var searchWrappers = x.parentNode.parentNode.querySelectorAll(".search_wrapper")
+    var texts = x.parentNode.parentNode.querySelectorAll("p")
+    if (texts[0].classList.contains("hidden")) {
+        for (i = 0; i < searchWrappers.length; i++) {
+            searchWrappers[i].classList.add("hidden")
+        }
+        for (i = 0; i < texts.length; i++) {
+            texts[i].classList.remove("hidden")
+        }
+    }
+    else {
+        for (i = 0; i < searchWrappers.length; i++) {
+            searchWrappers[i].classList.remove("hidden")
+        }
+        for (i = 0; i < texts.length; i++) {
+            texts[i].classList.add("hidden")
+        }
+    }
+}

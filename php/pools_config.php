@@ -650,7 +650,7 @@
                                         <input type="time" class="centered hidden">
                                     </div>
                                     <div class="td square">
-                                        <button type="button" onclick="" class="pool_config">
+                                        <button type="button" onclick="poolConfig(this)" class="pool_config">
                                             <img src="../assets/icons/settings_black.svg">
                                         </button>
                                     </div>
