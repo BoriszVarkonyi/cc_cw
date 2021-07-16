@@ -742,7 +742,7 @@
                                         <button type="button" onclick="" class="pool_config">
                                             <img src="../assets/icons/settings_black.svg">
                                         </button>
-                                        <button name="sumbit_changes" id="submit_fasz_menu" type="submit">
+                                        <button name="sumbit_changes" type="submit">
                                             Save
                                         </button>
                                     </div>

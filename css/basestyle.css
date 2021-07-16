@@ -557,6 +557,10 @@ input[type="time"] {
 	z-index: 1;
 }
 
+.search_wrapper.hidden {
+	display: none;
+}
+
 .search_wrapper.higher {
 	position: relative;
 	z-index: 2;
