@@ -616,7 +616,7 @@
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
                                                 <!-- EZ AZ ID -->
-                                                <input type="text" class="" name="piste_id_input" value="" readonly>
+                                                <input type="text" class="hidden" name="piste_id_input" value="" readonly>
 
                                                 <!-- IDE KELL BECHOZNI -->
                                                 <input type="text" value="<?php echo $piste ?>" placeholder="Select Piste" readonly>
@@ -660,7 +660,7 @@
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
                                                 <!-- EZ AZ ID -->
-                                                <input type="text" name="ref1id_input" value="" class="" readonly>
+                                                <input type="text" name="ref1id_input" value="" class="hidden" readonly>
 
                                                 <!-- IDE KELL BECHOZNI -->
                                                 <input type="text" placeholder="Select Referee" value="<?php echo $refname ?>" readonly>
@@ -700,7 +700,7 @@
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
                                                 <!-- EZ AZ ID -->
-                                                <input type="text" class="" value="<?php echo $ref2id ?>" name="ref2id_input" readonly>
+                                                <input type="text" class="hidden" value="<?php echo $ref2id ?>" name="ref2id_input" readonly>
 
                                                 <!-- IDE KELL BECHOZNI -->
                                                 <input type="text" placeholder="Select Referee" value="<?php echo $ref2name ?>" readonly>

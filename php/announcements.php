@@ -112,34 +112,34 @@
         <main>
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
-                <div class="stripe_button_wrapper">
-
-                    <input type="text" class="selected_list_item_input" name="" id="" readonly>
-
-                    <button class="stripe_button red" type="button" onclick="hideNshow()" id="add_entry">
-                        <p>Remove Announcement</p>
-                        <img src="../assets/icons/delete_black.svg"/>
-                    </button>
-                    <button class="stripe_button primary" type="button" onclick="hideNshow()" id="add_entry">
-                        <p>Add Announcement</p>
-                        <img src="../assets/icons/add_black.svg"/>
-                    </button>
-
-                    <div id="add_announcement_panel" class="overlay_panel hidden">
-                        <button class="panel_button" onclick="toggleAddPanel()">
-                            <img src="../assets/icons/close_black.svg">
-                        </button>
-                        <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="new_announcement" autocomplete="off">
-                            <label for="name">TITLE</label>
-                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="input_title">
-
-                            <button type="submit" name="input_submit" class="panel_submit">Add</button>
-                        </form>
-                    </div>
-                </div>
             </div>
             <div id="page_content_panel_main">
-                <div id="announcements_wrapper" class="wrapper">
+                <div id="announcements_wrapper">
+
+                    <div class="annoucement not_used">
+                        <div class="annoucement_image">
+                            <img src="../assets/icons/new_releases_black.svg">
+                        </div>
+                        <div class="annoucement_content">
+                            <p class="annoucement_title">Add an Annoucement</p>
+                            <p class="annoucement_body">This annoucement will be visible for anybody on the competititon's dedicated</p>
+                        </div>
+                    </div>
+
+                    <div class="annoucement active">
+                        <div class="annoucement_image">
+                            <img src="../assets/icons/new_releases_black.svg">
+                        </div>
+                        <div class="annoucement_content">
+                            <p class="annoucement_title">Annoucement title</p>
+                            <p class="annoucement_body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi reiciendis pariatur quidem quaerat commodi, nisi molestias nulla quas sit ea laborum similique, dolore quod voluptate qui culpa sequi libero minima.</p>
+                        </div>
+                        <div class="annoucement_controls">
+
+                        </div>
+                    </div>
+
+                    <div class="annoucement"><p>g</p></div>
 
                 </div>
             </div>
