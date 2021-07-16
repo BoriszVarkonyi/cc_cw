@@ -101,7 +101,7 @@
         $qry_update = "UPDATE `pools` SET `fencers` = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
 
-        //header("Refresh:0");
+        header("Refresh:0");
 
         //print_r($json_table);
     }
@@ -328,7 +328,7 @@
         $time = new pisteTime($string_time);
 
 
-        if ($ref1id != "" || $ref2id != "") {
+        //if ($ref1id != "" || $ref2id != "") {
             //get refs
             $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
             $do_get_refs = mysqli_query($connection, $qry_get_refs);
@@ -339,7 +339,7 @@
             }
             //set new ref to ref spots
             if ($ref1id != "") {
-                if ($ref_id_array = findObject($ref_table, $ref1id, "id" !== false)) {
+                if (($ref_id_array = findObject($ref_table, $ref1id, "id")) !== false) {
                     $current_pool -> ref1 = $ref_table[$ref_id_array];
                 } else {
                     echo "coulndt find id 1";
@@ -347,13 +347,13 @@
             }
 
             if ($ref2id != "") {
-                if ($ref_id_array = findObject($ref_table, $ref2id, "id" !== false)) {
+                if (($ref_id_array = findObject($ref_table, $ref2id, "id")) !== false) {
                     $current_pool -> ref2 = $ref_table[$ref_id_array];
                 } else {
                     echo "coulndt find id 2";
                 }
             }
-        }
+        //}
 
         if ($piste_id != "") {
             //get pistes
@@ -371,7 +371,7 @@
 
         $qry_update = "UPDATE `pools` SET `fencers` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
         if ($do_update = mysqli_query($connection, $qry_update)) {
-            header("Refresh: 0");
+            //header("Refresh: 0");
         } else {
             echo mysqli_error($connection);
         }
@@ -660,7 +660,7 @@
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
                                                 <!-- EZ AZ ID -->
-                                                <input type="text" name="ref1id_input" value="" class="hidden" readonly>
+                                                <input type="text" name="ref1id_input" value="<?php echo $ref1id ?>" class="hidden" readonly>
 
                                                 <!-- IDE KELL BECHOZNI -->
                                                 <input type="text" placeholder="Select Referee" value="<?php echo $refname ?>" readonly>
@@ -680,6 +680,7 @@
                                                         foreach ($refs_array as $ref_obj) {
 
                                                             $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
+                                                            $ref_id = $ref_obj -> id;
                                                             if ($sort_by_class) {
                                                                 $ref_nation = $ref_obj -> club;
                                                             } else {
@@ -687,7 +688,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" id="" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="<?php echo $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
@@ -720,12 +721,12 @@
                                                         foreach ($refs_array as $ref_obj) {
 
                                                             $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
+                                                            $ref_id = $ref_obj -> id;
                                                             if ($sort_by_class) {
                                                                 $ref_nation = $ref_obj -> club;
                                                             } else {
                                                                 $ref_nation = $ref_obj -> nation;
                                                             }
-                                                            $ref_id = $ref_obj -> id;
 
                                                     ?>
                                                     <button type="button" id="<?php echo $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
