@@ -157,13 +157,15 @@
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>C. POS</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>C. POS</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel">
@@ -172,13 +174,15 @@
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>R. POS</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>R. POS</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel">
@@ -187,13 +191,15 @@
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>NAME</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>NAME</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel">
@@ -202,13 +208,15 @@
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>NATION</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>NATION</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel">
@@ -217,13 +225,15 @@
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>CLUB</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>CLUB</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel option">
@@ -241,13 +251,15 @@
                                         <label for="listsearch_reg_not_ready">Not ready</label>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>REGISTRATION</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>REGISTRATION</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th class="square"></th>
                             <th>
@@ -266,13 +278,15 @@
                                         <label for="listsearch_wc_not_ready">Not ready</label>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>WEAPON CONTROL</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>WEAPON CONTROL</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th class="square"></th>
                         </tr>

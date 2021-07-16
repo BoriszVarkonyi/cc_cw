@@ -975,6 +975,11 @@ thead.no_stick th {
 	position: relative !important;
 }
 
+/* Makes Table Header elements not sticky */
+thead tr:hover {
+	filter: none !important;
+}
+
 
 
 /* Table Row Group */
@@ -1109,6 +1114,30 @@ th.square button, td.square button {
 th.square img, td.square img {
     width: 65%;
     height: 65%;
+}
+
+
+
+/* Table Header Buttons for sorting and searching */
+
+.table_buttons_wrapper {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.table_buttons_wrapper > button {
+	width: 1rem;
+	height: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.table_buttons_wrapper > button img {
+	width: 1rem;
+	height: 1rem;
 }
 
 
