@@ -89,6 +89,7 @@ function drag(ev, x) {
             dragEndActive = false;
         }
     }
+    
     //If a drag starts from a Table
     else {
         //Saves the dragged element
@@ -195,6 +196,7 @@ function tableWrapperHoverOn(x) {
     }
 
 }
+
 //Removes class from every droparea in the table
 function tableWrapperHoverOff(x) {
     if (active) {
@@ -224,11 +226,11 @@ function drop2(ev, x) {
         //If the droparea that we dropped in equals the saved droparea
         if (dragPlaceTodelete == x) {
             //It doesnt generate the top droparea
-            x.outerHTML = draggedElement + '<tr colspan="4" class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>'
+            x.outerHTML = draggedElement + '<tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"><td colspan="4">Drop Fencer here</td></tr>'
         }
         else {
             //Else it does generate the top droparea
-            x.outerHTML = '<tr colspan="4" class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>' + draggedElement + '<tr colspan="4" class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>'
+            x.outerHTML = '<tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"><td colspan="4">Drop Fencer here</td></tr>' + draggedElement + '<tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"><td colspan="4">Drop Fencer here</td></tr>'
         }
         //Delertes the dragged row if we dropped down.
         if (rowToDelete !== undefined) {

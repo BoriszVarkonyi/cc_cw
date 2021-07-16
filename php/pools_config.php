@@ -687,7 +687,7 @@
                                                     $json_string_obj = json_encode($json_table[$pool_num] -> $fencer_number,JSON_UNESCAPED_UNICODE);
                                             ?>
 
-                                            <tr>
+                                            <tr ondragleave="tableWrapperHoverOff(this)">
                                                 <td>
                                                     <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
                                                 </td>
