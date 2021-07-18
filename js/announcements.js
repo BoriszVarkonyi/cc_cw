@@ -1,4 +1,11 @@
+function editAnnouncement(x) {
+    var clickedAnnouncement = x.parentNode.parentNode.parentNode;
 
+    console.log(clickedAnnouncement);
+
+    clickedAnnouncement.classList.toggle("disabled");
+    clickedAnnouncement.classList.toggle("edit");
+}
 
 
 

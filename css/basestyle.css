@@ -986,6 +986,7 @@ thead tr {
 
 /* Makes Table Header elements not sticky */
 thead tr:hover {
+	-webkit-filter: none !important;
 	filter: none !important;
 }
 
