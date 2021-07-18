@@ -118,7 +118,7 @@
 
                     <div class="annoucement not_used">
                         <div class="annoucement_image">
-                            <img src="../assets/icons/new_releases_black.svg">
+                            <img src="../assets/icons/new_announcement_black.svg">
                         </div>
                         <div class="annoucement_content">
                             <p class="annoucement_title">Add an Annoucement</p>
@@ -128,7 +128,7 @@
 
                     <div class="annoucement active">
                         <div class="annoucement_image">
-                            <img src="../assets/icons/new_releases_black.svg">
+                            <img src="../assets/icons/announcement_black.svg">
                         </div>
                         <div class="annoucement_content">
                             <p class="annoucement_title">Annoucement title</p>
