@@ -316,8 +316,14 @@
     if (isset($_POST['sumbit_changes'])) {
         //get data
         $ref1id = $_POST['ref1id_input'];
+        $ref1id = explode("*", $ref1id)[1];
+
         $ref2id = $_POST['ref2id_input'];
+        $ref2id = explode("*", $ref2id)[1];
+
         $piste_id = $_POST['piste_id_input'];
+        $piste_id = explode('*', $piste_id)[1];
+
         $current_pool_num = $_POST['pool_num_input'];
         $string_time = $_POST['input_time'];
 
@@ -633,7 +639,7 @@
                                                             $piste_url = $piste_obj -> url;
 
                                                     ?>
-                                                    <button type="button" id="<?php echo $piste_name ?>" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
+                                                    <button type="button" id="<?php echo $pool_num . "*" . $piste_name ?>" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
@@ -683,7 +689,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" id="<?php echo $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="<?php echo "1" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
@@ -724,7 +730,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" id="<?php echo $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="<?php echo "2" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
