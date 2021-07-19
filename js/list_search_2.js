@@ -1,6 +1,6 @@
 function searchButton(x) {
     var button = x;
-    var search = button.previousElementSibling.previousElementSibling.previousElementSibling;
+    var search = button.parentNode.previousElementSibling;
     if (search.querySelector("input").type == "text") {
         search.querySelector("input").focus()
     }
@@ -143,11 +143,11 @@ outterLoop:
 for (i = 0; i < columns.length; i++) {
     var defaultNameSequence = document.querySelectorAll("#page_content_panel_main tr td:nth-of-type(" + (i + 1) + ") p")
     for (j = 0; j < defaultNameSequence.length; j++) {
-        if(defaultNameSequence[j].innerHTML == ""){
+        if (defaultNameSequence[j].innerHTML == "") {
             defaultArray = [];
             continue outterLoop
         }
-        else{
+        else {
             defaultArray.push(defaultNameSequence[j].innerHTML.toLowerCase())
         }
     }

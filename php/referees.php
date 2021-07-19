@@ -366,13 +366,15 @@ if (isset($_POST['submit_import'])) {
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>FULL NAME</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>FULL NAME</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel">
@@ -381,13 +383,15 @@ if (isset($_POST['submit_import'])) {
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>NATION</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>NATION</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel">
@@ -396,19 +400,23 @@ if (isset($_POST['submit_import'])) {
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>CLUB</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>CLUB</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
-                                <p>PASSWORD</p>
-                                <button type="button" onclick="hidePasswordButton(this)" id="visibility_button">
-                                    <img src="../assets/icons/visibility_off_black.svg">
-                                </button>
+                                <div class="table_buttons_wrapper">
+                                    <p>PASSWORD</p>
+                                    <button type="button" onclick="hidePasswordButton(this)" id="visibility_button">
+                                        <img src="../assets/icons/visibility_off_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th>
                                 <div class="search_panel option">
@@ -425,13 +433,21 @@ if (isset($_POST['submit_import'])) {
                                         <label for="listsearch_not_available">Not available</label>
                                     </div>
                                 </div>
-                                <button type="button" onclick="sortButton(this)">
-                                    <img src="../assets/icons/switch_full_black.svg">
-                                </button>
-                                <p>STATUS</p>
-                                <button type="button" onclick="searchButton(this)">
-                                    <img src="../assets/icons/search_black.svg">
-                                </button>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>STATUS</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
                             </th>
                             <th class="small"></th>
                         </tr>

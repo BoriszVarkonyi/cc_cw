@@ -57,7 +57,7 @@
         </a>
 
         <a href="<?php echo $navbar -> announcements -> href ?>" class="nav_bar_item <?php echo $navbar -> announcements -> class ?>">
-            <img src="../assets/icons/new_releases_black.svg">
+            <img src="../assets/icons/announcement_black.svg">
             <p>Announcements</p>
         </a>
 

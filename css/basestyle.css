@@ -557,6 +557,10 @@ input[type="time"] {
 	z-index: 1;
 }
 
+.search_wrapper.hidden {
+	display: none;
+}
+
 .search_wrapper.higher {
 	position: relative;
 	z-index: 2;
@@ -975,13 +979,22 @@ thead.no_stick th {
 	position: relative !important;
 }
 
+/* Makes Table Header hover not change the cursor type */
+thead tr {
+	cursor: default !important;
+}
+
+/* Makes Table Header elements not sticky */
+thead tr:hover {
+	-webkit-filter: none !important;
+	filter: none !important;
+}
+
 
 
 /* Table Row Group */
 
-tbody {
-
-}
+tbody {}
 
 /* Selected rows are not scaled up visually */
 tbody.no_scale tr.selected {
@@ -1109,6 +1122,30 @@ th.square button, td.square button {
 th.square img, td.square img {
     width: 65%;
     height: 65%;
+}
+
+
+
+/* Table Header Buttons for sorting and searching */
+
+.table_buttons_wrapper {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.table_buttons_wrapper > button {
+	width: 1rem;
+	height: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.table_buttons_wrapper > button img {
+	width: 1rem;
+	height: 1rem;
 }
 
 
