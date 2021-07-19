@@ -1,4 +1,17 @@
+function editAnnouncement(x) {
+    var clickedAnnouncement = x.parentNode.parentNode.parentNode;
 
+    console.log(clickedAnnouncement);
+
+    clickedAnnouncement.classList.toggle("disabled");
+    clickedAnnouncement.classList.toggle("edit");
+}
+
+
+
+//LEGACY CODE
+
+/*
 //Add entry button.
 var addEntryPanel = document.getElementById("add_entry")
 var addingEntryPanel = document.getElementById("add_announcement_panel");
@@ -43,7 +56,7 @@ function toggleEntry(x) {
         }
 
     }
-    
+
     //Checking if the oldentry var. equals the entry.
     if (entry == oldentry) {
         //If yes then it adds selected, and remove collapsed.
@@ -51,10 +64,10 @@ function toggleEntry(x) {
         entry.classList.add("selected");
         selectedElementIndexAnn = 0;
     }
-    
+
     entry.classList.toggle("selected");
     entryPanel.classList.toggle("collapsed");
-    
+
     //Checking if we clicked the same entry.
     if (entry.classList.contains("selected")) {
         //If yes it saves the entry.
@@ -85,8 +98,4 @@ selectedForm.forEach(item => {
     })
 })
 
-
-
-
-
-
+*/

@@ -979,8 +979,14 @@ thead.no_stick th {
 	position: relative !important;
 }
 
+/* Makes Table Header hover not change the cursor type */
+thead tr {
+	cursor: default !important;
+}
+
 /* Makes Table Header elements not sticky */
 thead tr:hover {
+	-webkit-filter: none !important;
 	filter: none !important;
 }
 
@@ -988,9 +994,7 @@ thead tr:hover {
 
 /* Table Row Group */
 
-tbody {
-
-}
+tbody {}
 
 /* Selected rows are not scaled up visually */
 tbody.no_scale tr.selected {

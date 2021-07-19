@@ -112,34 +112,87 @@
         <main>
             <div id="title_stripe">
                 <p class="page_title">Announcements</p>
-                <div class="stripe_button_wrapper">
-
-                    <input type="text" class="selected_list_item_input" name="" id="" readonly>
-
-                    <button class="stripe_button red" type="button" onclick="hideNshow()" id="add_entry">
-                        <p>Remove Announcement</p>
-                        <img src="../assets/icons/delete_black.svg"/>
-                    </button>
-                    <button class="stripe_button primary" type="button" onclick="hideNshow()" id="add_entry">
-                        <p>Add Announcement</p>
-                        <img src="../assets/icons/add_black.svg"/>
-                    </button>
-
-                    <div id="add_announcement_panel" class="overlay_panel hidden">
-                        <button class="panel_button" onclick="toggleAddPanel()">
-                            <img src="../assets/icons/close_black.svg">
-                        </button>
-                        <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="new_announcement" autocomplete="off">
-                            <label for="name">TITLE</label>
-                            <input type="text" placeholder="Type in the announcement's title" class="name_input" name="input_title">
-
-                            <button type="submit" name="input_submit" class="panel_submit">Add</button>
-                        </form>
-                    </div>
-                </div>
             </div>
             <div id="page_content_panel_main">
-                <div id="announcements_wrapper" class="wrapper">
+                <div id="announcements_wrapper">
+
+                    <div class="annoucement active">
+                        <div class="annoucement_image">
+                            <img src="../assets/icons/announcement_black.svg">
+                        </div>
+                        <div class="annoucement_content">
+                            <p class="annoucement_title">Annoucement title</p>
+                            <p class="annoucement_body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi reiciendis pariatur quidem quaerat commodi, nisi molestias nulla quas sit ea laborum similique, dolore quod voluptate qui culpa sequi libero minima.</p>
+                        </div>
+                        <div class="annoucement_controls">
+                            <div class="button_wrapper">
+                                <p>Edit</p>
+                                <button>
+                                    <img src="../assets/icons/edit_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper">
+                                <p>Delete</p>
+                                <button>
+                                    <img src="../assets/icons/delete_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper">
+                                <p>Disable</p>
+                                <button>
+                                    <img src="../assets/icons/visibility_off_black.svg">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annoucement disabled">
+                        <div class="annoucement_image">
+                            <img src="../assets/icons/announcement_black.svg">
+                        </div>
+                        <form class="annoucement_content">
+                            <input type="text" class="edit_annoucement_title title_input" placeholder="Type in the announcement's title">
+                            <textarea name="" class="edit_annoucement_body" cols="30" rows="10" placeholder="Type in the announcement"></textarea>
+                            <p class="annoucement_title">This is a disabled annoucement</p>
+                            <p class="annoucement_body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi reiciendis pariatur quidem quaerat commodi, nisi molestias nulla quas sit ea laborum similique, dolore quod voluptate qui culpa sequi libero minima.</p>
+                        </form>
+                        <div class="annoucement_controls">
+                            <div class="button_wrapper">
+                                <p>Edit</p>
+                                <button onclick="editAnnouncement(this)">
+                                    <img src="../assets/icons/edit_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper">
+                                <p>Delete</p>
+                                <button>
+                                    <img src="../assets/icons/delete_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper">
+                                <p>Enable</p>
+                                <button>
+                                    <img src="../assets/icons/visibility_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper save">
+                                <p>Save</p>
+                                <button>
+                                    <img src="../assets/icons/save_black.svg">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annoucement not_used">
+                        <div class="annoucement_image">
+                            <img src="../assets/icons/new_announcement_black.svg">
+                        </div>
+                        <div class="annoucement_content">
+                            <p class="annoucement_title">Add an Annoucement</p>
+                            <p class="annoucement_body">This annoucement will be visible for anybody on the competititon's dedicated</p>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -148,7 +201,5 @@
 </body>
 <script src="../js/cookie_monster.js"></script>
 <script src="../js/main.js"></script>
-<script src="../js/list_2.js"></script>
 <script src="../js/announcements.js"></script>
-<script src="../js/entry_controls.js"></script>
 </html>
