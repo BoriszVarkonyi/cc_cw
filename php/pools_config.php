@@ -316,8 +316,14 @@
     if (isset($_POST['sumbit_changes'])) {
         //get data
         $ref1id = $_POST['ref1id_input'];
+        $ref1id = explode("*", $ref1id)[1];
+
         $ref2id = $_POST['ref2id_input'];
+        $ref2id = explode("*", $ref2id)[1];
+
         $piste_id = $_POST['piste_id_input'];
+        $piste_id = explode('*', $piste_id)[1];
+
         $current_pool_num = $_POST['pool_num_input'];
         $string_time = $_POST['input_time'];
 
@@ -328,7 +334,7 @@
         $time = new pisteTime($string_time);
 
 
-        //if ($ref1id != "" || $ref2id != "") {
+        if ($ref1id != "" || $ref2id != "") {
             //get refs
             $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
             $do_get_refs = mysqli_query($connection, $qry_get_refs);
@@ -342,7 +348,7 @@
                 if (($ref_id_array = findObject($ref_table, $ref1id, "id")) !== false) {
                     $current_pool -> ref1 = $ref_table[$ref_id_array];
                 } else {
-                    echo "coulndt find id 1";
+                    echo "coulndt find id: 1";
                 }
             }
 
@@ -350,18 +356,13 @@
                 if (($ref_id_array = findObject($ref_table, $ref2id, "id")) !== false) {
                     $current_pool -> ref2 = $ref_table[$ref_id_array];
                 } else {
-                    echo "coulndt find id 2";
+                    echo "coulndt find id: 2";
                 }
             }
-        //}
+        }
 
         if ($piste_id != "") {
-            //get pistes
-            $qry_get_pistes = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
-            $do_get_pistes = mysqli_query($qry_get_pistes);
-            if ($row = mysqli_fetch_assoc($connection, $do_get_pistes)) {
-                $pistes_table = json_decode($row['data']);
-            }
+            $current_pool -> piste = $piste_id;
         }
 
         $json_table[$current_pool_num] = $current_pool;
@@ -371,7 +372,7 @@
 
         $qry_update = "UPDATE `pools` SET `fencers` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
         if ($do_update = mysqli_query($connection, $qry_update)) {
-            //header("Refresh: 0");
+            header("Refresh: 0");
         } else {
             echo mysqli_error($connection);
         }
@@ -610,13 +611,13 @@
                                     <input type="text" name="pool_num_input" value="<?php echo $pool_num ?>" class="hidden" readonly>
                                     <div class="td bold">No.<?php echo $pool_num ?></div>
                                     <div class="td">
-                                        <p>Piste <?php echo $piste ?></p>
+                                        <p>Piste <?php echo $piste?></p>
 
                                         <div class="search_wrapper narrow hidden">
                                             <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
                                                 <!-- EZ AZ ID -->
-                                                <input type="text" class="hidden" name="piste_id_input" value="" readonly>
+                                                <input type="text" class="hidden" name="piste_id_input" value="<?php echo $piste ?>" readonly>
 
                                                 <!-- IDE KELL BECHOZNI -->
                                                 <input type="text" value="<?php echo $piste ?>" placeholder="Select Piste" readonly>
@@ -638,7 +639,7 @@
                                                             $piste_url = $piste_obj -> url;
 
                                                     ?>
-                                                    <button type="button" id="" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
+                                                    <button type="button" id="<?php echo $pool_num . "*" . $piste_name ?>" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
@@ -688,7 +689,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" id="<?php echo $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="<?php echo "1" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
@@ -729,7 +730,7 @@
                                                             }
 
                                                     ?>
-                                                    <button type="button" id="<?php echo $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                    <button type="button" id="<?php echo "2" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
                                                     <?php } ?>
                                             </div>
                                         </div>
