@@ -67,8 +67,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = $objects_array[$numinstr];
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
         }
     } elseif ($teamnum <= 4) {
 
@@ -93,8 +93,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
 
             echo $revi += 1;
         }
@@ -118,8 +118,8 @@ if (isset($_POST["generate_table"])) {
             }
             $team_table->r2->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r2->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r2->$instring->$matchstring->pistetime->time = "";
         }
     } elseif ($teamnum <= 8) {
 
@@ -142,8 +142,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
 
             echo $revi += 1;
         }
@@ -170,8 +170,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r2->$instring->$matchstring->$numinstr = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r2->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r2->$instring->$matchstring->pistetime->time = "";
 
             $revi++;
         }
@@ -195,8 +195,8 @@ if (isset($_POST["generate_table"])) {
             }
             $team_table->r1->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r1->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r1->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r1->$instring->$matchstring->pistetime->time = "";
         }
     } else {
 
@@ -218,8 +218,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
 
             echo $revi += 1;
         }
@@ -246,8 +246,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r2->$instring->$matchstring->$numinstr = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r2->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r2->$instring->$matchstring->pistetime->time = "";
 
             $revi++;
         }
@@ -274,8 +274,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r1->$instring->$matchstring->$numinstr = new stdClass;
             $team_table->r1->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r1->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r1->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r1->$instring->$matchstring->pistetime->time = "";
 
             $revi++;
         }
@@ -301,8 +301,8 @@ if (isset($_POST["generate_table"])) {
 
                 $team_table->$tablename->$matchstring->referees->ref1 = new stdClass;
                 $team_table->$tablename->$matchstring->referees->ref2 = new stdClass;
-                $team_table->$tablename->$matchstring->pistetime->pistename = new stdClass;
-                $team_table->$tablename->$matchstring->pistetime->time = new stdClass;
+                $team_table->$tablename->$matchstring->pistetime->pistename = "";
+                $team_table->$tablename->$matchstring->pistetime->time = "";
             }
 
             $tablesize /= 2;
@@ -476,33 +476,32 @@ if (isset($_POST["generate_table"])) {
                     $json_team_table = json_decode($json_string);
                 }
 
-                echo "ANYÁD: " . $numofteams;
+                if (mysqli_num_rows($do_check_row) != 0) {
 
-                $tabletypes = ["r3", "r2", "r1", "t_16", "t_32", "t_64", "t_128"];
 
-                $headerexistance = false;
-                for ($i = teamTableSelector($numofteams); $i >= 0; $i--) {
+                    echo "ANYÁD: " . $numofteams;
 
-                    if ($tabletypes[$i] == "t_16" || $tabletypes[$i] == "t_32" || $tabletypes[$i] == "t_64" || $tabletypes[$i] == "t_128") {
-                        if ($headerexistance == false) {
+                    $tabletypes = ["r3", "r2", "r1", "t_16", "t_32", "t_64", "t_128"];
 
+                    $headerexistance = false;
 
                 ?>
 
-                            <div id="32_16" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
+                    <div id="32_16" class="call_room cc">
+                        <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                            <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                        </div>
+                        <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+                            <img src="../assets/icons/arrow_forward_ios_black.svg">
+                        </div>
 
+                        <?php
 
+                        for ($i = teamTableSelector($numofteams); $i >= 0; $i--) {
 
-                                <?php
-                                $headerexistance = true;
-                            }
-                                ?>
+                            if ($tabletypes[$i] == "t_16" || $tabletypes[$i] == "t_32" || $tabletypes[$i] == "t_64" || $tabletypes[$i] == "t_128") {
+
+                        ?>
                                 <div id="e_" class="elimination">
                                     <div class="elimination_label"><?php echo $tabletypes[$i] ?></div>
                                     <?php
@@ -514,44 +513,51 @@ if (isset($_POST["generate_table"])) {
                                         <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
                                             <div class="table_round">
 
-                                                <div class="table_fencer">
-                                                    <div class="table_fencer_number">
-                                                        <p>NUM</p>
-                                                    </div>
+                                                <?php
+                                                $firstrun = true;
+                                                foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                    if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                        continue;
+                                                    }
 
-                                                    <div class="table_fencer_name">
-                                                        <p>NAME</p>
-                                                    </div>
+                                                ?>
 
-                                                    <div class="table_fencer_nat">
-                                                        <p>NAT</p>
-                                                    </div>
-                                                </div>
+                                                    <div class="table_fencer">
+                                                        <div class="table_fencer_number">
+                                                            <p><?php echo $teamkey ?></p>
+                                                        </div>
 
-                                                <div class="table_round_info">
-                                                    <div>
-                                                        <p>Ref: </p>
-                                                        <p>TIME</p>
-                                                    </div>
-                                                    <div>
-                                                        <p>VRef:</p>
-                                                        <p>Piste:</p>
-                                                    </div>
-                                                </div>
+                                                        <div class="table_fencer_name">
+                                                            <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
+                                                        </div>
 
-                                                <div class="table_fencer">
-                                                    <div class="table_fencer_number">
-                                                        <p>NUM</p>
+                                                        <div class="table_fencer_nat">
+                                                            <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
+                                                        </div>
                                                     </div>
+                                                    <?php
 
-                                                    <div class="table_fencer_name">
-                                                        <p>NAME</p>
-                                                    </div>
+                                                    if ($firstrun == true) {
+                                                    ?>
 
-                                                    <div class="table_fencer_nat">
-                                                        <p>NAT</p>
-                                                    </div>
-                                                </div>
+                                                        <div class="table_round_info">
+                                                            <div>
+                                                                <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                            </div>
+                                                            <div>
+                                                                <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                            </div>
+                                                        </div>
+                                                <?php
+
+                                                    }
+
+                                                    $firstrun = false;
+                                                }
+                                                ?>
+
 
 
                                             </div>
@@ -560,28 +566,18 @@ if (isset($_POST["generate_table"])) {
 
                                     }
                                     ?>
-                                <!-- ELIM LEZÁRÓ -->
+                                    <!-- ELIM LEZÁRÓ -->
                                 </div>
-                            <!-- CALLROOM LEZÁRÓ -->
-                            </div>
-                            <?php
-
-                    }
-
-                    if ($headerexistance == false) {
+                        <?php
+                            }
+                        }
                         ?>
-
-
-
-
+                        <!-- CALLROOM LEZÁRÓ -->
+                    </div>
                     <?php
 
+                    if (isset($json_team_table->t_16)) {
 
-                    }
-
-                    if ($tabletypes[$i] == "r1" || $tabletypes[$i] == "r2" || $tabletypes[$i] == "r3") {
-                    }
-                }
                     ?>
 
                         <!-- STEP 2 -->
@@ -593,3249 +589,457 @@ if (isset($_POST["generate_table"])) {
                                 <img src="../assets/icons/arrow_forward_ios_black.svg">
                             </div>
 
-                            <div id="e_" class="elimination">
+                            <div id="e_9-16" class="elimination">
                                 <div class="elimination_label">9-16</div>
+                                <?php
 
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
+                                foreach ($json_team_table->r1->{"9-16"} as $key => $value) {
+                                ?>
 
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
+                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                        <div class="table_round">
+
+                                            <div class="table_fencer">
+                                                <div class="table_fencer_number">
+                                                    <p>NUM</p>
+                                                </div>
+
+                                                <div class="table_fencer_name">
+                                                    <p>NAME</p>
+                                                </div>
+
+                                                <div class="table_fencer_nat">
+                                                    <p>NAT</p>
+                                                </div>
                                             </div>
 
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
+                                            <div class="table_round_info">
+                                                <div>
+                                                    <p>Ref: </p>
+                                                    <p>TIME</p>
+                                                </div>
+                                                <div>
+                                                    <p>VRef:</p>
+                                                    <p>Piste:</p>
+                                                </div>
                                             </div>
 
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
+                                            <div class="table_fencer">
+                                                <div class="table_fencer_number">
+                                                    <p>NUM</p>
+                                                </div>
+
+                                                <div class="table_fencer_name">
+                                                    <p>NAME</p>
+                                                </div>
+
+                                                <div class="table_fencer_nat">
+                                                    <p>NAT</p>
+                                                </div>
                                             </div>
+
+
                                         </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
                                     </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
+                                <?php
+                                }
 
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
+                                ?>
 
                             </div>
 
-                            <div id="e_" class="elimination">
+                            <div id="e_16" class="elimination">
                                 <div class="elimination_label">1-16</div>
 
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
+                                <?php
 
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
+                                foreach ($json_team_table->t_16 as $key => $value) {
+                                ?>
+
+                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                        <div class="table_round">
+
+                                            <div class="table_fencer">
+                                                <div class="table_fencer_number">
+                                                    <p>NUM</p>
+                                                </div>
+
+                                                <div class="table_fencer_name">
+                                                    <p>NAME</p>
+                                                </div>
+
+                                                <div class="table_fencer_nat">
+                                                    <p>NAT</p>
+                                                </div>
                                             </div>
 
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
+                                            <div class="table_round_info">
+                                                <div>
+                                                    <p>Ref: </p>
+                                                    <p>TIME</p>
+                                                </div>
+                                                <div>
+                                                    <p>VRef:</p>
+                                                    <p>Piste:</p>
+                                                </div>
                                             </div>
 
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
+                                            <div class="table_fencer">
+                                                <div class="table_fencer_number">
+                                                    <p>NUM</p>
+                                                </div>
+
+                                                <div class="table_fencer_name">
+                                                    <p>NAME</p>
+                                                </div>
+
+                                                <div class="table_fencer_nat">
+                                                    <p>NAT</p>
+                                                </div>
                                             </div>
+
+
                                         </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
                                     </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
 
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
+                                <?php
+                                }
+                                ?>
 
                             </div>
 
-                            <div id="e_" class="elimination">
+                            <div id="e_1-8" class="elimination">
                                 <div class="elimination_label">1-8</div>
 
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
+                                <?php
 
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
+                                foreach ($json_team_table->r1->{"1-8"} as $key => $value) {
+                                ?>
+
+                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                        <div class="table_round">
+
+                                            <div class="table_fencer">
+                                                <div class="table_fencer_number">
+                                                    <p>NUM</p>
+                                                </div>
+
+                                                <div class="table_fencer_name">
+                                                    <p>NAME</p>
+                                                </div>
+
+                                                <div class="table_fencer_nat">
+                                                    <p>NAT</p>
+                                                </div>
                                             </div>
 
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
+                                            <div class="table_round_info">
+                                                <div>
+                                                    <p>Ref: </p>
+                                                    <p>TIME</p>
+                                                </div>
+                                                <div>
+                                                    <p>VRef:</p>
+                                                    <p>Piste:</p>
+                                                </div>
                                             </div>
 
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
+                                            <div class="table_fencer">
+                                                <div class="table_fencer_number">
+                                                    <p>NUM</p>
+                                                </div>
+
+                                                <div class="table_fencer_name">
+                                                    <p>NAME</p>
+                                                </div>
+
+                                                <div class="table_fencer_nat">
+                                                    <p>NAT</p>
+                                                </div>
                                             </div>
+
+
                                         </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
                                     </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
 
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                    <div class="table_round">
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_round_info">
-                                            <div>
-                                                <p>Ref: </p>
-                                                <p>TIME</p>
-                                            </div>
-                                            <div>
-                                                <p>VRef:</p>
-                                                <p>Piste:</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="table_fencer">
-                                            <div class="table_fencer_number">
-                                                <p>NUM</p>
-                                            </div>
-
-                                            <div class="table_fencer_name">
-                                                <p>NAME</p>
-                                            </div>
-
-                                            <div class="table_fencer_nat">
-                                                <p>NAT</p>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
+                                <?php
+                                }
+                                ?>
 
                             </div>
 
                         </div>
 
-                    <!-- STEP 3 -->
-                    <!-- <div id="1_8" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">5-8</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
+                    <?php
+                    }
+                    ?>
 
 
-                                        </div>
+                    <?php
+
+                    $order = ["r1", "r2", "r3"];
+
+                    for ($i = 0; $i < 3; $i++) {
+                        $tablestring = $order[$i];
+                        if (isset($json_team_table->$tablestring)) {
+
+
+                            foreach ($json_team_table->$tablestring as $tablecall => $table) {
+                                $final = false;
+                                if ($i == 0) {
+                                    $step = 3;
+                                } elseif ($i == 1) {
+                                    $step = 1;
+                                } else {
+                                    $step = 0;
+                                }
+
+                    ?>
+
+                                <div id="1_8" class="call_room cc">
+                                    <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                                     </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
+                                    <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+                                        <img src="../assets/icons/arrow_forward_ios_black.svg">
                                     </div>
+                                    <!-- BEFORE -->
+                                    <div id="e_" class="elimination">
+                                        <div class="elimination_label"><?php
 
-                                </div>
+                                                                        $tableranks = explode("-", $tablecall);
+                                                                        if ($tableranks[1] - $step == $tableranks[1]) {
+                                                                            echo $tableranks[1];
+                                                                            $final = true;
+                                                                        } else {
+                                                                            echo $backtable = $tableranks[1] - $step . "-" . $tableranks[1];
+                                                                        }
 
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">1-8</div>
 
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
+                                                                        ?></div>
 
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
 
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
+                                        <?php
+                                        if (!$final == true) {
+                                            $newtstring = "r" . (ltrim($tablestring, "r") + 1);
+                                        }
 
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
+
+                                        foreach ($json_team_table->$newtstring->$backtable as $matchkey => $matchvalue) {
+                                        ?>
+
+                                            <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                                <div class="table_round">
+
+
+                                                    <?php
+                                                    $firstrun = true;
+                                                    foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                        if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                            continue;
+                                                        }
+
+                                                    ?>
+
+                                                        <div class="table_fencer">
+                                                            <div class="table_fencer_number">
+                                                                <p><?php echo $teamkey ?></p>
+                                                            </div>
+
+                                                            <div class="table_fencer_name">
+                                                                <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
+                                                            </div>
+
+                                                            <div class="table_fencer_nat">
+                                                                <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
+                                                            </div>
+                                                        </div>
+                                                        <?php
+
+                                                        if ($firstrun == true) {
+                                                        ?>
+
+                                                            <div class="table_round_info">
+                                                                <div>
+                                                                    <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                    <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                    <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                                </div>
+                                                            </div>
+                                                    <?php
+
+                                                        }
+
+                                                        $firstrun = false;
+                                                    }
+                                                    ?>
+
                                                 </div>
                                             </div>
 
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
+                                        <?php } ?>
 
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
                                     </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
+                                    <!-- MAIN -->
+                                    <div id="e_" class="elimination">
+                                        <div class="elimination_label"><?php echo $tablecall ?></div>
 
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
+                                        <?php foreach ($json_team_table->$tablestring->$tablecall as $matchkey => $matchvalue) {
+                                        ?>
 
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
+                                            <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                                <div class="table_round">
 
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
+
+                                                    <?php
+                                                    $firstrun = true;
+                                                    foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                        if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                            continue;
+                                                        }
+
+                                                    ?>
+
+                                                        <div class="table_fencer">
+                                                            <div class="table_fencer_number">
+                                                                <p><?php echo $teamkey ?></p>
+                                                            </div>
+
+                                                            <div class="table_fencer_name">
+                                                                <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
+                                                            </div>
+
+                                                            <div class="table_fencer_nat">
+                                                                <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
+                                                            </div>
+                                                        </div>
+                                                        <?php
+
+                                                        if ($firstrun == true) {
+                                                        ?>
+
+                                                            <div class="table_round_info">
+                                                                <div>
+                                                                    <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                    <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                    <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                                </div>
+                                                            </div>
+                                                    <?php
+
+                                                        }
+
+                                                        $firstrun = false;
+                                                    }
+                                                    ?>
+
+
+
+
                                                 </div>
                                             </div>
 
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
+                                        <?php
 
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
+                                        }
 
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
+                                        ?>
 
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
                                     </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
+                                    <!-- AFTER-->
+                                    <div id="e_" class="elimination">
+                                        <div class="elimination_label"><?php
 
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
+                                                                        $tableranks = explode("-", $tablecall);
+                                                                        if ($tableranks[0] == $tableranks[1] - ($step + 1)) {
+                                                                            echo $tableranks[0];
+                                                                        } else {
+                                                                            echo $backtable = $tableranks[0] . "-" . ($tableranks[1] - ($step + 1));
+                                                                        }
 
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
 
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
+                                                                        ?></div>
+
+                                        <?php
+                                        if (!$final == true) {
+                                            $newtstring = "r" . (ltrim($tablestring, "r") + 1);
+                                        }
+
+
+                                        foreach ($json_team_table->$newtstring->$backtable as $matchkey => $matchvalue) {
+                                        ?>
+                                            <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                                <div class="table_round">
+
+                                                    <?php
+                                                    $firstrun = true;
+                                                    foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                        if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                            continue;
+                                                        }
+
+                                                    ?>
+
+                                                        <div class="table_fencer">
+                                                            <div class="table_fencer_number">
+                                                                <p><?php echo $teamkey ?></p>
+                                                            </div>
+
+                                                            <div class="table_fencer_name">
+                                                                <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
+                                                            </div>
+
+                                                            <div class="table_fencer_nat">
+                                                                <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
+                                                            </div>
+                                                        </div>
+                                                        <?php
+
+                                                        if ($firstrun == true) {
+                                                        ?>
+
+                                                            <div class="table_round_info">
+                                                                <div>
+                                                                    <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                    <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                    <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                                </div>
+                                                            </div>
+                                                    <?php
+
+                                                        }
+
+                                                        $firstrun = false;
+                                                    }
+                                                    ?>
+
+
                                                 </div>
                                             </div>
+                                        <?php
+                                        }
 
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
+                                        ?>
 
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
                                     </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">1-4</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            </div> -->
-
-                    <!-- <div id="9_16" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">13-16</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">9-16</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">9-12</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div> -->
-
-                    <!-- STEP 4 -->
-                    <!-- <div id="1_4" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">3-4</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">1-4</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">1-2</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            </div> -->
-
-                    <!-- <div id="5_8" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">7-8</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">5-8</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">5-6</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            </div> -->
-
-                    <!-- <div id="9_12" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">11-12</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">9-12</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">9-10</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            </div> -->
-
-                    <!-- <div id="13_16" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">15-16</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">13-16</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">13-14</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div> -->
-
-                    <!-- STEP 5 -->
-
-                    <!-- <div id="1_2" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">2</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">1-2</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">1</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="3_4" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">4</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">3-4</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">3</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="5_6" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">6</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">5-6</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">5</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="8_9" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">8</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">7-8</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">7</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="9_10" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">10</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">9-10</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">9</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="11_12" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">12</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">11-12</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">11</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
                                 </div>
 
-                            </div>
-
-                            <div id="13_14" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">14</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">13-14</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">13</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="15_16" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">16</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">15-16</div>
-
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="e_" class="elimination">
-                                    <div class="elimination_label">15</div>
-
-                                    <div class="table_round_wrapper purple" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
+                <?php
+                            }
+                        }
+                    }
+                }
+                ?>
 
-                            </div> -->
 
             </div>
         </main>

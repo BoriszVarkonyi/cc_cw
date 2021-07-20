@@ -115,7 +115,7 @@
         $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
         echo mysqli_error($connection);
-        //header("Refresh: 0");
+        header("Refresh: 0");
     }
 
     //get wc type and page

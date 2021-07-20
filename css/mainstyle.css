@@ -2115,6 +2115,8 @@ input[type="file"] {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 
@@ -3915,5 +3917,179 @@ div.title_box > button {
 /* Announcements */
 
 #announcements_wrapper {
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: 1fr;
+	height: calc(100% - 100px);
+	width: 80%;
+	gap: 2vh;
+}
 
+.annoucement {
+	border-radius: 10px;
+	box-shadow: var(--s-black);
+	transition: all var(--t-basic);
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	position: relative;
+	overflow-x: hidden;
+}
+
+.annoucement.not_used {
+	background: var(--c-lightestgray);
+	border: 5px dashed var(--c-lightgray);
+	cursor: pointer;
+}
+
+.annoucement.not_used:hover {
+	background: var(--c-lightergray);
+	border: 5px dashed var(--c-primary);
+}
+
+.annoucement.not_used:hover img {
+	transform: scale(1.05);
+}
+
+.annoucement.active, .annoucement.edit {
+	background: var(--c-lightergray);
+	border: 5px dashed var(--c-primary);
+}
+
+.annoucement_image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.annoucement_image img {
+	width: 60%;
+	height: 60%;
+	-webkit-filter: contrast(.2);
+	filter: contrast(.2);
+	transform: scale(1);
+	transition: all var(--t-basic);
+}
+
+.annoucement_content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.annoucement_title {
+	font-family: var(--bold);
+	font-size: var(--f-large);
+	margin-bottom: 10px;
+	line-height: 1.2;
+}
+
+.annoucement_body {
+	max-width: 50ch;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	line-height: 1.3;
+}
+
+.annoucement_controls {
+	position: absolute;
+	right: -150px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+	margin-right: 10px;
+	transition: ease-in-out .1s;
+	opacity: 0;
+}
+
+.annoucement:hover .annoucement_controls {
+	right: 0;
+	opacity: 1;
+}
+
+.button_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	transition: all ease-in-out .2s;
+	transform: scale(1);
+}
+
+.annoucement_controls button {
+	background: var(--c-white);
+	border-radius: 50%;
+	padding: 10px;
+	margin-left: 15px;
+	box-shadow: var(--s-black);
+	transition: all ease-in-out .2s;
+	transform: scale(1);
+}
+
+.annoucement_controls button:hover {
+	transform: scale(1.05);
+}
+
+.annoucement.disabled {
+	background: var(--c-gray);
+	border: 5px dashed var(--c-darkgray);
+	cursor: pointer;
+}
+
+.annoucement.active .edit_annoucement_body, .annoucement.active .edit_annoucement_title  {
+	display: none !important;
+}
+
+.annoucement.disabled .edit_annoucement_body, .annoucement.disabled .edit_annoucement_title  {
+	display: none !important;
+}
+
+.annoucement.edit .edit_annoucement_body, .annoucement.edit .edit_annoucement_title  {
+	display: block !important;
+}
+
+.annoucement.edit .annoucement_body, .annoucement.edit .annoucement_title  {
+	display: none;
+}
+
+.annoucement.edit .annoucement_content {
+	padding: 30px 50px;
+	box-sizing: border-box;
+}
+
+.button_wrapper.save {
+	display: none;
+}
+
+.annoucement.edit .button_wrapper.save {
+	display: flex;
+}
+
+.annoucement.edit .button_wrapper:not(.save) {
+	display: none;
+}
+
+.edit_annoucement_body {
+	width: 100%;
+	max-width: 60ch;
+}
+
+.edit_annoucement_body {
+	padding: 5px;
+	width: 100%;
+	max-width: 60ch;
+	background: var(--c-white);
+	border: 2px dashed var(--c-gray);
+	transition: background-color var(--t-basic), border var(--t-basic);
+}
+
+.edit_annoucement_body:hover, .edit_annoucement_body:focus {
+	background: var(--c-white);
+	border: 2px dashed var(--c-secondary);
+	transition: background-color var(--t-basic), border var(--t-basic);
 }
