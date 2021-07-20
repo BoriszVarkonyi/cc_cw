@@ -38,7 +38,7 @@ foreach ($competitor_table as $key => $value) {
 
 foreach ($allclub as $key => $value) {
 
-    echo '<a onclick="setNation(this)">' . $value . '</a>';
+    echo '<a onclick="setClub(this)">' . $value . '</a>';
 }
 
 ?>
