@@ -67,8 +67,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = $objects_array[$numinstr];
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
         }
     } elseif ($teamnum <= 4) {
 
@@ -93,8 +93,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
 
             echo $revi += 1;
         }
@@ -118,8 +118,8 @@ if (isset($_POST["generate_table"])) {
             }
             $team_table->r2->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r2->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r2->$instring->$matchstring->pistetime->time = "";
         }
     } elseif ($teamnum <= 8) {
 
@@ -142,8 +142,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
 
             echo $revi += 1;
         }
@@ -170,8 +170,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r2->$instring->$matchstring->$numinstr = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r2->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r2->$instring->$matchstring->pistetime->time = "";
 
             $revi++;
         }
@@ -195,8 +195,8 @@ if (isset($_POST["generate_table"])) {
             }
             $team_table->r1->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r1->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r1->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r1->$instring->$matchstring->pistetime->time = "";
         }
     } else {
 
@@ -218,8 +218,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r3->$instring->m_1->$numinstr = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref1 = new stdClass;
             $team_table->r3->$instring->m_1->referees->ref2 = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->pistename = new stdClass;
-            $team_table->r3->$instring->m_1->pistetime->time = new stdClass;
+            $team_table->r3->$instring->m_1->pistetime->pistename = "";
+            $team_table->r3->$instring->m_1->pistetime->time = "";
 
             echo $revi += 1;
         }
@@ -246,8 +246,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r2->$instring->$matchstring->$numinstr = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r2->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r2->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r2->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r2->$instring->$matchstring->pistetime->time = "";
 
             $revi++;
         }
@@ -274,8 +274,8 @@ if (isset($_POST["generate_table"])) {
             $team_table->r1->$instring->$matchstring->$numinstr = new stdClass;
             $team_table->r1->$instring->$matchstring->referees->ref1 = new stdClass;
             $team_table->r1->$instring->$matchstring->referees->ref2 = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->pistename = new stdClass;
-            $team_table->r1->$instring->$matchstring->pistetime->time = new stdClass;
+            $team_table->r1->$instring->$matchstring->pistetime->pistename = "";
+            $team_table->r1->$instring->$matchstring->pistetime->time = "";
 
             $revi++;
         }
@@ -301,8 +301,8 @@ if (isset($_POST["generate_table"])) {
 
                 $team_table->$tablename->$matchstring->referees->ref1 = new stdClass;
                 $team_table->$tablename->$matchstring->referees->ref2 = new stdClass;
-                $team_table->$tablename->$matchstring->pistetime->pistename = new stdClass;
-                $team_table->$tablename->$matchstring->pistetime->time = new stdClass;
+                $team_table->$tablename->$matchstring->pistetime->pistename = "";
+                $team_table->$tablename->$matchstring->pistetime->time = "";
             }
 
             $tablesize /= 2;
@@ -476,111 +476,104 @@ if (isset($_POST["generate_table"])) {
                     $json_team_table = json_decode($json_string);
                 }
 
-                echo "ANYÁD: " . $numofteams;
+                if (mysqli_num_rows($do_check_row) != 0) {
 
-                $tabletypes = ["r3", "r2", "r1", "t_16", "t_32", "t_64", "t_128"];
 
-                $headerexistance = false;
-                for ($i = teamTableSelector($numofteams); $i >= 0; $i--) {
+                    echo "ANYÁD: " . $numofteams;
 
-                    if ($tabletypes[$i] == "t_16" || $tabletypes[$i] == "t_32" || $tabletypes[$i] == "t_64" || $tabletypes[$i] == "t_128") {
-                        if ($headerexistance == false) {
+                    $tabletypes = ["r3", "r2", "r1", "t_16", "t_32", "t_64", "t_128"];
 
+                    $headerexistance = false;
 
                 ?>
 
-                            <div id="32_16" class="call_room cc">
-                                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                </div>
-                                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                    <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                </div>
+                    <div id="32_16" class="call_room cc">
+                        <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                            <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                        </div>
+                        <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+                            <img src="../assets/icons/arrow_forward_ios_black.svg">
+                        </div>
 
-
-
-                            <?php
-                        }
-                            ?>
-                            <div id="e_" class="elimination">
-                                <div class="elimination_label"><?php echo $tabletypes[$i] ?></div>
-                                <?php
-
-                                $tablepartstring = $tabletypes[$i];
-
-                                foreach ($json_team_table->$tablepartstring as $matchkey => $matchvalue) {
-                                ?>
-                                    <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
-                                        <div class="table_round">
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_round_info">
-                                                <div>
-                                                    <p>Ref: </p>
-                                                    <p>TIME</p>
-                                                </div>
-                                                <div>
-                                                    <p>VRef:</p>
-                                                    <p>Piste:</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="table_fencer">
-                                                <div class="table_fencer_number">
-                                                    <p>NUM</p>
-                                                </div>
-
-                                                <div class="table_fencer_name">
-                                                    <p>NAME</p>
-                                                </div>
-
-                                                <div class="table_fencer_nat">
-                                                    <p>NAT</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                <?php
-
-                                }
-                                ?>
-                                <!-- ELIM LEZÁRÓ -->
-                            </div>
-                            <!-- CALLROOM LEZÁRÓ -->
-                            </div>
                         <?php
 
-                    }
+                        for ($i = teamTableSelector($numofteams); $i >= 0; $i--) {
 
+                            if ($tabletypes[$i] == "t_16" || $tabletypes[$i] == "t_32" || $tabletypes[$i] == "t_64" || $tabletypes[$i] == "t_128") {
 
                         ?>
+                                <div id="e_" class="elimination">
+                                    <div class="elimination_label"><?php echo $tabletypes[$i] ?></div>
+                                    <?php
+
+                                    $tablepartstring = $tabletypes[$i];
+
+                                    foreach ($json_team_table->$tablepartstring as $matchkey => $matchvalue) {
+                                    ?>
+                                        <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
+                                            <div class="table_round">
+
+                                                <?php
+                                                $firstrun = true;
+                                                foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                    if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                        continue;
+                                                    }
+
+                                                ?>
+
+                                                    <div class="table_fencer">
+                                                        <div class="table_fencer_number">
+                                                            <p><?php echo $teamkey ?></p>
+                                                        </div>
+
+                                                        <div class="table_fencer_name">
+                                                            <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
+                                                        </div>
+
+                                                        <div class="table_fencer_nat">
+                                                            <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+
+                                                    if ($firstrun == true) {
+                                                    ?>
+
+                                                        <div class="table_round_info">
+                                                            <div>
+                                                                <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                            </div>
+                                                            <div>
+                                                                <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                            </div>
+                                                        </div>
+                                                <?php
+
+                                                    }
+
+                                                    $firstrun = false;
+                                                }
+                                                ?>
 
 
-                    <?php
 
+                                            </div>
+                                        </div>
+                                    <?php
 
-
-
-                    if ($tabletypes[$i] == "r1" || $tabletypes[$i] == "r2" || $tabletypes[$i] == "r3") {
-                    }
-                }
-                    ?>
-
+                                    }
+                                    ?>
+                                    <!-- ELIM LEZÁRÓ -->
+                                </div>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <!-- CALLROOM LEZÁRÓ -->
+                    </div>
                     <?php
 
                     if (isset($json_team_table->t_16)) {
@@ -810,7 +803,7 @@ if (isset($_POST["generate_table"])) {
                                     <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
                                         <img src="../assets/icons/arrow_forward_ios_black.svg">
                                     </div>
-
+                                    <!-- BEFORE -->
                                     <div id="e_" class="elimination">
                                         <div class="elimination_label"><?php
 
@@ -837,50 +830,52 @@ if (isset($_POST["generate_table"])) {
 
                                             <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
                                                 <div class="table_round">
-                                                    <?php
 
-                                                    if ($final != true) {
+
+                                                    <?php
+                                                    $firstrun = true;
+                                                    foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                        if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                            continue;
+                                                        }
 
                                                     ?>
+
                                                         <div class="table_fencer">
                                                             <div class="table_fencer_number">
-                                                                <p>NUM</p>
+                                                                <p><?php echo $teamkey ?></p>
                                                             </div>
 
                                                             <div class="table_fencer_name">
-                                                                <p>NAME</p>
+                                                                <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
                                                             </div>
 
                                                             <div class="table_fencer_nat">
-                                                                <p>NAT</p>
+                                                                <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
                                                             </div>
                                                         </div>
+                                                        <?php
 
-                                                        <div class="table_round_info">
-                                                            <div>
-                                                                <p>Ref: </p>
-                                                                <p>TIME</p>
+                                                        if ($firstrun == true) {
+                                                        ?>
+
+                                                            <div class="table_round_info">
+                                                                <div>
+                                                                    <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                    <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                    <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <p>VRef:</p>
-                                                                <p>Piste:</p>
-                                                            </div>
-                                                        </div>
-                                                    <?php } ?>
-                                                    <div class="table_fencer">
-                                                        <div class="table_fencer_number">
-                                                            <p>NUM</p>
-                                                        </div>
+                                                    <?php
 
-                                                        <div class="table_fencer_name">
-                                                            <p>NAME</p>
-                                                        </div>
+                                                        }
 
-                                                        <div class="table_fencer_nat">
-                                                            <p>NAT</p>
-                                                        </div>
-                                                    </div>
-
+                                                        $firstrun = false;
+                                                    }
+                                                    ?>
 
                                                 </div>
                                             </div>
@@ -888,7 +883,7 @@ if (isset($_POST["generate_table"])) {
                                         <?php } ?>
 
                                     </div>
-
+                                    <!-- MAIN -->
                                     <div id="e_" class="elimination">
                                         <div class="elimination_label"><?php echo $tablecall ?></div>
 
@@ -898,44 +893,53 @@ if (isset($_POST["generate_table"])) {
                                             <div class="table_round_wrapper blue" id="" tabindex="1" onclick="selectRound(this), window.location.href='match_results_team.php?comp_id=<?php echo $comp_id ?>'">
                                                 <div class="table_round">
 
-                                                    <div class="table_fencer">
-                                                        <div class="table_fencer_number">
-                                                            <p>NUM</p>
-                                                        </div>
 
-                                                        <div class="table_fencer_name">
-                                                            <p>NAME</p>
-                                                        </div>
+                                                    <?php
+                                                    $firstrun = true;
+                                                    foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                        if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                            continue;
+                                                        }
 
-                                                        <div class="table_fencer_nat">
-                                                            <p>NAT</p>
-                                                        </div>
-                                                    </div>
+                                                    ?>
 
-                                                    <div class="table_round_info">
-                                                        <div>
-                                                            <p>Ref: </p>
-                                                            <p>TIME</p>
-                                                        </div>
-                                                        <div>
-                                                            <p>VRef:</p>
-                                                            <p>Piste:</p>
-                                                        </div>
-                                                    </div>
+                                                        <div class="table_fencer">
+                                                            <div class="table_fencer_number">
+                                                                <p><?php echo $teamkey ?></p>
+                                                            </div>
 
-                                                    <div class="table_fencer">
-                                                        <div class="table_fencer_number">
-                                                            <p>NUM</p>
-                                                        </div>
+                                                            <div class="table_fencer_name">
+                                                                <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
+                                                            </div>
 
-                                                        <div class="table_fencer_name">
-                                                            <p>NAME</p>
+                                                            <div class="table_fencer_nat">
+                                                                <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
+                                                            </div>
                                                         </div>
+                                                        <?php
 
-                                                        <div class="table_fencer_nat">
-                                                            <p>NAT</p>
-                                                        </div>
-                                                    </div>
+                                                        if ($firstrun == true) {
+                                                        ?>
+
+                                                            <div class="table_round_info">
+                                                                <div>
+                                                                    <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                    <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                    <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                                </div>
+                                                            </div>
+                                                    <?php
+
+                                                        }
+
+                                                        $firstrun = false;
+                                                    }
+                                                    ?>
+
+
 
 
                                                 </div>
@@ -948,7 +952,7 @@ if (isset($_POST["generate_table"])) {
                                         ?>
 
                                     </div>
-
+                                    <!-- AFTER-->
                                     <div id="e_" class="elimination">
                                         <div class="elimination_label"><?php
 
@@ -974,51 +978,49 @@ if (isset($_POST["generate_table"])) {
                                                 <div class="table_round">
 
                                                     <?php
-
-                                                    if ($final != true) {
+                                                    $firstrun = true;
+                                                    foreach ($matchvalue as $teamkey => $teamvalues) {
+                                                        if ($teamkey == "referees" || $teamkey == "pistetime") {
+                                                            continue;
+                                                        }
 
                                                     ?>
 
                                                         <div class="table_fencer">
                                                             <div class="table_fencer_number">
-                                                                <p>NUM</p>
+                                                                <p><?php echo $teamkey ?></p>
                                                             </div>
 
                                                             <div class="table_fencer_name">
-                                                                <p>NAME</p>
+                                                                <p><?php echo $teamname = (isset($teamvalues->id)) ? $teamvalues->id : "" ?></p>
                                                             </div>
 
                                                             <div class="table_fencer_nat">
-                                                                <p>NAT</p>
+                                                                <p><?php echo $teamnat = (isset($teamvalues->nation)) ? $teamvalues->nation : "" ?></p>
                                                             </div>
                                                         </div>
+                                                        <?php
 
-                                                        <div class="table_round_info">
-                                                            <div>
-                                                                <p>Ref: </p>
-                                                                <p>TIME</p>
+                                                        if ($firstrun == true) {
+                                                        ?>
+
+                                                            <div class="table_round_info">
+                                                                <div>
+                                                                    <p>Referee 1: <?php echo $matchref = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref1->name : "" ?></p>
+                                                                    <p>Time: <?php echo $matchtime = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->time : "" ?></p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>Referee 2: <?php echo $matchref2 = (isset($matchvalue->referees->name)) ? $matchvalue->referees->ref2->name : "" ?></p>
+                                                                    <p>Piste: <?php echo $matchpiste = (isset($matchvalue->pistetime)) ? $matchvalue->pistetime->pistename : "" ?></p>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <p>VRef:</p>
-                                                                <p>Piste:</p>
-                                                            </div>
-                                                        </div>
                                                     <?php
+
+                                                        }
+
+                                                        $firstrun = false;
                                                     }
                                                     ?>
-                                                    <div class="table_fencer">
-                                                        <div class="table_fencer_number">
-                                                            <p>NUM</p>
-                                                        </div>
-
-                                                        <div class="table_fencer_name">
-                                                            <p>NAME</p>
-                                                        </div>
-
-                                                        <div class="table_fencer_nat">
-                                                            <p>NAT</p>
-                                                        </div>
-                                                    </div>
 
 
                                                 </div>
@@ -1031,12 +1033,14 @@ if (isset($_POST["generate_table"])) {
                                     </div>
                                 </div>
 
-                    <?php
+                <?php
                             }
                         }
                     }
-                    ?>
-                    
+                }
+                ?>
+
+
             </div>
         </main>
     </div>
