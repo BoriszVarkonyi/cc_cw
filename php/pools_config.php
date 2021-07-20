@@ -736,7 +736,7 @@
 
                                     <div class="td">
                                         <p><?php echo $time ?></p>
-                                        <input type="time" name="input_time" value="<?php echo $time ?>" class="centered hidden">
+                                        <input type="time" name="input_time" value="<?php echo $time ?>"  class="pool_time_input centered hidden">
                                     </div>
                                     <div class="td square">
                                         <button type="button" onclick="poolConfig(this)" class="pool_config">

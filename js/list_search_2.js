@@ -42,6 +42,7 @@ function searchInLists() {
         else {
             var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
         }
+        console.log(li)
         //Loops throught the rows
         for (i = li.length; i--;) {
             a = li[i].querySelector("p");
@@ -155,7 +156,7 @@ for (i = 0; i < columns.length; i++) {
     break;
 }
 
-var allButtons = document.querySelectorAll("#page_content_panel_main th > button:first-of-type");
+var allButtons = document.querySelectorAll("#page_content_panel_main th > .table_buttons_wrapper button:first-of-type");
 var sortButtonCookie = cookieFinder("sortCookie", "")
 for (i = 0; i < sortButtonCookie[1]; i++) {
     sortButton(allButtons[sortButtonCookie[0]])
@@ -285,6 +286,18 @@ function indexFinder(nameSearchFor, index, mode) {
         }
     }
 }
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (e.shiftKey && e.which == 70) {
+            var nameSearch = document.querySelector(".table_buttons_wrapper button:nth-of-type(2)")
+            nameSearch.click()
+        }
+    }
+})
+
 
 
 
