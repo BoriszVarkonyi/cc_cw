@@ -42,7 +42,6 @@ function searchInLists() {
         else {
             var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
         }
-        console.log(li)
         //Loops throught the rows
         for (i = li.length; i--;) {
             a = li[i].querySelector("p");
