@@ -15,6 +15,22 @@
         }
     }
 
+    //get wc type and page
+    $qry_get_wc_type = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
+    $do_get_wc_type = mysqli_query($connection, $qry_get_wc_type);
+    if ($row = mysqli_fetch_assoc($do_get_wc_type)) {
+        $wc_type = $row['comp_wc_type'];
+
+        switch ($wc_type) {
+            case 1://immediate
+                $wc_page = "weapon_control_immediate";
+            break;
+            case 2://administrative
+                $wc_page = "weapon_control_administrated";
+            break;
+        }
+    }
+
     // array of all issues
     $array_issues = array(
         "FIE mark on blade",
@@ -115,23 +131,9 @@
         $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
         echo mysqli_error($connection);
-        header("Refresh: 0");
-    }
+        header("Location: ../php/$wc_page.php?comp_id=$comp_id");
+        
 
-    //get wc type and page
-    $qry_get_wc_type = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
-    $do_get_wc_type = mysqli_query($connection, $qry_get_wc_type);
-    if ($row = mysqli_fetch_assoc($do_get_wc_type)) {
-        $wc_type = $row['comp_wc_type'];
-
-        switch ($wc_type) {
-            case 1://immediate
-                $wc_page = "weapon_control_immediate";
-            break;
-            case 2://administrative
-                $wc_page = "weapon_control_administrated";
-            break;
-        }
     }
 
 ?>
