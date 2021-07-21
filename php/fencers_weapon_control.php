@@ -173,7 +173,21 @@
                         <thead>
                             <tr>
                                 <th>
-                                    <p>ISSUE</p>
+                                    <div class="search_panel">
+                                        <div class="search_wrapper">
+                                            <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_buttons_wrapper">
+                                        <button type="button" onclick="sortButton(this)">
+                                            <img src="../assets/icons/switch_full_black.svg">
+                                        </button>
+                                        <p>ISSUE</p>
+                                        <button type="button" onclick="searchButton(this)">
+                                            <img src="../assets/icons/search_black.svg">
+                                        </button>
+                                    </div>
                                 </th>
                                 <th>
                                     <p>QUANTITY</p>
@@ -213,5 +227,6 @@
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/list_search_2.js"></script>
 </body>
 </html>

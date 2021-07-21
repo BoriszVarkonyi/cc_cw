@@ -4,6 +4,7 @@ var regOutButton = document.getElementById("regOut")
 var removeFencerButton = document.querySelector("button[name=remove_fencer]")
 
 function toggleAddFencerPanel() {
+    index = 0;
     addFencerPanel.classList.remove("hidden");
 }
 
@@ -55,6 +56,8 @@ function buttonDisabler() {
     }
 }
 
+var index = 0;
+
 document.addEventListener("keyup", function (e) {
     //somethingisOpened is a var. from main.js
     //somethingIsFocused is a var. from main.js
@@ -75,9 +78,39 @@ document.addEventListener("keyup", function (e) {
                 regInButton = document.getElementById("regIn")
                 regInButton.click()
             }
+            if (e.shiftKey && e.which == 68) {
+                var deleteFencerButton = document.getElementById("deleteFencer")
+                deleteFencerButton.click()
+            }
+        }
+    }
+    if (!document.getElementById("add_fencer_panel").classList.contains("hidden")) {
+        if (e.which == 9) {
+            var inputs = document.querySelectorAll("#add_fencer_panel .overlay_panel_division.visible input[type='text'], input[type='number']")
+            if (currentDivision < maxNumber - 1 || index < inputs.length - 1) {
+                if (index == inputs.length - 1) {
+                    index = 0
+                    rightButton()
+                    inputs = document.querySelectorAll("#add_fencer_panel .overlay_panel_division.visible input[type='text'], input[type='number']")
+                }
+                index++
+                inputs[index].focus();
+            }
         }
     }
 })
+
+//Sets the index when 
+function setIndex(x){
+    var inputs = document.querySelectorAll("#add_fencer_panel .overlay_panel_division.visible input[type='text'], input[type='number']")
+    for(i=0; i< inputs.length; i++){
+        if(inputs[i] == x){
+            index = i;
+            break;
+        }
+    }
+
+}
 
 //Add fencer overlay button and title system
 var leftDivisionButton = document.getElementById("overlayPanelButtonLeft");
@@ -92,7 +125,7 @@ leftDivisionButton.disabled = true;
 currentTitle.innerHTML = overlayPanelDivisions[currentDivision].getAttribute("overlay_division_title")
 controlsCounter.innerHTML = maxNumber + " / " + (currentDivision + 1);
 
-function leftButton(x) {
+function leftButton() {
     currentDivision--
     overlayPanelDivisions[currentDivision + 1].classList.remove("visible")
     overlayPanelDivisions[currentDivision].classList.add("visible")
@@ -101,7 +134,7 @@ function leftButton(x) {
     divisionButtonDisabler();
 }
 
-function rightButton(x) {
+function rightButton() {
     currentDivision++
     overlayPanelDivisions[currentDivision - 1].classList.remove("visible");
     overlayPanelDivisions[currentDivision].classList.add("visible");

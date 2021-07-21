@@ -89,7 +89,7 @@ function drag(ev, x) {
             dragEndActive = false;
         }
     }
-    
+
     //If a drag starts from a Table
     else {
         //Saves the dragged element
@@ -397,22 +397,16 @@ function rfrsValidation() {
 refereesForm.addEventListener("input", rfrsValidation)
 
 function poolConfig(x) {
-    var searchWrappers = x.parentNode.parentNode.querySelectorAll(".search_wrapper")
+    var searchWrappers = x.parentNode.parentNode.querySelectorAll(".search_wrapper, .pool_time_input")
     var texts = x.parentNode.parentNode.querySelectorAll("p")
-    if (texts[0].classList.contains("hidden")) {
-        for (i = 0; i < searchWrappers.length; i++) {
-            searchWrappers[i].classList.add("hidden")
-        }
-        for (i = 0; i < texts.length; i++) {
-            texts[i].classList.remove("hidden")
-        }
+    var saveButton = x.parentNode.querySelector("button:nth-of-type(2)")
+    console.log(saveButton)
+    for (i = 0; i < searchWrappers.length; i++) {
+        searchWrappers[i].classList.remove("hidden")
     }
-    else {
-        for (i = 0; i < searchWrappers.length; i++) {
-            searchWrappers[i].classList.remove("hidden")
-        }
-        for (i = 0; i < texts.length; i++) {
-            texts[i].classList.add("hidden")
-        }
+    for (i = 0; i < texts.length; i++) {
+        texts[i].classList.add("hidden")
     }
+    x.classList.add("hidden")
+    saveButton.classList.remove("hidden")
 }
