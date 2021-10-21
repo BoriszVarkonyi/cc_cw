@@ -203,9 +203,13 @@
 
                     <!-- competition status -->
                     <div id="stats_panel" class="db_panel">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/bar_chart_black.svg">
                             <p>Competition's Stats:</p>
+                            <button class="db_panel_header_extension">
+                                <p>Refresh Data</p>
+                                <img src="../assets/icons/refresh_black.svg">
+                            </button>
                         </div>
                         <div class="db_panel_main small">
 
@@ -372,9 +376,10 @@
 
                     <!-- competition status -->
                     <div id="status_panel" class="db_panel">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/task_alt_black.svg">
-                            <p>Competition's Status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
+                            <p>Competition's Status:</p>
+                            <p class="db_panel_header_extension"><?php echo statusConverter($comp_status) ?></p>
                         </div>
 
                         <!-- competiton status table -->

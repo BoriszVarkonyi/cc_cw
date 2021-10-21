@@ -168,7 +168,7 @@ if (isset($_POST["submit_referees"])) {
 
                         <div id="table_referees_wrapper">
                             <div class="db_panel full" id="pistes_and_time_panel">
-                                <div class="db_panel_title_stripe">
+                                <div class="db_panel_header">
                                     <img src="../assets/icons/build_black.svg">
                                     <p>Set Referees for table</p>
                                 </div>
@@ -282,7 +282,7 @@ if (isset($_POST["submit_referees"])) {
                             </div>
                             <button class="try_button" onclick="try_referees()">Try</button>
                             <div class="db_panel full" id="matches_preview_panel">
-                                <div class="db_panel_title_stripe">
+                                <div class="db_panel_header">
                                     <img src="../assets/icons/build_black.svg">
                                     <p class="table_text">Preview matches</p>
                                     <button id="preview_button" onclick="nation_to_club(this)">Preview Referees</button>
@@ -422,7 +422,7 @@ if (isset($_POST["submit_referees"])) {
                                 </div>
                             </div>
                             <div class="db_panel full hidden" id="referees_preview_panel">
-                                <div class="db_panel_title_stripe">
+                                <div class="db_panel_header">
                                     <img src="../assets/icons/build_black.svg">
                                     <p>Preview referees</p>
                                     <button onclick="">Preview Matches</button>

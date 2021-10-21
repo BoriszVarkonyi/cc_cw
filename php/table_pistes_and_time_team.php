@@ -138,7 +138,7 @@ if (isset($_POST["save_piste_time"])) {
 
                         <div id="table_piste_time_wrapper">
                             <div class="db_panel full" id="pistes_and_time_panel">
-                                <div class="db_panel_title_stripe">
+                                <div class="db_panel_header">
                                     <img src="../assets/icons/build_black.svg">
                                     <p>Set Time and Piste for table</p>
                                 </div>
@@ -235,7 +235,7 @@ if (isset($_POST["save_piste_time"])) {
                             </div>
                             <button class="try_button" onclick="tryConfig()">Try</button>
                             <div class="db_panel full" id="matches_preview_panel">
-                                <div class="db_panel_title_stripe">
+                                <div class="db_panel_header">
                                     <img src="../assets/icons/build_black.svg">
                                     <p>Preview matches</p>
                                 </div>

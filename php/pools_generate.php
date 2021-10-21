@@ -361,7 +361,7 @@
             </div>
             <div id="page_content_panel_main">
                 <div id="basic_information_wrapper" class="db_panel form_page_flex">
-                    <div class="db_panel_title_stripe">
+                    <div class="db_panel_header">
                         <img src="../assets/icons/build_black.svg">
                         <p>Set propeties of Pools</p>
                     </div>
