@@ -464,6 +464,8 @@ header {
 	max-width: 2rem;
 	display: flex;
 	justify-content: center;
+	line-height: 1.2;
+	font-size: var(--f-small);
 }
 
 .color_mode.selected p {
@@ -1736,12 +1738,15 @@ nav.closed #documentation_label img {
     overflow-y: auto;
     overflow-x: hidden;
 	position: relative;
-	padding: 50px;
 	z-index: 0;
 }
 
+#panel_main > * {		/* The main part of the panel it is under the title_stripe*/
+	margin: 50px 0;
+}
+
 #login_panel #panel_main {		/* The main part of the panel it is under the title_stripe*/
-	padding: 0px;
+	padding: 0 50px;
 }
 
 /* ///FORMS AND INPUTS/// */
@@ -2243,7 +2248,7 @@ input[type="file"] {
 	margin: 0 !important;
 }
 
-.db_panel_title_stripe {
+.db_panel_header {
 	background: var(--c-lightestgray);
 	padding: 10px;
 	width: 100%;
@@ -2253,12 +2258,18 @@ input[type="file"] {
 	box-sizing: border-box;
 }
 
-#db_comp_status {
+.db_panel_header_extension {
 	margin-left: auto;
 	font-family: var(--bold);
+	display: flex;
+	align-items: center;
 }
 
-.db_panel_title_stripe img {
+.db_panel_header_extension > img {
+	margin-left: 3px;
+}
+
+.db_panel_header > img {
 	padding: 0 5px 0 0;
 	width: 20px;
 	height: 20px;
@@ -2266,7 +2277,7 @@ input[type="file"] {
 	filter: var(--ci-primarycontrast) !important;
 }
 
-.db_panel_title_stripe button {
+.db_panel_header button {
 	justify-self: flex-end;
 	margin-left: auto;
 	padding: 0 5px;
@@ -2276,7 +2287,7 @@ input[type="file"] {
 	font-family: var(--bold);
 }
 
-.db_panel_title_stripe button:hover {
+.db_panel_header button:hover {
 	background: var(--c-lightgray);
 }
 

@@ -69,7 +69,7 @@
             <div id="page_content_panel_main">
                 <form class="wrapper" class="db_panel other" id="information_for_fencers_form" action="information_for_fencers.php?comp_id=<?php echo $comp_id ?>" method="POST">
                     <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/beenhere_black.svg">
                             <p>Equipment needed to be checked</p>
                         </div>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="db_panel">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/edit_black.svg">
                             <p>Set Additional Information</p>
                         </div>
