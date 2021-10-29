@@ -120,14 +120,16 @@
                         <div class="annoucement_image">
                             <img src="../assets/icons/announcement_black.svg">
                         </div>
-                        <div class="annoucement_content">
-                            <p class="annoucement_title">Annoucement title</p>
+                        <form class="annoucement_content">
+                            <input type="text" class="edit_annoucement_title title_input" placeholder="Type in the announcement's title">
+                            <textarea name="" class="edit_annoucement_body" cols="30" rows="10" placeholder="Type in the announcement"></textarea>
+                            <p class="annoucement_title">This is an annoucement</p>
                             <p class="annoucement_body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi reiciendis pariatur quidem quaerat commodi, nisi molestias nulla quas sit ea laborum similique, dolore quod voluptate qui culpa sequi libero minima.</p>
-                        </div>
+                        </form>
                         <div class="annoucement_controls">
                             <div class="button_wrapper">
                                 <p>Edit</p>
-                                <button>
+                                <button onclick="editAnnouncement(this)">
                                     <img src="../assets/icons/edit_black.svg">
                                 </button>
                             </div>
@@ -138,9 +140,21 @@
                                 </button>
                             </div>
                             <div class="button_wrapper">
-                                <p>Disable</p>
+                                <p>Enable</p>
                                 <button>
-                                    <img src="../assets/icons/visibility_off_black.svg">
+                                    <img src="../assets/icons/visibility_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper save" onclick="cancelEditAnnouncement(this)">
+                                <p>Cancel</p>
+                                <button>
+                                    <img src="../assets/icons/close_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper save">
+                                <p>Save</p>
+                                <button>
+                                    <img src="../assets/icons/save_black.svg">
                                 </button>
                             </div>
                         </div>
@@ -175,6 +189,12 @@
                                     <img src="../assets/icons/visibility_black.svg">
                                 </button>
                             </div>
+                            <div class="button_wrapper save" onclick="cancelEditAnnouncement(this)">
+                                <p>Cancel</p>
+                                <button>
+                                    <img src="../assets/icons/close_black.svg">
+                                </button>
+                            </div>
                             <div class="button_wrapper save">
                                 <p>Save</p>
                                 <button>
@@ -188,9 +208,30 @@
                         <div class="annoucement_image">
                             <img src="../assets/icons/new_announcement_black.svg">
                         </div>
-                        <div class="annoucement_content">
+                        <form class="annoucement_content">
+                            <input type="text" class="edit_annoucement_title title_input" placeholder="Type in the announcement's title">
+                            <textarea name="" class="edit_annoucement_body" cols="30" rows="10" placeholder="Type in the announcement"></textarea>
                             <p class="annoucement_title">Add an Annoucement</p>
-                            <p class="annoucement_body">This annoucement will be visible for anybody on the competititon's dedicated</p>
+                            <p class="annoucement_body">This annoucement will be visible for anybody on the competititon's dedicated page</p>
+                        </form>
+                        <div class="annoucement_controls">
+                            <div class="button_wrapper">
+                                <p>Add</p>
+                                <button onclick="addAnnouncement(this)">
+                                    <img src="../assets/icons/add_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper save" onclick="cancelEditAnnouncement(this)">
+                                <p>Cancel</p>
+                                <button>
+                                    <img src="../assets/icons/close_black.svg">
+                                </button>
+                            </div>
+                            <div class="button_wrapper save">
+                                <p>Save</p>
+                                <button>
+                                    <img src="../assets/icons/save_black.svg">
+                                </button>
                         </div>
                     </div>
 

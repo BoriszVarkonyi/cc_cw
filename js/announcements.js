@@ -1,10 +1,51 @@
+const annoucementWrapper = document.getElementById("announcements_wrapper");
+
+function addAnnouncement(x) {
+    var clickedAnnouncement = x.parentNode.parentNode.parentNode;
+
+    console.log(clickedAnnouncement);
+
+    clickedAnnouncement.classList.add("edit");
+
+    var announcements = document.querySelectorAll(".annoucement:not(.edit)");
+
+    for (let i = 0; i < announcements.length; i++) {
+        announcements[i].classList.add("hidden");
+    }
+
+    annoucementWrapper.classList.add("edit")
+}
+
 function editAnnouncement(x) {
     var clickedAnnouncement = x.parentNode.parentNode.parentNode;
 
     console.log(clickedAnnouncement);
 
-    clickedAnnouncement.classList.toggle("disabled");
-    clickedAnnouncement.classList.toggle("edit");
+    clickedAnnouncement.classList.add("edit");
+
+    var announcements = document.querySelectorAll(".annoucement:not(.edit)");
+
+    for (let i = 0; i < announcements.length; i++) {
+        announcements[i].classList.add("hidden");
+    }
+
+    annoucementWrapper.classList.add("edit")
+}
+
+function cancelEditAnnouncement(x) {
+    var clickedAnnouncement = x.parentNode.parentNode;
+
+    console.log(clickedAnnouncement);
+
+    clickedAnnouncement.classList.remove("edit");
+
+    var announcements = document.querySelectorAll(".annoucement");
+
+    for (let i = 0; i < announcements.length; i++) {
+        announcements[i].classList.remove("hidden");
+    }
+
+    annoucementWrapper.classList.remove("edit")
 }
 
 
