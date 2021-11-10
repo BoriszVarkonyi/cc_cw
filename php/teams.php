@@ -123,6 +123,8 @@
                         <p>Assign Fencers to Teams</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
+                    <input type="text">
+                    <button type="submit">Submit</button>
                 </div>
 
                 <div class="search_wrapper">

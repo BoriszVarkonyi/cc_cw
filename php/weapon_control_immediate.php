@@ -70,7 +70,7 @@
                     </button>
                     <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
                         <p>Add weapon control</p>
-                        <img src="../assets/icons/add_black.svg"/> <!-- This should change to ../assets/icons/edit_black.svg if the fencer already has weapon control-->
+                        <img src="../assets/icons/add_black.svg"/>
                     </button>
                     <input type="text">
                     <button type="submit">Submit</button>

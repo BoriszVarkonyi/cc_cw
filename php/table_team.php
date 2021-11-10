@@ -345,9 +345,7 @@ if (isset($_POST["generate_table"])) {
         <!-- navbar -->
         <main>
             <div id="title_stripe">
-                <p class="page_title">
-                <Table></Table>
-                </p>
+                <p class="page_title">Team Table</p>
 
                 <!-- HA NINCS MÉG TÁBLA -->
                 <form class="stripe_button_wrapper" id="generate_table" method="POST" action="">
@@ -356,6 +354,9 @@ if (isset($_POST["generate_table"])) {
                         <img src="../assets/icons/add_box_black.svg" />
                     </button>
                 </form>
+
+                <input type="text">
+                <button type="submit">Submit</button>
 
                 <!--HA VAN -->
                 <div class="stripe_button_wrapper">
