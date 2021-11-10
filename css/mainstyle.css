@@ -1245,6 +1245,7 @@ nav:hover #nav_bar_pin {
 	box-sizing: border-box;
 	padding: 0 30px;
 	margin: 1px 0;
+	position: relative;
 }
 
 .dropdown_menu a::before {
@@ -1252,7 +1253,7 @@ nav:hover #nav_bar_pin {
 	position: absolute;
 	width: 18px;
 	height: 2px;
-	left: calc(20px + 0.5rem);
+	left: 9px;
 	background: var(--c-secondary);
 }
 
@@ -2177,7 +2178,7 @@ input[type="file"] {
 }
 
 .stat {
-	padding: 8px;
+	padding: 8px 8px 6px;
 	border-radius: 5px;
 	background: var(--c-lightestgray);
 	border: 2px solid var(--c-lightgray);
@@ -2237,6 +2238,7 @@ input[type="file"] {
 	flex-direction: column;
 	border-radius: 5px;
 	overflow: hidden;
+	border: 1pt solid var(--c-gray);
 }
 
 .db_panel.hidden {
@@ -2250,12 +2252,13 @@ input[type="file"] {
 
 .db_panel_header {
 	background: var(--c-lightestgray);
-	padding: 10px;
+	padding: 10px 12px 10px 10px;
 	width: 100%;
 	flex: 0 1 auto;
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
+	border-bottom: 1pt solid var(--c-gray);
 }
 
 .db_panel_header_extension {
@@ -2267,6 +2270,8 @@ input[type="file"] {
 
 .db_panel_header_extension > img {
 	margin-left: 3px;
+	width: 16px;
+	height: 16px;
 }
 
 .db_panel_header > img {
@@ -2282,7 +2287,7 @@ input[type="file"] {
 	margin-left: auto;
 	padding: 0 5px;
 	border-radius: 5px;
-	border: 2px solid var(--c-gray);
+	border: 1.5pt solid var(--c-gray);
 	font-size: var(--f-small);
 	font-family: var(--bold);
 }
@@ -3936,6 +3941,10 @@ div.title_box > button {
 	gap: 2vh;
 }
 
+#announcements_wrapper.edit {
+	grid-template-rows: repeat(1, 1fr);
+}
+
 .annoucement {
 	border-radius: 10px;
 	box-shadow: var(--s-black);
@@ -3944,16 +3953,18 @@ div.title_box > button {
 	grid-template-columns: 1fr 3fr;
 	position: relative;
 	overflow-x: hidden;
+	background: var(--c-lightestgray);
+}
+
+.annoucement.hidden {
+	display: none;
 }
 
 .annoucement.not_used {
-	background: var(--c-lightestgray);
 	border: 5px dashed var(--c-lightgray);
-	cursor: pointer;
 }
 
 .annoucement.not_used:hover {
-	background: var(--c-lightergray);
 	border: 5px dashed var(--c-primary);
 }
 
@@ -3961,9 +3972,8 @@ div.title_box > button {
 	transform: scale(1.05);
 }
 
-.annoucement.active, .annoucement.edit {
-	background: var(--c-lightergray);
-	border: 5px dashed var(--c-primary);
+.annoucement.active, .annoucement.create, .annoucement.edit {
+	border: 5px dashed var(--c-primary) !important;
 }
 
 .annoucement_image {
@@ -3985,6 +3995,7 @@ div.title_box > button {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding-right: 130px;
 }
 
 .annoucement_title {
@@ -4007,21 +4018,15 @@ div.title_box > button {
 
 .annoucement_controls {
 	position: absolute;
-	right: -150px;
+	right: 0;
 	top: 50%;
 	transform: translateY(-50%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 10px;
-	margin-right: 10px;
-	transition: ease-in-out .1s;
-	opacity: 0;
-}
-
-.annoucement:hover .annoucement_controls {
-	right: 0;
-	opacity: 1;
+	gap: 2%;
+	margin-right: 20px;
+	height: 100%;
 }
 
 .button_wrapper {
@@ -4035,15 +4040,18 @@ div.title_box > button {
 .annoucement_controls button {
 	background: var(--c-white);
 	border-radius: 50%;
-	padding: 10px;
+	padding: 7px;
+	box-sizing: border-box;
 	margin-left: 15px;
 	box-shadow: var(--s-black);
 	transition: all ease-in-out .2s;
 	transform: scale(1);
+	border: 3px solid var(--c-white);
 }
 
 .annoucement_controls button:hover {
 	transform: scale(1.05);
+	border: 3px solid var(--c-darkgray);
 }
 
 .annoucement.disabled {
@@ -4051,6 +4059,8 @@ div.title_box > button {
 	border: 5px dashed var(--c-darkgray);
 	cursor: pointer;
 }
+
+/* Normal */
 
 .annoucement.active .edit_annoucement_body, .annoucement.active .edit_annoucement_title  {
 	display: none !important;
@@ -4060,6 +4070,11 @@ div.title_box > button {
 	display: none !important;
 }
 
+.annoucement.not_used .edit_annoucement_body, .annoucement.not_used .edit_annoucement_title  {
+	display: none !important;
+}
+
+/*  When edited */
 .annoucement.edit .edit_annoucement_body, .annoucement.edit .edit_annoucement_title  {
 	display: block !important;
 }
@@ -4097,6 +4112,7 @@ div.title_box > button {
 	background: var(--c-white);
 	border: 2px dashed var(--c-gray);
 	transition: background-color var(--t-basic), border var(--t-basic);
+	height: 90%;
 }
 
 .edit_annoucement_body:hover, .edit_annoucement_body:focus {

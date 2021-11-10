@@ -72,6 +72,8 @@
                         <p>Add weapon control</p>
                         <img src="../assets/icons/add_black.svg"/> <!-- This should change to ../assets/icons/edit_black.svg if the fencer already has weapon control-->
                     </button>
+                    <input type="text">
+                    <button type="submit">Submit</button>
                 </div>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
             </form>

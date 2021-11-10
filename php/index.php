@@ -443,7 +443,7 @@
                                 </button>
                             </div>
                             <div class="progress_bar">
-                                <div class="progress" x-progress="25"></div>
+                                <div class="progress" x-progress="25%"></div>
                             </div>
                         </div>
                     </div>
