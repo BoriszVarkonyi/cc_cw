@@ -4,6 +4,11 @@
 <?php checkComp($connection); ?>
 
 <?php
+    //barcode scan
+    if(isset($_POST["barcode"])) {
+        $fencer_id = $_POST["barcode"];
+        header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
 
     $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_create_table = mysqli_query($connection, $qry_create_table);
@@ -72,10 +77,10 @@
                         <p>Add weapon control</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
-                    <input type="text">
+                    <input type="text" name="barcode" placeholder="Barcode">
                     <button type="submit">Submit</button>
                 </div>
-                <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
+                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value=""> 
             </form>
             <div id="page_content_panel_main">
                 <table class="wrapper">

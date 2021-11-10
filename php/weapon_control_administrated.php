@@ -29,6 +29,12 @@
         $compet_string = $row['data'];
         $compet_table = json_decode($compet_string);
     }
+    
+    //barcode scan
+    if(isset($_POST["barcode"])) {
+        $fencer_id = $_POST["barcode"];
+        header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
 
     //check in button (make wc for fencers onto db)
     if (isset($_POST['check_in_submit'])) {
@@ -109,7 +115,8 @@
                         <p>Check Out</p>
                         <img src="../assets/icons/check_circle_black.svg"/>
                     </button>
-                    <input type="text">
+                    <!-- 12384 -->
+                    <input type="text" name="barcode" placeholder="Barcode">
                     <button type="submit">Submit</button>
                 </div>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
