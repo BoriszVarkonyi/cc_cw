@@ -55,7 +55,18 @@
                     </div>
                     <form action="" id="team_positions_wrapper">
 
-                        <div id="t32" class="team_positions hidden">
+                    <?php
+                    
+                    if (!isset($_GET['draw_table'])) {
+                        # code...
+                    }
+                    else {
+
+                        $draw_table_id = $_GET['draw_table'];
+
+                    ?>
+
+                        <div id="t32" class="team_positions">
                             <div class="rounds_container">
                                 <p class="round_text"><span>T32</span> Contains:</p>
                                 <p>1 - 16</p>
@@ -118,7 +129,7 @@
                             </div>
 
                         </div>
-                        <div id="r1" class="team_positions">
+                        <div id="r1" class="team_positions hidden">
                             <div class="rounds_container">
                                 <p class="round_text"><span>R1</span> Contains:</p>
                                 <p>1 - 8, 4 - 6, 4 - 8, 8 - 4, 6 - 7</p>
@@ -181,6 +192,14 @@
                             </div>
 
                         </div>
+
+                        <?php
+                        
+                    }
+                   //close check if else statement 
+                        
+                        ?>
+
                     </form>
                 </div>
 

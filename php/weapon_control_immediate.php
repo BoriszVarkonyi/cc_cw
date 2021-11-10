@@ -78,7 +78,7 @@
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
                     <input type="text" name="barcode" placeholder="Barcode">
-                    <button type="submit">Submit</button>
+                    <input type="submit" tabindex="-1" name="submit">
                 </div>
                  <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value=""> 
             </form>
