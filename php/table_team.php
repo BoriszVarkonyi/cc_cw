@@ -782,7 +782,13 @@ if (isset($_POST["generate_table"])) {
 
                     ?>
 
-                                <div id="1_8" class="call_room cc">
+                                <div id="<?php echo $order[$i]?>" class="call_room cc">
+                                    <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                                    </div>
+                                    <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+                                        <img src="../assets/icons/arrow_forward_ios_black.svg">
+                                    </div>
                                     <!-- BEFORE -->
                                     <div id="e_" class="elimination">
                                         <div class="elimination_label"><?php
