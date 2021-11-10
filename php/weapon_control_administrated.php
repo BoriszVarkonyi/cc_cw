@@ -109,6 +109,8 @@
                         <p>Check Out</p>
                         <img src="../assets/icons/check_circle_black.svg"/>
                     </button>
+                    <input type="text">
+                    <button type="submit">Submit</button>
                 </div>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
             </form>

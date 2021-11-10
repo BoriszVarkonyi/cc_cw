@@ -178,6 +178,8 @@
                             <p>Register in</p>
                             <img src="../assets/icons/how_to_reg_black.svg"/>
                         </button>
+                        <input type="text">
+                        <button type="submit">Submit</button>
                     </div>
                     <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
                 </form>
