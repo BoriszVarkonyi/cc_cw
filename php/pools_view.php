@@ -49,6 +49,8 @@
                         <img src="../assets/icons/save_black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>
                 </div>
+                <input type="text">
+                <button type="submit">Submit</button>
             </div>
             <div id="page_content_panel_main">
                 <div id="pool_listing" class="wrapper state_2 list">
