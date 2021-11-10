@@ -386,14 +386,6 @@ if (isset($_POST["generate_table"])) {
                     </a>
                 </div>
 
-                <div class="search_wrapper">
-                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" id="" placeholder="Search Match by ID (exp: M152)" class="search page">
-                    <button type="button"><img src="../assets/icons/close_black.svg"></button>
-                    <div class="search_results">
-                        <button id="jumpToButton" href="#" onclick="selectSearchedRound()" type="button">Jump to <span id="match_id_text">{Match id}</span></button>
-                    </div>
-                </div>
-
                 <div class="view_button_wrapper first">
                     <button onclick="tableZoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out_black.svg" />
@@ -457,6 +449,12 @@ if (isset($_POST["generate_table"])) {
             </div>
             <div id="page_content_panel_main">
 
+                <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+                    <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                </div>
+                <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+                    <img src="../assets/icons/arrow_forward_ios_black.svg">
+                </div>
 
 
                 <!-- HA NINCS
@@ -464,7 +462,6 @@ if (isset($_POST["generate_table"])) {
                         <p>You have no table generated!</p>
                     </div>
                     -->
-
                 <!-- HA van -->
 
                 <?php
@@ -489,12 +486,6 @@ if (isset($_POST["generate_table"])) {
                 ?>
 
                     <div id="32_16" class="call_room cc">
-                        <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                            <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                        </div>
-                        <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                            <img src="../assets/icons/arrow_forward_ios_black.svg">
-                        </div>
 
                         <?php
 
@@ -583,12 +574,6 @@ if (isset($_POST["generate_table"])) {
 
                         <!-- STEP 2 -->
                         <div id="1_16" class="call_room cc">
-                            <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                            </div>
-                            <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                <img src="../assets/icons/arrow_forward_ios_black.svg">
-                            </div>
 
                             <div id="e_9-16" class="elimination">
                                 <div class="elimination_label">9-16</div>
@@ -798,12 +783,6 @@ if (isset($_POST["generate_table"])) {
                     ?>
 
                                 <div id="1_8" class="call_room cc">
-                                    <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-                                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-                                    </div>
-                                    <div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-                                        <img src="../assets/icons/arrow_forward_ios_black.svg">
-                                    </div>
                                     <!-- BEFORE -->
                                     <div id="e_" class="elimination">
                                         <div class="elimination_label"><?php
