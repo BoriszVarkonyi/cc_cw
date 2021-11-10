@@ -115,11 +115,12 @@
                         <p>Check Out</p>
                         <img src="../assets/icons/check_circle_black.svg"/>
                     </button>
-                    <!-- 12384 -->
-                    <input type="text" name="barcode" placeholder="Barcode">
-                    <button type="submit">Submit</button>
                 </div>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
+            </form>
+            <form id="title_stripe" method="POST" action="">
+                <input type="text" name="barcode" placeholder="Barcode">
+                <button type="submit">Submit</button>
             </form>
             <div id="page_content_panel_main">
                 <table class="wrapper">

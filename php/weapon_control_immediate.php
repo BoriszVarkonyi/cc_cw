@@ -6,7 +6,7 @@
 <?php
     //barcode scan
     if(isset($_POST["barcode"])) {
-        $fencer_id = $_POST["barcode"];
+         $fencer_id = $_POST["barcode"];
         header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 
@@ -23,6 +23,7 @@
         $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
         $wc_table = [];
     }
+    
 
     if (isset($_POST['add_wc'])) {
         $fencer_id = $_POST['fencer_id'];
@@ -77,10 +78,12 @@
                         <p>Add weapon control</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
-                    <input type="text" name="barcode" placeholder="Barcode">
-                    <button type="submit">Submit</button>
                 </div>
                  <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value=""> 
+            </form>
+            <form id="title_stripe" method="POST" action="">
+                <input type="text" name="barcode" placeholder="Barcode" onkeydown="barcodeKeyDown()">
+                <button type="submit">Submit</button>
             </form>
             <div id="page_content_panel_main">
                 <table class="wrapper">
