@@ -168,7 +168,7 @@
                 </div>
                 <div class="wrapper">
                     <form action=""  id="check_in" method="POST" class="db_panel">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/backpack_black.svg"/>
                             Contents of Fencer's Bag
                         </div>

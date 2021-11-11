@@ -174,7 +174,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                 <div id="invitation_wrapper" class="wrapper">
 
                     <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/build_black.svg">
                             <p>Plus information</p>
                         </div>
@@ -237,7 +237,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                         </div>
                     </div>
                     <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/build_black.svg">
                             <p>Add competition logo</p>
                         </div>

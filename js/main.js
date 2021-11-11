@@ -374,14 +374,24 @@ textAreas.forEach(item => {
     });
 })
 
-function inputValueLimiter(x, maxValue, minValue){
-    if(x.value > maxValue){
+function inputValueLimiter(x, maxValue, minValue) {
+    if (x.value > maxValue) {
         x.value = maxValue
     }
-    else if(x.value.length > 1 && x.value[0] == "0"){
+    else if (x.value.length > 1 && x.value[0] == "0") {
         x.value = "0"
     }
-    else if(x.value < minValue){
+    else if (x.value < minValue) {
         x.value = minValue
     }
+}
+
+function toggleBarCodeInput(x) {
+    var button = x.previousElementSibling;
+    button.classList.toggle("active");
+}
+
+function toggleBarCodeButton(x) {
+    var input = x.nextElementSibling;
+    input.focus();
 }

@@ -4,8 +4,13 @@
 <?php checkComp($connection); ?>
 
 <?php
+    //barcode scan
+    if(isset($_POST["barcode"])) {
+         $fencer_id = $_POST["barcode"];
+        header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
+    }
 
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '{ }' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_create_table = mysqli_query($connection, $qry_create_table);
 
     $test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
@@ -19,9 +24,10 @@
         $wc_table = [];
     }
 
+
     if (isset($_POST['add_wc'])) {
         $fencer_id = $_POST['fencer_id'];
-        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
     }
 
    $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
@@ -53,7 +59,7 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
-            <form id="title_stripe" method="POST" action="">
+            <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
@@ -68,13 +74,22 @@
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
-                        <p>Add weapon control</p>
-                        <img src="../assets/icons/add_black.svg"/> <!-- This should change to ../assets/icons/edit_black.svg if the fencer already has weapon control-->
-                    </button>
+                    <form id="add_weapon_control_form" method="POST" action="">
+                        <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
+                            <p>Add weapon control</p>
+                            <img src="../assets/icons/add_black.svg"/>
+                        </button>
+                        <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
+                    </form>
+                    <form id="barcode_form" method="POST" action="">
+                        <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <img src="../assets/icons/qr_code_scanner_black.svg">
+                        </button>
+                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <button type="submit" form="barcode_form"></button>
+                    </form>
                 </div>
-                <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
-            </form>
+            </div>
             <div id="page_content_panel_main">
                 <table class="wrapper">
                     <thead>

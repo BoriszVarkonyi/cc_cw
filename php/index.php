@@ -10,8 +10,9 @@
     if($row = mysqli_fetch_assoc($check_comp_query)){
 
         $comp_name = $row["comp_name"];
-
+        $comp_is_individual = $row["is_individual"];
         $comp_status = $row['comp_status'];
+        $comp_wc_type = $row["comp_wc_type"];
     }
 
     //get logo image
@@ -196,76 +197,121 @@
 
 
             </div>
+            <?php
+                $num_comps = 0;
+                $num_reg = 0;
+                $nations = array();
+                $clubs = array();
 
+                $comp_query = "SELECT data from competitors WHERE assoc_comp_id = '$comp_id';";
+                $comp_result = mysqli_query($connection, $comp_query);
+                if($row = mysqli_fetch_assoc($comp_result)) {
+                    $json_string = $row["data"];
+                    $json_table = json_decode($json_string);
+                    $num_comps = count($json_table);
+
+                    foreach($json_table as $json_obj) {
+                        if(!in_array($json_obj->nation, $nations)) {
+                            array_push($nations, $json_obj->nation);
+                        }
+                        if(!in_array($json_obj->club, $clubs)) {
+                            array_push($clubs, $json_obj->club);
+                        }
+                        if($json_obj->reg) {
+                            $num_reg += 1;
+                        }
+                    }
+                }
+
+                $teams = array();
+                $teams_query = "SELECT data from teams WHERE assoc_comp_id = '$comp_id'";
+                $teams_result = mysqli_query($connection, $teams_query);
+                if($row = mysqli_fetch_assoc($teams_result)) {
+                    $json_string = $row["data"];
+                    $json_table = json_decode($json_string);
+            
+                    foreach($json_table as $json_obj) {
+                        if(!in_array($json_obj->id, $teams)) {
+                            array_push($teams, $json_obj->id);
+                        }
+                    }
+                }
+            ?>
             <!-- dashboard body -->
             <div id="page_content_panel_main">
                 <div id="db_panel_wrapper">
 
                     <!-- competition status -->
                     <div id="stats_panel" class="db_panel">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/bar_chart_black.svg">
                             <p>Competition's Stats:</p>
+                            <button class="db_panel_header_extension">
+                                <p>Refresh Data</p>
+                                <img src="../assets/icons/refresh_black.svg">
+                            </button>
                         </div>
                         <div class="db_panel_main small">
 
+                        <?php if($comp_is_individual) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >PARTICIPATORS (INDIVIDUAL)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Competitors</p>
-                                    <p class="stat_number">159</p>
+                                    <p class="stat_number"><?php echo $num_comps ?></p>
                                 </a>
                                 <div class="stat">
                                     <img src="../assets/icons/language_black.svg">
                                     <p class="stat_title">Nations</p>
-                                    <p class="stat_number">4</p>
+                                    <p class="stat_number"><?php echo count($nations) ?></p>
                                 </div>
                                 <div class="stat">
                                     <img src="../assets/icons/groups_black.svg">
                                     <p class="stat_title">Clubs</p>
-                                    <p class="stat_number">7</p>
+                                    <p class="stat_number"><?php echo count($clubs) ?></p>
                                 </div>
                             </div>
-
+                        <?php } else { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >PARTICIPATORS (TEAM)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Competitors</p>
-                                    <p class="stat_number">159</p>
+                                    <p class="stat_number"><?php echo $num_comps ?></p>
                                 </a>
                                 <a class="stat" href="teams.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/people_black.svg">
                                     <p class="stat_title">Teams</p>
-                                    <p class="stat_number">10</p>
+                                    <p class="stat_number"><?php echo count($teams) ?></p>
                                 </a>
                                 <div class="stat">
                                     <img src="../assets/icons/language_black.svg">
                                     <p class="stat_title">Nations</p>
-                                    <p class="stat_number">4</p>
+                                    <p class="stat_number"><?php echo count($nations) ?></p>
                                 </div>
                                 <div class="stat">
                                     <img src="../assets/icons/groups_black.svg">
                                     <p class="stat_title">Clubs</p>
-                                    <p class="stat_number">7</p>
+                                    <p class="stat_number"><?php echo count($clubs) ?></p>
                                 </div>
                             </div>
+                        <?php } ?>
 
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >REGISTARTION<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
-                                <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
+                                <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
-                                    <p class="stat_number">159 / 19</p>
+                                    <p class="stat_number"><?php echo $num_reg . " / " . $num_comps ?></p>
                                 </a>
-                                <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
+                                <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
-                                    <p class="stat_title">No registered in</p>
-                                    <p class="stat_number">159 / 19</p>
+                                    <p class="stat_title">Not registered in</p>
+                                    <p class="stat_number"><?php echo $num_comps - $num_reg . " / " . $num_comps ?></p>
                                 </a>
                             </div>
-
+                        <?php if($comp_wc_type == 2) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >WEAPON CONTROL (ADMINISTRATED)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
@@ -290,7 +336,7 @@
                                     <p class="stat_number">56</p>
                                 </a>
                             </div>
-
+                            <?php } else if($comp_wc_type == 1) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >WEAPON CONTROL (IMMEDIATE)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
@@ -304,6 +350,7 @@
                                     <p class="stat_number">56</p>
                                 </a>
                             </div>
+                            <?php } ?>
 
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
@@ -372,9 +419,10 @@
 
                     <!-- competition status -->
                     <div id="status_panel" class="db_panel">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/task_alt_black.svg">
-                            <p>Competition's Status:</p><p id="db_comp_status"><?php echo statusConverter($comp_status) ?></p>
+                            <p>Competition's Status:</p>
+                            <p class="db_panel_header_extension"><?php echo statusConverter($comp_status) ?></p>
                         </div>
 
                         <!-- competiton status table -->
@@ -438,7 +486,7 @@
                                 </button>
                             </div>
                             <div class="progress_bar">
-                                <div class="progress" x-progress="25"></div>
+                                <div class="progress" x-progress="25%"></div>
                             </div>
                         </div>
                     </div>

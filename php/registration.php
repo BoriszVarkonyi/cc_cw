@@ -104,8 +104,6 @@
                         echo "ERROR during search for id to delete!";
                     } else {
 
-
-
                         unset($json_table[$id_to_remove]);
                         $json_table = array_values($json_table);
 
@@ -151,36 +149,46 @@
                     header("Refresh: 0");
                 }
             ?>
-                <form id="title_stripe" method="POST" action="">
+                <div id="title_stripe">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
-                        <button class="stripe_button" type="button" onclick="window.print()">
+                        <button type="button" class="stripe_button" onclick="window.print()">
                             <p>Print Registration</p>
                             <img src="../assets/icons/print_black.svg"/>
                         </button>
-                        <button type="submit" name="remove_fencer" class="stripe_button" onclick="" shortcut="SHIFT+D">
-                            <p>Remove Fencer</p>
-                            <img src="../assets/icons/person_remove_black.svg"/>
-                        </button>
-                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
-                            <p>Add Fencer</p>
-                            <img src="../assets/icons/person_add_alt_black.svg"/>
-                        </button>
-                        <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
-                            <p>Register out</p>
-                            <img src="../assets/icons/how_to_unreg_black.svg"/>
-                        </button>
-                        <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit" shortcut="SHIFT+I">
-                            <p>Register in</p>
-                            <img src="../assets/icons/how_to_reg_black.svg"/>
-                        </button>
+                        <form method="POST" action="">
+                            <button type="submit" name="remove_fencer" class="stripe_button" shortcut="SHIFT+D" id="delete_fencer_button">
+                                <p>Remove Fencer</p>
+                                <img src="../assets/icons/person_remove_black.svg"/>
+                            </button>
+                            <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
+                                <p>Add Fencer</p>
+                                <img src="../assets/icons/person_add_alt_black.svg"/>
+                            </button>
+                            <button type="submit" class="stripe_button red" name="reg_out" id="reg_out_button" shortcut="SHIFT+O">
+                                <p>Register out</p>
+                                <img src="../assets/icons/how_to_unreg_black.svg"/>
+                            </button>
+                            <button type="submit" class="stripe_button green" name="reg_in" id="reg_in_button"  shortcut="SHIFT+I">
+                                <p>Register in</p>
+                                <img src="../assets/icons/how_to_reg_black.svg"/>
+                            </button>
+                            <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
+                        </form>
+
+                        <form id="barcode_form" method="POST" action="">
+                            <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                                <img src="../assets/icons/qr_code_scanner_black.svg">
+                            </button>
+                            <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                            <button type="submit" form="barcode_form"></button>
+                        </form>
                     </div>
-                    <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
-                </form>
+                </div>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
                         <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button"></button>
@@ -195,13 +203,13 @@
                     <form action="" method="post" id="new_fencer" autocomplete="off" class="overlay_panel_form" autocomplete="off">
                         <div class="overlay_panel_division visible" overlay_division_title="Identification">
                             <label for="fencer_firsname">FIRST NAME</label>
-                            <input form="new_fencer" type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname">
+                            <input form="new_fencer" type="text" placeholder="Type the fencer's first name" class="full_name_input" name="prenom" id="fencer_firsname" onfocus="setIndex(this)">
                             <label for="fencer_lastname">LAST NAME</label>
-                            <input type="text" form="new_fencer" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname">
+                            <input type="text" form="new_fencer" placeholder="Type the fencer's last name" class="full_name_input" name="nom" id="fencer_lastname" onfocus="setIndex(this)">
                             <label for="fencer_id">ID NUMBER</label>
-                            <input type="number" form="new_fencer" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id">
+                            <input type="number" form="new_fencer" placeholder="Type the fencer's ID" class="number_input username_input" name="id" id="fencer_id" onfocus="setIndex(this)">
                             <label for="fencer_licence">LICENSE</label>
-                            <input type="text" form="new_fencer" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence">
+                            <input type="text" form="new_fencer" placeholder="Type the fencer's license number" class="full_name_input" name="licence" id="fencer_licence" onfocus="setIndex(this)">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Identification 2">
                             <label>SEX</label>
@@ -214,21 +222,21 @@
                             <label for="fencer_dob">DATE OF BIRTH</label>
                             <input form="new_fencer" type="date" class="date_input" name="date_naissance" id="fencer_dob">
                             <label for="fencer_image">IMAGE LINK</label>
-                            <input  form="new_fencer" type="text" placeholder="Type in the link to the fencer's image" class="full_name_input" name="fencer_image" id="fencer_image">
+                            <input  form="new_fencer" type="text" placeholder="Type in the link to the fencer's image" class="full_name_input" name="fencer_image" id="fencer_image" onfocus="setIndex(this)">
                             <label for="fencer_licence">POINTS</label>
-                            <input form="new_fencer" type="text" placeholder="Type the fencer's points" class="full_name_input" name="fencer_points" id="fencer_points">
+                            <input form="new_fencer" type="text" placeholder="Type the fencer's points" class="full_name_input" name="fencer_points" id="fencer_points" onfocus="setIndex(this)">
                         </div>
                         <div class="overlay_panel_division" overlay_division_title="Categoriaztion">
                             <label for="set_club_input">CLUB</label>
                             <div class="search_wrapper wide higher">
-                                <input form="new_fencer" type="text" name="club" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
+                                <input form="new_fencer" type="text" name="club" onfocus="resultChecker(this), isOpen(this), setIndex(this), formvariableDeclaration()" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
                                     <?php include "../includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="fencer_classement">CLASSEMENT</label>
-                            <input form="new_fencer" type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement">
+                            <input form="new_fencer" type="text" placeholder="Type the fencer's classement" class="full_name_input" name="fencer_classement" id="fencer_classement" onfocus="setIndex(this)">
                             <label>LATERALITE</label>
                             <div class="option_container row">
                                 <input form="new_fencer" type="radio" name="lateralite" id="g" value="g"/>
@@ -238,7 +246,7 @@
                             </div>
                             <label for="set_nation_input">NATION</label>
                             <div class="search_wrapper wide">
-                                <input form="new_fencer"  type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
+                                <input form="new_fencer"  type="text" name="nation" onfocus="resultChecker(this), isOpen(this), setIndex(this), formvariableDeclaration()" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
                                     <?php include "../includes/nations.php"; ?>

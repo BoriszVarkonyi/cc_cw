@@ -1,16 +1,16 @@
 @page {
-    margin: 25pt;
+	margin: 25pt;
 }
 
 .wrapper {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: unset !important;
-    margin: 0 !important;
+	width: 100% !important;
+	min-width: 100% !important;
+	max-width: unset !important;
+	margin: 0 !important;
 }
 
 .big_status_item, .big_status_header, .small_status_item, .small_status_header, .table_header_text > button, .search_panel {
-    display: none !important;
+	display: none !important;
 }
 
 .table, table {		/* Whole table */
@@ -39,7 +39,7 @@
 	display: table-row-group;
 	border-radius: unset !important;
 	border: none !important;
-    page-break-inside: auto !important;
+	page-break-inside: auto !important;
 	page-break-after: auto !important;
 	page-break-before: auto !important;
 }
@@ -50,14 +50,14 @@
 	font-family: var(--light);
 	border: none !important;
 	text-transform: uppercase;
-    display: table-header-group;
+	display: table-header-group;
 }
 
 .table_header_text, th {
 	flex-wrap: wrap;
 	position: relative;
 	align-content: flex-end;
-    display: table-cell;
+	display: table-cell;
 	border: 1pt solid black !important;
 }
 
@@ -92,9 +92,9 @@ td.square, td.small, th.small {
 .table_row, tr {
 	outline: none;
 	height: var(--lineheight);
-    display: table-row;
+	display: table-row;
 	border: 1pt solid black !important;
-    page-break-inside: avoid !important;
+	page-break-inside: avoid !important;
 	page-break-after: auto !important;
 	page-break-before: auto !important;
 	background: transparent !important;
@@ -102,15 +102,15 @@ td.square, td.small, th.small {
 
 .table_row.selected, tr.selected {
 	outline: none !important;
-    filter: none !important;
-    background: none !important;
-    transform: none !important;
-    font-family: var(--regular);
+	filter: none !important;
+	background: none !important;
+	transform: none !important;
+	font-family: var(--regular);
 }
 
 .table_row.selected p {
-    text-decoration: none !important;
-    text-overflow: ellipsis !important;
+	text-decoration: none !important;
+	text-overflow: ellipsis !important;
 }
 
 .table_row:hover {
@@ -119,16 +119,16 @@ td.square, td.small, th.small {
 
 .entry > .table_row {
 	height: var(--lineheight);
-    display: flex !important;
+	display: flex !important;
 	border: none !important;
 	font-size: var(--fontsize) !important;
 }
 
 .entry > .table_row .table_item {
-    flex: 1 1 100%;
+	flex: 1 1 100%;
 	display: flex !important;
-    justify-content: center !important;
-    align-items: center;
+	justify-content: center !important;
+	align-items: center;
 	border: none !important;
 	font-size: var(--fontsize) !important;
 }
@@ -191,15 +191,15 @@ td.square, td.small, th.small {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	max-width: 50%;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
 	border: 1pt solid black !important;
 }
 
 .table_item, td {
 	overflow: hidden;
-    display: table-cell;
+	display: table-cell;
 }
 
 .table_item.hidden, .table_header_text.hidden {

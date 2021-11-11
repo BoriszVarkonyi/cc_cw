@@ -163,7 +163,7 @@
                 <!-- PAPER PRINT CONTENT -->
                 <div class="wrapper">
                     <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/backpack_black.svg"/>
                             Contents of Fencer's bag
                         </div>
@@ -199,7 +199,7 @@
                         </div>
                     </div>
                     <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/report_problem_black.svg"/>
                             Issues of Fencers's equipment
                         </div>
@@ -232,7 +232,7 @@
                         </div>
                     </div>
                     <div class="db_panel other">
-                        <div class="db_panel_title_stripe">
+                        <div class="db_panel_header">
                             <img src="../assets/icons/notes_black.svg"/>
                             Notes of Fencers's equipment
                         </div>
