@@ -23,7 +23,7 @@
         $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
         $wc_table = [];
     }
-    
+
 
     if (isset($_POST['add_wc'])) {
         $fencer_id = $_POST['fencer_id'];
@@ -79,11 +79,14 @@
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
                 </div>
-                 <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value=""> 
+                <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
             </form>
-            <form id="title_stripe" method="POST" action="">
-                <input type="text" name="barcode" placeholder="Barcode" onkeydown="barcodeKeyDown()">
-                <button type="submit">Submit</button>
+            <form id="barcode_form" method="POST" action="">
+                <button type="button" onclick="toggleQrCodeInput(this)" class="barcode_button">
+                    <img src="../assets/icons/qr_code_scanner_black.svg">
+                </button>
+                <input type="text" name="barcode" class="barcode_input">
+                <button type="submit" form="barcode_form"></button>
             </form>
             <div id="page_content_panel_main">
                 <table class="wrapper">

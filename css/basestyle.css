@@ -550,6 +550,45 @@ input[type="time"] {
 	padding: 0 10px;
 }
 
+/* Barcode Input */
+
+form#barcode_form {
+	display: flex;
+	align-items: center;
+}
+
+.barcode_button {
+	width: 37px;
+	height: 37px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--c-lightgray);
+	border: 2pt solid;
+	border-color: var(--c-gray);
+	position: relative;
+	z-index: 1;
+}
+
+.barcode_input {
+	margin: 0 0 0 -20px !important;
+    background-color: var(--c-lightgray) !important;
+    border-radius: 20px 20px 0 0 !important;
+    border: 2pt solid var(--c-gray) !important;
+    font-family: var(--bold) !important;
+    width: 200px !important;
+	padding: 0 !important;
+	color: var(--c-black);
+	position: relative;
+	z-index: 0;
+}
+
+.barcode_input:focus {
+    border: 2pt solid var(--c-primary) !important;
+}
+
 /* Search Input */
 
 .search_wrapper {
