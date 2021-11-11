@@ -196,7 +196,42 @@
 
 
             </div>
+            <?php
+                $num_comps = 0;
+                $nations = array();
+                $clubs = array();
 
+                $comp_query = "SELECT data from competitors WHERE assoc_comp_id = '$comp_id';";
+                $comp_result = mysqli_query($connection, $comp_query);
+                if($row = mysqli_fetch_assoc($comp_result)) {
+                    $json_string = $row["data"];
+                    $json_table = json_decode($json_string);
+                    $num_comps = count($json_table);
+
+                    foreach($json_table as $json_obj) {
+                        if(!in_array($json_obj->nation, $nations)) {
+                            array_push($nations, $json_obj->nation);
+                        }
+                        if(!in_array($json_obj->club, $clubs)) {
+                            array_push($clubs, $json_obj->club);
+                        }
+                    }
+                }
+
+                $teams = array();
+                $teams_query = "SELECT data from teams WHERE assoc_comp_id = '$comp_id'";
+                $teams_result = mysqli_query($connection, $teams_query);
+                if($row = mysqli_fetch_assoc($teams_result)) {
+                    $json_string = $row["data"];
+                    $json_table = json_decode($json_string);
+
+                    foreach($json_table as $json_obj) {
+                        if(!in_array($json_obj->id, $teams)) {
+                            array_push($teams, $json_obj->id);
+                        }
+                    }
+                }
+            ?>
             <!-- dashboard body -->
             <div id="page_content_panel_main">
                 <div id="db_panel_wrapper">
@@ -218,17 +253,17 @@
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Competitors</p>
-                                    <p class="stat_number">159</p>
+                                    <p class="stat_number"><?php echo $num_comps ?></p>
                                 </a>
                                 <div class="stat">
                                     <img src="../assets/icons/language_black.svg">
                                     <p class="stat_title">Nations</p>
-                                    <p class="stat_number">4</p>
+                                    <p class="stat_number"><?php echo count($nations) ?></p>
                                 </div>
                                 <div class="stat">
                                     <img src="../assets/icons/groups_black.svg">
                                     <p class="stat_title">Clubs</p>
-                                    <p class="stat_number">7</p>
+                                    <p class="stat_number"><?php echo count($clubs) ?></p>
                                 </div>
                             </div>
 
@@ -237,33 +272,33 @@
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Competitors</p>
-                                    <p class="stat_number">159</p>
+                                    <p class="stat_number"><?php echo $num_comps ?></p>
                                 </a>
                                 <a class="stat" href="teams.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/people_black.svg">
                                     <p class="stat_title">Teams</p>
-                                    <p class="stat_number">10</p>
+                                    <p class="stat_number"><?php echo count($teams) ?></p>
                                 </a>
                                 <div class="stat">
                                     <img src="../assets/icons/language_black.svg">
                                     <p class="stat_title">Nations</p>
-                                    <p class="stat_number">4</p>
+                                    <p class="stat_number"><?php echo count($nations) ?></p>
                                 </div>
                                 <div class="stat">
                                     <img src="../assets/icons/groups_black.svg">
                                     <p class="stat_title">Clubs</p>
-                                    <p class="stat_number">7</p>
+                                    <p class="stat_number"><?php echo count($clubs) ?></p>
                                 </div>
                             </div>
 
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >REGISTARTION<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
-                                <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
+                                <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
                                     <p class="stat_number">159 / 19</p>
                                 </a>
-                                <a class="stat" href="registartion.php?comp_id=<?php echo $comp_id ?>">
+                                <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
                                     <p class="stat_title">No registered in</p>
                                     <p class="stat_number">159 / 19</p>
