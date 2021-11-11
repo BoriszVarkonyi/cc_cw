@@ -13,7 +13,7 @@ function selectSystem(x) {
     dropDown.classList.add("closed")
 }
 
-function selectSystemWithSearch(x){
+function selectSystemWithSearch(x) {
     var input = x;
     var filter = input.value.toUpperCase();
     var ul = input.nextElementSibling;
@@ -32,12 +32,12 @@ function selectSystemWithSearch(x){
     }
     var allDisplay = false;
     for (i = 0; i < li.length; i++) {
-        if(li[i].style.display === "") {
+        if (li[i].style.display === "") {
             allDisplay = true
             break;
         }
     }
-    if(!allDisplay) {
+    if (!allDisplay) {
         ul.classList.add("empty")
 
     }

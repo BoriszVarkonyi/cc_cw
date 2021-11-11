@@ -3,7 +3,7 @@ var bookmarkCookies = cookieFinder("bookmarks", "", false, 365)
 var bookmarkButtons = document.querySelectorAll(".bookmark_button");
 var cookieInArray = bookmarkCookies.split(",");
 for (i = 0; i < bookmarkButtons.length; i++) {
-    for (k = 0; k<cookieInArray.length; k++) {
+    for (k = 0; k < cookieInArray.length; k++) {
         if (bookmarkButtons[i].value == cookieInArray[k]) {
             bookmarkButtons[i].querySelector("img").src = "../assets/icons/bookmark_black.svg"
         }

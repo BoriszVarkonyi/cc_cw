@@ -1,19 +1,19 @@
 var appointments = document.querySelectorAll(".appointment")
-function selectAppointment(x){
+function selectAppointment(x) {
     var clickedAppointment = x
     //Removes all class, sets the innertext
-    for(i=0; i<appointments.length; i++){
+    for (i = 0; i < appointments.length; i++) {
         appointments[i].classList.remove("disabled")
         appointments[i].classList.remove("select")
         appointments[i].querySelector("div").innerText = "Choose"
     }
     //Add disabled class to the unclicked ones
-    for(i=0; i<appointments.length; i++){
+    for (i = 0; i < appointments.length; i++) {
         //if it is the clicked one then it continues
-        if(appointments[i] == clickedAppointment){
+        if (appointments[i] == clickedAppointment) {
             continue;
         }
-        else{
+        else {
             //Adds disabled class
             appointments[i].classList.add("disabled")
         }
@@ -31,13 +31,13 @@ var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
 var valid1 = false, valid2 = false;
 sendButton.disabled = true;
-function bookAppointmentsFormValidation(){
+function bookAppointmentsFormValidation() {
     var fencNumber = document.getElementById("fencerNumber");
-    if(fencNumber.value > 100 || fencNumber.value == 0){
+    if (fencNumber.value > 100 || fencNumber.value == 0) {
         fencNumber.value = ""
     }
-    for(i=0; i<inputs.length; i++){
-        if(inputs[i].value == ""){
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
             //If it finds an empty input, then it disable the "Save" button.
             step2.classList.add("collapsed")
             valid1 = false;
@@ -49,19 +49,19 @@ function bookAppointmentsFormValidation(){
             valid1 = true;
         }
     }
-    for(i=0; i<opitons.length; i++){
-        if(opitons[i].checked){
+    for (i = 0; i < opitons.length; i++) {
+        if (opitons[i].checked) {
             valid2 = true;
             break;
         }
-        else{
+        else {
             valid2 = false;
         }
     }
-    if(valid1 && valid2){
+    if (valid1 && valid2) {
         sendButton.disabled = false;
     }
-    else{
+    else {
         sendButton.disabled = true;
     }
 }
@@ -70,43 +70,43 @@ form.addEventListener("input", bookAppointmentsFormValidation)
 
 //Shows the right apointsments
 var fencNumberInput = document.getElementById("fencerNumber")
-fencNumberInput.addEventListener("input", function(){
+fencNumberInput.addEventListener("input", function () {
     var dates = document.querySelectorAll("#availabe_times_wrapper > div > p")
     var currentDiv = document.querySelectorAll("#availabe_times_wrapper > div")
-    for(i=0; i<dates.length; i++){
+    for (i = 0; i < dates.length; i++) {
         var minFencTime = dates[i].getAttribute("minperfencer")
-        var time = minFencTime*fencNumberInput.value
+        var time = minFencTime * fencNumberInput.value
         var appointmentsDivs = currentDiv[i].querySelectorAll(".appointment_wrapper");
-        for(k=0; k<appointmentsDivs.length; k++){
+        for (k = 0; k < appointmentsDivs.length; k++) {
             var minsLeft = appointmentsDivs[k].getAttribute("minsleft")
-            if(time > minsLeft){
+            if (time > minsLeft) {
                 appointmentsDivs[k].style.display = "none";
             }
-            else{
+            else {
                 appointmentsDivs[k].style.display = "block";
             }
         }
-        for(k=0; k<appointmentsDivs.length; k++){
+        for (k = 0; k < appointmentsDivs.length; k++) {
             var allHidden = false;
-            if(appointmentsDivs[k].style.display == "none"){
+            if (appointmentsDivs[k].style.display == "none") {
                 allHidden = true;
             }
-            else{
+            else {
                 console.log()
                 allHidden = false;
                 break;
             }
         }
-        if(allHidden){
+        if (allHidden) {
             currentDiv[i].style.display = "none";
         }
-        else{
+        else {
             currentDiv[i].style.display = "block";
         }
 
         //Display the minutes
         var minuteDisplay = currentDiv[i].querySelectorAll(".appointment .minute")
-        for(k=0; k<minuteDisplay.length; k++){
+        for (k = 0; k < minuteDisplay.length; k++) {
             minuteDisplay[k].innerHTML = time
         }
     }
@@ -116,7 +116,7 @@ fencNumberInput.addEventListener("input", function(){
 var step1 = document.getElementById("step1")
 var step2 = document.getElementById("step2")
 
-function setNation(x){
+function setNation(x) {
     var field = document.getElementById("inputs");
     field.value = x.innerHTML;
     bookAppointmentsFormValidation();
