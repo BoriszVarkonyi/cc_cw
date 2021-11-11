@@ -10,8 +10,9 @@
     if($row = mysqli_fetch_assoc($check_comp_query)){
 
         $comp_name = $row["comp_name"];
-
+        $comp_is_individual = $row["is_individual"];
         $comp_status = $row['comp_status'];
+        $comp_wc_type = $row["comp_wc_type"];
     }
 
     //get logo image
@@ -252,6 +253,7 @@
                         </div>
                         <div class="db_panel_main small">
 
+                        <?php if($comp_is_individual) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >PARTICIPATORS (INDIVIDUAL)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
@@ -270,7 +272,7 @@
                                     <p class="stat_number"><?php echo count($clubs) ?></p>
                                 </div>
                             </div>
-
+                        <?php } else { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >PARTICIPATORS (TEAM)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="competitors_individual.php?comp_id=<?php echo $comp_id ?>">
@@ -294,6 +296,7 @@
                                     <p class="stat_number"><?php echo count($clubs) ?></p>
                                 </div>
                             </div>
+                        <?php } ?>
 
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >REGISTARTION<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
@@ -308,7 +311,7 @@
                                     <p class="stat_number"><?php echo $num_comps - $num_reg . " / " . $num_comps ?></p>
                                 </a>
                             </div>
-
+                        <?php if($comp_wc_type == 2) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >WEAPON CONTROL (ADMINISTRATED)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
@@ -333,7 +336,7 @@
                                     <p class="stat_number">56</p>
                                 </a>
                             </div>
-
+                            <?php } else if($comp_wc_type == 1) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >WEAPON CONTROL (IMMEDIATE)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
@@ -347,6 +350,7 @@
                                     <p class="stat_number">56</p>
                                 </a>
                             </div>
+                            <?php } ?>
 
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
