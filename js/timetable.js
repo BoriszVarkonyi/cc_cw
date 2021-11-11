@@ -2,17 +2,17 @@ var oldClickedDate;
 var setWcPanel = document.getElementById("set_wc_panel");
 
 //wcPanel toggle
-function toggleWcPanel(x){
+function toggleWcPanel(x) {
     var clickedDate = x;
     //hide the wcPanwel
     setWcPanel.classList.add("hidden")
-    if(clickedDate == oldClickedDate) {
+    if (clickedDate == oldClickedDate) {
         setWcPanel.classList.remove("hidden");
 
     }
     setWcPanel.classList.toggle("hidden");
     //If setwcPanel contains hidden
-    if(setWcPanel.classList.contains("hidden")){
+    if (setWcPanel.classList.contains("hidden")) {
         //it sets oldclickedDate undefined
         oldClickedDate = undefined;
     }
@@ -35,22 +35,22 @@ function toggleWcPanel(x){
     var navbar = document.getElementById("nav_bar").getBoundingClientRect()
     var headerbar = document.getElementById("header").getBoundingClientRect()
     var page = document.getElementById("page_content_panel_main").getBoundingClientRect()
-    if(page.width > clickedDateBounding.right-navbar.width+setWcPanelBounding.width){
-        setWcPanel.style.left = clickedDateBounding.right-navbar.width
+    if (page.width > clickedDateBounding.right - navbar.width + setWcPanelBounding.width) {
+        setWcPanel.style.left = clickedDateBounding.right - navbar.width
     }
-    else{
-        if(clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width > 0){
-            setWcPanel.style.left = clickedDateBounding.right-navbar.width-clickedDateBounding.width-setWcPanelBounding.width
+    else {
+        if (clickedDateBounding.right - navbar.width - clickedDateBounding.width - setWcPanelBounding.width > 0) {
+            setWcPanel.style.left = clickedDateBounding.right - navbar.width - clickedDateBounding.width - setWcPanelBounding.width
         }
-        else{
-            setWcPanel.style.left = clickedDateBounding.right-navbar.width
+        else {
+            setWcPanel.style.left = clickedDateBounding.right - navbar.width
         }
     }
-    if(page.height > clickedDateBounding.top - clickedDateBounding.height/2 - setWcPanelBounding.height/2 - headerbar.height + setWcPanelBounding.height){
-        setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height
+    if (page.height > clickedDateBounding.top - clickedDateBounding.height / 2 - setWcPanelBounding.height / 2 - headerbar.height + setWcPanelBounding.height) {
+        setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height / 2 - setWcPanelBounding.height / 2 - headerbar.height
     }
-    else{
-        setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height - (clickedDateBounding.top - clickedDateBounding.height/2  - setWcPanelBounding.height/2 - headerbar.height + setWcPanelBounding.height - page.height) -10;
+    else {
+        setWcPanel.style.top = clickedDateBounding.top - clickedDateBounding.height / 2 - setWcPanelBounding.height / 2 - headerbar.height - (clickedDateBounding.top - clickedDateBounding.height / 2 - setWcPanelBounding.height / 2 - headerbar.height + setWcPanelBounding.height - page.height) - 10;
     }
 
 }
@@ -68,13 +68,13 @@ var enddate = document.cookie.split('; ').find(row => row.startsWith('comp_end')
 
 var start = document.getElementById(startdate);
 console.log(startdate);
-if(start){
-start.classList.add("start");
+if (start) {
+    start.classList.add("start");
 }
 var end = document.getElementById(enddate);
 console.log(end);
-if(end){
-end.classList.add("end");
+if (end) {
+    end.classList.add("end");
 }
 
 
@@ -83,7 +83,7 @@ end.classList.add("end");
 var today = document.cookie.split('; ').find(row => row.startsWith('today')).split('=')[1];
 
 var todayday = document.getElementById(today);
-if(todayday){
+if (todayday) {
     todayday.classList.add("today");
 }
 
@@ -115,7 +115,7 @@ var datesarray = dates.value.split(",");
 
 console.log(datesarray);
 
-if(datesarray[0] != ""){
+if (datesarray[0] != "") {
 
     for (let index = 0; index < datesarray.length; index++) {
 
@@ -169,37 +169,37 @@ var wcTime = document.querySelectorAll(".table_row:not(.hidden) .");
 //Set the "Save" button disabled.
 saveButton.disabled = true;
 //If the document values are changing, it runs the function.
-document.addEventListener("input", function checkInput(){
+document.addEventListener("input", function checkInput() {
     wcTime = document.querySelectorAll(".table_row:not(.hidden) .");
     //Check the "wcInput" input value.
-    if(wcInput.value>20 || wcInput.value < 0) {
-    //If its grather than 20 or less than 0, it sets the value "" (0).
-    wcInput.value = "";
+    if (wcInput.value > 20 || wcInput.value < 0) {
+        //If its grather than 20 or less than 0, it sets the value "" (0).
+        wcInput.value = "";
     }
 
-    for(i=0; i<wcTime.length; i++){
-        if(wcTime[i].value>24 || wcTime[i].value< 0) {
+    for (i = 0; i < wcTime.length; i++) {
+        if (wcTime[i].value > 24 || wcTime[i].value < 0) {
             //If its grather than 24 or less than 0, it sets the value "" (0).
             wcTime[i].value = "";
         }
     }
     //Checking every input.
-    for(i=0; i<wcTime.length; i++){
+    for (i = 0; i < wcTime.length; i++) {
 
-        if(wcInput.value == "" || wcTime[i].value == ""){
-        //If it finds an empty input, then it disable the "Save" button.
-        saveButton.disabled = true;
-        //addPeriodButton.classList.add("hidden")
-        break;
+        if (wcInput.value == "" || wcTime[i].value == "") {
+            //If it finds an empty input, then it disable the "Save" button.
+            saveButton.disabled = true;
+            //addPeriodButton.classList.add("hidden")
+            break;
 
         }
         else {
-        //If everything has a value then it enable the "Save" Button. The user can save.
-        saveButton.disabled = false;
-        //addPeriodButton.classList.remove("hidden")
+            //If everything has a value then it enable the "Save" Button. The user can save.
+            saveButton.disabled = false;
+            //addPeriodButton.classList.remove("hidden")
         }
     }
-    }
+}
 )
 //Form drag;
 
@@ -213,50 +213,50 @@ dragElement(dragButton);
 
 
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        elmnt.onmousedown = dragMouseDown;
+    }
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.parentNode.style.top = (elmnt.parentNode.offsetTop - pos2) + "px";
-    elmnt.parentNode.style.left = (elmnt.parentNode.offsetLeft - pos1) + "px";
-    //Drag borders
-    pRect = pageContent.getBoundingClientRect();
-    tgtRect = formDiv.getBoundingClientRect();
-    //
-    if (tgtRect.left < pRect.left) formDiv.style.left = 0;
-    if (tgtRect.top < pRect.top) formDiv.style.top = 0;
-    if (tgtRect.right > pRect.right) formDiv.style.left = pRect.width - tgtRect.width + 'px';
-    if (tgtRect.bottom > pRect.bottom) formDiv.style.top = pRect.height - tgtRect.height + 'px';
-  }
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.parentNode.style.top = (elmnt.parentNode.offsetTop - pos2) + "px";
+        elmnt.parentNode.style.left = (elmnt.parentNode.offsetLeft - pos1) + "px";
+        //Drag borders
+        pRect = pageContent.getBoundingClientRect();
+        tgtRect = formDiv.getBoundingClientRect();
+        //
+        if (tgtRect.left < pRect.left) formDiv.style.left = 0;
+        if (tgtRect.top < pRect.top) formDiv.style.top = 0;
+        if (tgtRect.right > pRect.right) formDiv.style.left = pRect.width - tgtRect.width + 'px';
+        if (tgtRect.bottom > pRect.bottom) formDiv.style.top = pRect.height - tgtRect.height + 'px';
+    }
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+    function closeDragElement() {
+        // stop moving when mouse button is released:
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
 }

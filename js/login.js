@@ -58,9 +58,9 @@ document.documentElement.setAttribute('data-content-theme', 'vanilla');
 //Competition option buttons
 var appDiv = document.getElementById("apps");
 
-function currentClassRemover(){
+function currentClassRemover() {
     var currentElements = appDiv.querySelectorAll(".current");
-    for(i=0; i<currentElements.length; i++){
+    for (i = 0; i < currentElements.length; i++) {
         currentElements[i].classList.remove("current");
     }
 }
