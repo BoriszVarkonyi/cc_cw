@@ -782,7 +782,7 @@ if (isset($_POST["generate_table"])) {
 
                     ?>
 
-                                <div id="<?php echo $order[$i]?>" class="call_room cc hidden">
+                                <div id="<?php echo $order[$i]?>" class="call_room cc">
                                     <!-- BEFORE -->
                                     <div id="e_" class="elimination">
                                         <div class="elimination_label"><?php

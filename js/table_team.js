@@ -11,21 +11,43 @@ function selectRound(x) {
 
 var callRooms = document.querySelectorAll(".call_room")
 
-function searchByMiddleTable(tableToSearchFor){
 
-    for(i=0; i<callRooms.length; i++){
+//Helps to search throught tables
+function searchByMiddleTable(tableToSearchFor) {
+    var index;
+
+    for (i = 0; i < callRooms.length; i++) {
         var elimination = callRooms[i].querySelectorAll(".elimination_label")[1]
-        console.log(elimination.innerHTML)
+        if (tableToSearchFor == elimination.innerHTML) {
+            index = i;
+        }
     }
+    return index;
+}
+
+function searchBySideTables(leftside, rightSide){
+    var index;
+    for (i = 0; i < callRooms.length; i++) {
+        var eliminationLeft = callRooms[i].querySelectorAll(".elimination_label")[0]
+        var eliminationRight = callRooms[i].querySelectorAll(".elimination_label")[2]
+        if (eliminationRight == undefined){
+            continue;
+        }
+        
+        if (leftside == eliminationLeft.innerHTML && rightSide == eliminationRight.innerHTML) {
+            index = i;
+        }
+        
+    }
+    return index;
+}
+
+
+
+function buttonLeft() {
 
 }
 
-searchByMiddleTable("1-8");
-
-function buttonLeft(){
-
-}
-
-function buttonRight(){
+function buttonRight() {
 
 }
