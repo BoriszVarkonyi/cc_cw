@@ -10,6 +10,11 @@ function selectRound(x) {
 
 
 var callRooms = document.querySelectorAll(".call_room")
+var firstIndex = 0;
+var secondIndex;
+var eleminitaions = document.querySelectorAll(".elimination")
+var btLeft = document.getElementById("buttonLeft")
+var btRight = document.getElementById("buttonRight")
 
 
 //Helps to search throught tables
@@ -25,28 +30,51 @@ function searchByMiddleTable(tableToSearchFor) {
     return index;
 }
 
-function searchBySideTables(leftside, rightSide){
+function searchBySideTables(leftside, rightSide) {
     var index;
     for (i = 0; i < callRooms.length; i++) {
         var eliminationLeft = callRooms[i].querySelectorAll(".elimination_label")[0]
         var eliminationRight = callRooms[i].querySelectorAll(".elimination_label")[2]
-        if (eliminationRight == undefined){
+        if (eliminationRight == undefined) {
             continue;
         }
-        
+
         if (leftside == eliminationLeft.innerHTML && rightSide == eliminationRight.innerHTML) {
             index = i;
         }
-        
+
     }
     return index;
 }
 
 
 function buttonLeft() {
-
+    btLeft.classList.remove("disabled")
+    btRight.classList.remove("disabled")
+    firstIndex--
+    secondIndex--
+    //Hides all the eliminations
+    for (i = 0; i < eleminitaions.length; i++) {
+        eleminitaions[i].classList.add("hidden")
+    }
+    //Shows eleminiations by index
+    for (i = firstIndex; i < secondIndex; i++) {
+        eleminitaions[i].classList.remove("hidden")
+    }
 }
 
 function buttonRight() {
+    btLeft.classList.remove("disabled")
+    btRight.classList.remove("disabled")
+    firstIndex++
+    secondIndex++
+    //Hides all the eliminations
+    for (i = 0; i < eleminitaions.length; i++) {
+        eleminitaions[i].classList.add("hidden")
+    }
+    //Shows eleminiations by index
+    for (i = firstIndex; i < secondIndex; i++) {
+        eleminitaions[i].classList.remove("hidden")
 
+    }
 }

@@ -96,7 +96,6 @@
             $match_counter++;
         }
     }
-
     if (isset($_POST['submit_disq'])) {
         //get reason
         $reason = $_POST['disqualification_reason_2'];
