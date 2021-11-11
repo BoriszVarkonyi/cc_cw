@@ -350,7 +350,7 @@ if (isset($_POST['submit_import'])) {
                     if (!isset($json_table[0])) {
 
                     ?>
-                        <div id="no_something_panel">
+                        <div id="empty_content_notice">
                             <p>You have no referees set up!</p>
                         </div>
                     <?php

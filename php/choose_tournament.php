@@ -55,7 +55,7 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
 
                     <?php } ?>
                     <!--
-                    <div id="no_something_panel">
+                    <div id="empty_content_notice">
                         <p>You have no competitions yet!</p>
                     </div>
                     -->

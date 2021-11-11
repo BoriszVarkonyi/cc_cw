@@ -99,6 +99,7 @@
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
+
                     <form method="POST" action="">
                         <button class="stripe_button primary" id="check_in_button" name="check_in_submit" type="submit">
                             <p>Check In</p>

@@ -648,20 +648,16 @@ header {
 
 .stripe_button:before {
 	content: attr(shortcut);
-	background: rgba(37, 37, 37, 0.584);
+	background: var(--c-darkgray);
 	position: absolute;
 	font-size: var(--f-small);
 	font-family: var(--bold);
-	top: 100%;
-	right: 0;
+	top: calc(100% - 8px);
+	right: -4px;
 	padding: 2px 5px;
 	border-radius: 25px;
 	color: var(--c-white);
 	opacity: 0;
-}
-
-.title_stripe_form {
-	margin-right: -25px;
 }
 
 .stripe_button.disabled, .stripe_button:disabled {
@@ -2087,7 +2083,7 @@ input[type="file"] {
 
 /* ALL LIST PAGE ELEMTNS */
 
-#no_something_panel {
+#empty_content_notice {
 	height: 50vh;
 	background: var(--c-gray);
 	display: flex;

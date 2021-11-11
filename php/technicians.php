@@ -239,7 +239,7 @@
 
                     <?php if(count($json_table) == 0){ ?>
 
-                        <div id="no_something_panel">
+                        <div id="empty_content_notice">
                             <p>You have no technicians set up!</p>
                         </div>
 
