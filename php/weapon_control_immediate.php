@@ -7,7 +7,7 @@
     //barcode scan
     if(isset($_POST["barcode"])) {
          $fencer_id = $_POST["barcode"];
-        header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
     }
 
     $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '{ }' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
