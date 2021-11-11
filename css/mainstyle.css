@@ -719,6 +719,54 @@ header {
 	background: var(--c-lightblue);
 }
 
+/* Barcode Input */
+
+form#barcode_form {
+	display: flex;
+	align-items: center;
+	margin: 3px 0 3px 15px;
+}
+
+.barcode_button {
+	width: 37px;
+	height: 37px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--c-lightgray);
+	border: 2pt solid;
+	border-color: var(--c-darkgray);
+	position: relative;
+	z-index: 1;
+}
+
+.barcode_button.active {
+	border-color: var(--c-primary);
+	background: var(--c-loghtprimary);
+}
+
+.barcode_input {
+	margin: 0 0 0 -37px !important;
+	background-color: var(--c-lightergray) !important;
+	border-radius: 20px !important;
+	border: 2pt solid !important;
+	border-color: var(--c-darkgray) !important;
+	font-family: var(--bold) !important;
+	width: 150px !important;
+	padding: 0 0 0 20px !important;
+	color: var(--c-black);
+	position: relative;
+	z-index: 0;
+	text-align: center !important;
+	box-shadow: var(--s-black);
+}
+
+.barcode_input:focus {
+	border: 2pt solid var(--c-primary) !important;
+}
+
 /* View Chnager Butgtons */
 
 .view_button_wrapper {

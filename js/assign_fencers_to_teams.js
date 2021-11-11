@@ -53,7 +53,7 @@ function selectTeam(x) {
                 assignedTableNode.insertBefore(rowNode, assignedTableNode.firstElementChild)
             }
         }
-        else{
+        else {
             var rowNode = document.createElement("TR")
             rowNode.id = "placeholder";
             rowNode.innerHTML = ' <td colspan="4"><p>No Fencers selected yet</p></td>'
@@ -86,7 +86,7 @@ function checkFencer(x) {
         updateJSON();
         //Looks for the placeholder. Deletes if its there
         var placeholder = document.getElementById("placeholder")
-        if(placeholder != null){
+        if (placeholder != null) {
             placeholder.remove();
         }
     }
@@ -97,11 +97,11 @@ function checkFencer(x) {
         inputInJSON[selectedTeamName].splice(index, 1)
         statusUpdater(selectedTeamName)
         updateJSON();
-        if(document.querySelectorAll("#selected_team_table tr").length < 2){
+        if (document.querySelectorAll("#selected_team_table tr").length < 2) {
             var rowNode = document.createElement("TR")
             rowNode.id = "placeholder";
             rowNode.innerHTML = ' <td colspan="4"><p>No Fencers selected yet</p></td>'
-            assignedTableNode.insertBefore(rowNode, assignedTableNode.firstElementChild)   
+            assignedTableNode.insertBefore(rowNode, assignedTableNode.firstElementChild)
         }
     }
 }

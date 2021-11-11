@@ -4,7 +4,7 @@ function toggleEntry(x) {
     var tableRow = x;
     var entry = tableRow.parentNode;
     var entryPanel = tableRow.nextElementSibling;
-    var entrys =  document.querySelectorAll(".entry");
+    var entrys = document.querySelectorAll(".entry");
 
     //Making every entry collapsed.
     for (i = 0; i < entrys.length; i++) {
@@ -12,8 +12,8 @@ function toggleEntry(x) {
         entrys[i].classList.remove("opened")
 
     }
-     //Checking if the oldentry var. equals the entry.
-    if(entry == oldentry){
+    //Checking if the oldentry var. equals the entry.
+    if (entry == oldentry) {
         //If yes then it adds opened, and remove collapsed.
         entryPanel.classList.remove("collapsed");
         entry.classList.add("opened");
@@ -23,7 +23,7 @@ function toggleEntry(x) {
     entry.classList.toggle("opened");
     entryPanel.classList.toggle("collapsed");
     //Checking if we clicked the same entry.
-    if(entry.classList.contains("opened")){
+    if (entry.classList.contains("opened")) {
         //If yes it saves the entry.
         oldentry = entry
     }
@@ -62,11 +62,11 @@ function toggleEntryInfo(x) {
 //Pre-entries -> Manage Entries -> approve all buttons
 
 
-function selectAll(){
+function selectAll() {
 
     var cb = document.getElementsByClassName("approved_status_item");
-    for(var i=0; i<cb.length; i++){
-        if(cb[i].type=="button")
-            items[i].checked=true;
+    for (var i = 0; i < cb.length; i++) {
+        if (cb[i].type == "button")
+            items[i].checked = true;
     }
 }

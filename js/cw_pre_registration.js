@@ -1,11 +1,11 @@
 var sfw = document.getElementById("selected_fencers_wrapper");
 var wrapper = document.getElementById("select_fencers_wrapper");
 
-function selectFencer(x){
+function selectFencer(x) {
     var current = document.getElementById(x.id);
     var currentname = current.getElementsByTagName("div")[1].innerHTML;
     current.classList.add("hidden");
-    sfw.innerHTML += '<div><input type="number" name=""  class="hidden"><p>'+ currentname +'</p><button id="'+ x.id +'" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close_black.svg"></button></div>'
+    sfw.innerHTML += '<div><input type="number" name=""  class="hidden"><p>' + currentname + '</p><button id="' + x.id + '" onclick="removeSelection(this)" type="button"><img src="../assets/icons/close_black.svg"></button></div>'
 }
 
 function removeSelection(x) {
@@ -15,7 +15,7 @@ function removeSelection(x) {
     for (let index = 0; index < toshow.length; index++) {
         var element = toshow[index];
 
-        if(element.id == x.id){
+        if (element.id == x.id) {
             element.classList.remove("hidden")
         }
     }
@@ -40,9 +40,9 @@ var inputs = form.querySelectorAll(".form_wrapper input:not(input.disabled)");
 var sendButton = document.querySelector(".send_panel .send_button");
 var valid1 = false, valid2 = false;
 sendButton.disabled = true;
-function bookAppointmentsFormValidation(){
-    for(i=0; i<inputs.length; i++){
-        if(inputs[i].value == ""){
+function bookAppointmentsFormValidation() {
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
             //If it finds an empty input, then it disable the "Save" button.
             step2.classList.add("collapsed")
             valid1 = false;
@@ -55,10 +55,10 @@ function bookAppointmentsFormValidation(){
         }
     }
     valid2 = true;
-    if(valid1 && valid2){
+    if (valid1 && valid2) {
         sendButton.disabled = false;
     }
-    else{
+    else {
         sendButton.disabled = true;
     }
 }

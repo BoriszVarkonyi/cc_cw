@@ -2,33 +2,33 @@ window.addEventListener("resize", automaticWidth);
 window.addEventListener("DOMContentLoaded", automaticWidth);
 var tableToAutoWidth;
 var allTable = document.querySelectorAll(".table");
-function automaticWidth(){
-    for(k=0; k<allTable.length; k++){
+function automaticWidth() {
+    for (k = 0; k < allTable.length; k++) {
         tableToAutoWidth = allTable[k];
         automaticWidthTest()
     }
 }
-function automaticWidthTest(){
+function automaticWidthTest() {
     var table = tableToAutoWidth
-    if(table != null) {
+    if (table != null) {
         var columnCounter = table.querySelectorAll(".table.cw > .table_header > div").length;
         console.log(columnCounter)
-        for(columnNumber = 1; columnNumber<=columnCounter; columnNumber++) {
-            var column= table.querySelectorAll('.table.cw > .entry > .table_row > div:nth-of-type(' + columnNumber +'), .table.cw > .table_header > div:nth-of-type(' + columnNumber +')');
+        for (columnNumber = 1; columnNumber <= columnCounter; columnNumber++) {
+            var column = table.querySelectorAll('.table.cw > .entry > .table_row > div:nth-of-type(' + columnNumber + '), .table.cw > .table_header > div:nth-of-type(' + columnNumber + ')');
             console.log(column)
             var widthArray = [];
             var biggestWidth;
             //Push all widths to widthArray
-            for(i = 0; i<column.length; i++) {
+            for (i = 0; i < column.length; i++) {
                 widthArray.push(column[i].offsetWidth);
             }
             //Gets the biggest array
-            biggestWidth = widthArray.reduce(function(a, b) {
+            biggestWidth = widthArray.reduce(function (a, b) {
                 return Math.max(a, b);
             });
             //Sets the width to all array element.
-            for(i = 0; i<column.length; i++) {
-                if(column[i].style.width !== biggestWidth || column[i].style.width !== biggestWidth -1 || column[i].style.width !== biggestWidth +1){
+            for (i = 0; i < column.length; i++) {
+                if (column[i].style.width !== biggestWidth || column[i].style.width !== biggestWidth - 1 || column[i].style.width !== biggestWidth + 1) {
                     column[i].style.width = biggestWidth + "px";
                 }
                 widthArray.pop();
@@ -40,9 +40,9 @@ function automaticWidthTest(){
 // Select System
 
 var selectedRowInput = document.querySelector(".selected_list_item_input");
-function selectRow(x){
+function selectRow(x) {
     //If we clicked the same it removes the selected class
-    if(x.classList.contains("selected")){
+    if (x.classList.contains("selected")) {
         x.classList.remove("selected");
         x.blur()
         selectedRowInput.value = "";
@@ -50,17 +50,17 @@ function selectRow(x){
         selectedElementIndexAr = 0;
     }
     //Select the clicked table row
-    else{
+    else {
         var rows = document.querySelectorAll(".table .table_row");
         //Removes selected from all row
-        for(i=0; i<rows.length; i++){
+        for (i = 0; i < rows.length; i++) {
             rows[i].classList.remove("selected")
         }
         //Select the clicked table row
         x.classList.add("selected");
         //Counts the selected table row index
-        for(i=0; i<rows.length; i++){
-            if(rows[i].classList.contains("selected")){
+        for (i = 0; i < rows.length; i++) {
+            if (rows[i].classList.contains("selected")) {
                 //It is a var. from control.js
                 selectedElementIndexAr = i;
                 break;
@@ -76,7 +76,7 @@ function selectSearch(x) {
     var selectedElementId = x.id.slice(0, -1);
     var selectedElements = document.querySelectorAll(".page_content_flex .selected")
     //Removes selected class from all selected element
-    for(i=0; i<selectedElements.length; i++){
+    for (i = 0; i < selectedElements.length; i++) {
         selectedElements[i].classList.remove("selected")
     }
     //Gets the tablerow by id
@@ -85,8 +85,8 @@ function selectSearch(x) {
     selectedTableElement.classList.add("selected")
     //Counts the selected table row index
     var rows = document.querySelectorAll(".table .table_row");
-    for(i=0; i<rows.length; i++){
-        if(rows[i].classList.contains("selected")){
+    for (i = 0; i < rows.length; i++) {
+        if (rows[i].classList.contains("selected")) {
             //It is a var. from control.js
             selectedElementIndexAr = i;
             break;
@@ -94,7 +94,7 @@ function selectSearch(x) {
     }
 }
 //Auto fills the searchresult
-function autoFill(x){
+function autoFill(x) {
     var input = x.parentNode.previousElementSibling
     input.value = x.innerHTML;
 }

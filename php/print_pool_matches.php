@@ -105,7 +105,6 @@
 
 							?>
 								<div id="pool_print_wrapper" class="paper_wrapper">
-
 									<div class="paper">
 										<div class="title_container">
 											<div><p class="title">Pool no.: <?php echo $pool_num ?></p></div>

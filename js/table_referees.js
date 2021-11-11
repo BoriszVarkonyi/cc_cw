@@ -581,8 +581,8 @@ function try_referees() {
                                 break
                             }
                             // if (matchesToUse[key].length == 0) {
-                            //     //console.log("HELLO MR GECIKE, TÖRÖK")
-                            //     break
+                            //	 //console.log("HELLO MR GECIKE, TÖRÖK")
+                            //	 break
                             // }
 
                             assignedArray.push([matchData.match_id, ref])
@@ -627,8 +627,8 @@ function try_referees() {
     }
 
     //KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS KIÍRÁS |
-    //                                                                                    |
-    //                                                                                    V
+    //																					|
+    //																					V
     var table_rows = table_wrapper.querySelectorAll(".table_row")
 
     //console.log(table_rows)
