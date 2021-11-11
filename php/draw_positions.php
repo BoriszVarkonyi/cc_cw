@@ -114,38 +114,74 @@
 
                                     $teamsInDraw = [];
 
-                                    foreach ($json_team_table->$draw_table_id as $tables) {
-                                        foreach ($tables as $numkey => $matches) {
-                                            $matchbox[$numkey] = [];
+                                    if ($draw_table_id == "r1" || $draw_table_id == "r2" || $draw_table_id == "r3") {
+
+                                        foreach ($json_team_table->$draw_table_id as $tables) {
+                                            foreach ($tables as $numkey => $matches) {
+                                                $matchbox[$numkey] = [];
 
                                     ?>
+                                                <div class="positions_grid">
+
+                                                    <?php
+
+                                                    foreach ($matches as $mkey => $teamvalue) {
+
+                                                        if ($mkey == "referees" || $mkey == "pistetime") {
+                                                            continue;
+                                                        }
+                                                        if (!isset($teamvalue->id)) {
+                                                            $teamvalue->id = "";
+                                                        }
+
+                                                        $matchbox[$numkey][$teamvalue->id] = "";
+
+                                                    ?>
+                                                        <div><?php print_r($teamvalue->id) ?></div>
+                                                        <div>?</div>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            <?php
+
+                                            }
+                                            array_push($teamsInDraw, $matchbox);
+                                        }
+                                    } else {
+
+                                        foreach ($json_team_table->$draw_table_id as $tkey => $tables) {
+                                            $matchbox[$tkey] = [];
+                                            ?>
                                             <div class="positions_grid">
 
                                                 <?php
-                                                
-                                                foreach ($matches as $mkey => $teamvalue) {
+                                                foreach ($tables as $mkey => $matchvalue) {
 
                                                     if ($mkey == "referees" || $mkey == "pistetime") {
                                                         continue;
                                                     }
-                                                    if (!isset($teamvalue->id)) {
-                                                        $teamvalue->id = "";
+                                                    if (!isset($matchvalue->id)) {
+                                                        $matchvalue->id = "";
                                                     }
 
-                                                    $matchbox[$numkey][$teamvalue->id] = "";
+                                                    $matchbox[$tkey][$matchvalue->id] = "";
 
                                                 ?>
-                                                    <div><?php print_r($teamvalue->id) ?></div>
+
+                                                    <div><?php print_r($matchvalue->id) ?></div>
                                                     <div>?</div>
+
                                                 <?php
                                                 }
+
                                                 ?>
                                             </div>
                                     <?php
 
                                         }
-                                        array_push($teamsInDraw, $matchbox);
                                     }
+                                    array_push($teamsInDraw, $matchbox);
 
                                     ?>
 
