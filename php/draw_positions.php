@@ -116,21 +116,23 @@
 
                                     foreach ($json_team_table->$draw_table_id as $tables) {
                                         foreach ($tables as $numkey => $matches) {
+                                            $matchbox[$numkey] = [];
 
                                     ?>
                                             <div class="positions_grid">
 
                                                 <?php
+                                                
                                                 foreach ($matches as $mkey => $teamvalue) {
 
                                                     if ($mkey == "referees" || $mkey == "pistetime") {
                                                         continue;
                                                     }
                                                     if (!isset($teamvalue->id)) {
-                                                        break;
+                                                        $teamvalue->id = "";
                                                     }
 
-                                                    $teamsInDraw[$teamvalue->id] = "";
+                                                    $matchbox[$numkey][$teamvalue->id] = "";
 
                                                 ?>
                                                     <div><?php print_r($teamvalue->id) ?></div>
@@ -142,53 +144,13 @@
                                     <?php
 
                                         }
+                                        array_push($teamsInDraw, $matchbox);
                                     }
 
                                     ?>
 
-                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw)) ?>''>
+                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw)) ?>'>
 
-                                    <!--<div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 2</div>
-                                        <div>4 - 6</div>
-                                    </div>
-
-                                    <div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 2</div>
-                                        <div>4 - 6</div>
-                                    </div>
-
-                                    <div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 2</div>
-                                        <div>4 - 6</div>
-                                    </div>
-
-                                    <div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 2</div>
-                                        <div>4 - 6</div>
-                                    </div>
-
-                                    <div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 2</div>
-                                        <div>4 - 6</div>
-                                    </div>
-
-                                    <div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 2</div>
-                                        <div>4 - 6</div>
-                                    </div> -->
                                 </div>
 
                             </div>
