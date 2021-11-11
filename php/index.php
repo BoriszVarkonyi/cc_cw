@@ -351,62 +351,112 @@
                                 </a>
                             </div>
                             <?php } ?>
+                            <?php
+                                $technicians_query = "SELECT data FROM technicians WHERE assoc_comp_id = '$comp_id';";
+                                $technicians_result = mysqli_query($connection, $technicians_query);
+                                $num_technicians = 0;
+                                $num_tech_online = 0;
+                                if($row = mysqli_fetch_assoc($technicians_result)) {
+                                    $json_string = $row["data"];
+                                    $json_table = json_decode($json_string);
 
+                                    foreach($json_table as $json_obj) {
+                                        $num_technicians += 1; //don't use count() instead of this
+                                        if($json_obj->online) {
+                                            $num_tech_online += 1;
+                                        }
+                                    }
+                                }
+                            ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/badge_black.svg">
                                     <p class="stat_title">Total Technicians</p>
-                                    <p class="stat_number">19</p>
+                                    <p class="stat_number"><?php echo $num_technicians ?></p>
                                 </a>
                                 <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/check_circle_outline_black.svg">
                                     <p class="stat_title">Online</p>
-                                    <p class="stat_number">10</p>
+                                    <p class="stat_number"><?php echo $num_tech_online ?></p>
                                 </a>
                                 <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/highlight_off_black.svg">
                                     <p class="stat_title">Offline</p>
-                                    <p class="stat_number">9</p>
+                                    <p class="stat_number"><?php echo $num_technicians - $num_tech_online ?></p>
                                 </a>
 
                             </div>
+                            <?php
+                                $referees_query = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id';";
+                                $referees_result = mysqli_query($connection, $referees_query);
+                                $num_referees = 0;
+                                $num_ref_online = 0;
 
+                                if($row = mysqli_fetch_assoc($referees_result)) {
+                                    $json_string = $row["data"];
+                                    $json_table = json_decode($json_string);
+
+                                    foreach($json_table as $json_obj) {
+                                        $num_referees += 1; //don't use count() instead of this
+                                        if($json_obj->isOnline) {
+                                            $num_ref_online += 1;
+                                        }
+                                    }
+                                }
+                            ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >REFEREES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
                                     <p class="stat_title">Total Referees</p>
-                                    <p class="stat_number">3</p>
+                                    <p class="stat_number"><?php echo $num_referees ?></p>
                                 </a>
                                 <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/check_circle_outline_black.svg">
                                     <p class="stat_title">Online</p>
-                                    <p class="stat_number">1</p>
+                                    <p class="stat_number"><?php echo $num_ref_online ?></p>
                                 </a>
                                 <a class="stat" href="referees.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/highlight_off_black.svg">
                                     <p class="stat_title">Offline</p>
-                                    <p class="stat_number">2</p>
+                                    <p class="stat_number"><?php echo $num_referees - $num_ref_online ?></p>
                                 </a>
                             </div>
+                            <?php
+                                $pistes_query = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id';";
+                                $pistes_result = mysqli_query($connection, $pistes_query);
+                                $num_pistes = 0;
+                                $num_pistes_available = 0;
 
+                                if($row = mysqli_fetch_assoc($pistes_result)) {
+                                    $json_string = $row["data"];
+                                    $json_table = json_decode($json_string);
+                            
+                                    foreach($json_table as $json_obj) {
+                                        $num_pistes += 1; //don't use count() instead of this
+                                        if($json_obj->available) {
+                                            $num_pistes_available += 1;
+                                        }
+                                    }
+                                }
+                            ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >PISTES<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
                                 <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
                                     <p class="stat_title">Total Pistes</p>
-                                    <p class="stat_number">4</p>
+                                    <p class="stat_number"><?php echo $num_pistes ?></p>
                                 </a>
                                 <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
                                     <p class="stat_title">Free to use</p>
-                                    <p class="stat_number">3</p>
+                                    <p class="stat_number"><?php echo $num_pistes_available ?></p>
                                 </a>
                                 <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
                                     <p class="stat_title">In use</p>
-                                    <p class="stat_number">1</p>
+                                    <p class="stat_number"><?php echo $num_pistes - $num_pistes_available ?></p>
                                 </a>
                                 <a class="stat" href="pistes.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/style_black.svg">
