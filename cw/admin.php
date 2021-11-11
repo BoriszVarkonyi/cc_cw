@@ -44,7 +44,7 @@ img {
 <button><a href="new_article.php">New article</a></button>
 <button><a href="article_selector.php">Modify article</a></button>
 <br><br>
-<img src="image_while_dev\osama_bin_laden_PNG27.png">
+<img src="..\uploads\osama_bin_laden_PNG27.png">
 
 </body>
 </html>

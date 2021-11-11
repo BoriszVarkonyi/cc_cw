@@ -58,28 +58,28 @@
 
                         ?>
 
-                            <a class="team_order_report_select green" href="">
+                            <a class="team_order_report_select green" href="draw_positions.php?comp_id=<?php echo $comp_id ?>&draw_table=<?php echo $key ?>">
                                 <p><?php echo $key ?></p>
                             </a>
 
-                        <?php
+                            <?php
                         }
 
                         $rightorder = ["r1", "r2", "r3"];
 
                         foreach ($rightorder as $key => $round) {
 
-                        if (isset($json_team_table->$round)) {
+                            if (isset($json_team_table->$round)) {
 
-                        ?>
+                            ?>
 
-                            <a class="team_order_report_select current" href="">
-                                <p><?php echo $round; ?></p>
-                            </a>
+                                <a class="team_order_report_select current" href="draw_positions.php?comp_id=<?php echo $comp_id ?>&draw_table=<?php echo $round ?>">
+                                    <p><?php echo $round; ?></p>
+                                </a>
 
                         <?php
+                            }
                         }
-                    }
                         ?>
 
                     </div>
@@ -93,28 +93,53 @@
 
                             $draw_table_id = $_GET['draw_table'];
 
+
+
                         ?>
+
+
 
                             <div id="t32" class="team_positions">
                                 <div class="rounds_container">
-                                    <p class="round_text"><span>T32</span> Contains:</p>
-                                    <p>1 - 16</p>
+                                    <p class="round_text"><span><?php echo $draw_table_id; ?></span></p>
                                 </div>
 
                                 <div class="positions_button_wrapper">
                                     <button class="draw_button" type="button" id="draw_positions_butto" onclick="drawPositions()">Draw</button>
                                     <button class="save_draw_positions hidden" id="save_positions_butto" type="submit">Save</button>
                                 </div>
-
                                 <div class="positions_wrapper">
-                                    <div class="positions_grid">
-                                        <div>NAME</div>
-                                        <div>1 - 3</div>
-                                        <div>NAME 22222222 zjgjfghffgh fdh</div>
-                                        <div>4 - 6</div>
-                                    </div>
 
-                                    <div class="positions_grid">
+                                    <?php
+
+                                    foreach ($json_team_table->$draw_table_id as $tables) {
+                                        foreach ($tables as $numkey => $matches) {
+
+                                    ?>
+                                            <div class="positions_grid">
+
+                                                <?php
+                                                foreach ($matches as $mkey => $teamvalue) {
+
+                                                    if ($mkey == "referees" || $mkey == "pistetime") {
+                                                        continue;
+                                                    }
+
+                                                ?>
+                                                    <div><?php print_r($teamvalue->id) ?></div>
+                                                    <div>?</div>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                    <?php
+
+                                        }
+                                    }
+
+                                    ?>
+
+                                    <!--<div class="positions_grid">
                                         <div>NAME</div>
                                         <div>1 - 3</div>
                                         <div>NAME 2</div>
@@ -154,7 +179,7 @@
                                         <div>1 - 3</div>
                                         <div>NAME 2</div>
                                         <div>4 - 6</div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
