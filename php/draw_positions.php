@@ -112,6 +112,8 @@
 
                                     <?php
 
+                                    $teamsInDraw = [];
+
                                     foreach ($json_team_table->$draw_table_id as $tables) {
                                         foreach ($tables as $numkey => $matches) {
 
@@ -124,6 +126,11 @@
                                                     if ($mkey == "referees" || $mkey == "pistetime") {
                                                         continue;
                                                     }
+                                                    if (!isset($teamvalue->id)) {
+                                                        break;
+                                                    }
+
+                                                    $teamsInDraw[$teamvalue->id] = "";
 
                                                 ?>
                                                     <div><?php print_r($teamvalue->id) ?></div>
@@ -138,6 +145,8 @@
                                     }
 
                                     ?>
+
+                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw)) ?>''>
 
                                     <!--<div class="positions_grid">
                                         <div>NAME</div>
