@@ -198,6 +198,7 @@
             </div>
             <?php
                 $num_comps = 0;
+                $num_reg = 0;
                 $nations = array();
                 $clubs = array();
 
@@ -215,6 +216,9 @@
                         if(!in_array($json_obj->club, $clubs)) {
                             array_push($clubs, $json_obj->club);
                         }
+                        if($json_obj->reg) {
+                            $num_reg += 1;
+                        }
                     }
                 }
 
@@ -224,7 +228,7 @@
                 if($row = mysqli_fetch_assoc($teams_result)) {
                     $json_string = $row["data"];
                     $json_table = json_decode($json_string);
-
+            
                     foreach($json_table as $json_obj) {
                         if(!in_array($json_obj->id, $teams)) {
                             array_push($teams, $json_obj->id);
@@ -296,12 +300,12 @@
                                 <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
-                                    <p class="stat_number">159 / 19</p>
+                                    <p class="stat_number"><?php echo $num_reg . " / " . $num_comps ?></p>
                                 </a>
                                 <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
-                                    <p class="stat_title">No registered in</p>
-                                    <p class="stat_number">159 / 19</p>
+                                    <p class="stat_title">Not registered in</p>
+                                    <p class="stat_number"><?php echo $num_comps - $num_reg . " / " . $num_comps ?></p>
                                 </a>
                             </div>
 
