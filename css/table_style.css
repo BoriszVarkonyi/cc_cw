@@ -6,6 +6,10 @@
 	box-shadow: var(--s-black);
 }
 
+#call_room.hidden, .call_room.hidden {
+	display: none !important;
+}
+
 #call_room.cc, .call_room.cc {
 	margin: 50px 20px;
 	width: 100%;

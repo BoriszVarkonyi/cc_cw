@@ -275,7 +275,7 @@ if(mysqli_num_rows($query_do) == 0){
                         ?>
 
                                 <!-- you have no fenceers set up div -->
-                                <div id="no_something_panel">
+                                <div id="empty_content_notice">
                                     <p>You have no fencers set up!</p>
                                 </div>
 

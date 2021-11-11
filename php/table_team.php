@@ -458,7 +458,7 @@ if (isset($_POST["generate_table"])) {
 
 
                 <!-- HA NINCS
-                    <div id="no_something_panel">
+                    <div id="empty_content_notice">
                         <p>You have no table generated!</p>
                     </div>
                     -->

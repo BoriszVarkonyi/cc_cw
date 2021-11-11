@@ -48,8 +48,9 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
-    <link rel="stylesheet" href="../css/print_paper_style.min.css">
+    <link rel="stylesheet" href="../css/print_paper_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_pool_matches_style.min.css">
+
 </head>
 <body>
 <!-- header -->
@@ -105,7 +106,7 @@
 							?>
 								<div id="pool_print_wrapper" class="paper_wrapper">
 
-									<div class="pool_print" class="paper">
+									<div class="paper">
 										<div class="title_container">
 											<div><p class="title">Pool no.: <?php echo $pool_num ?></p></div>
 											<div class="pool_info">
