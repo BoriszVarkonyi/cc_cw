@@ -162,14 +162,16 @@
                                                         continue;
                                                     }
                                                     if (!isset($matchvalue->id)) {
-                                                        $matchvalue->id = "";
+                                                        $matchbox[$tkey][""] = "";
+                                                    } else {
+                                                        $matchbox[$tkey][$matchvalue->id] = "";
                                                     }
 
-                                                    $matchbox[$tkey][$matchvalue->id] = "";
+
 
                                                 ?>
 
-                                                    <div><?php print_r($matchvalue->id) ?></div>
+                                                    <div><?php print_r($print = (isset($matchvalue->id)) ? $matchvalue->id : "") ?></div>
                                                     <div>?</div>
 
                                                 <?php
@@ -180,12 +182,13 @@
                                     <?php
 
                                         }
+                                        array_push($teamsInDraw, $matchbox);
                                     }
-                                    array_push($teamsInDraw, $matchbox);
+
 
                                     ?>
 
-                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw)) ?>'>
+                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw, JSON_UNESCAPED_UNICODE)) ?>'>
 
                                 </div>
 
