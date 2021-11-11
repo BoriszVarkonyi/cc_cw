@@ -48,9 +48,8 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
-    <link rel="stylesheet" href="../css/print_paper_style.min.css" media="print">
+    <link rel="stylesheet" href="../css/print_paper_style.min.css">
     <link rel="stylesheet" href="../css/print_pool_matches_style.min.css">
-
 </head>
 <body>
 <!-- header -->
@@ -81,175 +80,174 @@
                 </div>
             </div>
             <div id="page_content_panel_main" class="loose">
-                <div>
-					<?php
-						for($pool_num = 1; $pool_num < count($fencer_table);$pool_num++) {
+				<div id="pool_print_wrapper" class="paper_wrapper">
+				<?php
+					for($pool_num = 1; $pool_num < count($fencer_table);$pool_num++) {
 
-								$current_pool = $fencer_table[$pool_num];
-								if ($current_pool -> piste != null) {
-									$piste_name = $current_pool -> piste;
-								}
-								if ($current_pool -> ref1 != null) {
-									$ref1_name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
-								}
-								if ($current_pool -> ref2 != null) {
-									$ref2_name = $current_pool -> ref2 -> prenom . " " . $current_pool -> ref2 -> nom;
-								}
-								$time = $current_pool -> time;
+							$current_pool = $fencer_table[$pool_num];
+							if ($current_pool -> piste != null) {
+								$piste_name = $current_pool -> piste;
+							}
+							if ($current_pool -> ref1 != null) {
+								$ref1_name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
+							}
+							if ($current_pool -> ref2 != null) {
+								$ref2_name = $current_pool -> ref2 -> prenom . " " . $current_pool -> ref2 -> nom;
+							}
+							$time = $current_pool -> time;
 
-								//get fencers array abc
-								$array_of_names = [];
-								for ($i = 1; $i <= $pool_of; $i++) {
-									$array_of_names[$i] = $current_pool -> {$i} -> prenom_nom;
-								}
+							//get fencers array abc
+							$array_of_names = [];
+							for ($i = 1; $i <= $pool_of; $i++) {
+								$array_of_names[$i] = $current_pool -> {$i} -> prenom_nom;
+							}
 
-							?>
-								<div id="pool_print_wrapper" class="paper_wrapper">
-									<div class="paper">
-										<div class="title_container">
-											<div><p class="title">Pool no.: <?php echo $pool_num ?></p></div>
-											<div class="pool_info">
-												<div>
-													<p class="info_label">PISTE:</p>
-													<p><?php echo $piste_name ?></p>
-												</div>
-												<div>
-													<p class="info_label">REFEREES:</p>
-													<p><?php echo $ref1_name ?></p>
-													<?php if (isset($ref2_name)) {
-														?><p><?php echo $ref2_name ?></p><?php
-													} ?>
-												</div>
-												<div>
-													<p class="info_label">TIME:</p>
-													<p><?php echo $time ?></p>
-												</div>
-											</div>
-											<div class="comp_info">
-												<p class="info_label"><?php echo $comp_name ?></p>
-												<div>
-													<!-- sex -->
-													<p><?php echo $comp_sex ?></p>
-													<!-- wt -->
-													<p><?php echo $comp_type ?></p>
-												</div>
-												<!-- starting year -->
-												<p><?php echo substr($comp_start,0,4) ?></p>
-											</div>
-										</div>
-										<div class="paper_content">
-											<div class="pool_matches">
-												<?php
-													$poolOrder = poolOrder($pool_of);
-													$counter = 1;
-													foreach ($poolOrder as $match_order) {
-														$order_array = explode('-', $match_order);
-														$current_match = $matches_table[$pool_num] -> {$order_array[0]} -> {$order_array[1]};
-														$f1_id = $current_match -> id;
-														$f2_id = $current_match -> enemy;
+						?>
 
-														if (($id_to_find = findObject($compet_json, $f1_id, "id")) !== false) {
-															$f1_name = $compet_json[$id_to_find] -> prenom . " " . $compet_json[$id_to_find] -> nom;
-														}
-
-														if (($id_to_find = findObject($compet_json, $f2_id, "id")) !== false) {
-															$f2_name = $compet_json[$id_to_find] -> prenom . " " . $compet_json[$id_to_find] -> nom;
-														}
-												?>
-														<div class="pool_match">
-															<div class="number">
-																<p><?php echo $counter . "." ?></p>
-															</div>
-															<div class="numbering">
-																<p>1.</p>
-																<p>2.</p>
-															</div>
-															<div class="names">
-																<p><?php echo $f1_name ?></p>
-																<p><?php echo $f2_name ?></p>
-															</div>
-															<div class="grid">
-																<div></div>
-																<div></div>
-															</div>
-														</div>
-												<?php
-														$counter++;
-													}
-												?>
-											</div>
-											<div class="signatures">
-												<div class="grid_table fencers">
-													<div class="grid_header">
-														<div class="grid_header_text">FENCER'S NAME</div>
-														<div class="grid_header_text square">No.</div>
-														<?php
-															for ($x = 1; $x <= $pool_of; $x++) {
-																?><div class="grid_header_text square"><?php echo $x ?></div><?php
-															}
-														?>
-
-														<div class="grid_header_text signature">SIGNATURE</div>
-													</div>
-													<div class="grid_row_wrapper">
-														<?php
-															for ($y = 1; $y <= $pool_of; $y++) {
-														?>
-														<div class="grid_row">
-															<div class="grid_item"><?php echo $array_of_names[$y] ?></div>
-															<div class="grid_item square header"><?php echo $y ?></div>
-															<?php
-																for ($x = 1; $x <= $pool_of; $x++) {
-																	if ($x == $y) {
-																		$echo = "filled";
-																	} else {
-																		$echo = "";
-																	}
-															?>
-															<div class="grid_item square <?php echo $echo ?>"></div>
-															<?php } ?>
-															<div class="grid_item signature"></div>
-														</div>
-														<?php } ?>
-													</div>
-												</div>
-												<div class="grid_table referees">
-													<div class="grid_header">
-														<div class="grid_header_text">REFEREE'S NAME</div>
-														<div class="grid_header_text signature">SIGNATURE</div>
-													</div>
-
-													<!-- need ref name and only show ref2  -->
-													<div class="grid_row_wrapper">
-														<?php
-															if ($current_pool -> ref1 != null) {
-														?>
-														<div class="grid_row">
-															<div class="grid_item"><?php echo $ref1_name ?></div>
-															<div class="grid_item signature"></div>
-														</div>
-														<?php
-															}
-															if ($current_pool -> ref2 != null) {
-														?>
-														<div class="grid_row">
-															<div class="grid_item"><?php echo $ref2_name ?></div>
-															<div class="grid_item signature"></div>
-														</div>
-														<?php } ?>
-													</div>
-
-
-												</div>
-											</div>
-										</div>
+						<div class="pool_print" class="paper">
+							<div class="title_container">
+								<div><p class="title">Pool no.: <?php echo $pool_num ?></p></div>
+								<div class="pool_info">
+									<div>
+										<p class="info_label">PISTE:</p>
+										<p><?php echo $piste_name ?></p>
+									</div>
+									<div>
+										<p class="info_label">REFEREES:</p>
+										<p><?php echo $ref1_name ?></p>
+										<?php if (isset($ref2_name)) {
+											?><p><?php echo $ref2_name ?></p><?php
+										} ?>
+									</div>
+									<div>
+										<p class="info_label">TIME:</p>
+										<p><?php echo $time ?></p>
 									</div>
 								</div>
+								<div class="comp_info">
+									<p class="info_label"><?php echo $comp_name ?></p>
+									<div>
+										<!-- sex -->
+										<p><?php echo $comp_sex ?></p>
+										<!-- wt -->
+										<p><?php echo $comp_type ?></p>
+									</div>
+									<!-- starting year -->
+									<p><?php echo substr($comp_start,0,4) ?></p>
+								</div>
+							</div>
+							<div class="paper_content">
+								<div class="pool_matches">
+									<?php
+										$poolOrder = poolOrder($pool_of);
+										$counter = 1;
+										foreach ($poolOrder as $match_order) {
+											$order_array = explode('-', $match_order);
+											$current_match = $matches_table[$pool_num] -> {$order_array[0]} -> {$order_array[1]};
+											$f1_id = $current_match -> id;
+											$f2_id = $current_match -> enemy;
 
-							<?php
+											if (($id_to_find = findObject($compet_json, $f1_id, "id")) !== false) {
+												$f1_name = $compet_json[$id_to_find] -> prenom . " " . $compet_json[$id_to_find] -> nom;
+											}
+
+											if (($id_to_find = findObject($compet_json, $f2_id, "id")) !== false) {
+												$f2_name = $compet_json[$id_to_find] -> prenom . " " . $compet_json[$id_to_find] -> nom;
+											}
+									?>
+											<div class="pool_match">
+												<div class="number">
+													<p><?php echo $counter . "." ?></p>
+												</div>
+												<div class="numbering">
+													<p>1.</p>
+													<p>2.</p>
+												</div>
+												<div class="names">
+													<p><?php echo $f1_name ?></p>
+													<p><?php echo $f2_name ?></p>
+												</div>
+												<div class="grid">
+													<div></div>
+													<div></div>
+												</div>
+											</div>
+									<?php
+											$counter++;
+										}
+									?>
+								</div>
+								<div class="signatures">
+									<div class="grid_table fencers">
+										<div class="grid_header">
+											<div class="grid_header_text">FENCER'S NAME</div>
+											<div class="grid_header_text square">No.</div>
+											<?php
+												for ($x = 1; $x <= $pool_of; $x++) {
+													?><div class="grid_header_text square"><?php echo $x ?></div><?php
+												}
+											?>
+
+											<div class="grid_header_text signature">SIGNATURE</div>
+										</div>
+										<div class="grid_row_wrapper">
+											<?php
+												for ($y = 1; $y <= $pool_of; $y++) {
+											?>
+											<div class="grid_row">
+												<div class="grid_item"><?php echo $array_of_names[$y] ?></div>
+												<div class="grid_item square header"><?php echo $y ?></div>
+												<?php
+													for ($x = 1; $x <= $pool_of; $x++) {
+														if ($x == $y) {
+															$echo = "filled";
+														} else {
+															$echo = "";
+														}
+												?>
+												<div class="grid_item square <?php echo $echo ?>"></div>
+												<?php } ?>
+												<div class="grid_item signature"></div>
+											</div>
+											<?php } ?>
+										</div>
+									</div>
+									<div class="grid_table referees">
+										<div class="grid_header">
+											<div class="grid_header_text">REFEREE'S NAME</div>
+											<div class="grid_header_text signature">SIGNATURE</div>
+										</div>
+
+										<!-- need ref name and only show ref2  -->
+										<div class="grid_row_wrapper">
+											<?php
+												if ($current_pool -> ref1 != null) {
+											?>
+											<div class="grid_row">
+												<div class="grid_item"><?php echo $ref1_name ?></div>
+												<div class="grid_item signature"></div>
+											</div>
+											<?php
+												}
+												if ($current_pool -> ref2 != null) {
+											?>
+											<div class="grid_row">
+												<div class="grid_item"><?php echo $ref2_name ?></div>
+												<div class="grid_item signature"></div>
+											</div>
+											<?php } ?>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<?php
 						}
 					?>
-
                 </div>
             </div>
         </main>

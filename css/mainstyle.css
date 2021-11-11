@@ -744,7 +744,18 @@ form#barcode_form {
 
 .barcode_button.active {
 	border-color: var(--c-primary);
-	background: var(--c-loghtprimary);
+	background: var(--c-lightprimary);
+}
+
+.barcode_button img {
+	width: 14pt;
+	height: 14pt;
+	transition: var(--t-basic);
+}
+
+.barcode_button.active img {
+	width: 15pt;
+	height: 15pt;
 }
 
 .barcode_input {

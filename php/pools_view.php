@@ -48,9 +48,14 @@
                         <p>Finish Pools</p>
                         <img src="../assets/icons/save_black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>
+                    <form id="barcode_form" method="POST" action="">
+                        <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <img src="../assets/icons/qr_code_scanner_black.svg">
+                        </button>
+                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <button type="submit" form="barcode_form"></button>
+                    </form>
                 </div>
-                <input type="text">
-                <button type="submit">Submit</button>
             </div>
             <div id="page_content_panel_main">
                 <div id="pool_listing" class="wrapper state_2 list">
