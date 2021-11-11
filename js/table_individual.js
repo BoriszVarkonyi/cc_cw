@@ -509,12 +509,12 @@ var searchInput = document.querySelector(".search_wrapper .search")
 var jumpToButton = document.getElementById("jumpToButton")
 var searchResults = document.querySelector(".search_wrapper .search_results")
 var searchForRoundDiv;
-searchInput.addEventListener("input", function(){
+searchInput.addEventListener("input", function () {
     breakLoop:
-    for(i=0; i<tableInArray.length; i++){
-        for(j=0; j<tableInArray[i].length; j++){
-            for(k=0; k<tableInArray[i][j].length; k++){
-                if(tableInArray[i][j][k] != undefined && tableInArray[i][j][k].id === searchInput.value){
+    for (i = 0; i < tableInArray.length; i++) {
+        for (j = 0; j < tableInArray[i].length; j++) {
+            for (k = 0; k < tableInArray[i][j].length; k++) {
+                if (tableInArray[i][j][k] != undefined && tableInArray[i][j][k].id === searchInput.value) {
                     //searchResults.classList.remove("empty");
                     jumpToButton.classList.remove("hidden")
                     var span = document.getElementById("match_id_text")
@@ -522,16 +522,16 @@ searchInput.addEventListener("input", function(){
                     searchForRoundDiv = tableInArray[i][j][k]
                     break breakLoop;
                 }
-                else{
+                else {
                     //searchResults.classList.add("empty");
                     jumpToButton.classList.add("hidden")
                 }
             }
-        }   
+        }
     }
 })
 
-function selectSearchedRound(){
+function selectSearchedRound() {
     selectRound(searchForRoundDiv)
     tableInArray[index1][index2][index3].click();
 }
@@ -541,11 +541,11 @@ function selectSearchedRound(){
 canAutoValidate = false;
 var selectInput = document.querySelector("#table_select_wrapper .search input")
 var resetButton = document.querySelector("#reset_table_panel .panel_submit")
-function formValidation(){
-    if(selectInput.value != ""){
+function formValidation() {
+    if (selectInput.value != "") {
         resetButton.disabled = false;
     }
-    else{
+    else {
         resetButton.disabled = true;
     }
 }

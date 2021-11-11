@@ -11,19 +11,19 @@ function toggleButton(x) {
   var activeButtonNumber;
   //Hide all slides.
   for (i = 0; i < slides.length; i++) {
-    slides[i].classList.add("hidden")
+  slides[i].classList.add("hidden")
   }
   //Removes active class from all buttom
   for (i = 0; i < slidesButtons.length; i++) {
-    slidesButtons[i].classList.remove("active");
+  slidesButtons[i].classList.remove("active");
   }
   //Adds active class to current button.
   activeButton.classList.add("active");
   //Finds the activebutton index +1
   for (i = 0; i < slidesButtons.length; i++) {
-    if (slidesButtons[i].classList.contains("active")) {
-      activeButtonNumber = i;
-    }
+  if (slidesButtons[i].classList.contains("active")) {
+    activeButtonNumber = i;
+  }
   }
   slidesNumber = activeButtonNumber;
   //Shows the current slide.
@@ -32,14 +32,14 @@ function toggleButton(x) {
   myTimer = setInterval(showSlides, 5000)
   //Disables the slide buttons for 1 sec (Prevent spamming)
   for (i = 0; i < slidesButtons.length; i++) {
-    slidesButtons[i].disabled = true;
+  slidesButtons[i].disabled = true;
 
   }
   setTimeout(function () {
-    for (i = 0; i < slidesButtons.length; i++) {
-      slidesButtons[i].disabled = false;
+  for (i = 0; i < slidesButtons.length; i++) {
+    slidesButtons[i].disabled = false;
 
-    }
+  }
   }, 1000)
 
 }
@@ -57,16 +57,16 @@ slides[slidesNumber].classList.remove("hidden");
 function showSlides() {
   //Hide all slides.
   for (i = 0; i < slides.length; i++) {
-    slides[i].classList.add("hidden")
+  slides[i].classList.add("hidden")
   }
 
   slidesNumber++;
   if (slidesNumber == slides.length) {
-    slidesNumber = 0;
+  slidesNumber = 0;
   }
   //Removes active class from all buttom
   for (i = 0; i < slidesButtons.length; i++) {
-    slidesButtons[i].classList.remove("active");
+  slidesButtons[i].classList.remove("active");
   }
   //Adds active class to current button.
   slidesButtons[slidesNumber].classList.add("active")
@@ -99,7 +99,7 @@ function autoSlide() {
   setTimeout(function () {
     slideButtons[slideNumber].classList.add("current")
     previusSlide.classList.add("hidden")
-  }, 500)  
+  }, 500)
   setTimeout(function () {
     previusSlide.classList.remove("blurred")
   }, 750)
@@ -146,11 +146,11 @@ function slideToLeft() {
   myTimer = setInterval(autoSlide, 3000)
 }
 
-function jumpToSlide(jumpToSlideNumber){
+function jumpToSlide(jumpToSlideNumber) {
   clearInterval(myTimer)
   slideButtons[slideNumber].classList.remove("current")
   slides[slideNumber].classList.add("hidden")
-  slideNumber = jumpToSlideNumber-1
+  slideNumber = jumpToSlideNumber - 1
   slides[slideNumber].classList.remove("hidden")
   slideButtons[slideNumber].classList.add("current")
   myTimer = setInterval(autoSlide, 3000)

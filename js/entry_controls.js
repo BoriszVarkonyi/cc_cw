@@ -3,11 +3,11 @@ var selectedElementIndexAnn = 0;
 IsNotFocused = true;
 document.onkeydown = (keyDownEvent) => {
     //Arrow system
-    if(IsNotFocused){
+    if (IsNotFocused) {
         var tableRows = document.querySelectorAll("tbody tr:not(.entry)")
-        var forms =  document.querySelectorAll("tbody .entry")
-        if(keyDownEvent.key == "ArrowUp"){
-            if(selectedElementIndexAnn == 0) {
+        var forms = document.querySelectorAll("tbody .entry")
+        if (keyDownEvent.key == "ArrowUp") {
+            if (selectedElementIndexAnn == 0) {
                 selectedElementIndexAnn++
             }
             selectedElementIndexAnn--
@@ -21,17 +21,17 @@ document.onkeydown = (keyDownEvent) => {
         }
 
 
-        if(keyDownEvent.key == "ArrowDown"){
+        if (keyDownEvent.key == "ArrowDown") {
             //Cheks if theres a selected row.
             var hasSelected = false;
-            for(i=0; i<tableRows.length; i++) {
-                if(tableRows[i].classList.contains("selected")){
+            for (i = 0; i < tableRows.length; i++) {
+                if (tableRows[i].classList.contains("selected")) {
                     hasSelected = true
                     break;
                 }
             }
-            if(hasSelected){
-                if(selectedElementIndexAnn == tableRows.length -1) {
+            if (hasSelected) {
+                if (selectedElementIndexAnn == tableRows.length - 1) {
                     selectedElementIndexAnn--
                 }
                 selectedElementIndexAnn++
@@ -44,7 +44,7 @@ document.onkeydown = (keyDownEvent) => {
                 keyDownEvent.preventDefault();
             }
             //If there is not a selected row than it selects the first row.
-            else{
+            else {
                 forms[selectedElementIndexAnn].classList.remove("collapsed")
                 tableRows[selectedElementIndexAnn].classList.add("selected")
                 tableRows[selectedElementIndexAnn].focus()
@@ -53,7 +53,7 @@ document.onkeydown = (keyDownEvent) => {
         if (keyDownEvent.key == "Home" && tableRows.length > 0) {
             keyDownEvent.preventDefault();
             selectedElementIndexAnn = 0;
-            for(i=0; i<tableRows.length; i++){
+            for (i = 0; i < tableRows.length; i++) {
                 forms[i].classList.add("collapsed")
                 tableRows[i].classList.remove("selected")
             }
@@ -65,7 +65,7 @@ document.onkeydown = (keyDownEvent) => {
         if (keyDownEvent.key == "End" && tableRows.length > 0) {
             keyDownEvent.preventDefault();
             selectedElementIndexAnn = tableRows.length - 1;
-            for(i=0; i<tableRows.length; i++){
+            for (i = 0; i < tableRows.length; i++) {
                 forms[i].classList.add("collapsed")
                 tableRows[i].classList.remove("selected")
             }

@@ -74,15 +74,15 @@ function formvariableDeclaration() {
 }
 
 var canAutoValidate = true;
-function formValidation(overlayForm, inputs, saveButton, optionContainers){
-    if(canAutoValidate){
+function formValidation(overlayForm, inputs, saveButton, optionContainers) {
+    if (canAutoValidate) {
         var valid1 = false, valid2 = false;
         saveButton.disabled = true;
         //If the document values are changing, it runs the function.
-        function validation(){
+        function validation() {
             //Checking every input.
-            for(i=0; i<inputs.length; i++){
-                if(inputs[i].value == ""){
+            for (i = 0; i < inputs.length; i++) {
+                if (inputs[i].value == "") {
                     //If it finds an empty input, then it disable the "Save" button.
                     valid1 = false;
                     break;
@@ -92,30 +92,30 @@ function formValidation(overlayForm, inputs, saveButton, optionContainers){
                     valid1 = true;
                 }
             }
-            if(optionContainers.length == 0){
+            if (optionContainers.length == 0) {
                 valid2 = true;
             }
-            else{
+            else {
                 valid2 = true;
-                for(i=0; i<optionContainers.length; i++){
+                for (i = 0; i < optionContainers.length; i++) {
                     var options = optionContainers[i].querySelectorAll("input")
-                    if(valid2){
-                        for(k=0; k<options.length; k++){
-                            if(options[k].checked){
+                    if (valid2) {
+                        for (k = 0; k < options.length; k++) {
+                            if (options[k].checked) {
                                 valid2 = true;
                                 break;
                             }
-                            else{
+                            else {
                                 valid2 = false;
                             }
                         }
                     }
                 }
             }
-            if(valid1 && valid2){
+            if (valid1 && valid2) {
                 saveButton.disabled = false;
             }
-            else{
+            else {
                 saveButton.disabled = true;
             }
         }

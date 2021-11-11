@@ -11,9 +11,9 @@ function selectRound(x) {
 
 var callRooms = document.querySelectorAll(".call_room")
 
-function searchByMiddleTable(tableToSearchFor){
+function searchByMiddleTable(tableToSearchFor) {
 
-    for(i=0; i<callRooms.length; i++){
+    for (i = 0; i < callRooms.length; i++) {
         var elimination = callRooms[i].querySelectorAll(".elimination_label")[1]
         console.log(elimination.innerHTML)
     }
@@ -22,10 +22,10 @@ function searchByMiddleTable(tableToSearchFor){
 
 searchByMiddleTable("1-8");
 
-function buttonLeft(){
+function buttonLeft() {
 
 }
 
-function buttonRight(){
+function buttonRight() {
 
 }

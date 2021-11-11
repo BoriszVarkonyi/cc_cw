@@ -2,13 +2,13 @@ var removeButton = document.querySelector(".stripe_button.red");
 removeButton.classList.add("disabled")
 removeButton.disabled = true;
 //Event listener to class change
-function removeButtonDisabler(){
+function removeButtonDisabler() {
     var selectedItem = document.querySelector("tbody .selected")
-    if(selectedItem !== null){
+    if (selectedItem !== null) {
         removeButton.disabled = false;
         removeButton.classList.remove("disabled")
     }
-    else{
+    else {
         removeButton.disabled = true;
         removeButton.classList.add("disabled")
     }
@@ -24,18 +24,18 @@ function callback(mutationsList, observer) {
 }
 
 const mutationObserver3 = new MutationObserver(callback)
-for(i=0; i<wcRows.length; i++){
-mutationObserver3.observe(wcRows[i], { attributes: true })
+for (i = 0; i < wcRows.length; i++) {
+    mutationObserver3.observe(wcRows[i], { attributes: true })
 }
 
 var importOverlayClosed = true;
 var selectedElementIndexImport = 0;
 //Arrow system
-document.addEventListener("keyup", function(keyDownEvent){
-    if(!importOverlayClosed){
-        if(keyDownEvent.key == "ArrowUp"){
+document.addEventListener("keyup", function (keyDownEvent) {
+    if (!importOverlayClosed) {
+        if (keyDownEvent.key == "ArrowUp") {
             var tableRows = document.querySelectorAll(".select_competition_wrapper .table_row")
-            if(selectedElementIndexImport == 0) {
+            if (selectedElementIndexImport == 0) {
                 selectedElementIndexImport++
             }
             selectedElementIndexImport--
@@ -45,18 +45,18 @@ document.addEventListener("keyup", function(keyDownEvent){
             tableRows[selectedElementIndexImport].focus()
             keyDownEvent.preventDefault();
         }
-        if(keyDownEvent.key == "ArrowDown"){
+        if (keyDownEvent.key == "ArrowDown") {
             //Cheks if theres a selected row.
             var hasSelected = false;
             var tableRows = document.querySelectorAll(".select_competition_wrapper .table_row")
-            for(i=0; i<tableRows.length; i++) {
-                if(tableRows[i].classList.contains("selected")){
+            for (i = 0; i < tableRows.length; i++) {
+                if (tableRows[i].classList.contains("selected")) {
                     hasSelected = true
                     break;
                 }
             }
-            if(hasSelected){
-                if(selectedElementIndexImport == tableRows.length -1) {
+            if (hasSelected) {
+                if (selectedElementIndexImport == tableRows.length - 1) {
                     selectedElementIndexImport--
                 }
                 selectedElementIndexImport++
@@ -67,7 +67,7 @@ document.addEventListener("keyup", function(keyDownEvent){
                 keyDownEvent.preventDefault();
             }
             //If there is not a selected row than it selects the first row.
-            else{
+            else {
                 tableRows[selectedElementIndexImport].classList.add("selected")
                 tableRows[selectedElementIndexImport].focus()
             }
@@ -75,19 +75,19 @@ document.addEventListener("keyup", function(keyDownEvent){
     }
     //searchBarClosed is a var. from search.js
     //somethingisOpened is a var. from main.js
-    if(searchBarClosed && !somethingisOpened){
+    if (searchBarClosed && !somethingisOpened) {
         //Opens to add tech. or refr. to Shift+A
-        if(keyDownEvent.shiftKey && keyDownEvent.which == 65) {
+        if (keyDownEvent.shiftKey && keyDownEvent.which == 65) {
             var orangeAddButton = document.querySelector(".stripe_button.orange")
             orangeAddButton.click()
         }
         //Opens import panel to Shift+I
-        if(keyDownEvent.shiftKey && keyDownEvent.which == 73) {
+        if (keyDownEvent.shiftKey && keyDownEvent.which == 73) {
             var stripeButton = document.querySelector(".stripe_button")
             stripeButton.click()
         }
         //Removes tech. or refr. to Shift+R
-        if(keyDownEvent.shiftKey && keyDownEvent.which == 82){
+        if (keyDownEvent.shiftKey && keyDownEvent.which == 82) {
             removeButton.click()
         }
     }
