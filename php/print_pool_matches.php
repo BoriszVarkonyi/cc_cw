@@ -85,8 +85,12 @@
 						for($pool_num = 1; $pool_num < count($fencer_table);$pool_num++) {
 
 								$current_pool = $fencer_table[$pool_num];
-								$piste_name = $current_pool -> piste;
-								$ref1_name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
+								if ($current_pool -> piste != null) {
+									$piste_name = $current_pool -> piste;
+								}
+								if ($current_pool -> ref1 != null) {
+									$ref1_name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
+								}
 								if ($current_pool -> ref2 != null) {
 									$ref2_name = $current_pool -> ref2 -> prenom . " " . $current_pool -> ref2 -> nom;
 								}
@@ -217,11 +221,15 @@
 
 													<!-- need ref name and only show ref2  -->
 													<div class="grid_row_wrapper">
+														<?php
+															if ($current_pool -> ref1 != null) {
+														?>
 														<div class="grid_row">
 															<div class="grid_item"><?php echo $ref1_name ?></div>
 															<div class="grid_item signature"></div>
 														</div>
 														<?php
+															}
 															if ($current_pool -> ref2 != null) {
 														?>
 														<div class="grid_row">
