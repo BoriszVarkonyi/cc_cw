@@ -1,19 +1,19 @@
 @page {
-    margin: 25pt;
-    size: A4;
+	margin: 25pt;
+	size: A4;
 }
 
 #pools_drag_panel {
-    display: none !important;
+	display: none !important;
 }
 
 #pools_wrapper {
-    width: 100% !important;
-    margin: 0;
+	width: 100% !important;
+	margin: 0;
 }
 
 #pool_listing {
-    width: 100% !important;
+	width: 100% !important;
 	--lineheight: 16pt !important;
 	--fontsize: 10pt !important;
 }
@@ -29,12 +29,12 @@
 }
 
 .pool_table_wrapper {
-    width: 100% !important;
+	width: 100% !important;
 }
 
 .entry_panel {
-    height: auto !important;
-    max-height: unset !important;
+	height: auto !important;
+	max-height: unset !important;
 }
 
 .table_row_wrapper > .table_row > .table_item:nth-child(1) {

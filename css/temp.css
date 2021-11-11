@@ -36,9 +36,9 @@ table.fixed {
 }
 
 .table.cw, table.cw {		/* Whole table */
-    width: 100%;
+	width: 100%;
 	margin-bottom: 50px;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .table.fixed .table_item, .table.fixed .table_header_text {		/* Whole table */
@@ -46,7 +46,7 @@ table.fixed {
 }
 
 .table.full, table.full {		/* 100% width no ppading */
-    width: 100%;
+	width: 100%;
 }
 
 .table.cw.middle, table.middle {		/* Whole table, primarly cw */

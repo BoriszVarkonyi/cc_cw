@@ -278,7 +278,7 @@ footer {
 /* ///SCROLL BAR// */
 
 ::-webkit-scrollbar { /* Width */
-    width: 9px;
+	width: 9px;
 	height: 9px;
 }
 
@@ -291,7 +291,7 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
-    background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.4);
 }
 
 /* Header */
@@ -599,7 +599,7 @@ nav#mobile a {
 	color: var(--c-white);
 	font-size: var(--f-xlarge);
 	padding: 5px;
-    border-radius: 5px;
+	border-radius: 5px;
 	background: var(--c-transparent-white);
 	margin: 2px 0;
 	transition: background-color var(--t-basic);

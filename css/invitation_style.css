@@ -75,7 +75,7 @@
 	display: flex;
 	flex-direction: column;
 	border: 2px solid var(--c-gray);
-    border-radius: 5px;
+	border-radius: 5px;
 }
 
 .column_panel.collapsed {
@@ -159,7 +159,7 @@
 }
 
 #plus_information_panel > div > p:nth-of-type(odd) {
-    font-family: var(--bold);
+	font-family: var(--bold);
 }
 
 #plus_information_panel > div > p:nth-of-type(even) {

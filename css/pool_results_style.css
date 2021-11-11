@@ -11,9 +11,9 @@
 }
 
 .pool_results_column {
-    padding: 30px 1vw;
-    position: relative;
-    z-index: 0;
+	padding: 30px 1vw;
+	position: relative;
+	z-index: 0;
 	flex: 1 1 50%;
 	box-sizing: border-box;
 	opacity: 1;
@@ -49,17 +49,17 @@
 
 /* Buttons in the middle */
 #column_view_controls {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	z-index: 1;
 }
 
 #column_view_controls button {
-    padding: 5px;
-    background: var(--c-lightestgray);
-    border-radius: 50%;
-    margin: 2px 0;
+	padding: 5px;
+	background: var(--c-lightestgray);
+	border-radius: 50%;
+	margin: 2px 0;
 	box-shadow: var(--s-black);
 }
 

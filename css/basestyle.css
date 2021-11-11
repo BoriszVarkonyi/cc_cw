@@ -176,12 +176,12 @@
 }
 
 body, html {	/* Gives placeholder background and default font */
-    background: var(--c-white);
+	background: var(--c-white);
 	font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
 	color: var(--c-black);
 	height: 100%;
 	padding: 0;
-    margin: 0;
+	margin: 0;
 	overflow-x: hidden;
 	font-size: var(--f-medium) !important;
 }
@@ -220,8 +220,8 @@ button, input, textarea {
 	font-family: var(--regular);
 	color: var(--c-black);
 	caret-color: var(--c-black);
-    outline: none;
-    border: none;
+	outline: none;
+	border: none;
 	resize: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -252,7 +252,7 @@ form.hidden, form.disabled {
 }
 
 .modal_wrapper.hidden {
-    display: none;
+	display: none;
 }
 
 .bg_fencers {
@@ -555,6 +555,7 @@ input[type="time"] {
 form#barcode_form {
 	display: flex;
 	align-items: center;
+	margin: 3px 0 3px 15px;
 }
 
 .barcode_button {
@@ -572,21 +573,33 @@ form#barcode_form {
 	z-index: 1;
 }
 
+.barcode_button.active {
+	border-color: var(--c-primary);
+}
+
 .barcode_input {
-	margin: 0 0 0 -20px !important;
-    background-color: var(--c-lightgray) !important;
-    border-radius: 20px 20px 0 0 !important;
-    border: 2pt solid var(--c-gray) !important;
-    font-family: var(--bold) !important;
-    width: 200px !important;
-	padding: 0 !important;
+	margin: 0 0 0 -37px !important;
+	background-color: var(--c-lightergray) !important;
+	border-radius: 20px !important;
+	border: 2pt solid !important;
+	border-color: var(--c-gray) !important;
+	font-family: var(--bold) !important;
+	width: 150px !important;
+	padding: 0 0 0 20px !important;
 	color: var(--c-black);
 	position: relative;
 	z-index: 0;
+	text-align: center !important;
+	box-shadow: var(--s-black);
 }
 
+.barcode_input:active {
+	border-color: var(--c-primary);
+}
+
+
 .barcode_input:focus {
-    border: 2pt solid var(--c-primary) !important;
+	border: 2pt solid var(--c-primary) !important;
 }
 
 /* Search Input */
@@ -958,17 +971,17 @@ input[value="Search"], input[value="Use Ranking"], input[value="Use this Ranking
 /* Table */
 
 table {
-    --lineheight: calc(1.4em + 1.25vmin);
-    --roundcorner: 5px;
-    color: var(--c-black);
-    border: none;
-    border-collapse: collapse;
+	--lineheight: calc(1.4em + 1.25vmin);
+	--roundcorner: 5px;
+	color: var(--c-black);
+	border: none;
+	border-collapse: collapse;
 	border-spacing: 0;
-    line-height: 1;
-    font-size: var(--f-medium);
-    width: 100%;
-    vertical-align: middle;
-    text-align: center;
+	line-height: 1;
+	font-size: var(--f-medium);
+	width: 100%;
+	vertical-align: middle;
+	text-align: center;
 }
 
 /* Column same and fixed width */
@@ -978,20 +991,20 @@ table.fixed {
 
 /* Smaller font size and row line height */
 table.small {
-    --lineheight: calc(1.2em + 1.0vmin) !important;
+	--lineheight: calc(1.2em + 1.0vmin) !important;
 }
 
 table.small p {
-    font-size: var(--f-small) !important;
+	font-size: var(--f-small) !important;
 }
 
 /* Even smaller font size but same row line height */
 table.xsmall {
-    --lineheight: calc(1.2em + 1.0vmin) !important;
+	--lineheight: calc(1.2em + 1.0vmin) !important;
 }
 
 table.xsmall p {
-    font-size: var(--f-xsmall) !important;
+	font-size: var(--f-xsmall) !important;
 }
 
 /* Cursor stays the same on hover, no hover effect */
@@ -1009,7 +1022,7 @@ table.no_interaction tr:hover {
 /* Table Header Group */
 
 thead {
-    font-family: var(--bold);
+	font-family: var(--bold);
 	text-transform: uppercase;
 }
 
@@ -1045,13 +1058,13 @@ tbody.no_scale tr.selected {
 /* Table Headers */
 
 th {
-    font-weight: normal !important;
+	font-weight: normal !important;
 	position: relative;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	background-color: var(--c-lightprimary);
-    padding: 5px 0;
+	padding: 5px 0;
 }
 
 /* Rounded Corners on the tables top left */
@@ -1067,19 +1080,19 @@ th:last-of-type {
 /* Table Rows */
 
 tr {
-    height: var(--lineheight);
-    cursor: pointer;
-    transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
-    outline: none;
-    box-shadow: 0 0 0 rgba(37, 37, 37, .1);
+	height: var(--lineheight);
+	cursor: pointer;
+	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
+	outline: none;
+	box-shadow: 0 0 0 rgba(37, 37, 37, .1);
 }
 
 tbody tr:first-of-type {
-    border-top: none !important;
+	border-top: none !important;
 }
 
 tbody tr:last-of-type {
-    border-bottom: none !important;
+	border-bottom: none !important;
 }
 
 tr:hover {
@@ -1088,12 +1101,12 @@ tr:hover {
 }
 
 tr.hidden {
-    display: none;
+	display: none;
 }
 
 /* Makes the whole row bold */
 tr.bold {
-    font-family: var(--bold);
+	font-family: var(--bold);
 }
 
 /* Special case of disqualification, makes the first item line-through */
@@ -1112,7 +1125,7 @@ tr.disqualified.selected td:first-child {
 /* Table Items */
 
 td {
-    /*border: 1.5px solid var(--c-lightgray);*/
+	/*border: 1.5px solid var(--c-lightgray);*/
 }
 
 /* Makes the text bold */
@@ -1145,22 +1158,22 @@ tr:last-of-type td:last-of-type {
 /* Table Square Headers and Table Square Items */
 
 th.square, td.square {
-    width: var(--lineheight);
+	width: var(--lineheight);
 }
 
 /* Buttons inside square table elements */
 th.square button, td.square button {
-    width: 100%;
-    height: 100%;
-    display: flex;
+	width: 100%;
+	height: 100%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 /* Icons and Images inside square table elements */
 th.square img, td.square img {
-    width: 65%;
-    height: 65%;
+	width: 65%;
+	height: 65%;
 }
 
 
@@ -1192,8 +1205,8 @@ th.square img, td.square img {
 /* Table Small Headers and Table Small Items*/
 
 th.small, td.small {
-    width: 20px;
-    min-width: 20px;
+	width: 20px;
+	min-width: 20px;
 }
 
 
@@ -1221,7 +1234,7 @@ tr.selected td:last-of-type {
 }
 
 td.selected {
-    background: var(--c-secondary) !important;
+	background: var(--c-secondary) !important;
 	transform: scale(1.01);
 	font-family: var(--bold);
 }
@@ -1260,7 +1273,7 @@ tr.drop.opened {
 /* Text inside Table elements */
 
 th p, tr p {
-    padding: 0 7px;
+	padding: 0 7px;
 }
 
 
@@ -1268,36 +1281,36 @@ th p, tr p {
 /* Table Rows and Items manual coloring */
 
 table .gray, table .silver, table .filled, table .disqualified {
-    background: var(--c-gray);
+	background: var(--c-gray);
 }
 
 table .green {
-    background: var(--c-green);
+	background: var(--c-green);
 }
 
 table .red {
-    background: var(--c-red);
+	background: var(--c-red);
 }
 
 table .purple {
-    background: var(--c-yellow);
+	background: var(--c-yellow);
 }
 
 table .yellow, table .gold {
-    background: var(--c-yellow);
+	background: var(--c-yellow);
 }
 
 table .blue {
-    background: var(--c-blue);
+	background: var(--c-blue);
 }
 
 table .purple {
-    background: var(--c-purple);
-    color: var(--c-white);
+	background: var(--c-purple);
+	color: var(--c-white);
 }
 
 table .bronze {
-    background: var(--c-bronze);
+	background: var(--c-bronze);
 }
 
 
@@ -1305,16 +1318,16 @@ table .bronze {
 /* Table Rows and Items standard automatic coloring */
 
 tbody tr:nth-child(even) {
-    background: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 tbody tr:nth-child(odd) {
-    background: var(--c-white);
+	background: var(--c-white);
 }
 
 tbody tr {
-    border-top: 1.5px solid var(--c-lightgray);
-    border-bottom: 1.5px solid var(--c-lightgray);
+	border-top: 1.5px solid var(--c-lightgray);
+	border-bottom: 1.5px solid var(--c-lightgray);
 }
 
 
@@ -1322,16 +1335,16 @@ tbody tr {
 /* Table Rows and Items alternative automatic coloring */
 
 tbody.alt tr:nth-child(even) {
-    background: var(--c-lightergray);
+	background: var(--c-lightergray);
 }
 
 tbody.alt tr:nth-child(odd) {
-    background: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 tbody.alt tr {
-    border-top: 1.5px solid var(--c-gray);
-    border-bottom: 1.5px solid var(--c-gray);
+	border-top: 1.5px solid var(--c-gray);
+	border-bottom: 1.5px solid var(--c-gray);
 }
 
 
@@ -1339,16 +1352,16 @@ tbody.alt tr {
 /* Table Rows and Items double alternative automatic coloring */
 
 tbody.altdouble tr:nth-child(2n - 2) {
-    background: var(--c-lightergray);
+	background: var(--c-lightergray);
 }
 
 tbody.altdouble tr:nth-child(4n - 2) {
-    background: var(--c-lightestgray);
+	background: var(--c-lightestgray);
 }
 
 tbody.altdouble tr {
-    border-top: 1.5px solid var(--c-gray);
-    border-bottom: 1.5px solid var(--c-gray);
+	border-top: 1.5px solid var(--c-gray);
+	border-bottom: 1.5px solid var(--c-gray);
 }
 
 tbody.altdouble tr:nth-last-of-type(2) td:first-of-type {
@@ -1386,10 +1399,10 @@ tbody.altdouble tr:nth-last-of-type(2) {
 /* Whole entry */
 
 .entry {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px;
 	box-shadow: var(--s-black);
 	transition: all ease-in-out .2s;
 }
@@ -1399,10 +1412,10 @@ tbody.altdouble tr:nth-last-of-type(2) {
 /* Entry Header */
 
 .tr {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: calc(1.4em + 1.25vmin);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: calc(1.4em + 1.25vmin);
 	background: var(--c-lightestgray);
 	position: relative;
 	z-index: 1;
@@ -1414,7 +1427,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 
 /* Makes all the child elements the same width */
 .tr.fixed .td {
-    flex: 1 1 100%;
+	flex: 1 1 100%;
 }
 
 .tr.bold {
@@ -1426,8 +1439,8 @@ tbody.altdouble tr:nth-last-of-type(2) {
 /* Entry Header Elements */
 
 .td {
-    flex: 1 1 auto;
-    text-align: center;
+	flex: 1 1 auto;
+	text-align: center;
 	display: flex;
 	flex-direction: column;
 }
@@ -1436,44 +1449,44 @@ tbody.altdouble tr:nth-last-of-type(2) {
 
 /* Makes the text bold */
 .td.bold {
-    font-size: var(--bold);
+	font-size: var(--bold);
 }
 
 /* Makes the text start at the left side */
 .td.start {
-    text-align: start !important;
+	text-align: start !important;
 }
 
 /* Makes the element a square shape */
 .td.square {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: calc(1.4em + 1.25vmin);
-    width: calc(1.4em + 1.25vmin);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: calc(1.4em + 1.25vmin);
+	width: calc(1.4em + 1.25vmin);
 }
 
 .td.square {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: calc(1.4em + 1.25vmin);
-    width: calc(1.4em + 1.25vmin);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: calc(1.4em + 1.25vmin);
+	width: calc(1.4em + 1.25vmin);
 }
 
 /* Buttons inside square elements */
 .td.square button {
-    width: 100%;
-    height: 100%;
-    display: flex;
+	width: 100%;
+	height: 100%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 /* Icons and Images inside square elements */
 .td.square img {
-    width: 65%;
-    height: 65%;
+	width: 65%;
+	height: 65%;
 }
 
 /* Inputs inside all td elements */
@@ -1492,8 +1505,8 @@ tbody.altdouble tr:nth-last-of-type(2) {
 /* Entry Panel */
 
 .entry_panel {
-    width: 100%;
-    display: flex;
+	width: 100%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 50px;
@@ -1527,6 +1540,6 @@ tbody.altdouble tr:nth-last-of-type(2) {
 }
 
 .entry.selected .tr {
-    background: var(--c-primary) !important;
+	background: var(--c-primary) !important;
 	font-family: var(--bold);
 }

@@ -104,8 +104,6 @@
                         echo "ERROR during search for id to delete!";
                     } else {
 
-
-
                         unset($json_table[$id_to_remove]);
                         $json_table = array_values($json_table);
 
@@ -151,38 +149,46 @@
                     header("Refresh: 0");
                 }
             ?>
-                <form id="title_stripe" method="POST" action="">
+                <div id="title_stripe">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
                         <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
-                        <button class="stripe_button" type="button" onclick="window.print()">
+                        <button type="button" class="stripe_button" onclick="window.print()">
                             <p>Print Registration</p>
                             <img src="../assets/icons/print_black.svg"/>
                         </button>
-                        <button type="submit" name="remove_fencer" class="stripe_button" onclick="" shortcut="SHIFT+D" id="deleteFencer">
-                            <p>Remove Fencer</p>
-                            <img src="../assets/icons/person_remove_black.svg"/>
-                        </button>
-                        <button type="button" class="stripe_button" id="addFencer" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
-                            <p>Add Fencer</p>
-                            <img src="../assets/icons/person_add_alt_black.svg"/>
-                        </button>
-                        <button class="stripe_button red" onclick="" name="reg_out" id="regOut" type="submit" shortcut="SHIFT+O">
-                            <p>Register out</p>
-                            <img src="../assets/icons/how_to_unreg_black.svg"/>
-                        </button>
-                        <button class="stripe_button green" onclick="" name="reg_in" id="regIn" type="submit" shortcut="SHIFT+I">
-                            <p>Register in</p>
-                            <img src="../assets/icons/how_to_reg_black.svg"/>
-                        </button>
-                        <input type="text">
-                        <button type="submit">Submit</button>
+                        <form method="POST" action="">
+                            <button type="submit" name="remove_fencer" class="stripe_button" shortcut="SHIFT+D" id="delete_fencer_button">
+                                <p>Remove Fencer</p>
+                                <img src="../assets/icons/person_remove_black.svg"/>
+                            </button>
+                            <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
+                                <p>Add Fencer</p>
+                                <img src="../assets/icons/person_add_alt_black.svg"/>
+                            </button>
+                            <button type="submit" class="stripe_button red" name="reg_out" id="reg_out_button" shortcut="SHIFT+O">
+                                <p>Register out</p>
+                                <img src="../assets/icons/how_to_unreg_black.svg"/>
+                            </button>
+                            <button type="submit" class="stripe_button green" name="reg_in" id="reg_in_button"  shortcut="SHIFT+I">
+                                <p>Register in</p>
+                                <img src="../assets/icons/how_to_reg_black.svg"/>
+                            </button>
+                            <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
+                        </form>
+
+                        <form id="barcode_form" method="POST" action="">
+                            <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                                <img src="../assets/icons/qr_code_scanner_black.svg">
+                            </button>
+                            <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                            <button type="submit" form="barcode_form"></button>
+                        </form>
                     </div>
-                    <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
-                </form>
+                </div>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
                     <div class="overlay_panel_controls">
                         <button type="button" id="overlayPanelButtonLeft" onclick="leftButton()"><img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button"></button>

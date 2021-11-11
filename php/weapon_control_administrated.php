@@ -29,7 +29,7 @@
         $compet_string = $row['data'];
         $compet_table = json_decode($compet_string);
     }
-    
+
     //barcode scan
     if(isset($_POST["barcode"])) {
         $fencer_id = $_POST["barcode"];
@@ -84,14 +84,14 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
-            <form id="title_stripe" method="POST" action="">
+            <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg"/>
                     </a>
-                    <button class="stripe_button disabled" id="sendMessageButton" type="submit">
+                    <button class="stripe_button disabled" type="button">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/chat_black.svg"/>
                     </button>
@@ -99,29 +99,36 @@
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" id="checkInButton" name="check_in_submit" type="submit" >
-                        <p>Check In</p>
-                        <img src="../assets/icons/check_circle_outline_black.svg"/>
-                    </button>
-                    <button class="stripe_button primary" name="submit_wc" id="addWcButton" type="submit" >
-                        <p>Add Weapon Control</p>
-                        <img src="../assets/icons/add_black.svg"/>
-                    </button>
-                    <button class="stripe_button" id="editWcButton" name="edit_wc" type="submit">
-                        <p>Edit Weapon Control</p>
-                        <img src="../assets/icons/edit_black.svg"/>
-                    </button>
-                    <button class="stripe_button primary" id="checkOutButton" name="submit_check_out" type="submit">
-                        <p>Check Out</p>
-                        <img src="../assets/icons/check_circle_black.svg"/>
-                    </button>
+                    <form method="POST" action="">
+                        <button class="stripe_button primary" id="check_in_button" name="check_in_submit" type="submit">
+                            <p>Check In</p>
+                            <img src="../assets/icons/check_circle_outline_black.svg"/>
+                        </button>
+                        <button class="stripe_button primary" name="submit_wc" id="add_wc_button" type="submit">
+                            <p>Add Weapon Control</p>
+                            <img src="../assets/icons/add_black.svg"/>
+                        </button>
+                        <button class="stripe_button" id="edit_wc_button" name="edit_wc" type="submit">
+                            <p>Edit Weapon Control</p>
+                            <img src="../assets/icons/edit_black.svg"/>
+                        </button>
+                        <button class="stripe_button primary" id="check_out_button" name="submit_check_out" type="submit">
+                            <p>Check Out</p>
+                            <img src="../assets/icons/check_circle_black.svg"/>
+                        </button>
+                        <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
+                    </form>
+
+                    <form id="barcode_form" method="POST" action="">
+                        <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <img src="../assets/icons/qr_code_scanner_black.svg">
+                        </button>
+                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <button type="submit" form="barcode_form"></button>
+                    </form>
                 </div>
-                <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
-            </form>
-            <form id="title_stripe" method="POST" action="">
-                <input type="text" name="barcode" placeholder="Barcode">
-                <button type="submit">Submit</button>
-            </form>
+            </div>
+
             <div id="page_content_panel_main">
                 <table class="wrapper">
                     <thead>

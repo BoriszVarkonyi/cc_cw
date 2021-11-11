@@ -1,6 +1,6 @@
 var addFencerPanel = document.getElementById("add_fencer_panel");
-var regInButton = document.getElementById("regIn")
-var regOutButton = document.getElementById("regOut")
+var regInButton = document.getElementById("reg_in_button")
+var regOutButton = document.getElementById("reg_out_button")
 var removeFencerButton = document.querySelector("button[name=remove_fencer]")
 
 function toggleAddFencerPanel() {
@@ -79,7 +79,7 @@ document.addEventListener("keyup", function (e) {
                 regInButton.click()
             }
             if (e.shiftKey && e.which == 68) {
-                var deleteFencerButton = document.getElementById("deleteFencer")
+                var deleteFencerButton = document.getElementById("delete_fencer_button")
                 deleteFencerButton.click()
             }
         }
@@ -100,11 +100,11 @@ document.addEventListener("keyup", function (e) {
     }
 })
 
-//Sets the index when 
-function setIndex(x){
+//Sets the index when
+function setIndex(x) {
     var inputs = document.querySelectorAll("#add_fencer_panel .overlay_panel_division.visible input[type='text'], input[type='number']")
-    for(i=0; i< inputs.length; i++){
-        if(inputs[i] == x){
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i] == x) {
             index = i;
             break;
         }
