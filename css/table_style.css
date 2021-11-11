@@ -131,7 +131,7 @@
 	font-size: var(--f-small);
 	white-space: nowrap;
 	text-overflow: ellipsis;
-    overflow: hidden;
+	overflow: hidden;
 	margin: 2px 0;
 	line-height: 1.5;
 }

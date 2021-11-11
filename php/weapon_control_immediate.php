@@ -59,7 +59,7 @@
         <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
-            <form id="title_stripe" method="POST" action="">
+            <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
@@ -74,20 +74,22 @@
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
-                        <p>Add weapon control</p>
-                        <img src="../assets/icons/add_black.svg"/>
-                    </button>
+                    <form id="add_weapon_control_form" method="POST" action="">
+                        <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
+                            <p>Add weapon control</p>
+                            <img src="../assets/icons/add_black.svg"/>
+                        </button>
+                        <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
+                    </form>
+                    <form id="barcode_form" method="POST" action="">
+                        <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <img src="../assets/icons/qr_code_scanner_black.svg">
+                        </button>
+                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <button type="submit" form="barcode_form"></button>
+                    </form>
                 </div>
-                <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
-            </form>
-            <form id="barcode_form" method="POST" action="">
-                <button type="button" onclick="toggleQrCodeInput(this)" class="barcode_button">
-                    <img src="../assets/icons/qr_code_scanner_black.svg">
-                </button>
-                <input type="text" name="barcode" class="barcode_input">
-                <button type="submit" form="barcode_form"></button>
-            </form>
+            </div>
             <div id="page_content_panel_main">
                 <table class="wrapper">
                     <thead>
