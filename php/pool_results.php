@@ -89,7 +89,7 @@
             $matches_string = json_encode($matches_table);
             $qry_update = "UPDATE pools SET matches = '$matches_string' WHERE assoc_comp_id = '$comp_id'";
             if ($do_update = mysqli_query($connection, $qry_update)) {
-                //header("Location: ../php/pools_view.php?comp_id=$comp_id");
+                header("Location: ../php/pools_view.php?comp_id=$comp_id");
             }
             $match_counter++;
         }
