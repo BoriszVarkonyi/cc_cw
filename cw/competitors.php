@@ -73,27 +73,35 @@
 
                 <table class="cw">
                     <?php
-                    $qry = "SELECT * FROM `cptrs_$comp_id` " . $WHERE_CLAUSE . " ORDER BY `rank` ASC";
+                    //$qry = "SELECT * FROM `competitors` " . $WHERE_CLAUSE . " ORDER BY `rank` ASC";
+                    $qry = "SELECT * FROM competitors WHERE assoc_comp_id = '$comp_id';";
                     $do = mysqli_query($connection, $qry);
                     if ($do == FALSE || mysqli_num_rows($do) == 0) {
-                        ?>
-                            <p>You have no competitors set up or the search criteria is too narrow!</p>
-                        <?php
+                        echo "<p>You have no competitors set up or the search criteria is too narrow!</p>";
                     } else {
                         ?>
                         <thead>
-                            <th><p>POSITION</p></th>
+                            <th><p>RANK</p></th>
                             <th><p>NAME</p></th>
                             <th><p>NATION / CLUB</p></th>
                         </thead>
                         <tbody class="alt">
                         <?php
-                        while ($row = mysqli_fetch_assoc($do)) {
+                            if ($row = mysqli_fetch_assoc($do)) {
+                                $json_string = $row['data'];
+                                $json_table = json_decode($json_string);
+                            } else {
+                                echo mysqli_error($connection);
+                            }
 
-                            $id = $row['id'];
-                            $pos = $row['rank'];
-                            $name = $row['name'];
-                            $nat = $row['nationality'];
+                            foreach($json_table as $obj) {
+                                if($obj->final_rank != null) {
+                                    $pos = $obj->final_rank;
+                                } else {
+                                    $pos = $obj->temp_rank;
+                                }
+                                $name = $obj->prenom . " " . $obj->nom;
+                                $nat = $obj->nation;
                         ?>
 
                             <tr>
