@@ -5,7 +5,7 @@ function drawPositions() {
 
     saveButton.classList.toggle("hidden");
     drawButton.classList.toggle("inactive");
-    
+
     var teamInput = document.querySelector(".positions_wrapper input")
     var inputInJSON = JSON.parse(teamInput.value)
     var wrapperInput = document.querySelector(".positions_wrapper input")
@@ -27,6 +27,7 @@ function drawPositions() {
     }
 
     wrapperInput.value = JSON.stringify(inputInJSON)
+    console.log(inputInJSON[0])
 }
 
 
