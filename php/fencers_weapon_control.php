@@ -82,7 +82,7 @@
     }
 
     // if fencer_id is not set go back to the last page
-    if (findObject($json_table, $fencer_id, "id") == "") {
+    if (findObject($json_table, $fencer_id, "id") === "") {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
