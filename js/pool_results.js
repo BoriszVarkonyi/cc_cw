@@ -159,11 +159,21 @@ var maxValue = parseInt(document.getElementById("maxValueInput").value)
 var matches = document.querySelectorAll(".match")
 //Set to every input an eventlistener
 matches.forEach(item => {
+    //Gets the input
+    var inputs = item.querySelectorAll("input[type=text]")
+    //Gets the radio inputs
+    var radioInputs = item.querySelectorAll("input[type=radio]")
+
+    //Checks if theeres a tie
+    if (inputs[0].value == inputs[1].value && inputs[0].value != "" && inputs[1].value != "") {
+        //Display the radio inputs
+        for (i = 0; i < radioInputs.length; i++) {
+            radioInputs[i].nextElementSibling.classList.remove("collapsed")
+            radioInputs[i].disabled = false;
+        }
+    }
+
     item.addEventListener("input", function () {
-        //Gets the input
-        var inputs = item.querySelectorAll("input[type=text]")
-        //Gets the radio inputs
-        var radioInputs = item.querySelectorAll("input[type=radio]")
         //Check if theres any forbidden points, and corrects it
         for (i = 0; i < inputs.length; i++) {
             if (isNaN(inputs[i].value) || inputs[i].value[inputs[i].value.length - 1] == ".") {
@@ -194,6 +204,7 @@ matches.forEach(item => {
         }
     })
 })
+
 
 var pointInputs = document.querySelectorAll(".pool_results_column input[type=text]")
 
