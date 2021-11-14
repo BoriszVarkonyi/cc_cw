@@ -11,10 +11,28 @@ function selectRound(x) {
 
 var callRooms = document.querySelectorAll(".call_room")
 var firstIndex = 0;
-var secondIndex;
+var secondIndex = 1;
 var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
+
+//Hides all the eliminations
+for (i = 0; i < eleminitaions.length; i++) {
+    eleminitaions[i].classList.add("hidden")
+}
+
+if (eleminitaions.length > 0) {
+    for (i = firstIndex; i < secondIndex; i++) {
+        eleminitaions[i].classList.remove("hidden")
+
+    }
+}
+
+function disabler() {
+    if (firstIndex == 0) {
+        btLeft.classList.add("disabled")
+    }
+}
 
 
 //Helps to search throught tables
@@ -29,6 +47,7 @@ function searchByMiddleTable(tableToSearchFor) {
     }
     return index;
 }
+
 
 function searchBySideTables(leftside, rightSide) {
     var index;
@@ -64,17 +83,28 @@ function buttonLeft() {
 }
 
 function buttonRight() {
-    btLeft.classList.remove("disabled")
-    btRight.classList.remove("disabled")
-    firstIndex++
-    secondIndex++
-    //Hides all the eliminations
-    for (i = 0; i < eleminitaions.length; i++) {
-        eleminitaions[i].classList.add("hidden")
-    }
-    //Shows eleminiations by index
-    for (i = firstIndex; i < secondIndex; i++) {
-        eleminitaions[i].classList.remove("hidden")
+    if (eleminitaions[secondIndex - 1].querySelectorAll(".table_round_wrapper").length  > 8) {
+        btLeft.classList.remove("disabled")
+        btRight.classList.remove("disabled")
+        firstIndex++
+        secondIndex++
+        //Hides all the eliminations
+        for (i = 0; i < eleminitaions.length; i++) {
+            eleminitaions[i].classList.add("hidden")
+        }
+        //Shows eleminiations by index
+        for (i = firstIndex; i < secondIndex; i++) {
+            eleminitaions[i].classList.remove("hidden")
 
+        }
+    }
+    else{
+        for (i = 0; i < eleminitaions.length; i++) {
+            eleminitaions[i].classList.remove("hidden")
+        }
+        for(i=0; i<callRooms.length; i++){
+            callRooms[i].classList.add("hidden")
+        }
+        callRooms[searchByMiddleTable("1-16")].classList.remove("hidden")
     }
 }
