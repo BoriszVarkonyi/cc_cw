@@ -88,7 +88,9 @@
                         <?php
 
                         if (!isset($_GET['draw_table'])) {
-                            # code...
+                            
+                            //DISPLAY EMPTY SPACE
+
                         } else {
 
                             $draw_table_id = $_GET['draw_table'];
