@@ -81,6 +81,12 @@
 		    $json_table = json_decode($json_string);
     }
 
+    // if fencer_id is not set go back to the last page
+    if (findObject($json_table, $fencer_id, "id") == "") {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    
     $id_to_find = findObject($json_table, $fencer_id, "id");
     $fencer_name = $json_table[$id_to_find] -> nom . " " . $json_table[$id_to_find] -> prenom;
 
