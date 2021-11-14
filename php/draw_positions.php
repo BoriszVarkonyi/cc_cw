@@ -3,6 +3,19 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
+<?php
+
+if (isset($_POST["save_draw"])) {
+    
+    $rawdata = $_POST["data"];
+    $dataobj = json_decode($rawdata);
+
+    print_r($dataobj);
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +96,7 @@
                         ?>
 
                     </div>
-                    <form action="" id="team_positions_wrapper">
+                    <form action="" method="post" id="team_positions_wrapper">
 
                         <?php
 
@@ -108,7 +121,7 @@
 
                                 <div class="positions_button_wrapper">
                                     <button class="draw_button" type="button" id="draw_positions_button" onclick="drawPositions()">Draw</button>
-                                    <button class="save_draw_positions hidden" id="save_positions_button" type="submit">Save</button>
+                                    <button class="save_draw_positions hidden" name="save_draw" id="save_positions_button" type="submit">Save</button>
                                 </div>
                                 <div class="positions_wrapper">
 
@@ -190,7 +203,7 @@
 
                                     ?>
 
-                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw, JSON_UNESCAPED_UNICODE)) ?>'>
+                                    <input type="text" name="data" value='<?php print_r(json_encode($teamsInDraw, JSON_UNESCAPED_UNICODE)) ?>'>
 
                                 </div>
 

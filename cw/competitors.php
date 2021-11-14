@@ -2,10 +2,10 @@
 <?php
 
 class Competitor {
-    public string $fullName;
-    public int $rank;
-    public string $nation;
-    public string $club;
+    public $fullName;
+    public $rank;
+    public $nation;
+    public $club;
 
     function __construct($obj) {
         if($obj->final_rank != null) {
