@@ -4043,8 +4043,8 @@ div.title_box > button {
 }
 
 .annoucement_image img {
-	width: 60%;
-	height: 60%;
+	width: 50%;
+	aspect-ratio: 1 / 1;
 	-webkit-filter: contrast(.2);
 	filter: contrast(.2);
 	transform: scale(1);
@@ -4055,7 +4055,7 @@ div.title_box > button {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-right: 130px;
+	padding-right: 140px;
 }
 
 .annoucement_title {
@@ -4144,7 +4144,7 @@ div.title_box > button {
 }
 
 .annoucement.edit .annoucement_content {
-	padding: 30px 50px;
+	padding: 30px 0;
 	box-sizing: border-box;
 }
 
@@ -4168,7 +4168,7 @@ div.title_box > button {
 .edit_annoucement_body {
 	padding: 5px;
 	width: 100%;
-	max-width: 60ch;
+	max-width: calc(100% - 150px);
 	background: var(--c-white);
 	border: 2px dashed var(--c-gray);
 	transition: background-color var(--t-basic), border var(--t-basic);
