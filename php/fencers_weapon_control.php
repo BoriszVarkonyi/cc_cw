@@ -71,10 +71,6 @@
         "other items",
     );
 
-    // if fencer_id is not set go back to the last page
-    if(!isset($GET['fencer_id'])) {
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-    }
     $fencer_id = $_GET['fencer_id'];
 
     $qry_get_fencers = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
@@ -84,6 +80,12 @@
 	    	$json_string = $row['data'];
 		    $json_table = json_decode($json_string);
     }
+
+    // if fencer_id is not set go back to the last page
+    if (findObject($json_table, $fencer_id, "id") == "") {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
     
     $id_to_find = findObject($json_table, $fencer_id, "id");
     $fencer_name = $json_table[$id_to_find] -> nom . " " . $json_table[$id_to_find] -> prenom;
