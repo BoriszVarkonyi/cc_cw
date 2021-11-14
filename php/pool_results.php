@@ -49,7 +49,6 @@
 
     if (isset($_POST['submit_savepool'])) {
         var_dump($_POST);
-
         $match_counter = 0;
         foreach ($order_array as $match_string) {
             $match_id_array = explode('-',$match_string);
@@ -80,7 +79,6 @@
                 }
             }
 
-
             //set data
             $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> given  = $given;
             $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> gotten = $gotten;
@@ -91,7 +89,7 @@
             $matches_string = json_encode($matches_table);
             $qry_update = "UPDATE pools SET matches = '$matches_string' WHERE assoc_comp_id = '$comp_id'";
             if ($do_update = mysqli_query($connection, $qry_update)) {
-                header("Location: ../php/pools_view.php?comp_id=$comp_id");
+                //header("Location: ../php/pools_view.php?comp_id=$comp_id");
             }
             $match_counter++;
         }
@@ -385,6 +383,7 @@
                             ?>
                             <input type="number" class="number_input hidden" placeholder="points in pools" value="<?php echo $max_points ?>" readonly id="maxValueInput">
                             <?php
+
                                 $match_number = 1;
                                 foreach ($order_array as $match_string) {
 
@@ -407,6 +406,17 @@
                                         $class_cancel = " canceled"; //not her majesty's english |:(
                                         $disq_atr = "readonly tabindex='-1'";
                                     }
+
+                                    //determine winner radio button
+                                    $winner_id = $current_m_pool -> {$array_match_ids[0]} -> {$array_match_ids[1]} -> w_id;
+
+                                    $f1_w_radio = "";
+                                    $f2_w_radio = "";
+                                    if ($winner_id == $f1_id) {
+                                        $f1_w_radio = "checked";
+                                    } elseif ($winner_id == $f2_id) {
+                                        $f2_w_radio = "checked";
+                                    }
                             ?>
                             <div class="match small_scroll <?php echo $szin = ($f1_score == 0 ? "red" : "green"); echo $class_cancel?>">
                                 <div class="match_number">
@@ -416,7 +426,7 @@
                                     <p><?php echo $f1_name ?></p>
                                     <div>
                                         <input <?php echo $disq_atr ?> type="text" form="savepool" placeholder="#" name="<?php echo $array_match_ids[0] . "-" . $array_match_ids[1] ?>" id="f1_sc" class="number_input" value="<?php echo $f1_score ?>">
-                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "1," . $match_number ?>" value="id" disabled/>
+                                        <input type="radio" form="savepool" name="<?php echo $match_number - 1 ?>" id="<?php echo "1," . $match_number ?>" value="id" disabled <?php echo $f1_w_radio ?>/>
                                         <label for="<?php echo "1," . $match_number ?>" class="collapsed">Winner</label>
                                     </div>
                                 </div>
@@ -426,7 +436,7 @@
                                 <div>
                                     <div>
                                         <input <?php echo $disq_atr ?> type="text" form="savepool" placeholder="#" name="<?php echo $array_match_ids[1] . "-" . $array_match_ids[0] ?>" id="f2_sc" class="number_input" value="<?php echo $f2_score ?>">
-                                        <input type="radio" name="<?php echo $match_number ?>" id="<?php echo "2," . $match_number ?>" value="enemy" disabled/>
+                                        <input type="radio" form="savepool" name="<?php echo $match_number - 1 ?>" id="<?php echo "2," . $match_number ?>" value="enemy" disabled <?php echo $f2_w_radio ?>/>
                                         <label for="<?php echo "2," . $match_number ?>" class="collapsed">Winner</label>
                                     </div>
                                     <p><?php echo $f2_name ?></p>
@@ -435,9 +445,7 @@
                             <?php
                                     $match_number++;
                                 }
-
                             ?>
-
                         </div>
                     </div>
                 </div>
