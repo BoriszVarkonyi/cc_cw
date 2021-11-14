@@ -36,7 +36,6 @@
 		$pool_of = $row['pool_of'];
 	}
 
-    $pool_num = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +81,8 @@
             <div id="page_content_panel_main" class="loose">
 				<div id="pool_print_wrapper" class="paper_wrapper">
 				<?php
-					for($pool_num = 1; $pool_num < count($fencer_table);$pool_num++) {
+					var_dump(count($fencer_table));
+					for ($pool_num = 1; $pool_num < count($fencer_table); $pool_num++) {
 
 							$current_pool = $fencer_table[$pool_num];
 							if ($current_pool -> piste != null) {
@@ -143,7 +143,7 @@
 										$counter = 1;
 										foreach ($poolOrder as $match_order) {
 											$order_array = explode('-', $match_order);
-											$current_match = $matches_table[$pool_num] -> {$order_array[0]} -> {$order_array[1]};
+											$current_match = $matches_table[$pool_num-1] -> {$order_array[0]} -> {$order_array[1]};
 											$f1_id = $current_match -> id;
 											$f2_id = $current_match -> enemy;
 
