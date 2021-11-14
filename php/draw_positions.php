@@ -107,8 +107,8 @@
                                 </div>
 
                                 <div class="positions_button_wrapper">
-                                    <button class="draw_button" type="button" id="draw_positions_butto" onclick="drawPositions()">Draw</button>
-                                    <button class="save_draw_positions hidden" id="save_positions_butto" type="submit">Save</button>
+                                    <button class="draw_button" type="button" id="draw_positions_button" onclick="drawPositions()">Draw</button>
+                                    <button class="save_draw_positions hidden" id="save_positions_button" type="submit">Save</button>
                                 </div>
                                 <div class="positions_wrapper">
 

@@ -1,32 +1,30 @@
 <?php include "cw_comp_getdata.php"; ?>
 <?php
-    $WHERE_CLAUSE = "";
 
-    if (isset($_POST['submit_search'])) {
+class Competitor {
+    public string $fullName;
+    public int $rank;
+    public string $nation;
+    public string $club;
 
-        $WHERE_CLAUSE = "WHERE";
-        $year = $_POST['year'];
-        $name = $_POST['name'];
-
-
-        if ($name != "") {
-            $WHERE_CLAUSE .= " `name` LIKE '%$name%' AND";
-        }
-        if ($year != "") {
-            $WHERE_CLAUSE .= " $year = YEAR(`comp_start`) AND";
-        }
-
-        if ($WHERE_CLAUSE == "WHERE") {
-            $WHERE_CLAUSE = "";
+    function __construct($obj) {
+        if($obj->final_rank != null) {
+            $this->rank = $obj->final_rank;
+        } else if ($obj->temp_rank != null) {
+            $this->rank = $obj->temp_rank;
         } else {
-            $WHERE_CLAUSE = substr($WHERE_CLAUSE, 0, -3);
+            $this->rank = "0";
         }
+        $this->fullName = $obj->prenom . " " . $obj->nom;
+        $this->nation = $obj->nation;
+        $this->club = $obj->club;
     }
+}
 
-
-
+function sortByRank($a, $b) {
+    return $a->rank - $b->rank;
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +71,6 @@
 
                 <table class="cw">
                     <?php
-                    //$qry = "SELECT * FROM `competitors` " . $WHERE_CLAUSE . " ORDER BY `rank` ASC";
                     $qry = "SELECT * FROM competitors WHERE assoc_comp_id = '$comp_id';";
                     $do = mysqli_query($connection, $qry);
                     if ($do == FALSE || mysqli_num_rows($do) == 0) {
@@ -83,7 +80,8 @@
                         <thead>
                             <th><p>RANK</p></th>
                             <th><p>NAME</p></th>
-                            <th><p>NATION / CLUB</p></th>
+                            <th><p>NATION</p></th>
+                            <th><p>CLUB</p></th>
                         </thead>
                         <tbody class="alt">
                         <?php
@@ -93,26 +91,30 @@
                             } else {
                                 echo mysqli_error($connection);
                             }
-
+                            $competitors = array();
                             foreach($json_table as $obj) {
-                                if($obj->final_rank != null) {
-                                    $pos = $obj->final_rank;
-                                } else {
-                                    $pos = $obj->temp_rank;
-                                }
-                                $name = $obj->prenom . " " . $obj->nom;
-                                $nat = $obj->nation;
+                                array_push($competitors, new Competitor($obj));
+                            }
+                            try {
+                                usort($competitors, "sortByRank");
+                            } catch (Exception $ex) {
+                                //hopefully this won't happen in prod :D
+                            }
+                            foreach($competitors as $competitor) {
                         ?>
 
                             <tr>
                                 <td>
-                                    <p><?php echo $pos ?></p>
+                                    <p><?php echo $competitor->rank ?></p>
                                 </td>
                                 <td>
-                                    <p><?php echo $name ?></p>
+                                    <p><?php echo $competitor->fullName ?></p>
                                 </td>
                                 <td>
-                                    <p><?php echo $nat ?></p>
+                                    <p><?php echo $competitor->nation ?></p>
+                                </td>
+                                <td>
+                                    <p><?php echo $competitor->club ?></p>
                                 </td>
                             </tr>
 
