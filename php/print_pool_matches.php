@@ -81,20 +81,32 @@
             <div id="page_content_panel_main" class="loose">
 				<div id="pool_print_wrapper" class="paper_wrapper">
 				<?php
-					var_dump(count($fencer_table));
 					for ($pool_num = 1; $pool_num < count($fencer_table); $pool_num++) {
+
+
+							//get number of fencers in group
+							$pool_of = getFencersInPool($fencer_table[$pool_num]);
 
 							$current_pool = $fencer_table[$pool_num];
 							if ($current_pool -> piste != null) {
 								$piste_name = $current_pool -> piste;
+							} else {
+								$piste_name = "NOT SET";
 							}
 							if ($current_pool -> ref1 != null) {
 								$ref1_name = $current_pool -> ref1 -> prenom . " " . $current_pool -> ref1 -> nom;
+							} else {
+								$ref1_name = "NOT SET";
 							}
 							if ($current_pool -> ref2 != null) {
 								$ref2_name = $current_pool -> ref2 -> prenom . " " . $current_pool -> ref2 -> nom;
 							}
-							$time = $current_pool -> time;
+							if ($current_pool -> time != null) {
+								$time = $current_pool -> time;
+							} else {
+								$time = "NOT SET";
+							}
+
 
 							//get fencers array abc
 							$array_of_names = [];
