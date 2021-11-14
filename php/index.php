@@ -229,7 +229,7 @@
                 if($row = mysqli_fetch_assoc($teams_result)) {
                     $json_string = $row["data"];
                     $json_table = json_decode($json_string);
-            
+
                     foreach($json_table as $json_obj) {
                         if(!in_array($json_obj->id, $teams)) {
                             array_push($teams, $json_obj->id);
@@ -303,12 +303,12 @@
                                 <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
-                                    <p class="stat_number"><?php echo $num_reg . " / " . $num_comps ?></p>
+                                    <p class="stat_number"><?php echo $num_reg ?></p>
                                 </a>
                                 <a class="stat" href="registration.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
                                     <p class="stat_title">Not registered in</p>
-                                    <p class="stat_number"><?php echo $num_comps - $num_reg . " / " . $num_comps ?></p>
+                                    <p class="stat_number"><?php echo $num_comps - $num_reg?></p>
                                 </a>
                             </div>
                         <?php if($comp_wc_type == 2) { ?>
@@ -432,7 +432,7 @@
                                 if($row = mysqli_fetch_assoc($pistes_result)) {
                                     $json_string = $row["data"];
                                     $json_table = json_decode($json_string);
-                            
+
                                     foreach($json_table as $json_obj) {
                                         $num_pistes += 1; //don't use count() instead of this
                                         if($json_obj->available) {
