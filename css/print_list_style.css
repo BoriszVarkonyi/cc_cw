@@ -9,10 +9,6 @@
 	margin: 0 !important;
 }
 
-.big_status_item, .big_status_header, .small_status_item, .small_status_header, .table_header_text > button, .search_panel {
-	display: none !important;
-}
-
 .table, table {		/* Whole table */
 	display: table;
 	color: var(--c-black);
@@ -66,9 +62,7 @@
 }
 
 .table_header_text.square, .table_item.square, th.square, td.square {
-	min-width: var(--lineheight) !important;
-	max-width: var(--lineheight) !important;
-	padding: 0 !important;
+	display: none !important;
 }
 
 .table_header_text.square:last-of-type, .table_item.square:last-of-type {
@@ -78,7 +72,7 @@
 /* General */
 
 th button {
-	display: none;
+	display: none !important;
 }
 
 th p {

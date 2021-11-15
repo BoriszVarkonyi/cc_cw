@@ -632,8 +632,8 @@ header {
 }
 
 .stripe_button img {
-	height: 1.2rem;
-	width: 1.2rem;
+	height: 14pt;
+	width: 14pt;
 	-webkit-filter: saturate(71%) !important;
 	filter: saturate(71%) !important;
 }
@@ -748,14 +748,14 @@ form#barcode_form {
 }
 
 .barcode_button img {
-	width: 14pt;
-	height: 14pt;
+	width: 15pt;
+	height: 15pt;
 	transition: var(--t-basic);
 }
 
 .barcode_button.active img {
-	width: 15pt;
-	height: 15pt;
+	width: 16pt;
+	height: 16pt;
 }
 
 .barcode_input {
@@ -1631,15 +1631,12 @@ nav.closed #documentation_label img {
 }
 
 #page_content_panel_main.loose {
-	overflow: auto;
-	display: block;
-}
-
-#page_content_panel_main.loose {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
+	overflow-x: visible;
 }
 
 .splitscreen {
