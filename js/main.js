@@ -275,6 +275,7 @@ contentThemeSetter();
 
 //If technician, Disable setup section
 
+/*
 var suti = document.cookie;
 var suti_list = suti.split("; ");
 
@@ -303,6 +304,8 @@ if (suti_list.includes("lastlogin=" + 2)) {
     setuptext.classList.add("disabled");
 
 }
+*/
+
 
 //Prevents typing invalid chars. to the number input
 var invalidChars = ["-", "+", "e", "E", ".", ","];

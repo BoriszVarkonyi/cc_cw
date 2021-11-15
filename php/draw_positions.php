@@ -3,6 +3,65 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
+<?php
+
+if (isset($_POST["save_draw"])) {
+
+    $rawdata = $_POST["data"];
+    $dataobj = json_decode($rawdata);
+    $table = $_GET["draw_table"];
+
+
+
+    //print_r($dataobj);
+
+    $qry_check_row = "SELECT * FROM tables WHERE ass_comp_id = '$comp_id'";
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $numofteams = $row['fencer_num'];
+        $json_team_table = json_decode($json_string);
+    }
+
+    if ($table == "r1" || $table == "r2" || $table == "r3") {
+
+        foreach ($json_team_table->$table as $tables) {
+            foreach ($tables as $key => $matches) {
+                foreach ($matches as $dkey => $dunno) {
+
+                    if ($dkey == "referees" || $dkey == "pistetime") {
+                        continue;
+                    }
+
+                    //Inner search start
+                    foreach ($dataobj as $key => $val) {
+                        foreach ($val as $row) {
+                            foreach ($row as $seckey => $secval) {
+                                //print_r($seckey . "-->" . $secval);
+
+                                if ($dunno->id == $seckey) {
+
+                                    $dunno->draws[$table] = $secval;
+
+                                }
+
+                            }
+                        }
+                    }
+                    //Inner search end
+
+                }
+            }
+        }
+
+        print_r(json_encode($json_team_table, JSON_UNESCAPED_UNICODE));
+
+    } else {
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,12 +142,14 @@
                         ?>
 
                     </div>
-                    <form action="" id="team_positions_wrapper">
+                    <form action="" method="post" id="team_positions_wrapper">
 
                         <?php
 
                         if (!isset($_GET['draw_table'])) {
-                            # code...
+
+                            //DISPLAY EMPTY SPACE
+
                         } else {
 
                             $draw_table_id = $_GET['draw_table'];
@@ -106,7 +167,7 @@
 
                                 <div class="positions_button_wrapper">
                                     <button class="draw_button" type="button" id="draw_positions_button" onclick="drawPositions()">Draw</button>
-                                    <button class="save_draw_positions hidden" id="save_positions_button" type="submit">Save</button>
+                                    <button class="save_draw_positions hidden" name="save_draw" id="save_positions_button" type="submit">Save</button>
                                 </div>
                                 <div class="positions_wrapper">
 
@@ -188,7 +249,7 @@
 
                                     ?>
 
-                                    <input type="text" value='<?php print_r(json_encode($teamsInDraw, JSON_UNESCAPED_UNICODE)) ?>'>
+                                    <input type="text" name="data" value='<?php print_r(json_encode($teamsInDraw, JSON_UNESCAPED_UNICODE)) ?>'>
 
                                 </div>
 

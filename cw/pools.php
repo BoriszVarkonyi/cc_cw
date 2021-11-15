@@ -30,6 +30,68 @@
                     <input type="submit" value="Search">
                 </form>
 
+                <?php
+                    $pools_query = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id';";
+                    $query_result = mysqli_query($connection, $pools_query);
+
+                    if($row = mysqli_fetch_assoc($query_result)) {
+                        $fencers_json = $row["fencers"];
+                        $fencers_table = json_decode($fencers_json);
+                    } else {
+                        echo mysqli_error($connection);
+                    }
+
+                    for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++){
+                        $current_pool = $fencers_table[$pool_num];
+
+                        if($fencers_table[$pool_num]->ref1 !== null) {
+                            $ref1_name = $fencers_table[$pool_num]->ref1->prenom . " " . $fencers_table[$pool_num]->ref1->nom;
+                            $ref1_nation = $fencers_table[$pool_num]->ref1->nation;
+                            $ref1_club = $fencers_table[$pool_num]->ref1->club;
+                            echo "<h2>$ref1_name ($ref1_nation): $ref1_club; ";
+                        } else {
+                            echo "<h2>No REF 1; ";
+                        }
+                        if($fencers_table[$pool_num]->ref2 !== null) {
+                            $ref2_name = $fencers_table[$pool_num]->ref2->prenom . " " . $fencers_table[$pool_num]->ref2->nom;
+                            $ref2_nation = $fencers_table[$pool_num]->ref2->nation;
+                            $ref2_club = $fencers_table[$pool_num]->ref2->club;
+                            echo " $ref2_name ($ref2_nation): $ref2_club</h2>";
+                        } else {
+                            echo " No REF 2</h2>";
+                        }
+                        if($fencers_table[$pool_num]->piste !== null) {
+                            $piste = $fencers_table[$pool_num]->piste;
+                            echo "<h3>Piste: $piste</h3>";
+                        } else {
+                            echo "<h3>Piste is not set</h3>";
+                        }
+                        if($fencers_table[$pool_num]->time !== null) {
+                            $time = $fencers_table[$pool_num]->time;
+                            echo "<h3>Time: $time</h3>";
+                        } else {
+                            echo "<h3>Time is not set</h3>";
+                        }
+                ?>
+                <table>
+                    <th>Name (Nationality)</th>
+                    <th>Club</th>
+                    <th>CP</th>
+                    <th>PR</th>
+                        <?php
+                        $number_of_fencers = getFencersInPool($fencers_table[$pool_num]);
+                        for($fencer_num = 1; $fencer_num < $number_of_fencers; $fencer_num++) {
+                ?>
+                    <tr>
+                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->prenom_nom . " (" .$fencers_table[$pool_num]->{$fencer_num}->nation . ")" ?></td>
+                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->club ?></td>
+                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->c_pos?></td>
+                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->r_pos?></td>
+
+                    </tr>
+                <?php } ?>
+                    </table>
+                <?php } ?>
             </div>
         </div>
     </main>

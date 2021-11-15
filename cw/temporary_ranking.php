@@ -1,4 +1,10 @@
 <?php include "cw_comp_getdata.php"; ?>
+<?php include "./models/Competitor.php" ?>
+<?php
+    function sortByRank($a, $b) {
+        return $a->rank - $b->rank;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,27 +62,33 @@
 
                                 $json_table = json_decode($json_string);
 
-                                foreach ($json_table as $fencer_obj) {
+                                $competitors = array();
 
-                                    $fencer_temp_rank = $fencer_obj -> temp_rank;
-                                    $fencer_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
-                                    $fencer_nat = $fencer_obj -> nation;
+                                foreach ($json_table as $fencer_obj) {
+                                    array_push($competitors, new Competitor($fencer_obj));
+                                }
+                                try {
+                                    usort($competitors, "sortByRank");
+                                } catch (Exception $ex) {
+                                    //this shall not happen in prod :D
+                                }
+                                foreach($competitors as $comp) {
                         ?>
 
                         <tr>
                             <td>
                                 <p>
-                                    <?php echo $fencer_temp_rank ?>
+                                    <?php echo $comp->rank ?>
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    <?php echo $fencer_name ?>
+                                    <?php echo $comp->fullName ?>
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    <?php echo $fencer_nat ?>
+                                    <?php echo $comp->nation ?>
                                 </p>
                             </td>
                             <td class="small red"></td>

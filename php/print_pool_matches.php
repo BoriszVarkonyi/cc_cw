@@ -116,7 +116,7 @@
 
 						?>
 
-						<div class="pool_print" class="paper">
+						<div class="paper pool_print">
 							<div class="title_container">
 								<div><p class="title">Pool no.: <?php echo $pool_num ?></p></div>
 								<div class="pool_info">
