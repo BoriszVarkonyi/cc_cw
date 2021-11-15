@@ -6,12 +6,58 @@
 <?php
 
 if (isset($_POST["save_draw"])) {
-    
+
     $rawdata = $_POST["data"];
     $dataobj = json_decode($rawdata);
+    $table = $_GET["draw_table"];
 
-    print_r($dataobj);
 
+
+    //print_r($dataobj);
+
+    $qry_check_row = "SELECT * FROM tables WHERE ass_comp_id = '$comp_id'";
+    $do_check_row = mysqli_query($connection, $qry_check_row);
+    if ($row = mysqli_fetch_assoc($do_check_row)) {
+        $json_string = $row['data'];
+        $numofteams = $row['fencer_num'];
+        $json_team_table = json_decode($json_string);
+    }
+
+    if ($table == "r1" || $table == "r2" || $table == "r3") {
+
+        foreach ($json_team_table->$table as $tables) {
+            foreach ($tables as $key => $matches) {
+                foreach ($matches as $dkey => $dunno) {
+
+                    if ($dkey == "referees" || $dkey == "pistetime") {
+                        continue;
+                    }
+
+                    //Inner search start
+                    foreach ($dataobj as $key => $val) {
+                        foreach ($val as $row) {
+                            foreach ($row as $seckey => $secval) {
+                                //print_r($seckey . "-->" . $secval);
+
+                                if ($dunno->id == $seckey) {
+
+                                    $dunno->draws[$table] = $secval;
+
+                                }
+
+                            }
+                        }
+                    }
+                    //Inner search end
+
+                }
+            }
+        }
+
+        print_r(json_encode($json_team_table, JSON_UNESCAPED_UNICODE));
+
+    } else {
+    }
 }
 
 ?>
@@ -101,7 +147,7 @@ if (isset($_POST["save_draw"])) {
                         <?php
 
                         if (!isset($_GET['draw_table'])) {
-                            
+
                             //DISPLAY EMPTY SPACE
 
                         } else {
