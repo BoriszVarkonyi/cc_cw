@@ -29,7 +29,7 @@
 
                 <div id="blog_wrapper">
                     <?php
-                    $qry_get_data = "SELECT * FROM `cw_articles`";
+                    $qry_get_data = "SELECT * FROM `cw_articles` ORDER BY `date` DESC;";
                     $do_get_data = mysqli_query($connection, $qry_get_data);
 
                     while ($row = mysqli_fetch_assoc($do_get_data)) {
