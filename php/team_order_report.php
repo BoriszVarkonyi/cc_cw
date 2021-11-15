@@ -41,24 +41,24 @@
 
                 <div class="wrapper" id="team_order_report_panel">
                     <div id="team_order_report_header">
-                        <div class="team_order_report_select green">
+                        <a class="team_order_report_select green" href="">
                             <p>T64</p>
-                        </div>
-                        <div class="team_order_report_select green">
+                        </a>
+                        <a class="team_order_report_select green" href="">
                             <p>T32</p>
-                        </div>
-                        <div class="team_order_report_select current">
+                        </a>
+                        <a class="team_order_report_select current" href="">
                             <p>T16</p>
-                        </div>
-                        <div class="team_order_report_select gray">
+                        </a>
+                        <a class="team_order_report_select gray" href="">
                             <p>T8</p>
-                        </div>
-                        <div class="team_order_report_select gray">
+                        </a>
+                        <a class="team_order_report_select gray" href="">
                             <p>T4</p>
-                        </div>
-                        <div class="team_order_report_select gray">
+                        </a>
+                        <a class="team_order_report_select gray" href="">
                             <p>T2</p>
-                        </div>
+                        </a>
                     </div>
                     <form action="" id="team_order_report_wrapper">
                         <div id="team_report_t64">

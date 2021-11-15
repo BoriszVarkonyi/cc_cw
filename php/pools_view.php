@@ -50,7 +50,7 @@
                     </a>
                     <form id="barcode_form" method="POST" action="">
                         <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
-                            <img src="../assets/icons/qr_code_scanner_black.svg">
+                            <img src="../assets/icons/barcode_black.svg">
                         </button>
                         <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
