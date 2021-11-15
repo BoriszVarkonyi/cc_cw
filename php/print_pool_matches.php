@@ -172,8 +172,8 @@
 													<p><?php echo $counter . "." ?></p>
 												</div>
 												<div class="numbering">
-													<p>1.</p>
-													<p>2.</p>
+													<p><?php echo $order_array[0] ?></p>
+													<p><?php echo $order_array[1] ?></p>
 												</div>
 												<div class="names">
 													<p><?php echo $f1_name ?></p>
