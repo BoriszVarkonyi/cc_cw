@@ -126,7 +126,7 @@
                     <p class="column_title">Latest Blog Posts</p>
                     <?php
 
-                    $qry_get_articeles = "SELECT * FROM `cw_articles` ORDER BY `date` DESC LIMIT 5";
+                    $qry_get_articeles = "SELECT * FROM `cw_articles` ORDER BY `id` DESC LIMIT 5";
                     $do_get_artocles = mysqli_query($connection, $qry_get_articeles);
                     echo mysqli_error($connection);
                     while ($row = mysqli_fetch_assoc($do_get_artocles)) {

@@ -27,15 +27,15 @@
         ?>
         <!-- ne bánts kristóf nem értem a htmlt :( -->
         <tr href="../cw/article_editor.php?article_id=<?php echo $id ?>">
-            <th>
+            <td>
                 <a href="../cw/article_editor.php?article_id=<?php echo $id ?>"><p><?php echo $title ?></p></a>
-            </th>
-            <th>
+            </td>
+            <td>
                 <a href="../cw/article_editor.php?article_id=<?php echo $id ?>"><p><?php echo $author ?></p></a>
-            </th>
-            <th>
+            </td>
+            <td>
                 <a href="../cw/article_editor.php?article_id=<?php echo $id ?>"><img width="100" height="100" src="../article_pics/<?php echo $id . '.png' ?>"><img></a>
-            </th>
+            </td>
         </tr>
         <?php
         }

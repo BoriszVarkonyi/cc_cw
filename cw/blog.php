@@ -29,7 +29,7 @@
 
                 <div id="blog_wrapper">
                     <?php
-                    $qry_get_data = "SELECT * FROM `cw_articles` ORDER BY `date` DESC;";
+                    $qry_get_data = "SELECT * FROM `cw_articles` ORDER BY `id` DESC;";
                     $do_get_data = mysqli_query($connection, $qry_get_data);
 
                     while ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -41,10 +41,14 @@
                         $pic = "../article_pics/" . $id . ".png";
 
                         $brief = substr($body, 0, 400);
-
                     ?>
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
+                    <?php
+                        if(file_exists($pic)) {
+                    ?>
+                        <img src="<?php echo $pic ?>" alt="">
+                    <?php } ?>
                         <p class="article_title"><?php echo $title ?></p>
                         <p class="article_brief"><?php echo $body ?></p>
                         <div class="article_info">
