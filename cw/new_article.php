@@ -59,8 +59,8 @@ if (isset($_POST['submit'])) {
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $date = new DateTime();
-                //$date = $date->format("Y-m-d");
-                $date = $date->format("Y-m-d H:i:s");
+                $date = $date->format("Y-m-d");
+
                 $qry_create_article = "INSERT INTO `cw_articles` VALUES (NULL, '$title', '$body', '$username', '$date', '$date');";
                 $do_create_articel = mysqli_query($connection, $qry_create_article);
                 if(!$do_create_articel) {
