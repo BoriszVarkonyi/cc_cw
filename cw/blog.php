@@ -1,6 +1,7 @@
 
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
+<?php include "./models/BlogArticles.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,36 +30,25 @@
 
                 <div id="blog_wrapper">
                     <?php
-                    $qry_get_data = "SELECT * FROM `cw_articles` ORDER BY `id` DESC;";
-                    $do_get_data = mysqli_query($connection, $qry_get_data);
+                        $blogArticles = new BlogArticles();
 
-                    while ($row = mysqli_fetch_assoc($do_get_data)) {
-                        $title = $row['title'];
-                        $body = $row['body'];
-                        $author = $row['author'];
-                        $date = $row['date'];
-                        $id = $row['id'];
-                        $pic = "../article_pics/" . $id . ".png";
-
-                        $brief = substr($body, 0, 400);
+                        foreach($blogArticles->articles as $article) {
                     ?>
 
-                    <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
+                    <div class="blog_article" onclick="location.href='article.php?id=<?php echo $article->id ?>'">
                     <?php
-                        if(file_exists($pic)) {
+                        if(file_exists($article->pic)) {
                     ?>
-                        <img src="<?php echo $pic ?>" alt="Article image">
+                        <img src="<?php echo $article->pic ?>" alt="Article image">
                     <?php } ?>
-                        <p class="article_title"><?php echo $title ?></p>
-                        <p class="article_brief"><?php echo $body ?></p>
+                        <p class="article_title"><?php echo $article->title ?></p>
+                        <p class="article_brief"><?php echo $article->body ?></p>
                         <div class="article_info">
-                            <p>POSTED: <?php echo $date ?></p>
-                            <p>BY: <?php echo $author ?></p>
+                            <p>POSTED: <?php echo $article->date ?></p>
+                            <p>BY: <?php echo $article->author ?></p>
                         </div>
                     </div>
-                    <?php
-                        }
-                    ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
