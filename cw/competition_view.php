@@ -135,8 +135,14 @@
                         $author = $row['author'];
                         $date = $row['date'];
                         $id = $row['id'];
+                        $pic = "../article_pics/" . $id . ".png";
                     ?>
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
+                        <?php
+                            if(file_exists($pic)) {
+                        ?>
+                            <img src="<?php echo $pic ?>" alt="Artice image">
+                        <?php } ?>
                         <p class="article_title"><?php echo $title ?></p>
                         <p class="article_brief"><?php echo $body ?></p>
                         <div class="article_info">
