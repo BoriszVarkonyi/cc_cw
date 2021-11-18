@@ -32,19 +32,19 @@ input.addEventListener("input", function () {
     fr.onload = receivedText;
     fr.readAsText(file, 'ISO-8859-1');
 
-    var tablewrapper = document.querySelector(".table_row_wrapper")
+    var tablewrapper = document.querySelector("#page_content_panel_main tbody")
     function receivedText() {
       //Creates rows in the table.
       var doc = parser.parseFromString(fr.result, "text/xml");
       var tireurs = doc.getElementsByTagName("Tireur")
-      for (i = 0; i < (tireurs.length / 2) - 1; i++) {
-        tablewrapper.innerHTML = tablewrapper.innerHTML + '<div class="table_row"><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div><div class="table_item"><p>g</p></div></div>'
+      for (i = 0; i < tireurs.length; i++) {
+        tablewrapper.innerHTML = tablewrapper.innerHTML + '<tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr>'
       }
       //Count the created rows
-      var tablerows = document.querySelectorAll(".table_row")
+      var tablerows = document.querySelectorAll("#page_content_panel_main tbody tr")
       //Fills the rows with the data
-      for (i = 0; i < tireurs.length / 2; i++) {
-        var tableitems = tablerows[i].querySelectorAll(".table_item")
+      for (i = 0; i < tireurs.length; i++) {
+        var tableitems = tablerows[i].querySelectorAll("td")
         tableitems[0].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("ID")
         tableitems[1].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Prenom")
         tableitems[2].firstElementChild.innerHTML = doc.getElementsByTagName("Tireur")[i].getAttribute("Nom")
