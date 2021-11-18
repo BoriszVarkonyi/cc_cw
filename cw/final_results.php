@@ -1,4 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
+<?php include "./controllers/CompetitorController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,57 +40,37 @@
                         </tr>
                     </thead>
                     <tbody class="alt">
+                        <?php
+                            $competitionController = new CompetitionController($comp_id);
+                            $competitors = $competitionController->getCompetitors();
+                            $competitors = $competitionController->sortCompetitorsByRank($competitors);
+                            if(count($competitors) == 0) {
+                                header("Location: ../competition_view.php");
+                            }
+                            for($i = 0; $i < count($competitors); $i++) {
+                        ?>
                         <tr>
                             <td>
-                                <p>1.</p>
+                                <p><?php echo $i+1 ?>.</p>
                             </td>
                             <td>
-                                <p>NAME</p>
+                                <p><?php echo $competitors[$i]->fullName ?></p>
                             </td>
                             <td>
-                                <p>HUN</p>
+                                <p><?php echo $competitors[$i]->nation ?></p>
                             </td>
+                            <?php if($i == 0) { ?>
                             <td class="square gold">
                                 <img src="../assets/icons/emoji_events_black.svg" alt="Winner Icon">
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>2.</p>
-                            </td>
-                            <td>
-                                <p>NAME</p>
-                            </td>
-                            <td>
-                                <p>HUN</p>
-                            </td>
-                            <td class="square silver"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>3.</p>
-                            </td>
-                            <td>
-                                <p>NAME</p>
-                            </td>
-                            <td>
-                                <p>HUN</p>
-                            </td>
-                            <td class="square bronze"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>4.</p>
-                            </td>
-                            <td>
-                                <p>NAME</p>
-                            </td>
-                            <td>
-                                <p>HUN</p>
-                            </td>
-                            <td class="square"></td>
-                        </tr>
-
+                            <?php } else if($i == 1) { ?>
+                                <td class="square silver"></td>
+                            <?php } else if($i == 2) { ?>
+                                <td class="square bronze"></td>
+                            <?php } else { ?>
+                                <td class="square"></td>
+                            <?php } ?>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>

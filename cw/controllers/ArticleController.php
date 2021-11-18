@@ -4,7 +4,7 @@ include "./models/Article.php";
 class ArticleController {
     private $dbConnection;
 
-    function __construct($desc_limit = -1) {
+    function __construct() {
         include "db.php";
         $this->dbConnection = $connection;
     }

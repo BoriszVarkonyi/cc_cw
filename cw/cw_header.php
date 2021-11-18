@@ -22,14 +22,17 @@
         <div>
             <a href="videos.php">Videos</a>
         </div>
+        <!--
         <div>
             <a href="rankings.php">Rankings</a>
         </div>
+        -->
         <div>
             <a href="saved_competitions.php">Saved Competitions</a>
         </div>
     </nav>
     <div id="change_language">
+        <!--
         <div>
             <button onclick="toggleLanguagesPanel(this)">
                 <p>En</p>
@@ -45,6 +48,7 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
     <div id="mobile_navigation_wrapper">
         <button onclick="toggleMobileNavigation(this)" aria-label="Open Mobile Navigation" aria-label="Open Mobile Navigation">
