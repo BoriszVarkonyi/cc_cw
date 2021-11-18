@@ -15,6 +15,8 @@ var secondIndex = 1;
 var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
+var over16 = false
+var firstRight = false
 
 //Hides all the eliminations
 for (i = 0; i < eleminitaions.length; i++) {
@@ -32,8 +34,11 @@ function disabler() {
     if (firstIndex == 0) {
         btLeft.classList.add("disabled")
     }
+    if (document.querySelectorAll(".call_room:not(.hidden)").length == 8) {
+        btRight.classList.add("disabled")
+    }
 }
-
+disabler();
 
 //Helps to search throught tables
 function searchByMiddleTable(tableToSearchFor) {
@@ -68,22 +73,61 @@ function searchBySideTables(leftside, rightSide) {
 
 
 function buttonLeft() {
-    btLeft.classList.remove("disabled")
-    btRight.classList.remove("disabled")
-    firstIndex--
-    secondIndex--
-    //Hides all the eliminations
-    for (i = 0; i < eleminitaions.length; i++) {
-        eleminitaions[i].classList.add("hidden")
+    if (!over16) {
+        btLeft.classList.remove("disabled")
+        btRight.classList.remove("disabled")
+        firstIndex--
+        secondIndex--
+        //Hides all the eliminations
+        for (i = 0; i < eleminitaions.length; i++) {
+            eleminitaions[i].classList.add("hidden")
+        }
+        //Shows eleminiations by index
+        for (i = firstIndex; i < secondIndex; i++) {
+            eleminitaions[i].classList.remove("hidden")
+        }
+        disabler();
     }
-    //Shows eleminiations by index
-    for (i = firstIndex; i < secondIndex; i++) {
-        eleminitaions[i].classList.remove("hidden")
+    else {
+        btLeft.classList.remove("disabled")
+        btRight.classList.remove("disabled")
+        var currentCallRoom = document.querySelectorAll(".call_room:not(.hidden)")
+        if (currentCallRoom[0].firstElementChild.nextElementSibling.firstElementChild.innerHTML == "1-16") {
+            for (i = 0; i < callRooms.length; i++) {
+                callRooms[i].classList.add("hidden")
+            }
+            callRooms[searchByMiddleTable("1-16") - 1].classList.remove("hidden")
+            //Hides all the eliminations
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
+            }
+            over16 = false
+            firstRight = false
+        }
+        else {
+            currentCallRoom = document.querySelectorAll(".call_room:not(.hidden)")
+
+            for (i = 0; i < callRooms.length; i++) {
+                callRooms[i].classList.add("hidden")
+            }
+            for (j = 0; j < currentCallRoom.length; j += 2) {
+
+                var rightTable = currentCallRoom[j].firstElementChild.nextElementSibling.firstElementChild.innerHTML
+                var leftTable = currentCallRoom[j + 1].firstElementChild.nextElementSibling.firstElementChild.innerHTML
+                console.log(rightTable)
+                console.log(leftTable)
+                callRooms[searchBySideTables(leftTable, rightTable)].classList.remove("hidden")
+
+            }
+        }
     }
 }
 
 function buttonRight() {
-    if (eleminitaions[secondIndex - 1].querySelectorAll(".table_round_wrapper").length  > 8) {
+    if (eleminitaions[secondIndex - 1].querySelectorAll(".table_round_wrapper").length > 8) {
         btLeft.classList.remove("disabled")
         btRight.classList.remove("disabled")
         firstIndex++
@@ -98,13 +142,33 @@ function buttonRight() {
 
         }
     }
-    else{
-        for (i = 0; i < eleminitaions.length; i++) {
-            eleminitaions[i].classList.remove("hidden")
+    else {
+        over16 = true;
+        if (!firstRight) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.remove("hidden")
+            }
+            for (i = 0; i < callRooms.length; i++) {
+                callRooms[i].classList.add("hidden")
+            }
+            callRooms[searchByMiddleTable("1-16")].classList.remove("hidden")
+            firstRight = true;
         }
-        for(i=0; i<callRooms.length; i++){
-            callRooms[i].classList.add("hidden")
+        else {
+            var currentCallRoom = document.querySelectorAll(".call_room:not(.hidden)")
+
+            for (i = 0; i < callRooms.length; i++) {
+                callRooms[i].classList.add("hidden")
+            }
+            for (j = 0; j < currentCallRoom.length; j++) {
+
+                var leftTable = currentCallRoom[j].firstElementChild.querySelector("div")
+                var rightTable = currentCallRoom[j].lastElementChild.querySelector("div")
+                callRooms[searchByMiddleTable(leftTable.innerHTML)].classList.remove("hidden")
+                callRooms[searchByMiddleTable(rightTable.innerHTML)].classList.remove("hidden")
+
+            }
+            disabler();
         }
-        callRooms[searchByMiddleTable("1-16")].classList.remove("hidden")
     }
 }

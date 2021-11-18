@@ -183,7 +183,48 @@ body, html {	/* Gives placeholder background and default font */
 	padding: 0;
 	margin: 0;
 	overflow-x: hidden;
-	font-size: var(--f-medium) !important;
+}
+
+/* Extra small devices (phones, 532px and down) */
+@media only screen and (max-width: 440px) {
+	body, html {
+		font-size: 14px;
+	}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	body, html {
+		font-size: 14px;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	body, html {
+		font-size: 14px;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	body, html {
+		font-size: 15px;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	body, html {
+		font-size: 15px;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	body, html {
+		font-size: 16px;
+	}
 }
 
 @supports (scroll-behavior: smooth) {

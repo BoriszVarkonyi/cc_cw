@@ -11,8 +11,6 @@ if (isset($_POST["save_draw"])) {
     $dataobj = json_decode($rawdata);
     $table = $_GET["draw_table"];
 
-
-
     //print_r($dataobj);
 
     $qry_check_row = "SELECT * FROM tables WHERE ass_comp_id = '$comp_id'";
@@ -24,6 +22,8 @@ if (isset($_POST["save_draw"])) {
     }
 
     if ($table == "r1" || $table == "r2" || $table == "r3") {
+
+        //Only rounds r1, r2, and r3 are supported
 
         foreach ($json_team_table->$table as $tables) {
             foreach ($tables as $key => $matches) {
@@ -39,12 +39,10 @@ if (isset($_POST["save_draw"])) {
                             foreach ($row as $seckey => $secval) {
                                 //print_r($seckey . "-->" . $secval);
 
-                                if ($dunno->id == $seckey) {
+                                if ($secval != "" && $dunno->id == $seckey) {
 
-                                    $dunno->draws[$table] = $secval;
-
+                                    $dunno->draws->$table = $secval;
                                 }
-
                             }
                         }
                     }
@@ -53,11 +51,51 @@ if (isset($_POST["save_draw"])) {
                 }
             }
         }
-
-        print_r(json_encode($json_team_table, JSON_UNESCAPED_UNICODE));
-
+        //Check if prog works without uploading to db
+        //print_r(json_encode($json_team_table, JSON_UNESCAPED_UNICODE));
     } else {
+
+        //16 or bigger tables
+
+        foreach ($json_team_table->$table as $mkey => $matches) {
+            foreach ($matches as $dkey => $dunno) {
+
+                if ($dkey == "referees" || $dkey == "pistetime") {
+                    continue;
+                }
+
+                //Inner search start
+                foreach ($dataobj as $key => $val) {
+                    foreach ($val as $row) {
+                        foreach ($row as $seckey => $secval) {
+                            //print_r($seckey . "-->" . $secval);
+
+                            if ($dunno !== null && $secval !== "" && $dunno->id == $seckey) {
+
+                                $dunno->draws->$table = $secval;
+                                //Checks how many times it ran down
+                                //echo "CHECK";
+                            }
+                        }
+                    }
+                }
+                //Inner search end
+
+            }
+        }
+
+        //Check if prog works without uploading to db
+        //print_r(json_encode($json_team_table, JSON_UNESCAPED_UNICODE));
     }
+
+
+    //Upload modified table file to database
+    //Encode to json
+    $table_upload = json_encode($json_team_table, JSON_UNESCAPED_UNICODE);
+
+    //upload query to database
+    $qry_upload_table = "UPDATE tables SET data = '$table_upload' WHERE ass_comp_id = $comp_id";
+    $qry_upload_table_do = mysqli_query($connection, $qry_upload_table);
 }
 
 ?>

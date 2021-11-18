@@ -120,7 +120,10 @@
 
             }
 
-            $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', `last_edit_by` = '$username' WHERE id = '$id'";
+            $date = new DateTime();
+            $date = $date->format("Y-m-d");
+            
+            $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', WHERE id = '$id'";
             $do_update = mysqli_query($connection, $qry_update);
 
             //header("Location: ../cw/admin.php");

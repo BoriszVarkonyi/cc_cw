@@ -331,7 +331,7 @@ if ($uploadOk == 0) {
                 public $comp_pos = 0;
                 public $final_rank = 0;
                 public $tireurs = [];
-                public $draws = [];
+                public $draws = NULL;
                 public $orders = [];
         
                 public function __construct($id, $nation, $club, $classement, $points, $statut) {

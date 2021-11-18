@@ -31,7 +31,6 @@ if (isset($_POST['submit'])) {
         $qry_test = "SELECT * FROM `cw_articles` WHERE `body` = '$body' AND `title` = '$title'";
         $do_test = mysqli_query($connection, $qry_test);
 
-
         $row_num = mysqli_num_rows($do_test);
 
         if ($row_num != FALSE) {
@@ -41,7 +40,6 @@ if (isset($_POST['submit'])) {
 
         // Check file size
         if ($_FILES["fileToUpload"]["size"] > 500000) {
-
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
 
@@ -49,7 +47,6 @@ if (isset($_POST['submit'])) {
 
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
 
@@ -60,10 +57,15 @@ if (isset($_POST['submit'])) {
             echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
         } else {
-
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $qry_create_article = "INSERT INTO `cw_articles` (`id`, `title`, `body`, `author`, `last_edit_by`) VALUES (NULL, '$title', '$body', '$username', '$username')";
+                $date = new DateTime();
+                $date = $date->format("Y-m-d");
+
+                $qry_create_article = "INSERT INTO `cw_articles` VALUES (NULL, '$title', '$body', '$username', '$date', '$date');";
                 $do_create_articel = mysqli_query($connection, $qry_create_article);
+                if(!$do_create_articel) {
+                    echo mysqli_error($connection);
+                }
 
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
 
@@ -73,41 +75,24 @@ if (isset($_POST['submit'])) {
                     $id = $row['id'];
                 }
 
-
                 if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
-
                     echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
 
                 } else {
-
                     echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
-
                 }
-
-
-
                 header("Location: ../cw/admin.php");
             } else {
-
-            echo "Sorry, there was an error uploading your file.";
-
+                echo "Sorry, there was an error uploading your file.";
             }
-
         }
     }
-
 }
 
 if (isset($_POST['cancel'])) {
     header("Location: ../cw/admin.php");
 }
-
-
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
