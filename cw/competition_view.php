@@ -1,6 +1,6 @@
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
-<?php include "./models/BlogArticles.php" ?>
+<?php include "./controllers/ArticleController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,9 +127,10 @@
                     <p class="column_title">Latest Blog Posts</p>
                     <?php
 
-                        $blogArticles = new BlogArticles(5);
+                        $articleController = new ArticleController();
+                        $articles = $articleController->getArticles(5);
 
-                        foreach($blogArticles->articles as $article) {
+                        foreach($articles as $article) {
                     ?>
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $article->id ?>'">
                         <?php

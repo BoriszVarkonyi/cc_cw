@@ -1,7 +1,7 @@
 
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
-<?php include "./models/BlogArticles.php" ?>
+<?php include "./controllers/ArticleController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +30,10 @@
 
                 <div id="blog_wrapper">
                     <?php
-                        $blogArticles = new BlogArticles();
+                        $articleController = new ArticleController();
+                        $articles = $articleController->getArticles();
 
-                        foreach($blogArticles->articles as $article) {
+                        foreach($articles as $article) {
                     ?>
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $article->id ?>'">
