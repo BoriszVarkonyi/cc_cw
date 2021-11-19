@@ -1,18 +1,11 @@
 <?php include "../includes/db.php" ?>
 <?php include "../includes/functions.php" ?>
+<?php include "./controllers/ArticleController.php" ?>
 <?php
     $id = $_GET['id'];
 
-    $qry_get_data_by_id = "SELECT * FROM `cw_articles` WHERE id = '$id'";
-    $do_get_data_by_id = mysqli_query($connection, $qry_get_data_by_id);
-
-    if ($row = mysqli_fetch_assoc($do_get_data_by_id)) {
-        $title = $row['title'];
-        $author = $row['author'];
-        $body = $row['body'];
-        $date = $row['date'];
-        $pic = "../article_pics/" . $id . ".png";
-    }
+    $articleController = new ArticleController();
+    $article = $articleController->getArticle($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,17 +26,22 @@
                     <a class="back_button" href="blog.php" aria-label="Go back to Blog">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
-                    <?php echo $title ?>
+                    <?php echo $article->title ?>
                 </p>
             </div>
             <div id="content_wrapper">
                 <article>
+                <?php
+                    if(file_exists($article->pic)) {
+                    ?>
+                        <img src="<?php echo $article->pic ?>" alt="Article image">
+                    <?php } ?>
                     <div class="info">
-                        <p><?php echo "By:" . $author ?></p>
-                        <p><?php echo $date ?></p>
+                        <p><?php echo "By:" . $article->author ?></p>
+                        <p><?php echo $article->date ?></p>
                     </div>
                     <div class="body">
-                        <p><?php echo $body ?></p>
+                        <p><?php echo $article->body ?></p>
                     </div>
                 </article>
             </div>

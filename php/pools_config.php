@@ -4,6 +4,13 @@
 <?php checkComp($connection); ?>
 
 <?php
+    class deleteRef {
+        public $id = null;
+        public $prenom = "DELETE";
+        public $nom = "current referee";
+        public $club = "";
+    }
+    $delete_obj = new deleteRef();
 
     class pisteTime {
         public $hours;
@@ -332,7 +339,14 @@
 
         //get time
         $time = new pisteTime($string_time);
-
+        if ($ref1id == null || $ref2id == null) {
+            if ($ref1id == null) {
+                $current_pool -> ref1 = null;
+            }
+            if ($ref2id == null) {
+                $current_pool -> ref2 = null;
+            }
+        }
 
         if ($ref1id != "" || $ref2id != "") {
             //get refs
@@ -672,10 +686,12 @@
 
                                                     <?php
 
+
+                                                        $refs_array = [$delete_obj];
                                                         $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
                                                         $do_get_refs = mysqli_query($connection, $qry_get_refs);
                                                         if ($row = mysqli_fetch_assoc($do_get_refs)) {
-                                                            $refs_array = json_decode($row['data']);
+                                                            $refs_array += json_decode($row['data']);
                                                         }
 
                                                         foreach ($refs_array as $ref_obj) {
