@@ -1394,6 +1394,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	transition: all ease-in-out .2s;
+	border: 1pt solid var(--c-gray);
 }
 
 
@@ -1404,6 +1405,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	width: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	height: calc(1.4em + 1.25vmin);
 	background: var(--c-lightestgray);
 	position: relative;
@@ -1507,6 +1509,17 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	opacity: 1;
 	overflow: hidden;
 	transition: all ease-in-out .2s;
+	border-top: 1pt solid var(--c-gray);
+}
+
+.entry_panel.with_header {
+	padding: 0;
+    justify-content: space-between;
+}
+
+.entry_panel.with_header table {
+	max-width: 50ch;
+	margin: auto;
 }
 
 
@@ -1531,4 +1544,46 @@ tbody.altdouble tr:nth-last-of-type(2) {
 .entry.selected .tr {
 	background: var(--c-primary) !important;
 	font-family: var(--bold);
+}
+
+.entry_header {
+	background: var(--c-lightergray);
+	padding: 10px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-right: 1pt solid var(--c-gray);
+}
+
+.entry_header form div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 5px 10px;
+	max-height: 100px;
+	opacity: 1;
+	transition: var(--t-basic);
+}
+
+.entry_header form div.hidden {
+	max-height: 0;
+	opacity: 0;
+}
+
+.entry_header div:last-of-type {
+	flex: 1 1 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+.entry_header div:last-of-type button {
+	background: var(--c-primary);
+	padding: 5px 10px;
+	font-family: var(--bold);
+	border-radius: 5px;
+}
+
+.entry_header form input {
+	margin: 0 !important;
 }

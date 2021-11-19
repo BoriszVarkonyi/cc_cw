@@ -123,8 +123,13 @@
                         <p>Assign Fencers to Teams</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
-                    <input type="text">
-                    <button type="submit">Submit</button>
+                    <form id="barcode_form" method="POST" action="">
+                        <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <img src="../assets/icons/barcode_black.svg">
+                        </button>
+                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <button type="submit" form="barcode_form"></button>
+                    </form>
                 </div>
 
                 <div class="search_wrapper">
@@ -169,65 +174,63 @@
 
                     ?>
                     <!-- EZT KELL LOOPOLNI -->
-                    <div>
-                        <div class="entry">
-                            <div class="tr bold">
-                                <p><?php echo $name ?></p>
+                    <div class="entry">
+                        <div class="tr bold">
+                            <p><?php echo $name ?></p>
+                        </div>
+                        <div class="entry_panel with_header">
+                            <div class="entry_header">
+                                <form method="POST" autocomplete="off">
+                                    <div>
+                                        <label for="">TEAM LEADER</label>
+                                        <input type="text" name="leader_input" class="name_input alt" value="<?php echo $leader ?>" placeholder="Type in the team leader's name">
+                                    </div>
+                                    <div>
+                                        <label for="">COACH</label>
+                                        <input type="text" name="coach_input" class="name_input alt" value="<?php echo $coach ?>" placeholder="Type in the coach's name">
+                                    </div>
+                                    <input name="team_name" type="text" class="hidden" value="<?php echo $name ?>">
+                                    <div class="">
+                                        <button name="submit_coach_leader" type="submit">SAVE</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="entry_panel small">
-                                <div class="entry_header">
-                                    <form method="POST" autocomplete="off">
-                                        <div>
-                                            <label for="">TEAM LEADER</label>
-                                            <input type="text" name="leader_input" class="name_input" value="<?php echo $leader ?>" placeholder="Type in the team leader's name">
-                                        </div>
-                                        <div>
-                                            <label for="">COACH</label>
-                                            <input type="text" name="coach_input" value="<?php echo $coach ?>" class="name_input" placeholder="Type in the coach's name">
-                                        </div>
-                                        <input name="team_name" type="text" class="hidden" value="<?php echo $name ?>">
-                                        <div class="">
-                                            <button name="submit_coach_leader" type="submit">SAVE</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <table class="small">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <p>NAME</p>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="alt">
-                                        <?php
-                                            if (count($fencers_array) === 0) {
+                            <table class="small">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>NAME</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
+                                    <?php
+                                        if (count($fencers_array) === 0) {
 
-                                                ?>
-                                                    <tr>
-                                                        <td>
-                                                            <p>No fencers added yet!</p>
-                                                        </td>
-                                                    </tr>
-                                                <?php
-                                            } else {
-                                                foreach ($fencers_array as $fencer_obj) {
-                                                    $fencers_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
+                                            ?>
+                                                <tr>
+                                                    <td>
+                                                        <p>No fencers added yet!</p>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                        } else {
+                                            foreach ($fencers_array as $fencer_obj) {
+                                                $fencers_name = $fencer_obj -> prenom . " " . $fencer_obj -> nom;
 
 
-                                        ?>
-                                        <tr>
-                                            <td>
-                                                <p><?php echo $fencers_name ?></p>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                            }
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <p><?php echo $fencers_name ?></p>
+                                        </td>
+                                    </tr>
+                                    <?php
                                         }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!-- EDDIG -->

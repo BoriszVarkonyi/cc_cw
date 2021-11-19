@@ -44,11 +44,7 @@
                     ?>
 
                     <div class="blog_article" onclick="location.href='article.php?id=<?php echo $id ?>'">
-                    <?php
-                        if(file_exists($pic)) {
-                    ?>
                         <img src="<?php echo $pic ?>" alt="Article image">
-                    <?php } ?>
                         <p class="article_title"><?php echo $title ?></p>
                         <p class="article_brief"><?php echo $body ?></p>
                         <div class="article_info">
