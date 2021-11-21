@@ -1,10 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php include "./models/Competitor.php" ?>
-<?php
-function sortByRank($a, $b) {
-    return $a->rank - $b->rank;
-}
-?>
+<?php include "./controllers/CompetitorController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,12 +46,14 @@ function sortByRank($a, $b) {
 
                 <table class="cw">
                     <?php
-                    $qry = "SELECT * FROM competitors WHERE assoc_comp_id = '$comp_id';";
-                    $do = mysqli_query($connection, $qry);
-                    if ($do == FALSE || mysqli_num_rows($do) == 0) {
-                        echo "<p>You have no competitors set up or the search criteria is too narrow!</p>";
-                    } else {
-                        ?>
+                        $competitionController = new CompetitionController($comp_id);
+                        $competitors = $competitionController->getCompetitors();
+                        $competitors = $competitionController->sortCompetitorsByRank($competitors);
+
+                        if(count($competitors) == 0) {
+                            echo "<p>You have no competitors set up or the search criteria is too narrow!</p>";
+                        } else {
+                    ?>
                         <thead>
                             <th><p>RANK</p></th>
                             <th><p>NAME</p></th>
@@ -65,21 +62,6 @@ function sortByRank($a, $b) {
                         </thead>
                         <tbody class="alt">
                         <?php
-                            if ($row = mysqli_fetch_assoc($do)) {
-                                $json_string = $row['data'];
-                                $json_table = json_decode($json_string);
-                            } else {
-                                echo mysqli_error($connection);
-                            }
-                            $competitors = array();
-                            foreach($json_table as $obj) {
-                                array_push($competitors, new Competitor($obj));
-                            }
-                            try {
-                                usort($competitors, "sortByRank");
-                            } catch (Exception $ex) {
-                                //hopefully this won't happen in prod :D
-                            }
                             foreach($competitors as $competitor) {
                         ?>
 
