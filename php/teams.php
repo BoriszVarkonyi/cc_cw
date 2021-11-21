@@ -183,11 +183,11 @@
                                 <form method="POST" autocomplete="off">
                                     <div>
                                         <label for="">TEAM LEADER</label>
-                                        <input type="text" name="leader_input" class="name_input alt" value="<?php echo $leader ?>" placeholder="Type in the team leader's name">
+                                        <input type="text" name="leader_input" class="name_input alt no_bottom_margin" value="<?php echo $leader ?>" placeholder="Type in the team leader's name">
                                     </div>
                                     <div>
                                         <label for="">COACH</label>
-                                        <input type="text" name="coach_input" class="name_input alt" value="<?php echo $coach ?>" placeholder="Type in the coach's name">
+                                        <input type="text" name="coach_input" class="name_input alt no_bottom_margin" value="<?php echo $coach ?>" placeholder="Type in the coach's name">
                                     </div>
                                     <input name="team_name" type="text" class="hidden" value="<?php echo $name ?>">
                                     <div class="">
@@ -195,7 +195,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <table class="small">
+                            <table class="small no_interaction ">
                                 <thead>
                                     <tr>
                                         <th>

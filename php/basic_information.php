@@ -143,7 +143,7 @@
                                 </div>
                                 <div>
                                     <label for="location">LOCATION AND ADDRESS</label>
-                                    <input type="text" placeholder="Street, District, City, Region" name="location" class="no_margin location_input" id="location_input" value="<?php
+                                    <input type="text" placeholder="Street, District, City, Region" name="location" class="no_bottom_margin location_input" id="location_input" value="<?php
                                         echo $city_street;
 
 

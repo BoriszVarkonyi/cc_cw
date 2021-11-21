@@ -254,7 +254,6 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
-
 button, input, textarea {
 	padding: 0;
 	font-size: var(--f-medium);
@@ -406,19 +405,19 @@ input.hidden {
 	display: none;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"].number_input, input[type="time"] {		/* Sets basic look of text and password inputs*/
+/* Sets basic look of text based inputs*/
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"].number_input, input[type="time"] {
 	background-color: var(--c-lightestgray);
 	box-sizing: border-box;
-	border-top: 1px solid transparent;
-	border-bottom: 1px solid var(--c-darkgray);
+	border: 1pt solid var(--c-lightgray);
 	margin: 3px 0 30px;
 	width: 300px;
-	height: 37px;
+	height: 2.2rem;
 	padding: 0 10px 0 35px;
 	border-radius: 5px;
 	background-repeat: no-repeat;
 	background-position: 10px;
-	text-align: start; /* Needed cos od number inputs */
+	text-align: start; /* Needed cos of number inputs */
 }
 
 input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, input[type="email"].alt, input[type="number"].number_input.alt, input[type="time"].alt {		/* Sets basic look of text and password inputs*/
@@ -430,8 +429,8 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
 	border-top: 2px solid transparent;
 }
 
-input[type="text"].no_margin {
-	margin: 3px 0;
+input[type="text"].no_bottom_margin {
+	margin-bottom: 3px !important;
 }
 
 /* Error Texts */
@@ -1578,10 +1577,11 @@ tbody.altdouble tr:nth-last-of-type(2) {
 }
 
 .entry_header div:last-of-type button {
-	background: var(--c-primary);
-	padding: 5px 10px;
+	background: radial-gradient(ellipse at top, var(--c-secondary) 0, var(--c-primary) 100%);
+	padding: .3rem .9rem;
 	font-family: var(--bold);
 	border-radius: 5px;
+	font-size: var(--f-small);
 }
 
 .entry_header form input {
