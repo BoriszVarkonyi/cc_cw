@@ -104,15 +104,22 @@
                         $json_table = [];
                     }
 
-                    if (count($json_table) != 0 ) {
+                    if (!is_null($json_table)) {
                     ?>
                         <div id="announcements" class="column_panel">
 
                             <?php
                                 foreach ($json_table as $ann_objects) {
-
-                                $title = $ann_objects -> title;
-                                $body = $ann_objects -> body;
+                                    if(property_exists($ann_objects, "title") && $ann_objects->title != "") {
+                                        $title = $ann_objects -> title;
+                                    } else {
+                                        $title = "No title set.";
+                                    }
+                                    if(property_exists($ann_objects, "body") && $ann_objects->body != "") {
+                                        $body = $ann_objects -> body;
+                                    } else {
+                                        $body = "No body set.";
+                                    }  
                             ?>
                             <div class="breakpoint">
                                 <p><?php echo $title ?></p>
@@ -261,8 +268,10 @@
                         <div id="competition_controls" class="column_panel no_bottom">
                             <p class="column_panel_title">Competition Controls:</p>
                             <div class="competition_controls_wrapper">
+                                <!--
                                 <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
                                 <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='book_appointment.php?comp_id=<?php echo $comp_id ?>'">Book Appointment</button>
+                                -->
                                 <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
