@@ -13,6 +13,7 @@
     <title>Select Article to modify</title>
 </head>
 <body>
+    <h1>Select Aritcle to modify:</h1>
     <table style="width:100%">
         <?php
         $qry_get_articles = "SELECT * FROM cw_articles";
@@ -41,5 +42,6 @@
         }
         ?>
     </table>
+    <a href="admin.php">go back</a>
 </body>
 </html>
