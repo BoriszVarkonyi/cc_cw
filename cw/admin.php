@@ -43,6 +43,9 @@ img {
 <p>Hi there <?php echo $username ?>!</p>
 <button><a href="new_article.php">New article</a></button>
 <button><a href="article_selector.php">Modify article</a></button>
+<br/>
+<button><a href="cw_add_video.php">Add video</a></button>
+<button><a href="cw_video_selector.php">Modify videos</a></button>
 <br><br>
 <img src="..\uploads\osama_bin_laden_PNG27.png">
 
