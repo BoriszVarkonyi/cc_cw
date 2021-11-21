@@ -69,8 +69,7 @@
         }
 
         if ($do_mane_row = mysqli_query($connection, $qry_make_row)) {
-            //header("Refresh: 0");
-            var_dump($_POST);
+            header("Refresh: 0");
         }
     }
 
@@ -199,7 +198,7 @@
                                                 $call_room_numbers_checked = "";
                                             }
                                     ?>
-                                    <input type="radio" name="call_room_number" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
+                                    <input type="radio" name="call_room_<?php echo $numbers ?>" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
                                     <label for="<?php echo $numbers ?>"><?php echo $numbers ?></label>
                                     <?php } ?>
                                 </div>
