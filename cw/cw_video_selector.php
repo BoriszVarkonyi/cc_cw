@@ -6,29 +6,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Select Video to modify</title>
 </head>
 <body>
-    <?php
-        $qry_get_data = "SELECT * FROM cw_videos";
-        $do_get_data = mysqli_query($connection, $qry_get_data);
+    <h1>Select Video to modify:</h1>
+    <table>
+        <?php
+            $qry_get_data = "SELECT * FROM cw_videos";
+            $do_get_data = mysqli_query($connection, $qry_get_data);
 
-        while ($row = mysqli_fetch_assoc($do_get_data)) {
-
-            $title = $row['title'];
-
-
-
-
-    ?>
-
-    <a href="../cw/cw_modify_video.php?title=<?php echo $title ?>"><?php echo $title ?></a>
-
-
-    <?php
-        }
-
-
-    ?>
+            while ($row = mysqli_fetch_assoc($do_get_data)) {
+                $title = $row['title'];
+                $author = $row['author'];
+        ?>
+        <tr>
+            <td>
+                <a href="../cw/cw_modify_video.php?title=<?php echo $title ?>"><?php echo $title ?></a>
+            </td>
+            <td>
+                <p>Author: <?php echo $author ?></p>
+            </td>
+        </tr>
+        <?php
+            }
+        ?>
+    </table>
+    <a href="admin.php">go back</a>
 </body>
 </html>
