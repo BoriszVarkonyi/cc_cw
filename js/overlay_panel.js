@@ -76,6 +76,7 @@ function formvariableDeclaration() {
 var canAutoValidate = true;
 function formValidation(overlayForm, inputs, saveButton, optionContainers) {
     if (canAutoValidate) {
+        console.log(saveButton)
         var valid1 = false, valid2 = false;
         saveButton.disabled = true;
         //If the document values are changing, it runs the function.

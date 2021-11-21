@@ -437,9 +437,9 @@ if (isset($_POST["generate_table"])) {
                                 </button>
                                 <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                                 <div class="search_results">
-                                    <button type="button" onclick="selectSystem(this), formValidation()">Table of 32</button>
-                                    <button type="button" onclick="selectSystem(this), formValidation()">Table of 16</button>
-                                    <button type="button" onclick="selectSystem(this), formValidation()">Table of 8</button>
+                                    <button type="button" onclick="selectSystem(this), formvariableDeclaration()">Table of 32</button>
+                                    <button type="button" onclick="selectSystem(this), formvariableDeclaration()">Table of 16</button>
+                                    <button type="button" onclick="selectSystem(this), formvariableDeclaration()">Table of 8</button>
                                 </div>
                             </div>
                         </div>

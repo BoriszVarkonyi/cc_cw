@@ -79,3 +79,5 @@ clubAndNationInput.forEach(item => {
         }
     })
 })
+
+canAutoValidate = false
