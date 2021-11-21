@@ -31,7 +31,7 @@ if (eleminitaions.length > 0) {
 }
 
 function disabler() {
-    if (firstIndex == 0) {
+    if (firstIndex == 0 && !firstRight) {
         btLeft.classList.add("disabled")
     }
     if (document.querySelectorAll(".call_room:not(.hidden)").length == 8) {
@@ -46,8 +46,10 @@ function searchByMiddleTable(tableToSearchFor) {
 
     for (i = 0; i < callRooms.length; i++) {
         var elimination = callRooms[i].querySelectorAll(".elimination_label")[1]
-        if (tableToSearchFor == elimination.innerHTML) {
-            index = i;
+        if (elimination != undefined) {
+            if (tableToSearchFor == elimination.innerHTML) {
+                index = i;
+            }
         }
     }
     return index;
@@ -123,10 +125,13 @@ function buttonLeft() {
 
             }
         }
+        disabler();
     }
 }
 
 function buttonRight() {
+
+    console.log(over16)
     if (eleminitaions[secondIndex - 1].querySelectorAll(".table_round_wrapper").length > 8) {
         btLeft.classList.remove("disabled")
         btRight.classList.remove("disabled")
@@ -143,6 +148,8 @@ function buttonRight() {
         }
     }
     else {
+        btLeft.classList.remove("disabled")
+        btRight.classList.remove("disabled")
         over16 = true;
         if (!firstRight) {
             for (i = 0; i < eleminitaions.length; i++) {
@@ -168,7 +175,7 @@ function buttonRight() {
                 callRooms[searchByMiddleTable(rightTable.innerHTML)].classList.remove("hidden")
 
             }
-            disabler();
         }
+        disabler();
     }
 }

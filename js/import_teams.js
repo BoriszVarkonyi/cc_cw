@@ -42,8 +42,6 @@ input.addEventListener("input", function () {
       }
       //Count the created rows
       var tablerows = document.querySelectorAll("#page_content_panel_main tbody tr")
-      console.log(tablerows)
-      console.log(equipe.length)
       //Fills the rows with the data
       for (i = 0; i < equipe.length; i++) {
         var tableitems = tablerows[i].querySelectorAll("td")
