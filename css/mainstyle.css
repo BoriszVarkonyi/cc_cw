@@ -2140,14 +2140,14 @@ input[type="file"] {
 /* ALL LIST PAGE ELEMTNS */
 
 #empty_content_notice {
-	height: 50vh;
-	background: var(--c-gray);
+	height: 30vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: var(--f-large);
 	font-family: var(--bold);
 	border-radius: 5px;
+	background: repeating-linear-gradient(45deg,var(--c-gray), var(--c-gray) 10px, var(--c-lightgray) 10px,var(--c-lightgray) 20px);
 }
 
 /* ///DASHBOARD ELEMENTS/// */
