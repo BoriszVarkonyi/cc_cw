@@ -58,7 +58,7 @@
                         <tr>
                             <td>
                                 <p>
-                                    <?php echo $comp->rank+1 . "." ?>
+                                    <?php echo $comp->rank . "." ?>
                                 </p>
                             </td>
                             <td>
