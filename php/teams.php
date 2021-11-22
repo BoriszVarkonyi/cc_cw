@@ -195,7 +195,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <table class="small no_interaction ">
+                            <table class="small no_interaction">
                                 <thead>
                                     <tr>
                                         <th>

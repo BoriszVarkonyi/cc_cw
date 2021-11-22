@@ -11,14 +11,15 @@ function toggleAddFencerPanel() {
 function setClub(x) {
     var field = document.getElementById("set_club_input");
     field.value = x.innerHTML;
-    formvariableDeclaration()
+    //formvariableDeclaration()
 }
 
 function setNation(x) {
     var field = document.getElementById("set_nation_input");
     field.value = x.innerHTML;
-    formvariableDeclaration()
+    //formvariableDeclaration()
 }
+canAutoValidate = false
 
 var tableRows = document.querySelectorAll("#page_content_panel_main table tr")
 //Event listener to class change
