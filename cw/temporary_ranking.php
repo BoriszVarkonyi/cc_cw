@@ -1,10 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php include "./models/Competitor.php" ?>
-<?php
-    function sortByRank($a, $b) {
-        return $a->rank - $b->rank;
-    }
-?>
+<?php include "./controllers/CompetitorController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,32 +48,17 @@
                     </thead>
                     <tbody class="alt">
                         <?php
-                            //get competitors sorted by temp rank
-                            $qry = "SELECT data FROM `competitors` WHERE assoc_comp_id = '$comp_id'";
-                            $qry_do = mysqli_query($connection, $qry);
-                            echo mysqli_error($connection);
-                            if ($row = mysqli_fetch_assoc($qry_do)) {
-                                $json_string = $row['data'];
-
-                                $json_table = json_decode($json_string);
-
-                                $competitors = array();
-
-                                foreach ($json_table as $fencer_obj) {
-                                    array_push($competitors, new Competitor($fencer_obj));
-                                }
-                                try {
-                                    usort($competitors, "sortByRank");
-                                } catch (Exception $ex) {
-                                    //this shall not happen in prod :D
-                                }
+                            $competitorsController = new CompetitionController($comp_id);
+                            $competitors = $competitorsController->getCompetitors();
+                            if(count($competitors) > 0) {
+                                $competitors = $competitorsController->sortCompetitorsByRank($competitors);
                                 foreach($competitors as $comp) {
                         ?>
 
                         <tr>
                             <td>
                                 <p>
-                                    <?php echo $comp->rank ?>
+                                    <?php echo $comp->rank+1 . "." ?>
                                 </p>
                             </td>
                             <td>
@@ -94,7 +74,7 @@
                             <td class="small red"></td>
                         </tr>
 
-                        <?php } }?>
+                    <?php } } ?>
                     </tbody>
                 </table>
             </div>
