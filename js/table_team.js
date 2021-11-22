@@ -11,12 +11,76 @@ function selectRound(x) {
 
 var callRooms = document.querySelectorAll(".call_room")
 var firstIndex = 0;
-var secondIndex = 1;
+var secondIndex;
 var eleminitaions = document.querySelectorAll(".elimination")
 var btLeft = document.getElementById("buttonLeft")
 var btRight = document.getElementById("buttonRight")
 var over16 = false
 var firstRight = false
+
+
+if (eleminitaions.length > 4) {
+    secondIndex = 4;
+}
+else {
+    secondIndex = eleminitaions.length
+}
+
+
+//Gets window size
+window.addEventListener("resize", windowSize);
+window.addEventListener("DOMContentLoaded", windowSize);
+var vw;
+//Chagnes the shown table numbers by the window size
+function windowSize() {
+    if (document.querySelector(".call_room") != null) {
+        vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        if (vw > 1600 && eleminitaions.length >= 4 && !firstRight) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 4;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
+
+            }
+        }
+        else if (vw > 1100 && vw < 1600 && eleminitaions.length >= 3 && !firstRight) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 3;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
+
+            }
+        }
+        else if (vw > 700 && vw < 1100 && eleminitaions.length >= 2 && !firstRight) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 2;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
+
+            }
+        }
+        else if (vw < 700 && !firstRight) {
+            for (i = 0; i < eleminitaions.length; i++) {
+                eleminitaions[i].classList.add("hidden")
+            }
+            secondIndex = firstIndex + 1;
+            for (i = firstIndex; i < secondIndex; i++) {
+                eleminitaions[i].classList.remove("hidden")
+
+            }
+        }
+        var shownEliminations = document.querySelectorAll(".elimination:not(.hidden)")
+        if (shownEliminations.length == eleminitaions.length && !firstRight) {
+            btRight.classList.add("disabled")
+        }
+    }
+}
 
 //Hides all the eliminations
 for (i = 0; i < eleminitaions.length; i++) {
@@ -88,7 +152,6 @@ function buttonLeft() {
         for (i = firstIndex; i < secondIndex; i++) {
             eleminitaions[i].classList.remove("hidden")
         }
-        disabler();
     }
     else {
         btLeft.classList.remove("disabled")
@@ -119,19 +182,16 @@ function buttonLeft() {
 
                 var rightTable = currentCallRoom[j].firstElementChild.nextElementSibling.firstElementChild.innerHTML
                 var leftTable = currentCallRoom[j + 1].firstElementChild.nextElementSibling.firstElementChild.innerHTML
-                console.log(rightTable)
-                console.log(leftTable)
                 callRooms[searchBySideTables(leftTable, rightTable)].classList.remove("hidden")
 
             }
         }
-        disabler();
     }
+    disabler();
+    windowSize();
 }
 
 function buttonRight() {
-
-    console.log(over16)
     if (eleminitaions[secondIndex - 1].querySelectorAll(".table_round_wrapper").length > 8) {
         btLeft.classList.remove("disabled")
         btRight.classList.remove("disabled")
@@ -176,6 +236,7 @@ function buttonRight() {
 
             }
         }
-        disabler();
     }
+    disabler();
+    windowSize();
 }
