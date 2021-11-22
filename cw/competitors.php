@@ -48,14 +48,12 @@
                     <?php
                         $competitionController = new CompetitionController($comp_id);
                         $competitors = $competitionController->getCompetitors();
-                        $competitors = $competitionController->sortCompetitorsByRank($competitors);
 
                         if(count($competitors) == 0) {
                             echo "<p>You have no competitors set up or the search criteria is too narrow!</p>";
                         } else {
                     ?>
                         <thead>
-                            <th><p>RANK</p></th>
                             <th><p>NAME</p></th>
                             <th><p>NATION</p></th>
                             <th><p>CLUB</p></th>
@@ -66,9 +64,6 @@
                         ?>
 
                             <tr>
-                                <td>
-                                    <p><?php echo $competitor->rank ?></p>
-                                </td>
                                 <td>
                                     <p><?php echo $competitor->fullName ?></p>
                                 </td>
