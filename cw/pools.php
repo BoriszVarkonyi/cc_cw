@@ -83,9 +83,6 @@
                                     ?><div class="td">Ref2: <?php echo $ref2name ?></div><?php
                                     } ?>
                                 <div class="td"><?php echo $time ?></div>
-                                <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $pool_num ?>'" class="pool_config td">
-                                    <img src="../assets/icons/open_in_new_black.svg">
-                                </button>
                                 </div>
                                 <div class="entry_panel">
                                     <table class="pool_table_wrapper no_interaction">
