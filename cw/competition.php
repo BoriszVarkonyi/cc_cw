@@ -267,7 +267,7 @@
                         <div id="competition_controls" class="column_panel no_bottom">
                             <p class="column_panel_title">Fencer Controls:</p>
                             <div class="competition_controls_wrapper">
-                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">My Matches</button>
+                                <button onclick="location.href='my_matches_individual.php?comp_id=<?php echo $comp_id ?>'">My Matches</button>
                                 <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Weapon Control Report</button>
                                 <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Book Weapon Control</button>
                             </div>
@@ -284,7 +284,7 @@
                                 <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                                <?php 
+                                <?php
                                     if($is_individual) {
                                 ?>
                                     <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_individual.php?comp_id=<?php echo $comp_id ?>'">Table</button>

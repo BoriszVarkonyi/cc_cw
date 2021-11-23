@@ -1349,3 +1349,116 @@ input[type="radio"]:checked + label .appointment {
 	font-family: var(--bold);
 	text-transform: none;
 }
+
+#matches_wrapper {
+	width: 100%;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-column-gap: 2vh;
+	grid-row-gap: 2vh;
+}
+
+.match {
+	width: 100%;
+	height: 100%;
+	background: var(--c-lightestgray);
+	line-height: 1.1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	border: 2pt solid var(--c-gray);
+}
+
+.match > div {
+	width: 100%;
+}
+
+.match_header {
+	padding: 3px 0;
+	text-align: center;
+	font-size: var(--f-small);
+}
+
+.match_header.upcoming {
+	background: var(--c-green);
+}
+
+.match_header.finished {
+	background: var(--c-gray);
+}
+
+.match_header, .match_data, .match_content > div > p:first-child {
+	text-transform: uppercase;
+	font-family: var(--bold);
+}
+
+.match_data {
+	font-size: var(--f-xlarge);
+}
+
+.match_data,.match_content {
+	padding: 5px 10%;
+}
+
+@media only screen and (max-width: 440px) {
+
+	.content-wrapper {
+		width: calc(100% - 60px) !important;
+	}
+
+	.content.grid {
+		grid-template-columns: repeat(1, 1fr) !important;
+	}
+
+	.section-item {
+		padding: 18px !important;
+	}
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(3, 1fr);
+	}	padding: 50px 100px;
+	}
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+}

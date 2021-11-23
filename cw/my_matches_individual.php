@@ -17,10 +17,53 @@
             </div>
             <div id="content_wrapper">
                 <form method="POST" id="browsing_bar">
-
                     <input name="submit_search" type="submit" value="Search">
                 </form>
-
+                <div id="matches_wrapper">
+                    <div class="match">
+                        <div class="match_header upcoming">
+                            <p>UPCOMING</p>
+                        </div>
+                        <div class="match_data">
+                            <p>11:40</p>
+                            <p>{piste name} PISTE</p>
+                        </div>
+                        <div class="match_content">
+                            <div>
+                                <p>OPPONENT:</p>
+                                <p>Name</p>
+                            </div>
+                            <div>
+                                <p>TABLE:</p>
+                                <p>t32</p>
+                            </div>
+                            <!-- IF FINISHED -->
+                            <div>
+                                <p>RESULTS:</p>
+                                <p class="winner">{Logged in fencer} - {score}</p>
+                                <p>{Opponent} - {score}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="match">
+                        <p></p>
+                    </div>
+                    <div class="match">
+                        <p></p>
+                    </div>
+                    <div class="match">
+                        <p></p>
+                    </div>
+                    <div class="match">
+                        <p></p>
+                    </div>
+                    <div class="match">
+                        <p></p>
+                    </div>
+                    <div class="match">
+                        <p></p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
