@@ -10,7 +10,12 @@
         $comp_name = $row['comp_name'];
         $url = $row['URL'];
         parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-        $video_id = $my_array_of_vars['v'];
+        if(isset($my_array_of_vars['v'])) {
+            $video_id = $my_array_of_vars['v'];
+        } else {
+            $splitted_str = explode('/', $url);
+            $video_id = $splitted_str[count($splitted_str)-1];
+        }
     }
 ?>
 

@@ -31,13 +31,22 @@
                         $do_get_videos = mysqli_query($connection, $qry_get_videos);
 
                         while ($row = mysqli_fetch_assoc($do_get_videos)) {
-                            $video_id = "asd";
+                            $video_id = "";
                             $url = $row['URL'];
                             $comp_name = $row['comp_name'];
                             $id = $row['id'];
                             $title = $row['title'];
+                            /*
+                                If the URL is shortened then it doesn't have required 'v' parameter
+                                and this would result in an error
+                            */
                             parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-                            $video_id = $my_array_of_vars['v'];
+                            if(isset($my_array_of_vars['v'])) {
+                                $video_id = $my_array_of_vars['v'];
+                            } else {
+                                $splitted_str = explode('/', $url);
+                                $video_id = $splitted_str[count($splitted_str)-1];
+                            }
 
                     ?>
                             <!-- latest video placeholder -->
