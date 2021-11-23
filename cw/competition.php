@@ -284,7 +284,14 @@
                                 <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                                <?php 
+                                    if($is_individual) {
+                                ?>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_individual.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                                <?php } else { ?>
+                                    <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_team.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+
+                                <?php } ?>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
                                 <button onclick="printPage()">Print</a>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''" class="red">Watch Video / Watch Live</a>
