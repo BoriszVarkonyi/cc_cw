@@ -23,6 +23,15 @@
                     Pools of <?php echo $comp_name ?>
                 </p>
             </div>
+            <div id="content_wrapper">
+                <form id="browsing_bar">
+                    <div class="search_wrapper wide">
+                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
+                    </div>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
             <?php
             $qry_get_pools = "SELECT `fencers`, `matches` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
             $do_get_pools = mysqli_query($connection, $qry_get_pools);
@@ -41,7 +50,9 @@
             <div id="page_content_panel_main">
                 <div id="pool_listing" class="wrapper state_2 list">
                     <?php
-
+                    if(!isset($fencers_table)) {
+                        echo "<h2>No pools set.</h2>";
+                    } else {
                     for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++) {
                         $current_pool = $fencers_table[$pool_num];
 
@@ -57,7 +68,6 @@
 
                         //get number of fencers in pools
                         $number_of_fencers = getFencersInPool($fencers_table[$pool_num]);
-
 
                     ?>
                         <div>
@@ -195,18 +205,10 @@
                             </div>
                         </div>
                     <?php
-                    }
+                    } }
                     ?>
                 </div>
             </div>
-            <div id="content_wrapper">
-                <form id="browsing_bar">
-                    <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
-                    </div>
-                    <input type="submit" value="Search">
-                </form>
     </main>
     <?php include "cw_footer.php"; ?>
     <script src="../js/cw_main.js"></script>
