@@ -118,7 +118,7 @@
                                         $body = $ann_objects -> body;
                                     } else {
                                         $body = "No body set.";
-                                    }  
+                                    }
                             ?>
                             <div class="breakpoint">
                                 <p><?php echo $title ?></p>
@@ -265,7 +265,17 @@
                     </div>
                     <div class="column small no_top">
                         <div id="competition_controls" class="column_panel no_bottom">
-                            <p class="column_panel_title">Competition Controls:</p>
+                            <p class="column_panel_title">Fencer Controls:</p>
+                            <div class="competition_controls_wrapper">
+                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">My Matches</button>
+                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Weapon Control Report</button>
+                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Book Weapon Control</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column small no_top">
+                        <div id="competition_controls" class="column_panel no_bottom">
+                            <p class="column_panel_title">For Viewers:</p>
                             <div class="competition_controls_wrapper">
                                 <!--
                                 <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
@@ -277,7 +287,7 @@
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table.php?comp_id=<?php echo $comp_id ?>'">Table</button>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
                                 <button onclick="printPage()">Print</a>
-                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''">Watch Video / Watch Live</a>
+                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''" class="red">Watch Video / Watch Live</a>
                             </div>
                         </div>
                     </div>
