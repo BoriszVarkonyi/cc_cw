@@ -1,6 +1,7 @@
 <?php include "../includes/db.php"; ?>
 <?php include "../includes/functions.php"; ?>
 <?php include "./controllers/ArticleController.php" ?>
+<?php include "./controllers/VideoController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,31 +101,17 @@
                 <div class="column">
                     <p class="column_title">Latest Videos</p>
                     <?php
-                        $qry_get_videos = "SELECT * FROM `cw_videos` ORDER BY Date_of_creation ASC LIMIT 5;";
-                        $do_get_videos = mysqli_query($connection, $qry_get_videos);
-
-                        while ($row = mysqli_fetch_assoc($do_get_videos)) {
-                            $video_id = "asd";
-                            $url = $row['URL'];
-                            $comp_name = $row['comp_name'];
-                            $id = $row['id'];
-                            $title = $row['title'];
-                            parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-                            parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-                            if(isset($my_array_of_vars['v'])) {
-                                $video_id = $my_array_of_vars['v'];
-                            } else {
-                                $splitted_str = explode('/', $url);
-                                $video_id = $splitted_str[count($splitted_str)-1];
-                            }
-
+                        $videoController = new VideoController();
+                        $videos = $videoController->getVideos(5);
+                        
+                        foreach($videos as $video) {
                         ?>
                             <!-- latest video placeholder -->
-                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" alt="<?php echo$title ?> thumbnail">
+                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $video->id ?>'">
+                                <img src="http://img.youtube.com/vi/<?php echo $video->video_id ?>/sddefault.jpg" alt="<?php echo $video->title ?> thumbnail">
                                 <div class="video_wrapper_info">
-                                    <p><?php echo$title ?></p>
-                                    <p><?php echo $comp_name ?></p>
+                                    <p><?php echo $video->title ?></p>
+                                    <p><?php echo $video->comp_name ?></p>
                                 </div>
                             </div>
                     <?php } ?>
