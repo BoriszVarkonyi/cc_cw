@@ -35,44 +35,72 @@ var vw;
 function windowSize() {
     if (document.querySelector(".call_room") != null) {
         vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        if (vw > 1600 && eleminitaions.length >= 4 && !firstRight) {
-            for (i = 0; i < eleminitaions.length; i++) {
-                eleminitaions[i].classList.add("hidden")
+        if (vw > 1600 && eleminitaions.length >= 4) {
+            if (!over16) {
+                secondIndex = firstIndex + 4;
             }
-            secondIndex = firstIndex + 4;
-            for (i = firstIndex; i < secondIndex; i++) {
-                eleminitaions[i].classList.remove("hidden")
+            else{
+                firstIndex = secondIndex -4;
+            }
+            if (!firstRight) {
+                for (i = 0; i < eleminitaions.length; i++) {
+                    eleminitaions[i].classList.add("hidden")
+                }
+                for (i = firstIndex; i < secondIndex; i++) {
+                    eleminitaions[i].classList.remove("hidden")
 
+                }
             }
         }
-        else if (vw > 1100 && vw < 1600 && eleminitaions.length >= 3 && !firstRight) {
-            for (i = 0; i < eleminitaions.length; i++) {
-                eleminitaions[i].classList.add("hidden")
+        else if (vw > 1100 && vw < 1600 && eleminitaions.length >= 3) {
+            if (!over16) {
+                secondIndex = firstIndex + 3;
             }
-            secondIndex = firstIndex + 3;
-            for (i = firstIndex; i < secondIndex; i++) {
-                eleminitaions[i].classList.remove("hidden")
+            else{
+                firstIndex = secondIndex -3;
+            }
+            if (!firstRight) {
+                for (i = 0; i < eleminitaions.length; i++) {
+                    eleminitaions[i].classList.add("hidden")
+                }
+                for (i = firstIndex; i < secondIndex; i++) {
+                    eleminitaions[i].classList.remove("hidden")
 
+                }
             }
         }
-        else if (vw > 700 && vw < 1100 && eleminitaions.length >= 2 && !firstRight) {
-            for (i = 0; i < eleminitaions.length; i++) {
-                eleminitaions[i].classList.add("hidden")
+        else if (vw > 700 && vw < 1100 && eleminitaions.length >= 2) {
+            if (!over16) {
+                secondIndex = firstIndex + 2;
             }
-            secondIndex = firstIndex + 2;
-            for (i = firstIndex; i < secondIndex; i++) {
-                eleminitaions[i].classList.remove("hidden")
+            else{
+                firstIndex = secondIndex -2;
+            }
+            if (!firstRight) {
+                for (i = 0; i < eleminitaions.length; i++) {
+                    eleminitaions[i].classList.add("hidden")
+                }
+                for (i = firstIndex; i < secondIndex; i++) {
+                    eleminitaions[i].classList.remove("hidden")
 
+                }
             }
         }
-        else if (vw < 700 && !firstRight) {
-            for (i = 0; i < eleminitaions.length; i++) {
-                eleminitaions[i].classList.add("hidden")
+        else if (vw < 700) {
+            if (!over16) {
+                secondIndex = firstIndex + 1;
             }
-            secondIndex = firstIndex + 1;
-            for (i = firstIndex; i < secondIndex; i++) {
-                eleminitaions[i].classList.remove("hidden")
+            else{
+                firstIndex = secondIndex -1;
+            }
+            if (!firstRight) {
+                for (i = 0; i < eleminitaions.length; i++) {
+                    eleminitaions[i].classList.add("hidden")
+                }
+                for (i = firstIndex; i < secondIndex; i++) {
+                    eleminitaions[i].classList.remove("hidden")
 
+                }
             }
         }
         var shownEliminations = document.querySelectorAll(".elimination:not(.hidden)")
@@ -80,6 +108,8 @@ function windowSize() {
             btRight.classList.add("disabled")
         }
     }
+    console.log(firstIndex)
+    console.log(secondIndex)
 }
 
 //Hides all the eliminations
@@ -186,9 +216,9 @@ function buttonLeft() {
 
             }
         }
+        windowSize();
     }
     disabler();
-    windowSize();
 }
 
 function buttonRight() {
@@ -237,6 +267,6 @@ function buttonRight() {
             }
         }
     }
+    console.log(secondIndex)
     disabler();
-    windowSize();
 }
