@@ -110,7 +110,13 @@
                             $id = $row['id'];
                             $title = $row['title'];
                             parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-                            $video_id = $my_array_of_vars['v'];
+                            parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+                            if(isset($my_array_of_vars['v'])) {
+                                $video_id = $my_array_of_vars['v'];
+                            } else {
+                                $splitted_str = explode('/', $url);
+                                $video_id = $splitted_str[count($splitted_str)-1];
+                            }
 
                         ?>
                             <!-- latest video placeholder -->
