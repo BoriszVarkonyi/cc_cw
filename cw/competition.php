@@ -103,8 +103,7 @@
                     } else {
                         $json_table = [];
                     }
-
-                    if (!is_null($json_table)) {
+                    if (!is_null($json_table) && $json_table != []) {
                     ?>
                         <div id="announcements" class="column_panel">
 
