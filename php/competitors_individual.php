@@ -125,11 +125,11 @@
                         <p>Remove Fencer</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" id="prtComp">
                         <p>Print Competitors</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=individual">
+                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=individual" id="importComp">
                         <p>Import Competitors from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
@@ -368,6 +368,7 @@
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/list_2.js"></script>
+    <script src="../js/overlay_panel.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
     <script src="../js/competitors.js"></script>

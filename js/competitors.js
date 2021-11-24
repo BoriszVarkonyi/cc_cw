@@ -1,16 +1,19 @@
 var removeButton = document.querySelector(".stripe_button.red");
 removeButton.classList.add("disabled")
 removeButton.disabled = true;
+var isselected = false;
 //Event listener to class change
 function removeButtonDisabler() {
     var selectedItem = document.querySelector("tbody .selected")
     if (selectedItem !== null) {
         removeButton.disabled = false;
         removeButton.classList.remove("disabled")
+        isselected = true;
     }
     else {
         removeButton.disabled = true;
         removeButton.classList.add("disabled")
+        isselected = false;
     }
 }
 //An event listener to class change
@@ -63,3 +66,23 @@ function selectForImport(x) {
         oldSelectedTechImport = undefined;
     }
 }
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (isselected) {
+            if (e.shiftKey && e.which == 82) {
+               removeButton.click();
+            }
+        }
+        if (e.shiftKey && e.which == 80) {
+            var printCompButton = document.getElementById("prtComp")
+            printCompButton.click();
+        }
+        if (e.shiftKey && e.which == 73) {
+            var importComp = document.getElementById("importComp")
+            importComp.click();
+        }
+    }
+})

@@ -108,8 +108,6 @@ function windowSize() {
             btRight.classList.add("disabled")
         }
     }
-    console.log(firstIndex)
-    console.log(secondIndex)
 }
 
 //Hides all the eliminations
@@ -216,7 +214,6 @@ function buttonLeft() {
 
             }
         }
-        windowSize();
     }
     disabler();
 }
@@ -267,6 +264,5 @@ function buttonRight() {
             }
         }
     }
-    console.log(secondIndex)
     disabler();
 }
