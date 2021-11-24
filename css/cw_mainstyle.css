@@ -786,6 +786,21 @@ input[value="Search"]:hover {
 	align-items: center;
 }
 
+#browsing_bar > a {
+	padding: 5px 10px;
+	border-radius: 50px;
+	border: 2pt solid var(--c-gray);
+	margin: 0 10px 0 0 !important;
+	background: var(--c-lightestgray);
+}
+
+#browsing_bar > a.current {
+	border: 2pt solid var(--c-primary);
+	background: var(--c-lightprimary);
+	font-family: var(--bold);
+	color: var(--c-white);
+}
+
 /* Listing inputs and similars */
 
 /* Back Button used in CC Dasboard And CW Competition's page and subpages */
@@ -1359,26 +1374,25 @@ input[type="radio"]:checked + label .appointment {
 }
 
 .match {
-	width: 100%;
 	height: 100%;
 	background: var(--c-lightestgray);
 	line-height: 1.1;
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
-	aspect-ratio: 1 / 1;
 	overflow: hidden;
 	border: 2pt solid var(--c-gray);
+	box-shadow: var(--s-black);
 }
 
-.match > div {
+.match, .match > div {
 	width: 100%;
+	box-sizing: border-box;
 }
 
 .match_header {
-	padding: 3px 0;
+	padding: 5px 0;
 	text-align: center;
-	font-size: var(--f-small);
 }
 
 .match_header.upcoming {
@@ -1396,10 +1410,24 @@ input[type="radio"]:checked + label .appointment {
 
 .match_data {
 	font-size: var(--f-xlarge);
+	background: var(--c-lightgray);
 }
 
-.match_data,.match_content {
-	padding: 5px 10%;
+.match_data, .match_content {
+	padding: 8px;
+}
+
+.match_content {
+	flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.match_content > div {
+	padding: 4px 0;
 }
 
 @media only screen and (max-width: 440px) {
@@ -1449,7 +1477,6 @@ input[type="radio"]:checked + label .appointment {
 
 	#matches_wrapper {
 		grid-template-columns: repeat(3, 1fr);
-	}	padding: 50px 100px;
 	}
 
 }
@@ -1459,6 +1486,15 @@ input[type="radio"]:checked + label .appointment {
 
 	#matches_wrapper {
 		grid-template-columns: repeat(4, 1fr);
+	}
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1500px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(5, 1fr);
 	}
 
 }
