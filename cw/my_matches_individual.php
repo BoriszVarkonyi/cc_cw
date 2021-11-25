@@ -24,51 +24,62 @@
                         <p>Table</p>
                     </a>
                 </div>
-                <div class="entry">
-                    <div class="tr">
-                        <div class="td bold">No. {num}</div>
-                        <div class="td">Piste {name}</div>
-                        <div class="td">Ref1: {name}</div>
-                        <div class="td">Re21: {name}</div>
-                        <div class="td">idő</div>
-                    </div>
-                    <div class="entry_panel">
-                        <table class="pool_table_wrapper no_interaction">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <p>NAME</p>
-                                    </th>
-                                    <th>
-                                        <p>NATION</p>
-                                    </th>
-                                    <th class="square">
-                                        <p>NO.</p>
-                                    </th>
-                                    <th class="square">
-                                        <p>1</p>
-                                    </th>
-                                    <th class="square">
-                                        <p>2</p>
-                                    </th>
-                                    <th class="square">
-                                        <p>3</p>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="alt">
+                <div id="pool_listing">
+                    <div>
+                        <!-- ezt kell loopolni -->
+                        <div class="entry">
+                            <div class="tr">
+                                <div class="td bold">No. {num}</div>
+                                <div class="td">Piste {name}</div>
+                                <div class="td">Ref1: {name}</div>
+                                <div class="td">Re21: {name}</div>
+                                <div class="td">idő</div>
+                            </div>
+                            <div class="entry_panel">
+                                <table class="pool_table_wrapper no_interaction">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <p>NAME</p>
+                                            </th>
+                                            <th>
+                                                <p>NATION</p>
+                                            </th>
+                                            <th class="square">
+                                                <p>NO.</p>
+                                            </th>
+                                            <th class="square">
+                                                <p>1</p>
+                                            </th>
+                                            <th class="square">
+                                                <p>2</p>
+                                            </th>
+                                            <th class="square">
+                                                <p>3</p>
+                                            </th>
 
-                                <tr class="">
-                                    <td>name</td>
-                                    <td>nat</td>
-                                    <td class="square row_title">1</td>
-                                    <td class="square">
-                                    <td class="square">
-                                    <td class="square">
-                                </tr>
+                                            <!-- Win per Lose -->
+                                            <th class="square">
+                                                <p>W/L</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alt">
 
-                            </tbody>
-                        </table>
+                                        <tr class="">
+                                            <td>name</td>
+                                            <td>nat</td>
+                                            <td class="square row_title">1</td>
+                                            <td class="square"></td>
+                                            <td class="square"></td>
+                                            <td class="square"></td>
+                                            <td class="square">1.2</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="matches_wrapper">

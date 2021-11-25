@@ -1375,7 +1375,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 
 /* Temporary */
 #pool_listing .entry {
-	margin-bottom: 25px;
+	margin-bottom: 25px !important;
 }
 
 .entry_wrapper .entry {
