@@ -150,5 +150,6 @@
     <script src="../js/cw_main.js"></script>
     <script src="../js/cw_slideshow.js"></script>
     <script src="../js/list.js"></script>
+    <script src="../js/cw_bookmark_competition.js"></script>
 </body>
 </html>
