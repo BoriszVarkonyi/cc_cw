@@ -786,6 +786,21 @@ input[value="Search"]:hover {
 	align-items: center;
 }
 
+#browsing_bar > a {
+	padding: 5px 10px;
+	border-radius: 50px;
+	border: 2pt solid var(--c-gray);
+	margin: 0 10px 0 0 !important;
+	background: var(--c-lightestgray);
+}
+
+#browsing_bar > a.current {
+	border: 2pt solid var(--c-primary);
+	background: var(--c-lightprimary);
+	font-family: var(--bold);
+	color: var(--c-white);
+}
+
 /* Listing inputs and similars */
 
 /* Back Button used in CC Dasboard And CW Competition's page and subpages */
@@ -1348,4 +1363,138 @@ input[type="radio"]:checked + label .appointment {
 	color: var(--cd-primarycontrast);
 	font-family: var(--bold);
 	text-transform: none;
+}
+
+#matches_wrapper {
+	width: 100%;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-column-gap: 2vh;
+	grid-row-gap: 2vh;
+}
+
+.match {
+	height: 100%;
+	background: var(--c-lightestgray);
+	line-height: 1.1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	overflow: hidden;
+	border: 2pt solid var(--c-gray);
+	box-shadow: var(--s-black);
+}
+
+.match, .match > div {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.match_header {
+	padding: 5px 0;
+	text-align: center;
+}
+
+.match_header.upcoming {
+	background: var(--c-green);
+}
+
+.match_header.finished {
+	background: var(--c-gray);
+}
+
+.match_header, .match_data, .match_content > div > p:first-child {
+	text-transform: uppercase;
+	font-family: var(--bold);
+}
+
+.match_data {
+	font-size: var(--f-xlarge);
+	background: var(--c-lightgray);
+}
+
+.match_data, .match_content {
+	padding: 8px;
+}
+
+.match_content {
+	flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.match_content > div {
+	padding: 4px 0;
+}
+
+@media only screen and (max-width: 440px) {
+
+	.content-wrapper {
+		width: calc(100% - 60px) !important;
+	}
+
+	.content.grid {
+		grid-template-columns: repeat(1, 1fr) !important;
+	}
+
+	.section-item {
+		padding: 18px !important;
+	}
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1500px) {
+
+	#matches_wrapper {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
 }

@@ -4,6 +4,10 @@
 <?php checkComp($connection); ?>
 
 <?php
+    if (isset($_POST["barcode"])) {
+        $pool_id = $_POST["barcode"];
+        header("location:pool_results.php?comp_id=$comp_id&poolid=$pool_id");
+    }
 
     $qry_get_pools = "SELECT `fencers`, `matches` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
     $do_get_pools = mysqli_query($connection, $qry_get_pools);
