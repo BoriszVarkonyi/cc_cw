@@ -159,9 +159,9 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/login_style.min.css">
+    <link rel="stylesheet" href="css/basestyle.min.css">
+    <link rel="stylesheet" href="css/mainstyle.min.css">
+    <link rel="stylesheet" href="css/login_style.min.css">
 </head>
 <body class="bg_fencers">
     <div id="login_panel">

@@ -6,7 +6,6 @@
         $name = $_POST['username'];
         $pass = $_POST['password'];
         $pass_a = $_POST['password_a'];
-        $end_o_l = $_POST['license_end'];
 
         if ($pass == "") {
             $test = FALSE;
@@ -22,7 +21,7 @@
         if ($test) {
             $pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
 
-            $qry_insert = "INSERT INTO organisers (username, password, License_end, License_valid) VALUES ('$name', '$pass_hashed', '$end_o_l', '1')";
+            $qry_insert = "INSERT INTO organisers (username, password) VALUES ('$name', '$pass_hashed')";
             $do_insert = mysqli_query($connection, $qry_insert);
             echo mysqli_error($connection);
             header("Refresh:0");
@@ -46,8 +45,6 @@
             <tr>
                 <td>ID</td>
                 <td>Username</td>
-                <td>License end</td>
-                <td>License Valid</td>
                 <td>Warning</td>
             </tr>
             <?php
@@ -58,20 +55,13 @@
                 while ($row = mysqli_fetch_assoc($do_get_org)) {
                     $username = $row['username'];
                     $id = $row['id'];
-                    $License_end = $row['License_end'];
-                    $Lincense_valid = $row['License_valid'];
-                    if ($Lincense_valid) {
-                        $warning_color = "white";
-                    } else {
-                        $warning_color = "red";
-                    }
+                    $warning_color = "red";
+
 
                     ?>
                         <tr>
                             <td><?php echo $id ?></td>
                             <td><?php echo $username ?></td>
-                            <td><?php echo $License_end ?></td>
-                            <td><?php echo $Lincense_valid ?></td>
                             <td style="background:<?php echo $warning_color  ?>"></td>
                         </tr>
 

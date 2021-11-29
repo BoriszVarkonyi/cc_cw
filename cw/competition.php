@@ -28,7 +28,7 @@
             $city_street = $json_table -> city_street;
             $zip_code = $json_table -> zip_code;
             $entry_fee = $json_table -> entry_fee;
-
+            $starting_date = $json_table -> starting_date;
             $ending_date = $json_table -> ending_date;
             $end_of_pre_reg = $json_table -> end_of_pre_reg;
 
