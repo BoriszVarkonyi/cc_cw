@@ -355,9 +355,6 @@ if (isset($_POST["generate_table"])) {
                     </button>
                 </form>
 
-                <input type="text">
-                <button type="submit">Submit</button>
-
                 <!--HA VAN -->
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button bold" type="button" onclick="printTable()">
@@ -384,6 +381,13 @@ if (isset($_POST["generate_table"])) {
                         <p>Draw Positions</p>
                         <img src="../assets/icons/ballot_black.svg" />
                     </a>
+                    <form id="barcode_form" method="POST" action="">
+                        <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <img src="../assets/icons/barcode_black.svg">
+                        </button>
+                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <button type="submit" form="barcode_form"></button>
+                    </form>
                 </div>
 
                 <div class="view_button_wrapper first">
