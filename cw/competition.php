@@ -267,9 +267,14 @@
                         <div id="competition_controls" class="column_panel no_bottom">
                             <p class="column_panel_title">Fencer Controls:</p>
                             <div class="competition_controls_wrapper">
-                                <button onclick="location.href='my_matches_individual.php?comp_id=<?php echo $comp_id ?>'">My Matches</button>
-                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Weapon Control Report</button>
-                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Book Weapon Control</button>
+                                <!-- if not logegd in -->
+                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">Login</a>
+
+                                <!-- if logegd in -->
+                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
+                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
+                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
+                                <a href="" class="red">Log out</a>
                             </div>
                         </div>
                     </div>

@@ -425,8 +425,7 @@ input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, inpu
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="number"].number_input:focus, input[type="time"]:focus {		/* Sets basic look of text and password inputs*/
-	border-bottom: 2px solid var(--c-primary);
-	border-top: 2px solid transparent;
+	border: 1pt solid var(--c-primary);
 }
 
 input[type="text"].no_bottom_margin {

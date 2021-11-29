@@ -875,7 +875,7 @@ input[value="Search"]:hover {
 	align-items: center;
 }
 
-#competition_controls button, .send_button {
+#competition_controls button, .send_button, #competition_controls a {
 	font-family: var(--bold);
 	border-radius: 5px;
 	box-shadow: var(--s-black);
@@ -895,7 +895,7 @@ input[value="Search"]:hover {
 	color: var(--c-darkgray);
 }
 
-#competition_controls button.red {
+#competition_controls *.red {
 	background: var(--c-red);
 }
 
@@ -1497,4 +1497,30 @@ input[type="radio"]:checked + label .appointment {
 		grid-template-columns: repeat(5, 1fr);
 	}
 
+}
+
+/* My wepaon control */
+
+#weapon_control_info {
+	width: 100%;
+	margin: 30px 0;
+	background: var(--c-lightergray);
+	padding: 15px;
+	border: 2pt solid var(--c-gray);
+	border-left: 5pt solid var(--c-green);
+	box-shadow: var(--s-black);
+	border-radius: 5px;
+	box-sizing: border-box;
+	line-height: 1.2;
+}
+
+#fencer_name {
+	font-size: var(--f-xlarge);
+	font-family: var(--bold);
+	text-transform: uppercase;
+}
+
+#wc_status {
+	font-size: var(--f-large);
+	margin: 10px 0 0;
 }
