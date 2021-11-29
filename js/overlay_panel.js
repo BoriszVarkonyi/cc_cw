@@ -1,7 +1,6 @@
 //Overlay panels
 var overlayPanelAll = document.querySelectorAll(".overlay_panel");
 var overlayPanelsOepened = [];
-var somethingisOpened = false;
 
 function overlayPanel() {
     var overlayPanelsHidden = [];
@@ -42,7 +41,6 @@ function overlayPanel() {
         somethingisOpened = false;
     }
 }
-var somethingisOpened = false;
 
 //Event listener to class change (overlay panels)
 function callback(mutationsList, observer) {

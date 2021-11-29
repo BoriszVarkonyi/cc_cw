@@ -410,3 +410,30 @@ function poolConfig(x) {
     x.classList.add("hidden")
     saveButton.classList.remove("hidden")
 }
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (e.shiftKey && e.which == 80) {
+            var printPoolsButton = document.getElementById("printPools")
+            printPoolsButton.click();
+        }
+        if (e.shiftKey && e.which == 82) {
+            var refereesButton = document.getElementById("referees")
+            refereesButton.click()
+        }
+        if (e.shiftKey && e.which == 84) {
+            var pistesNTimeButton = document.getElementById("pistesNTimeBt")
+            pistesNTimeButton.click();
+        } 
+        if (e.shiftKey && e.which == 84) {
+            var savePoolsButton = document.getElementById("savePoolsBt")
+            savePoolsButton.click();
+        } 
+        if (e.shiftKey && e.which == 13) {
+            var startPoolsButton = document.getElementById("startPoolsBt")
+            startPoolsButton.click();
+        } 
+    }
+})

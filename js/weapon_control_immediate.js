@@ -41,10 +41,14 @@ wctable.addEventListener("click", buttonDisabler)
 document.addEventListener("keyup", function (e) {
     //somethingIsFocused is a var. from main.js
     if (!somethingIsFocused) {
-        //searchBarClosed is a var. from search.js
-        if (searchBarClosed) {
-            if (e.shiftKey && e.which == 65) {
-                addWeaponControlButton.click()
+        if (e.shiftKey && e.which == 80) {
+            var printRegistrationButton = document.getElementById("printRegistrationBt")
+            printRegistrationButton.click()
+        }
+        if (isselected) {
+            if (e.shiftKey && e.which == 68) {
+                var deleteFencerButton = document.getElementById("delete_fencer_button")
+                deleteFencerButton.click()
             }
         }
     }

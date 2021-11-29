@@ -156,7 +156,7 @@
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
-                        <button type="button" class="stripe_button" onclick="window.print()">
+                        <button type="button" class="stripe_button" onclick="window.print()" id="printRegistrationBt" shortcut="SHIFT+P">
                             <p>Print Registration</p>
                             <img src="../assets/icons/print_black.svg"/>
                         </button>

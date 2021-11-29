@@ -57,7 +57,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
                 <p class="page_title">Temporary Ranking</p>
                 <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" value="">
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" id="printButton" shortcut="SHIFT+P">
                         <p>Print Temporary Ranking</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
@@ -149,5 +149,6 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <script src="../js/main.js"></script>
     <script src="../js/list_2.js"></script>
     <script src="../js/list_search_2.js"></script>
+    <script src="../js/temporary_ranking.js"></script>
 </body>
 </html>

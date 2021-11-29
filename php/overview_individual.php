@@ -43,11 +43,11 @@ $json_table = $objects->sorted;
                 <p class="page_title">Overview</p>
                 <div class="stripe_button_wrapper">
                     <input type="text" class="selected_list_item_input">
-                    <button class="stripe_button primary" type="button" onclick="">
+                    <button class="stripe_button primary" type="button" onclick="" id="exportResultsBt" shortcut="SHIFT+E">
                         <p>Export Results</p>
                         <img src="../assets/icons/upgrade_black.svg" />
                     </button>
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" id="printOverviewBt" shortcut="SHIFT+P">
                         <p>Print Overview</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
@@ -160,6 +160,7 @@ $json_table = $objects->sorted;
     <script src="../js/main.js"></script>
     <script src="../js/list.js"></script>
     <script src="../js/list_search.js"></script>
+    <script src="../js/overview.js"></script>
 </body>
 
 </html>

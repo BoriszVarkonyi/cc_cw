@@ -6,5 +6,9 @@ document.addEventListener("keyup", function (e) {
       var stripeButton = document.getElementById("printButton")
       stripeButton.click()
     }
+    if (e.shiftKey && e.which == 70) {
+      var finnishPools = document.getElementById("finishPools")
+      finnishPools.click()
+    }
   }
 })

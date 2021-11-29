@@ -30,3 +30,14 @@ for (let index = 7; index > 3; index--) {
         }
     }
 }
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingIsFocused) {
+        if (e.shiftKey && e.which == 71) {
+            var generatePoolButton = document.querySelector(".stripe_button.primary")
+            generatePoolButton.click();
+        }
+    }
+})

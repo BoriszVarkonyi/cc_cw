@@ -314,23 +314,23 @@ if (isset($_POST["generate_table"])) {
                             <p>Message Fencer</p>
                             <img src="../assets/icons/message_black.svg" />
                         </button>
-                        <button class="stripe_button bold" type="button" onclick="printTable()">
+                        <button class="stripe_button bold" type="button" onclick="printTable()" id="printTableBt" shortcut="SHIFT+P">
                             <p>Print Table</p>
                             <img src="../assets/icons/print_black.svg" />
                         </button>
-                        <a class="stripe_button bold" href="print_match_reports.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                        <a class="stripe_button bold" href="print_match_reports.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printMatchReportsBt" shortcut="SHIFT+M">
                             <p>Print Match Reports</p>
                             <img src="../assets/icons/print_black.svg" />
                         </a>
-                        <button class="stripe_button bold" type="button" onclick="toggleResetTable()">
+                        <button class="stripe_button bold" type="button" onclick="toggleResetTable()" id="resetTableBt" shortcut="SHIFT+R">
                             <p>Reset Table</p>
                             <img src="../assets/icons/restart_alt_black.svg" />
                         </button>
-                        <a class="stripe_button primary" type="button" href="table_pistes_and_time_individual.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" type="button" href="table_pistes_and_time_individual.php?comp_id=<?php echo $comp_id ?>" id="pistesNTimeBt" shortcut="SHIFT+T">
                             <p>Pistes & Time</p>
                             <img src="../assets/icons/ballot_black.svg" />
                         </a>
-                        <a class="stripe_button primary" type="button" href="table_referees_individual.php?comp_id=<?php echo $comp_id ?>">
+                        <a class="stripe_button primary" type="button" href="table_referees_individual.php?comp_id=<?php echo $comp_id ?>" id="refereesBt" shortcut="SHIFT+E">
                             <p>Referees</p>
                             <img src="../assets/icons/ballot_black.svg" />
                         </a>
