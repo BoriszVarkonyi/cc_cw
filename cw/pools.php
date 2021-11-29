@@ -50,7 +50,11 @@
                     <div id="pool_listing">
                         <?php
                         if(!isset($fencers_table)) {
-                            echo "<h2>No pools set.</h2>";
+                            echo "<h2>No pools set yet.</h2>";
+                            echo "<p>Please look back later</p>";
+                        } else if(!isset($matches_table)) {
+                            echo "<h2>No matches set yet.</h2>";
+                            echo "<p>Please look back later</p>";
                         } else {
                         for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++) {
                             $current_pool = $fencers_table[$pool_num];
