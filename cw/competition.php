@@ -71,7 +71,7 @@
             <div id="title_stripe" class="big">
                 <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
-                <p class="stripe_title"><?php echo $comp_name ?></p>
+                <h1><?php echo $comp_name ?></h1>
                 <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                 </button>

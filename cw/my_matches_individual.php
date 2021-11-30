@@ -13,7 +13,7 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">My Matches</p>
+                <h1>My Matches</h1>
             </div>
             <div id="content_wrapper">
                 <div id="browsing_bar">

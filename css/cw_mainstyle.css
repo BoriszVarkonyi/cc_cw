@@ -141,7 +141,7 @@ footer {
 	}
 
 	#content_wrapper {
-		padding: 0 10px;
+		padding: 0 10px 30px;
 	}
 
 	.table .bookmark_button {
@@ -180,7 +180,7 @@ footer {
 	}
 
 	#content_wrapper {
-		padding: 0 10px;
+		padding: 0 10px 30px;
 	}
 
 	#browsing_bar > * {
@@ -203,7 +203,7 @@ footer {
 	}
 
 	#content_wrapper {
-		padding: 0 20px;
+		padding: 0 20px 30px;
 	}
 
 	#browsing_bar > * {
@@ -243,7 +243,7 @@ footer {
 	}
 
 	#content_wrapper {
-		padding: 0 40px;
+		padding: 0 40px 30px;
 	}
 
 	.table .bookmark_button {
@@ -271,7 +271,7 @@ footer {
 	}
 
 	#content_wrapper {
-		padding: 0 50px;
+		padding: 0 50px 30px;
 	}
 }
 
@@ -779,11 +779,13 @@ input[value="Search"]:hover {
 	padding: 30px 100px;
 }
 
-.stripe_title {
+h1 {
 	font-family: var(--bold);
 	font-size: var(--f-xlarge);
 	display: flex;
 	align-items: center;
+	line-height: 1.2;
+	margin: 0 !important;
 }
 
 #browsing_bar > a {
@@ -874,6 +876,7 @@ input[value="Search"]:hover {
 	flex-direction: column;
 	align-items: center;
 }
+
 
 #competition_controls button, .send_button, #competition_controls a {
 	font-family: var(--bold);
@@ -992,7 +995,7 @@ input[value="Search"]:hover {
 #page_info_wrapper {
 	width: 100%;
 	display: flex;
-	margin-top: 50px;
+	margin: 50px 0 30px;
 }
 
 #page_info_wrapper > div {
@@ -1507,11 +1510,18 @@ input[type="radio"]:checked + label .appointment {
 	background: var(--c-lightergray);
 	padding: 15px;
 	border: 2pt solid var(--c-gray);
-	border-left: 5pt solid var(--c-green);
 	box-shadow: var(--s-black);
 	border-radius: 5px;
 	box-sizing: border-box;
 	line-height: 1.2;
+}
+
+#weapon_control_info.green {
+	border-left: 5pt solid var(--c-green);
+}
+
+#weapon_control_info.red {
+	border-left: 5pt solid var(--c-red);
 }
 
 #fencer_name {
