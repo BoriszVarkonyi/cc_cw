@@ -22,5 +22,6 @@ if ($row = mysqli_fetch_assoc($result)) {
     $is_individual = $row['is_individual'];
 } else {
     echo mysqli_error($connection);
+    header("location: competition_view.php");
 }
 ?>
