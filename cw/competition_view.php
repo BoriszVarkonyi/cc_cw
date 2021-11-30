@@ -46,7 +46,7 @@
             <div id="content_wrapper" class="columns">
                 <div class="column">
                     <p class="column_title">Ongoing Competitions</p>
-                    <table class="cw">
+                    <table>
                         <thead>
                             <tr>
                                 <th><p>NAME</p></th>
@@ -103,7 +103,7 @@
                     <?php
                         $videoController = new VideoController();
                         $videos = $videoController->getVideos(5);
-                        
+
                         foreach($videos as $video) {
                         ?>
                             <!-- latest video placeholder -->

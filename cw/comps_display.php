@@ -1,4 +1,4 @@
-<table class="cw">
+<table>
     <thead>
         <tr>
             <th><p>COMPETITION'S NAME</p></th>

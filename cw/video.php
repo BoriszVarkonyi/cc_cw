@@ -22,12 +22,12 @@
     <main role="main" class="full">
         <div id="content" class="full">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <button class="back_button" onclick="window.history.back();" aria-label="Go back to previous page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </button>
                     Video From <?php echo $video->comp_name ?></p>
-                </p>
+                </h1>
             </div>
             <div id="content_wrapper" class="centered">
                 <div id="video">

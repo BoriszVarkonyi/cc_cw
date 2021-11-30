@@ -29,12 +29,12 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="rankings.php" aria-label="Go back to Rankings">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     <?php echo $comp_name . "'s ranking" ?>
-                </p>
+                </h1>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
@@ -43,7 +43,7 @@
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
-                <table class="cw">
+                <table>
                     <thead>
                         <tr>
                             <th><p>POSITION</p></th>

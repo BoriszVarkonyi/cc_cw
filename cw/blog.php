@@ -17,7 +17,7 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Blog</p>
+                <h1>Blog</h1>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">

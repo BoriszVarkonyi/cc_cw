@@ -71,12 +71,12 @@ if(isset($_POST["send_pre"])){
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     PRE-REGISTER FENCERS FOR <?php echo $comp_name ?>
-                </p>
+                </h1>
             </div>
             <form id="content_wrapper" method="POST" action="process_pre.php">
                 <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>

@@ -260,7 +260,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                         <div id="title_stripe_cw">
                             <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
 
-                            <p class="stripe_title"><?php echo $comp_name ?></p>
+                            <h1><?php echo $comp_name ?></h1>
                             <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                                 <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                             </button>

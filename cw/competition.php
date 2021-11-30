@@ -71,7 +71,7 @@
             <div id="title_stripe" class="big">
                 <img src="<?php echo $logo_path ?>" width="50" height="50" alt="<?php echo $comp_name ?>'s logo">
                 <form action="../cw/competition.php?comp_id=<?php echo $comp_id ?>" method="POST" class="big_status_item" id="fav_button"></form>
-                <p class="stripe_title"><?php echo $comp_name ?></p>
+                <h1><?php echo $comp_name ?></h1>
                 <button value="<?php echo $comp_id ?>" class="bookmark_button" onclick="favButton(this)">
                     <img src="../assets/icons/bookmark_border_black.svg" alt="Save Competition">
                 </button>
@@ -267,9 +267,14 @@
                         <div id="competition_controls" class="column_panel no_bottom">
                             <p class="column_panel_title">Fencer Controls:</p>
                             <div class="competition_controls_wrapper">
-                                <button onclick="location.href='my_matches_individual.php?comp_id=<?php echo $comp_id ?>'">My Matches</button>
-                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Weapon Control Report</button>
-                                <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Book Weapon Control</button>
+                                <!-- if not logegd in -->
+                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">Login</a>
+
+                                <!-- if logegd in -->
+                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
+                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
+                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
+                                <a href="" class="red">Log out</a>
                             </div>
                         </div>
                     </div>

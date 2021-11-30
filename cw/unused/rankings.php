@@ -15,7 +15,7 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Rankings</p>
+                <h1>Rankings</h1>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
@@ -24,7 +24,7 @@
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
-                <table class="cw">
+                <table>
                     <thead>
                         <tr>
                             <th>RANKINGS NAME</th>

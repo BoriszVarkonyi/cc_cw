@@ -144,6 +144,15 @@
 	overflow: hidden;
 	margin: 2px 0;
 	line-height: 1.5;
+}
+
+#call_room .elimination:nth-child(even) .table_round_info,
+.call_room .elimination:nth-child(even) .table_round_info {
+	background: var(--ct-secondary);
+}
+
+#call_room .elimination:nth-child(odd) .table_round_info,
+.call_room .elimination:nth-child(odd) .table_round_info {
 	background: var(--ct-primary);
 }
 

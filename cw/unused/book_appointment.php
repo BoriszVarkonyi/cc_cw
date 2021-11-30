@@ -40,12 +40,12 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     Book Appointment for Weapon Control of
-                </p>
+                </h1>
             </div>
             <div class="modal_wrapper hidden" id="modal_1">
                 <div class="modal">

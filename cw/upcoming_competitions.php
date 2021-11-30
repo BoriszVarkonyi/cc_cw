@@ -15,7 +15,7 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Upcoming competitions</p>
+                <h1>Upcoming competitions</h1>
             </div>
             <div id="content_wrapper">
             <form method="POST" id="browsing_bar">

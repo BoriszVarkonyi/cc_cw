@@ -16,7 +16,7 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Saved competitions</p>
+                <h1>Saved competitions</h1>
             </div>
             <div id="content_wrapper">
                 <div id="page_info_wrapper">
@@ -28,7 +28,7 @@
                         <p>These are only stored in your browser and will be deleted after the removal of <a href="https://www.allaboutcookies.org/cookies/">cookies</a>.</p>
                     </div>
                 </div>
-                <table class="cw middle">
+                <table>
                     <thead>
                         <tr>
                             <th><p>COMPETITION'S NAME</p></th>
