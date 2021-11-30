@@ -99,21 +99,20 @@ if (isset($_POST['cancel'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
     <title>CW Admin</title>
 </head>
 <body>
-    <h1>New article</h1>
-    <form action="" id="new_article" method="POST" enctype="multipart/form-data">
-    <input name="title" type="text" placeholder="title">
-    <br>
-    <textarea name="body" id="body" cols="30" rows="10" placeholder="ARTICLE BODY HERE"></textarea>
-    <p>image:</p>
-    <input name="fileToUpload" type="file" placeholder="upload file" id="fileToUpload">
-    <br>
-    <br>
-    <input type="submit" value="SAVE" name="submit">
-    <input type="submit" value="CANCEL" name="cancel">
-    <br>
-    <img src="image_while_dev\asdasdasd.gif">
+    <div class="basic_panel">
+        <h1>New article</h1>
+        <form action="" id="new_article" method="POST" enctype="multipart/form-data">
+        <input name="title" type="text" placeholder="title">
+        <textarea name="body" id="body" cols="30" rows="10" placeholder="ARTICLE BODY HERE"></textarea>
+        <label>IMAGE</label>
+        <input name="fileToUpload" type="file" placeholder="upload file" id="fileToUpload">
+        <input type="submit" value="SAVE" name="submit">
+        <input type="submit" value="CANCEL" name="cancel">
+    </div>
 </body>
 </html>

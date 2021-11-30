@@ -12,43 +12,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
     <title>CW Admin</title>
-
-    <style>
-img {
-  width: 200px;
-  height: 200px;
-  background: red;
-  animation: example 4s infinite;
-}
-
-@keyframes example {
-  0%   {background: red;
-        transform: rotate(0deg);
-        margin-left: 0px;
-        margin-top: 0px}
-  25%  {background: yellow;}
-  50%  {background: blue;
-        margin-left: 800px;
-        margin-top: 200px}
-  100% {background: green;
-        transform: rotate(360deg);
-        margin-left: 0px;
-        margin-top: 0px}
-}
-</style>
-
 </head>
 <body>
-<h1>Hi there <?php echo $username ?>!</h1>
-<h2>Blog control:</h2>
-<button><a href="new_article.php">New article</a></button>
-<button><a href="article_selector.php">Modify article</a></button>
-<h2>Video control:</h2>
-<button><a href="cw_add_video.php">Add video</a></button>
-<button><a href="cw_video_selector.php">Modify videos</a></button>
-<br><br>
-<img src="../article_pics/mao.jpg">
-
+      <h1>Hi there <?php echo $username ?>!</h1>
+      <div class="basic_panel">
+            <h2>Blog control:</h2>
+            <button><a href="new_article.php">New article</a></button>
+            <button><a href="article_selector.php">Modify article</a></button>
+            <h2>Video control:</h2>
+            <button><a href="add_video.php">Add video</a></button>
+            <button><a href="video_selector.php">Modify videos</a></button>
+      </div>
+      <img id="dictator_image" src="../article_pics/mao.jpg">
 </body>
 </html>

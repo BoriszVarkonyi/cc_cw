@@ -26,16 +26,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
+    <title>Add Video</title>
 </head>
 <body>
     <p><h1>Add video to videos as <?php echo $username ?></h1><p>
-    <form method="POST">
-        <input name="URL" type="text" placeholder="Put your youtube link here!"> <br>
-        <input name="title" type="text" placeholder="Put your video title here"><br>
-        <input name="comp_name" type="text" placeholder="Type the name of competition here!"><br>
-        <input name="prev_text" type="text" placeholder="Type your previes text here!"><br>
-        <input name="submit" type="submit" placeholder="Submit">
-    </form>
+    <div class="basic_panel">
+        <form method="POST">
+            <input name="URL" type="text" placeholder="Put your youtube link here!"> <br>
+            <input name="title" type="text" placeholder="Put your video title here"><br>
+            <input name="comp_name" type="text" placeholder="Type the name of competition here!"><br>
+            <input name="prev_text" type="text" placeholder="Type your previes text here!"><br>
+            <input name="submit" type="submit" placeholder="Submit">
+        </form>
+    </div>
 </body>
 </html>

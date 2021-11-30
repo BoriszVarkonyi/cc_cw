@@ -122,7 +122,7 @@
 
             $date = new DateTime();
             $date = $date->format("Y-m-d");
-            
+
             $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', WHERE id = '$id'";
             $do_update = mysqli_query($connection, $qry_update);
 
@@ -135,31 +135,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
     <title>CW Admin</title>
 </head>
 <body>
-<form method="POST" enctype="multipart/form-data">
-<h1>Article:</h1>
+    <div class="basic_panel">
+        <form method="POST" enctype="multipart/form-data">
+            <h1>Article:</h1>
+            <p>posted on:</p>
+            <p><?php echo $date ?></p>
+            <p>Author:<p>
+            <p><?php echo $author ?></p>
 
-<p>posted on:</p>
-<p><?php echo $date ?></p>
-<p>Author:<p>
-<p><?php echo $author ?></p>
-<br>
-<br>
-<input name="title" type="text" placeholder="Title here" value="<?php echo $title ?>">
-<br>
-<textarea name="body" id="" cols="30" rows="10" placeholder="ARTICLE BODY HERE"><?php echo $body ?></textarea>
-<p>image:</p>
-<img src="<?php echo $picture_path ?>"><img>
-<br></br>
-<input type="file" name="fileToUpload" placeholder="title">
-<br>
-<br>
-<input type="submit" value="Save" name="update">
-</form>
-<form method="POST">
-<input type="submit" name="delete" value="DELETE">
-</form>
+            <input name="title" type="text" placeholder="Title here" value="<?php echo $title ?>">
+            <textarea name="body" id="" cols="30" rows="10" placeholder="ARTICLE BODY HERE"><?php echo $body ?></textarea>
+
+            <label>IMAGE</label>
+            <img width="200" height="200" src="<?php echo $picture_path ?>"><img>
+            <input type="file" name="fileToUpload" placeholder="title">
+            <input type="submit" value="Save" name="update">
+        </form>
+        <form method="POST">
+            <input type="submit" name="delete" value="DELETE">
+        </form>
+    </div>
 </body>
 </html>

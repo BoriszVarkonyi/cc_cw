@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
 </head>
-<body id="barebone_body">
+<body>
     <div class="basic_panel">
         <p>An email has been sent to <strong>hunfencing@hunfencing.hu</strong> for verification!</p>
         <strong>Please check your emails and confirm your Pre-Registartion.</strong>
