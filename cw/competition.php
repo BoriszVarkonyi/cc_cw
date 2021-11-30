@@ -1,18 +1,10 @@
 <?php include "cw_comp_getdata.php"; ?>
 <?php include "../includes/db.php"; ?>
 <?php
-
-
-
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
     } else {
         $logo_path = "../assets/icons/delete_black.svg";
-    }
-    $qry_get_comp_data = "SELECT * FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
-    $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
-    if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
-
     }
 
     $qry_get_basic_info = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
