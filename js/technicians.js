@@ -10,4 +10,19 @@ function toggleImportPanel() {
     }
 }
 
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (e.shiftKey && e.which == 65) {
+            var addTechButton = document.getElementById("addTechBt")
+            addTechButton.click();
+        }
+        if (e.shiftKey && e.which == 80) {
+            var printTechButton = document.getElementById("printTechBt")
+            printTechButton.click();
+        }
+    }
+})
+
 

@@ -60,7 +60,7 @@
             <div id="title_stripe">
                 <p class="page_title">Informations for Fencers</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit">
+                    <button class="stripe_button primary" type="submit" form="information_for_fencers_form" name="submit" id="saveInformationBt" shortcut="SHIFT+S">
                         <p>Save Information</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>
