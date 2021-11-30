@@ -44,11 +44,11 @@
             <div id="title_stripe">
                 <p class="page_title">View Pools</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button primary" href="print_pool_matches.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton">
+                    <a class="stripe_button primary" href="print_pool_matches.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="printButton" shortcut="SHIFT+P">
                         <p>Print Pool Matches</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </a>
-                    <a class="stripe_button primary <?php echo $is_disabled ?>" href="pools_process.php?comp_id=<?php echo $comp_id ?>" target="_blank">
+                    <a class="stripe_button primary <?php echo $is_disabled ?>" href="pools_process.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="finishPools" shortcut="SHIFT+F">
                         <p>Finish Pools</p>
                         <img src="../assets/icons/save_black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
                     </a>

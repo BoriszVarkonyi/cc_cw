@@ -367,6 +367,7 @@ function toggleCompSelect() {
 
 //Disables hot keys when a text or input is focused
 var somethingIsFocused = false;
+var somethingisOpened = false;
 var textAreas = document.querySelectorAll("input, textarea")
 textAreas.forEach(item => {
     item.addEventListener("focus", function () {

@@ -68,6 +68,10 @@ document.addEventListener("keyup", function (e) {
             var addfencer = document.getElementById("addFencer")
             addfencer.click()
         }
+        if (e.shiftKey && e.which == 80) {
+            var printRegistrationButton = document.getElementById("printRegistrationBt")
+            printRegistrationButton.click()
+        }
         if (isselected) {
             //Regist out to Shift+O
             if (e.shiftKey && e.which == 79) {

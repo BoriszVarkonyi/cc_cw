@@ -549,3 +549,30 @@ function formValidation() {
         resetButton.disabled = true;
     }
 }
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (e.shiftKey && e.which == 80) {
+            var printButton = document.getElementById("printTableBt")
+            printButton.click();
+        }
+        if (e.shiftKey && e.which == 82) {
+            var resetTableButton = document.getElementById("resetTableBt")
+            resetTableButton.click();
+        } 
+        if (e.shiftKey && e.which == 84) {
+            var pistesNTimeButton = document.getElementById("pistesNTimeBt")
+            pistesNTimeButton.click();
+        } 
+        if (e.shiftKey && e.which == 77) {
+            var printMatchReportsButton = document.getElementById("printMatchReportsBt")
+            printMatchReportsButton.click();
+        } 
+        if (e.shiftKey && e.which == 69) {
+            var refereesButton = document.getElementById("refereesBt")
+            refereesButton.click();
+        } 
+    }
+})

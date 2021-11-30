@@ -436,23 +436,23 @@
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
 
-                    <button class="stripe_button bold" type="button" onclick="toggleRefPanel()">
+                    <button class="stripe_button bold" type="button" onclick="toggleRefPanel()" id="referees" shortcut="SHIFT+R">
                         <p>Referees</p>
                         <img src="../assets/icons/ballot_black.svg"/>
                     </button>
 
-                    <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()">
+                    <button class="stripe_button bold" type="button" onclick="togglePistTimePanel()" id="pistesNTimeBt" shortcut="SHIFT+T">
                         <p>Pistes & Time</p>
                         <img src="../assets/icons/ballot_black.svg"/>
                     </button>
 
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" id='printPools' shortcut="SHIFT+P">
                         <p>Print Pools</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
 
                     <form action="" method="POST">
-                        <button class="stripe_button primary" type="submit" name="start_pools">
+                        <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
                             <p>Start Pools</p>
                             <img src="../assets/icons/outlined_flag_black.svg"/>
                         </button>
@@ -460,7 +460,7 @@
 
                     <form method="POST" action="">
                         <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" readonly>
-                        <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit">
+                        <button class="stripe_button primary" name="save_pools" onclick="savePools()" type="submit" id="savePoolsBt" shortcut="SHIFT+S">
                             <p>Save Pools</p>
                             <img src="../assets/icons/save_black.svg"/>
                         </button>
