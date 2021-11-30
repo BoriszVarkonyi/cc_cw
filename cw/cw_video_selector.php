@@ -11,8 +11,12 @@
 <body>
     <h1>Select Video to modify:</h1>
     <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
         <?php
-            $qry_get_data = "SELECT * FROM cw_videos";
+            $qry_get_data = "SELECT title, author FROM cw_videos";
             $do_get_data = mysqli_query($connection, $qry_get_data);
 
             while ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -24,7 +28,7 @@
                 <a href="../cw/cw_modify_video.php?title=<?php echo $title ?>"><?php echo $title ?></a>
             </td>
             <td>
-                <p>Author: <?php echo $author ?></p>
+                <p><?php echo $author ?></p>
             </td>
         </tr>
         <?php

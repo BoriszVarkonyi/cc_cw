@@ -13,10 +13,15 @@
     <title>Select Article to modify</title>
 </head>
 <body>
-    <h1>Select Aritcle to modify:</h1>
+    <h1>Select Article to modify:</h1>
     <table style="width:100%">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Image</th>
+        </tr>
         <?php
-        $qry_get_articles = "SELECT * FROM cw_articles";
+        $qry_get_articles = "SELECT id, title, body, author FROM cw_articles";
         $do_get_articles = mysqli_query($connection, $qry_get_articles);
 
         while ($row = mysqli_fetch_assoc($do_get_articles)) {

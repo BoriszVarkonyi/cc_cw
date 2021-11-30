@@ -48,7 +48,7 @@ img {
 <button><a href="cw_add_video.php">Add video</a></button>
 <button><a href="cw_video_selector.php">Modify videos</a></button>
 <br><br>
-<img src="..\uploads\osama_bin_laden_PNG27.png">
+<img src="../article_pics/mao.jpg">
 
 </body>
 </html>
