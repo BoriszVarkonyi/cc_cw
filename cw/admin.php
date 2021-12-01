@@ -26,6 +26,6 @@
             <button><a href="add_video.php">Add video</a></button>
             <button><a href="video_selector.php">Modify videos</a></button>
       </div>
-      <img id="dictator_image" src="../article_pics/mao.jpg">
+      <img id="dictator_image" src="../article_pics/definitely_not_mao_ce_tung.jpg">
 </body>
 </html>
