@@ -73,22 +73,4 @@ document.addEventListener("keyup", function (keyDownEvent) {
             }
         }
     }
-    //searchBarClosed is a var. from search.js
-    //somethingisOpened is a var. from main.js
-    if (searchBarClosed && !somethingisOpened) {
-        //Opens to add tech. or refr. to Shift+A
-        if (keyDownEvent.shiftKey && keyDownEvent.which == 65) {
-            var orangeAddButton = document.querySelector(".stripe_button.orange")
-            orangeAddButton.click()
-        }
-        //Opens import panel to Shift+I
-        if (keyDownEvent.shiftKey && keyDownEvent.which == 73) {
-            var stripeButton = document.querySelector(".stripe_button")
-            stripeButton.click()
-        }
-        //Removes tech. or refr. to Shift+R
-        if (keyDownEvent.shiftKey && keyDownEvent.which == 82) {
-            removeButton.click()
-        }
-    }
 })

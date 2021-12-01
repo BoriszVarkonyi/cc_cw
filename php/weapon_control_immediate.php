@@ -66,7 +66,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
             <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
+                    <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg" />
                     </a>
@@ -74,12 +74,12 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         <p>Message Fencer</p>
                         <img src="../assets/icons/chat_black.svg" />
                     </button>
-                    <button class="stripe_button" type="button" onclick="window.print()">
+                    <button class="stripe_button" type="button" onclick="window.print()" id="printWeaponControlBt" shortcut="SHIFT+P">
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
                     <form id="add_weapon_control_form" method="POST" action="">
-                        <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit">
+                        <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
                             <p>Add weapon control</p>
                             <img src="../assets/icons/add_black.svg" />
                         </button>
