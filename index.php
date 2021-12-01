@@ -200,7 +200,7 @@ if (isset($_POST["submit"])) {
                 <p>For Organisers</p>
                 <a href="">CC Wheelchair</a>
                 <p>For Federations</p>
-                <a href="../cw/competition_view.php">Competition View</a>
+                <a href="../cw/index.php">Competition View</a>
             </div>
         </div>
     </div>
