@@ -36,7 +36,7 @@
         print_r($_FILES["fileToUpload"]);
         if ($title != "" && $body != "") {
 
-            if (isset($_FILES["fileToUpload"])) {
+            if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != null) {
 
                 $target_dir = "../article_pics/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -69,23 +69,25 @@
 
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
-
                 }
 
                 // Allow certain file formats
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-
                     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                     $uploadOk = 0;
-
                 }
 
-                if (unlink("../article_pics/$id.png")) {
-                    echo "The existing picture is deleted";
-                } else {
-                    echo "Could not find the image !";
-                    $uploadOk = 0;
+                /*
+                if(isset($_FILES["fileToUpload"])) {
+                    try{
+                        unlink("../article_pics/$id.png");
+                        echo "The existing picture is deleted";
+                    } catch (Exception $e) {
+                        echo "Error '$e'!";
+                        $uploadOk = 0;
+                    }
                 }
+                */
 
                 // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
@@ -120,13 +122,15 @@
 
             }
 
-            $date = new DateTime();
-            $date = $date->format("Y-m-d");
-
-            $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', WHERE id = '$id'";
-            $do_update = mysqli_query($connection, $qry_update);
-
             //header("Location: ../cw/admin.php");
+        }
+        $date = new DateTime();
+        $date = $date->format("Y-m-d");
+
+        $qry_update = "UPDATE cw_articles SET title='$title', body='$body', last_edit='$date' WHERE id = '$id';";
+        $do_update = mysqli_query($connection, $qry_update);
+        if(!$do_update) {
+            echo mysqli_error($connection);
         }
     }
 ?>
