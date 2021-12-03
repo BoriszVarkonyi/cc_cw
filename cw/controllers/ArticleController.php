@@ -31,7 +31,7 @@ class ArticleController {
     function getArticle($id) {
         $qry_get_article = "SELECT * FROM cw_articles WHERE id = '$id';";
         $do_get_articles = mysqli_query($this->dbConnection, $qry_get_article);
-        if($do_get_articles) {
+        if($do_get_articles && mysqli_num_rows($do_get_articles) != 0) {
             $row = mysqli_fetch_assoc($do_get_articles);
             return new Article($row);
         } else {

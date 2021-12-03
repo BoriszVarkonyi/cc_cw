@@ -6,6 +6,9 @@
 
     $articleController = new ArticleController();
     $article = $articleController->getArticle($id);
+    if(!$article) {
+        header("Location: blog.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
