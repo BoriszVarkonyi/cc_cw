@@ -52,6 +52,9 @@
             <input name="prev_text" type="text" value="<?php echo $prev_text ?>"><br>
             <input name="submit" type="submit" value="submit">
         </from>
+        <button>
+            <a href="video_selector.php">Go back</a>
+        </button>
     </div>
 </body>
 </html>

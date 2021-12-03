@@ -163,6 +163,9 @@
         <form method="POST">
             <input type="submit" name="delete" value="DELETE">
         </form>
+        <button>
+            <a href="article_selector.php">Go back</a>
+        </button>
     </div>
 </body>
 </html>
