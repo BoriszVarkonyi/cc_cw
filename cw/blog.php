@@ -43,7 +43,7 @@
                         <img src="<?php echo $article->pic ?>" alt="Article image">
                     <?php } ?>
                         <p class="article_title"><?php echo $article->title ?></p>
-                        <p class="article_brief"><?php echo $article->body ?></p>
+                        <p class="article_brief"><?php echo explode("\n", $article->body)[0] ?></p>
                         <div class="article_info">
                             <p>POSTED: <?php echo $article->date ?></p>
                             <p>BY: <?php echo $article->author ?></p>
