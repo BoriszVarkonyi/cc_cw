@@ -22,6 +22,16 @@ document.addEventListener("keyup", function (e) {
             var printTechButton = document.getElementById("printTechBt")
             printTechButton.click();
         }
+        if (e.shiftKey && e.which == 73) {
+            var importTechButton = document.getElementById("importTechBt")
+            importTechButton.click();
+        }
+        if(selectedItem !== null){
+            if (e.shiftKey && e.which == 82) {
+                var removeTechButton = document.getElementById("remove_technician_button")
+                removeTechButton.click();
+            }
+        }
     }
 })
 

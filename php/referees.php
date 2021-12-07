@@ -199,27 +199,27 @@ if (isset($_POST['submit_import'])) {
             <div id="title_stripe">
                 <p class="page_title">Referees</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button" href="import_referees.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button" href="import_referees.php?comp_id=<?php echo $comp_id ?>" id="importRfrsXMLBt"  shortcut="SHIFT+X">
                         <p>Import Referees from XML</p>
                         <img src="../assets/icons/save_alt_black.svg" />
                     </a>
-                    <button class="stripe_button" onclick="toggleImportPanel()">
+                    <button class="stripe_button" onclick="toggleImportPanel()" id="importRfrsBt" shortcut="SHIFT+I">
                         <p>Import Referees from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg" />
                     </button>
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" id="printRfrsBt" shortcut="SHIFT+P">
                         <p>Print Referees</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
-                    <a class="stripe_button primary" href="print_referee_cards.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="print_referee_cards.php?comp_id=<?php echo $comp_id ?>" id="printRfrCardBt" shortcut="SHIFT+C">
                         <p>Print Referee Cards</p>
                         <img src="../assets/icons/print_black.svg" />
                     </a>
-                    <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button">
+                    <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button" shortcut="SHIFT+R">
                         <p>Remove Referee</p>
                         <img src="../assets/icons/delete_black.svg" />
                     </button>
-                    <button class="stripe_button primary" onclick="toggleAddPanel()">
+                    <button class="stripe_button primary" onclick="toggleAddPanel()" id="addRfrBt" shortcut="SHIFT+A">
                         <p>Add Referees</p>
                         <img src="../assets/icons/add_black.svg" />
                     </button>

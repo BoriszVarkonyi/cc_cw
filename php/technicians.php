@@ -140,7 +140,7 @@
             <div id="title_stripe">
                 <p class="page_title">Technicians</p>
                 <div class="stripe_button_wrapper">
-                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggleImportPanel()" shortcut="SHIFT+I">
+                    <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggleImportPanel()" shortcut="SHIFT+I" id="importTechBt">
                         <p>Import Technicians from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </button>

@@ -3,7 +3,7 @@ document.addEventListener("keyup", function (e) {
     //somethingIsFocused is a var. from main.js
     if (!somethingIsFocused) {
         if (e.shiftKey && e.which == 83) {
-            var orangeSaveButton = document.querySelector(".stripe_button.orange")
+            var orangeSaveButton = document.getElementById("saveFormulaBt")
             orangeSaveButton.click()
         }
     }

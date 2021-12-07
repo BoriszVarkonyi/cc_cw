@@ -1,9 +1,10 @@
 var removeButton = document.querySelector(".stripe_button.red");
 removeButton.classList.add("disabled")
 removeButton.disabled = true;
+var selectedItem = document.querySelector("tbody .selected")
 //Event listener to class change
 function removeButtonDisabler() {
-    var selectedItem = document.querySelector("tbody .selected")
+    selectedItem = document.querySelector("tbody .selected")
     if (selectedItem !== null) {
         removeButton.disabled = false;
         removeButton.classList.remove("disabled")
