@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<?php include "../includes/functions.php" ?>
+<?php include "functions.php" ?>
 <?php include "db.php"; ?>
 <?php include "username_checker.php"; ?>
 <?php
@@ -53,10 +53,12 @@ if (isset($_POST["logout"])) {
 ?>
 
 <header>
-    <div id="app_name">
+    <div id="app_name" class="desktop_only">
         <p>Competition Control</p>
         <p>Alpha</p>
     </div>
+
+
     <?php
     if (isset($_GET['comp_id'])) {
     ?>
@@ -109,7 +111,7 @@ if (isset($_POST["logout"])) {
     <!-- language select drop-down -->
     <div id="language_panel" class="header_overlay_panel hidden">
         <div>
-            <button class="panel_button fixed" onclick="toggleLanguagePanel()">
+            <button class="panel_button fixed" onclick="toggleLanguagePanel()" name="Close panel">
                 <img src="../assets/icons/close_black.svg"/>
             </button>
         </div>
@@ -147,7 +149,7 @@ if (isset($_POST["logout"])) {
 
     <!-- colormode select drop-down -->
     <div id="colormode_panel" class="header_overlay_panel hidden">
-        <button class="panel_button" onclick="toggleColormodePanel()">
+        <button class="panel_button" onclick="toggleColormodePanel()" name="Close panel">
             <img src="../assets/icons/close_black.svg"/>
         </button>
         <div class="color_mode_wrapper" id="color_mode_wrapper">
@@ -181,11 +183,13 @@ if (isset($_POST["logout"])) {
     }
 
     ?>
-    <img src="<?php echo $profile_pic ?>" id="profile_picture" onclick="toggleProfilePanel()" height="30" width="30"/>
     <!-- profile data -->
     <div class="identity_section" onclick="toggleProfilePanel()">
-        <p id="username"><?php echo $username; ?></p>
-        <p id="role"><?php echo $role; ?></p>
+        <img src="<?php echo $profile_pic ?>" id="profile_picture" height="30" width="30"/>
+        <div>
+            <p id="username"><?php echo $username; ?></p>
+            <p id="role"><?php echo $role; ?></p>
+        </div>
     </div>
 
     <!-- profile panel drop-down -->
@@ -193,7 +197,7 @@ if (isset($_POST["logout"])) {
         <a class="panel_button left" href="your_profile.php" target="_blank" aria-label="Check and edit your profile" name="Edit profile">
             <img src="../assets/icons/edit_black.svg"/>
         </a>
-        <button class="panel_button" onclick="toggleProfilePanel()">
+        <button class="panel_button" onclick="toggleProfilePanel()" name="Close panel">
             <img src="../assets/icons/close_black.svg"/>
         </button>
         <img src="<?php echo $profile_pic ?>" class="profile_picture_big" height="55" width="55">

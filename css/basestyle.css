@@ -186,37 +186,57 @@ body, html {	/* Gives placeholder background and default font */
 }
 
 /* Extra small devices (phones, 532px and down) */
-@media only screen and (max-width: 440px) {
+@media only screen and (min-width: 0px) and (max-width: 440px) {
 	body, html {
-		font-size: 14px;
+		font-size: 13px;
+	}
+
+	.desktop_only {
+		display: none !important;
 	}
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 441px) and (max-width: 600px) {
 	body, html {
-		font-size: 14px;
+		font-size: 13px;
+	}
+
+	.desktop_only {
+		display: none !important;
 	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: 767px) {
 	body, html {
 		font-size: 14px;
+	}
+
+	.desktop_only {
+		display: none !important;
 	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
 	body, html {
 		font-size: 15px;
+	}
+
+	.mobile_only {
+		display: none !important;
 	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
 	body, html {
 		font-size: 15px;
+	}
+
+	.mobile_only {
+		display: none !important;
 	}
 }
 
@@ -225,11 +245,20 @@ body, html {	/* Gives placeholder background and default font */
 	body, html {
 		font-size: 16px;
 	}
+
+	.mobile_only {
+		display: none !important;
+	}
+
 }
 
 @supports (scroll-behavior: smooth) {
 	body, html {
 		scroll-behavior: smooth;
+	}
+
+	.mobile_only {
+		display: none !important;
 	}
 }
 
