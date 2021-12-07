@@ -15,8 +15,19 @@ if (isset($_POST['submit'])) {
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+        //Check if the new article is a duplicate
+        $qry_test = "SELECT title, body FROM `cw_articles` WHERE `body` = '$body' AND `title` = '$title'";
+        $do_test = mysqli_query($connection, $qry_test);
+
+        $row_num = mysqli_num_rows($do_test);
+
+        if ($row_num != FALSE) {
+            echo "<p>Sorry, an article with this title already exists!</p>";
+            $uploadOk = 0;
+        }
+
         // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
+        if(isset($_POST["submit"]) &&  $uploadOk == 1) {
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
@@ -27,34 +38,22 @@ if (isset($_POST['submit'])) {
             }
         }
 
-        //check for dupli articles
-        $qry_test = "SELECT * FROM `cw_articles` WHERE `body` = '$body' AND `title` = '$title'";
-        $do_test = mysqli_query($connection, $qry_test);
-
-        $row_num = mysqli_num_rows($do_test);
-
-        if ($row_num != FALSE) {
-            echo "Sorry, this is and existing article";
-            $uploadOk = 0;
-        }
 
         // Check file size
         if ($_FILES["fileToUpload"]["size"] > 500000) {
-            echo "Sorry, your file is too large.";
+            echo "<p>Sorry, your file is too large.</p>";
             $uploadOk = 0;
-
         }
 
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
             $uploadOk = 0;
-
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
+            echo "<p>Sorry, your file was not uploaded.</p>";
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -83,7 +82,7 @@ if (isset($_POST['submit'])) {
                 }
                 header("Location: ../cw/admin.php");
             } else {
-                echo "Sorry, there was an error uploading your file.";
+                echo "<p>Sorry, there was an error uploading your file.</p>";
             }
         }
     }
