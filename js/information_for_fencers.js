@@ -14,3 +14,12 @@ inputs.forEach(item => {
         inputValueLimiter(this, 5, 0)
     })
 })
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        var saveInformationButton = document.getElementById("saveInformationBt")
+        saveInformationButton.click()
+    }
+})

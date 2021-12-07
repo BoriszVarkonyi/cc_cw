@@ -1,6 +1,7 @@
 var wctable = document.querySelector("#page_content_panel_main tbody")
 var addWeaponControlButton = document.getElementById("wcButton")
 var sendMessageButton = document.getElementById("sendMessageButton")
+var isselected = false;
 addWeaponControlButton.disabled = true;
 sendMessageButton.disabled = true;
 addWeaponControlButton.classList.add("disabled")
@@ -12,12 +13,14 @@ function buttonDisabler() {
         sendMessageButton.disabled = false;
         addWeaponControlButton.classList.remove("disabled")
         sendMessageButton.classList.remove("disabled")
+        isselected = true
     }
     else {
         addWeaponControlButton.disabled = true;
         sendMessageButton.disabled = true;
         addWeaponControlButton.classList.add("disabled")
         sendMessageButton.classList.add("disabled")
+        isselected = false
     }
 }
 
@@ -41,14 +44,18 @@ wctable.addEventListener("click", buttonDisabler)
 document.addEventListener("keyup", function (e) {
     //somethingIsFocused is a var. from main.js
     if (!somethingIsFocused) {
+        if (e.shiftKey && e.which == 87) {
+            var weaponControlStatisticsButton = document.getElementById("weaponControlStatisticsBt")
+            weaponControlStatisticsButton.click()
+        }
         if (e.shiftKey && e.which == 80) {
-            var printRegistrationButton = document.getElementById("printRegistrationBt")
-            printRegistrationButton.click()
+            var printWeaponControlButton = document.getElementById("printWeaponControlBt")
+            printWeaponControlButton.click()
         }
         if (isselected) {
-            if (e.shiftKey && e.which == 68) {
-                var deleteFencerButton = document.getElementById("delete_fencer_button")
-                deleteFencerButton.click()
+            if (e.shiftKey && e.which == 65) {
+                var addWeaponControlButton = document.getElementById("wcButton")
+                addWeaponControlButton.click()
             }
         }
     }

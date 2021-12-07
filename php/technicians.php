@@ -144,7 +144,7 @@
                         <p>Import Technicians from Your Competitions</p>
                         <img src="../assets/icons/save_alt_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" id="printTechBt" shortcut="SHIFT+P">
                         <p>Print Technicians</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
@@ -152,7 +152,7 @@
                         <p>Remove Technician</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" onclick="toggleAddPanel()" shortcut="SHIFT+A">
+                    <button class="stripe_button primary" onclick="toggleAddPanel()" id="addTechBt" shortcut="SHIFT+A">
                         <p>Add Technician</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
@@ -389,12 +389,12 @@
     </div>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/technicians.js"></script>
     <script src="../js/technicans_referees.js"></script>
     <script src="../js/list_2.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/importoverlay.js"></script>
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/list_search_2.js"></script>
+    <script src="../js/technicians.js"></script>
 </body>
 </html>

@@ -6,6 +6,9 @@
 
     $articleController = new ArticleController();
     $article = $articleController->getArticle($id);
+    if(!$article) {
+        header("Location: blog.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +44,7 @@
                         <p><?php echo $article->date ?></p>
                     </div>
                     <div class="body">
-                        <p><?php echo $article->body ?></p>
+                        <p><?php echo str_replace("\n","<br/>",$article->body) ?></p>
                     </div>
                 </article>
             </div>

@@ -5,6 +5,9 @@
 
     $videoController = new VideoController();
     $video = $videoController->getVideoById($id);
+    if(!$video) {
+        header("Location: videos.php");
+    }
 ?>
 
 <!DOCTYPE html>

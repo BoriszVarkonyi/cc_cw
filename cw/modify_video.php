@@ -5,15 +5,15 @@
     $title = $_GET['title'];
     $date = date("Y/m/d");
 
-    $qry_get_data = "SELECT * FROM cw_videos WHERE title = '$title'";
+    $qry_get_data = "SELECT URL, author, prev, comp_name, title FROM cw_videos WHERE title = '$title'";
     $do_get_data = mysqli_query($connection, $qry_get_data);
 
     if ($row = mysqli_fetch_assoc($do_get_data)) {
         $url = $row['URL'];
-        $author = $row['author'];
-        $prev_text = $row['prev'];
-        $comp_name = $row['comp_name'];
         $title = $row['title'];
+        $comp_name = $row['comp_name'];
+        $prev_text = $row['prev'];
+        $author = $row['author'];
     }
 
     if (isset($_POST['submit'])) {
@@ -52,6 +52,9 @@
             <input name="prev_text" type="text" value="<?php echo $prev_text ?>"><br>
             <input name="submit" type="submit" value="submit">
         </from>
+        <button>
+            <a href="video_selector.php">Go back</a>
+        </button>
     </div>
 </body>
 </html>

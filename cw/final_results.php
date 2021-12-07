@@ -45,7 +45,7 @@
                             $competitors = $competitionController->getCompetitors();
                             $competitors = $competitionController->sortCompetitorsByRank($competitors);
                             if(count($competitors) == 0) {
-                                header("Location: ../competition_view.php");
+                                header("Location: ../index.php");
                             }
                             for($i = 0; $i < count($competitors); $i++) {
                         ?>
