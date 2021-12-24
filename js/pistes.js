@@ -115,16 +115,7 @@ function numberedPiste() {
     }
 
 }
-document.addEventListener("keyup", function (e) {
-    //somethingIsFocused is a var. from main.js
-    if (!somethingIsFocused) {
-        //Opens Add piste to Shift+A
-        if (e.shiftKey && e.which == 65) {
-            var orangeAddButton = document.querySelector(".stripe_button.orange")
-            orangeAddButton.click()
-        }
-    }
-})
+
 //Live buttom
 function liveButton(x) {
     var liveButton = x;
@@ -143,3 +134,14 @@ function closeLinkWrapper(x) {
     settingsWrapper.classList.remove("hidden");
     linkWrapper.classList.add("hidden")
 }
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (e.shiftKey && e.which == 65) {
+            var addPisteButton = document.getElementById("addPisteBt")
+            addPisteButton.click();
+        }
+    }
+})

@@ -81,3 +81,37 @@ clubAndNationInput.forEach(item => {
 })
 
 canAutoValidate = false
+
+
+document.addEventListener("keyup", function (e) {
+    //somethingisOpened is a var. from main.js
+    //somethingIsFocused is a var. from main.js
+    if (!somethingisOpened && !somethingIsFocused) {
+        if (e.shiftKey && e.which == 65) {
+            var addRfrButton = document.getElementById("addRfrBt")
+            addRfrButton.click();
+        }
+        if (e.shiftKey && e.which == 80) {
+            var printRfrsButton = document.getElementById("printRfrsBt")
+            printRfrsButton.click();
+        }
+        if (e.shiftKey && e.which == 73) {
+            var importRfrsButton = document.getElementById("importRfrsBt")
+            importRfrsButton.click();
+        }    
+        if (e.shiftKey && e.which == 88) {
+            var importRfrsXMLButton = document.getElementById("importRfrsXMLBt")
+            importRfrsXMLButton.click();
+        }      
+        if (e.shiftKey && e.which == 67) {
+            var printRfrCardButton = document.getElementById("printRfrCardBt")
+            printRfrCardButton.click();
+        }
+        if(selectedItem !== null){
+            if (e.shiftKey && e.which == 82) {
+                var removeRefButton = document.getElementById("remove_technician_button")
+                removeRefButton.click();
+            }
+        }
+    }
+})

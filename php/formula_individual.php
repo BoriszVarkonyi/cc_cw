@@ -105,7 +105,7 @@
             <div id="title_stripe">
                 <p class="page_title">Formula</p>
                 <div class="stripe_button_wrapper">
-                    <button name="submit_form" form="save_form" class="stripe_button primary" type="submit" shortcut="SHIFT+S">
+                    <button name="submit_form" form="save_form" class="stripe_button primary" id="saveFormulaBt" type="submit" shortcut="SHIFT+S">
                         <p>Save Formula</p>
                         <img src="../assets/icons/save_black.svg"/>
                     </button>

@@ -220,7 +220,7 @@ if (isset($_POST["allow_connect"])) {
             <div id="title_stripe">
                 <p class="page_title">Pistes</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button primary" onclick="toggleAddPistePanel()">
+                    <button class="stripe_button primary" onclick="toggleAddPistePanel()" id="addPisteBt" shortcut="SHIFT+A">
                         <p>Add Piste</p>
                         <img src="../assets/icons/add_black.svg" />
                     </button>

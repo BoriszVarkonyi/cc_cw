@@ -185,6 +185,8 @@ if (isset($_POST["submit"])) {
                     <label for="a">I am an organiser</label>
                     <input type="radio" name="role" id="b" value="2"/>
                     <label for="b">I am a technician</label>
+                    <input type="radio" name="role" id="c" value="3"/>
+                    <label for="c">I am a referee</label>
                 </div>
                 <input type="submit" name="submit" value="Login" class="login_button">
             </form>
