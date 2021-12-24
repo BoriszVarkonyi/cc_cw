@@ -2,7 +2,7 @@
 <?php include "../includes/functions.php" ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php
-    $id = $_GET['id'];
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $articleController = new ArticleController();
     $article = $articleController->getArticle($id);

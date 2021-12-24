@@ -1,7 +1,7 @@
 <?php include "../includes/db.php" ?>
 <?php include "./controllers/VideoController.php" ?>
 <?php
-    $id = $_GET['vid_id'];
+    $id = filter_input(INPUT_GET, 'vid_id', FILTER_SANITIZE_NUMBER_INT);
 
     $videoController = new VideoController();
     $video = $videoController->getVideoById($id);

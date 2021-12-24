@@ -3,7 +3,8 @@
 <?php include "../includes/cw_username_checker.php" ?>
 <?php
     //get article by id
-    $id = $_GET['article_id'];
+    $id = filter_input(INPUT_GET, 'article_id', FILTER_SANITIZE_NUMBER_INT);
+
 
     $qry_get_article = "SELECT * FROM `cw_articles` WHERE `id` = '$id'";
     $do_get_article = mysqli_query($connection, $qry_get_article);
