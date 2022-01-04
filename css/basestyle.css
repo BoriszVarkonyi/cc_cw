@@ -185,6 +185,11 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
+tr {	/* Gives placeholder background and default font */
+	content-visibility: auto !important;
+	contain-intrinsic-size: calc(1.4em + 1.25vmin);
+}
+
 /* Extra small devices (phones, 532px and down) */
 @media only screen and (min-width: 0px) and (max-width: 440px) {
 	body, html {
@@ -322,12 +327,6 @@ form.hidden, form.disabled {
 
 .modal_wrapper.hidden {
 	display: none;
-}
-
-.bg_fencers {
-	background-image: var(--i-fencers-bg);
-	background-size: cover;
-	background-position: center center;
 }
 
 /*

@@ -33,7 +33,7 @@ if (isset($_POST["create_tournament"])) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 
-<body class="bg_fencers">
+<body class="fencers">
     <?php include "../includes/headerburger.php"; ?>
     <!-- header -->
     <div class="panel">

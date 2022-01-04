@@ -20,7 +20,7 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-<body class="bg_fencers">
+<body class="fencers">
     <?php include "../includes/headerburger.php" ?>
     <div class="panel">
         <div id="title_stripe">

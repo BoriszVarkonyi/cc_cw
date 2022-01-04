@@ -1,5 +1,85 @@
 /* Login Screen */
 
+/* Extra small devices (phones, 532px and down) */
+@media only screen and (min-width: 0px) and (max-width: 440px) {
+	#login_panel {
+		width: 100vw;
+		height: calc(100vh - 5rem);
+		margin-top: 5rem;
+	}
+
+	#login_links_wrapper {
+		top: 1rem;
+		right: unset;
+	}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 441px) and (max-width: 600px) {
+	#login_panel {
+		width: 100vw;
+		height: 100vh;
+		height: calc(100vh - 5rem);
+		margin-top: 5rem;
+	}
+
+	#login_links_wrapper {
+		top: 1rem;
+		right: unset;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+	#login_links_wrapper {
+		top: 1rem;
+		right: unset;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	#login_links_wrapper {
+		top: 1rem;
+		right: 2rem;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+	#login_links_wrapper {
+		top: 1rem;
+		right: 2rem;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	body.fencers {
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	#login_panel {
+		margin: 2rem;
+	}
+
+	#login_links_wrapper {
+		top: 1rem;
+		right: 2rem;
+	}
+}
+
+#login_panel {		/* Login panel used on login page */
+	position: relative;
+	z-index: 1;
+}
+
+#login_panel #panel_main {		/* The main part of the panel it is under the title_stripe*/
+	padding: 0 50px;
+}
+
 #copyright_text {		/* Name and version text used on login page*/
 	font-size: var(--f-small);
 	font-family: var(--bold);
@@ -7,18 +87,20 @@
 	bottom: 10px;
 	right: 10px;
 	margin: 0;
+	z-index: 2;
 }
 
 #login_links_wrapper {
 	position: absolute;
-	top: 10px;
-	right: 10px;
 	display: flex;
 	align-items: flex-start;
+	height: 3rem;
 }
 
 .login_link_wrapper {
-	margin-left: 10px;
+	width: 100%;
+	height: 100%;
+	margin-left: 0.5rem;
 }
 
 /* Needs to be button or it will get messed up */
@@ -27,9 +109,11 @@
 	color: var(--c-white);
 	text-transform: uppercase;
 	transition: var(--t-basic);
-	padding: 10px;
+	height: 100%;
 	width: 100%;
 	border-radius: 5px;
+	padding: 0 10px;
+	line-height: 1.2;
 }
 
 .login_link_button:hover {

@@ -1789,6 +1789,77 @@ nav.closed #documentation_label img {
 
 /* Small Pages */
 
+/* Extra small devices (phones, 532px and down) */
+@media only screen and (min-width: 0px) and (max-width: 440px) {
+	.panel {		/* Sets size and position of name panels */
+		width: 100vw;
+		height: calc(100vh - 2.5rem);
+		max-height: calc(100vh - 2.5rem);
+	}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 441px) and (max-width: 600px) {
+	.panel {		/* Sets size and position of name panels */
+		width: 100vw;
+		height: calc(100vh - 2.5rem);
+		max-height: calc(100vh - 2.5rem);
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+	.panel {		/* Sets size and position of name panels */
+		width: 100vw;
+		max-height: calc(100vh - 2.5rem);
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.panel {		/* Sets size and position of name panels */
+		min-width: 650px;
+		min-height: 450px;
+		max-width: 1300px;
+		max-height: 700px;
+		width: 60vw;
+		height: 50vh;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.panel {		/* Sets size and position of name panels */
+		min-width: 650px;
+		min-height: 450px;
+		max-width: 1300px;
+		max-height: 700px;
+		width: 60vw;
+		height: 50vh;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.panel {		/* Sets size and position of name panels */
+		min-width: 650px;
+		min-height: 450px;
+		max-width: 1300px;
+		max-height: 700px;
+		width: 60vw;
+		height: 50vh;
+	}
+}
+
+body.fencers {
+	background-image: var(--i-fencers-bg);
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .panel, #login_panel {		/* Sets basic attributes of a panel */
 	display: flex;
 	flex-flow: column;
@@ -1799,16 +1870,8 @@ nav.closed #documentation_label img {
 	overflow: hidden;
 }
 
-.panel {		/* Sets size and position of name panels */
-	min-width: 650px;
-	min-height: 450px;
-	max-width: 1300px;
-	max-height: 700px;
-	width: 60vw;
-	height: 50vh;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.panel {
+	margin-top: 2.5rem;
 }
 
 #panel_main {		/* The main part of the panel it is under the title_stripe*/
@@ -1826,10 +1889,6 @@ nav.closed #documentation_label img {
 
 #panel_main > * {		/* The main part of the panel it is under the title_stripe*/
 	margin: 50px 0;
-}
-
-#login_panel #panel_main {		/* The main part of the panel it is under the title_stripe*/
-	padding: 0 50px;
 }
 
 /* ///FORMS AND INPUTS/// */
@@ -2119,15 +2178,6 @@ input[type="file"] {
 
 .overlay_panel_division > *:last-child {
 	margin-bottom: 0 !important;
-}
-
-/* ///LOGIN PAGE ELEMENTS/// */
-
-#login_panel {		/* Login panel used on login page */
-	position: absolute;
-	left: 2em;
-	top: 2em;
-	z-index: 1;
 }
 
 /* ///PROFILE PANEL ELEMENTS/// */

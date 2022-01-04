@@ -48,7 +48,7 @@ $query_comps = mysqli_query($connection, $query);
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-<body class="bg_fencers">
+<body class="fencers">
     <?php include "../includes/headerburger.php" ?>
     <div class="panel">
         <div id="title_stripe">

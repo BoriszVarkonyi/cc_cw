@@ -86,7 +86,7 @@ if (isset($_POST["new_weapon_control"])) {
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-<body class="bg_fencers">
+<body class="fencers">
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
             <div class="modal_header red">

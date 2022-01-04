@@ -163,7 +163,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/login_style.min.css">
 </head>
-<body class="bg_fencers">
+<body class="fencers">
     <div id="login_panel">
         <div id="title_stripe">
             <p class="page_title">Login</p>
@@ -207,6 +207,7 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 
+    <!--
     <div id="apps">
         <div class="app_wrapper current" onclick="chooseApp(this)">
             <p>Competition Control</p>
@@ -216,6 +217,8 @@ if (isset($_POST["submit"])) {
             <button>OPEN</button>
         </div>
     </div>
+     -->
+
 
     <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
     <script src="/js/login.js"></script>
