@@ -2,7 +2,7 @@
 <?php include "../includes/functions.php"; ?>
 
 <?php
-$comp_id = $_GET['comp_id'];
+$comp_id = filter_input(INPUT_GET, 'comp_id', FILTER_SANITIZE_NUMBER_INT);
 
 //query for selecting relevant competition for display
 $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
