@@ -266,7 +266,7 @@
                                 <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
                                 <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
                                 <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
-                                <a href="" class="red">Log out</a>
+                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>&log_out=1" class="red">Log out</a>
                             </div>
                         </div>
                     </div>

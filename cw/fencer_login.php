@@ -1,8 +1,15 @@
 <?php include "../includes/db.php" ?>
 <?php include "cw_comp_getdata.php" ?>
 <?php
-    //check if fencer is already logged in
     session_start();
+
+    //log out
+    if(isset($_GET['log_out'])) {
+        session_destroy();
+        header("Location: competition.php?comp_id=$comp_id");
+    }
+
+    //check if fencer is already logged in
     if(isset($_SESSION["fencer_name"])) {
         echo "<h1>Already logged in!</h1>";
         header("Location: my_matches_individual.php");
