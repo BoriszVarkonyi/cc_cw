@@ -2,7 +2,7 @@
 <?php include '../includes/cw_username_checker.php'; ?>
 
 <?php
-    $title = $_GET['title'];
+    $title = filter_input(INPUT_GET, 'title', FILTER_SANITIZE_STRING);
     $date = date("Y/m/d");
 
     $qry_get_data = "SELECT URL, author, prev, comp_name, title FROM cw_videos WHERE title = '$title'";

@@ -1,3 +1,28 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["fencer_id"])) {
+        session_destroy();
+        header("Location: index.php");
+    }
+
+    include "db.php";
+
+    $matches = array();
+    
+    $comp_id = $_SESSION["comp_id"];
+    $qry_get_matches = "SELECT matches FROM pools WHERE assoc_comp_id = $comp_id";
+    $do_get_matches = mysqli_query($connection, $qry_get_matches);
+    if($rows = mysqli_fetch_assoc($do_get_matches)) {
+        $rows = json_decode($rows["matches"]);
+        foreach($rows as $row) {
+            //echo json_encode($row) . "<br>";
+        }
+    } else {
+        echo "ERROR " . mysqli_error($connection);
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

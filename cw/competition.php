@@ -260,7 +260,7 @@
                             <p class="column_panel_title">Fencer Controls:</p>
                             <div class="competition_controls_wrapper">
                                 <!-- if not logegd in -->
-                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">Login</a>
+                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>">Login</a>
 
                                 <!-- if logegd in -->
                                 <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
