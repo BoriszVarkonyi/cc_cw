@@ -1,4 +1,4 @@
-<?php include "../includes/db.php" ?>
+<?php include "db.php" ?>
 <?php include "cw_comp_getdata.php" ?>
 <?php
     session_start();

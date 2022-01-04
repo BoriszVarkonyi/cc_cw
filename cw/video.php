@@ -1,4 +1,4 @@
-<?php include "../includes/db.php" ?>
+<?php include "db.php" ?>
 <?php include "./controllers/VideoController.php" ?>
 <?php
     $id = filter_input(INPUT_GET, 'vid_id', FILTER_SANITIZE_NUMBER_INT);

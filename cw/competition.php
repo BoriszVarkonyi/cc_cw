@@ -1,5 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php include "../includes/db.php"; ?>
+<?php include "db.php"; ?>
 <?php
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";

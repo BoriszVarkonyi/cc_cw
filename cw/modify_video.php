@@ -1,4 +1,4 @@
-<?php include '../includes/db.php'; ?>
+<?php include "db.php"; ?>
 <?php include '../includes/cw_username_checker.php'; ?>
 
 <?php
