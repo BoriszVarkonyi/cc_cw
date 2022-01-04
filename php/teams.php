@@ -103,23 +103,23 @@
                         <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
                     </form>
 
-                    <a class="stripe_button" href="import_teams.php?comp_id=<?php echo $comp_id ?>&type=team">
+                    <a class="stripe_button" href="import_teams.php?comp_id=<?php echo $comp_id ?>&type=team" shortcut="SHIFT+I" id="import_teams_XML_bt">
                         <p>Import Teams from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
-                    <button class="stripe_button red" name="remove_team" type="submit" form="remove_team_form">
+                    <button class="stripe_button red" name="remove_team" type="submit" form="remove_team_form" shortcut="SHIFT+R" id="remove_team_bt">
                         <p>Remove Team</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" type="button" onclick="toggleAddTeamPanel()">
+                    <button class="stripe_button primary" type="button" onclick="toggleAddTeamPanel()" shortcut="SHIFT+A" id="add_team_bt">
                         <p>Add Team</p>
                         <img src="../assets/icons/add_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" href="team_order_reports.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="team_order_reports.php?comp_id=<?php echo $comp_id ?>" shortcut="SHIFT+O" id="teams_order_reports_bt">
                         <p>Teams Order Reports</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
-                    <a class="stripe_button primary" href="assign_fencers_to_teams.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button primary" href="assign_fencers_to_teams.php?comp_id=<?php echo $comp_id ?>" shortcut="SHIFT+T" id="assign_fencers_to_teams_bt">
                         <p>Assign Fencers to Teams</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>

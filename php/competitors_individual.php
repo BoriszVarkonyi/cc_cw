@@ -371,6 +371,6 @@
     <script src="../js/overlay_panel.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
-    <script src="../js/competitors.js"></script>
+    <script src="../js/competitors_individual.js"></script>
 </body>
 </html>

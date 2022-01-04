@@ -144,26 +144,26 @@
             <div id="title_stripe">
                 <p class="page_title">Competitors</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button disabled" type="button">
+                    <button class="stripe_button disabled" type="button" shortcut="SHIFT+M" id="mssgFencerBt">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/message_black.svg"/>
                     </button>
                     <form action="" method="POST" id="IDE KELL A FORM IDJE">
                         <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
                     </form>
-                    <button class="stripe_button red" name="remove_fencer" type="submit" form="IDE KELL A FORM IDJE">
+                    <button class="stripe_button red" name="remove_fencer" type="submit" form="IDE KELL A FORM IDJE" shortcut="SHIFT+R" id="removeFencerBt">
                         <p>Remove Fencer</p>
                         <img src="../assets/icons/delete_black.svg"/>
                     </button>
-                    <button class="stripe_button primary" type="button" onclick="window.print()">
+                    <button class="stripe_button primary" type="button" onclick="window.print()" shortcut="SHIFT+P" id="printCompBt">
                         <p>Print Competitors</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
-                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=team">
+                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=team"  shortcut="SHIFT+X" id="importCompXMLBt">
                         <p>Import Competitors from XML</p>
                         <img src="../assets/icons/get_app_black.svg"/>
                     </a>
-                    <button class="stripe_button primary" type="button" onclick="toggleImportPanel()">
+                    <button class="stripe_button primary" type="button" onclick="toggleImportPanel()"  shortcut="SHIFT+I" id="importCompBt">
                         <p>Import Competitors from Competition</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
@@ -448,6 +448,6 @@
     <script src="../js/list_2.js"></script>
     <script src="../js/controls_2.js"></script>
     <script src="../js/list_search_2.js"></script>
-    <script src="../js/competitors.js"></script>
+    <script src="../js/competitors_team.js"></script>
 </body>
 </html>
