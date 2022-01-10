@@ -10,9 +10,10 @@
     $matches = array();
     
     $comp_id = $_SESSION["comp_id"];
-    $qry_get_matches = "SELECT matches FROM pools WHERE assoc_comp_id = $comp_id";
+    $qry_get_matches = "SELECT fencers, matches FROM pools WHERE assoc_comp_id = $comp_id";
     $do_get_matches = mysqli_query($connection, $qry_get_matches);
     if($rows = mysqli_fetch_assoc($do_get_matches)) {
+        $fencers_data = json_decode($rows["fencers"]);
         $rows = json_decode($rows["matches"]);
 
         //add matches that the fencer is going to play to $matches array
@@ -25,7 +26,6 @@
                     else if($entity->enemy == $_SESSION["fencer_id"]) {
                         array_push($matches, $entity);
                     }
-                    //echo "<h5>". json_encode($entity) . "</h5>";
                 }
             }
         }
@@ -125,24 +125,21 @@
                         $fencer_name = "";
                         $opponent_name = "";
 
-                        $qry_get_names = "SELECT data FROM competitors WHERE assoc_comp_id = $comp_id;";
-                        $do_get_names = mysqli_query($connection, $qry_get_names);
-
-                        if($rows = mysqli_fetch_assoc($do_get_names)) {
-                            $rows = json_decode($rows["data"]);
-                            foreach($rows as $row) {
-                                if($_SESSION["fencer_id"] == $row->id) {
-                                    $fencer_name = $row->prenom . " " . $row->nom;
-                                }
-                                else if($match->id == $row->id) {
-                                    $opponent_name = $row->prenom . " " . $row->nom;
-                                }
-                                else if($match->enemy == $row->id) {
-                                    $opponent_name = $row->prenom . " " . $row->nom;
+                        if(isset($fencers_data)) {
+                            foreach($fencers_data as $row) {
+                                if($row == null) continue;
+                                foreach($row as $item) {
+                                    if(isset($item->id) && $_SESSION["fencer_id"] == $item->id) {
+                                        $fencer_name = $item->prenom_nom;
+                                    }
+                                    else if(isset($item->id) && $match->id == $item->id) {
+                                        $opponent_name = $item->prenom_nom;
+                                    }
+                                    else if(isset($item->id) && $match->enemy == $item->id) {
+                                        $opponent_name = $item->prenom_nom;
+                                    }
                                 }
                             }
-                        } else {
-                            echo mysqli_error($connection);
                         }
                 ?>
                     <div class="match">
