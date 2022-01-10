@@ -14,8 +14,20 @@
     $do_get_matches = mysqli_query($connection, $qry_get_matches);
     if($rows = mysqli_fetch_assoc($do_get_matches)) {
         $rows = json_decode($rows["matches"]);
+
+        //add matches that the fencer is going to play to $matches array
         foreach($rows as $row) {
-            //echo json_encode($row) . "<br>";
+            foreach($row as $item) {
+                foreach($item as $entity) {
+                    if($entity->id == $_SESSION["fencer_id"]) {
+                        array_push($matches, $entity);
+                    }
+                    else if($entity->enemy == $_SESSION["fencer_id"]) {
+                        array_push($matches, $entity);
+                    }
+                    //echo "<h5>". json_encode($entity) . "</h5>";
+                }
+            }
         }
     } else {
         echo "ERROR " . mysqli_error($connection);
@@ -108,6 +120,9 @@
                     </div>
                 </div>
                 <div id="matches_wrapper">
+                <?php 
+                    foreach($matches as $match) {
+                ?>
                     <div class="match">
                         <div class="match_header upcoming">
                             <p>UPCOMING</p>
@@ -119,7 +134,15 @@
                         <div class="match_content">
                             <div>
                                 <p>OPPONENT:</p>
-                                <p>Name</p>
+                                <p>
+                                    <?php
+                                        if($match->id == $_SESSION["fencer_id"]) {
+                                            echo $match->enemy;
+                                        } else {
+                                            echo $match->id;
+                                        }
+                                    ?>
+                                </p>
                             </div>
                             <div>
                                 <p>TABLE:</p>
@@ -133,131 +156,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="match">
-                        <div class="match_header upcoming">
-                            <p>UPCOMING</p>
-                        </div>
-                        <div class="match_data">
-                            <p>11:40</p>
-                            <p>{piste name} PISTE</p>
-                        </div>
-                        <div class="match_content">
-                            <div>
-                                <p>OPPONENT:</p>
-                                <p>Name</p>
-                            </div>
-                            <div>
-                                <p>TABLE:</p>
-                                <p>t32</p>
-                            </div>
-                            <!-- IF FINISHED -->
-                            <div>
-                                <p>RESULTS:</p>
-                                <p class="winner">{Logged in fencer} - {score}</p>
-                                <p>{Opponent} - {score}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match_header upcoming">
-                            <p>UPCOMING</p>
-                        </div>
-                        <div class="match_data">
-                            <p>11:40</p>
-                            <p>{piste name} PISTE</p>
-                        </div>
-                        <div class="match_content">
-                            <div>
-                                <p>OPPONENT:</p>
-                                <p>Name</p>
-                            </div>
-                            <div>
-                                <p>TABLE:</p>
-                                <p>t32</p>
-                            </div>
-                            <!-- IF FINISHED -->
-                            <div>
-                                <p>RESULTS:</p>
-                                <p class="winner">{Logged in fencer} - {score}</p>
-                                <p>{Opponent} - {score}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match_header upcoming">
-                            <p>UPCOMING</p>
-                        </div>
-                        <div class="match_data">
-                            <p>11:40</p>
-                            <p>{piste name} PISTE</p>
-                        </div>
-                        <div class="match_content">
-                            <div>
-                                <p>OPPONENT:</p>
-                                <p>Name</p>
-                            </div>
-                            <div>
-                                <p>TABLE:</p>
-                                <p>t32</p>
-                            </div>
-                            <!-- IF FINISHED -->
-                            <div>
-                                <p>RESULTS:</p>
-                                <p class="winner">{Logged in fencer} - {score}</p>
-                                <p>{Opponent} - {score}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match_header upcoming">
-                            <p>UPCOMING</p>
-                        </div>
-                        <div class="match_data">
-                            <p>11:40</p>
-                            <p>{piste name} PISTE</p>
-                        </div>
-                        <div class="match_content">
-                            <div>
-                                <p>OPPONENT:</p>
-                                <p>Name</p>
-                            </div>
-                            <div>
-                                <p>TABLE:</p>
-                                <p>t32</p>
-                            </div>
-                            <!-- IF FINISHED -->
-                            <div>
-                                <p>RESULTS:</p>
-                                <p class="winner">{Logged in fencer} - {score}</p>
-                                <p>{Opponent} - {score}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match_header upcoming">
-                            <p>UPCOMING</p>
-                        </div>
-                        <div class="match_data">
-                            <p>11:40</p>
-                            <p>{piste name} PISTE</p>
-                        </div>
-                        <div class="match_content">
-                            <div>
-                                <p>OPPONENT:</p>
-                                <p>Name</p>
-                            </div>
-                            <div>
-                                <p>TABLE:</p>
-                                <p>t32</p>
-                            </div>
-                            <!-- IF FINISHED -->
-                            <div>
-                                <p>RESULTS:</p>
-                                <p class="winner">{Logged in fencer} - {score}</p>
-                                <p>{Opponent} - {score}</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php  } ?>
                 </div>
             </div>
         </div>

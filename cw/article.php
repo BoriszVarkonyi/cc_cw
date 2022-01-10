@@ -40,7 +40,7 @@
                         <img src="<?php echo $article->pic ?>" alt="Article image">
                     <?php } ?>
                     <div class="info">
-                        <p><?php echo "By:" . $article->author ?></p>
+                        <p><?php echo "By: " . $article->author ?></p>
                         <p><?php echo $article->date ?></p>
                     </div>
                     <div class="body">
