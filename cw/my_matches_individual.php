@@ -122,6 +122,28 @@
                 <div id="matches_wrapper">
                 <?php 
                     foreach($matches as $match) {
+                        $fencer_name = "";
+                        $opponent_name = "";
+
+                        $qry_get_names = "SELECT data FROM competitors WHERE assoc_comp_id = $comp_id;";
+                        $do_get_names = mysqli_query($connection, $qry_get_names);
+
+                        if($rows = mysqli_fetch_assoc($do_get_names)) {
+                            $rows = json_decode($rows["data"]);
+                            foreach($rows as $row) {
+                                if($_SESSION["fencer_id"] == $row->id) {
+                                    $fencer_name = $row->prenom . " " . $row->nom;
+                                }
+                                else if($match->id == $row->id) {
+                                    $opponent_name = $row->prenom . " " . $row->nom;
+                                }
+                                else if($match->enemy == $row->id) {
+                                    $opponent_name = $row->prenom . " " . $row->nom;
+                                }
+                            }
+                        } else {
+                            echo mysqli_error($connection);
+                        }
                 ?>
                     <div class="match">
                         <div class="match_header upcoming">
@@ -134,15 +156,7 @@
                         <div class="match_content">
                             <div>
                                 <p>OPPONENT:</p>
-                                <p>
-                                    <?php
-                                        if($match->id == $_SESSION["fencer_id"]) {
-                                            echo $match->enemy;
-                                        } else {
-                                            echo $match->id;
-                                        }
-                                    ?>
-                                </p>
+                                <p><?php echo $opponent_name; ?></p>
                             </div>
                             <div>
                                 <p>TABLE:</p>
@@ -151,8 +165,15 @@
                             <!-- IF FINISHED -->
                             <div>
                                 <p>RESULTS:</p>
-                                <p class="winner">{Logged in fencer} - {score}</p>
-                                <p>{Opponent} - {score}</p>
+                                <?php 
+                                    if($match->id == $_SESSION["fencer_id"]) {
+                                        echo  "<p class='winner'>" . $fencer_name . " - " . $match->given . "</p>";
+                                        echo "<p>" . $opponent_name . " - " . $match->gotten . "</p>";
+                                    } else {
+                                        echo  "<p class='winner'>" . $fencer_name . " - " . $match->gotten . "</p>";
+                                        echo "<p>" . $opponent_name . " - " . $match->given . "</p>";
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
