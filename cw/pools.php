@@ -12,7 +12,7 @@
 </head>
 
 <body class="competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
@@ -211,7 +211,7 @@
                 </div>
             </div>
     </main>
-    <?php include "cw_footer.php"; ?>
+    <?php include "static/footer.php"; ?>
     <script src="../js/cw_main.js"></script>
     <script src="../js/cw_pools.js"></script>
     <script src="../js/entry_controls.js"></script>

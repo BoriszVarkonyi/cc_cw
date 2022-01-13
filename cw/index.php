@@ -15,7 +15,7 @@
     <meta name="description" content="Check and Follow Fencing Competitions around the world with CompetitionView">
 </head>
 <body class="home">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="slideshow">
             <div id="slideshow_content">
@@ -145,7 +145,7 @@
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
+    <?php include "static/footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_main.js"></script>
     <script src="../js/cw_slideshow.js"></script>

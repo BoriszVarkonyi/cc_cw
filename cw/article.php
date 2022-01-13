@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="blog">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
@@ -50,7 +50,7 @@
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
+    <?php include "static/footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>
 </html>

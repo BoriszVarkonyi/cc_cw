@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="videos">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main role="main" class="full">
         <div id="content" class="full">
             <div id="title_stripe">
@@ -44,7 +44,7 @@
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
+    <?php include "static/footer.php"; ?>
     <script src="../js/cw_main.js"></script>
 </body>
 </html>
