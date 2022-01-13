@@ -30,18 +30,7 @@
                         $videoController = new VideoController();
                         $videos = $videoController->getVideos();
 
-                        foreach($videos as $video) {
-                    ?>
-                            <!-- latest video placeholder -->
-                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $video->id ?>'" loading="lazy">
-                                <img src="http://img.youtube.com/vi/<?php echo $video->video_id ?>/sddefault.jpg" alt="<?php echo $video->title ?> thumbnail">
-                                <div class="video_wrapper_info">
-                                    <p><?php echo $video->title ?></p>
-                                    <p><?php echo $video->comp_name ?></p>
-                                </div>
-                            </div>
-                    <?php
-                        }
+                        include 'views/Videos.php';
                     ?>
                     <div class="video_wrapper ghost"></div>
                     <div class="video_wrapper ghost"></div>

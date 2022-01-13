@@ -104,17 +104,8 @@
                         $videoController = new VideoController();
                         $videos = $videoController->getVideos(5);
 
-                        foreach($videos as $video) {
-                        ?>
-                            <!-- latest video placeholder -->
-                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $video->id ?>'">
-                                <img src="http://img.youtube.com/vi/<?php echo $video->video_id ?>/sddefault.jpg" alt="<?php echo $video->title ?> thumbnail">
-                                <div class="video_wrapper_info">
-                                    <p><?php echo $video->title ?></p>
-                                    <p><?php echo $video->comp_name ?></p>
-                                </div>
-                            </div>
-                    <?php } ?>
+                        include 'views/Videos.php';
+                    ?>
                 </div>
                 <div class="column">
                     <p class="column_title">Latest Blog Posts</p>
@@ -123,23 +114,7 @@
                         $articleController = new ArticleController();
                         $articles = $articleController->getArticles(5);
 
-                        foreach($articles as $article) {
-                    ?>
-                    <div class="blog_article" onclick="location.href='article.php?id=<?php echo $article->id ?>'">
-                        <?php
-                            if(file_exists($article->pic)) {
-                        ?>
-                            <img src="<?php echo $article->pic ?>" alt="Artice image">
-                        <?php } ?>
-                        <p class="article_title"><?php echo $article->title ?></p>
-                        <p class="article_brief"><?php echo $article->body ?></p>
-                        <div class="article_info">
-                            <p>POSTED: <?php echo $article->date ?></p>
-                            <p>BY: <?php echo $article->author ?></p>
-                        </div>
-                    </div>
-                    <?php
-                        }
+                        include 'views/Articles.php';
                     ?>
                 </div>
             </div>

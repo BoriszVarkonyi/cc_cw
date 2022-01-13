@@ -33,23 +33,8 @@
                         $articleController = new ArticleController();
                         $articles = $articleController->getArticles();
 
-                        foreach($articles as $article) {
+                        include 'views/Articles.php';
                     ?>
-
-                    <div class="blog_article" onclick="location.href='article.php?id=<?php echo $article->id ?>'">
-                    <?php
-                        if(file_exists($article->pic)) {
-                    ?>
-                        <img src="<?php echo $article->pic ?>" alt="Article image">
-                    <?php } ?>
-                        <p class="article_title"><?php echo $article->title ?></p>
-                        <p class="article_brief"><?php echo explode("\n", $article->body)[0] ?></p>
-                        <div class="article_info">
-                            <p>POSTED: <?php echo $article->date ?></p>
-                            <p>BY: <?php echo $article->author ?></p>
-                        </div>
-                    </div>
-                    <?php } ?>
                 </div>
             </div>
         </div>
