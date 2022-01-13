@@ -8,6 +8,7 @@
     include "db.php";
 
     $matches = array();
+    $ids = array();
     
     $comp_id = $_SESSION["comp_id"];
     $qry_get_matches = "SELECT fencers, matches FROM pools WHERE assoc_comp_id = $comp_id";
@@ -20,12 +21,19 @@
         foreach($rows as $row) {
             foreach($row as $item) {
                 foreach($item as $entity) {
+                    //echo json_encode($entity);
                     if($entity->id == $_SESSION["fencer_id"]) {
                         array_push($matches, $entity);
                     }
                     else if($entity->enemy == $_SESSION["fencer_id"]) {
                         array_push($matches, $entity);
                     }
+
+                    //push every playing id into $ids array
+                    if(!in_array($entity->id, $ids))
+                        array_push($ids, $entity->id);
+                    if(!in_array($entity->enemy, $ids))
+                        array_push($ids, $entity->enemy);
                 }
             }
         }
@@ -46,7 +54,7 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="finished_competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/cw_header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
@@ -67,10 +75,10 @@
                         <div class="entry">
                             <div class="tr">
                                 <div class="td bold">No. {num}</div>
-                                <div class="td">Piste {name}</div>
-                                <div class="td">Ref1: {name}</div>
-                                <div class="td">Re21: {name}</div>
-                                <div class="td">idő</div>
+                                <div class="td">Piste: {piste}</div>
+                                <div class="td">Ref1: {ref1}</div>
+                                <div class="td">Ref2: {ref2}</div>
+                                <div class="td">Time</div>
                             </div>
                             <div class="entry_panel">
                                 <table class="pool_table_wrapper no_interaction">
@@ -102,17 +110,37 @@
                                         </tr>
                                     </thead>
                                     <tbody class="alt">
-
+                                    <?php
+                                        foreach($ids as $id) {
+                                            $fencer_name = "";
+                                            $nationality = "";
+                                            $piste = "";
+                                            $ref1 = "";
+                                            $ref2 = "";
+                                            $time = "";
+                                            
+                                            if(isset($fencers_data)) {
+                                                foreach($fencers_data as $row) {
+                                                    if($row == null) continue;
+                                                    foreach($row as $item) {
+                                                        if(isset($item->id) && $item->id == $id) {
+                                                            $fencer_name = $item->prenom_nom;
+                                                            $nationality = $item->nation;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                    ?>
                                         <tr class="">
-                                            <td>name</td>
-                                            <td>nat</td>
+                                            <td><?php echo $fencer_name ?></td>
+                                            <td><?php echo $nationality ?></td>
                                             <td class="square row_title">1</td>
-                                            <td class="square"></td>
-                                            <td class="square"></td>
-                                            <td class="square"></td>
+                                            <td class="square">W</td>
+                                            <td class="square">L</td>
+                                            <td class="square">W</td>
                                             <td class="square">1.2</td>
                                         </tr>
-
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -179,7 +207,7 @@
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
+    <?php include "static/cw_footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
     <script src="../js/cw_bookmark_competition.js"></script>
     <script src="../js/cw_main.js"></script>
