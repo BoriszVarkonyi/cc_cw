@@ -29,6 +29,22 @@ class VideoController {
             return array();
         }
     }
+
+    function getVideosSearch($search_query) {
+        $qry_get_videos = "SELECT * FROM cw_videos WHERE title LIKE '%$search_query%';";
+        $do_get_videos = mysqli_query($this->dbConnection, $qry_get_videos);
+        if($do_get_videos) {
+            $videos = array();
+            while ($row = mysqli_fetch_assoc($do_get_videos)) {
+                $video = new Video($row);
+                array_push($videos, $video);
+            }
+            return $videos;
+        } else {
+            echo mysqli_error($this->dbConnection);
+            return array();
+        }
+    }
     
     function getVideoById($id) {
         $get_video_data = "SELECT * FROM cw_videos WHERE id = '$id'";

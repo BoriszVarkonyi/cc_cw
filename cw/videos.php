@@ -19,16 +19,19 @@
                 <h1>Videos</h1>
             </div>
             <div id="content_wrapper">
-                <form id="browsing_bar">
+                <form id="browsing_bar" method="GET">
                     <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $_GET['q']; ?>">
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
                 <div id="videos_wrapper">
                     <?php
                         $videoController = new VideoController();
-                        $videos = $videoController->getVideos();
+                        if(isset($_GET["q"]))
+                            $videos = $videoController->getVideosSearch($_GET["q"]);
+                        else
+                            $videos = $videoController->getVideos();
 
                         include 'views/Videos.php';
                     ?>
