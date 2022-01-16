@@ -1,6 +1,13 @@
 <?php include "db.php"; ?>
 <?php include "../includes/functions.php"; ?>
 <?php include "./controllers/VideoController.php"; ?>
+
+<?php
+    if(isset($_GET['q'])) {
+        $q = filter_input(INPUT_GET, 'q');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +28,7 @@
             <div id="content_wrapper">
                 <form id="browsing_bar" method="GET">
                     <div class="search_wrapper wide">
-                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $_GET['q']; ?>">
+                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $q; ?>">
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
@@ -29,7 +36,7 @@
                     <?php
                         $videoController = new VideoController();
                         if(isset($_GET["q"]))
-                            $videos = $videoController->getVideosSearch($_GET["q"]);
+                            $videos = $videoController->getVideosSearch($q);
                         else
                             $videos = $videoController->getVideos();
 

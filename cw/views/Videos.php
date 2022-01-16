@@ -7,3 +7,6 @@
         </div>
     </div>
 <?php endforeach ?>
+<?php if(count($videos) == 0) : ?>
+    <p>Nothing found.</p>
+<?php endif ?>
