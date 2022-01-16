@@ -19,3 +19,6 @@
         </div>
     </div>
 <?php endforeach ?>
+<?php if(count($articles) == 0) : ?>
+    <p>Nothing found.</p>
+<?php endif ?>

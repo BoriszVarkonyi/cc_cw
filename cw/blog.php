@@ -1,7 +1,13 @@
-
 <?php include "db.php" ?>
 <?php include "../includes/functions.php" ?>
 <?php include "./controllers/ArticleController.php" ?>
+
+<?php
+    if(isset($_GET['q'])) {
+        $q = filter_input(INPUT_GET, 'q');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +28,7 @@
             <div id="content_wrapper">
                 <form id="browsing_bar">
                     <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $q; ?>">
                         <button type="button" onclick="" aria-label="Close Search"><img src="../assets/icons/close_black.svg" alt="Search Close"></button>
                     </div>
                     <input type="submit" value="Search">
@@ -31,7 +37,10 @@
                 <div id="blog_wrapper">
                     <?php
                         $articleController = new ArticleController();
-                        $articles = $articleController->getArticles();
+                        if(isset($_GET['q']))
+                            $articles = $articleController->getArticlesSearch($q);
+                        else
+                            $articles = $articleController->getArticles();
 
                         include 'views/Articles.php';
                     ?>
