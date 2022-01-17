@@ -1,5 +1,11 @@
 <?php $statusofpage = 2; ?>
 
+<?php
+    if(isset($_GET['q'])) {
+        $q = filter_input(INPUT_GET, 'q');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +24,10 @@
                 <h1>Upcoming competitions</h1>
             </div>
             <div id="content_wrapper">
-            <form method="POST" id="browsing_bar">
+            <form method="GET" id="browsing_bar">
                     <!-- search by name box -->
                     <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $q ?>">
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                     <!-- year drop-down -->

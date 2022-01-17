@@ -1,6 +1,11 @@
 <?php
     $WHERE_CLAUSE = "WHERE `comp_status` = '$statusofpage' ";
 
+    if(isset($_GET['q'])) {
+        $WHERE_CLAUSE .= " AND `comp_name` LIKE '%$q%'";
+    }
+
+    /*
     if (isset($_POST['submit_search'])) {
 
         $year = $_POST['year'];
@@ -23,4 +28,5 @@
             $WHERE_CLAUSE .= " AND comp_weapon = $weapont_type";
         }
     }
+    */
 ?>
