@@ -41,7 +41,7 @@
                     </div>
                     <!-- year drop-down -->
                     <div class="search_wrapper narrow">
-                        <input type="text" name="year" placeholder="-Year-" value="<?php if(isset($_GET['year'])) echo $yearInput?>" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" onfocus="resultChecker(this)">
+                        <input type="text" name="year" placeholder="-Year-" value="<?php if(isset($_GET['year'])) echo $yearInput?>" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" onfocus="resultChecker(this)" autocomplete="off">
                         <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
                             <button type="button" onclick="autoFill(this)" default="default">Every</button>
@@ -58,7 +58,7 @@
                     <!-- sex drop-down -->
                     <div class="search_wrapper narrow">
                         <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Sex">
-                            <input type="text" name="sex" placeholder="-Sex-" value="<?php if(isset($_GET['sex'])) echo $sex ?>">
+                            <input type="text" name="sex" placeholder="-Sex-" value="<?php if(isset($_GET['sex'])) echo $sex ?>" autocomplete="off">
                         </button>
                         <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
@@ -70,7 +70,7 @@
                     <!-- weapon type drop-down -->
                     <div class="search_wrapper narrow">
                         <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Weapon Type">
-                            <input type="text" name="weapon" placeholder="-Weapon Type-" value="<?php if(isset($_GET['weapon'])) echo $weapon ?>">
+                            <input type="text" name="weapon" placeholder="-Weapon Type-" value="<?php if(isset($_GET['weapon'])) echo $weapon ?>" autocomplete="off">
                         </button>
                         <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
                         <div class="search_results">
