@@ -1,6 +1,8 @@
 <?php include "cw_comp_getdata.php"; ?>
 <?php include "db.php"; ?>
 <?php
+    session_start();
+
     if (file_exists("../uploads/$comp_id.png")) {
         $logo_path = "../uploads/$comp_id.png";
     } else {
@@ -260,13 +262,15 @@
                             <p class="column_panel_title">Fencer Controls:</p>
                             <div class="competition_controls_wrapper">
                                 <!-- if not logegd in -->
-                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>">Login</a>
-
-                                <!-- if logegd in -->
-                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
-                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
-                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
-                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>&log_out=1" class="red">Log out</a>
+                                <?php if(!isset($_SESSION['fencer_id'])) : ?>
+                                    <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>">Login</a>
+                                <?php else : ?>
+                                    <!-- if logged in -->
+                                    <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
+                                    <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
+                                    <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
+                                    <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>&log_out=1" class="red">Log out</a>
+                                <?php endif ?>
                             </div>
                         </div>
                     </div>
