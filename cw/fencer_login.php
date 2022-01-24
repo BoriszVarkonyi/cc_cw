@@ -7,6 +7,7 @@
     if(isset($_GET['log_out'])) {
         session_destroy();
         header("Location: competition.php?comp_id=$comp_id");
+        die();
     }
 
     //check if fencer is already logged in
