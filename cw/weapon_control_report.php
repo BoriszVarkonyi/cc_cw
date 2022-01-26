@@ -1,3 +1,35 @@
+<?php
+    include "db.php";
+
+    $comp_id = filter_input(INPUT_GET, "comp_id");
+
+    session_start();
+    if(!isset($_SESSION['fencer_name'])) {
+        header("Location: competition.php?comp_id=$comp_id");
+    }
+
+    $qry_get_weapon_control = "SELECT data FROM weapon_control WHERE assoc_comp_id = $comp_id;";
+    $do_get_weapon_control = mysqli_query($connection, $qry_get_weapon_control);
+
+
+    $weapon_control_set = false;
+    $weapons = array();
+
+    if($do_get_weapon_control) {
+        $json_data = mysqli_fetch_assoc($do_get_weapon_control)["data"];
+        $data = json_decode($json_data);
+        var_dump($data);
+        if(property_exists($data, $_SESSION['fencer_id'])) {
+            $fencer_id = $_SESSION['fencer_id'];
+            var_dump($data[$fencer_id]);
+            $weapon_control_set = true;
+            $weapons = $data->{$fencer_id}->array_of_issues;
+        }
+    } else {
+        echo mysqli_error($connection);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +49,8 @@
             </div>
             <div id="content_wrapper">
                 <div id="weapon_control_info" class="red">
-                    <p id="fencer_name">{Fencername}'s Weapon Control</p>
-                    <p id="wc_status">Status: {Status name}</p>
+                    <p id="fencer_name"><?php echo $_SESSION['fencer_name'] ?>'s Weapon Control</p>
+                    <p id="wc_status">Status: <?php if($weapon_control_set) echo "Set"; else echo "Unset" ?></p>
                 </div>
 
                 <!-- only if administrated weapo control -->
