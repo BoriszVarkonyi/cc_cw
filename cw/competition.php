@@ -3,6 +3,20 @@
 <?php
 session_start();
 
+/*
+    If fencer is logged in and tries to view a different competition
+    redirect to the logged in competition.
+    Redirect passess an 'err' error parameter that can be helpful.
+*/
+if(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"] !== $comp_id) {
+    $session_comp_id = $_SESSION["comp_id"];
+    header("Location: competition.php?comp_id=$session_comp_id&err=1");
+}
+if(isset($_GET["err"])) {
+    $err = filter_input(INPUT_GET, "err", FILTER_SANITIZE_NUMBER_INT);
+    echo "<script>alert('Redirected to logged in competition!');</script>";
+}
+
 if (file_exists("../uploads/$comp_id.png")) {
     $logo_path = "../uploads/$comp_id.png";
 } else {
