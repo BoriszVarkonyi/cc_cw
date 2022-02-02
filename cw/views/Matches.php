@@ -20,6 +20,7 @@ foreach ($matches as $match) :
         }
     }
 ?>
+    <!-- use tables table in database -->
     <div class="match">
         <div class="match_header upcoming">
             <p>UPCOMING</p>
@@ -35,7 +36,7 @@ foreach ($matches as $match) :
             </div>
             <div>
                 <p>TABLE:</p>
-                <p>t32</p>
+                <p><?php echo $fencer_num;  ?></p>
             </div>
             <!-- IF FINISHED -->
             <div>

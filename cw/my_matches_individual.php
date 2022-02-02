@@ -40,6 +40,27 @@
     } else {
         echo "ERROR " . mysqli_error($connection);
     }
+
+
+    $qry_get_table = "SELECT fencer_num, data FROM tables WHERE ass_comp_id = $comp_id";
+    $do_get_table = mysqli_query($connection, $qry_get_table);
+    if($rows = mysqli_fetch_assoc($do_get_table)) {
+        $fencer_num = json_decode($rows["fencer_num"]);
+        $table_data = json_decode($rows["data"]);
+        /*
+        If someone can decipher this feel free to commit it :D
+
+        foreach($table_data->{"t_$fencer_num"} as $item) {
+            foreach($item as $value) {
+                var_dump($value);
+                echo "<br>";
+            }
+        }
+        */
+    } else {
+        $fencer_num = "Not set";
+    }
+    
 ?>
 
 
