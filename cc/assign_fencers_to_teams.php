@@ -249,13 +249,13 @@ foreach ($json_teams as $value) {
             </div>
     </div>
     </main>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/list_2.js"></script>
-    <script src="../js/controls_2.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/list_search.js"></script>
-    <script src="../js/assign_fencers_to_teams.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list_2.js"></script>
+    <script src="javascript/controls_2.js"></script>
+    <script src="javascript/search.js"></script>
+    <script src="javascript/list_search.js"></script>
+    <script src="javascript/assign_fencers_to_teams.js"></script>
 </body>
 
 </html>

@@ -110,7 +110,7 @@ $query_comps = mysqli_query($connection, $query);
             </table>
         </div>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
 </body>
 </html>

@@ -355,10 +355,10 @@ if(mysqli_num_rows($query_do) == 0){
             </div>
         </main>
     </div>
-    <script src="../js/ranking.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/overlay_panel.js"></script>
+    <script src="javascript/ranking.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/overlay_panel.js"></script>
 </body>
 </html>

@@ -380,12 +380,12 @@ if (isset($_POST["new_weapon_control"])) {
 
         </div>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/tournament_timetable.js"></script>
-    <script src="../js/modal.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/competitions.js"></script>
+    <script src="javascript/search.js"></script>
+    <script src="javascript/tournament_timetable.js"></script>
+    <script src="javascript/modal.js"></script>
 </body>
 </html>

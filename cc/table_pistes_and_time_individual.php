@@ -301,10 +301,10 @@ if (isset($_POST["save_piste_time"])) {
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/table_config.js"></script>
-    <script src="../js/table_pistes_and_time.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/search.js"></script>
+    <script src="javascript/table_config.js"></script>
+    <script src="javascript/table_pistes_and_time.js"></script>
 </body>
 </html>

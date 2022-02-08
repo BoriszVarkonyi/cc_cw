@@ -220,7 +220,7 @@
         </main>
     </div>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/formula.js"></script>
+<script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+<script src="javascript/formula.js"></script>
 </html>

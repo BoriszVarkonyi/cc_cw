@@ -141,10 +141,10 @@
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/list_search.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/list_search.js"></script>
 </body>
 
 </html>

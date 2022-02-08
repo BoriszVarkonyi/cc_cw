@@ -93,8 +93,8 @@
             </div>
         </div>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-    <script src="../js/your_profile.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+    <script src="javascript/your_profile.js"></script>
 </body>
 </html>

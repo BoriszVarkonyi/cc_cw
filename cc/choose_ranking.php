@@ -236,8 +236,8 @@ if(isset($_POST["submit"]) ){
         </main>
     </div>
 </body>
-<script src="../js/choose_ranking.js"></script>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/list.js"></script>
+<script src="javascript/choose_ranking.js"></script>
+<script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+<script src="javascript/list.js"></script>
 </html>

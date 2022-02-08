@@ -472,11 +472,11 @@ if (isset($_POST["submit_referees"])) {
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/table_config.js"></script>
-    <script src="../js/table_referees.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/search.js"></script>
+    <script src="javascript/table_config.js"></script>
+    <script src="javascript/table_referees.js"></script>
 </body>
 
 </html>

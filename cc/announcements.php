@@ -202,7 +202,7 @@
         </div>
     </main>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/announcements.js"></script>
+<script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+<script src="javascript/announcements.js"></script>
 </html>

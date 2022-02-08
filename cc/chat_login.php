@@ -33,6 +33,6 @@
             <button type="button" class="login" onclick="location.href='chat.php'">LOGIN</button>
         </form>
     </div>
-    <script src="../js/chat_login.js"></script>
+    <script src="javascript/chat_login.js"></script>
 </body>
 </html>

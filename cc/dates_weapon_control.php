@@ -475,7 +475,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
         </main>
     </div>
 </body>
-<script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/dates_weapon_control.js"></script>
+<script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+<script src="javascript/dates_weapon_control.js"></script>
 </html>

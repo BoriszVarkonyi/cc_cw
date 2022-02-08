@@ -79,8 +79,8 @@
             </table>
         </div>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/list_2.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list_2.js"></script>
 </body>
 </html>

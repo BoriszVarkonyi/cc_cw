@@ -573,12 +573,12 @@ if (isset($_POST["time_change"])) {
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/match_results_individual.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/controls.js"></script>
-    <script src="../js/overlay_panel.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/match_results_individual.js"></script>
+    <script src="javascript/search.js"></script>
+    <script src="javascript/controls.js"></script>
+    <script src="javascript/overlay_panel.js"></script>
 </body>
 
 </html>

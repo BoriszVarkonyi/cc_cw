@@ -306,10 +306,10 @@ if (isset($_POST["save_draw"])) {
             </div>
     </div>
     </main>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/controls.js"></script>
-    <script src="../js/draw_positions.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/controls.js"></script>
+    <script src="javascript/draw_positions.js"></script>
 </body>
 
 </html>

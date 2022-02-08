@@ -656,9 +656,9 @@
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/modal.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/dashboard.js"></script>
+    <script src="javascript/modal.js"></script>
 </body>
 </html>

@@ -62,9 +62,9 @@ if (isset($_POST["create_tournament"])) {
             </form>
         </div>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-<script src="../js/main.js"></script>
-    <script src="../js/create_tournament.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+<script src="javascript/main.js"></script>
+    <script src="javascript/create_tournament.js"></script>
 </body>
 
 </html>

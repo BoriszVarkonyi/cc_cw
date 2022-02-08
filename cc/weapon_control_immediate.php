@@ -197,12 +197,12 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/weapon_control_immediate.js"></script>
-    <script src="../js/list_2.js"></script>
-    <script src="../js/controls_2.js"></script>
-    <script src="../js/list_search_2.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/weapon_control_immediate.js"></script>
+    <script src="javascript/list_2.js"></script>
+    <script src="javascript/controls_2.js"></script>
+    <script src="javascript/list_search_2.js"></script>
 </body>
 
 </html>

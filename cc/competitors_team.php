@@ -443,11 +443,11 @@
             </div>
         </div>
     </main>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/list_2.js"></script>
-    <script src="../js/controls_2.js"></script>
-    <script src="../js/list_search_2.js"></script>
-    <script src="../js/competitors_team.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list_2.js"></script>
+    <script src="javascript/controls_2.js"></script>
+    <script src="javascript/list_search_2.js"></script>
+    <script src="javascript/competitors_team.js"></script>
 </body>
 </html>

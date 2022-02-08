@@ -506,15 +506,15 @@ if (isset($_POST['submit_import'])) {
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/list_2.js"></script>
-    <script src="../js/overlay_panel.js"></script>
-    <script src="../js/referees.js"></script>
-    <script src="../js/technicans_referees.js"></script>
-    <script src="../js/controls_2.js"></script>
-    <script src="../js/importoverlay.js"></script>
-    <script src="../js/list_search_2.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list_2.js"></script>
+    <script src="javascript/overlay_panel.js"></script>
+    <script src="javascript/referees.js"></script>
+    <script src="javascript/technicans_referees.js"></script>
+    <script src="javascript/controls_2.js"></script>
+    <script src="javascript/importoverlay.js"></script>
+    <script src="javascript/list_search_2.js"></script>
 </body>
 
 </html>

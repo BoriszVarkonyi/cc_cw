@@ -1028,12 +1028,12 @@ if (isset($_POST["generate_table"])) {
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/overlay_panel.js"></script>
-    <script src="../js/table_team.js"></script>
-    <script src="../js/search.js"></script>
-    <script src="../js/print.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/overlay_panel.js"></script>
+    <script src="javascript/table_team.js"></script>
+    <script src="javascript/search.js"></script>
+    <script src="javascript/print.js"></script>
 </body>
 
 </html>

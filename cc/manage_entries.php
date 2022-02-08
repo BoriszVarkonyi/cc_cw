@@ -443,9 +443,9 @@ header("Location: manage_entries.php?comp_id=$comp_id");
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/manage_entries.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/manage_entries.js"></script>
 </body>
 </html>

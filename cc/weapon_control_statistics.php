@@ -38,10 +38,10 @@
             </div>
         </main>
     </div>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/weapon_control.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/controls.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/weapon_control.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/controls.js"></script>
 </body>
 </html>
