@@ -1,5 +1,5 @@
-<?php include "../includes/headerburger.php"; ?>
-<?php include "../includes/db.php" ?>
+<?php include "includes/headerburger.php"; ?>
+<?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
@@ -33,7 +33,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
 <body>
 <!-- header -->
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
             <div id="title_stripe">

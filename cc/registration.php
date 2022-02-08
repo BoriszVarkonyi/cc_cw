@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-    <?php include "../includes/headerburger.php"; ?>
+    <?php include "includes/headerburger.php"; ?>
     <!-- header -->
         <div id="content_wrapper">
-            <?php include "../includes/navbar.php"; ?>
+            <?php include "includes/navbar.php"; ?>
             <!-- navbar -->
             <main>
             <?php
@@ -232,7 +232,7 @@
                                 <input form="new_fencer" type="text" name="club" onfocus="resultChecker(this), isOpen(this), setIndex(this), formvariableDeclaration()" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/getallclubs.php"; ?>
+                                    <?php include "includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="fencer_classement">CLASSEMENT</label>
@@ -249,7 +249,7 @@
                                 <input form="new_fencer"  type="text" name="nation" onfocus="resultChecker(this), isOpen(this), setIndex(this), formvariableDeclaration()" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
+                                    <?php include "includes/nations.php"; ?>
                                 </div>
                             </div>
                         </div>

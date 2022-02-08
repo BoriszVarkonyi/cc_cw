@@ -1,5 +1,5 @@
-<?php include '../includes/db.php' ?>
-<?php include '../includes/sortfunction.php' ?>
+<?php include 'includes/db.php' ?>
+<?php include 'includes/sortfunction.php' ?>
 <?php
 
 $comp_id = $_GET["comp_id"];
@@ -47,10 +47,10 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-    <?php include "../includes/headerburger.php"; ?>
+    <?php include "includes/headerburger.php"; ?>
     <!-- header -->
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
             <form id="title_stripe" method="POST" action="">

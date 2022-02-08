@@ -1,5 +1,5 @@
 <?php include "db.php"; ?>
-<?php include "../includes/functions.php"; ?>
+<?php include "includes/functions.php"; ?>
 
 <?php
 $comp_id = filter_input(INPUT_GET, 'comp_id', FILTER_SANITIZE_NUMBER_INT);

@@ -1,5 +1,5 @@
 <?php include 'db.php'; ?>
-<?php include '../includes/cw_username_checker.php'; ?>
+<?php include 'includes/cw_username_checker.php'; ?>
 <?php
 
 

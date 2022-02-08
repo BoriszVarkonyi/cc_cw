@@ -1,5 +1,4 @@
 <?php include "db.php" ?>
-<?php include "../includes/functions.php" ?>
 <?php include "./controllers/ArticleController.php" ?>
 
 <?php

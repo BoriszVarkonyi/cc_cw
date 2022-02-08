@@ -1,4 +1,4 @@
-<?php include "../includes/headerburger.php"; ?>
+<?php include "includes/headerburger.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
@@ -151,7 +151,7 @@ if (file_exists("../uploads/$comp_id.png")) {
 <body>
     <!-- header -->
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
 
@@ -242,7 +242,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                             <p>Add competition logo</p>
                         </div>
                         <div class="db_panel_main">
-                            <form action="../includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
+                            <form action="includes/delete_logo.php?comp_id=<?php echo $comp_id ?>" method="POST" id="delete_logo">
                                 <button id="delete_logo" class="<?php echo $kuka_disable ?>">
                                     <img src="../assets/icons/delete_black.svg">
                                 </button>

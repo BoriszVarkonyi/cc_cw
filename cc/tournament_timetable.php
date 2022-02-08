@@ -1,4 +1,4 @@
-<?php include "../includes/db.php" ?>
+<?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 
 <?php
@@ -101,7 +101,7 @@ if (isset($_POST["new_weapon_control"])) {
             </div>
         </div>
     </div>
-    <?php include "../includes/headerburger.php"; ?>
+    <?php include "includes/headerburger.php"; ?>
     <!-- header -->
     <div class="panel">
         <div id="title_stripe">

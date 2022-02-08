@@ -1,4 +1,4 @@
-<?php include "../includes/db.php" ?>
+<?php include "includes/db.php" ?>
 <?php session_start();?>
 <?php ob_start();?>
 
@@ -49,7 +49,7 @@ $query_comps = mysqli_query($connection, $query);
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body class="fencers">
-    <?php include "../includes/headerburger.php" ?>
+    <?php include "includes/headerburger.php" ?>
     <div class="panel">
         <div id="title_stripe">
             <p class="page_title">T: Your Competitions O: Competitions of {Tournamnet's name}</p>

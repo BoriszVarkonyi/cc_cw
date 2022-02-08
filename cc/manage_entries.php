@@ -1,5 +1,5 @@
-<?php include "../includes/headerburger.php"; ?>
-<?php include "../includes/db.php" ?>
+<?php include "includes/headerburger.php"; ?>
+<?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
@@ -158,7 +158,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
         </div>
     </div>
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
             <div id="title_stripe">

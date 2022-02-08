@@ -1,5 +1,5 @@
 <?php include "db.php" ?>
-<?php include "../includes/functions.php" ?>
+<?php include "includes/functions.php" ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);

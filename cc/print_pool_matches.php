@@ -1,6 +1,6 @@
-<?php include "../includes/headerburger.php"; ?>
-<?php include "../includes/db.php" ?>
-<?php include "../includes/pool_orders.php"; ?>
+<?php include "includes/headerburger.php"; ?>
+<?php include "includes/db.php" ?>
+<?php include "includes/pool_orders.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
@@ -53,7 +53,7 @@
 <body>
 <!-- header -->
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
             <div id="title_stripe">

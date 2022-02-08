@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
-<?php include "../includes/db.php"; ?>
-<?php include "../includes/username_checker.php"; ?>
+<?php include "includes/db.php"; ?>
+<?php include "includes/username_checker.php"; ?>
 
 <?php
 
@@ -41,7 +41,7 @@
 </head>
 <body class="fencers">
 
-    <?php include "../includes/headerburger.php" ?>
+    <?php include "includes/headerburger.php" ?>
 
     <div class="panel">
         <div id="title_stripe">

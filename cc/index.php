@@ -1,5 +1,5 @@
-<?php include "../includes/headerburger.php"; ?>
-<?php include "../includes/db.php"; ?>
+<?php include "includes/headerburger.php"; ?>
+<?php include "includes/db.php"; ?>
 <?php
 
     checkComp($connection);
@@ -253,7 +253,7 @@
     </div>
 <!-- header -->
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <main>
             <!-- dashboard header -->
             <div id="title_stripe">

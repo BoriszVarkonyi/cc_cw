@@ -1,5 +1,5 @@
 <?php include "db.php"; ?>
-<?php include "../includes/functions.php"; ?>
+<?php include "includes/functions.php"; ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php include "./controllers/VideoController.php" ?>
 <!DOCTYPE html>

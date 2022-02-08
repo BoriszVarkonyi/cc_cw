@@ -1,5 +1,5 @@
 <?php include "db.php" ?>
-<?php include "../includes/functions.php" ?>
+<?php include "includes/functions.php" ?>
 <?php
     session_start();
     $feedback = "";

@@ -1,7 +1,7 @@
 <?php
-include "../includes/functions.php";
-include "../includes/db.php";
-include '../includes/sortfunction.php';
+include "includes/functions.php";
+include "includes/db.php";
+include 'includes/sortfunction.php';
 ob_start();
 
 $comp_id = $_GET['comp_id'];

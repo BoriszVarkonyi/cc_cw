@@ -1,6 +1,6 @@
 <?php
-    include "../includes/functions.php";
-    include "../includes/db.php";
+    include "includes/functions.php";
+    include "includes/db.php";
     $comp_id = $_GET['comp_id'];
 
     $qry_get_pools_data = "SELECT `matches`,`fencers` FROM `pools` WHERE `assoc_comp_id` = $comp_id";

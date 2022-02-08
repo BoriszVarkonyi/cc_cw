@@ -1,5 +1,5 @@
-<?php include "../includes/headerburger.php"; ?>
-<?php include "../includes/db.php" ?>
+<?php include "includes/headerburger.php"; ?>
+<?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php
 
@@ -193,7 +193,7 @@ if (isset($_POST['submit_import'])) {
 <body>
     <!-- header -->
     <div id="content_wrapper">
-        <?php include "../includes/navbar.php"; ?>
+        <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
             <div id="title_stripe">
@@ -317,7 +317,7 @@ if (isset($_POST['submit_import'])) {
                                 <input type="text" name="club" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="set_club_input" placeholder="Search Club by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/getallclubs.php"; ?>
+                                    <?php include "includes/getallclubs.php"; ?>
                                 </div>
                             </div>
                             <label for="referee_categorie">CATEGORIE</label>
@@ -334,7 +334,7 @@ if (isset($_POST['submit_import'])) {
                                 <input type="text" name="nation" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" oninput="this.value = this.value.toUpperCase()" id="set_nation_input" placeholder="Search Country by Name" class="search input">
                                 <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
                                 <div class="search_results">
-                                    <?php include "../includes/nations.php"; ?>
+                                    <?php include "includes/nations.php"; ?>
                                 </div>
                             </div>
                         </div>

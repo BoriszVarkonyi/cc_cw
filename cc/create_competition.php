@@ -1,4 +1,4 @@
-<?php include "../includes/db.php" ?>
+<?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 
 <?php
@@ -48,7 +48,7 @@ if ($comp_type == "individual") {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body class="fencers">
-<?php include "../includes/headerburger.php";?>
+<?php include "includes/headerburger.php";?>
 <!-- header -->
     <div class="panel">
         <div id="title_stripe">
