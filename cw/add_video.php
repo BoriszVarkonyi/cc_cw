@@ -2,6 +2,7 @@
 <?php include '../includes/cw_username_checker.php'; ?>
 <?php
 
+
     //create table
     $qry_table = "CREATE TABLE `ccdatabase`.`cw_videos` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `URL` VARCHAR(255) NOT NULL , `title` VARCHAR(255) NOT NULL , `comp_name` VARCHAR(255) NOT NULL , `prev` TEXT NOT NULL , `author` VARCHAR(255) NOT NULL , `Last_modified_by` VARCHAR(255) NOT NULL , `Date_of_creation` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `Last_modified` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     $do_table = mysqli_query($connection, $qry_table);
