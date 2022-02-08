@@ -1,6 +1,6 @@
 <?php include "db.php" ?>
 <?php include "includes/functions.php" ?>
-<?php include "includes/cw_username_checker.php" ?>
+<?php include "includes/username_checker.php" ?>
 <?php
 
 if (isset($_POST['submit'])) {
