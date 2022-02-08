@@ -63,7 +63,7 @@
 
         //redirect technician if on a non approved page
         if (array_search(basename($_SERVER['PHP_SELF']),$approved_pages) === false) {
-            header("Location: ../php/index.php?comp_id=$comp_id");
+            header("Location: ../cc/index.php?comp_id=$comp_id");
         }
     }
 

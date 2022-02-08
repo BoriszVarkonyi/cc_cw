@@ -4,7 +4,7 @@
     //deletes file with comp_id name
     if (unlink("../uploads/" . $comp_id . ".png")) {
 
-        header("Location: ../php/invitation.php?comp_id=$comp_id");
+        header("Location: ../cc/invitation.php?comp_id=$comp_id");
 
     } else {
         //error

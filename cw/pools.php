@@ -212,8 +212,8 @@
             </div>
     </main>
     <?php include "static/footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/cw_pools.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/pools.js"></script>
     <script src="../js/entry_controls.js"></script>
     <script src="../js/search.js"></script>
 </body>

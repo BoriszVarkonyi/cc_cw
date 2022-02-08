@@ -317,7 +317,7 @@
         $qry_upadte_matches = "UPDATE `pools` SET `matches` = '$json_string'";
         $do_update_matches = mysqli_query($connection, $qry_upadte_matches);
 
-        header("Location: ../php/pools_view.php?comp_id=$comp_id");
+        header("Location: ../cc/pools_view.php?comp_id=$comp_id");
     }
 
     if (isset($_POST['sumbit_changes'])) {

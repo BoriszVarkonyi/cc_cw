@@ -36,7 +36,7 @@
         public $class = "";
         public $name;
         protected $state;
-        protected $path_beg = "../php/";
+        protected $path_beg = "../cc/";
         protected $path_end;
         protected $role;
         protected $comp_id;

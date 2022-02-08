@@ -122,9 +122,9 @@
     </main>
     <?php include "static/footer.php"; ?>
     <script src="../js/cookie_monster.js"></script>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/cw_slideshow.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/slideshow.js"></script>
     <script src="../js/list.js"></script>
-    <script src="../js/cw_bookmark_competition.js"></script>
+    <script src="javascript/bookmark_competition.js"></script>
 </body>
 </html>

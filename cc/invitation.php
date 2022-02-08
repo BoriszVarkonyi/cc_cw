@@ -201,7 +201,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                                     <div class="table_row" onclick="toggleEntry(this)">
                                                         <div class="table_item invitation"><?php echo $info_title ?></div>
                                                     </div>
-                                                    <form class="entry_panel collapsed" id="update" method="POST" action="../php/invitation.php?comp_id=<?php echo $comp_id ?>">
+                                                    <form class="entry_panel collapsed" id="update" method="POST" action="../cc/invitation.php?comp_id=<?php echo $comp_id ?>">
                                                         <button class="panel_button" type="submit" name="submit_delete" id="update">
                                                             <img src="../assets/icons/delete_black.svg">
                                                         </button>
@@ -223,7 +223,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                             </div>
                                         </div>
 
-                                        <form action="../php/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
+                                        <form action="../cc/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
                                             <div class="table_row">
                                                 <div class="table_item">
                                                     <input name="info_title" type="text" class="title_input" placeholder="Type in the title">

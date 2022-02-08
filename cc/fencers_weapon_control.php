@@ -137,7 +137,7 @@
         $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
         echo mysqli_error($connection);
-        header("Location: ../php/$wc_page.php?comp_id=$comp_id");
+        header("Location: ../cc/$wc_page.php?comp_id=$comp_id");
         
 
     }
@@ -163,7 +163,7 @@
             <div id="title_stripe">
                 <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button" href="../php/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button" href="../cc/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
                         <p>Go back to Weapon Control</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>

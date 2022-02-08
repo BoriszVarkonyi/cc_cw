@@ -62,7 +62,7 @@
         } else {
             //add error 1 to get, when duplicant usernames
             $_GET['set_up_error'] = 1;
-            header("Location: ../php/technicians.php?comp_id=$comp_id&set_up_error=1");
+            header("Location: ../cc/technicians.php?comp_id=$comp_id&set_up_error=1");
         }
     }
 

@@ -3,7 +3,7 @@
  * PHPMailer RFC821 SMTP email transport class.
  * PHP Version 5.5.
  *
- * @see       https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
+ * @see       https://github.com/ccMailer/ccMailer/ The PHPMailer GitHub project
  *
  * @author    Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author    Jim Jagielski (jimjag) <jimjag@gmail.com>
@@ -441,7 +441,7 @@ class SMTP
         //Allow the best TLS version(s) we can
         $crypto_method = STREAM_CRYPTO_METHOD_TLS_CLIENT;
 
-        //PHP 5.6.7 dropped inclusion of TLS 1.1 and 1.2 in STREAM_CRYPTO_METHOD_TLS_CLIENT
+        //cc 5.6.7 dropped inclusion of TLS 1.1 and 1.2 in STREAM_CRYPTO_METHOD_TLS_CLIENT
         //so add them back in manually if we can
         if (defined('STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT')) {
             $crypto_method |= STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT;
@@ -611,7 +611,7 @@ class SMTP
         }
 
         // The following borrowed from
-        // http://php.net/manual/en/function.mhash.php#27225
+        // http://cc.net/manual/en/function.mhash.php#27225
 
         // RFC 2104 HMAC implementation for php.
         // Creates an md5 HMAC.

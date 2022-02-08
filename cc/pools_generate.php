@@ -328,7 +328,7 @@
         if ($error) {
             echo "meghalt minden rossz gg";
         } else {
-            header("Location: ../php/pools_config.php?comp_id=$comp_id");
+            header("Location: ../cc/pools_config.php?comp_id=$comp_id");
         }
 
     }
@@ -367,7 +367,7 @@
                     </div>
                     <div class="db_panel_main">
 
-                    <form id="generate_pools" action="../php/pools_generate.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
+                    <form id="generate_pools" action="../cc/pools_generate.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
                         <div>
                             <div>
                                 <label for="starting_time">STRIVE FOR</label>

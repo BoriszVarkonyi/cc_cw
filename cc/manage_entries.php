@@ -89,7 +89,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
 
     // Load Composer's autoloader
     require 'phpmailer/src/Exception.php';
-    require 'phpmailer/src/PHPMailer.php';
+    require 'phpmailer/src/ccMailer.php';
     require 'phpmailer/src/SMTP.php';
 
     // Instantiation and passing `true` enables exceptions
@@ -115,7 +115,7 @@ header("Location: manage_entries.php?comp_id=$comp_id");
         $mail->Subject = 'Please confirm your pre registration';
         $mail->Body    = '
 
-        <a style="color:red;" href="http://localhost/php/manage_entries.php?comp_id='. $comp_id . '&f_name='. $f_name .'&f_country='. $f_country  .'&f_email='. $f_email .'&f_phone='. $f_phone .'&c_name='. $c_name .'&c_email='.$c_email.'&c_phone='.$c_phone.'&fencer_ids='.$fencer_ids.'&compet_id='.$compet_id.'">Confirm</a>
+        <a style="color:red;" href="http://localhost/cc/manage_entries.php?comp_id='. $comp_id . '&f_name='. $f_name .'&f_country='. $f_country  .'&f_email='. $f_email .'&f_phone='. $f_phone .'&c_name='. $c_name .'&c_email='.$c_email.'&c_phone='.$c_phone.'&fencer_ids='.$fencer_ids.'&compet_id='.$compet_id.'">Confirm</a>
 
         ';
 

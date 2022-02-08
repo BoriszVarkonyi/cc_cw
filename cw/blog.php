@@ -49,7 +49,7 @@
         </div>
     </main>
     <?php include "static/footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
+    <script src="javascript/main.js"></script>
     <script src="../js/search.js"></script>
 </body>
 </html>

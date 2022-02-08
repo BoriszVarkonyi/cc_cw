@@ -7,7 +7,7 @@
 
 // // Load Composer's autoloader
 // require 'phpmailer/src/Exception.php';
-// require 'phpmailer/src/PHPMailer.php';
+// require 'phpmailer/src/ccMailer.php';
 // require 'phpmailer/src/SMTP.php';
 
 // // Instantiation and passing `true` enables exceptions
@@ -31,7 +31,7 @@
 //     // Content
 //     $mail->isHTML(true);                                  // Set email format to HTML
 //     $mail->Subject = 'Test';
-//     $mail->Body    = '<a href="http://localhost/php/confirmed.php">Confirm</a>';
+//     $mail->Body    = '<a href="http://localhost/cc/confirmed.php">Confirm</a>';
 
 //     $mail->send();
 //     echo 'Message has been sent';

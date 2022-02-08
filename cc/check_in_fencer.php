@@ -90,7 +90,7 @@
         $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
         if ($do_update = mysqli_query($connection, $qry_update)) {
             echo "vsvsvsvssv";
-            header("Location: ../php/weapon_control_administrated.php?comp_id=$comp_id");
+            header("Location: ../cc/weapon_control_administrated.php?comp_id=$comp_id");
         } else {
             echo "<br>nope g->g<br>";
         }

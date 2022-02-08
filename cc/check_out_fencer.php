@@ -83,7 +83,7 @@
         $qry_update = "UPDATE weapon_control SET data = '$wc_string' WHERE assoc_comp_id = '$comp_id'";
         $do_update = mysqli_query($connection, $qry_update);
 
-        header("Location: ../php/weapon_control_administrated.php?comp_id=$comp_id");
+        header("Location: ../cc/weapon_control_administrated.php?comp_id=$comp_id");
     }
 
 ?>

@@ -29,7 +29,7 @@ if ($row = mysqli_fetch_assoc($do_test)) {
 
 if (isset($_POST['add_wc'])) {
     $fencer_id = $_POST['fencer_id'];
-    header("Location: ../php/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
+    header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
 }
 
 $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";

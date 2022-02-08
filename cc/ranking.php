@@ -161,7 +161,7 @@ if(mysqli_num_rows($query_do) == 0){
                             $rank_id_change_feedback = mysqli_error($connection) . " :You had a problem with changing rank id in compteititons table!";
                         }
 
-                        header("Location: http://localhost/php/choose_ranking.php?comp_id=52");
+                        header("Location: http://localhost/cc/choose_ranking.php?comp_id=52");
                     }
                 ?>
                 <form id="delete_fencer_form" class="hidden" method="POST">
