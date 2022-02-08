@@ -50,6 +50,6 @@
     </main>
     <?php include "static/footer.php"; ?>
     <script src="javascript/main.js"></script>
-    <script src="../js/search.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>
