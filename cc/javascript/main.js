@@ -6,7 +6,7 @@ var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
 var navBar = document.querySelector("nav");
 var appName = document.getElementById("app_name");
-var menuSection = document.getElementById("menu_button_section");
+var menuSection = document.getElementById("header_left");
 var menuButton = document.getElementById("menu_button")
 var pin = document.getElementById("nav_bar_pin");
 
