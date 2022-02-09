@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="CompetitionIndividuelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Tireurs"/>
+        <xs:element ref="Arbitres"/>
+        <xs:element ref="Phases"/>
+      </xs:sequence>
+      <xs:attribute name="Annee" use="required"/>
+      <xs:attribute name="Arme" use="required" type="xs:NCName"/>
+      <xs:attribute name="Categorie" use="required" type="xs:NCName"/>
+      <xs:attribute name="Championnat" use="required" type="xs:NCName"/>
+      <xs:attribute name="Date" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="Domaine" use="required" type="xs:NCName"/>
+      <xs:attribute name="Federation" use="required" type="xs:NCName"/>
+      <xs:attribute name="ID" use="required" type="xs:integer"/>
+      <xs:attribute name="Sexe" use="required" type="xs:NCName"/>
+      <xs:attribute name="TitreCourt" use="required" type="xs:NCName"/>
+      <xs:attribute name="TitreLong" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Tireurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Tireur"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Arbitres">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Phases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TourDePoules"/>
+        <xs:element ref="PhaseDeTableaux"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TourDePoules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Tireur"/>
+        <xs:element maxOccurs="unbounded" ref="Poule"/>
+      </xs:sequence>
+      <xs:attribute name="ID" use="required" type="xs:integer"/>
+      <xs:attribute name="NbDePoules" use="required" type="xs:integer"/>
+      <xs:attribute name="NbExemptes" use="required" type="xs:integer"/>
+      <xs:attribute name="NbQualifiesParIndice" use="required" type="xs:integer"/>
+      <xs:attribute name="NbQualifiesParPoule" use="required" type="xs:integer"/>
+      <xs:attribute name="PhaseID" use="required" type="xs:NCName"/>
+      <xs:attribute name="PhaseSuivanteDesQualifies" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Poule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Tireur"/>
+        <xs:element maxOccurs="unbounded" ref="Match"/>
+      </xs:sequence>
+      <xs:attribute name="Date" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="Heure" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="ID" use="required" type="xs:integer"/>
+      <xs:attribute name="Piste" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PhaseDeTableaux">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Tireur"/>
+        <xs:element ref="SuiteDeTableaux"/>
+      </xs:sequence>
+      <xs:attribute name="ID" use="required" type="xs:integer"/>
+      <xs:attribute name="PhaseID" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuiteDeTableaux">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Tableau"/>
+      </xs:sequence>
+      <xs:attribute name="ID" use="required" type="xs:NCName"/>
+      <xs:attribute name="NbDeTableaux" use="required" type="xs:integer"/>
+      <xs:attribute name="Titre" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Tableau">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Match"/>
+      </xs:sequence>
+      <xs:attribute name="ID" use="required" type="xs:NCName"/>
+      <xs:attribute name="Taille" use="required" type="xs:integer"/>
+      <xs:attribute name="Titre" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Tireur">
+    <xs:complexType>
+      <xs:attribute name="Classement" type="xs:integer"/>
+      <xs:attribute name="Club"/>
+      <xs:attribute name="Cote" type="xs:NCName"/>
+      <xs:attribute name="DateNaissance" type="xs:NMTOKEN"/>
+      <xs:attribute name="ID" type="xs:integer"/>
+      <xs:attribute name="Lateralite" type="xs:NCName"/>
+      <xs:attribute name="Nation" type="xs:NCName"/>
+      <xs:attribute name="NbMatches" type="xs:integer"/>
+      <xs:attribute name="NbVictoires" type="xs:integer"/>
+      <xs:attribute name="NoDansLaPoule" type="xs:integer"/>
+      <xs:attribute name="Nom"/>
+      <xs:attribute name="Prenom"/>
+      <xs:attribute name="REF" type="xs:integer"/>
+      <xs:attribute name="RangFinal" type="xs:integer"/>
+      <xs:attribute name="RangInitial" type="xs:integer"/>
+      <xs:attribute name="RangPoule" type="xs:integer"/>
+      <xs:attribute name="Score" type="xs:integer"/>
+      <xs:attribute name="Sexe" type="xs:NCName"/>
+      <xs:attribute name="Statut" type="xs:NCName"/>
+      <xs:attribute name="TD" type="xs:integer"/>
+      <xs:attribute name="TR" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Match">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Tireur"/>
+      </xs:sequence>
+      <xs:attribute name="Date" type="xs:NMTOKEN"/>
+      <xs:attribute name="ID" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
