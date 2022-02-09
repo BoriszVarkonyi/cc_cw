@@ -104,22 +104,18 @@ footer {
 }
 
 .column {
-	flex: 1 1 600px;
+	flex: 1 1 500px;
 	padding: 25px;
 }
 
 .column.small {
-	flex: 1 1 400px;
+	flex: 1 1 300px;
 	padding: 25px;
 }
 
 .column.big {
-	flex: 1 1 600px;
+	flex: 1 1 500px;
 	padding: 25px;
-}
-
-.column.no_top {
-	padding: 12.5px;
 }
 
 @media (min-width: 0) {

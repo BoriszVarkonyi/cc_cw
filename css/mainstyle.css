@@ -67,10 +67,32 @@ header {
 	box-shadow: var(--s-black);
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
 	position: fixed;
 	top: 0;
 	z-index: 1;
+}
+
+#header_left {
+	min-width: 300px;
+	width: 20vw;
+	max-width: 375px;
+	transition: var(--t-basic);
+}
+
+#header_left.closed {
+	min-width: 40px;
+	width: 2vw;
+	max-width: 80px;
+}
+
+#header_middle {
+	flex: 1 1 0;
+}
+
+#header_right {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
 }
 
 /* Comp Changers */
@@ -79,7 +101,7 @@ header {
 	margin: auto;
 	font-size: var(--f-small);
 	width: 100%;
-	max-width: 50vw;
+	max-width: 40vw;
 	position: relative;
 	min-width: 0;
 }
@@ -302,7 +324,7 @@ header {
 }
 
 #menu_button {
-	height: 40px;
+	height: 2.5rem;
 	min-width: 40px;
 	width: 2vw;
 	max-width: 80px;
@@ -320,19 +342,6 @@ header {
 #menu_button img {
 	width: 25px;
 	height: 25px;
-}
-
-#menu_button_section {
-	min-width: 300px;
-	width: 20vw;
-	max-width: 375px;
-	transition: var(--t-basic);
-}
-
-#menu_button_section.closed {
-	min-width: 40px;
-	width: 2vw;
-	max-width: 80px;
 }
 
 #language_panel > div {
@@ -1098,11 +1107,67 @@ nav {
 	justify-content: center;
 	flex: 0 0 20vw;
 	transition: all var(--t-basic);
-	position: relative;
 	font-size: var(--f-large);
 	overflow-x: hidden; /* Buttons might overflow into main content == bad */
 	overflow-y: auto;
 }
+
+nav.closed {
+	transition: all var(--t-basic);
+	min-width: 40px;
+	width: 2vw;
+	flex: 0 0 2vw;
+	max-width: 80px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+	nav {
+		position: absolute;
+		z-index: 3;
+		height: calc(100vh - 2.5rem);
+	}
+
+	main {
+		margin-left: 40px;
+	}
+
+	#header_left {
+		min-width: 40px !important;
+		width: 2vw !important;
+		max-width: 80px !important;
+	}
+
+	#app_name {
+		display: none !important;
+	}
+
+	nav + main::after {
+		content: '';
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		left: 0;
+		top: 0;
+		z-index: 2;
+		background-color: var(--c-transparent-black);
+		transition: background ease-in-out .1s;
+	}
+
+	nav.closed + main::after {
+		background-color: transparent;
+		width: 0;
+		height: 0;
+		transition: background ease-in-out .1s;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	nav {
+		position: relative;
+	}
+}
+
 
 nav::-webkit-scrollbar { /* Width */
 	width: 7px;
@@ -1389,14 +1454,6 @@ nav:hover #nav_bar_pin {
 }
 
 /* Closed states  */
-
-nav.closed {
-	transition: all var(--t-basic);
-	min-width: 40px;
-	width: 2vw;
-	flex: 0 0 2vw;
-	max-width: 80px;
-}
 
 nav.closed #nav_bar_pin {
 	display: none;

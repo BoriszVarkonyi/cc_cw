@@ -1064,9 +1064,7 @@ thead tr:hover {
 tbody {}
 
 /* Selected rows are not scaled up visually */
-tbody.no_scale tr.selected {
-
-}
+tbody.no_scale tr.selected {}
 
 
 
