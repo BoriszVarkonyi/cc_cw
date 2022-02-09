@@ -3,10 +3,13 @@
 
 <?php
 
-
+session_start();
+if(isset($_SESSION["login_error"])) {
+    $login_error = true;
+}
 
 if (isset($_SESSION)) {
-    session_destroy();
+    session_reset();
 }
 if (isset($_POST["submit"])) {
 
@@ -57,8 +60,8 @@ if (isset($_POST["submit"])) {
                 $_SESSION['role'] = "organisers";
                 header("Location: cc/choose_tournament.php");
             } else {
-
-                header("Location: index.php?loginerror=4");
+                $_SESSION["login_error"] = true;
+                header("Location: index.php");
             }
         } else {
             $errors = $user_error . $pass_error;
@@ -122,8 +125,8 @@ if (isset($_POST["submit"])) {
                     $_SESSION['username'] = $db_user;
                     header("Location: cc/choose_competition.php");
                 } else {
-
-                    header("Location: index.php?loginerror=4");
+                    $_SESSION["login_error"] = true;
+                    header("Location: index.php");
                 }
             } else {
                 session_start();
@@ -159,9 +162,8 @@ if (isset($_POST["submit"])) {
         </div>
         <div id="panel_main">
             <!-- login form -->
-            <form action="index.php" method="POST" autocomplete="off" class="overlay_panel_form <?php if ($_GET["loginerror"] == 4) {
-                    echo "error";
-                } ?>">
+            <?php $login_error; ?>
+            <form action="index.php" method="POST" autocomplete="off" class="overlay_panel_form <?php if(isset($login_error)) echo "error"; ?>">
                 <label for="username">LOGIN ID</label>
                 <input type="text" placeholder="Type in your username" name="username" class="username_input" onblur="errorChecker(this)">
 
