@@ -40,16 +40,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
-    <title>Document</title>
+    <title>Modify '<?php echo $title ?>'</title>
 </head>
 <body>
     <div class="basic_panel">
         <h1>Edit your video entry</h1>
         <form method="POST">
-            <input name="url" type="text" value="<?php echo $url ?>"> <br>
-            <input name="title" type="text" value="<?php echo $title ?>"><br>
-            <input name="comp_name" type="text" value="<?php echo $comp_name ?>"><br>
-            <input name="prev_text" type="text" value="<?php echo $prev_text ?>"><br>
+            <input name="url" type="text" placeholder="URL" value="<?php echo $url ?>"> <br>
+            <input name="title" type="text" placeholder="Title" value="<?php echo $title ?>"><br>
+            <input name="comp_name" type="text" placeholder="Competition's name" value="<?php echo $comp_name ?>"><br>
+            <input name="prev_text" type="text" placeholder="Preview text" value="<?php echo $prev_text ?>"><br>
             <input name="submit" type="submit" value="submit">
         </from>
         <button>

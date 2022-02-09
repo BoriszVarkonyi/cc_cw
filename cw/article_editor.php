@@ -142,7 +142,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
-    <title>CW Admin</title>
+    <title>Edit '<?php echo $title; ?>'</title>
 </head>
 <body>
     <div class="basic_panel">
