@@ -19,7 +19,7 @@
 
 <?php
 include "db.php";
-include "../includes/functions.php";
+include "includes/functions.php";
 include "../cw/competition_filtering.php";
 //fetching data drom 'comptetitions' from the rows with the same 'comp_status' as '$statusofpage'
 //'$statusofpage' is defined at the beginning of cw_""_competition - s

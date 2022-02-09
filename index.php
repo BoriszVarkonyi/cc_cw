@@ -1,4 +1,4 @@
-<?php include "includes\db.php"; ?>
+<?php include "db.php"; ?>
 <?php ob_start(); ?>
 
 <?php
@@ -66,7 +66,7 @@ if (isset($_POST["submit"])) {
                 session_start();
                 $_SESSION['username'] = $db_user;
                 $_SESSION['role'] = "organisers";
-                header("Location: php/choose_tournament.php");
+                header("Location: cc/choose_tournament.php");
             } else {
 
                 header("Location: index.php?loginerror=4");
@@ -131,7 +131,7 @@ if (isset($_POST["submit"])) {
 
                     session_start();
                     $_SESSION['username'] = $db_user;
-                    header("Location: php/choose_competition.php");
+                    header("Location: cc/choose_competition.php");
                 } else {
 
                     header("Location: index.php?loginerror=4");
@@ -140,7 +140,7 @@ if (isset($_POST["submit"])) {
                 session_start();
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = "technicians";
-                header("Location: php/set_new_pass_first.php?where=$where");
+                header("Location: cc/set_new_pass_first.php?where=$where");
             }
         } else {
             $errors = $user_error . $pass_error;
@@ -159,9 +159,9 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Login</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/mainstyle.min.css">
-    <link rel="stylesheet" href="../css/login_style.min.css">
+    <link rel="stylesheet" href="css/basestyle.min.css">
+    <link rel="stylesheet" href="css/mainstyle.min.css">
+    <link rel="stylesheet" href="css/login_style.min.css">
 </head>
 <body class="fencers">
     <div id="login_panel">

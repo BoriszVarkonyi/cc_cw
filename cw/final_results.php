@@ -77,10 +77,10 @@
         </div>
     </main>
      <?php include "static/footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
-    <script src="../js/cw_temporary_ranking.js"></script>
-    <script src="../js/search.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/competitions.js"></script>
+    <script src="javascript/temporary_ranking.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php include "db.php" ?>
-<?php include "../includes/functions.php" ?>
+<?php include "includes/functions.php" ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -51,6 +51,6 @@
         </div>
     </main>
     <?php include "static/footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
+    <script src="javascript/main.js"></script>
 </body>
 </html>
