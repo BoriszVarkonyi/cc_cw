@@ -26,7 +26,7 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
         <div id="title_stripe">
             <p class="page_title">Your Tournaments</p>
             <div class="stripe_button_wrapper">
-                <button class="stripe_button primary" onclick="location.href='create_tournament.php'">
+                <button class="stripe_button primary" shortcut="SHIFT+P" onclick="location.href='create_tournament.php'">
                     <p>Create Tournament</p>
                     <img src="../assets/icons/add_black.svg"/>
                 </button>

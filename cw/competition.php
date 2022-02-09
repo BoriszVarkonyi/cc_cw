@@ -276,24 +276,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                     </div>
                 </div>
                 <div class="column small no_top">
-                    <div id="competition_controls" class="column_panel no_bottom">
-                        <p class="column_panel_title">Fencer Controls:</p>
-                        <div class="competition_controls_wrapper">
-                            <!-- if not logged in -->
-                            <?php if (!isset($_SESSION['fencer_id'])) : ?>
-                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>">Login</a>
-                            <?php else : ?>
-                                <!-- if logged in -->
-                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
-                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
-                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
-                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>&log_out=1" class="red">Log out</a>
-                            <?php endif ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="column small no_top">
-                    <div id="competition_controls" class="column_panel no_bottom">
+                    <div id="competition_controls" class="column_panel">
                         <p class="column_panel_title">For Viewers:</p>
                         <div class="competition_controls_wrapper">
                             <!--
@@ -314,6 +297,21 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                             <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
                             <button onclick="printPage()">Print</a>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''" class="red">Watch Video / Watch Live</a>
+                        </div>
+                    </div>
+                    <div id="competition_controls" class="column_panel">
+                        <p class="column_panel_title">Fencer Controls:</p>
+                        <div class="competition_controls_wrapper">
+                            <!-- if not logged in -->
+                            <?php if (!isset($_SESSION['fencer_id'])) : ?>
+                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>">Login</a>
+                            <?php else : ?>
+                                <!-- if logged in -->
+                                <a href="my_matches_individual.php?comp_id=<?php echo $comp_id ?>">My Matches</a>
+                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Weapon Control Report</a>
+                                <a href="weapon_control_report.php?comp_id=<?php echo $comp_id ?>">Book Weapon Control</a>
+                                <a href="fencer_login.php?comp_id=<?php echo $comp_id ?>&log_out=1" class="red">Log out</a>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>

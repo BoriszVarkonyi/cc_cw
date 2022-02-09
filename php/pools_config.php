@@ -760,9 +760,12 @@
                                         <button type="button" onclick="poolConfig(this)" class="pool_config">
                                             <img src="../assets/icons/settings_black.svg">
                                         </button>
-                                        <button name="sumbit_changes" type="submit">
+                                        <!--
+                                                                                <button name="sumbit_changes" type="submit">
                                             Save
                                         </button>
+                                         -->
+
                                     </div>
                                 </form>
                                 <div class="entry_panel">
