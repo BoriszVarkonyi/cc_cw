@@ -9,7 +9,7 @@
         <select name="year" id="year">
             <option value="Every" selected>Every</option>
             <?php for ($i = -1; $i <= 10; $i++) : ?>
-                <?php if ($yearInput == date("Y") - $i) : ?>
+                <?php if (isset($yearInput) && $yearInput == date("Y") - $i) : ?>
                     <option value="<?php echo date("Y") - $i; ?>" selected><?php echo date("Y") - $i ?></option>
                 <?php else : ?>
                     <option value="<?php echo date("Y") - $i; ?>"><?php echo date("Y") - $i ?></option>
@@ -20,7 +20,7 @@
     <div class="search_wrapper narrow">
         <select name="sex" id="sex">
             <?php foreach (array("Both", "Male", "Female") as $gender) : ?>
-                <?php if ($sex == $gender) : ?>
+                <?php if (isset($sex) && $sex == $gender) : ?>
                     <option value="<?php echo $gender ?>" selected><?php echo $gender ?></option>
                 <?php else : ?>
                     <option value="<?php echo $gender ?>"><?php echo $gender ?></option>
@@ -32,7 +32,7 @@
     <div class="search_wrapper narrow">
         <select name="weapon" id="weapon">
             <?php foreach (array("All", "Epee", "Foil", "Sabre") as $weapon_type) : ?>
-                <?php if ($weapon == $weapon_type) : ?>
+                <?php if (isset($weapon) && $weapon == $weapon_type) : ?>
                     <option value="<?php echo $weapon_type ?>" selected><?php echo $weapon_type ?></option>
                 <?php else : ?>
                     <option value="<?php echo $weapon_type ?>"><?php echo $weapon_type ?></option>

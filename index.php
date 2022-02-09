@@ -14,17 +14,6 @@ if (isset($_POST["submit"])) {
     $pass_error = "";
     $role_error = "";
 
-    $test = date("m");
-    $test1 = date("Y");
-
-    if (strlen($test, 1) == 0) {
-
-        $testuse = ltrim($test, $test[0]);
-    } else {
-
-        $testuse = $test;
-    }
-
     $choose = $_POST["role"];
 
     if (!$choose) {
@@ -60,8 +49,8 @@ if (isset($_POST["submit"])) {
 
                 setcookie("org_id", $db_id, time() + 31536000);
                 setcookie("lastlogin", 1, time() + 31536000);
-                setcookie("year", $test1, time() + 31556926);
-                setcookie("month", $test, time() + 31556926);
+                setcookie("year", date("Y"), time() + 31556926);
+                setcookie("month", date("m"), time() + 31556926);
 
                 session_start();
                 $_SESSION['username'] = $db_user;
@@ -126,8 +115,8 @@ if (isset($_POST["submit"])) {
 
                     setcookie("tech_id", $db_id, time() + 31536000);
                     setcookie("lastlogin", 2, time() + 31536000);
-                    setcookie("year", $test1, time() + 31556926);
-                    setcookie("month", $test, time() + 31556926);
+                    setcookie("year", date("Y"), time() + 31556926);
+                    setcookie("month", date("m"), time() + 31556926);
 
                     session_start();
                     $_SESSION['username'] = $db_user;
