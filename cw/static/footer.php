@@ -1,7 +1,7 @@
 <footer>
     <div>
         <div>
-            <p>CompetitionView &copy; 2021</p>
+            <p>CompetitionView &copy; <?php echo date("Y"); ?></p>
             <img src="../assets/img/favicon.svg" alt="CompetitionView logo" class="footer_logo">
         </div>
         <div>
