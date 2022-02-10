@@ -2,6 +2,7 @@
 <?php include "functions.php" ?>
 <?php include "db.php"; ?>
 <?php include "username_checker.php"; ?>
+<?php include "models/TechnicianFactory.php"; ?>
 <?php
 
 
@@ -30,14 +31,13 @@ if ($lastlogin == 1) {
 
     $role = "Organiser";
 } else {
+    $technicianFactory = new TechnicianFactory($connection);
+    $technician = $technicianFactory->fromUsername($username);
 
-    $query_tech = "SELECT * FROM technicians WHERE username = '$username'";
-    $check_comp_tech_query = mysqli_query($connection, $query_tech);
+    if ($technician != null) {
 
-    if ($row = mysqli_fetch_assoc($check_comp_tech_query)) {
-
-        $id = $row['id'];
-        $tech_role = $row["role"];
+        $id = $technician->id;
+        $tech_role = $technician->role;
     }
 
     $role = roleConverter($tech_role);
