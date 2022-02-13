@@ -213,7 +213,7 @@ foreach ($json_teams as $value) {
                                         <p><?php echo $json_obj->club ?></p>
                                     </td>
                                     <td class="square">
-                                        <input onclick="checkFencer(this)" type="checkbox" name="emberek" id="<?php echo $json_obj->id ?>">
+                                        <input onclick="checkFencer(this)" type="checkbox" name="emberek" id="<?php echo $json_obj->id ?>" disabled>
                                         <label for="<?php echo $json_obj->id ?>"></label>
                                     </td>
                                 </tr>
