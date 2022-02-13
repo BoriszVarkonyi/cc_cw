@@ -93,10 +93,6 @@
 	pointer-events: none;
 }
 
-.column_panel.no_top {
-	margin: 0 0 25px;
-}
-
 .column_panel.no_bottom {
 	margin-bottom: 0;
 }

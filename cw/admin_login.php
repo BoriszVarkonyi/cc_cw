@@ -1,5 +1,5 @@
-<?php include "../includes/db.php" ?>
-<?php include "../includes/functions.php" ?>
+<?php include "db.php" ?>
+<?php include "includes/functions.php" ?>
 <?php
     session_start();
     $feedback = "";
@@ -72,23 +72,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin_login</title>
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
+    <title>Admin Login</title>
 </head>
 <body>
-<h1>LOGIN</h1>
-<?php $feedback ?>
-<form id="login" method="POST">
-<input type="text" name="username" placeholder="username">
-<input type="password" name="pass" placeholder="password">
-<input type="submit" name="submit">
-</form>
+    <div class="basic_panel">
+        <h1>LOGIN</h1>
+        <?php $feedback ?>
+        <form id="login" method="POST">
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="pass" placeholder="password">
+            <button type="submit" name="submit">Login<button>
+        </form>
 
-<h1>REGISTER</h1>
-<form id="login" method="POST">
-<input type="text" name="r_username" placeholder="username">
-<input type="password" name="r_pass" placeholder="password">
-<input type="password" name="r_passa" placeholder="password again">
-<input type="submit" name="r_submit">
-</form>
+        <h1>REGISTER</h1>
+        <form id="login" method="POST">
+            <input type="text" name="r_username" placeholder="username">
+            <input type="password" name="r_pass" placeholder="password">
+            <input type="password" name="r_passa" placeholder="password again">
+            <button type="submit" name="r_submit">Register</button>
+        </form>
+    </div>
 </body>
 </html>

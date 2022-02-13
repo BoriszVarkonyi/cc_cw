@@ -1,6 +1,7 @@
 <?php include "cw_comp_getdata.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,17 +10,18 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
+
 <body class="competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     Pools of <?php echo $comp_name ?>
-                </p>
+                </h1>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
@@ -29,76 +31,190 @@
                     </div>
                     <input type="submit" value="Search">
                 </form>
-
                 <?php
-                    $pools_query = "SELECT * FROM pools WHERE assoc_comp_id = '$comp_id';";
-                    $query_result = mysqli_query($connection, $pools_query);
+                $qry_get_pools = "SELECT `fencers`, `matches` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
+                $do_get_pools = mysqli_query($connection, $qry_get_pools);
 
-                    if($row = mysqli_fetch_assoc($query_result)) {
-                        $fencers_json = $row["fencers"];
-                        $fencers_table = json_decode($fencers_json);
-                    } else {
-                        echo mysqli_error($connection);
-                    }
+                if ($row = mysqli_fetch_assoc($do_get_pools)) {
+                    $json_string = $row['fencers'];
+                    $fencers_table = json_decode($json_string);
+                    $json_string = $row['matches'];
+                    $matches_table = json_decode($json_string);
+                } else {
+                    echo mysqli_error($connection);
+                }
 
-                    for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++){
-                        $current_pool = $fencers_table[$pool_num];
 
-                        if($fencers_table[$pool_num]->ref1 !== null) {
-                            $ref1_name = $fencers_table[$pool_num]->ref1->prenom . " " . $fencers_table[$pool_num]->ref1->nom;
-                            $ref1_nation = $fencers_table[$pool_num]->ref1->nation;
-                            $ref1_club = $fencers_table[$pool_num]->ref1->club;
-                            echo "<h2>$ref1_name ($ref1_nation): $ref1_club; ";
-                        } else {
-                            echo "<h2>No REF 1; ";
-                        }
-                        if($fencers_table[$pool_num]->ref2 !== null) {
-                            $ref2_name = $fencers_table[$pool_num]->ref2->prenom . " " . $fencers_table[$pool_num]->ref2->nom;
-                            $ref2_nation = $fencers_table[$pool_num]->ref2->nation;
-                            $ref2_club = $fencers_table[$pool_num]->ref2->club;
-                            echo " $ref2_name ($ref2_nation): $ref2_club</h2>";
-                        } else {
-                            echo " No REF 2</h2>";
-                        }
-                        if($fencers_table[$pool_num]->piste !== null) {
-                            $piste = $fencers_table[$pool_num]->piste;
-                            echo "<h3>Piste: $piste</h3>";
-                        } else {
-                            echo "<h3>Piste is not set</h3>";
-                        }
-                        if($fencers_table[$pool_num]->time !== null) {
-                            $time = $fencers_table[$pool_num]->time;
-                            echo "<h3>Time: $time</h3>";
-                        } else {
-                            echo "<h3>Time is not set</h3>";
-                        }
                 ?>
-                <table>
-                    <th>Name (Nationality)</th>
-                    <th>Club</th>
-                    <th>CP</th>
-                    <th>PR</th>
+                <div id="page_content_panel_main">
+                    <div id="pool_listing">
                         <?php
-                        $number_of_fencers = getFencersInPool($fencers_table[$pool_num]);
-                        for($fencer_num = 1; $fencer_num < $number_of_fencers; $fencer_num++) {
-                ?>
-                    <tr>
-                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->prenom_nom . " (" .$fencers_table[$pool_num]->{$fencer_num}->nation . ")" ?></td>
-                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->club ?></td>
-                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->c_pos?></td>
-                        <td><?php echo $fencers_table[$pool_num]->{$fencer_num}->r_pos?></td>
+                        if(!isset($fencers_table)) {
+                            echo "<h2>No pools set yet.</h2>";
+                            echo "<p>Please look back later</p>";
+                        } else if(!isset($matches_table)) {
+                            echo "<h2>No matches set yet.</h2>";
+                            echo "<p>Please look back later</p>";
+                        } else {
+                        for ($pool_num = 1; $pool_num < count($fencers_table); $pool_num++) {
+                            $current_pool = $fencers_table[$pool_num];
 
-                    </tr>
-                <?php } ?>
-                    </table>
-                <?php } ?>
+                            $piste = $current_pool->piste;
+                            if ($current_pool->ref1 !== NULL) {
+                                $ref1name = $current_pool->ref1->prenom . " " . $current_pool->ref1->nom;
+                            }
+
+                            if ($current_pool->ref2 != NULL) {
+                                $ref2name = $current_pool->ref2->prenom . " " . $current_pool->ref2->nom;
+                            }
+                            $time = $current_pool->time;
+
+                            //get number of fencers in pools
+                            $number_of_fencers = getFencersInPool($fencers_table[$pool_num]);
+
+                        ?>
+                            <div>
+                                <div class="entry">
+                                    <div class="tr bold">
+                                        <div class="td">No. <?php echo $pool_num ?></div>
+                                        <div class="td">Piste <?php echo $piste ?></div>
+                                        <?php
+                                        if ($current_pool->ref2 != NULL) {
+                                        ?>><div class="td">Ref1: <?php echo $ref1name ?></div><?php
+                                        }
+                                        if ($current_pool->ref2 != NULL) {
+                                        ?><div class="td">Ref2: <?php echo $ref2name ?></div><?php
+                                        } ?>
+                                    <div class="td"><?php echo $time ?></div>
+                                    </div>
+                                    <div class="entry_panel">
+                                        <table class="pool_table_wrapper no_interaction">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <p>NAME</p>
+                                                    </th>
+                                                    <th>
+                                                        <p>NATION</p>
+                                                    </th>
+                                                    <th class="square">
+                                                        <p>NO.</p>
+                                                    </th>
+                                                    <?php
+                                                    for ($k = 1; $k <= $number_of_fencers; $k++) { ?>
+                                                        <th class="square">
+                                                            <?php echo $k; ?>
+                                                        </th>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="alt">
+                                                <?php
+                                                for ($n = 1; $n <= $number_of_fencers; $n++) {
+
+                                                    $fencer_nat = $current_pool->{$n}->nation;
+                                                    $fencer_name = $current_pool->{$n}->prenom_nom;
+                                                    $fencer_id = $current_pool->{$n}->id;
+
+                                                    if ($n < 4) {
+                                                        $points = $matches_table[$pool_num - 1]->{$n}->{$number_of_fencers}->given;
+                                                    } else {
+                                                        $points = $matches_table[$pool_num - 1]->{1}->{$number_of_fencers}->gotten;
+                                                    }
+
+                                                    $disq_class = "";
+                                                    if (isDisqualified($points)) {
+                                                        $disq_class = "disqualified";
+                                                    }
+
+                                                ?>
+                                                    <tr class="<?php echo $disq_class ?>">
+                                                        <td><?php echo $fencer_name ?></td>
+                                                        <td><?php echo $fencer_nat ?></td>
+                                                        <td class="square row_title"><?php echo $n ?></td>
+                                                        <?php
+                                                        for ($l = 1; $l <= $number_of_fencers; $l++) {
+
+                                                            $color_class = "";
+
+                                                            if ($n == $l) { //middle strip
+
+                                                                $color_class = " filled";
+                                                            } else if ($n > $l) { //right upper
+
+                                                                //get points
+                                                                $gotten = $matches_table[$pool_num - 1]->{$l}->{$n}->gotten;
+                                                                $given = $matches_table[$pool_num - 1]->{$l}->{$n}->given;
+                                                                $win_id = $matches_table[$pool_num - 1]->{$l}->{$n}->w_id;
+
+                                                                if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                                    $color_class = " disqualified";
+                                                                } else if ($win_id == $fencer_id) {
+                                                                    $color_class = " green";
+                                                                } else {
+                                                                    $color_class = " red";
+                                                                }
+                                                            } else { //left downer
+
+                                                                //get points rev
+                                                                $gotten = $matches_table[$pool_num - 1]->{$n}->{$l}->gotten;
+                                                                $given = $matches_table[$pool_num - 1]->{$n}->{$l}->given;
+                                                                $win_id = $matches_table[$pool_num - 1]->{$n}->{$l}->w_id;
+
+                                                                if (isDisqualified($given) || isDisqualified($gotten)) {
+                                                                    $color_class = " disqualified";
+                                                                } else if ($win_id == $fencer_id) {
+                                                                    $color_class = " green";
+                                                                } else {
+                                                                    $color_class = " red";
+                                                                }
+                                                            }
+                                                        ?>
+
+                                                            <td class="square <?php echo $color_class ?>">
+
+                                                                <?php
+                                                                if ($n > $l) {
+                                                                    //ha forditva van a givent meg a gottent kell megcserelni
+                                                                    $given = $matches_table[$pool_num - 1]->{$l}->{$n}->gotten;
+                                                                    echo $given;
+                                                                } else if ($n == $l) {
+                                                                    echo "x";
+                                                                } else {
+                                                                    $gotten = $matches_table[$pool_num - 1]->{$n}->{$l}->given;
+                                                                    echo $gotten;
+                                                                }
+                                                                ?>
+
+                                                            </td>
+
+                                                        <?php
+                                                            $filled = "";
+                                                        }
+
+                                                        ?>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        } }
+                        ?>
+                    </div>
+                </div>
             </div>
-        </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/cw_pools.js"></script>
-    <script src="../js/entry_controls.js"></script>
-    <script src="../js/search.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/pools.js"></script>
+    <script src="javascript/entry_controls.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

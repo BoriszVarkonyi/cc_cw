@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     Competitors of <?php echo $comp_name ?>
-                </p>
+                </h1>
             </div>
             <div id="content_wrapper">
                 <form method="POST" id="browsing_bar">
@@ -44,57 +44,21 @@
                     <input name="submit_search" type="submit" value="Search">
                 </form>
 
-                <table class="cw">
+                <table>
                     <?php
                         $competitionController = new CompetitionController($comp_id);
                         $competitors = $competitionController->getCompetitors();
-                        $competitors = $competitionController->sortCompetitorsByRank($competitors);
 
-                        if(count($competitors) == 0) {
-                            echo "<p>You have no competitors set up or the search criteria is too narrow!</p>";
-                        } else {
-                    ?>
-                        <thead>
-                            <th><p>RANK</p></th>
-                            <th><p>NAME</p></th>
-                            <th><p>NATION</p></th>
-                            <th><p>CLUB</p></th>
-                        </thead>
-                        <tbody class="alt">
-                        <?php
-                            foreach($competitors as $competitor) {
-                        ?>
-
-                            <tr>
-                                <td>
-                                    <p><?php echo $competitor->rank ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $competitor->fullName ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $competitor->nation ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $competitor->club ?></p>
-                                </td>
-                            </tr>
-
-                        <?php
-                        }
-                        ?>
-                        </tbody>
-                        <?php
-                    }
+                        include 'views/Competitors.php';
                     ?>
                 </table>
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
-    <script src="../js/search.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/competitions.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

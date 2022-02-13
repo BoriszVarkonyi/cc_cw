@@ -1,0 +1,128 @@
+<!ELEMENT CompetitionIndividuelle (Tireurs,Arbitres,Phases) >
+
+    <!ATTLIST CompetitionIndividuelle Annee CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle Arme CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle Categorie CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle Championnat CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle Classe CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle Date CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle DateDebut CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle DateFin CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle DateFichierXML CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle Domaine CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle Federation CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle ID CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle IDTournoi CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle Lieu CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle LiveURL CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle Organisateur CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle Sexe CDATA #REQUIRED >
+    <!ATTLIST CompetitionIndividuelle TitreCourt CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle TitreCourtTournoi CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle TitreLong CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle TitreLongTournoi CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle URLorganisateur CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle Version CDATA #FIXED "1.0" >
+    <!ATTLIST CompetitionIndividuelle VideoURL CDATA #IMPLIED >
+    <!ATTLIST CompetitionIndividuelle ZoneHoraire CDATA #IMPLIED >
+
+        <!ELEMENT Tireurs (Tireur*)>
+
+                <!ELEMENT Tireur EMPTY>
+
+                        <!ATTLIST Tireur ID CDATA #REQUIRED >
+                        <!ATTLIST Tireur Nom CDATA #REQUIRED >
+                        <!ATTLIST Tireur Prenom CDATA #REQUIRED >
+                        <!ATTLIST Tireur DateNaissance CDATA #REQUIRED >
+                        <!ATTLIST Tireur Sexe CDATA #REQUIRED >
+                        <!ATTLIST Tireur Lateralite CDATA #REQUIRED >
+                        <!ATTLIST Tireur Nation CDATA #REQUIRED >
+                        <!ATTLIST Tireur Club CDATA #REQUIRED >
+                        <!ATTLIST Tireur LicenceNat CDATA #REQUIRED >
+                        <!ATTLIST Tireur Dossard CDATA #REQUIRED >
+                        <!ATTLIST Tireur IdOrgini CDATA #REQUIRED >
+                        <!ATTLIST Tireur Statut CDATA #REQUIRED >
+
+        <!ELEMENT Arbitres (Arbitre*)>
+
+                <!ELEMENT Arbitre EMPTY>
+
+                        <!ATTLIST Arbitre placeholder1 CDATA #REQUIRED >
+
+
+        <!ELEMENT Phases (TourDePoules,TourDeT)>
+
+                        <!ELEMENT TourDePoules (Tireur*,Poule*)>
+
+                                <!ATTLIST TourDePoules PhaseID CDATA #REQUIRED >
+                                <!ATTLIST TourDePoules ID CDATA #REQUIRED >
+                                <!ATTLIST TourDePoules NbDePoules CDATA #REQUIRED >
+                                <!ATTLIST TourDePoules PhaseSuivanteDesQualifies CDATA #REQUIRED >
+                                <!ATTLIST TourDePoules NbExemptes CDATA #REQUIRED >
+                                <!ATTLIST TourDePoules NbQualifiesParPoule CDATA #REQUIRED >
+                                <!ATTLIST TourDePoules NbQualifiesParIndice CDATA #REQUIRED >
+
+                                        <!ELEMENT Tireur EMPTY>
+
+                                                <!ATTLIST Tireur REF CDATA #REQUIRED >
+                                                <!ATTLIST Tireur RangInitials CDATA #REQUIRED >
+                                                <!ATTLIST Tireur RangFinal CDATA #REQUIRED >
+                                                <!ATTLIST Tireur Statut CDATA #REQUIRED >
+                                                <!ATTLIST Tireur IdOrigine CDATA #REQUIRED >
+
+                                        <!ELEMENT Poule (Tireur*,Match*) >
+
+                                                <!ATTLIST Poule ID CDATA #REQUIRED >
+                                                <!ATTLIST Poule Piste CDATA #REQUIRED >
+                                                <!ATTLIST Poule Date CDATA #REQUIRED >
+                                                <!ATTLIST Poule Heure CDATA #REQUIRED >
+
+                                                        <!ELEMENT Tireur EMPTY>
+
+                                                                <!ATTLIST Tireur REF CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur NoDansLaPoule CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur NbVictoires CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur NbMatches CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur TD CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur TR CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur RangPoule CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur IdOrigine CDATA #REQUIRED >
+
+                                                        <!ELEMENT Match (Tireur,Tireur) >
+
+                                                                <!ATTLIST Tireur REF CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur Score CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur Statut CDATA #REQUIRED >
+                                                                <!ATTLIST Tireur Cote CDATA #REQUIRED >
+
+                        <!ELEMENT TourDeTableaux (Tireur*,SuiteDeTableaux*)>
+
+                                <!ELEMENT Tireur EMPTY >
+
+                                        <!ATTLIST Tireur REF CDATA #REQUIRED >
+                                        <!ATTLIST Tireur RangInitial CDATA #REQUIRED >
+                                        <!ATTLIST Tireur IdOrigine CDATA #REQUIRED >
+
+                                <!ELEMENT SuiteDeTableaux (Tableau*) >
+
+                                        <!ATTLIST SuiteDeTableaux ID CDATA #REQUIRED >
+                                        <!ATTLIST SuiteDeTableaux Titre CDATA #REQUIRED >
+                                        <!ATTLIST SuiteDeTableaux NbDeTableau CDATA #REQUIRED >
+
+                                                <!ELEMENT Tableau (Match*) >
+
+                                                        <!ATTLIST Tableau ID CDATA #REQUIRED >
+                                                        <!ATTLIST Tableau Titre CDATA #REQUIRED >
+                                                        <!ATTLIST Tableau Taille CDATA #REQUIRED >
+
+                                                                <!ELEMENT Match (Tireur*) >
+
+                                                                        <!ATTLIST Match ID CDATA #REQUIRED >
+                                                                        <!ATTLIST Match DATE CDATA #REQUIRED >
+
+                                                                                <!ELEMENT Tireur EMPTY >
+
+                                                                                        <!ATTLIST Tireur REF CDATA #REQUIRED >
+                                                                                        <!ATTLIST Tireur Score CDATA #REQUIRED >
+                                                                                        <!ATTLIST Tireur Statut CDATA #REQUIRED >
+                                                                                        <!ATTLIST Tireur Place CDATA #REQUIRED >

@@ -1,5 +1,20 @@
 <?php $statusofpage = 4; ?>
 
+<?php
+    if(isset($_GET['q'])) {
+        $q = filter_input(INPUT_GET, 'q');
+    }
+    if(isset($_GET['year'])) {
+        $yearInput = filter_input(INPUT_GET, 'year');
+    }
+    if(isset($_GET['sex'])) {
+        $sex = filter_input(INPUT_GET, 'sex');
+    }
+    if(isset($_GET['weapon'])) {
+        $weapon = filter_input(INPUT_GET, 'weapon');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,69 +26,24 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="finished_competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Finished competitions</p>
+                <h1>Finished competitions</h1>
             </div>
             <div id="content_wrapper">
-                <form method="POST" id="browsing_bar">
-                    <!-- search by name box -->
-                    <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
-                    </div>
-                    <!-- year drop-down -->
-                    <div class="search_wrapper narrow">
-                        <input type="text" name="" placeholder="-Year-" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)">
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
-                        <div class="search_results">
-                            <?php
-                                for ($i = -1; $i <= 10; $i++) {
-
-                                    $year = date("Y") - $i;
-
-                                    ?><button type="button" onclick="autoFill(this)"><?php echo $year ?></button><?php
-                                }
-                            ?>
-                        </div>
-                    </div>
-                    <!-- sex: drop-down -->
-                    <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Sex">
-                            <input type="text" name="" placeholder="-Sex-">
-                        </button>
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
-                        <div class="search_results">
-                            <button type="button" onclick="selectSystem(this)" aria-label="Male">Male</button>
-                            <button type="button" onclick="selectSystem(this)" aria-label="Female">Female</button>
-                        </div>
-                    </div>
-                    <!-- weapon type drop-down -->
-                    <div class="search_wrapper narrow">
-                        <button type="button" class="search select alt" onfocus="isOpen(this)" onblur="isClosed(this)" aria-label="Select Weapon Type">
-                            <input type="text" name="" placeholder="-Weapon Type-">
-                        </button>
-                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
-                        <div class="search_results">
-                            <button type="button" onclick="selectSystem(this)" aria-label="Epee">Epee</button>
-                            <button type="button" onclick="selectSystem(this)" aria-label="Foil">Foil</button>
-                            <button type="button"onclick="selectSystem(this)" aria-label="Sabre">Sabre</button>
-                        </div>
-                    </div>
-                    <input name="submit_search" type="submit" value="Search">
-                </form>
-                <?php include "../cw/comps_display.php" ?>
+            <?php include "views/SearchForm.php" ?>
+            <?php include "../cw/comps_display.php" ?>
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/cw_bookmark_competition.js"></script>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
-    <script src="../js/search.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/bookmark_competition.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/competitions.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

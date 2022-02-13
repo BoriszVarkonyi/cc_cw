@@ -1,8 +1,8 @@
-<?php include "../cw/db.php"; ?>
-<?php include "../includes/functions.php"; ?>
+<?php include "db.php"; ?>
+<?php include "includes/functions.php"; ?>
 
 <?php
-$comp_id = $_GET['comp_id'];
+$comp_id = filter_input(INPUT_GET, 'comp_id', FILTER_SANITIZE_NUMBER_INT);
 
 //query for selecting relevant competition for display
 $query = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
@@ -22,5 +22,6 @@ if ($row = mysqli_fetch_assoc($result)) {
     $is_individual = $row['is_individual'];
 } else {
     echo mysqli_error($connection);
+    header("location: index.php");
 }
 ?>

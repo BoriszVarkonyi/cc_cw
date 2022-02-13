@@ -1,5 +1,13 @@
-<?php include "../includes/db.php"; ?>
-<?php include "../includes/functions.php"; ?>
+<?php include "db.php"; ?>
+<?php include "includes/functions.php"; ?>
+<?php include "./controllers/VideoController.php"; ?>
+
+<?php
+    if(isset($_GET['q'])) {
+        $q = filter_input(INPUT_GET, 'q');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,45 +19,28 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="videos">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Videos</p>
+                <h1>Videos</h1>
             </div>
             <div id="content_wrapper">
-                <form id="browsing_bar">
+                <form id="browsing_bar" method="GET">
                     <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
+                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $q; ?>">
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
                 <div id="videos_wrapper">
                     <?php
+                        $videoController = new VideoController();
+                        if(isset($_GET["q"]))
+                            $videos = $videoController->getVideosSearch($q);
+                        else
+                            $videos = $videoController->getVideos();
 
-                        $qry_get_videos = "SELECT * FROM cw_videos;";
-                        $do_get_videos = mysqli_query($connection, $qry_get_videos);
-
-                        while ($row = mysqli_fetch_assoc($do_get_videos)) {
-                            $video_id = "asd";
-                            $url = $row['URL'];
-                            $comp_name = $row['comp_name'];
-                            $id = $row['id'];
-                            $title = $row['title'];
-                            parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-                            $video_id = $my_array_of_vars['v'];
-
-                    ?>
-                            <!-- latest video placeholder -->
-                            <div class="video_wrapper" onclick="location.href='video.php?vid_id=<?php echo $id ?>'" loading="lazy">
-                                <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/sddefault.jpg" alt="<?php echo$title ?> thumbnail">
-                                <div class="video_wrapper_info">
-                                    <p><?php echo$title ?></p>
-                                    <p><?php echo $comp_name ?></p>
-                                </div>
-                            </div>
-                    <?php
-                        }
+                        include 'views/Videos.php';
                     ?>
                     <div class="video_wrapper ghost"></div>
                     <div class="video_wrapper ghost"></div>
@@ -57,8 +48,8 @@
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/search.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

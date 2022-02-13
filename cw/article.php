@@ -1,11 +1,14 @@
-<?php include "../includes/db.php" ?>
-<?php include "../includes/functions.php" ?>
+<?php include "db.php" ?>
+<?php include "includes/functions.php" ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php
-    $id = $_GET['id'];
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $articleController = new ArticleController();
     $article = $articleController->getArticle($id);
+    if(!$article) {
+        header("Location: blog.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,16 +21,16 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="blog">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="blog.php" aria-label="Go back to Blog">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     <?php echo $article->title ?>
-                </p>
+                </h1>
             </div>
             <div id="content_wrapper">
                 <article>
@@ -37,17 +40,17 @@
                         <img src="<?php echo $article->pic ?>" alt="Article image">
                     <?php } ?>
                     <div class="info">
-                        <p><?php echo "By:" . $article->author ?></p>
+                        <p><?php echo "By: " . $article->author ?></p>
                         <p><?php echo $article->date ?></p>
                     </div>
                     <div class="body">
-                        <p><?php echo $article->body ?></p>
+                        <p><?php echo str_replace("\n","<br/>",$article->body) ?></p>
                     </div>
                 </article>
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/main.js"></script>
 </body>
 </html>

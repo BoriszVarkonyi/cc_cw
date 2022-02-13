@@ -1,9 +1,10 @@
-<?php include "../includes/db.php" ?>
-<?php include "../includes/functions.php" ?>
-<?php include "../includes/cw_username_checker.php" ?>
+<?php include "db.php" ?>
+<?php include "includes/functions.php" ?>
+<?php include "includes/username_checker.php" ?>
 <?php
     //get article by id
-    $id = $_GET['article_id'];
+    $id = filter_input(INPUT_GET, 'article_id', FILTER_SANITIZE_NUMBER_INT);
+
 
     $qry_get_article = "SELECT * FROM `cw_articles` WHERE `id` = '$id'";
     $do_get_article = mysqli_query($connection, $qry_get_article);
@@ -36,7 +37,7 @@
         print_r($_FILES["fileToUpload"]);
         if ($title != "" && $body != "") {
 
-            if (isset($_FILES["fileToUpload"])) {
+            if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != null) {
 
                 $target_dir = "../article_pics/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -69,23 +70,25 @@
 
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
-
                 }
 
                 // Allow certain file formats
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-
                     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                     $uploadOk = 0;
-
                 }
 
-                if (unlink("../article_pics/$id.png")) {
-                    echo "The existing picture is deleted";
-                } else {
-                    echo "Could not find the image !";
-                    $uploadOk = 0;
+                /*
+                if(isset($_FILES["fileToUpload"])) {
+                    try{
+                        unlink("../article_pics/$id.png");
+                        echo "The existing picture is deleted";
+                    } catch (Exception $e) {
+                        echo "Error '$e'!";
+                        $uploadOk = 0;
+                    }
                 }
+                */
 
                 // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
@@ -120,13 +123,15 @@
 
             }
 
-            $date = new DateTime();
-            $date = $date->format("Y-m-d");
-            
-            $qry_update = "UPDATE `cw_articles` SET `title` = '$title', `body` = '$body', `last_edit` = '$date', WHERE id = '$id'";
-            $do_update = mysqli_query($connection, $qry_update);
-
             //header("Location: ../cw/admin.php");
+        }
+        $date = new DateTime();
+        $date = $date->format("Y-m-d");
+
+        $qry_update = "UPDATE cw_articles SET title='$title', body='$body', last_edit='$date' WHERE id = '$id';";
+        $do_update = mysqli_query($connection, $qry_update);
+        if(!$do_update) {
+            echo mysqli_error($connection);
         }
     }
 ?>
@@ -135,31 +140,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CW Admin</title>
+    <link rel="stylesheet" href="../css/basestyle.min.css">
+    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
+    <title>Edit '<?php echo $title; ?>'</title>
 </head>
 <body>
-<form method="POST" enctype="multipart/form-data">
-<h1>Article:</h1>
+    <div class="basic_panel">
+        <form method="POST" enctype="multipart/form-data">
+            <h1>Article:</h1>
+            <p>posted on:</p>
+            <p><?php echo $date ?></p>
+            <p>Author:<p>
+            <p><?php echo $author ?></p>
 
-<p>posted on:</p>
-<p><?php echo $date ?></p>
-<p>Author:<p>
-<p><?php echo $author ?></p>
-<br>
-<br>
-<input name="title" type="text" placeholder="Title here" value="<?php echo $title ?>">
-<br>
-<textarea name="body" id="" cols="30" rows="10" placeholder="ARTICLE BODY HERE"><?php echo $body ?></textarea>
-<p>image:</p>
-<img src="<?php echo $picture_path ?>"><img>
-<br></br>
-<input type="file" name="fileToUpload" placeholder="title">
-<br>
-<br>
-<input type="submit" value="Save" name="update">
-</form>
-<form method="POST">
-<input type="submit" name="delete" value="DELETE">
-</form>
+            <input name="title" type="text" placeholder="Title here" value="<?php echo $title ?>">
+            <textarea name="body" id="" cols="30" rows="10" placeholder="ARTICLE BODY HERE"><?php echo $body ?></textarea>
+
+            <label>IMAGE</label>
+            <img width="200" height="200" src="<?php echo $picture_path ?>"><img>
+            <input type="file" name="fileToUpload" placeholder="title">
+            <input type="submit" value="Save" name="update">
+        </form>
+        <form method="POST">
+            <input type="submit" name="delete" value="DELETE">
+        </form>
+        <button>
+            <a href="article_selector.php">Go back</a>
+        </button>
+    </div>
 </body>
 </html>

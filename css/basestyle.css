@@ -185,38 +185,63 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
+tr {	/* Gives placeholder background and default font */
+	content-visibility: auto !important;
+	contain-intrinsic-size: calc(1.4em + 1.25vmin);
+}
+
 /* Extra small devices (phones, 532px and down) */
-@media only screen and (max-width: 440px) {
+@media only screen and (min-width: 0px) and (max-width: 440px) {
 	body, html {
-		font-size: 14px;
+		font-size: 13px;
+	}
+
+	.desktop_only {
+		display: none !important;
 	}
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 441px) and (max-width: 600px) {
 	body, html {
-		font-size: 14px;
+		font-size: 13px;
+	}
+
+	.desktop_only {
+		display: none !important;
 	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: 767px) {
 	body, html {
 		font-size: 14px;
+	}
+
+	.desktop_only {
+		display: none !important;
 	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
 	body, html {
 		font-size: 15px;
+	}
+
+	.mobile_only {
+		display: none !important;
 	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
 	body, html {
 		font-size: 15px;
+	}
+
+	.mobile_only {
+		display: none !important;
 	}
 }
 
@@ -225,11 +250,20 @@ body, html {	/* Gives placeholder background and default font */
 	body, html {
 		font-size: 16px;
 	}
+
+	.mobile_only {
+		display: none !important;
+	}
+
 }
 
 @supports (scroll-behavior: smooth) {
 	body, html {
 		scroll-behavior: smooth;
+	}
+
+	.mobile_only {
+		display: none !important;
 	}
 }
 
@@ -293,12 +327,6 @@ form.hidden, form.disabled {
 
 .modal_wrapper.hidden {
 	display: none;
-}
-
-.bg_fencers {
-	background-image: var(--i-fencers-bg);
-	background-size: cover;
-	background-position: center center;
 }
 
 /*
@@ -425,8 +453,7 @@ input[type="text"].alt, input[type="password"].alt, input[type="date"].alt, inpu
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="number"].number_input:focus, input[type="time"]:focus {		/* Sets basic look of text and password inputs*/
-	border-bottom: 2px solid var(--c-primary);
-	border-top: 2px solid transparent;
+	border: 1pt solid var(--c-primary);
 }
 
 input[type="text"].no_bottom_margin {
@@ -1037,9 +1064,7 @@ thead tr:hover {
 tbody {}
 
 /* Selected rows are not scaled up visually */
-tbody.no_scale tr.selected {
-
-}
+tbody.no_scale tr.selected {}
 
 
 
@@ -1375,7 +1400,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 
 /* Temporary */
 #pool_listing .entry {
-	margin-bottom: 25px;
+	margin-bottom: 25px !important;
 }
 
 .entry_wrapper .entry {

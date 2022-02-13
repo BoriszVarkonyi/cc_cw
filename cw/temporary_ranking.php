@@ -1,10 +1,5 @@
 <?php include "cw_comp_getdata.php"; ?>
-<?php include "./models/Competitor.php" ?>
-<?php
-    function sortByRank($a, $b) {
-        return $a->rank - $b->rank;
-    }
-?>
+<?php include "./controllers/CompetitorController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,16 +11,16 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">
+                <h1>
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     Temporary Ranking of <?php echo $comp_name ?>
-                </p>
+                </h1>
             </div>
             <div id="content_wrapper">
                 <form id="browsing_bar">
@@ -42,7 +37,7 @@
                     <button id="passed_lengend" value="Ongoing Table" aria-label="Select Passsed"></button>
                     <p>Passed</p>
                 </div>
-                <table class="cw">
+                <table>
                     <thead>
                         <tr>
                             <th><p>POSITION</p></th>
@@ -53,32 +48,17 @@
                     </thead>
                     <tbody class="alt">
                         <?php
-                            //get competitors sorted by temp rank
-                            $qry = "SELECT data FROM `competitors` WHERE assoc_comp_id = '$comp_id'";
-                            $qry_do = mysqli_query($connection, $qry);
-                            echo mysqli_error($connection);
-                            if ($row = mysqli_fetch_assoc($qry_do)) {
-                                $json_string = $row['data'];
-
-                                $json_table = json_decode($json_string);
-
-                                $competitors = array();
-
-                                foreach ($json_table as $fencer_obj) {
-                                    array_push($competitors, new Competitor($fencer_obj));
-                                }
-                                try {
-                                    usort($competitors, "sortByRank");
-                                } catch (Exception $ex) {
-                                    //this shall not happen in prod :D
-                                }
+                            $competitorsController = new CompetitionController($comp_id);
+                            $competitors = $competitorsController->getCompetitors();
+                            if(count($competitors) > 0) {
+                                $competitors = $competitorsController->sortCompetitorsByRank($competitors);
                                 foreach($competitors as $comp) {
                         ?>
 
                         <tr>
                             <td>
                                 <p>
-                                    <?php echo $comp->rank ?>
+                                    <?php echo $comp->rank . "." ?>
                                 </p>
                             </td>
                             <td>
@@ -94,17 +74,17 @@
                             <td class="small red"></td>
                         </tr>
 
-                        <?php } }?>
+                    <?php } } ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/competitions.js"></script>
-    <script src="../js/cw_temporary_ranking.js"></script>
-    <script src="../js/search.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/competitions.js"></script>
+    <script src="javascript/temporary_ranking.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

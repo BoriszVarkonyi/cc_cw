@@ -1,4 +1,20 @@
 <?php $statusofpage = 3; ?>
+
+<?php
+    if(isset($_GET['q'])) {
+        $q = filter_input(INPUT_GET, 'q');
+    }
+    if(isset($_GET['year'])) {
+        $yearInput = filter_input(INPUT_GET, 'year');
+    }
+    if(isset($_GET['sex'])) {
+        $sex = filter_input(INPUT_GET, 'sex');
+    }
+    if(isset($_GET['weapon'])) {
+        $weapon = filter_input(INPUT_GET, 'weapon');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,21 +26,14 @@
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
 </head>
 <body class="ongoing_competitions">
-    <?php include "cw_header.php"; ?>
+    <?php include "static/header.php"; ?>
     <main>
         <div id="content">
             <div id="title_stripe">
-                <p class="stripe_title">Ongoing competitions</p>
+                <h1>Ongoing competitions</h1>
             </div>
             <div id="content_wrapper">
-                <form id="browsing_bar">
-                    <!-- search by name box -->
-                    <div class="search_wrapper wide">
-                        <input type="text" name="" placeholder="Search by Title" class="search page alt">
-                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
-                    </div>
-                    <input type="button" value="Search" onclick="cwSearchEngine()">
-                </form>
+                <?php include "views/SearchForm.php" ?>
                 <!-- buttons menu -->
                 <div id="competition_color_legend">
                     <button id="registration_lengend" value="Registration Finished" aria-label="Select Registration Finished"></button>
@@ -38,12 +47,12 @@
             </div>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
-    <script src="../js/cookie_monster.js"></script>
-    <script src="../js/cw_bookmark_competition.js"></script>
-    <script src="../js/cw_main.js"></script>
-    <script src="../js/list.js"></script>
-    <script src="../js/cw_ongoing_competitions.js"></script>
-    <script src="../js/search.js"></script>
+    <?php include "static/footer.php"; ?>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/bookmark_competition.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
+    <script src="javascript/ongoing_competitions.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>
