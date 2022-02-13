@@ -8,11 +8,11 @@ session_start();
     redirect to the logged in competition.
     Redirect passess an 'err' error parameter that can be helpful.
 */
-if(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"] !== $comp_id) {
+if (isset($_SESSION["comp_id"]) && $_SESSION["comp_id"] !== $comp_id) {
     $session_comp_id = $_SESSION["comp_id"];
     header("Location: competition.php?comp_id=$session_comp_id&err=1");
 }
-if(isset($_GET["err"])) {
+if (isset($_GET["err"])) {
     $err = filter_input(INPUT_GET, "err", FILTER_SANITIZE_NUMBER_INT);
     echo "<script>alert('Redirected to logged in competition!');</script>";
 }
@@ -31,23 +31,13 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
 
     $json_table = json_decode($json_string);
 
-    if ($json_table != "") {
-        $host_country = $json_table->host_country;
-        $city_street = $json_table->city_street;
-        $zip_code = $json_table->zip_code;
-        $entry_fee = $json_table->entry_fee;
-        $starting_date = $json_table->starting_date;
-        $ending_date = $json_table->ending_date;
-        $end_of_pre_reg = $json_table->end_of_pre_reg;
-    } else {
-        $host_country = "";
-        $city_street = "";
-        $zip_code = "";
-        $entry_fee = "";
-        $starting_date = "";
-        $ending_date = "";
-        $end_of_pre_reg = "";
-    }
+    $host_country = $json_table->host_country ?? "";
+    $city_street = $json_table->city_street ?? "";
+    $zip_code = $json_table->zip_code ?? "";
+    $entry_fee = $json_table->entry_fee ?? "";
+    $starting_date = $json_table->starting_date ?? "";
+    $ending_date = $json_table->ending_date ?? "";
+    $end_of_pre_reg = $json_table->end_of_pre_reg ?? "";
 } else {
     $host_country = "No information given";
     $city_street = "No information given";
@@ -89,14 +79,15 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                     <p><?php echo sexConverter($comp_sex) . "'s" ?></p>
                     <p><?php echo weaponConverter($comp_weapon) ?></p>
                     <p><?php echo $starting_date ?></p>
-                    <p><?php
+                    <p>
+                        <?php
                         if ($is_individual) {
                             echo "individual";
                         } else {
                             echo "team";
                         }
-
-                        ?></p>
+                        ?>
+                    </p>
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">
@@ -112,12 +103,12 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                     } else {
                         $json_table = [];
                     }
-                    if (!is_null($json_table) && $json_table != []) {
+                    if (!is_null($json_table) && $json_table != []) :
                     ?>
                         <div id="announcements" class="column_panel">
 
                             <?php
-                            foreach ($json_table as $ann_objects) {
+                            foreach ($json_table as $ann_objects) :
                                 if (property_exists($ann_objects, "title") && $ann_objects->title != "") {
                                     $title = $ann_objects->title;
                                 } else {
@@ -133,9 +124,9 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                                     <p><?php echo $title ?></p>
                                     <p><?php echo $body ?></p>
                                 </div>
-                            <?php } ?>
+                            <?php endforeach ?>
                         </div>
-                    <?php } ?>
+                    <?php endif ?>
                     <div id="basic_information_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Basic Information:</p>
                         <div>
@@ -252,8 +243,8 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                                 $feedback = "ERROR: " . mysqli_error($connection);
                             }
                             //checks whether table exists
-                            if ($get_plsuinfo_do !== FALSE) {
-                                while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) {
+                            if ($get_plsuinfo_do !== FALSE) :
+                                while ($row = mysqli_fetch_assoc($get_plsuinfo_do)) :
 
                                     $info_title = $row['info_title'];
                                     $info_body = $row['info_body'];
@@ -262,16 +253,12 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                                         <p><?php echo $info_title ?></p>
                                         <p><?php echo $info_body ?></p>
                                     </div>
-                                <?php
-                                }
-                            } else { // displayed when there are no plus infos for comp_id
-                                ?>
+                                <?php endwhile ?>
+                                <?php else : ?>
 
                                 <p>This competition has no plus information!</p>
 
-                            <?php
-                            }
-                            ?>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>
@@ -279,21 +266,15 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                     <div id="competition_controls" class="column_panel">
                         <p class="column_panel_title">For Viewers:</p>
                         <div class="competition_controls_wrapper">
-                            <!--
-                                <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='pre_registration.php?comp_id=<?php echo $comp_id ?>'">Pre-Register</button>
-                                <button <?php echo $test = ($comp_status  != 2) ? "disabled" : "" ?> onclick="location.href='book_appointment.php?comp_id=<?php echo $comp_id ?>'">Book Appointment</button>
-                                -->
                             <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
                             <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                             <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='temporary_ranking.php?comp_id=<?php echo $comp_id ?>'">Temporary Ranking</button>
-                            <?php
-                            if ($is_individual) {
-                            ?>
+                            <?php if ($is_individual) : ?>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_individual.php?comp_id=<?php echo $comp_id ?>'">Table</button>
-                            <?php } else { ?>
+                            <?php else : ?>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_team.php?comp_id=<?php echo $comp_id ?>'">Table</button>
 
-                            <?php } ?>
+                            <?php endif ?>
                             <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
                             <button onclick="printPage()">Print</a>
                                 <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''" class="red">Watch Video / Watch Live</a>
