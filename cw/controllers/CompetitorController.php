@@ -6,7 +6,7 @@ class CompetitionController {
     private $comp_id;
 
     function __construct($comp_id) {
-        include "db.php";
+        include "includes/db.php";
         $this->dbConnection = $connection;
         $this->comp_id = $comp_id;
     }

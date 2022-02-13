@@ -18,7 +18,7 @@
     <tbody class="alt">
 
 <?php
-include "db.php";
+include "includes/db.php";
 include "includes/functions.php";
 include "../cw/competition_filtering.php";
 //fetching data drom 'comptetitions' from the rows with the same 'comp_status' as '$statusofpage'

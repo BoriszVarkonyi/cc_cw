@@ -1,5 +1,5 @@
 <?php 
-include "db.php";
+include "includes/db.php";
 
     $comp_id = filter_input(INPUT_GET, "comp_id");
 

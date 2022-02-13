@@ -1,5 +1,5 @@
-<?php include "cw_comp_getdata.php"; ?>
-<?php include "db.php"; ?>
+<?php include "includes/get_comp_data.php"; ?>
+<?php include "includes/db.php"; ?>
 <?php
 session_start();
 

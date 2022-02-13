@@ -1,4 +1,4 @@
-<?php include "cw_comp_getdata.php"; ?>
+<?php include "includes/get_comp_data.php"; ?>
 <?php include "./controllers/CompetitorController.php" ?>
 <!DOCTYPE html>
 <html lang="en">
