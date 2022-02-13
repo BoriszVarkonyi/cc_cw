@@ -273,7 +273,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                             </div>
                         </div>
                         <div id="invitation_wrapper">
-                            <div class="column big no_top">
+                            <div class="column big">
                                 <?php
                                 $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
                                 $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
@@ -437,7 +437,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column small no_top">
+                                <div class="column small">
                                     <div id="competition_controls" class="column_panel no_bottom">
                                         <p class="column_panel_title">Competition Controls:</p>
                                         <div class="competition_controls_wrapper">

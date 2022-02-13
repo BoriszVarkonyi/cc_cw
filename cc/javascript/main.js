@@ -6,7 +6,7 @@ var ovtext = document.getElementById("overview_text");
 var setext = document.getElementById("setup_text");
 var navBar = document.querySelector("nav");
 var appName = document.getElementById("app_name");
-var menuSection = document.getElementById("menu_button_section");
+var menuSection = document.getElementById("header_left");
 var menuButton = document.getElementById("menu_button")
 var pin = document.getElementById("nav_bar_pin");
 
@@ -52,8 +52,9 @@ function pinChecker() {
         document.cookie = "navbar_status = notPinned;" + setExpireDay(365);
     }
 }
-//Saves the status ofthe pin
+//Saves the status of the pin
 var navbar_status = cookieFinder('navbar_status', 'pinned', false, 365)
+
 //Opens the navbar
 function closed_nav_bar() {
     navBar.classList.add("closed");
@@ -84,8 +85,8 @@ function toggleDropdown(x) {
 }
 
 // Toggle panels
-// Getting panels by id
 
+// Getting panels by id
 var lang_panel = document.getElementById("language_panel");
 var color_panel = document.getElementById("colormode_panel");
 var profile_panel = document.getElementById("profile_panel");
@@ -95,76 +96,44 @@ var elements = document.querySelectorAll(".header_overlay_panel");
 var oldClickedelement;
 
 //Toggle language panel
-
 function toggleLanguagePanel() {
-    //Making every panel hidden.
-    for (i = 0; i < elements.length; i++) {
-        elements[i].classList.add("hidden")
-    }
-    //Checking if the lang panel equals the oldClickedelement.
-    if (lang_panel == oldClickedelement) {
-        //If yes it removes the class.
-        lang_panel.classList.remove("hidden");
-    }
-    //Toggles the class.
-    lang_panel.classList.toggle("hidden");
-    //Checking if the lang panel class contains hidden.
-    if (lang_panel.classList.contains("hidden")) {
-        //If yes it sets the oldClickedelement undifend.
-        oldClickedelement = undefined;
-    }
-    else {
-        //If not it sets the oldClickedelement to the lang panel.
-        oldClickedelement = lang_panel;
-    }
-    //lang_panel.classList.toggle("hidden");
+    togglePanel(lang_panel);
 }
 
 
 function toggleColormodePanel() {
-    //Making every panel hidden
-    for (i = 0; i < elements.length; i++) {
-        elements[i].classList.add("hidden")
-    }
-
-    if (color_panel == oldClickedelement) {
-        color_panel.classList.remove("hidden");
-    }
-
-    color_panel.classList.toggle("hidden");
-
-    if (color_panel.classList.contains("hidden")) {
-        oldClickedelement = undefined;
-    }
-    else {
-        oldClickedelement = color_panel;
-    }
-    //color_panel.classList.toggle("hidden");
+    togglePanel(color_panel);
 }
 
 function toggleProfilePanel() {
-    //Making every panel hidden
+    togglePanel(profile_panel);
+}
+
+function togglePanel(currentPanel) {
+    //Making every panel hidden.
     for (i = 0; i < elements.length; i++) {
         elements[i].classList.add("hidden")
     }
-
-    if (profile_panel == oldClickedelement) {
-        profile_panel.classList.remove("hidden");
+    //Checking if the current panel equals the oldClickedelement.
+    if (currentPanel == oldClickedelement) {
+        //If yes it removes the class.
+        currentPanel.classList.remove("hidden");
     }
-
-    profile_panel.classList.toggle("hidden");
-
-    if (profile_panel.classList.contains("hidden")) {
+    //Toggles the class.
+    currentPanel.classList.toggle("hidden");
+    //Checking if the current panel class contains hidden.
+    if (currentPanel.classList.contains("hidden")) {
+        //If yes it sets the oldClickedelement undifend.
         oldClickedelement = undefined;
     }
     else {
-        oldClickedelement = profile_panel;
+        //If not it sets the oldClickedelement to the current panel.
+        oldClickedelement = currentPanel;
     }
-    //profile_panel.classList.toggle("hidden");
+    //currentPanel.classList.toggle("hidden");
 }
 
 // Disables transition on Pageload
-
 window.addEventListener('DOMContentLoaded', (event) => {
     document.body.classList.add("preload");
 
@@ -240,25 +209,24 @@ function classRemover() {
 }
 
 //Sets the colormode to danube
-function setToDanube(x) {
+function setToDanube() {
     var danubeColorButton = document.querySelector(".color_square.danube")
-    classRemover();
-    danubeColorButton.classList.add("selected")
-    document.documentElement.setAttribute('data-content-theme', 'danube');
-    //Saves the colormode
-    document.cookie = "colorMode = danube;" + setExpireDay(365);
-    colorMode = cookieFinder("colorMode", "vanilla", false, 365);
+    setColor(danubeColorButton, "danube")
 }
 
 //Sets the colormode to vanilla
-function setToVanilla(x) {
+function setToVanilla() {
     var vanillaColorButton = document.querySelector(".color_square.vanilla")
+    setColor(vanillaColorButton, "vanilla");
+}
+
+function setColor(colorVar, colorToSet){
     classRemover();
-    vanillaColorButton.classList.add("selected")
-    document.documentElement.setAttribute('data-content-theme', 'vanilla');
+    colorVar.classList.add("selected")
+    document.documentElement.setAttribute('data-content-theme', colorToSet);
     //Saves the colormode
-    document.cookie = "colorMode = vanilla;" + setExpireDay(365);
-    colorMode = cookieFinder("colorMode", "vanilla", false, 365);
+    document.cookie = "colorMode = " + colorToSet + ";" + setExpireDay(365);
+    colorMode = cookieFinder("colorMode", colorToSet, false, 365);
 }
 
 var colorMode = cookieFinder("colorMode", "vanilla", false, 365);

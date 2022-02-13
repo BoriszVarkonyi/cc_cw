@@ -1,5 +1,5 @@
-<?php include "cw_comp_getdata.php"; ?>
-<?php include "db.php"; ?>
+<?php include "includes/get_comp_data.php"; ?>
+<?php include "includes/db.php"; ?>
 <?php
 session_start();
 
@@ -100,7 +100,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                 </div>
             </div>
             <div id="content_wrapper" class="reverse_wrap">
-                <div class="column big no_top">
+                <div class="column big">
                     <?php
                     $qry_get_announcements = "SELECT `data` FROM `announcements` WHERE `assoc_comp_id` = '$comp_id'";
                     $do_get_announcements = mysqli_query($connection, $qry_get_announcements);
@@ -275,7 +275,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                         </div>
                     </div>
                 </div>
-                <div class="column small no_top">
+                <div class="column small">
                     <div id="competition_controls" class="column_panel">
                         <p class="column_panel_title">For Viewers:</p>
                         <div class="competition_controls_wrapper">

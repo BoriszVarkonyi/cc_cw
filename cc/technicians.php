@@ -1,126 +1,71 @@
 <?php include "includes/headerburger.php"; ?>
 <?php include "includes/db.php" ?>
+<?php require_once "models/TechnicianFactory.php"; ?>
 <?php ob_start(); ?>
 <?php
 
-    class tech {
-        public $username;
-        public $name;
-        public $role;
-        public $pass;
-        public $online;
+//create table
+$qry_create_table = "CREATE TABLE `ccdatabase`.`technicians` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+$do_create_table = mysqli_query($connection, $qry_create_table);
+echo mysqli_error($connection);
 
-        function __construct($name, $role, $username) {
-            $this -> role = $role;
-            $this -> name = $name;
-            $this -> username = $username;
-            $this -> pass = NULL;
-            $this -> online = 0;
-        }
+//get technicians
+$technicianFactory = new TechnicianFactory($connection);
+
+//set up new technician
+if (isset($_POST['submit_tech'])) {
+    $username = $_POST["username"];
+    $name = $_POST['name'];
+    $role = $_POST["role"];
+
+    $technicianFactory->addNewTechnician($comp_id, $username, $name, $role);
+}
+
+//delete technicians
+if (isset($_POST['remove_technician'])) {
+    $username = filter_input(INPUT_POST, "id");
+    $technicianFactory->deleteTechnicianByUserName($username);
+}
+
+//import technicians
+if (isset($_POST['submit_import'])) {
+    $id_to_import = $_POST['id'];
+
+    $qry_select_ipmorted_techs = "SELECT `data` FROM `technicians` WHERE `assoc_comp_id` = '$id_to_import'";
+    $do_get_imported_techs = mysqli_query($connection, $qry_select_ipmorted_techs);
+
+    if ($row = mysqli_fetch_assoc($do_get_imported_techs)) {
+        $json_string_import = $row['data'];
     }
+    $json_table_import = json_decode($json_string_import);
 
-    //create table
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`technicians` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '[ ]' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_create_table = mysqli_query($connection, $qry_create_table);
-    echo mysqli_error($connection);
-
-    //get technicians
-    $qry_get_techs = "SELECT data FROM technicians WHERE assoc_comp_id = '$comp_id'";
-    $do_get_techs = mysqli_query($connection, $qry_get_techs);
-
-    if ($num_rows = mysqli_num_rows($do_get_techs) == 1) {
-        if ($row = mysqli_fetch_assoc($do_get_techs)) {
-            $json_string = $row['data'];
-            $json_table = json_decode($json_string);
-        }
-    } else {
-        $qry_new_row = "INSERT INTO technicians (assoc_comp_id) VALUES ('$comp_id');";
-        $do_new_row = mysqli_query($connection, $qry_new_row);
-
-        $json_table = [];
-    }
-
-
-    //set up new technician
-    if (isset($_POST['submit_tech'])) {
-        $role = $_POST["role"];
-        $username = $_POST["username"];
-        $name = $_POST['name'];
-
-
-        $find = findObject($json_table, $username, "username");
-        if ($find === FALSE){
-            $new_tech = new tech($name, $role, $username);
-            array_push($json_table, $new_tech);
-
-            $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-
-
-            $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-            $do_update_data = mysqli_query($connection, $qry_update_data);
-            header("Refresh: 0");
-        } else {
-            //add error 1 to get, when duplicant usernames
-            $_GET['set_up_error'] = 1;
-            header("Location: ../cc/technicians.php?comp_id=$comp_id&set_up_error=1");
-        }
-    }
-
-    //delete technicians
-    if (isset($_POST['remove_technician'])){
-        $username_to_remove = $_POST['id'];
-
-        $tech_to_delete = findObject($json_table, $username_to_remove, "username");
-        unset($json_table[$tech_to_delete]);
-        $json_table = array_values($json_table);
-
-        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-
-        $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-        $do_update_data = mysqli_query($connection, $qry_update_data);
-        //header("Refresh: 0");
-
-    }
-
-    //import technicians
-    if (isset($_POST['submit_import'])) {
-        $id_to_import = $_POST['id'];
-
-        $qry_select_ipmorted_techs = "SELECT `data` FROM `technicians` WHERE `assoc_comp_id` = '$id_to_import'";
-        $do_get_imported_techs = mysqli_query($connection, $qry_select_ipmorted_techs);
-
-        if ($row = mysqli_fetch_assoc($do_get_imported_techs)) {
-            $json_string_import = $row['data'];
-        }
-        $json_table_import = json_decode($json_string_import);
-
-        foreach ($json_table_import as $json_object_import)  {
-            $to_import = TRUE;
-            foreach ($json_table as $json_object) {
-                if ($json_object -> username == $json_object_import -> username) {
-                    $to_import = FALSE;
-                }
+    foreach ($json_table_import as $json_object_import) {
+        $to_import = TRUE;
+        foreach ($json_table as $json_object) {
+            if ($json_object->username == $json_object_import->username) {
+                $to_import = FALSE;
             }
-            if ($to_import) {
-                array_push($json_table, $json_object_import);
-            }
-
         }
-
-
-        $json_table = array_values($json_table);
-        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-
-        $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-        $do_update_data = mysqli_query($connection, $qry_update_data);
-
-        header("Refresh: 0");
+        if ($to_import) {
+            array_push($json_table, $json_object_import);
+        }
     }
-    header('charset=utf-8');
+
+
+    $json_table = array_values($json_table);
+    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+
+    $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+    $do_update_data = mysqli_query($connection, $qry_update_data);
+
+    header("Refresh: 0");
+}
+header('charset=utf-8');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -131,8 +76,9 @@
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
+
 <body class="preload">
-<!-- header -->
+    <!-- header -->
     <div id="content_wrapper">
         <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
@@ -142,19 +88,19 @@
                 <div class="stripe_button_wrapper">
                     <button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggleImportPanel()" shortcut="SHIFT+I" id="importTechBt">
                         <p>Import Technicians from Your Competitions</p>
-                        <img src="../assets/icons/save_alt_black.svg"/>
+                        <img src="../assets/icons/save_alt_black.svg" />
                     </button>
                     <button class="stripe_button primary" type="button" onclick="window.print()" id="printTechBt" shortcut="SHIFT+P">
                         <p>Print Technicians</p>
-                        <img src="../assets/icons/print_black.svg"/>
+                        <img src="../assets/icons/print_black.svg" />
                     </button>
                     <button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button" shortcut="SHIFT+R">
                         <p>Remove Technician</p>
-                        <img src="../assets/icons/delete_black.svg"/>
+                        <img src="../assets/icons/delete_black.svg" />
                     </button>
                     <button class="stripe_button primary" onclick="toggleAddPanel()" id="addTechBt" shortcut="SHIFT+A">
                         <p>Add Technician</p>
-                        <img src="../assets/icons/add_black.svg"/>
+                        <img src="../assets/icons/add_black.svg" />
                     </button>
                 </div>
 
@@ -167,35 +113,37 @@
                         <table class="small">
                             <thead>
                                 <tr>
-                                    <th><p>NAME</p></th>
+                                    <th>
+                                        <p>NAME</p>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="alt">
                                 <?php
-                                    //qry
-                                    $qry_get_tables = "SELECT assoc_comp_id FROM technicians;";
-                                    $do_get_tables = mysqli_query($connection, $qry_get_tables);
+                                //qry
+                                $qry_get_tables = "SELECT assoc_comp_id FROM technicians;";
+                                $do_get_tables = mysqli_query($connection, $qry_get_tables);
 
-                                    while ($row = mysqli_fetch_assoc($do_get_tables)) {
-                                        $id_to_get = $row['assoc_comp_id'];
+                                while ($row = mysqli_fetch_assoc($do_get_tables)) {
+                                    $id_to_get = $row['assoc_comp_id'];
 
-                                        if ($id_to_get != $comp_id) {
-                                            $get_comp_data = "SELECT comp_name FROM competitions WHERE comp_id = '$id_to_get';";
-                                            $do_get_comp_data = mysqli_query($connection, $get_comp_data);
+                                    if ($id_to_get != $comp_id) {
+                                        $get_comp_data = "SELECT comp_name FROM competitions WHERE comp_id = '$id_to_get';";
+                                        $do_get_comp_data = mysqli_query($connection, $get_comp_data);
 
-                                            if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
-                                                $comp_name = $row['comp_name'];
-                                            }
-                                    ?>
+                                        if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
+                                            $comp_name = $row['comp_name'];
+                                        }
+                                ?>
                                         <tr id="<?php echo $id_to_get; ?>" onclick="selectForImport(this)">
                                             <td id="in_<?php echo $id_to_get; ?>">
                                                 <p><?php echo $comp_name; ?></p>
                                             </td>
                                         </tr>
 
-                                    <?php
-                                        }
+                                <?php
                                     }
+                                }
 
                                 ?>
                             </tbody>
@@ -221,13 +169,13 @@
 
                         <label for="">ROLE</label>
                         <div class="option_container">
-                            <input type="radio" class="option_button" name="role" id="a" value="1"/>
+                            <input type="radio" class="option_button" name="role" id="a" value="1" />
                             <label for="a">Semi</label>
-                            <input type="radio" class="option_button" name="role" id="b" value="2"/>
+                            <input type="radio" class="option_button" name="role" id="b" value="2" />
                             <label for="b">DT</label>
-                            <input type="radio" class="option_button" name="role" id="c" value="3"/>
+                            <input type="radio" class="option_button" name="role" id="c" value="3" />
                             <label for="c">Weapon Control</label>
-                            <input type="radio" class="option_button" name="role" id="d" value="4"/>
+                            <input type="radio" class="option_button" name="role" id="d" value="4" />
                             <label for="d">Registration</label>
                         </div>
                         <button type="submit" name="submit_tech" class="panel_submit" form="new_technician">Save</button>
@@ -237,13 +185,14 @@
             <div id="page_content_panel_main">
                 <table class="wrapper">
 
-                    <?php if(count($json_table) == 0){ ?>
-
+                    <?php
+                    $technicians = $technicianFactory->allFromCompetition($comp_id);
+                    if (count($technicians) == 0) :
+                    ?>
                         <div id="empty_content_notice">
                             <p>You have no technicians set up!</p>
                         </div>
-
-                    <?php } else { ?>
+                    <?php else : ?>
 
                         <thead>
                             <tr>
@@ -290,13 +239,13 @@
                                             <input type="text" onkeyup="searchInLists()" class="search hidden">
                                         </div>
                                         <div class="option_container">
-                                            <input type="radio" name="status" id="listsearch_semi" value="Semi"/>
+                                            <input type="radio" name="status" id="listsearch_semi" value="Semi" />
                                             <label for="listsearch_semi">Semi</label>
-                                            <input type="radio" name="status" id="listsearch_dt" value="DT"/>
+                                            <input type="radio" name="status" id="listsearch_dt" value="DT" />
                                             <label for="listsearch_dt">DT</label>
-                                            <input type="radio" name="status" id="listsearch_wc" value="Weapon Control"/>
+                                            <input type="radio" name="status" id="listsearch_wc" value="Weapon Control" />
                                             <label for="listsearch_wc">Weapon Control</label>
-                                            <input type="radio" name="status" id="listsearch_reg" value="Registration"/>
+                                            <input type="radio" name="status" id="listsearch_reg" value="Registration" />
                                             <label for="listsearch_reg">Registration</label>
                                         </div>
                                     </div>
@@ -319,9 +268,9 @@
                                             <input type="text" onkeyup="searchInLists()" class="search hidden">
                                         </div>
                                         <div class="option_container">
-                                            <input type="radio" name="status" id="listsearch_online" value="Online"/>
+                                            <input type="radio" name="status" id="listsearch_online" value="Online" />
                                             <label for="listsearch_online">Online</label>
-                                            <input type="radio" name="status" id="listsearch_offline" value="Offline"/>
+                                            <input type="radio" name="status" id="listsearch_offline" value="Offline" />
                                             <label for="listsearch_offline">Offline</label>
                                         </div>
                                     </div>
@@ -341,51 +290,43 @@
                         </thead>
                         <tbody>
                             <?php
-                                    foreach ($json_table as $json_object) {
+                            foreach ($technicians as $technician) :
 
-                                    $username = $json_object -> username;
-                                    $name = $json_object -> name;
-                                    $role = $json_object -> role;
-                                    $online  = $json_object -> online;
-
-
-                                ?>
+                                $username = $technician->username;
+                                $name = $technician->name;
+                                $role = $technician->role;
+                                $online  = $technician->online;
+                            ?>
                                 <tr id="<?php echo $username; ?>" onclick="selectRow(this)" tabindex="0">
-                                    <td><p><?php echo $name; ?></p></td>
-                                    <td><p><?php echo $username; ?></p></td>
-                                    <td><p><?php echo roleConverter($role); ?></p></td>
+                                    <td>
+                                        <p><?php echo $name; ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?php echo $username; ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?php echo roleConverter($role); ?></p>
+                                    </td>
                                     <td>
                                         <p>
-                                        <?php
-                                        if($online == 0){
-                                            echo "Offline";
-                                        }
-                                        else{
-                                            echo "Online";
-                                        }
-                                        ?>
+                                            <?php
+                                            if ($online == 0)
+                                                echo "Offline";
+                                            else
+                                                echo "Online";
+                                            ?>
                                         </p>
                                     </td>
-                                    <td class="small <?php
-                                        if($online == 0){
-                                            echo "red";
-                                        }
-                                        else{
-                                            echo "green";
-                                        }
-                                    ?>">
+                                    <td class="small <?php if ($online == 0) echo "red"; else echo "green"; ?>">
                                     </td> <!-- red or green style added to small_status item to inidcate status -->
                                 </tr>
-                                <?php
-                                }
-                            }
-                            //Check,read,display technicians END
-                            ?>
+                            <?php endforeach ?>
+                        <?php endif ?>
                         </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
-        </main>
+    </div>
+    </main>
     </div>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>

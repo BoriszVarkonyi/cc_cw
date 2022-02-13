@@ -462,21 +462,13 @@
                             </div>
                             <?php } ?>
                             <?php
-                                $technicians_query = "SELECT data FROM technicians WHERE assoc_comp_id = '$comp_id';";
+                                $technicians_query = "SELECT COUNT(1) AS num_technicians FROM technicians WHERE assoc_comp_id = '$comp_id';";
                                 $technicians_result = mysqli_query($connection, $technicians_query);
-                                $num_technicians = 0;
-                                $num_tech_online = 0;
-                                if($row = mysqli_fetch_assoc($technicians_result)) {
-                                    $json_string = $row["data"];
-                                    $json_table = json_decode($json_string);
-
-                                    foreach($json_table as $json_obj) {
-                                        $num_technicians += 1; //don't use count() instead of this
-                                        if($json_obj->online) {
-                                            $num_tech_online += 1;
-                                        }
-                                    }
-                                }
+                                $num_technicians = mysqli_fetch_assoc($technicians_result)["num_technicians"];
+                                
+                                $technicians_online_query = "SELECT COUNT(1) AS num_tech_online FROM technicians WHERE assoc_comp_id = '$comp_id' AND online = TRUE";
+                                $technicians_online_result = mysqli_query($connection, $technicians_online_query);
+                                $num_tech_online = mysqli_fetch_assoc($technicians_online_result)["num_tech_online"];
                             ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">

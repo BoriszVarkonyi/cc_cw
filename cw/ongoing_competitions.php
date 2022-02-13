@@ -4,6 +4,15 @@
     if(isset($_GET['q'])) {
         $q = filter_input(INPUT_GET, 'q');
     }
+    if(isset($_GET['year'])) {
+        $yearInput = filter_input(INPUT_GET, 'year');
+    }
+    if(isset($_GET['sex'])) {
+        $sex = filter_input(INPUT_GET, 'sex');
+    }
+    if(isset($_GET['weapon'])) {
+        $weapon = filter_input(INPUT_GET, 'weapon');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +33,7 @@
                 <h1>Ongoing competitions</h1>
             </div>
             <div id="content_wrapper">
-                <form id="browsing_bar">
-                    <!-- search by name box -->
-                    <div class="search_wrapper wide">
-                        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if(isset($_GET['q'])) echo $q ?>">
-                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
-                    </div>
-                    <input type="button" value="Search" onclick="cwSearchEngine()">
-                </form>
+                <?php include "views/SearchForm.php" ?>
                 <!-- buttons menu -->
                 <div id="competition_color_legend">
                     <button id="registration_lengend" value="Registration Finished" aria-label="Select Registration Finished"></button>

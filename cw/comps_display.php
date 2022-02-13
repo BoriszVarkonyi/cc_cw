@@ -18,7 +18,7 @@
     <tbody class="alt">
 
 <?php
-include "db.php";
+include "includes/db.php";
 include "includes/functions.php";
 include "../cw/competition_filtering.php";
 //fetching data drom 'comptetitions' from the rows with the same 'comp_status' as '$statusofpage'
@@ -27,6 +27,7 @@ $query = "SELECT * FROM competitions " . $WHERE_CLAUSE;
 $select_all_comps = mysqli_query($connection, $query);
 
 $empty = true;
+if($select_all_comps) {
 while ($row = mysqli_fetch_assoc($select_all_comps)){
     $empty = false;
     $comp_name = $row['comp_name'];
@@ -88,7 +89,9 @@ while ($row = mysqli_fetch_assoc($select_all_comps)){
                 }
             ?>
         </tr>
-<?php } ?>
+<?php
+    } }
+?>
         <?php
             if ($empty) {
         ?>
