@@ -38,6 +38,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
     $starting_date = $json_table->starting_date ?? "";
     $ending_date = $json_table->ending_date ?? "";
     $end_of_pre_reg = $json_table->end_of_pre_reg ?? "";
+    //$comp_equipment = $json_table->
 } else {
     $host_country = "No information given";
     $city_street = "No information given";
@@ -185,7 +186,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
 
                                 $array_equipment = explode(",", $comp_equipment);
 
-                                if (count($array_equipment) < 1) {
+                                if (count($array_equipment) > 0) {
                                     for ($i = 0; $i < count($equipment); $i++) {
                                         if ($array_equipment[$i] != 0) {
                                 ?>
