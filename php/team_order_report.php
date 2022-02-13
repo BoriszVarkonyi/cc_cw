@@ -3,6 +3,18 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
+<?php
+
+$qry_check_row = "SELECT * FROM tables WHERE ass_comp_id = '$comp_id'";
+$do_check_row = mysqli_query($connection, $qry_check_row);
+if ($row = mysqli_fetch_assoc($do_check_row)) {
+    $json_string = $row['data'];
+    $numofteams = $row['fencer_num'];
+    $json_team_table = json_decode($json_string);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +53,23 @@
 
                 <div class="wrapper" id="team_order_report_panel">
                     <div id="team_order_report_header">
+
+                    <?php
+                    
+                    // foreach($json_team_table as $key => $round){
+
+                    //     if ($key == "r1" || $key == "r2" || $key == "r3") {
+                    //         continue;
+                    //     }
+
+
+
+                    // }
+
+                    //Átgondolni mert nem jó a szisztéma :C
+                    
+                    ?>
+
                         <a class="team_order_report_select green" href="">
                             <p>T64</p>
                         </a>
