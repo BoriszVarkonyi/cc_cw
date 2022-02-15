@@ -12,35 +12,71 @@ if (isset($_POST["barcode"])) {
     header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
 }
 
-$qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NOT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NOT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-$do_create_table = mysqli_query($connection, $qry_create_table);
+    //create table
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NULL DEFAULT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NULL DEFAULT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);
 
-$test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
-$do_test = mysqli_query($connection, $test_for_row_qry);
-if ($row = mysqli_fetch_assoc($do_test)) {
-    $json_string = $row['data'];
-    $wc_table = json_decode($json_string);
-} else {
-    $qry_insert_new_row = "INSERT INTO `weapon_control` (`assoc_comp_id`) VALUES ($comp_id);";
-    $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
-    $wc_table = [];
-}
+    //test for fencers from this comp in the database
+    $qry_test = "SELECT `assoc_comp_id` FROM `weapon_control` WHERE `assoc_comp_id` LIKE '$comp_id,' LIMIT 1;";
+    $do_test = mysqli_query($connection, $qry_test);
+    if (mysqli_num_rows($do_test) === 0) {
+        $fencers_set = false; //yes
+    } else {
+        $fencers_set = true; //no
+    }
 
+    //update database with the fencers of the competition
+    if (!$fencers_set) {
+        //get fencers from competitors table
+        $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
+        $do_get_fencers = mysqli_query($connection, $qry_get_fencers);
+        if ($row = mysqli_fetch_assoc($do_get_fencers)) {
+            //get string
+            $string = $row['data'];
+            //make json
+            $fencers_json_table = json_decode($string);
+        } else {
+            echo "Couldn't get competitiors: " . mysqli_error($connection);
+        }
 
-if (isset($_POST['add_wc'])) {
-    $fencer_id = $_POST['fencer_id'];
-    header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
-}
+        //get array of fencer ids
+        $fencer_ids_array = [];
+        for ($i = 0; $i < count($fencers_json_table); $i++) {
+            $fencer_ids_array[] = $fencers_json_table[$i] -> id;
+        }
 
-$qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
-$do_get_data = mysqli_query($connection, $qry_get_fencers);
+        //function to insert new fencers into weapon control table with assoc_comp_id and fencer_id custom
+        function insertNewFencer($connection, $comp_id, $current_fencer_id) {
+            $qry_insert_new_fencers = "INSERT INTO weapon_control (`assoc_comp_id`,`fencer_id`) VALUES ('$comp_id', '$current_fencer_id')";
+            if (!mysqli_query($connection, $qry_insert_new_fencers)) {
+                echo "Could NOT insert fencer: " . $current_fencer_id . " into database e: " . mysqli_error($connection) . "<br>";
+            }
+        }
 
-if ($row = mysqli_fetch_assoc($do_get_data)) {
-    $json_string = $row['data'];
-    $json_table = json_decode($json_string);
-} else {
-    echo mysqli_error($connection);
-}
+        //check for first loading
+        $qry_check = "SELECT `id` FROM weapon_control WHERE assoc_comp_id = '$comp_id' LIMIT 1";
+        $do_check = mysqli_query($connection, $qry_check);
+        if (mysqli_num_rows($do_check) === 0) {
+            for ($i = 0; $i < count($fencer_ids_array); $i++) {
+                $current_fencer_id = $fencer_ids_array[$i];
+                insertNewFencer($connection, $comp_id, $current_fencer_id);
+            }
+        } else {
+            for ($i = 0; $i < count($fencer_ids_array); $i++) {
+                $current_fencer_id = $fencer_ids_array[$i];
+                //see if fencer is allready added in this comp
+                $qry_check_fencer = "SELECT id FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$current_fencer_id'";
+                $do_check_fencer = mysqli_query($connection, $qry_check_fencer);
+                if (($num_rows = mysqli_num_rows($do_check_fencer)) === 0) {
+                    //add non existant fencer
+                    insertNewFencer($connection, $comp_id, $current_fencer_id);
+                } else if ($num_rows > 1) {
+                    echo "There are more than one: " . $current_fencer_id . " fencers with this id for this competition";
+                }
+            }
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +127,12 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         </button>
                         <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
+                    </form>
+                    <form id="refresh_form" method="POST" action="">
+                        <button name="refresh" class="stripe_button primary" id="refresh_button" type="submit" shortcut="SHIFT+R">
+                            <p>Refresh</p>
+                            <img src="../assets/icons/reset_black.svg" /><!-- FIDESZ KIROSTOF CUCCLIMÓKA G->G -->
+                        </button>
                     </form>
                 </div>
             </div>
@@ -163,18 +205,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                     <tbody>
                         <?php
 
-                        foreach ($json_table as $obj) {
-                            $fencer_name = $obj->nom . " " . $obj->prenom;
-                            $fencer_nat = $obj->nation;
-                            $fencer_id = $obj->id;
-
-                            if (!isset($wc_table->$fencer_id)) {
-                                $color = "red";
-                                $status = "Not ready";
-                            } else {
-                                $status = "Ready";
-                                $color = "green";
-                            }
+                        {
                         ?>
                             <!-- while -->
                             <tr onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">

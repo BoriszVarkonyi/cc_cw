@@ -35,7 +35,11 @@ class TechnicianFactory {
     function addNewTechnician($assoc_comp_id, $username, $name, $role) {
         $this->connection->query("INSERT INTO technicians (assoc_comp_id, username, name, role) VALUES ($assoc_comp_id, '$username', '$name', '$role')");
     }
-    function deleteTechnicianByUserName($username) {
-        $this->connection->query("DELETE FROM technicians WHERE username = '$username'");
+    function deleteTechnician($username, $comp_id = -1) {
+        if($comp_id != -1) {
+            $this->connection->query("DELETE FROM technicians WHERE username = '$username' AND assoc_comp_id = $comp_id");
+        } else {
+            $this->connection->query("DELETE FROM technicians WHERE username = '$username'");
+        }
     }
 }
