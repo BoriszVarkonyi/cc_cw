@@ -193,7 +193,7 @@ if (isset($_POST["barcode"])) {
                                     <button type="button" onclick="sortButton(this)">
                                         <img src="../assets/icons/switch_full_black.svg">
                                     </button>
-                                    <p>CLUB</p>
+                                    <p>STATUS</p>
                                     <button type="button" onclick="searchButton(this)">
                                         <img src="../assets/icons/search_black.svg">
                                     </button>

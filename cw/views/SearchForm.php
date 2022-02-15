@@ -6,6 +6,14 @@
     </div>
     <!-- year drop-down -->
     <div class="search_wrapper narrow">
+        <select name="type" id="type">
+            <option value="0">All</option>
+            <option value="2">Upcoming</option>
+            <option value="3">Ongoing</option>
+            <option value="4">Finished</option>
+        </select>
+    </div>
+    <div class="search_wrapper narrow">
         <select name="year" id="year">
             <option value="Every" selected>Every</option>
             <?php for ($i = -1; $i <= 10; $i++) : ?>

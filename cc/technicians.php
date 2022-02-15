@@ -24,41 +24,27 @@ if (isset($_POST['submit_tech'])) {
 //delete technicians
 if (isset($_POST['remove_technician'])) {
     $username = filter_input(INPUT_POST, "id");
-    $technicianFactory->deleteTechnicianByUserName($username);
+    $technicianFactory->deleteTechnician($username, $comp_id);
 }
 
 //import technicians
 if (isset($_POST['submit_import'])) {
-    $id_to_import = $_POST['id'];
+    $id = $_POST['selected_comp_id'];
 
-    $qry_select_ipmorted_techs = "SELECT `data` FROM `technicians` WHERE `assoc_comp_id` = '$id_to_import'";
-    $do_get_imported_techs = mysqli_query($connection, $qry_select_ipmorted_techs);
-
-    if ($row = mysqli_fetch_assoc($do_get_imported_techs)) {
-        $json_string_import = $row['data'];
-    }
-    $json_table_import = json_decode($json_string_import);
-
-    foreach ($json_table_import as $json_object_import) {
-        $to_import = TRUE;
-        foreach ($json_table as $json_object) {
-            if ($json_object->username == $json_object_import->username) {
-                $to_import = FALSE;
-            }
-        }
-        if ($to_import) {
-            array_push($json_table, $json_object_import);
-        }
+    $query_select_imported = "SELECT * FROM technicians WHERE assoc_comp_id = '$id'";
+    $do_get_imported_techs = mysqli_query($connection, $query_select_imported);
+    
+    while($row = mysqli_fetch_assoc($do_get_imported_techs)) {
+        $username = $row['username'];
+        $name = $row['name'];
+        $role = $row['role'];
+        $pass = $row['pass'];
+        echo "PERSON: $username, $name, $role, $pass";
+        $insert_query = "INSERT INTO technicians (assoc_comp_id, username, name, role, pass, online) VALUES ($comp_id, '$username', '$name', $role, '$pass', 0)";
+        mysqli_query($connection, $insert_query);
     }
 
-
-    $json_table = array_values($json_table);
-    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-
-    $qry_update_data = "UPDATE `technicians` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-    $do_update_data = mysqli_query($connection, $qry_update_data);
-
-    header("Refresh: 0");
+    //header("Refresh: 0");
 }
 header('charset=utf-8');
 ?>
@@ -121,13 +107,13 @@ header('charset=utf-8');
                             <tbody class="alt">
                                 <?php
                                 //qry
-                                $qry_get_tables = "SELECT assoc_comp_id FROM technicians;";
+                                $qry_get_tables = "SELECT DISTINCT assoc_comp_id FROM technicians;";
                                 $do_get_tables = mysqli_query($connection, $qry_get_tables);
 
-                                while ($row = mysqli_fetch_assoc($do_get_tables)) {
+                                while ($row = mysqli_fetch_assoc($do_get_tables)) :
                                     $id_to_get = $row['assoc_comp_id'];
 
-                                    if ($id_to_get != $comp_id) {
+                                    if ($id_to_get != $comp_id) :
                                         $get_comp_data = "SELECT comp_name FROM competitions WHERE comp_id = '$id_to_get';";
                                         $do_get_comp_data = mysqli_query($connection, $get_comp_data);
 
@@ -141,11 +127,8 @@ header('charset=utf-8');
                                             </td>
                                         </tr>
 
-                                <?php
-                                    }
-                                }
-
-                                ?>
+                                <?php endif ?>
+                                <?php endwhile ?>
                             </tbody>
                         </table>
                         <button type="submit" name="submit_import" class="panel_submit" form="import_technician" value="Import">Import</button>

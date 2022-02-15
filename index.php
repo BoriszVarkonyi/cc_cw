@@ -114,6 +114,8 @@ if (isset($_POST["submit"])) {
                     <label for="b">I am a technician</label>
                     <input type="radio" name="role" id="c" value="3"/>
                     <label for="c">I am a referee</label>
+                    <input type="radio" name="role" id="d" value="4"/>
+                    <label for="d">I am a doctor</label>
                 </div>
                 <input type="submit" name="submit" value="Login" class="login_button">
             </form>

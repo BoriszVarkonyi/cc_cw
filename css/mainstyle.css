@@ -758,12 +758,16 @@ header {
 form#barcode_form {
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
 	margin: 3px 0 3px 15px;
+	position: relative;
+	width: 150px;
+	height: 2.2rem;
 }
 
 .barcode_button {
-	width: 37px;
-	height: 37px;
+	width: 2.2rem;
+	height: 2.2rem;
 	border-radius: 50%;
 	box-sizing: border-box;
 	display: flex;
@@ -772,7 +776,7 @@ form#barcode_form {
 	background: var(--c-lightgray);
 	border: 2pt solid;
 	border-color: var(--c-darkgray);
-	position: relative;
+	position: absolute;
 	z-index: 1;
 }
 
@@ -784,16 +788,16 @@ form#barcode_form {
 .barcode_button img {
 	width: 15pt;
 	height: 15pt;
+	transform: rotateY(0deg);
 	transition: var(--t-basic);
 }
 
 .barcode_button.active img {
-	width: 16pt;
-	height: 16pt;
+	transform: rotateY(180deg);
 }
 
 .barcode_input {
-	margin: 0 0 0 -37px !important;
+	margin: 0 !important;
 	background-color: var(--c-lightergray) !important;
 	border-radius: 20px !important;
 	border: 2pt solid !important;
@@ -802,7 +806,7 @@ form#barcode_form {
 	width: 150px !important;
 	padding: 0 0 0 20px !important;
 	color: var(--c-black);
-	position: relative;
+	position: absolute;
 	z-index: 0;
 	text-align: center !important;
 	box-shadow: var(--s-black);
@@ -1680,7 +1684,7 @@ nav.closed #documentation_label img {
 	position: relative;
 	z-index: 1;
 	background: var(--c-lightestgray);
-	padding: 30px 40px;
+	padding: 2rem 2.3rem;
 	display: flex;
 	align-items: center;
 	box-shadow: var(--s-black);
