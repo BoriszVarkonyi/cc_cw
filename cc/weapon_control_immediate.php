@@ -85,7 +85,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         </button>
                         <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     </form>
-                    <form id="barcode_form" method="POST" action="">
+                    <form id="barcode_form" method="POST" action="" shortcut="SHIFT+B">
                         <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
                             <img src="../assets/icons/barcode_black.svg">
                         </button>

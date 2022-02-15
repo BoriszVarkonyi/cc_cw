@@ -52,6 +52,10 @@ document.addEventListener("keyup", function (e) {
             var printWeaponControlButton = document.getElementById("printWeaponControlBt")
             printWeaponControlButton.click()
         }
+        if (e.shiftKey && e.which == 66) {
+            var barCodeInput = document.querySelector("#barcode_form input")
+            barCodeInput.focus()
+        }
         if (isselected) {
             if (e.shiftKey && e.which == 65) {
                 var addWeaponControlButton = document.getElementById("wcButton")

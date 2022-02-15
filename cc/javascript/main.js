@@ -288,6 +288,7 @@ numberInputs.forEach(item => {
 })
 
 var stripeButtons = document.querySelectorAll(".stripe_button")
+var barCodeForm = document.getElementById("barcode_form")
 var canAddHoverClass = true;
 //searchBarClosed is a var. from search.js
 searchBarClosed = true;
@@ -296,6 +297,9 @@ document.addEventListener("keydown", function (e) {
         if (e.shiftKey && canAddHoverClass) {
             for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.add("hover")
+            }
+            if(barCodeForm != undefined){
+                barCodeForm.classList.add("hover")
             }
             canAddHoverClass = false;
         }
@@ -308,6 +312,9 @@ document.addEventListener("keyup", function (e) {
         if (e.key == "Shift") {
             for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.remove("hover")
+            }
+            if(barCodeForm != undefined){
+                barCodeForm.classList.remove("hover")
             }
             canAddHoverClass = true;
         }

@@ -152,7 +152,7 @@
                 <div id="title_stripe">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
-                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
+                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S" id="reg_stat">
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
@@ -165,7 +165,7 @@
                                 <p>Remove Fencer</p>
                                 <img src="../assets/icons/person_remove_black.svg"/>
                             </button>
-                            <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
+                            <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A" id="add_reg_button">
                                 <p>Add Fencer</p>
                                 <img src="../assets/icons/person_add_alt_black.svg"/>
                             </button>
@@ -180,7 +180,7 @@
                             <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
                         </form>
 
-                        <form id="barcode_form" method="POST" action="">
+                        <form id="barcode_form" method="POST" action="" shortcut="SHIFT+B">
                             <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>

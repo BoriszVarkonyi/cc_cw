@@ -65,22 +65,30 @@ document.addEventListener("keyup", function (e) {
     if (!somethingisOpened && !somethingIsFocused) {
         //Opens add registration to Shift+A
         if (e.shiftKey && e.which == 65) {
-            var addfencer = document.getElementById("addFencer")
+            var addfencer = document.getElementById("add_reg_button")
             addfencer.click()
         }
         if (e.shiftKey && e.which == 80) {
             var printRegistrationButton = document.getElementById("printRegistrationBt")
             printRegistrationButton.click()
         }
+        if (e.shiftKey && e.which == 83) {
+            var regStatButton = document.getElementById("reg_stat")
+            regStatButton.click()
+        }
+        if (e.shiftKey && e.which == 66) {
+            var barCodeInput = document.querySelector("#barcode_form input")
+            barCodeInput.focus()
+        }
         if (isselected) {
             //Regist out to Shift+O
             if (e.shiftKey && e.which == 79) {
-                regOutButton = document.getElementById("regOut")
+                regOutButton = document.getElementById("reg_out_button")
                 regOutButton.click()
             }
             //Regists in to Shift+I
             if (e.shiftKey && e.which == 73) {
-                regInButton = document.getElementById("regIn")
+                regInButton = document.getElementById("reg_in_button")
                 regInButton.click()
             }
             if (e.shiftKey && e.which == 68) {

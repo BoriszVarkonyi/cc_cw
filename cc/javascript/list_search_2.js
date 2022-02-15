@@ -36,17 +36,18 @@ function searchInLists() {
         // if (previousSearches[j] != searches[j].value || j == 0) {
         previousSearches.push(searches[j].value)
         var filter = searches[j].value.toUpperCase();
+        console.log(filter)
         if (j > 0) {
-            var li = document.querySelectorAll('tbody tr:not( .hidden) > td:nth-of-type(' + (j + 1) + ')');
+            var li = document.querySelectorAll('tbody tr:not( .hidden) > td:nth-of-type(' + (j + 1) + '):not(td.square):not(td.small)');
         }
         else {
-            var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
+            var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + '):not(td.square):not(td.small)');
         }
         //Loops throught the rows
-        for (i = li.length; i--;) {
+        for (i = 0; i<li.length; i++) {
             a = li[i].querySelector("p");
             txtValue = a.textContent || a.innerText;
-            //console.log(txtValue)
+            console.log(searches[j])
             //if the input is a radio button the search is stricter
             if (searches[j].parentNode.parentNode.classList.contains("option")) {
                 if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
@@ -65,10 +66,6 @@ function searchInLists() {
             counter++;
 
         }
-        //}
-        //else {
-        // continue;
-        //}
     }
     //If there is the no search found row it removes the hidden class
     var emptyRow = document.getElementById("emptyRow")
