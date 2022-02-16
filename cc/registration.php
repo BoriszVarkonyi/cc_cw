@@ -109,7 +109,7 @@
 
                         //update database
                         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-                        $qry_update = "UPDATE competitors SET data = '$json_string'";
+                        $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = $comp_id";
                         if (!$do_update = mysqli_query($connection, $qry_update)) {
                             echo "ERROR during the updateing of database record(deleting)";
                         } else {
