@@ -21,68 +21,45 @@ for (j = 0; j < searches.length; j++) {
 
 
 //Makes database
-var database = []
-var tempArray = []
-
 var test = document.querySelectorAll('tbody tr > td:not(td.square):not(td.small)');
-var tr = document.querySelectorAll('tbody tr')
 
-for (i = 0; i < searches.length; i++) {
-    tempArray = []
-    for (j = i; j < test.length; j += searches.length) {
-        tempArray.push(test[j].querySelector("p"))
-    }
-    database.push(tempArray)
-}
 
-tempArray = []
-for (i = 0; i < tr.length; i++) {
-    tempArray.push(tr[i].id)
 
-}
-database.push(tempArray)
-tempArray = []
-for (i = 0; i < tr.length; i++) {
-    tempArray.push(true)
-
-}
-database.push(tempArray)
-
-//console.log(database)
 
 var hasAdded = false;
 function searchInLists() {
+    var counter = 0;
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
         if (previousSearches[j] != searches[j].value || j == 0) {
             previousSearches[j] = searches[j].value
             var filter = searches[j].value.toUpperCase();
-            console.log(filter)
+            if (j > 0) {
+                var li = document.querySelectorAll('tbody tr:not( .hidden) > td:not(td.square):not(td.small):nth-of-type(' + (j + 1) + ')');
+            }
+            else {
+                var li = document.querySelectorAll('tbody tr > td:not(td.square):not(td.small):nth-of-type(' + (j + 1) + ')');
+            }
             //Loops throught the rows
-            for (i = 0; i < database[j].length; i++) {
-                if (database[database.length-1][i] || j == 0) {
-                    //a = li[i].querySelector("p");
-                    txtValue = database[j][i].textContent || database[j][i].innerText;
-                    //if the input is a radio button the search is stricter
-                    if (searches[j].parentNode.parentNode.classList.contains("option")) {
-                        if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
-                            document.getElementById(database[database.length-2][i]).classList.remove("hidden")
-                            database[database.length-1][i] = true
-                        } else {
-                            document.getElementById(database[database.length-2][i]).classList.add("hidden")
-                            database[database.length-1][i] = false
-                        }
-                    }
-                    else {
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            document.getElementById(database[database.length-2][i]).classList.remove("hidden")
-                            database[database.length-1][i] = true
-                        } else {
-                            document.getElementById(database[database.length-2][i]).classList.add("hidden")
-                            database[database.length-1][i] = false
-                        }
+            for (i = 0; i < li.length; i++) {
+                a = li[i].querySelector("p");
+                txtValue = a.textContent || a.innerText;
+                //if the input is a radio button the search is stricter
+                if (searches[j].parentNode.parentNode.classList.contains("option")) {
+                    if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
+                        li[i].parentNode.classList.remove("hidden")
+                    } else {
+                        li[i].parentNode.classList.add("hidden")
                     }
                 }
+                else {
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].parentNode.classList.remove("hidden")
+                    } else {
+                        li[i].parentNode.classList.add("hidden")
+                    }
+                }
+                counter++;
 
             }
 
@@ -101,7 +78,7 @@ function searchInLists() {
                     visibleRows[i].style.backgroundColor = "rgb(246, 246, 246)"
                 }
             }
-            //Removes selected class from all item
+            //Removes elected class from all item
             var selectedElements = document.querySelectorAll(".selected")
             for (i = 0; i < selectedElements.length; i++) {
                 selectedElements[i].classList.remove("selected")
