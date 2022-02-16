@@ -105,12 +105,6 @@ function checkComp($connectionin){
         header("Location: ../index.php");
 
     }
-    else{
-
-    echo "MINDEN JÓ";
-
-    }
-
 }
 
 function setOnline($connectionin) {
