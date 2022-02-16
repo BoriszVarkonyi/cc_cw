@@ -12,26 +12,9 @@ body, *, *:hover {
 
 header, nav, #title_stripe, .search_wrapper, .db_panel_header, #loading_bar {
 	display: none !important;
-	width: 0 !important;
-	max-width: 0 !important;
-	max-height: 0 !important;
-	visibility: hidden !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	overflow: hidden !important;
-	min-height: 0 !important;
-	max-height: 0 !important;
-	height: 0 !important;
 }
 
-#content_wrapper {
-	position: absolute !important;
-	top: 0 !important;
-	left: 0 !important;
-	width: 100vw !important;
-}
-
-#page_content_panel_main {
+#content_wrapper, #page_content_panel_main, .print_only, .print_content {
 	position: absolute !important;
 	top: 0 !important;
 	left: 0 !important;

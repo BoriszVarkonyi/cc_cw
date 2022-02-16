@@ -2360,7 +2360,7 @@ input[type="file"] {
 	gap: 10px;
 	transition: all ease-in-out .1s;
 	opacity: 1;
-	max-height: 150px;
+	max-height: 300px;
 }
 
 .stats_wrapper.closed {
