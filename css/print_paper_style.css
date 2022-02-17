@@ -1,3 +1,16 @@
+.print_only > * {
+	width: 100%;
+	box-sizing: border-box;
+	page-break-before: auto;
+	page-break-after: auto;
+	page-break-inside: auto;
+	margin: 5pt 0 10pt;
+}
+
+.print_only > *.breakpoint {
+	page-break-after: always !important;
+}
+
 .paper {
 	margin: 20px auto;
 	min-width: 21cm;
@@ -110,8 +123,6 @@
 		margin: 0 !important;
 		padding: 0 !important;
 		display: block !important;
-		flex-wrap: nowrap !important;
-		justify-content: initial !important;
 		zoom: 100% !important;
 	}
 

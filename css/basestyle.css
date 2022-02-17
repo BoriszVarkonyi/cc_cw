@@ -267,6 +267,20 @@ tr {	/* Gives placeholder background and default font */
 	}
 }
 
+.print_only {
+	display: none;
+}
+
+@media print {
+	.print_only {
+		display: unset !important;
+	}
+
+	.screen_only {
+		display: none !important;
+	}
+}
+
 /* Annoy Borisz, good feature so things look good when user decides to be a 9 year old with mild autism */
 body * {
 	-webkit-user-select: none;
@@ -1046,6 +1060,11 @@ thead.no_stick th {
 	position: relative !important;
 }
 
+/* Makes Table Header elements not sticky */
+thead.no_background th {
+	background-color: transparent !important;
+}
+
 /* Makes Table Header hover not change the cursor type */
 thead tr {
 	cursor: default !important;
@@ -1389,7 +1408,18 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	border-bottom: none;
 }
 
+.table_row_amendment {
+	width: 100%;
+	background: var(--c-lightestgray);
+	box-sizing: border-box;
+	padding: 20px;
+	margin-bottom: 10px;
+	border-radius: 0 0 5pt 5pt;
+}
 
+.table_row_amendment.alt {
+	background: var(--c-lightergray);
+}
 
 
 /* ENTRIES STYLING */
@@ -1407,6 +1437,10 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	margin-bottom: 35px;
 }
 
+.entry_wrapper .entry:last-of-type {
+	margin-bottom: 0;
+}
+
 
 
 /* Whole entry */
@@ -1418,7 +1452,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	border-radius: 5px;
 	box-shadow: var(--s-black);
 	transition: all ease-in-out .2s;
-	border: 1pt solid var(--c-gray);
+	border: 2pt solid var(--c-primary);
 }
 
 
@@ -1429,11 +1463,14 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	height: calc(1.4em + 1.25vmin);
+	min-height: calc(1.4em + 1.25vmin);
 	background: var(--c-lightestgray);
 	position: relative;
 	z-index: 1;
+}
+
+.tr.selected {
+	background: var(--c-lightprimary);
 }
 
 .tr.clickable {
@@ -1460,11 +1497,13 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	flex-direction: column;
 }
 
-
+.td p {
+	padding: 0 7px;
+}
 
 /* Makes the text bold */
-.td.bold {
-	font-size: var(--bold);
+.td.bold p {
+	font-family: var(--bold);
 }
 
 /* Makes the text start at the left side */
@@ -1524,7 +1563,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 50px;
+	padding: 2rem;
 	box-sizing: border-box;
 	background: var(--c-white);
 	position: relative;
@@ -1534,6 +1573,16 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	overflow: hidden;
 	transition: all ease-in-out .2s;
 	border-top: 1pt solid var(--c-gray);
+}
+
+.entry_panel.split {
+	max-height: unset;
+	flex-wrap: wrap;
+}
+
+.entry_panel.split > * {
+	flex: 300px;
+	margin: 1rem 1.3rem;
 }
 
 .entry_panel.with_header {

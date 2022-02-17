@@ -115,25 +115,3 @@ document.onkeydown = (keyDownEvent) => {
         keyDownEvent.preventDefault();
     }
 }
-/*
-//Opens the searchbar to Shift+F
-document.onkeyup=function(e){
-    //somethingisOpened is a var. from main.js
-    if(!somethingisOpened){
-        if(e.shiftKey && e.which == 70) {
-            var searchBar = document.getElementById("inputs")
-            searchBar.focus()
-        }
-    }
-}
-*/
-function test() {
-    /*
-    var tableRows = document.querySelectorAll("tbody tr")
-    tableRows[selectedElementIndexAr].classList.add("selected")
-    tableRows[selectedElementIndexAr].focus()
-    hiddenin.value = tableRows[selectedElementIndexAr].id
-    console.log(hiddenin.value)
-    */
-}
-test();
