@@ -1463,7 +1463,6 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	min-height: calc(1.4em + 1.25vmin);
 	background: var(--c-lightestgray);
 	position: relative;

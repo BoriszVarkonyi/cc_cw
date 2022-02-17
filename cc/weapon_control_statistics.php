@@ -105,7 +105,7 @@
                     <div class="db_panel">
                         <div class="db_panel_header">
                             <img src="../assets/icons/pie_chart_black.svg" />
-                            <p>Data by Nation or Club</p>
+                            <p>Data by Nation and Club</p>
                         </div>
                         <div class="db_panel_main small entry_wrapper">
                             <div class="entry">
@@ -330,6 +330,110 @@
                     </div>
                     <div>
                         <p class="print_title">Data by Nation and Club</p>
+                        <div class="entry">
+                            <div class="tr">
+                                <div class="td bold"><p>{NATION}</p></div>
+                                <div class="td bold"><p>{CLUB}</p></div>
+                                <div class="td"><p>{NUMBER OF FENCERS} Fencers</p></div>
+                                <div class="td"><p>{NUMBER OF ISSUES} Issues</p></div>
+                                <div class="td"><p>{Most common issue} (Count)</p></div>
+                            </div>
+                            <div class="entry_panel split">
+                                <table class="small">
+                                    <thead class="no_background">
+                                        <tr>
+                                            <th><p>ISSUE</p></th>
+                                            <th><p>NUMBER OF ISSUES</p></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alt">
+                                        <tr>
+                                            <td><p>Isuename issuename</p></td>
+                                            <td><p>Isuename issuename</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>Isuename issuename</p></td>
+                                            <td><p>Isuename issuename</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="small">
+                                    <thead class="no_background">
+                                        <tr>
+                                            <th><p>FENCER NAME</p></th>
+                                            <th><p>NUMBER OF ISSUES</p></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alt">
+                                        <tr>
+                                            <td><p>LONG NAMED dimitry</p></td>
+                                            <td><p>Isuename issuename</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>LONG NAMED dimitry</p></td>
+                                            <td><p>Isuename issuename</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="print_title">Most to least common equipment issue</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>ISSUE NAME</p>
+                                    </th>
+                                    <th>
+                                        <p>NUMBER OF ISSUES</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="alt">
+                                <tr>
+                                    <td>
+                                        <p>{Issue name}</p>
+                                    </td>
+                                    <td>
+                                        <p>{Issue count}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>{Issue name}</p>
+                                    </td>
+                                    <td>
+                                        <p>{Issue count}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <p class="print_title">All additional notes on weapon controls</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>NOTE</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="alt">
+                                <tr>
+                                    <td>
+                                        <p>{NOTE}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>{NOTE}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

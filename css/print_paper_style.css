@@ -1,12 +1,13 @@
-.print_content > * {
+.print_only > * {
 	width: 100%;
 	box-sizing: border-box;
 	page-break-before: auto;
 	page-break-after: auto;
 	page-break-inside: auto;
+	margin: 5pt 0 10pt;
 }
 
-.print_content > *.breakpoint {
+.print_only > *.breakpoint {
 	page-break-after: always !important;
 }
 
