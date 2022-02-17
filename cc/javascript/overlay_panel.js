@@ -65,7 +65,6 @@ function formvariableDeclaration() {
             var overlayForm = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form");
             var inputs = document.querySelectorAll(".overlay_panel:not( .hidden) .overlay_panel_form input:not(input[type=radio])");
             var saveButton = document.querySelector(".overlay_panel:not( .hidden) .overlay_panel_form .panel_submit");
-            console.log(saveButton)
             var optionContainers = overlayForm.querySelectorAll(".option_container");
             formValidation(overlayForm, inputs, saveButton, optionContainers);
         }
