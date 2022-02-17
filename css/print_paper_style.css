@@ -1,10 +1,14 @@
 .print_content > * {
 	width: 100%;
-	box-sizing: border-box !important;
-	page-break-before: always !important;
-	page-break-after: always !important;
+	box-sizing: border-box;
+	page-break-before: auto;
+	page-break-after: auto;
+	page-break-inside: auto;
 }
 
+.print_content > *.breakpoint {
+	page-break-after: always !important;
+}
 
 .paper {
 	margin: 20px auto;

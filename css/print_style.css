@@ -20,3 +20,27 @@ header, nav, #title_stripe, .search_wrapper, .db_panel_header, #loading_bar {
 	left: 0 !important;
 	width: 100vw !important;
 }
+
+.print_stat {
+	display: flex;
+	align-items: center;
+}
+
+.print_stat p {
+	margin: 0 10pt 0 3pt;
+}
+
+p.bold {
+	font-family: var(--bold);
+}
+
+.print_stat img {
+	width: 18pt;
+	height: 18pt;
+}
+
+.print_title {
+	font-size: 20pt;
+	font-family: var(--bold);
+	line-height: 1.3;
+}

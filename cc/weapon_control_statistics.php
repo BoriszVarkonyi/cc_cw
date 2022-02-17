@@ -273,7 +273,64 @@
                     </div>
                 </div>
                 <div class="print_only">
-
+                    <div>
+                        <p class="print_title">General Weapon Control Statistics</p>
+                        Immidiate
+                        <div class="print_stat">
+                            <img src="../assets/icons/weapon_control_black.svg">
+                            <p class="bold">Weapon Controls</p>
+                            <p>150 / 50</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/report_problem_black.svg">
+                            <p class="bold">Issues Reported</p>
+                            <p>150</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/report_problem_black.svg">
+                            <p class="bold">Fencers without equipment issues</p>
+                            <p>150</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/report_problem_black.svg">
+                            <p class="bold">Fencers with equipment issues</p>
+                            <p>19</p>
+                        </div>
+                        Administrated
+                        <div class="print_stat">
+                            <img src="../assets/icons/weapon_control_black.svg">
+                            <p class="bold">Check-ins</p>
+                            <p>150 / 50</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/weapon_control_black.svg">
+                            <p class="bold">Check-outs</p>
+                            <p>150 / 50</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/weapon_control_black.svg">
+                            <p class="bold">Weapon Controls</p>
+                            <p>150 / 50</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/report_problem_black.svg">
+                            <p class="bold">Issues Reported</p>
+                            <p>150</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/report_problem_black.svg">
+                            <p class="bold">Fencers without equipment issues</p>
+                            <p>150</p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/report_problem_black.svg">
+                            <p class="bold">Fencers with equipment issues</p>
+                            <p>19</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="print_title">Data by Nation and Club</p>
+                    </div>
                 </div>
             </div>
         </main>
