@@ -106,7 +106,11 @@ if (isset($_POST["barcode"])) {
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
-                    <form id="add_weapon_control_form" method="POST" action="/cc/fencers_weapon_control.php?comp_id=52">
+                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=570">
+                        <p>Print Weapon Control Reports</p>
+                        <img src="../assets/icons/print_black.svg" />
+                    </a>
+                    <form id="add_weapon_control_form" method="POST" action="/cc/fencers_weapon_control.php?comp_id=570">
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
                             <p>Add weapon control</p>
                             <img src="../assets/icons/add_black.svg" />
