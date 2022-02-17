@@ -4,6 +4,59 @@
 <?php checkComp($connection); ?>
 
 <?php
+
+    //determine wc back button
+    $qry_get_wc = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
+    $do_get_wc = mysqli_query($connection, $qry_get_wc);
+    if ($row = mysqli_fetch_assoc($do_get_wc)) {
+        $wc_type = $row['comp_wc_type'];
+        if ($wc_type == 1) {
+            $wc_page = "weapon_control_immediate";
+        } else if ($wc_type == 2) {
+            $wc_page = "weapon_control_administrated";
+        }
+    } else {
+        echo "stan: " . mysqli_error($connection);
+    }
+    $array_issues = array(
+        "FIE mark on blade",
+        "Arm gap and weight",
+        "Arm lenght",
+        "Blade lenght",
+        "Grip lenght",
+        "Form and depth of the guard",
+        "Guard oxydation/ deformation",
+        "Excentricity of the blade",
+        "Blade flexibility",
+        "Curve on the blade",
+        "Foucault current device",
+        "point and arm size",
+        "spring of the point",
+        "total travel of the point",
+        "residual travel of the point",
+        "isolation of the point",
+        "resistance of the arm",
+        "length/ condition of body/ mask wire",
+        "resistance of body/ mask wire",
+        "mask: FIE mark",
+        "mask: condition and insulation",
+        "mask: resistance (sabre, foil)",
+        "metallic jacket condition",
+        "metallic jacket resistance",
+        "sabre glove/ overlay condition",
+        "sabre glove/ overlay resistance",
+        "glove condition",
+        "jacket condition",
+        "breeches condition",
+        "under-plastron condition",
+        "foil chest protector",
+        "socks",
+        "incorrect name printing",
+        "incorrect national logo",
+        "commercial",
+        "other items",
+    );
+
     $fencer_id = $_POST['fencer_id'];
     //get fencer data
     $qry_get_comptetitors = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
@@ -13,7 +66,7 @@
         $json_compet = json_decode($string);
         //search for fencer
         if (($id_to_find = findObject($json_compet, $fencer_id, "id")) !== false) {
-            $fencer = $json_compet -> $id_to_find;
+            $fencer = $json_compet[$id_to_find];
 
             $fencer_name = $fencer -> prenom . " " . $fencer -> nom;
 
@@ -21,6 +74,61 @@
             echo "Volare!!";
         }
     }
+
+    //get fencers existing wc
+    $qry_select = "SELECT notes FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id' LIMIT 1";
+    $do_select = mysqli_query($connection, $qry_select);
+    if (mysqli_fetch_assoc($do_select)['notes'] === null) {
+        $notes = "";
+        $real_issues_array = [];
+        foreach ($array_issues as $issue) {
+            $real_issues_array[] = 0;
+        }
+    } else {
+        $notes = mysqli_fetch_assoc($do_select)['notes'];
+        $qry_select2 = "SELECT issues_array FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id' LIMIT 1";
+        $do_select2 = mysqli_query($connection, $qry_select2);
+        if ($row = mysqli_fetch_assoc($do_select2)) {
+            $string = $row['issues_array'];
+            $real_issues_array = json_decode($string);
+        } else {
+            echo "error: atika matika: " . mysqli_error($connection) . "<br>";
+        }
+    }
+
+    if (isset($_POST['submit_wc'])) {
+
+        $notes = $_POST['notes'];
+
+        //compile issues array and test for empty post
+        $real_issues_array = [];
+        $empty = true;
+        for ($i = 0; $i < count($array_issues); $i++) {
+            if ($_POST['issue_n_' . $i] == "") {
+                $real_issues_array[] = 0;
+            } else {
+                $real_issues_array[] = $_POST['issue_n_' . $i];
+                $empty = false;
+            }
+        }
+
+        if ($notes !== "") {
+            $empty = false;
+        }
+
+        if (!$empty) {
+            $real_issues_array = json_encode($real_issues_array);
+
+            $qry_update = "UPDATE weapon_control SET notes = '$notes', issues_array = '$real_issues_array' WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+            if (!mysqli_query($connection, $qry_update)) {
+                echo "See you again! " . mysqli_error($connection);
+            }
+
+
+        }
+        header("Location: ../cc/$wc_page.php?comp_id=$comp_id");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -82,9 +190,7 @@
                         <tbody>
 
                             <?php
-                                foreach ($array_issues as $issue) {
-
-                                $issue_id = array_search($issue, $array_issues);
+                                foreach ($array_issues as $issue_id => $issue) {
                                 if (isset($array_of_real_issues[$issue_id]) && $array_of_real_issues[$issue_id] != 0) {
                                     $issue_numbers = $array_of_real_issues[$issue_id];
                                 } else {
