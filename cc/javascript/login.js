@@ -7,7 +7,7 @@ var inputs = document.querySelectorAll(".username_input, .password_input");
 var loginButton = document.querySelector(".login_button");
 var opitons = form.querySelectorAll(".option_container > input");
 var valid1 = false, valid2 = false;
-loginButton.classList.add("disabled")
+loginButton.disabled = false;
 function loginFormValidation() {
     for (i = 0; i < inputs.length; i++) {
         if (inputs[i].value == "") {
@@ -30,10 +30,10 @@ function loginFormValidation() {
         }
     }
     if (valid1 && valid2) {
-        loginButton.classList.remove("disabled")
+        loginButton.disabled = false;
     }
     else {
-        loginButton.classList.add("disabled")
+        loginButton.disabled = true;
     }
 }
 form.addEventListener("input", loginFormValidation)
