@@ -128,7 +128,32 @@
 }
 
 .barcode_print {
-	border: 1pt solid black;
+	width: 38mm;
+	min-width: 38mm;
+	max-width: 38mm;
+	height: 21.1mm;
+	min-height: 21.1mm;
+	max-height: 21.1mm;
+	font-size: 7pt;
+	line-height: 1;
+	overflow: hidden;
+}
+
+.barcode_print > * {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.generated_barcode {
+	width: 30mm;
+	height: 10mm;
+	border: none !important;
+	margin-bottom: 2pt;
+}
+
+div.b128 {
+	border-left: 1px black solid;
+	height: 100%;
 }
 
 @media print {

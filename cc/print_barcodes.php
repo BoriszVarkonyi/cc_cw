@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_paper_style.min.css">
-    <link rel="stylesheet" href="../css/print_list_style.min.css">
 </head>
 
 <body>
@@ -50,12 +49,36 @@
             <div id="page_content_panel_main" class="loose">
 
                 <div class="paper barcodes">
-                    <div class="barcode_print"><?php echo bar128("13697", "Wolfram Kristof"); ?></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
+                    <div class="barcode_print">
+                        <?php echo bar128("156555555"); ?>
+                        <p>156555555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("156555555"); ?>
+                        <p>156555555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("156555555"); ?>
+                        <p>156555555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("156555555"); ?>
+                        <p>156555555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("156555555"); ?>
+                        <p>156555555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("156555555"); ?>
+                        <p>156555555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
                     <div class="barcode_print"></div>
                     <div class="barcode_print"></div>
                     <div class="barcode_print"></div>
