@@ -89,33 +89,16 @@
                         <p>88888888</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
-                    <!--
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
-                        <p>156555555</p>
+                        <?php echo bar128("999999999"); ?>
+                        <p>999999999</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
-                        <p>156555555</p>
+                        <?php echo bar128("0000000000"); ?>
+                        <p>0000000000</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
-                        <p>156555555</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
-                        <p>156555555</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
-                        <p>156555555</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                     -->
 
                 </div>
             </div>
