@@ -55,27 +55,27 @@
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
+                        <?php echo bar128("265475"); ?>
                         <p>156555555</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
+                        <?php echo bar128("873562"); ?>
                         <p>156555555</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
+                        <?php echo bar128("548219"); ?>
                         <p>156555555</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
+                        <?php echo bar128("227894"); ?>
                         <p>156555555</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
+                        <?php echo bar128("33664488"); ?>
                         <p>156555555</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
