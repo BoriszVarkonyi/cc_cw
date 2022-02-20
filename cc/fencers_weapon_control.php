@@ -1,5 +1,6 @@
 <?php include "includes/headerburger.php"; ?>
 <?php include "includes/db.php" ?>
+<?php include "includes/wc_issues_array.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
@@ -18,44 +19,7 @@
     } else {
         echo "stan: " . mysqli_error($connection);
     }
-    $array_issues = array(
-        "FIE mark on blade",
-        "Arm gap and weight",
-        "Arm lenght",
-        "Blade lenght",
-        "Grip lenght",
-        "Form and depth of the guard",
-        "Guard oxydation/ deformation",
-        "Excentricity of the blade",
-        "Blade flexibility",
-        "Curve on the blade",
-        "Foucault current device",
-        "point and arm size",
-        "spring of the point",
-        "total travel of the point",
-        "residual travel of the point",
-        "isolation of the point",
-        "resistance of the arm",
-        "length/ condition of body/ mask wire",
-        "resistance of body/ mask wire",
-        "mask: FIE mark",
-        "mask: condition and insulation",
-        "mask: resistance (sabre, foil)",
-        "metallic jacket condition",
-        "metallic jacket resistance",
-        "sabre glove/ overlay condition",
-        "sabre glove/ overlay resistance",
-        "glove condition",
-        "jacket condition",
-        "breeches condition",
-        "under-plastron condition",
-        "foil chest protector",
-        "socks",
-        "incorrect name printing",
-        "incorrect national logo",
-        "commercial",
-        "other items",
-    );
+
 
     $fencer_id = $_GET['fencer_id'];
     //get fencer data
