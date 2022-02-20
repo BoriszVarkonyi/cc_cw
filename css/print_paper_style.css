@@ -124,7 +124,7 @@
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(13, 1fr);
-	padding: 10.7mm 10mm;
+	padding: 10.7mm 7.9mm 8.6mm 11.9mm;
 }
 
 .barcode_print {
@@ -149,7 +149,7 @@
 	width: auto;
 	height: 10mm;
 	border: none !important;
-	margin-bottom: 2pt;
+	margin: 2pt 0;
 }
 
 div.b128 {
