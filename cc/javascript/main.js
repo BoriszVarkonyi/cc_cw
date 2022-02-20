@@ -369,8 +369,3 @@ function toggleBarCodeInput(x) {
     var button = x.previousElementSibling;
     button.classList.toggle("active");
 }
-
-function toggleBarCodeButton(x) {
-    var input = x.nextElementSibling;
-    input.focus();
-}
