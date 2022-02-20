@@ -95,6 +95,34 @@
         break;
     }
 
+    $weapon_control_all = 0;
+    $weapon_control_filled = 0;
+    $issues_reported = 0;
+
+    function check_array_empty($arr, &$issues_reported) {
+        if(is_null($arr))
+            return true;
+
+        $flag = true;
+        foreach($arr as $item) {
+            if($item != 0) {
+                $issues_reported += $item;
+                $flag = false;
+            }
+        }
+        return $flag;
+    }
+
+    $weapon_control_query = "SELECT issues_array, weapons_turned_in FROM weapon_control WHERE assoc_comp_id = $comp_id";
+    $do_weapon_control = mysqli_query($connection, $weapon_control_query);
+    while($row = mysqli_fetch_assoc($do_weapon_control)) {
+        if(!check_array_empty(json_decode($row['issues_array']), $issues_reported)) {
+            $weapon_control_filled++;
+        }
+        $weapon_control_all++;
+    }
+    
+
     function moveAheadCompetition($conn, $comp_id, $comp_status) {
         $temp = $comp_status + 1;
         $qry_upadte_competition = "UPDATE competitions SET comp_status = '$temp' WHERE comp_id = '$comp_id'";
@@ -421,6 +449,7 @@
                                     <p class="stat_number"><?php echo $num_comps - $num_reg?></p>
                                 </a>
                             </div>
+                        <!-- WEAPON CONTROL -->
                         <?php if($comp_wc_type == 2) { ?>
                             <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >WEAPON CONTROL (ADMINISTRATED)<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                             <div class="stats_wrapper">
@@ -438,12 +467,12 @@
                                 <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/weapon_control_black.svg">
                                     <p class="stat_title">Weapon Controls</p>
-                                    <p class="stat_number">159 / 138</p>
+                                    <p class="stat_number"><?php echo "$weapon_control_filled / $weapon_control_all" ?></p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/report_problem_black.svg">
                                     <p class="stat_title">Issues Reported</p>
-                                    <p class="stat_number">56</p>
+                                    <p class="stat_number"><?php echo $issues_reported ?></p>
                                 </a>
                             </div>
                             <?php } else if($comp_wc_type == 1) { ?>
@@ -452,12 +481,12 @@
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/weapon_control_black.svg">
                                     <p class="stat_title">Weapon Controls</p>
-                                    <p class="stat_number">159 / 138</p>
+                                    <p class="stat_number"><?php echo "$weapon_control_filled / $weapon_control_all" ?></p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/report_problem_black.svg">
                                     <p class="stat_title">Issues Reported</p>
-                                    <p class="stat_number">56</p>
+                                    <p class="stat_number"><?php echo $issues_reported ?></p>
                                 </a>
                             </div>
                             <?php } ?>
