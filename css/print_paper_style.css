@@ -120,6 +120,17 @@
 	transition: all var(--t-basic);
 }
 
+.paper.barcodes {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(13, 1fr);
+	padding: 10.7mm 10mm;
+}
+
+.barcode_print {
+	border: 1pt solid black;
+}
+
 @media print {
 
 	@page {
@@ -167,6 +178,13 @@
 
 	.paper_content.full {
 		height: 100vh !important;
+	}
+
+	.paper.barcodes {
+		display: grid !important;
+		grid-template-columns: repeat(5, 1fr) !important;
+		grid-template-rows: repeat(13, 1fr) !important;
+		padding: 10.7mm 10mm !important;
 	}
 
 }
