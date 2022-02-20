@@ -167,7 +167,7 @@
             </div>
             <div id="page_content_panel_main">
                 <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
-                    <table id="issues_panel">
+                    <table id="issues_panel" class="no_interaction">
                         <thead>
                             <tr>
                                 <th>
