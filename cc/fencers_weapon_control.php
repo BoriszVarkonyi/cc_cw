@@ -72,6 +72,7 @@
 
         } else {
             echo "Volare!!";
+            header("Location: $wc_page.php?comp_id=$comp_id");
         }
     }
 

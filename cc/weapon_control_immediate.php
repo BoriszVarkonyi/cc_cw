@@ -72,7 +72,7 @@ if (isset($_POST["barcode"])) {
 
     if (isset($_POST['add_wc'])) {
         $fencer_id = $_POST['fencer_id'];
-        header("Location: /cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 ?>
 <html lang="en">
