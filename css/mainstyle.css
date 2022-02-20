@@ -1253,6 +1253,7 @@ nav:hover #nav_bar_pin {
 	height: 1rem;
 }
 
+/*Name displayed in header left side*/
 #app_name {
 	position: absolute;
 	margin: 0;
@@ -1260,29 +1261,33 @@ nav:hover #nav_bar_pin {
 	transition: var(--t-basic);
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	line-height: 1;
+	justify-content: flex-start;
 }
 
 #app_name p:first-child {
-	z-index: 1;
-	padding: 2px;
-	border-radius: 2px;
-}
-
-#app_name p:last-child {
+	font-size: var(--f-large);
+	position: relative;
 	font-family: var(--bold);
-	font-size: 50px;
-	z-index: 0;
-	text-transform: uppercase;
-	color: var(--c-lightergray);
-	position: absolute;
-	transition: all var(--t-basic);
 }
 
-#app_name:hover p:last-child {
-	color: var(--c-lightgray);
+#app_name p:first-child::before {
+	content: "";
+	position: absolute;
+	bottom: 3pt;
+	left: 0;
+	height: 2pt;
+	width: 100%;
+	z-index: -1;
+	background: rgb(255,255,255);
+	background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-lightprimary) 100%);
 }
+
+/*
+#app_name p:last-child {
+	font-size: 0.7rem;
+	margin: auto;
+}
+*/
 
 #nav_bar_content {
 	width: 100%;
@@ -2360,7 +2365,7 @@ input[type="file"] {
 	gap: 10px;
 	transition: all ease-in-out .1s;
 	opacity: 1;
-	max-height: 150px;
+	max-height: 300px;
 }
 
 .stats_wrapper.closed {

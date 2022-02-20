@@ -54,39 +54,26 @@ function arrayOrderBy(array &$arr, $order = null)
 
 arrayOrderBy($tablearray, 'reg asc,nation asc');
 
-// foreach($tablearray as $fencer){
+$number_of_ready_fencers = 0;
+$number_of_all_fencers = 0;
 
-//     echo $fencer["nation"] . " " . $fencer["reg"] . "<br>";
+foreach ($json_table as $object) {
 
-// }
+    if ($object->reg == true) {
+        $number_of_ready_fencers++;
+    }
+    $number_of_all_fencers++;
+}
 
-// foreach ($json_table as $object) {
-
-//     echo $object->nom . " ";
-//     echo $object->nation  . " ";
-//     echo $object->reg  . "<br>";
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Counting each country's registered and not registered fencers
-
-
+$competition_query = "SELECT comp_sex AS sex, comp_weapon AS weapon, comp_start AS start_time FROM competitions WHERE comp_id = $comp_id";
+$do_competition_query = mysqli_query($connection, $competition_query);
+$competition_data = mysqli_fetch_assoc($do_competition_query);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -98,6 +85,7 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
     <link rel="stylesheet" href="../css/print_paper_style.min.css">
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
+
 <body>
     <!-- header -->
     <div id="content_wrapper">
@@ -109,15 +97,15 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                 <div class="stripe_button_wrapper">
                     <button class="stripe_button primary" type="button" onclick="printPage()">
                         <p>Print Statistics</p>
-                        <img src="../assets/icons/print_black.svg"/>
+                        <img src="../assets/icons/print_black.svg" />
                     </button>
                 </div>
                 <div class="view_button_wrapper first">
                     <button onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out_black.svg"/>
+                        <img src="../assets/icons/zoom_out_black.svg" />
                     </button>
                     <button onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in_black.svg"/>
+                        <img src="../assets/icons/zoom_in_black.svg" />
                     </button>
                 </div>
             </div>
@@ -131,10 +119,26 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                             <div class="comp_info small">
                                 <p class="info_label"><?php echo $comp_name ?></p>
                                 <div>
-                                    <p>SEX'S</p>
-                                    <p>W TYPE</p>
+                                    <p>
+                                        <?php if($competition_data['sex'] == 2) : ?>
+                                            Male
+                                        <?php else : ?>
+                                            Female
+                                        <?php endif ?>
+                                    </p>
+                                    <p>
+                                        <?php if($competition_data['weapon'] == 1) : ?>
+                                            Epee
+                                        <?php endif ?>
+                                        <?php if($competition_data['weapon'] == 2) : ?>
+                                            Foil
+                                        <?php endif ?>
+                                        <?php if($competition_data['weapon'] == 3) : ?>
+                                            Sabre
+                                        <?php endif ?>
+                                    </p>
                                 </div>
-                                <p>STARTTIME</p>
+                                <p><?php echo $competition_data['start_time'] ?></p>
                             </div>
                         </div>
                         <div class="paper_content">
@@ -147,221 +151,206 @@ arrayOrderBy($tablearray, 'reg asc,nation asc');
                                             <th>QUANTITY</th>
                                         </tr>
                                     </thead>
-
-                                    <?php
-
-                                    //Count who is ready and who is not
-
-                                    $ready = 0;
-                                    $notready = 0;
-
-                                    foreach ($json_table as $object) {
-
-                                        if ($object->reg == true) {
-                                            $ready++;
-                                        } else {
-                                            $notready++;
-                                        }
-                                    }
-
-
-                                    ?>
-
                                     <tbody>
                                         <tr>
                                             <td>All Fencers</td>
-                                            <td><?php echo ($ready + $notready) ?></td>
+                                            <td><?php echo ($number_of_all_fencers) ?></td>
                                         </tr>
                                         <tr>
                                             <td>Fencers Registered in</td>
-                                            <td><?php echo $ready ?></td>
+                                            <td><?php echo $number_of_ready_fencers ?></td>
                                         </tr>
                                         <tr>
                                             <td>Fencers not Registered in</td>
-                                            <td><?php echo $notready ?></td>
+                                            <td><?php echo $number_of_all_fencers - $number_of_ready_fencers ?></td>
                                         </tr>
                                     </tbody>
-                                </div>
                             </div>
-                            <div class="overview_wrapper">
-                                <p class="label">REGISTERED AND NOT REGISTERED FENCERS BY NATIONS</p>
+                        </div>
+                        <div class="overview_wrapper">
+                            <p class="label">REGISTERED AND NOT REGISTERED FENCERS BY NATIONS</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>NATIONALITY</th>
+                                        <th>ALL FENCERS</th>
+                                        <th>REGISTERED IN</th>
+                                        <th>NOT REGISTERED IN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+
+                                    $ccode = "";
+
+                                    $nations = new stdClass;
+
+                                    foreach ($json_table as $object) {
+
+                                        $actualNation = $object->nation;
+
+                                        $nations->$actualNation->number_of_ready_fencers = 0;
+                                        $nations->$actualNation->not_ready = 0;
+                                    }
+
+                                    foreach ($json_table as $object) {
+
+                                        $actualNation = $object->nation;
+
+                                        if ($object->reg == true) {
+                                            $nations->$actualNation->number_of_ready_fencers += 1;
+                                        } else {
+                                            $nations->$actualNation->not_ready += 1;
+                                        }
+                                    }
+
+                                    foreach ($nations as $country_code => $country_value) : ?>
+
+
+                                        <tr>
+                                            <td><?php echo $country_code ?></td>
+                                            <td><?php echo ($country_value->number_of_ready_fencers + $country_value->not_ready) ?></td>
+                                            <td><?php echo $country_value->number_of_ready_fencers ?></td>
+                                            <td><?php echo $country_value->not_ready ?></td>
+                                        </tr>
+
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="overview_wrapper">
+                        <p class="label">FENCERS SORTED BY NATIONS</p>
+
+
+                        <?php
+
+                        function cmp($a, $b)
+                        {
+                            return strcmp($a->nation, $b->nation);
+                        }
+
+                        usort($json_table, "cmp");
+
+                        $toCompare = "";
+
+                        $firstrun = 1;
+
+                        foreach ($json_table as $fencer) {
+
+                            if ($fencer->nation == $toCompare) { ?>
+
+                                <tr>
+                                    <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
+                                    <td>
+                                        <?php if ($fencer->reg == true) : ?>
+                                            Registered
+                                        <?php else : ?>
+                                            Not registered
+                                        <?php endif ?>
+                                    </td>
+                                </tr>
+
+                            <?php
+                            } else {
+
+                                $toCompare = $fencer->nation;
+
+                            ?>
+
+                                <?php
+
+                                if ($firstrun == 1) {
+
+                                    $firstrun = 0;
+                                } else {
+
+                                    echo "</div></div>";
+                                }
+
+                                ?>
+
+
+                                <p class="nat_label"><?php echo $fencer->nation ?></p>
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>NATIONALITY</th>
-                                            <th>ALL FENCERS</th>
-                                            <th>REGISTERED IN</th>
-                                            <th>NOT REGISTERED IN</th>
+                                            <th>NAME</th>
+                                            <th>STATUS</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <?php
 
-                                        $ccode = "";
+                                        <tr>
+                                            <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
+                                            <td>
+                                                <?php if ($fencer->reg == true) : ?>
+                                                    Registered
+                                                <?php else : ?>
+                                                    Not registered
+                                                <?php endif ?>
+                                            </td>
+                                        </tr>
 
-                                        $nations = new stdClass;
-
-                                        foreach ($json_table as $object) {
-
-                                            $actualNation = $object->nation;
-
-                                            $nations->$actualNation->ready = 0;
-                                            $nations->$actualNation->notready = 0;
-                                        }
-
-                                        foreach ($json_table as $object) {
-
-                                            $actualNation = $object->nation;
-
-                                            if ($object->reg == true) {
-                                                $nations->$actualNation->ready += 1;
-                                            } else {
-                                                $nations->$actualNation->notready += 1;
-                                            }
-                                        }
-
-                                        foreach ($nations as $country_code => $country_value) { ?>
-
-
-                                            <tr>
-                                                <td><?php echo $country_code ?></td>
-                                                <td><?php echo ($country_value->ready + $country_value->notready) ?></td>
-                                                <td><?php echo $country_value->ready ?></td>
-                                                <td><?php echo $country_value->notready ?></td>
-                                            </tr>
-
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="overview_wrapper">
-                            <p class="label">FENCERS SORTED BY NATIONS</p>
-
-
-                            <?php
-
-                            function cmp($a, $b)
-                            {
-                                return strcmp($a->nation, $b->nation);
-                            }
-
-                            usort($json_table, "cmp");
-
-                            $toCompare = "";
-
-                            $firstrun = 1;
-
-                            foreach ($json_table as $fencer) {
-
-                                if ($fencer->nation == $toCompare) { ?>
-
-                                    <tr>
-                                        <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
-                                        <td><?php if ($fencer->reg == true) {
-                                                                    echo "Registered";
-                                                                } else {
-                                                                    echo "Not registered";
-                                                                } ?></td>
-                                    </tr>
 
                                 <?php
-                                } else {
+                            }
+                        }
 
-                                    $toCompare = $fencer->nation;
 
                                 ?>
 
-                                    <?php
 
-                                    if ($firstrun == 1) {
+                    </div>
+                    <div class="overview_wrapper">
+                        <p class="label">ALL FENCERS</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>NAME</th>
+                                    <th>NATIONALITY</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                        $firstrun = 0;
-                                    } else {
+                                <?php
 
-                                        echo "</div></div>";
-                                    }
+                                arrayOrderBy($tablearray, 'reg desc,nation asc');
 
-                                    ?>
+                                foreach ($tablearray as $fencer2) { ?>
 
+                                    <tr>
+                                        <td><?php echo $fencer2["nom"] . " " . $fencer2["prenom"] ?></td>
+                                        <td><?php echo $fencer2["nation"] ?></td>
+                                        <td><?php if ($fencer2["reg"] != NULL) {
+                                                echo "Registered";
+                                            } else {
+                                                echo "Not registered";
+                                            } ?></td>
+                                    </tr>
 
-                                    <p class="nat_label"><?php echo $fencer->nation ?></p>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>NAME</th>
-                                                <th>STATUS</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                <?php }
 
-
-                                            <tr>
-                                                <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
-                                                <td><?php if ($fencer->reg == true) {
-                                                                            echo "Registered";
-                                                                        } else {
-                                                                            echo "Not registered";
-                                                                        } ?></td>
-                                            </tr>
-
-
-                                    <?php
-                                }
-                            }
+                                ?>
 
 
-                                    ?>
-
-
-                                        </div>
-                                        <div class="overview_wrapper">
-                                            <p class="label">ALL FENCERS</p>
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th>NAME</th>
-                                                        <th>NATIONALITY</th>
-                                                        <th>STATUS</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <?php
-
-                                                    arrayOrderBy($tablearray, 'reg desc,nation asc');
-
-                                                    foreach ($tablearray as $fencer2) { ?>
-
-                                                        <tr>
-                                                            <td><?php echo $fencer2["nom"] . " " . $fencer2["prenom"] ?></td>
-                                                            <td><?php echo $fencer2["nation"] ?></td>
-                                                            <td><?php if ($fencer2["reg"] != NULL) {
-                                                                            echo "Registered";
-                                                                        } else {
-                                                                            echo "Not registered";
-                                                                        } ?></td>
-                                                        </tr>
-
-                                                    <?php }
-
-                                                    ?>
-
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </main>
+    </div>
+    </div>
+    </div>
+    </main>
     </div>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/controls.js"></script>
     <script src="javascript/print.js"></script>
 </body>
+
 </html>

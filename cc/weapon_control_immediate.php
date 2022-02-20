@@ -35,6 +35,11 @@ if (isset($_POST["barcode"])) {
             $string = $row['data'];
             //make json
             $fencers_json_table = json_decode($string);
+            if (count($fencers_json_table) < 1) {
+                $full_competitors = false;
+            } else {
+                $full_competitors = true;
+            }
         } else {
             echo "Couldn't get competitiors: " . mysqli_error($connection);
         }
@@ -52,31 +57,18 @@ if (isset($_POST["barcode"])) {
                 echo "Could NOT insert fencer: " . $current_fencer_id . " into database e: " . mysqli_error($connection) . "<br>";
             }
         }
-
-        //check for first loading
-        $qry_check = "SELECT `id` FROM weapon_control WHERE assoc_comp_id = '$comp_id' LIMIT 1";
-        $do_check = mysqli_query($connection, $qry_check);
-        if (mysqli_num_rows($do_check) === 0) {
-            for ($i = 0; $i < count($fencer_ids_array); $i++) {
-                $current_fencer_id = $fencer_ids_array[$i];
-                insertNewFencer($connection, $comp_id, $current_fencer_id);
-            }
-        } else {
-            for ($i = 0; $i < count($fencer_ids_array); $i++) {
-                $current_fencer_id = $fencer_ids_array[$i];
-                //see if fencer is allready added in this comp
-                $qry_check_fencer = "SELECT id FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$current_fencer_id'";
-                $do_check_fencer = mysqli_query($connection, $qry_check_fencer);
-                if (($num_rows = mysqli_num_rows($do_check_fencer)) === 0) {
-                    //add non existant fencer
+        if ($full_competitors) {
+            //check for first loading
+            $qry_check = "SELECT `id` FROM weapon_control WHERE assoc_comp_id = '$comp_id' LIMIT 1";
+            $do_check = mysqli_query($connection, $qry_check);
+            if (mysqli_num_rows($do_check) === 0) {
+                for ($i = 0; $i < count($fencer_ids_array); $i++) {
+                    $current_fencer_id = $fencer_ids_array[$i];
                     insertNewFencer($connection, $comp_id, $current_fencer_id);
-                } else if ($num_rows > 1) {
-                    echo "There are more than one: " . $current_fencer_id . " fencers with this id for this competition";
                 }
             }
         }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +94,7 @@ if (isset($_POST["barcode"])) {
             <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
+                    <a class="stripe_button blue" href="/cc/weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg" />
                     </a>
@@ -114,7 +106,11 @@ if (isset($_POST["barcode"])) {
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
-                    <form id="add_weapon_control_form" method="POST" action="">
+                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=570">
+                        <p>Print Weapon Control Reports</p>
+                        <img src="../assets/icons/print_black.svg" />
+                    </a>
+                    <form id="add_weapon_control_form" method="POST" action="/cc/fencers_weapon_control.php?comp_id=570">
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
                             <p>Add weapon control</p>
                             <img src="../assets/icons/add_black.svg" />
@@ -127,12 +123,6 @@ if (isset($_POST["barcode"])) {
                         </button>
                         <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
-                    </form>
-                    <form id="refresh_form" method="POST" action="">
-                        <button name="refresh" class="stripe_button primary" id="refresh_button" type="submit" shortcut="SHIFT+R">
-                            <p>Refresh</p>
-                            <img src="../assets/icons/reset_black.svg" /><!-- FIDESZ KIROSTOF CUCCLIMÓKA G->G -->
-                        </button>
                     </form>
                 </div>
             </div>
@@ -180,7 +170,7 @@ if (isset($_POST["barcode"])) {
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="hidden">
+                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready" />
@@ -205,7 +195,38 @@ if (isset($_POST["barcode"])) {
                     <tbody>
                         <?php
 
-                        {
+                        for ($competitor_counter = 0; $competitor_counter < count($fencers_json_table); $competitor_counter++) {
+                            $current_fencer = $fencers_json_table[$competitor_counter];
+                            $fencer_name = $current_fencer -> prenom . " " . $current_fencer -> nom;
+                            $fencer_nat = $current_fencer -> nation;
+                            $fencer_id = $current_fencer -> id;
+                            //get statut
+                            $qry_get_statut = "SELECT notes FROM weapon_control WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id' LIMIT 1";
+                            $do_get_statut = mysqli_query($connection, $qry_get_statut);
+                            if ($row = mysqli_fetch_assoc($do_get_statut)) {
+                                if ($row['notes'] !== null) {
+                                    $color = "green";
+                                    $status = "Ready";
+                                } else {
+                                    $color = "red";
+                                    $status = "Not Ready";
+                                }
+                            } else { //there are fencers in competition which are not in weapon contorl table
+                                //resfresh
+                                for ($i = 0; $i < count($fencer_ids_array); $i++) {
+                                    $current_fencer_id = $fencer_ids_array[$i];
+                                    //see if fencer is allready added in this comp
+                                    $qry_check_fencer = "SELECT id FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$current_fencer_id'";
+                                    $do_check_fencer = mysqli_query($connection, $qry_check_fencer);
+                                    if (($num_rows = mysqli_num_rows($do_check_fencer)) === 0) {
+                                        //add non existant fencer
+                                        insertNewFencer($connection, $comp_id, $current_fencer_id);
+                                        header("Refresh:0");
+                                    } else if ($num_rows > 1) {
+                                        echo "There are more than one: " . $current_fencer_id . " fencers with this id for this competition";
+                                    }
+                                }
+                            }
                         ?>
                             <!-- while -->
                             <tr onclick="selectRow(this)" id="<?php echo $fencer_id ?>" tabindex="0">
