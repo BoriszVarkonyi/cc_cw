@@ -16,7 +16,7 @@
         $prev_text = $_POST['prev_text'];
         if ($title != "" && $url != "" && $comp_name != "" && $prev_text != "") {
             $date = date("y-m-d");
-            $qry_insert = "INSERT INTO cw_videos (URL, title, comp_name, prev, author, Last_modified_by, Date_of_creation) VALUES ('$url', '$title', '$comp_name', '$prev_text', '$username', '$username', $date)";
+            $qry_insert = "INSERT INTO cw_videos (URL, title, comp_name, prev, author, Last_modified_by, Date_of_creation) VALUES ('$url', '$title', '$comp_name', '$prev_text', '$username', '$username', '$date')";
             $do_insert = mysqli_query($connection, $qry_insert);
             echo mysqli_error($connection);
         }
