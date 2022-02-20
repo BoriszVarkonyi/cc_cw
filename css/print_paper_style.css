@@ -185,6 +185,7 @@
 		grid-template-columns: repeat(5, 1fr) !important;
 		grid-template-rows: repeat(13, 1fr) !important;
 		padding: 10.7mm 10mm !important;
+		zoom: 100% !important;
 	}
 
 }
