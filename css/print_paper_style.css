@@ -137,9 +137,12 @@
 	font-size: 7pt;
 	line-height: 1;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.barcode_print > * {
+.barcode_print p {
 	margin: 0 auto;
 	text-align: center;
 }
@@ -149,7 +152,7 @@
 	width: auto;
 	height: 10mm;
 	border: none !important;
-	margin: 2pt 0;
+	margin: 0 auto 3pt;
 }
 
 div.b128 {

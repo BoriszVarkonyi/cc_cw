@@ -80,9 +80,11 @@ if ($row = mysqli_fetch_assoc($do_get_fencers)) {
                         ?>
 
                         <div class="barcode_print">
-                            <?php echo bar128($fencer->id); ?>
-                            <p><?php echo $fencer->id; ?></p>
-                            <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
+                            <div>
+                                <?php echo bar128($fencer->id); ?>
+                                <p><?php echo $fencer->id; ?></p>
+                                <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
+                            </div>
                         </div>
 
                         <?php
