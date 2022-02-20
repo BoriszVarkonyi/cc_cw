@@ -168,13 +168,23 @@ input[type=checkbox] + label, input[type=radio] + label {
     line-height: 1
 }
 
-input[type=checkbox]+label:before,input[type=radio]+label:before {
+input[type=checkbox] + label::before, input[type=radio] + label::before {
     content: "";
     border: 2px solid var(--c-black);
     min-width: 12px;
     min-height: 12px;
     transition: var(--t-basic);
     margin-right: 5px
+}
+
+input[type=checkbox] + label:active:before, input[type=radio] + label:active:before {
+	transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before {
+	background: var(--c-black);
+	border-color: var(--c-black);
+	color: transparent;
 }
 
 /* Extra controls on the right top corner */
