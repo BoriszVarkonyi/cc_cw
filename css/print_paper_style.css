@@ -144,8 +144,9 @@
 	text-align: center;
 }
 
+/* table style barcode */
 .generated_barcode {
-	width: 30mm;
+	width: auto;
 	height: 10mm;
 	border: none !important;
 	margin-bottom: 2pt;

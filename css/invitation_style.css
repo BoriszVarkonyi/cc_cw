@@ -27,7 +27,6 @@
 }
 
 #comp_status {
-	font-family: var(--light);
 	font-size: var(--f-large);
 	text-transform: uppercase;
 }
