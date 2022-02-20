@@ -6,16 +6,16 @@
 
 <?php
 
-    $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
-    $do_get_fencers = mysqli_query($connection, $qry_get_fencers);
-    if ($row = mysqli_fetch_assoc($do_get_fencers)) {
-        //get string
-        $string = $row['data'];
-        //make json
-        $fencers_json_table = json_decode($string);
-    } else {
-        echo "Couldn't get competitiors: " . mysqli_error($connection);
-    }
+$qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
+$do_get_fencers = mysqli_query($connection, $qry_get_fencers);
+if ($row = mysqli_fetch_assoc($do_get_fencers)) {
+    //get string
+    $string = $row['data'];
+    //make json
+    $fencers_json_table = json_decode($string);
+} else {
+    echo "Couldn't get competitiors: " . mysqli_error($connection);
+}
 
 ?>
 
@@ -63,59 +63,38 @@
             </div>
             <div id="page_content_panel_main" class="loose">
 
-                <div class="paper barcodes">
-                    <div class="barcode_print">
-                        <?php echo bar128("1"); ?>
-                        <p>1</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("22"); ?>
-                        <p>22</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("333"); ?>
-                        <p>333</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("4444"); ?>
-                        <p>4444</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("55555"); ?>
-                        <p>55555</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("666666"); ?>
-                        <p>666666</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("7777777"); ?>
-                        <p>7777777</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("88888888"); ?>
-                        <p>88888888</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("999999999"); ?>
-                        <p>999999999</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
-                    <div class="barcode_print">
-                        <?php echo bar128("0000000000"); ?>
-                        <p>0000000000</p>
-                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
-                    </div>
+                <?php
 
-                </div>
+                $counter = 0;
+                //Counter for page switch
+                //Page changes every at 65 fencers
+
+                foreach ($fencers_json_table as $fencer) {
+
+                    //Paper change
+                    if ($counter % 65 == 0 || $counter == 0) {
+                ?>
+                        <div class="paper barcodes">
+                        <?php
+                    }
+                        ?>
+
+                        <div class="barcode_print">
+                            <?php echo bar128($fencer->id); ?>
+                            <p><?php echo $fencer->id; ?></p>
+                            <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
+                        </div>
+
+                        <?php
+                        $counter++;
+                        //Paper change
+                        if ($counter % 65 == 0) {
+                        ?>
+                        </div>
+                <?php
+                        }
+                    }
+                ?>
             </div>
         </main>
     </div>
@@ -124,4 +103,5 @@
     <script src="javascript/search.js"></script>
     <script src="javascript/print.js"></script>
 </body>
+
 </html>
