@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/cw_homepage_style.min.css">
-    <meta name="description" content="Check and Follow Fencing Competitions around the world with CompetitionView">
+    <meta name="description" content="Check and Follow Fencing Competitions around the world with d'ArtagnanView">
 </head>
 <body class="home">
     <?php include "static/header.php"; ?>

@@ -75,7 +75,9 @@
 	--f-xsmall: 0.694rem;
 	--f-xxsmall: 0.579rem;
 	/* Fonts */
+	/*
 	--light: Poppins-Light;
+	*/
 	--regular: Poppins-Regular;
 	--bold: Poppins-SemiBold;
 	/*Icons*/
@@ -159,20 +161,27 @@
 	--ci-staticwhite: saturation(71%);
 }
 
-
+/*
 @font-face {
 	font-family: Poppins-Light;
+	font-style: normal;
 	src: url(../assets/fonts/Poppins-Light.ttf);
+	font-display: swap;
 }
+*/
 
 @font-face {
 	font-family: Poppins-Regular;
+	font-style: normal;
 	src: url(../assets/fonts/Poppins-Regular.ttf);
+	font-display: swap;
 }
 
 @font-face {
 	font-family: Poppins-SemiBold;
+	font-style: normal;
 	src: url(../assets/fonts/Poppins-SemiBold.ttf);
+	font-display: swap;
 }
 
 body, html {	/* Gives placeholder background and default font */

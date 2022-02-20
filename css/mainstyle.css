@@ -952,26 +952,6 @@ form#barcode_form {
 }
 */
 
-/* Panel Button Used in CC Panels */
-
-/* Used on login page */
-
-.login_button {
-	background: var(--c-primary);
-	color: var(--c-white);
-	font-family: var(--bold);
-	font-size: var(--f-large);
-	border-radius: 5px;
-	padding: 5px 15px;
-	cursor: pointer;
-}
-
-.login_button.disabled {
-	background: var(--c-gray);
-	cursor: pointer;
-	pointer-events: none;
-}
-
 /* CC Panels */
 
 .panel_submit {
@@ -1926,7 +1906,7 @@ body.fencers {
 	align-items: center;
 }
 
-.panel, #login_panel {		/* Sets basic attributes of a panel */
+.panel {		/* Sets basic attributes of a panel */
 	display: flex;
 	flex-flow: column;
 	background: var(--c-lightergray);
