@@ -120,20 +120,20 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                 <p class="info_label"><?php echo $comp_name ?></p>
                                 <div>
                                     <p>
-                                        <?php if($competition_data['sex'] == 2) : ?>
+                                        <?php if ($competition_data['sex'] == 2) : ?>
                                             Male
                                         <?php else : ?>
                                             Female
                                         <?php endif ?>
                                     </p>
                                     <p>
-                                        <?php if($competition_data['weapon'] == 1) : ?>
+                                        <?php if ($competition_data['weapon'] == 1) : ?>
                                             Epee
                                         <?php endif ?>
-                                        <?php if($competition_data['weapon'] == 2) : ?>
+                                        <?php if ($competition_data['weapon'] == 2) : ?>
                                             Foil
                                         <?php endif ?>
-                                        <?php if($competition_data['weapon'] == 3) : ?>
+                                        <?php if ($competition_data['weapon'] == 3) : ?>
                                             Sabre
                                         <?php endif ?>
                                     </p>
@@ -240,7 +240,6 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                         foreach ($json_table as $fencer) {
 
                             if ($fencer->nation == $toCompare) { ?>
-
                                 <tr>
                                     <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
                                     <td>
@@ -254,24 +253,15 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
 
                             <?php
                             } else {
-
                                 $toCompare = $fencer->nation;
-
                             ?>
 
                                 <?php
-
-                                if ($firstrun == 1) {
-
+                                if ($firstrun == 1)
                                     $firstrun = 0;
-                                } else {
-
+                                else
                                     echo "</div></div>";
-                                }
-
                                 ?>
-
-
                                 <p class="nat_label"><?php echo $fencer->nation ?></p>
                                 <table>
                                     <thead>
@@ -281,8 +271,6 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                         </tr>
                                     </thead>
                                     <tbody>
-
-
                                         <tr>
                                             <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
                                             <td>
@@ -315,28 +303,25 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
 
                                 arrayOrderBy($tablearray, 'reg desc,nation asc');
 
-                                foreach ($tablearray as $fencer2) { ?>
+                                foreach ($tablearray as $fencer2) : ?>
 
                                     <tr>
                                         <td><?php echo $fencer2["nom"] . " " . $fencer2["prenom"] ?></td>
                                         <td><?php echo $fencer2["nation"] ?></td>
-                                        <td><?php if ($fencer2["reg"] != NULL) {
-                                                echo "Registered";
-                                            } else {
-                                                echo "Not registered";
-                                            } ?></td>
+                                        <td>
+                                            <?php if ($fencer2["reg"] != NULL) : ?>
+                                                Registered
+                                            <?php else : ?>
+                                                Not registered
+                                            <?php endif ?>
+                                        </td>
                                     </tr>
 
-                                <?php }
-
-                                ?>
-
-
+                                <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>
