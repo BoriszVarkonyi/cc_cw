@@ -29,10 +29,10 @@
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="slides">
-                <img src="../article_pics/kovi1.jpg" alt="slide_1" class="slide">
-                <img src="../article_pics/borisz1.jpg" alt="slide_2" class="slide hidden">
-                <img src="../article_pics/atylla1.jpg" alt="slide_3" class="slide hidden">
-                <img src="../article_pics/kris1.jpg" alt="slide_4" class="slide hidden">
+                <img src="article_pics/kovi1.jpg" alt="slide_1" class="slide">
+                <img src="article_pics/borisz1.jpg" alt="slide_2" class="slide hidden">
+                <img src="article_pics/atylla1.jpg" alt="slide_3" class="slide hidden">
+                <img src="article_pics/kris1.jpg" alt="slide_4" class="slide hidden">
             </div>
             <div id="shadow"></div>
             <div id="slide_indicator">

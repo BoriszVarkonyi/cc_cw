@@ -15,7 +15,7 @@ class Article {
         $this->author = $row['author'];
         $this->date = $row['date'];
         $this->lastEdit = $row['last_edit'];
-        $this->pic =  "../article_pics/" . $row['id'] . ".png";
+        $this->pic =  "article_pics/" . $row['id'] . ".png";
     }
 }
 ?>

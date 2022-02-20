@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
 
     if ($title != "" && $body != "") {
 
-        $target_dir = "../article_pics/";
+        $target_dir = "article_pics/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
                     $id = $row['id'];
                 }
 
-                if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
+                if (rename("article_pics/" . $_FILES["fileToUpload"]["name"], "article_pics/" . $id . ".png")) {
                     echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
 
                 } else {
