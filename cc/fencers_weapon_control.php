@@ -154,6 +154,10 @@
                         <p>Go back to Weapon Control</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
+                    <button name="delete_wc" class="stripe_button red" type="submit" form="fencers_weapon_control_wrapper">
+                        <p>Delete Weapon Control</p>
+                        <img src="../assets/icons/save_black.svg"/>
+                    </button>
                     <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
                         <p>Save Weapon Control</p>
                         <img src="../assets/icons/save_black.svg"/>

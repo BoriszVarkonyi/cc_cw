@@ -50,10 +50,46 @@
 
                 <div class="paper barcodes">
                     <div class="barcode_print">
-                        <?php echo bar128("156555555"); ?>
-                        <p>156555555</p>
+                        <?php echo bar128("1"); ?>
+                        <p>1</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("22"); ?>
+                        <p>22</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("333"); ?>
+                        <p>333</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("4444"); ?>
+                        <p>4444</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("55555"); ?>
+                        <p>55555</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("666666"); ?>
+                        <p>666666</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("7777777"); ?>
+                        <p>7777777</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <div class="barcode_print">
+                        <?php echo bar128("88888888"); ?>
+                        <p>88888888</p>
+                        <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
+                    </div>
+                    <!--
                     <div class="barcode_print">
                         <?php echo bar128("156555555"); ?>
                         <p>156555555</p>
@@ -79,65 +115,8 @@
                         <p>156555555</p>
                         <p>Nagyon de nagyon geci hosszú név xdxdxdxd</p>
                     </div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
-                    <div class="barcode_print"></div>
+                     -->
+
                 </div>
             </div>
         </main>
