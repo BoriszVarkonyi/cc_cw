@@ -2,6 +2,7 @@
 <?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
+<?php include 'barcode/barcode.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +51,7 @@
                 <div id="pool_print_wrapper" class="paper_wrapper">
 
                     <div class="paper barcodes">
-                        <div class="barcode_print"></div>
+                        <div class="barcode_print"><?php echo bar128("112233442222", "Wolfram Kristof Juan Dolores Pedro"); ?></div>
                         <div class="barcode_print"></div>
                         <div class="barcode_print"></div>
                         <div class="barcode_print"></div>
