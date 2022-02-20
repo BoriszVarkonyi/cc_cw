@@ -57,7 +57,7 @@
         "other items",
     );
 
-    $fencer_id = $_POST['fencer_id'];
+    $fencer_id = $_GET['fencer_id'];
     //get fencer data
     $qry_get_comptetitors = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
     $do_get_competitors = mysqli_query($connection, $qry_get_comptetitors);
@@ -98,16 +98,16 @@
 
     if (isset($_POST['submit_wc'])) {
 
-        $notes = $_POST['notes'];
+        $notes = $_POST['wc_notes'];
 
         //compile issues array and test for empty post
         $real_issues_array = [];
         $empty = true;
         for ($i = 0; $i < count($array_issues); $i++) {
             if ($_POST['issue_n_' . $i] == "") {
-                $real_issues_array[] = 0;
+                $real_issues_array[$i] = 0;
             } else {
-                $real_issues_array[] = $_POST['issue_n_' . $i];
+                $real_issues_array[$i] = $_POST['issue_n_' . $i];
                 $empty = false;
             }
         }
@@ -117,16 +117,17 @@
         }
 
         if (!$empty) {
-            $real_issues_array = json_encode($real_issues_array);
+            $temps = json_encode($real_issues_array);
 
-            $qry_update = "UPDATE weapon_control SET notes = '$notes', issues_array = '$real_issues_array' WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+            $qry_update = "UPDATE weapon_control SET notes = '$notes', issues_array = '$temps' WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
             if (!mysqli_query($connection, $qry_update)) {
                 echo "See you again! " . mysqli_error($connection);
+            } else {
+                echo "St vitus dance";
             }
 
-
         }
-        header("Location: ../cc/$wc_page.php?comp_id=$comp_id");
+        //header("Location: ../cc/$wc_page.php?comp_id=$comp_id");
     }
 
 ?>
