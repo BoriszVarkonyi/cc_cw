@@ -5,7 +5,7 @@
         $type = 0;
     }
     if(isset($_GET['q'])) {
-        $q = filter_input(INPUT_GET, 'q');
+        $q = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     if(isset($_GET['year'])) {
         $yearInput = filter_input(INPUT_GET, 'year');
