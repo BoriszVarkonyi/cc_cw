@@ -47,21 +47,21 @@
     if (isset($_POST['submit_wc'])) {
         $fencer_id = $_POST['fencer_id'];
 
-        header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 
     //edit weapon_control
     if (isset($_POST['edit_wc'])) {
         $fencer_id = $_POST['fencer_id'];
 
-        header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 
     //check out fencer button
     if (isset($_POST['submit_check_out'])) {
         $fencer_id = $_POST['fencer_id'];
 
-        header("Location: ../cc/check_out_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: check_out_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 ?>
 
