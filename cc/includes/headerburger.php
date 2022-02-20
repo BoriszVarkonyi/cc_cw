@@ -54,10 +54,9 @@ if (isset($_POST["logout"])) {
 
 <header>
     <div id="app_name">
-        <p>Competition Control</p>
-        <p>Alpha</p>
+        <p>d'Artagnan</p>
+        <!-- <p>Alpha Development</p> -->
     </div>
-
 
     <?php
     if (isset($_GET['comp_id'])) {

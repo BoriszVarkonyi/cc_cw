@@ -14,6 +14,7 @@ table, thead, tbody, tr, th, td {
 	color: var(--c-black);
 	border-collapse: collapse !important;
 	border: 1pt solid black !important;
+	background-color: transparent !important;
 }
 
 table {		/* Whole table */

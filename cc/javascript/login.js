@@ -2,9 +2,10 @@ function toggleOtherApps(x) {
     var otherApps = x.parentNode;
     otherApps.classList.toggle("opened");
 }
+
 var form = document.querySelector(".overlay_panel_form")
 var inputs = document.querySelectorAll(".username_input, .password_input");
-var loginButton = document.querySelector(".login_button");
+var loginButton = document.getElementById("login_button");
 var opitons = form.querySelectorAll(".option_container > input");
 var valid1 = false, valid2 = false;
 loginButton.disabled = false;
@@ -36,6 +37,7 @@ function loginFormValidation() {
         loginButton.disabled = true;
     }
 }
+
 form.addEventListener("input", loginFormValidation)
 function errorChecker(x) {
     if (x.value == "") {
@@ -46,11 +48,13 @@ function errorChecker(x) {
     }
 }
 
+/*
 function chooseCC(x) {
     currentClassRemover();
     var selectedApp = x;
     selectedApp.classList.add("current")
 }
+*/
 
 
 document.documentElement.setAttribute('data-content-theme', 'vanilla');

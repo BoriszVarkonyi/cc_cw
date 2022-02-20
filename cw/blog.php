@@ -3,7 +3,7 @@
 
 <?php
     if(isset($_GET['q'])) {
-        $q = filter_input(INPUT_GET, 'q');
+        $q = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
     }
 ?>
 

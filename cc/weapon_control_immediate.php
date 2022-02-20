@@ -69,9 +69,12 @@ if (isset($_POST["barcode"])) {
             }
         }
     }
-?>
 
-<!DOCTYPE html>
+    if (isset($_POST['add_wc'])) {
+        $fencer_id = $_POST['fencer_id'];
+        header("Location: /cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
+?>
 <html lang="en">
 
 <head>
@@ -106,7 +109,11 @@ if (isset($_POST["barcode"])) {
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
-                    <form id="add_weapon_control_form" method="POST" action="/cc/fencers_weapon_control.php?comp_id=52">
+                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=570">
+                        <p>Print Weapon Control Reports</p>
+                        <img src="../assets/icons/print_black.svg" />
+                    </a>
+                    <form id="add_weapon_control_form" method="POST" action="">
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
                             <p>Add weapon control</p>
                             <img src="../assets/icons/add_black.svg" />

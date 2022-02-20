@@ -162,6 +162,10 @@
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
                         </a>
+                        <a type="button" class="stripe_button" id="" shortcut="SHIFT+P" href="print_barcodes.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
+                            <p>Print Barcodes</p>
+                            <img src="../assets/icons/barcode_black.svg"/>
+                        </a>
                         <button type="button" class="stripe_button" onclick="window.print()" id="printRegistrationBt" shortcut="SHIFT+P">
                             <p>Print Registration</p>
                             <img src="../assets/icons/print_black.svg"/>

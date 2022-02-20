@@ -45,7 +45,7 @@
                         <p><?php echo $author ?></p>
                     </td>
                     <td>
-                        <img width="100" height="100" src="../article_pics/<?php echo $id . '.png' ?>"><img>
+                        <img width="100" height="100" src="article_pics/<?php echo $id . '.png' ?>"><img>
                     </td>
                 </tr>
             <?php

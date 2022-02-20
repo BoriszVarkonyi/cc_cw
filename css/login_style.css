@@ -1,3 +1,18 @@
+@charset "UTF-8";
+
+body, html {
+    overflow: hidden;
+}
+
+body {
+	background-image: var(--i-fencers-bg);
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /* Login Screen */
 
 /* Extra small devices (phones, 532px and down) */
@@ -56,7 +71,7 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-	body.fencers {
+	body {
 		justify-content: flex-start;
 		align-items: flex-start;
 	}
@@ -71,25 +86,108 @@
 	}
 }
 
-#login_panel {		/* Login panel used on login page */
-	position: relative;
-	z-index: 1;
+/* IDENTICAL TO MAINSTYLE, COPY CHANGES FROM THERE */
+#login_panel {
+    display: flex;
+    flex-flow: column;
+    background: var(--c-lightergray);
+    box-shadow: var(--s-black);
+    position: fixed;
+    border-radius: 5px;
+    overflow: hidden
 }
 
-#login_panel #panel_main {		/* The main part of the panel it is under the title_stripe*/
-	padding: 0 50px;
+#title_stripe {
+    position: relative;
+    z-index: 1;
+    background: var(--c-lightestgray);
+    padding: 2rem 2.3rem;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--s-black)
 }
 
-#copyright_text {		/* Name and version text used on login page*/
-	font-size: var(--f-small);
-	font-family: var(--bold);
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	margin: 0;
-	z-index: 2;
+.page_title {
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
+    font-family: var(--bold);
+    max-width: 50vw;
+    text-overflow: ellipsis;
+    font-size: var(--f-xlarge)
 }
 
+#panel_main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0
+}
+
+.overlay_panel_form {
+	display: flex;
+	margin: 50px;
+	flex-direction: column;
+	width: 300px;
+	align-items: flex-start;
+}
+
+.overlay_panel_form > *:last-child {
+	margin-bottom: 0;
+}
+
+.option_container {
+    display: flex;
+    flex-direction: column;
+    margin: 3px 0 30px
+}
+
+input[type=checkbox],input[type=radio] {
+    display: none
+}
+
+input[type=radio]+label:before {
+    border-radius: 50%
+}
+
+input[type=checkbox] + label, input[type=radio] + label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--c-black);
+    font-family: var(--regular);
+    text-transform: none;
+    padding: 3px 0;
+    margin-bottom: 8px;
+    line-height: 1
+}
+
+input[type=checkbox] + label::before, input[type=radio] + label::before {
+    content: "";
+    border: 2px solid var(--c-black);
+    min-width: 12px;
+    min-height: 12px;
+    transition: var(--t-basic);
+    margin-right: 5px
+}
+
+input[type=checkbox] + label:active:before, input[type=radio] + label:active:before {
+	transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before {
+	background: var(--c-black);
+	border-color: var(--c-black);
+	color: transparent;
+}
+
+/* Extra controls on the right top corner */
 #login_links_wrapper {
 	position: absolute;
 	display: flex;
@@ -105,6 +203,24 @@
 
 /* Needs to be button or it will get messed up */
 
+#login_button {
+	background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-lightprimary) 100%);
+	color: var(--c-white);
+	font-family: var(--bold);
+	font-size: var(--f-large);
+	border-radius: 5px;
+	padding: 5px 15px;
+	cursor: pointer;
+}
+
+#login_button:disabled {
+	background: var(--c-gray);
+	cursor: pointer;
+	pointer-events: none;
+}
+
+
+/*
 .login_link_button {
 	color: var(--c-white);
 	text-transform: uppercase;
@@ -146,7 +262,6 @@
 .login_link_dropdown p {
 	font-size: var(--f-small);
 	text-transform: uppercase;
-	font-family: var(--light);
 	margin: 10px 0 5px 5px;
 }
 
@@ -158,9 +273,10 @@
 .login_link_dropdown a:hover {
 	font-family: var(--bold);
 }
+*/
 
-/* Change between apps */
-
+/* Change between apps, might be redundant */
+/*
 #apps {
 	position: absolute;
 	right: 0;
@@ -222,4 +338,18 @@
 	overflow: hidden;
 	padding: 5px 10px !important;
 	transition: max-width ease-in .2s .2s, padding ease-in .2s .2s;
+}
+*/
+
+/* Text for copyright claims, appname and version number */
+/* Name and version text used on login page*/
+#copyright_text {
+	font-size: var(--f-small);
+	font-family: var(--bold);
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	margin: 0;
+	z-index: 2;
+	line-height: 1;
 }

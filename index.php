@@ -89,8 +89,8 @@ if (isset($_POST["submit"])) {
     <title>CC Login</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="images/ico"/>
     <link rel="stylesheet" href="css/basestyle.min.css">
-    <link rel="stylesheet" href="css/mainstyle.min.css">
     <link rel="stylesheet" href="css/login_style.min.css">
+    <meta name="description" content="Login page d'Artagnan. Create and Control Fencing Competitions with ease using d'Artagnan">
 </head>
 <body class="fencers">
     <div id="login_panel">
@@ -117,13 +117,15 @@ if (isset($_POST["submit"])) {
                     <input type="radio" name="role" id="d" value="4"/>
                     <label for="d">I am a doctor</label>
                 </div>
-                <input type="submit" name="submit" value="Login" class="login_button">
+                <input type="submit" name="submit" value="Login" id="login_button">
             </form>
         </div>
     </div>
+
+    <!--
     <div id="login_links_wrapper">
         <div class="login_link_wrapper">
-            <button class="login_link_button" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">News and updates</button>
+            <button class="login_link_button">News and updates</button>
         </div>
         <div class="login_link_wrapper">
             <button class="login_link_button" onclick="toggleOtherApps(this)">Other Applications</button>
@@ -136,7 +138,6 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 
-    <!--
     <div id="apps">
         <div class="app_wrapper current" onclick="chooseApp(this)">
             <p>Competition Control</p>
@@ -148,8 +149,7 @@ if (isset($_POST["submit"])) {
     </div>
      -->
 
-
-    <p id="copyright_text">Competition Control &copy; Pre-Alpha</p>
-    <script src="/js/login.js"></script>
+    <p id="copyright_text">d'Artagnan &copy; Pre-Alpha</p>
+    <script src="../CC/javascript/login.js"></script>
 </body>
 </html>
