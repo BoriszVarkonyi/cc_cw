@@ -279,7 +279,7 @@ if (suti_list.includes("lastlogin=" + 2)) {
 var invalidChars = ["-", "+", "e", "E", ".", ","];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => {
-    item.addEventListener("keydown", function (e) {
+    item.addEventListener("input", function (e) {
         if (invalidChars.includes(e.key)) {
             e.preventDefault();
         }
@@ -368,9 +368,4 @@ function inputValueLimiter(x, maxValue, minValue) {
 function toggleBarCodeInput(x) {
     var button = x.previousElementSibling;
     button.classList.toggle("active");
-}
-
-function toggleBarCodeButton(x) {
-    var input = x.nextElementSibling;
-    input.focus();
 }

@@ -30,6 +30,25 @@
                     $json_table = [];
                 }
 
+                //barcode check in
+                if(isset($_POST['barcode'])) {
+                    $fencer_id = $_POST['barcode'];
+                    $id_to_change = findObject($json_table, $fencer_id, "id");
+
+                    if($id_to_change === false) {
+                        header('refresh: 0');
+                        die();
+                    }
+
+                    $json_table[$id_to_change] -> reg = 1;
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                    $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+                    if (!$do_update = mysqli_query($connection, $qry_update)) {
+                        echo mysqli_error($connection);
+                    }
+                    header('refresh: 0');
+                }
+
                 if(isset($_POST["reg_in"])){
                     $fencer_id = $_POST['fencer_ids'];
                     $id_to_change = findObject($json_table, $fencer_id, "id");
@@ -191,7 +210,7 @@
                         </form>
 
                         <form id="barcode_form" method="POST" action="" shortcut="SHIFT+B">
-                            <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                            <button type="button" class="barcode_button">
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>
                             <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">

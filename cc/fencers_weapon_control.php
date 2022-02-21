@@ -36,6 +36,7 @@
 
         } else {
             echo "Volare!!";
+            header("Location: $wc_page.php?comp_id=$comp_id");
         }
     }
 
@@ -188,5 +189,6 @@
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/list_search_2.js"></script>
+    <script src="javascript/fencers_weapon_control.js"></script>
 </body>
 </html>

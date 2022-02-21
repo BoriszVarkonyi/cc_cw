@@ -114,7 +114,6 @@
 	position: relative;
 }
 
-
 .paper_wrapper {
 	zoom: 50%;
 	transition: all var(--t-basic);
@@ -137,9 +136,14 @@
 	font-size: 7pt;
 	line-height: 1;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1pt solid black;
+	box-sizing: border-box;
 }
 
-.barcode_print > * {
+.barcode_print p {
 	margin: 0 auto;
 	text-align: center;
 }
@@ -149,7 +153,7 @@
 	width: auto;
 	height: 10mm;
 	border: none !important;
-	margin-bottom: 2pt;
+	margin: 0 auto 3pt;
 }
 
 div.b128 {
