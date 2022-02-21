@@ -31,6 +31,7 @@ if ($row = mysqli_fetch_assoc($do_get_fencers)) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_paper_style.min.css">
+    <link rel="stylesheet" href="../css/print_barcode_style.min.css">
 </head>
 
 <body>
