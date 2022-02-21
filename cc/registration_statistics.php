@@ -121,76 +121,19 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Fencers</p>
-                                    <p class="stat_number">159</p>
+                                    <p class="stat_number"><?php echo $number_of_all_fencers ?></p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
-                                    <p class="stat_number">56</p>
+                                    <p class="stat_number"><?php echo $number_of_ready_fencers ?></p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
                                     <p class="stat_title">Not registered in</p>
-                                    <p class="stat_number">38</p>
+                                    <p class="stat_number"><?php echo $number_of_all_fencers - $number_of_ready_fencers ?></p>
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="db_panel">
-                        <div class="db_panel_header">
-                            <img src="../assets/icons/pie_chart_black.svg" />
-                            <p>Data by Nation</p>
-                        </div>
-                        <div class="db_panel_main small">
-                            <table class="no_interaction">
-                                <thead>
-                                    <tr>
-                                        <th>NATIONALITY</th>
-                                        <th>ALL FENCERS</th>
-                                        <th>REGISTERED IN</th>
-                                        <th>NOT REGISTERED IN</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="alt">
-
-                                    <?php
-
-                                    $ccode = "";
-
-                                    $nations = new stdClass;
-
-                                    foreach ($json_table as $object) {
-
-                                        $actualNation = $object->nation;
-
-                                        $nations->$actualNation->number_of_ready_fencers = 0;
-                                        $nations->$actualNation->not_ready = 0;
-                                    }
-
-                                    foreach ($json_table as $object) {
-
-                                        $actualNation = $object->nation;
-
-                                        if ($object->reg == true) {
-                                            $nations->$actualNation->number_of_ready_fencers += 1;
-                                        } else {
-                                            $nations->$actualNation->not_ready += 1;
-                                        }
-                                    }
-
-                                    foreach ($nations as $country_code => $country_value) : ?>
-
-
-                                        <tr>
-                                            <td><?php echo $country_code ?></td>
-                                            <td><?php echo ($country_value->number_of_ready_fencers + $country_value->not_ready) ?></td>
-                                            <td><?php echo $country_value->number_of_ready_fencers ?></td>
-                                            <td><?php echo $country_value->not_ready ?></td>
-                                        </tr>
-
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                     <div class="db_panel">
@@ -275,7 +218,7 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                         <div class="print_stat">
                             <img src="../assets/icons/person_black.svg">
                             <p class="bold">Fencers</p>
-                            <p><?php echo ($number_of_all_fencers) ?></p>
+                            <p><?php echo $number_of_all_fencers ?></p>
                         </div>
                         <div class="print_stat">
                             <img src="../assets/icons/how_to_reg_black.svg">
