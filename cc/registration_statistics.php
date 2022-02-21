@@ -121,17 +121,17 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Fencers</p>
-                                    <p class="stat_number"><?php echo $number_of_all_fencers ?></p>
+                                    <p class="stat_number">159</p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
-                                    <p class="stat_number"><?php echo $number_of_ready_fencers ?></p>
+                                    <p class="stat_number">56</p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
                                     <p class="stat_title">Not registered in</p>
-                                    <p class="stat_number"><?php echo $number_of_all_fencers - $number_of_ready_fencers ?></p>
+                                    <p class="stat_number">38</p>
                                 </a>
                             </div>
                         </div>
@@ -139,9 +139,58 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                     <div class="db_panel">
                         <div class="db_panel_header">
                             <img src="../assets/icons/pie_chart_black.svg" />
-                            <p>Fencers sorted by Nation</p>
+                            <p>Data by Nation</p>
                         </div>
                         <div class="db_panel_main small">
+                            <table class="no_interaction">
+                                <thead>
+                                    <tr>
+                                        <th>NATIONALITY</th>
+                                        <th>ALL FENCERS</th>
+                                        <th>REGISTERED IN</th>
+                                        <th>NOT REGISTERED IN</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
+
+                                    <?php
+
+                                    $ccode = "";
+
+                                    $nations = new stdClass;
+
+                                    foreach ($json_table as $object) {
+
+                                        $actualNation = $object->nation;
+
+                                        $nations->$actualNation->number_of_ready_fencers = 0;
+                                        $nations->$actualNation->not_ready = 0;
+                                    }
+
+                                    foreach ($json_table as $object) {
+
+                                        $actualNation = $object->nation;
+
+                                        if ($object->reg == true) {
+                                            $nations->$actualNation->number_of_ready_fencers += 1;
+                                        } else {
+                                            $nations->$actualNation->not_ready += 1;
+                                        }
+                                    }
+
+                                    foreach ($nations as $country_code => $country_value) : ?>
+
+
+                                        <tr>
+                                            <td><?php echo $country_code ?></td>
+                                            <td><?php echo ($country_value->number_of_ready_fencers + $country_value->not_ready) ?></td>
+                                            <td><?php echo $country_value->number_of_ready_fencers ?></td>
+                                            <td><?php echo $country_value->not_ready ?></td>
+                                        </tr>
+
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="db_panel">
@@ -218,7 +267,7 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                         <div class="print_stat">
                             <img src="../assets/icons/person_black.svg">
                             <p class="bold">Fencers</p>
-                            <p><?php echo $number_of_all_fencers ?></p>
+                            <p><?php echo ($number_of_all_fencers) ?></p>
                         </div>
                         <div class="print_stat">
                             <img src="../assets/icons/how_to_reg_black.svg">
@@ -282,67 +331,6 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                    </div>
-                    <div>
-                        <p class="print_title">Fencers sorted by Nation</p>
-                        <?php
-                        function cmp($a, $b)
-                        {
-                            return strcmp($a->nation, $b->nation);
-                        }
-
-                        usort($json_table, "cmp");
-
-                        $toCompare = "";
-
-                        $firstrun = 1;
-
-                        foreach ($json_table as $fencer) {
-
-                            if ($fencer->nation == $toCompare) { ?>
-                                <tr>
-                                    <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
-                                    <td>
-                                        <?php if ($fencer->reg == true) : ?>
-                                            Registered
-                                        <?php else : ?>
-                                            Not registered
-                                        <?php endif ?>
-                                    </td>
-                                </tr>
-                            <?php
-                            } else {
-                                $toCompare = $fencer->nation;
-                            ?>
-                                <?php
-                                if ($firstrun == 1)
-                                    $firstrun = 0;
-                                else
-                                    echo "";
-                                ?>
-                                <p class="print_title"><?php echo $fencer->nation ?></p>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>NAME</th>
-                                            <th>STATUS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
-                                            <td>
-                                                <?php if ($fencer->reg == true) : ?>
-                                                    Registered
-                                                <?php else : ?>
-                                                    Not registered
-                                                <?php endif ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                                }
-                                ?>
                     </div>
                     <div>
                         <p class="print_title">All fencers</p>
