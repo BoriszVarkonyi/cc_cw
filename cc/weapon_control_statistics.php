@@ -81,6 +81,57 @@
         }
     }
     arsort($assoc_sorted_issues_array, 1);
+
+
+    //make sorted club nat
+    //print_r($sorted_teams_array);
+
+    $teams_sum_issues = [];
+    $teams_indi_issues = [];
+    $issue_num_teams = [];
+    $fencer_in_team = [];
+    foreach ($sorted_teams_array as $nation => $fencer_ids_array) {
+        $teams_sum_issues[$nation] = [];
+        $teams_indi_issues[$nation] = [];
+        $issue_num_teams[$nation] = 0;
+        $fencer_in_team[$nation] = 0;
+
+        foreach ($fencer_ids_array as $fencer_id) {
+            $fencer_in_team[$nation]++;
+            $fencers_sum_issues = 0;
+            $qry_select_fencer = "SELECT issues_array FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+            $do_select_fencer = mysqli_query($connection, $qry_select_fencer);
+            if ($row = mysqli_fetch_assoc($do_select_fencer)) {
+                $issues_string = $row['issues_array'];
+                $real_issues_array = json_decode($issues_string);
+                //loop through issues
+                if ($real_issues_array != null) {
+                    for ($i = 0; $i < count($real_issues_array); $i++) {
+                        $current_issues_value = $real_issues_array[$i];
+                        $current_issues_name = $array_issues[$i];
+                        $fencers_sum_issues += $current_issues_value;
+                        $issue_num_teams[$nation] += $current_issues_value;
+                        if (isset($teams_sum_issues[$nation][$current_issues_name])) {
+                            //get for all fencers
+                            $teams_sum_issues[$nation][$current_issues_name] += $current_issues_value;
+                        } else {
+                            $teams_sum_issues[$nation][$current_issues_name] = $current_issues_value;
+                        }
+                    }
+                    //get fencers name
+                    if (($id_to_find = findObject($competit_table, $fencer_id, "id")) !== false) {
+                        $fencer_name = $competit_table[$id_to_find] -> prenom . " " . $competit_table[$id_to_find] -> nom;
+                    } else {
+                        echo "could not find fencer by id";
+                    }
+                    $teams_indi_issues[$nation][$fencer_name]["id"] = $fencer_id;
+                    $teams_indi_issues[$nation][$fencer_name]["issues"] = $fencers_sum_issues;
+                    arsort($teams_indi_issues[$nation]);
+                    arsort($teams_sum_issues[$nation], 1);
+                }
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,9 +174,9 @@
                         </div>
                         <div class="db_panel_main small">
                             <?php
-                                if ($wc_type == 1) {
+                                if ($wc_type == 1) { //immidiate
                             ?>
-                                    Immidiate
+
                                     <div class="stats_wrapper">
                                         <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
                                             <img src="../assets/icons/weapon_control_black.svg">
@@ -149,9 +200,9 @@
                                         </a>
                                     </div>
                             <?php
-                                } else if ($wc_type == 2) {
+                                } else if ($wc_type == 2) { //administrated
                             ?>
-                                    Administrated
+
                                     <div class="stats_wrapper">
                                         <a class="stat" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
                                             <img src="../assets/icons/check_circle_outline_black.svg">
@@ -190,25 +241,20 @@
                             ?>
                         </div>
                     </div>
+                    <?php var_dump($teams_indi_issues); ?>
                     <div class="db_panel">
                         <div class="db_panel_header">
                             <img src="../assets/icons/pie_chart_black.svg" />
                             <p>Data by Nation and Club</p>
                         </div>
-
-
-
                         <div class="db_panel_main small entry_wrapper">
+                        <?php foreach($teams_sum_issues as $nation => $issues_array) {  if (count($issues_array) > 0) {?>
                             <div class="entry">
                                 <div class="tr">
-                                    <?php if ($sort_by == "nation") { ?>
-                                    <div class="td bold"><p>{NATION}</p></div>
-                                    <?php } else { ?>
-                                    <div class="td bold"><p>{club}</p></div>
-                                    <?php } ?>
-                                    <div class="td"><p>{NUMBER OF FENCERS} Fencers</p></div>
-                                    <div class="td"><p>{NUMBER OF ISSUES} Issues</p></div>
-                                    <div class="td"><p>{Most common issue} (Count)</p></div>
+                                    <div class="td bold"><p><?php echo $nation ?></p></div>
+                                    <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
+                                    <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
+                                    <div class="td"><p><?php echo reset($teams_sum_issues[$nation]); echo " " . key($teams_sum_issues[$nation]) ?></p></div>
                                 </div>
                                 <div class="entry_panel split">
                                     <table class="small">
@@ -219,14 +265,19 @@
                                             </tr>
                                         </thead>
                                         <tbody class="alt">
+
+                                            <?php $empty = true; foreach ($teams_sum_issues[$nation] as $key => $value) { if ($value != 0) { $empty = false; ?>
                                             <tr>
-                                                <td><p>Isuename issuename</p></td>
-                                                <td><p>Isuename issuename</p></td>
+                                                <td><p><?php echo $key ?></p></td>
+                                                <td><p><?php echo $value ?></p></td>
                                             </tr>
+                                            <?php }} if ($empty) {  ?>
                                             <tr>
-                                                <td><p>Isuename issuename</p></td>
-                                                <td><p>Isuename issuename</p></td>
+                                                <td colspan="2">
+                                                <p>No known issues!</p>
+                                                </td>
                                             </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                     <table class="small">
@@ -237,21 +288,24 @@
                                             </tr>
                                         </thead>
                                         <tbody class="alt">
+
+                                        <?php foreach ($teams_indi_issues[$nation] as $name => $value_array){ ?>
+
                                             <tr>
-                                                <td><p>LONG NAMED dimitry</p></td>
-                                                <td><p>Isuename issuename</p></td>
+                                                <td><p><?php echo $name ?></p></td>
+                                                <td><p><?php echo $value_array["issues"] ?></p></td>
                                             </tr>
-                                            <tr>
-                                                <td><p>LONG NAMED dimitry</p></td>
-                                                <td><p>Isuename issuename</p></td>
-                                            </tr>
+                                            <?php } ?>
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
 
 
-
+                                        <?php }} ?>
 
                         </div>
                     </div>
