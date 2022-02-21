@@ -220,7 +220,7 @@ function setToVanilla() {
     setColor(vanillaColorButton, "vanilla");
 }
 
-function setColor(colorVar, colorToSet){
+function setColor(colorVar, colorToSet) {
     classRemover();
     colorVar.classList.add("selected")
     document.documentElement.setAttribute('data-content-theme', colorToSet);
@@ -276,15 +276,12 @@ if (suti_list.includes("lastlogin=" + 2)) {
 
 
 //Prevents typing invalid chars. to the number input
-var invalidChars = ["-", "+", "e", "E", ".", ","];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => {
     item.addEventListener("input", function (e) {
-        if (invalidChars.includes(e.key)) {
-            e.preventDefault();
-        }
-    }
-    );
+        item.value = item.value.match("[0-9]*$")
+    })
+
 })
 
 var stripeButtons = document.querySelectorAll(".stripe_button")
@@ -298,7 +295,7 @@ document.addEventListener("keydown", function (e) {
             for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.add("hover")
             }
-            if(barCodeForm != undefined){
+            if (barCodeForm != undefined) {
                 barCodeForm.classList.add("hover")
             }
             canAddHoverClass = false;
@@ -313,7 +310,7 @@ document.addEventListener("keyup", function (e) {
             for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.remove("hover")
             }
-            if(barCodeForm != undefined){
+            if (barCodeForm != undefined) {
                 barCodeForm.classList.remove("hover")
             }
             canAddHoverClass = true;
