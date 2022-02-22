@@ -5,6 +5,22 @@
 
 <?php
 
+//set group by
+$qry_get_formula = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+$do_get_formula = mysqli_query($connection, $qry_get_formula);
+if ($row = mysqli_fetch_assoc($do_get_formula)) {
+    $formula_string = $row['data'];
+    $formula_table = json_decode($formula_string);
+
+    $sort_by_num = $formula_table -> groupBy;
+
+    //_-------------------------------------
+    $groupBy = sortByConverter($sort_by_num);
+
+} else {
+    echo "error:    " . mysqli_error($connection);
+}
+
 error_reporting(E_ERROR | E_PARSE);
 
 //get competitors
@@ -121,17 +137,17 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                 <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/person_black.svg">
                                     <p class="stat_title">Fencers</p>
-                                    <p class="stat_number">159</p>
+                                    <p class="stat_number"><?php echo $number_of_all_fencers ?></p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_reg_black.svg">
                                     <p class="stat_title">Registered in</p>
-                                    <p class="stat_number">56</p>
+                                    <p class="stat_number"><?php echo $number_of_ready_fencers ?></p>
                                 </a>
                                 <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
                                     <img src="../assets/icons/how_to_unreg_black.svg">
                                     <p class="stat_title">Not registered in</p>
-                                    <p class="stat_number">38</p>
+                                    <p class="stat_number"><?php echo $number_of_all_fencers - $number_of_ready_fencers ?></p>
                                 </a>
                             </div>
                         </div>
