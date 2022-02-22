@@ -47,7 +47,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-    <?php include "includes/headerburger.php"; ?>
+    <?php include "includes/header.php"; ?>
     <!-- header -->
     <div id="content_wrapper">
         <?php include "includes/navbar.php"; ?>

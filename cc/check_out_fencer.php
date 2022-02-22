@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php
 

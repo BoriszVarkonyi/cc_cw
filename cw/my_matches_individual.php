@@ -9,7 +9,7 @@
 
     $matches = array();
     $ids = array();
-    
+
     $comp_id = $_SESSION["comp_id"];
     $qry_get_matches = "SELECT fencers, matches FROM pools WHERE assoc_comp_id = $comp_id";
     $do_get_matches = mysqli_query($connection, $qry_get_matches);
@@ -60,7 +60,7 @@
     } else {
         $fencer_num = "Not set";
     }
-    
+
 ?>
 
 
@@ -72,7 +72,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Finished competitions</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
 <body class="finished_competitions">
     <?php include "static/header.php"; ?>
@@ -139,7 +139,7 @@
                                             $ref1 = "";
                                             $ref2 = "";
                                             $time = "";
-                                            
+
                                             if(isset($fencers_data)) {
                                                 foreach($fencers_data as $row) {
                                                     if($row == null) continue;

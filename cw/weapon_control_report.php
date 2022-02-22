@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "includes/db.php";
 
     $comp_id = filter_input(INPUT_GET, "comp_id");
@@ -38,7 +38,7 @@ include "includes/db.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Finished competitions</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
 <body class="finished_competitions">
     <?php include "static/header.php"; ?>

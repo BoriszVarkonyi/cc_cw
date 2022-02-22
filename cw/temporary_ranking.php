@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $comp_name ?>'s temporary ranking</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
 <body class="competitions">
     <?php include "static/header.php"; ?>

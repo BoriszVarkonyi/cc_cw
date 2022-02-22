@@ -48,7 +48,7 @@ if ($comp_type == "individual") {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body class="fencers">
-<?php include "includes/headerburger.php";?>
+<?php include "includes/header.php";?>
 <!-- header -->
     <div class="panel">
         <div id="title_stripe">

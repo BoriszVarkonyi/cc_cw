@@ -101,14 +101,14 @@ if (isset($_POST["new_weapon_control"])) {
             </div>
         </div>
     </div>
-    <?php include "includes/headerburger.php"; ?>
+    <?php include "includes/header.php"; ?>
     <!-- header -->
     <div class="panel">
         <div id="title_stripe">
             <p class="page_title">Tournament's Timetable</p>
             <div class="stripe_button_wrapper">
-                <button class="stripe_button" onclick="location.href='choose_tournament.php'">
-                    <p>Cancel</p>
+                <button type="button" class="stripe_button" onclick="history.back()">
+                    <p>Go back</p>
                     <img src="../assets/icons/close_black.svg"/>
                 </button>
                 <button type="submit" name="save" form="tournament_timetable" class="stripe_button primary">
@@ -241,7 +241,7 @@ if (isset($_POST["new_weapon_control"])) {
                     </div>
                 </div>
             </form>
-            <div class="table_wrapper" id="wc_phases_table">
+            <div class="wrapper" id="wc_phases_table">
                 <label for="">WEAPON CONTROL PHASES</label>
                 <table class="full" id="wc_phrases_table">
                     <thead>
