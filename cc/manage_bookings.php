@@ -21,10 +21,10 @@
         <div id="title_stripe">
             <p class="page_title">Manage Weapon Control Bookings</p>
             <form class="stripe_button_wrapper">
-                <button class="stripe_button" onclick="location.href='choose_tournament.php'">
+                <a class="stripe_button" href="choose_tournament.php">
                     <p>Cancel</p>
                     <img src="../assets/icons/close_black.svg"/>
-                </button>
+                </a>
                 <button class="stripe_button red" onclick="" name="" id="" type="submit" shortcut="SHIFT+D">
                     <p>Disapprove</p>
                     <img src="../assets/icons/how_to_unreg_black.svg"/>
@@ -41,7 +41,7 @@
             </form>
         </div>
         <div id="panel_main">
-            <table>
+            <table class="wrapper">
                 <thead>
                     <tr>
                         <th>
