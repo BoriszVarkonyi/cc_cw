@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php include "includes/wc_issues_array.php"; ?>
 <?php ob_start(); ?>
@@ -270,7 +270,7 @@
                                     <?php } ?>
                                 </div>
                                 <div class="entry_panel split">
-                                    <table class="small">
+                                    <table class="small no_interaction">
                                         <thead class="no_background">
                                             <tr>
                                                 <th><p>ISSUE</p></th>
@@ -293,7 +293,7 @@
                                             <?php } ?>
                                         </tbody>
                                     </table>
-                                    <table class="small">
+                                    <table class="small no_interaction">
                                         <thead class="no_background">
                                             <tr>
                                                 <th><p>FENCER NAME</p></th>
@@ -328,7 +328,7 @@
                             <p>Most to least common equipment issue</p>
                         </div>
                         <div class="db_panel_main small">
-                            <table>
+                            <table class="no_interaction">
                                 <thead>
                                     <tr>
                                         <th>
@@ -364,7 +364,7 @@
                             <p>All additional notes on weapon controls</p>
                         </div>
                         <div class="db_panel_main small">
-                            <table>
+                            <table class="no_interaction">
                                 <thead>
                                     <tr>
                                         <th>
@@ -397,7 +397,6 @@
                 </div>
                 <div class="print_only">
                     <div>
-
 
                         <p class="print_title">General Weapon Control Statistics</p>
                         <?php
@@ -464,7 +463,6 @@
 
                     </div>
 
-
                     <div>
                         <p class="print_title">Data by <?php echo strtoupper($sort_by) ?></p>
                         <?php foreach($teams_sum_issues as $nation => $issues_array) {  if (count($issues_array) > 0) {?>
@@ -486,20 +484,19 @@
                                         </tr>
                                     </thead>
                                     <tbody class="alt">
-
-                                            <?php $empty = true; foreach ($teams_sum_issues[$nation] as $key => $value) { if ($value != 0) { $empty = false; ?>
-                                            <tr>
-                                                <td><p><?php echo $key ?></p></td>
-                                                <td><p><?php echo $value ?></p></td>
-                                            </tr>
-                                            <?php }} if ($empty) {  ?>
-                                            <tr>
-                                                <td colspan="2">
-                                                <p>No known issues!</p>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
+                                        <?php $empty = true; foreach ($teams_sum_issues[$nation] as $key => $value) { if ($value != 0) { $empty = false; ?>
+                                        <tr>
+                                            <td><p><?php echo $key ?></p></td>
+                                            <td><p><?php echo $value ?></p></td>
+                                        </tr>
+                                        <?php }} if ($empty) {  ?>
+                                        <tr>
+                                            <td colspan="2">
+                                            <p>No known issues!</p>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
                                 </table>
                                 <table class="small">
                                     <thead class="no_background">

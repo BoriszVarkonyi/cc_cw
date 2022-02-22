@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php
     $fencer_id = $_GET['fencer_id'];

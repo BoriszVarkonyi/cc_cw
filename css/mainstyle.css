@@ -69,7 +69,7 @@ header {
 	align-items: center;
 	position: fixed;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
 }
 
 #header_left {
@@ -1053,7 +1053,7 @@ form#barcode_form {
 	color: var(--c-gray);
 }
 
-/* Back Button used in CC Dasboard And CW Competition's page and subpages */
+/* Back Button used in CC Dasboard And d'V Competition's page and subpages */
 
 .back_button {
 	justify-self: start;
@@ -1151,7 +1151,6 @@ nav.closed {
 		position: relative;
 	}
 }
-
 
 nav::-webkit-scrollbar { /* Width */
 	width: 7px;
@@ -1661,7 +1660,6 @@ nav.closed #documentation_label img {
 		display: block;
 	}
 }
-
 
 /* Page content elements */
 
@@ -2739,8 +2737,6 @@ textarea.standalone {
 	align-self: center;
 	text-transform: none;
 }
-
-
 
 .save_entry {
 	padding: 3px 10px;
@@ -3847,7 +3843,6 @@ div.title_box > button {
 }
 
 /* Team ordr report */
-
 
 #team_order_report_panel {
 	background: var(--c-white);

@@ -121,34 +121,6 @@ if (isset($_POST["submit"])) {
             </form>
         </div>
     </div>
-
-    <!--
-    <div id="login_links_wrapper">
-        <div class="login_link_wrapper">
-            <button class="login_link_button">News and updates</button>
-        </div>
-        <div class="login_link_wrapper">
-            <button class="login_link_button" onclick="toggleOtherApps(this)">Other Applications</button>
-            <div class="login_link_dropdown">
-                <p>For Organisers</p>
-                <a href="">CC Wheelchair</a>
-                <p>For Federations</p>
-                <a href="../cw/index.php">Competition View</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="apps">
-        <div class="app_wrapper current" onclick="chooseApp(this)">
-            <p>Competition Control</p>
-        </div>
-        <div class="app_wrapper" onclick="chooseApp(this)">
-            <p>Competition Control Wheelchair</p>
-            <button>OPEN</button>
-        </div>
-    </div>
-     -->
-
     <p id="copyright_text">d'Artagnan &copy; Pre-Alpha</p>
     <script src="../CC/javascript/login.js"></script>
 </body>

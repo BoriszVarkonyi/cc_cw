@@ -141,7 +141,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
+    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
     <title>Edit '<?php echo $title; ?>'</title>
 </head>
 <body>

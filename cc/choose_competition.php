@@ -62,7 +62,7 @@ if ($lastlogin == 1) {
 </head>
 
 <body class="fencers">
-    <?php include "includes/headerburger.php" ?>
+    <?php include "includes/header.php" ?>
     <div class="panel">
         <div id="title_stripe">
             <p class="page_title">

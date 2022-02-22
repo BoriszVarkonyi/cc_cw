@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $comp_name ?>'s table</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
     <link rel="stylesheet" href="../css/table_style.min.css">
 </head>
 <body class="competitions">

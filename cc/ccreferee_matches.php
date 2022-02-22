@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <!DOCTYPE html>
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>

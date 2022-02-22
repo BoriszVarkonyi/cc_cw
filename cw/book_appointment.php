@@ -32,7 +32,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book Weapon Control Appointemnts</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
 
 <body class="competitions">
@@ -45,26 +45,15 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
             <div class="modal_main">
                 <p class="modal_main_title big primary margin_bottom">Competition you selected:</p>
                 <p class="modal_paragraph">compname</p>
-                <p class="modal_paragraph">compname</p>
+                <p class="modal_paragraph">comp date</p>
+                <p class="modal_paragraph">w type</p>
+                <p class="modal_paragraph">w type</p>
                 <p class="modal_main_title big primary margin_bottom">Information you given:</p>
                 <p class="modal_main_title">FEDERATION'S NAME</p>
                 <p class="modal_paragraph">FED NAME</p>
-                <p class="modal_main_title">COUNTRY / FENCING CLUB</p>
-                <p class="modal_paragraph">GER</P>
                 <p class="modal_main_title">FEDERATION'S OFFICAL EMAIL ADDRESS</p>
                 <p class="modal_paragraph">g</p>
-                <p class="modal_main_title">FEDERATION'S PHONE NUMBER</p>
-                <p class="modal_paragraph">grg</p>
-                <p class="modal_main_title">CONTACT KEEPER'S FULL NAME</p>
-                <p class="modal_paragraph">grg</p>
-                <p class="modal_main_title">CONTACT KEEPER'S EMAIL ADDRESS</p>
-                <p class="modal_paragraph">grg</p>
-                <p class="modal_main_title">CONTACT KEEPER'S PHONE NUMBER</p>
-                <p class="modal_paragraph">grg</p>
-                <p class="modal_main_title big primary margin_bottom">Fencers you selected:</p>
-                <p class="modal_paragraph">grg</p>
-                <p class="modal_paragraph">grg</p>
-                <p class="modal_paragraph">grg</p>
+                <p class="modal_main_title">NUMBER OF FENCERS</p>
                 <p class="modal_paragraph">grg</p>
             </div>
             <div class="modal_footer">
@@ -96,7 +85,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                 <div>
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="f_nat" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="inputs" placeholder="Search Country by Name" class="search input alt">
+                                        <input type="text" name="f_nat" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt">
                                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php include "../cc/includes/nations.php"; ?>
@@ -133,7 +122,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
                                         <?php
 
-
+                                        $counter = 0;
 
                                         foreach ($dates as $hourkeys => $hours) {
 
@@ -157,11 +146,10 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                             $selectedTime = $hourkeys;
                                             $endTime = strtotime("+1 hours", strtotime($selectedTime));
 
-
                                         ?>
                                             <div class="appointment_wrapper" minsleft="<?php echo $minsleft ?>">
-                                                <input type="radio" name="appointments" id="appointment1" value=""/>
-                                                <label for="appointment1">
+                                                <input type="radio" name="appointments" id="appointment<?php echo $counter ?>" value=""/>
+                                                <label for="appointment<?php echo $counter ?>">
                                                     <div class="appointment" onclick="selectAppointment(this)">
                                                         <p><?php echo date('H:i', $availtime); ?> - lasts approximately &nbsp</p>
                                                         <p class="minute"></p>
@@ -193,6 +181,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     <script src="javascript/main.js"></script>
     <script src="javascript/list.js"></script>
     <script src="javascript/book_appointment.js"></script>
-    <script src="javascript/search.js"></script>
+    <script src="../cc/javascript/search.js"></script>
+    <script src="../cc/javascript/modal.js"></script>
 </body>
 </html>

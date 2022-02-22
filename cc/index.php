@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php"; ?>
 <?php
 
@@ -121,7 +121,7 @@
         }
         $weapon_control_all++;
     }
-    
+
 
     function moveAheadCompetition($conn, $comp_id, $comp_status) {
         $temp = $comp_status + 1;
@@ -494,7 +494,7 @@
                                 $technicians_query = "SELECT COUNT(1) AS num_technicians FROM technicians WHERE assoc_comp_id = '$comp_id';";
                                 $technicians_result = mysqli_query($connection, $technicians_query);
                                 $num_technicians = mysqli_fetch_assoc($technicians_result)["num_technicians"];
-                                
+
                                 $technicians_online_query = "SELECT COUNT(1) AS num_tech_online FROM technicians WHERE assoc_comp_id = '$comp_id' AND online = TRUE";
                                 $technicians_online_result = mysqli_query($connection, $technicians_online_query);
                                 $num_tech_online = mysqli_fetch_assoc($technicians_online_result)["num_tech_online"];
