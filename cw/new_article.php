@@ -4,8 +4,8 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $body = $_POST['body'];
+    $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+    $body = htmlspecialchars($_POST['body'], ENT_QUOTES);
     $time = date("Y/m/d");
 
     if ($title != "" && $body != "") {
