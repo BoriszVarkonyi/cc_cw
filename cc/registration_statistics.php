@@ -82,7 +82,7 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
-    <link rel="stylesheet" href="../css/print_paper_style.min.css">
+    <link rel="stylesheet" href="../css/print_paper_style.min.css" media="print">
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 
@@ -110,66 +110,39 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                 </div>
             </div>
             <div id="page_content_panel_main">
-                <div class="paper_wrapper hidden">
-                    <div class="paper">
-                        <div class="title_container">
-                            <div>
-                                <p class="title">REGISTRATION REPORT</p>
-                            </div>
-                            <div class="comp_info small">
-                                <p class="info_label"><?php echo $comp_name ?></p>
-                                <div>
-                                    <p>
-                                        <?php if ($competition_data['sex'] == 2) : ?>
-                                            Male
-                                        <?php else : ?>
-                                            Female
-                                        <?php endif ?>
-                                    </p>
-                                    <p>
-                                        <?php if ($competition_data['weapon'] == 1) : ?>
-                                            Epee
-                                        <?php endif ?>
-                                        <?php if ($competition_data['weapon'] == 2) : ?>
-                                            Foil
-                                        <?php endif ?>
-                                        <?php if ($competition_data['weapon'] == 3) : ?>
-                                            Sabre
-                                        <?php endif ?>
-                                    </p>
-                                </div>
-                                <p><?php echo $competition_data['start_time'] ?></p>
+                <div class="wrapper screen_only">
+                    <div class="db_panel">
+                        <div class="db_panel_header">
+                            <img src="../assets/icons/pie_chart_black.svg" />
+                            <p>General Registation Statistics</p>
+                        </div>
+                        <div class="db_panel_main small">
+                            <div class="stats_wrapper">
+                                <a class="stat" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/person_black.svg">
+                                    <p class="stat_title">Fencers</p>
+                                    <p class="stat_number">159</p>
+                                </a>
+                                <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/how_to_reg_black.svg">
+                                    <p class="stat_title">Registered in</p>
+                                    <p class="stat_number">56</p>
+                                </a>
+                                <a class="stat" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id ?>">
+                                    <img src="../assets/icons/how_to_unreg_black.svg">
+                                    <p class="stat_title">Not registered in</p>
+                                    <p class="stat_number">38</p>
+                                </a>
                             </div>
                         </div>
-                        <div class="paper_content">
-                            <div class="overview_wrapper">
-                                <p class="label">OVERVIEW</p>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>SECTION NAME</th>
-                                            <th>QUANTITY</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>All Fencers</td>
-                                            <td><?php echo ($number_of_all_fencers) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fencers Registered in</td>
-                                            <td><?php echo $number_of_ready_fencers ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fencers not Registered in</td>
-                                            <td><?php echo $number_of_all_fencers - $number_of_ready_fencers ?></td>
-                                        </tr>
-                                    </tbody>
-                            </div>
+                    </div>
+                    <div class="db_panel">
+                        <div class="db_panel_header">
+                            <img src="../assets/icons/pie_chart_black.svg" />
+                            <p>Data by Nation</p>
                         </div>
-                        <div class="overview_wrapper">
-                            <p class="label">REGISTERED AND NOT REGISTERED FENCERS BY NATIONS</p>
-                            <table>
+                        <div class="db_panel_main small">
+                            <table class="no_interaction">
                                 <thead>
                                     <tr>
                                         <th>NATIONALITY</th>
@@ -178,7 +151,7 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                         <th>NOT REGISTERED IN</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="alt">
 
                                     <?php
 
@@ -220,61 +193,32 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                             </table>
                         </div>
                     </div>
-                    <div class="overview_wrapper">
-                        <p class="label">FENCERS SORTED BY NATIONS</p>
+                    <div class="db_panel">
+                        <div class="db_panel_header">
+                            <img src="../assets/icons/pie_chart_black.svg" />
+                            <p>All fencers</p>
+                        </div>
+                        <div class="db_panel_main small">
+                            <table class="no_interaction">
+                                <thead>
+                                    <tr>
+                                        <th>NAME</th>
+                                        <th>NATIONALITY</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
+                                    <?php
 
+                                    arrayOrderBy($tablearray, 'reg desc,nation asc');
 
-                        <?php
+                                    foreach ($tablearray as $fencer2) : ?>
 
-                        function cmp($a, $b)
-                        {
-                            return strcmp($a->nation, $b->nation);
-                        }
-
-                        usort($json_table, "cmp");
-
-                        $toCompare = "";
-
-                        $firstrun = 1;
-
-                        foreach ($json_table as $fencer) {
-
-                            if ($fencer->nation == $toCompare) { ?>
-                                <tr>
-                                    <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
-                                    <td>
-                                        <?php if ($fencer->reg == true) : ?>
-                                            Registered
-                                        <?php else : ?>
-                                            Not registered
-                                        <?php endif ?>
-                                    </td>
-                                </tr>
-
-                            <?php
-                            } else {
-                                $toCompare = $fencer->nation;
-                            ?>
-
-                                <?php
-                                if ($firstrun == 1)
-                                    $firstrun = 0;
-                                else
-                                    echo "</div></div>";
-                                ?>
-                                <p class="nat_label"><?php echo $fencer->nation ?></p>
-                                <table>
-                                    <thead>
                                         <tr>
-                                            <th>NAME</th>
-                                            <th>STATUS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $fencer->prenom . " " . $fencer->nom ?></td>
+                                            <td><?php echo $fencer2["nom"] . " " . $fencer2["prenom"] ?></td>
+                                            <td><?php echo $fencer2["nation"] ?></td>
                                             <td>
-                                                <?php if ($fencer->reg == true) : ?>
+                                                <?php if ($fencer2["reg"] != NULL) : ?>
                                                     Registered
                                                 <?php else : ?>
                                                     Not registered
@@ -282,18 +226,114 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                                             </td>
                                         </tr>
 
+                                    <?php endforeach ?>
+                                </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="print_only">
+                    <div class="title_container">
+                        <div>
+                            <p class="title">REGISTRATION REPORT</p>
+                        </div>
+                        <div class="comp_info small">
+                            <p class="info_label"><?php echo $comp_name ?></p>
+                            <div>
+                                <p>
+                                    <?php if ($competition_data['sex'] == 2) : ?>
+                                        Male
+                                    <?php else : ?>
+                                        Female
+                                    <?php endif ?>
+                                </p>
+                                <p>
+                                    <?php if ($competition_data['weapon'] == 1) : ?>
+                                        Epee
+                                    <?php endif ?>
+                                    <?php if ($competition_data['weapon'] == 2) : ?>
+                                        Foil
+                                    <?php endif ?>
+                                    <?php if ($competition_data['weapon'] == 3) : ?>
+                                        Sabre
+                                    <?php endif ?>
+                                </p>
+                            </div>
+                            <p><?php echo $competition_data['start_time'] ?></p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="print_title">General Registartion Statistics</p>
+                        <div class="print_stat">
+                            <img src="../assets/icons/person_black.svg">
+                            <p class="bold">Fencers</p>
+                            <p><?php echo ($number_of_all_fencers) ?></p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/how_to_reg_black.svg">
+                            <p class="bold">Registered in</p>
+                            <p><?php echo $number_of_ready_fencers ?></p>
+                        </div>
+                        <div class="print_stat">
+                            <img src="../assets/icons/how_to_unreg_black.svg">
+                            <p class="bold">Not registered in</p>
+                            <p><?php echo $number_of_all_fencers - $number_of_ready_fencers ?></p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="print_title">Data by Nation</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>NATIONALITY</th>
+                                    <th>ALL FENCERS</th>
+                                    <th>REGISTERED IN</th>
+                                    <th>NOT REGISTERED IN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
                                 <?php
-                            }
-                        }
+
+                                $ccode = "";
+
+                                $nations = new stdClass;
+
+                                foreach ($json_table as $object) {
+
+                                    $actualNation = $object->nation;
+
+                                    $nations->$actualNation->number_of_ready_fencers = 0;
+                                    $nations->$actualNation->not_ready = 0;
+                                }
+
+                                foreach ($json_table as $object) {
+
+                                    $actualNation = $object->nation;
+
+                                    if ($object->reg == true) {
+                                        $nations->$actualNation->number_of_ready_fencers += 1;
+                                    } else {
+                                        $nations->$actualNation->not_ready += 1;
+                                    }
+                                }
+
+                                foreach ($nations as $country_code => $country_value) : ?>
 
 
-                                ?>
+                                    <tr>
+                                        <td><?php echo $country_code ?></td>
+                                        <td><?php echo ($country_value->number_of_ready_fencers + $country_value->not_ready) ?></td>
+                                        <td><?php echo $country_value->number_of_ready_fencers ?></td>
+                                        <td><?php echo $country_value->not_ready ?></td>
+                                    </tr>
 
-
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="overview_wrapper">
-                        <p class="label">ALL FENCERS</p>
+                    <div>
+                        <p class="print_title">All fencers</p>
                         <table>
                             <thead>
                                 <tr>
@@ -327,7 +367,7 @@ $competition_data = mysqli_fetch_assoc($do_competition_query);
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
     </div>
     </div>
     </main>
