@@ -47,6 +47,8 @@
             $call_room = NULL;
         }
 
+        $groupBy = $_POST['display_type'];//1 is nation, 2 is club
+
         $formula_table = new stdClass();
 
         $formula_table -> poolPoints = $pool_points;
@@ -56,6 +58,7 @@
         $formula_table -> isOnePhase = $is_one_phase;
         $formula_table -> fencingThird = $fencing_for_third;
         $formula_table -> callRoom = $call_room;
+        $formula_table -> groupBy = $groupBy;
 
         $json_table = json_encode($formula_table);
 
@@ -145,9 +148,9 @@
                             <div>
                                 <label for="elimnation_type">USE FENCERS'</label>
                                 <div class="option_container">
-                                    <input type="radio" name="display_type" id="display_nation" value="0" <?php echo $is_checked = ($json_table -> isDirectElim == 1) ? "checked" : "" ?> />
+                                    <input type="radio" name="display_type" id="display_nation" value="1" <?php echo $is_checked = ($json_table -> groupBy == 1) ? "checked" : "" ?> />
                                     <label for="display_nation">Nation</label>
-                                    <input type="radio" name="display_type" id="display_club" value="1" <?php echo $is_checked = ($json_table -> isDirectElim == 0) ? "checked" : "" ?> />
+                                    <input type="radio" name="display_type" id="display_club" value="2" <?php echo $is_checked = ($json_table -> groupBy == 2) ? "checked" : "" ?> />
                                     <label for="display_club">Club</label>
                                 </div>
                             </div>

@@ -4,8 +4,20 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
+    //set group by
+    $qry_get_formula = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+    $do_get_formula = mysqli_query($connection, $qry_get_formula);
+    if ($row = mysqli_fetch_assoc($do_get_formula)) {
+        $formula_string = $row['data'];
+        $formula_table = json_decode($formula_string);
 
-    $sort_by = "club";
+        $sort_by_num = $formula_table -> groupBy;
+        $sort_by = sortByConverter($sort_by_num);
+
+    } else {
+        echo "error:    " . mysqli_error($connection);
+    }
+
 
     //check for wc type
     $qry_check = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
@@ -244,7 +256,7 @@
                     <div class="db_panel">
                         <div class="db_panel_header">
                             <img src="../assets/icons/pie_chart_black.svg" />
-                            <p>Data by Nation and Club</p>
+                            <p>Data by <?php echo strtoupper($sort_by) ?></p>
                         </div>
                         <div class="db_panel_main small entry_wrapper">
                         <?php foreach($teams_sum_issues as $nation => $issues_array) {  if (count($issues_array) > 0) {?>
@@ -452,7 +464,7 @@
 
 
                     <div>
-                        <p class="print_title">Data by Nation and Club</p>
+                        <p class="print_title">Data by <?php echo strtoupper($sort_by) ?></p>
                         <?php foreach($teams_sum_issues as $nation => $issues_array) {  if (count($issues_array) > 0) {?>
                         <div class="entry">
                             <div class="tr">

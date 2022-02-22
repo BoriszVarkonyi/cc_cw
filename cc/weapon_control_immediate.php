@@ -145,6 +145,21 @@ if (isset($_POST["barcode"])) {
                 </div>
             </div>
             <div id="page_content_panel_main">
+                <?php
+                //set group by
+                $qry_get_formula = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+                $do_get_formula = mysqli_query($connection, $qry_get_formula);
+                if ($row = mysqli_fetch_assoc($do_get_formula)) {
+                    $formula_string = $row['data'];
+                    $formula_table = json_decode($formula_string);
+
+                    $sort_by_num = $formula_table -> groupBy;
+                    $nation = sortByConverter($sort_by_num);
+
+                } else {
+                    echo "error:    " . mysqli_error($connection);
+                }
+                ?>
                 <table class="wrapper">
                     <thead>
                         <tr>
@@ -176,7 +191,7 @@ if (isset($_POST["barcode"])) {
                                     <button type="button" onclick="sortButton(this)">
                                         <img src="../assets/icons/switch_full_black.svg">
                                     </button>
-                                    <p>NATION / CLUB</p>
+                                    <p><?php echo strtoupper($nation) ?></p>
                                     <button type="button" onclick="searchButton(this)">
                                         <img src="../assets/icons/search_black.svg">
                                     </button>
@@ -212,7 +227,7 @@ if (isset($_POST["barcode"])) {
                     </thead>
                     <tbody>
                         <?php
-                            $nation = "nation";
+
                         for ($competitor_counter = 0; $competitor_counter < count($fencers_json_table); $competitor_counter++) {
                             $current_fencer = $fencers_json_table[$competitor_counter];
                             $fencer_name = $current_fencer -> prenom . " " . $current_fencer -> nom;
