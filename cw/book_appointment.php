@@ -189,7 +189,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
             </form>
         </div>
     </main>
-    <?php include "cw_footer.php"; ?>
+    <?php include "static/footer.php"; ?>
     <script src="javascript/main.js"></script>
     <script src="javascript/list.js"></script>
     <script src="javascript/book_appointment.js"></script>
