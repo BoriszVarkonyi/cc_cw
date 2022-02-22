@@ -16,11 +16,12 @@ if ($row = mysqli_fetch_assoc($get_tourn_id_do)) {
 $get_appointment_data = "SELECT * FROM tournaments WHERE id = $t_id";
 $get_appointment_data_do = mysqli_query($connection, $get_appointment_data);
 
+/*
 if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
     $appointments = javascripton_decode($row["appointments"]);
 }
-
+*/
 ?>
 
 <!DOCTYPE html>
