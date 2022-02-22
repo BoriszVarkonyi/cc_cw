@@ -6,8 +6,7 @@
 <?php
 
     //create table
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '{ }' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_create_table = mysqli_query($connection, $qry_create_table);
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NOT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NOT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 
     //get json from wc table
     $test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
@@ -48,21 +47,21 @@
     if (isset($_POST['submit_wc'])) {
         $fencer_id = $_POST['fencer_id'];
 
-        header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 
     //edit weapon_control
     if (isset($_POST['edit_wc'])) {
         $fencer_id = $_POST['fencer_id'];
 
-        header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 
     //check out fencer button
     if (isset($_POST['submit_check_out'])) {
         $fencer_id = $_POST['fencer_id'];
 
-        header("Location: ../cc/check_out_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
+        header("Location: check_out_fencer.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
 ?>
 
@@ -124,7 +123,7 @@
                         <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
                             <img src="../assets/icons/barcode_black.svg">
                         </button>
-                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
                     </form>
                 </div>
@@ -176,7 +175,7 @@
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" class="hidden">
+                                    <input type="text" onkeyup="searchInLists()" class="search hidden">
                                 </div>
                                 <div class="option_container">
                                     <input type="radio" name="wc_status" id="listsearch_ci_ready" value="Ready"/>
@@ -202,7 +201,7 @@
                                     <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
                                 <div class="search_wrapper">
-                                    <input type="text" onkeyup="searchInLists()" class="hidden">
+                                    <input type="text" onkeyup="searchInLists()" class="search hidden">
                                 </div>
                                 <div class="option_container">
                                     <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready"/>

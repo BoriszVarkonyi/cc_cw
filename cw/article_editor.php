@@ -1,4 +1,4 @@
-<?php include "db.php" ?>
+<?php include "includes/db.php" ?>
 <?php include "includes/functions.php" ?>
 <?php include "includes/username_checker.php" ?>
 <?php
@@ -10,11 +10,11 @@
     $do_get_article = mysqli_query($connection, $qry_get_article);
 
     if ($row = mysqli_fetch_assoc($do_get_article)) {
-        $title = $row['title'];
-        $body = $row['body'];
-        $author = $row['author'];
+        $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+        $body = htmlspecialchars($_POST['body'], ENT_QUOTES);
+        $author = htmlspecialchars($_POST['author'], ENT_QUOTES);
         $date = $row['date'];
-        $picture_path = "../article_pics/" . $id . ".png";
+        $picture_path = "article_pics/" . $id . ".png";
 
     }
 
@@ -39,7 +39,7 @@
 
             if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != null) {
 
-                $target_dir = "../article_pics/";
+                $target_dir = "article_pics/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -103,7 +103,7 @@
 
 
 
-                        if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
+                        if (rename("article_pics/" . $_FILES["fileToUpload"]["name"], "article_pics/" . $id . ".png")) {
 
                             echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
 

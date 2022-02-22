@@ -27,6 +27,17 @@ return $statusout;
 
 }
 
+//group by converter (group fencers by their club or their nation on ranking, pools, wc_statiscics, ...)
+function sortByConverter($sortBy) {
+    switch ($sortBy) {
+        case 1:
+            return "nation";
+        case 2:
+            return "club";
+        default:
+            return null;
+    }
+}
 
 //role converter (converts role from DB to string role)
 function roleConverter($rolein) {
@@ -105,12 +116,6 @@ function checkComp($connectionin){
         header("Location: ../index.php");
 
     }
-    else{
-
-    echo "MINDEN JÓ";
-
-    }
-
 }
 
 function setOnline($connectionin) {

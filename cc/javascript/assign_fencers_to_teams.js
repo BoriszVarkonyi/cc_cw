@@ -8,6 +8,7 @@ var inputInJSON = JSON.parse(teamAssigmentsInput.value)
 var unassignedTableNode = document.querySelector("#unselected_team_table tbody")
 var assignedTableNode = document.querySelector("#selected_team_table tbody")
 
+
 //Clears the selected table
 function clearAssignedFencersTable() {
     var assignedTableRows = document.querySelectorAll("#selected_team_table tbody tr")
@@ -20,21 +21,25 @@ var selectedTeamName = undefined;
 
 function selectTeam(x) {
     var teamName = x.querySelector("p").innerHTML
-    var squares = document.querySelectorAll(".square")
+    var squares = document.querySelectorAll(".square input")
     clearAssignedFencersTable();
     if (teamName == selectedTeamName) {
         x.classList.remove("selected")
         selectedTeamName = undefined
         //Hides the check boxes
         for (i = 0; i < squares.length; i++) {
-            squares[i].classList.add("hidden")
+            squares[i].disabled = true;
         }
+        assignedTableNode.parentElement.classList.add("hidden")
+        assignedTableNode.parentElement.previousElementSibling.classList.add("hidden")
     }
     else {
         //Shows the check boxes
         for (i = 0; i < squares.length; i++) {
-            squares[i].classList.remove("hidden")
+            squares[i].disabled = false;
         }
+        assignedTableNode.parentElement.classList.remove("hidden")
+        assignedTableNode.parentElement.previousElementSibling.classList.remove("hidden")
         selectedTeamName = teamName
         //Removes the selected class
         var selections = document.querySelectorAll(".splitscreen_select")

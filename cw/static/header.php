@@ -7,14 +7,7 @@
             <a href="index.php">Home</a>
         </div>
         <div>
-            <button onclick="toggleCompetitionsPanel(this)" type="button">Competitions</button>
-            <div id="competitions_navigation">
-                <div>
-                    <a href="upcoming_competitions.php">Upcoming</a>
-                    <a href="ongoing_competitions.php">Ongoing</a>
-                    <a href="finished_competitions.php">Finished</a>
-                </div>
-            </div>
+            <a href="search.php">Search</a>
         </div>
         <div>
             <a href="blog.php">Blog</a>
@@ -57,9 +50,7 @@
         <nav id="mobile">
             <div>
                 <a href="index.php">Home</a>
-                <a href="upcoming_competitions.php">Upcoming Competitions</a>
-                <a href="ongoing_competitions.php">Ongoing Competitions</a>
-                <a href="finished_competitions.php">Finished Competitions</a>
+                <a href="search.php">Search</a>
                 <a href="blog.php">Blog</a>
                 <a href="videos.php">Videos</a>
                 <a href="rankings.php">Rankings</a>

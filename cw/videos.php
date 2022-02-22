@@ -1,10 +1,10 @@
-<?php include "db.php"; ?>
+<?php include "includes/db.php"; ?>
 <?php include "includes/functions.php"; ?>
 <?php include "./controllers/VideoController.php"; ?>
 
 <?php
     if(isset($_GET['q'])) {
-        $q = filter_input(INPUT_GET, 'q');
+        $q = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);
     }
 ?>
 

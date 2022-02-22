@@ -12,38 +12,69 @@ if (isset($_POST["barcode"])) {
     header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
 }
 
-$qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL DEFAULT '{ }' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-$do_create_table = mysqli_query($connection, $qry_create_table);
+    //create table
+    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NULL DEFAULT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NULL DEFAULT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);
 
-$test_for_row_qry = "SELECT `data` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id'";
-$do_test = mysqli_query($connection, $test_for_row_qry);
-if ($row = mysqli_fetch_assoc($do_test)) {
-    $json_string = $row['data'];
-    $wc_table = json_decode($json_string);
-} else {
-    $qry_insert_new_row = "INSERT INTO `weapon_control` (`assoc_comp_id`) VALUES ($comp_id);";
-    $do_insert_new_row = mysqli_query($connection, $qry_insert_new_row);
-    $wc_table = [];
-}
+    //test for fencers from this comp in the database
+    $qry_test = "SELECT `assoc_comp_id` FROM `weapon_control` WHERE `assoc_comp_id` LIKE '$comp_id,' LIMIT 1;";
+    $do_test = mysqli_query($connection, $qry_test);
+    if (mysqli_num_rows($do_test) === 0) {
+        $fencers_set = false; //yes
+    } else {
+        $fencers_set = true; //no
+    }
 
+    //update database with the fencers of the competition
+    if (!$fencers_set) {
+        //get fencers from competitors table
+        $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
+        $do_get_fencers = mysqli_query($connection, $qry_get_fencers);
+        if ($row = mysqli_fetch_assoc($do_get_fencers)) {
+            //get string
+            $string = $row['data'];
+            //make json
+            $fencers_json_table = json_decode($string);
+            if (count($fencers_json_table) < 1) {
+                $full_competitors = false;
+            } else {
+                $full_competitors = true;
+            }
+        } else {
+            echo "Couldn't get competitiors: " . mysqli_error($connection);
+        }
 
-if (isset($_POST['add_wc'])) {
-    $fencer_id = $_POST['fencer_id'];
-    header("Location: ../cc/fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
-}
+        //get array of fencer ids
+        $fencer_ids_array = [];
+        for ($i = 0; $i < count($fencers_json_table); $i++) {
+            $fencer_ids_array[] = $fencers_json_table[$i] -> id;
+        }
 
-$qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
-$do_get_data = mysqli_query($connection, $qry_get_fencers);
+        //function to insert new fencers into weapon control table with assoc_comp_id and fencer_id custom
+        function insertNewFencer($connection, $comp_id, $current_fencer_id) {
+            $qry_insert_new_fencers = "INSERT INTO weapon_control (`assoc_comp_id`,`fencer_id`) VALUES ('$comp_id', '$current_fencer_id')";
+            if (!mysqli_query($connection, $qry_insert_new_fencers)) {
+                echo "Could NOT insert fencer: " . $current_fencer_id . " into database e: " . mysqli_error($connection) . "<br>";
+            }
+        }
+        if ($full_competitors) {
+            //check for first loading
+            $qry_check = "SELECT `id` FROM weapon_control WHERE assoc_comp_id = '$comp_id' LIMIT 1";
+            $do_check = mysqli_query($connection, $qry_check);
+            if (mysqli_num_rows($do_check) === 0) {
+                for ($i = 0; $i < count($fencer_ids_array); $i++) {
+                    $current_fencer_id = $fencer_ids_array[$i];
+                    insertNewFencer($connection, $comp_id, $current_fencer_id);
+                }
+            }
+        }
+    }
 
-if ($row = mysqli_fetch_assoc($do_get_data)) {
-    $json_string = $row['data'];
-    $json_table = json_decode($json_string);
-} else {
-    echo mysqli_error($connection);
-}
+    if (isset($_POST['add_wc'])) {
+        $fencer_id = $_POST['fencer_id'];
+        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    }
 ?>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,7 +97,18 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
             <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button blue" href="weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
+                    <?php
+                        $qry_check_for_empty_wc = "SELECT issues_array FROM weapon_control WHERE assoc_comp_id = '$comp_id'";
+                        $do_check_for_empty_wc = mysqli_query($connection, $qry_check_for_empty_wc);
+                        $disabled = "disabled";
+                        while ($row = mysqli_fetch_assoc($do_check_for_empty_wc)) {
+                            if ($row['issues_array'] != null) {
+                                $disabled = "";
+                            }
+                        }
+
+                    ?>
+                    <a class="stripe_button blue <?php echo $disabled ?>" href="/cc/weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg" />
                     </a>
@@ -78,6 +120,14 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
+                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=<?php echo $comp_id; ?>">
+                        <p>Print Weapon Control Reports</p>
+                        <img src="../assets/icons/print_black.svg" />
+                    </a>
+                    <a class="stripe_button primary" shortcut="" href="/cc/weapon_control_bookings.php?comp_id=<?php echo $comp_id; ?>">
+                        <p>Weapon Control Bookings</p>
+                        <img src="../assets/icons/book_black.svg" />
+                    </a>
                     <form id="add_weapon_control_form" method="POST" action="">
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
                             <p>Add weapon control</p>
@@ -85,16 +135,31 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                         </button>
                         <input type="text" class="hidden selected_list_item_input" name="fencer_id" id="fencer_id_input" value="">
                     </form>
-                    <form id="barcode_form" method="POST" action="">
+                    <form id="barcode_form" method="POST" action="" shortcut="SHIFT+B">
                         <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
                             <img src="../assets/icons/barcode_black.svg">
                         </button>
-                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
                     </form>
                 </div>
             </div>
             <div id="page_content_panel_main">
+                <?php
+                //set group by
+                $qry_get_formula = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+                $do_get_formula = mysqli_query($connection, $qry_get_formula);
+                if ($row = mysqli_fetch_assoc($do_get_formula)) {
+                    $formula_string = $row['data'];
+                    $formula_table = json_decode($formula_string);
+
+                    $sort_by_num = $formula_table -> groupBy;
+                    $nation = sortByConverter($sort_by_num);
+
+                } else {
+                    echo "error:    " . mysqli_error($connection);
+                }
+                ?>
                 <table class="wrapper">
                     <thead>
                         <tr>
@@ -126,7 +191,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                     <button type="button" onclick="sortButton(this)">
                                         <img src="../assets/icons/switch_full_black.svg">
                                     </button>
-                                    <p>NATION / CLUB</p>
+                                    <p><?php echo strtoupper($nation) ?></p>
                                     <button type="button" onclick="searchButton(this)">
                                         <img src="../assets/icons/search_black.svg">
                                     </button>
@@ -138,7 +203,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                         <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                     </div>
                                     <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="hidden">
+                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
                                     </div>
                                     <div class="option_container">
                                         <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready" />
@@ -151,7 +216,7 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                                     <button type="button" onclick="sortButton(this)">
                                         <img src="../assets/icons/switch_full_black.svg">
                                     </button>
-                                    <p>CLUB</p>
+                                    <p>STATUS</p>
                                     <button type="button" onclick="searchButton(this)">
                                         <img src="../assets/icons/search_black.svg">
                                     </button>
@@ -163,17 +228,37 @@ if ($row = mysqli_fetch_assoc($do_get_data)) {
                     <tbody>
                         <?php
 
-                        foreach ($json_table as $obj) {
-                            $fencer_name = $obj->nom . " " . $obj->prenom;
-                            $fencer_nat = $obj->nation;
-                            $fencer_id = $obj->id;
-
-                            if (!isset($wc_table->$fencer_id)) {
-                                $color = "red";
-                                $status = "Not ready";
-                            } else {
-                                $status = "Ready";
-                                $color = "green";
+                        for ($competitor_counter = 0; $competitor_counter < count($fencers_json_table); $competitor_counter++) {
+                            $current_fencer = $fencers_json_table[$competitor_counter];
+                            $fencer_name = $current_fencer -> prenom . " " . $current_fencer -> nom;
+                            $fencer_nat = $current_fencer -> $nation;
+                            $fencer_id = $current_fencer -> id;
+                            //get statut
+                            $qry_get_statut = "SELECT notes FROM weapon_control WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id' LIMIT 1";
+                            $do_get_statut = mysqli_query($connection, $qry_get_statut);
+                            if ($row = mysqli_fetch_assoc($do_get_statut)) {
+                                if ($row['notes'] !== null) {
+                                    $color = "green";
+                                    $status = "Ready";
+                                } else {
+                                    $color = "red";
+                                    $status = "Not Ready";
+                                }
+                            } else { //there are fencers in competition which are not in weapon contorl table
+                                //resfresh
+                                for ($i = 0; $i < count($fencer_ids_array); $i++) {
+                                    $current_fencer_id = $fencer_ids_array[$i];
+                                    //see if fencer is allready added in this comp
+                                    $qry_check_fencer = "SELECT id FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$current_fencer_id'";
+                                    $do_check_fencer = mysqli_query($connection, $qry_check_fencer);
+                                    if (($num_rows = mysqli_num_rows($do_check_fencer)) === 0) {
+                                        //add non existant fencer
+                                        insertNewFencer($connection, $comp_id, $current_fencer_id);
+                                        header("Refresh:0");
+                                    } else if ($num_rows > 1) {
+                                        echo "There are more than one: " . $current_fencer_id . " fencers with this id for this competition";
+                                    }
+                                }
                             }
                         ?>
                             <!-- while -->

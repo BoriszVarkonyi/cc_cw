@@ -758,12 +758,16 @@ header {
 form#barcode_form {
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
 	margin: 3px 0 3px 15px;
+	position: relative;
+	width: 150px;
+	height: 2.2rem;
 }
 
 .barcode_button {
-	width: 37px;
-	height: 37px;
+	width: 2.2rem;
+	height: 2.2rem;
 	border-radius: 50%;
 	box-sizing: border-box;
 	display: flex;
@@ -772,7 +776,7 @@ form#barcode_form {
 	background: var(--c-lightgray);
 	border: 2pt solid;
 	border-color: var(--c-darkgray);
-	position: relative;
+	position: absolute;
 	z-index: 1;
 }
 
@@ -784,16 +788,16 @@ form#barcode_form {
 .barcode_button img {
 	width: 15pt;
 	height: 15pt;
+	transform: rotateY(0deg);
 	transition: var(--t-basic);
 }
 
 .barcode_button.active img {
-	width: 16pt;
-	height: 16pt;
+	transform: rotateY(180deg);
 }
 
 .barcode_input {
-	margin: 0 0 0 -37px !important;
+	margin: 0 !important;
 	background-color: var(--c-lightergray) !important;
 	border-radius: 20px !important;
 	border: 2pt solid !important;
@@ -802,7 +806,7 @@ form#barcode_form {
 	width: 150px !important;
 	padding: 0 0 0 20px !important;
 	color: var(--c-black);
-	position: relative;
+	position: absolute;
 	z-index: 0;
 	text-align: center !important;
 	box-shadow: var(--s-black);
@@ -947,26 +951,6 @@ form#barcode_form {
 	border: 3px solid var(--cs-darkgray);
 }
 */
-
-/* Panel Button Used in CC Panels */
-
-/* Used on login page */
-
-.login_button {
-	background: var(--c-primary);
-	color: var(--c-white);
-	font-family: var(--bold);
-	font-size: var(--f-large);
-	border-radius: 5px;
-	padding: 5px 15px;
-	cursor: pointer;
-}
-
-.login_button.disabled {
-	background: var(--c-gray);
-	cursor: pointer;
-	pointer-events: none;
-}
 
 /* CC Panels */
 
@@ -1249,6 +1233,7 @@ nav:hover #nav_bar_pin {
 	height: 1rem;
 }
 
+/*Name displayed in header left side*/
 #app_name {
 	position: absolute;
 	margin: 0;
@@ -1256,29 +1241,33 @@ nav:hover #nav_bar_pin {
 	transition: var(--t-basic);
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	line-height: 1;
+	justify-content: flex-start;
 }
 
 #app_name p:first-child {
-	z-index: 1;
-	padding: 2px;
-	border-radius: 2px;
-}
-
-#app_name p:last-child {
+	font-size: var(--f-large);
+	position: relative;
 	font-family: var(--bold);
-	font-size: 50px;
-	z-index: 0;
-	text-transform: uppercase;
-	color: var(--c-lightergray);
-	position: absolute;
-	transition: all var(--t-basic);
 }
 
-#app_name:hover p:last-child {
-	color: var(--c-lightgray);
+#app_name p:first-child::before {
+	content: "";
+	position: absolute;
+	bottom: 3pt;
+	left: 0;
+	height: 2pt;
+	width: 100%;
+	z-index: -1;
+	background: rgb(255,255,255);
+	background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-lightprimary) 100%);
 }
+
+/*
+#app_name p:last-child {
+	font-size: 0.7rem;
+	margin: auto;
+}
+*/
 
 #nav_bar_content {
 	width: 100%;
@@ -1680,7 +1669,7 @@ nav.closed #documentation_label img {
 	position: relative;
 	z-index: 1;
 	background: var(--c-lightestgray);
-	padding: 30px 40px;
+	padding: 2rem 2.3rem;
 	display: flex;
 	align-items: center;
 	box-shadow: var(--s-black);
@@ -1917,7 +1906,7 @@ body.fencers {
 	align-items: center;
 }
 
-.panel, #login_panel {		/* Sets basic attributes of a panel */
+.panel {		/* Sets basic attributes of a panel */
 	display: flex;
 	flex-flow: column;
 	background: var(--c-lightergray);
@@ -2356,7 +2345,7 @@ input[type="file"] {
 	gap: 10px;
 	transition: all ease-in-out .1s;
 	opacity: 1;
-	max-height: 150px;
+	max-height: 300px;
 }
 
 .stats_wrapper.closed {
@@ -2782,63 +2771,27 @@ textarea.standalone {
 /* ///FENCERS WEAPON CONTROL/// */
 
 #fencers_weapon_control_wrapper {
-	min-width: 85%;
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap-reverse;
+	gap: 1.5rem;
 }
 
 #issues_panel {
-	height: 100%;
-	width: 65%;
-}
-
-.notes_wrapper {
-	width: 100%;
-	height: 100%;
-	padding: 50px;
-	box-sizing: border-box;
+	flex: 1 1 500px;
 }
 
 #notes_panel {
-	height: 100%;
-	width: 30%;
-	position: -webkit-sticky;
-	position: sticky;
+	flex: 0 0 200px;
 }
 
-#fencers_weapon_control {
-	width: 100%;
-	height: 100%;
-}
-
-#issues_panel > .table_row {
-	background: var(--c-white);
-	min-height: 30px;
-	height: 3.5vh;
-	max-height: 45px;
-}
-
-#issues_panel > .table_row > .table_item:first-child {
-	white-space: nowrap;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	padding-left: 10px;
-	background: var(--c-white);
-	font-size: var(--f-small);
-	text-transform: capitalize;
-}
-
-#issues_panel > .table_row > .big_status_item {
-	background: var(--c-lightestgray);
-}
-
-#issues_panel > .table_row:nth-child(even) > .big_status_item {
-	background: var(--c-white);
-}
-
-#issues_panel > .table_row:nth-child(even) > .table_item {
-	background: var(--c-lightestgray);
+#wc_notes {
+	aspect-ratio: 1 / 1;
+	background: LightGoldenrodYellow;
+	border: 1pt solid Bisque;
+	resize: none;
+	box-sizing: border-box;
+	padding: 0.1rem 0.2rem;
+	line-height: 1.2;
 }
 
 /* ///CHOOSE RANKING/// */

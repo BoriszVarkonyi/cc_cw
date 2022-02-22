@@ -30,6 +30,25 @@
                     $json_table = [];
                 }
 
+                //barcode check in
+                if(isset($_POST['barcode'])) {
+                    $fencer_id = $_POST['barcode'];
+                    $id_to_change = findObject($json_table, $fencer_id, "id");
+
+                    if($id_to_change === false) {
+                        header('refresh: 0');
+                        die();
+                    }
+
+                    $json_table[$id_to_change] -> reg = 1;
+                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                    $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+                    if (!$do_update = mysqli_query($connection, $qry_update)) {
+                        echo mysqli_error($connection);
+                    }
+                    header('refresh: 0');
+                }
+
                 if(isset($_POST["reg_in"])){
                     $fencer_id = $_POST['fencer_ids'];
                     $id_to_change = findObject($json_table, $fencer_id, "id");
@@ -99,17 +118,23 @@
                 //remove fencer
                 if (isset($_POST['remove_fencer'])) {
                     $selected_id = $_POST['fencer_ids'];
-
-                    if ($id_to_remove = findObject($json_table, $selected_id, "id") === false) {
+                    $key_to_remove = -1;
+                    foreach($json_table as $key => $item) {
+                        if($item->id == $selected_id) {
+                            $key_to_remove = $key;
+                            break;
+                        }
+                    }
+                    if ($id_to_remove === -1) {
                         echo "ERROR during search for id to delete!";
                     } else {
 
-                        unset($json_table[$id_to_remove]);
+                        unset($json_table[$key_to_remove]);
                         $json_table = array_values($json_table);
 
                         //update database
                         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-                        $qry_update = "UPDATE competitors SET data = '$json_string'";
+                        $qry_update = "UPDATE competitors SET data = '$json_string' WHERE assoc_comp_id = $comp_id";
                         if (!$do_update = mysqli_query($connection, $qry_update)) {
                             echo "ERROR during the updateing of database record(deleting)";
                         } else {
@@ -152,9 +177,13 @@
                 <div id="title_stripe">
                     <p class="page_title">Registration</p>
                     <div class="stripe_button_wrapper">
-                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S">
+                        <a class="stripe_button blue" href="registration_statistics.php?comp_id=<?php echo $comp_id; ?>" shortcut="SHIFT+S" id="reg_stat">
                             <p>Registration Statistics</p>
                             <img src="../assets/icons/pie_chart_black.svg"/>
+                        </a>
+                        <a type="button" class="stripe_button" id="" shortcut="SHIFT+P" href="print_barcodes.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
+                            <p>Print Barcodes</p>
+                            <img src="../assets/icons/barcode_black.svg"/>
                         </a>
                         <button type="button" class="stripe_button" onclick="window.print()" id="printRegistrationBt" shortcut="SHIFT+P">
                             <p>Print Registration</p>
@@ -165,7 +194,7 @@
                                 <p>Remove Fencer</p>
                                 <img src="../assets/icons/person_remove_black.svg"/>
                             </button>
-                            <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A">
+                            <button type="button" class="stripe_button" onclick="toggleAddFencerPanel()" shortcut="SHIFT+A" id="add_reg_button">
                                 <p>Add Fencer</p>
                                 <img src="../assets/icons/person_add_alt_black.svg"/>
                             </button>
@@ -180,11 +209,11 @@
                             <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
                         </form>
 
-                        <form id="barcode_form" method="POST" action="">
-                            <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
+                        <form id="barcode_form" method="POST" action="" shortcut="SHIFT+B">
+                            <button type="button" class="barcode_button">
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>
-                            <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                            <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                             <button type="submit" form="barcode_form"></button>
                         </form>
                     </div>
@@ -318,7 +347,7 @@
                                             <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                         </div>
                                         <div class="search_wrapper">
-                                            <input type="text" onkeyup="searchInLists()" class="hidden">
+                                            <input type="text" onkeyup="searchInLists()" class="search hidden">
                                         </div>
                                         <div class="option_container">
                                             <input type="radio" name="status" id="listsearch_reg_reg" value="Registered"/>
@@ -361,7 +390,7 @@
                             ?>
 
                             <tr id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
-                                <td><p><?php echo $name ?></p></td>
+                                <td><p><?php echo $name . "(" . $id . ")" ?></p></td>
                                 <td><p><?php echo $nat ?></p></td>
                                 <td><p><?php echo $club ?></p></td>
                                 <td><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></td>

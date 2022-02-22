@@ -1,13 +1,16 @@
+/*
 function toggleOtherApps(x) {
     var otherApps = x.parentNode;
     otherApps.classList.toggle("opened");
 }
+*/
+
 var form = document.querySelector(".overlay_panel_form")
 var inputs = document.querySelectorAll(".username_input, .password_input");
-var loginButton = document.querySelector(".login_button");
+var loginButton = document.getElementById("login_button");
 var opitons = form.querySelectorAll(".option_container > input");
 var valid1 = false, valid2 = false;
-loginButton.classList.add("disabled")
+loginButton.disabled = true;
 function loginFormValidation() {
     for (i = 0; i < inputs.length; i++) {
         if (inputs[i].value == "") {
@@ -30,13 +33,15 @@ function loginFormValidation() {
         }
     }
     if (valid1 && valid2) {
-        loginButton.classList.remove("disabled")
+        loginButton.disabled = false;
     }
     else {
-        loginButton.classList.add("disabled")
+        loginButton.disabled = true;
     }
 }
+
 form.addEventListener("input", loginFormValidation)
+
 function errorChecker(x) {
     if (x.value == "") {
         x.previousElementSibling.classList.add("error")
@@ -46,15 +51,18 @@ function errorChecker(x) {
     }
 }
 
+/*
 function chooseCC(x) {
     currentClassRemover();
     var selectedApp = x;
     selectedApp.classList.add("current")
 }
+*/
 
 
 document.documentElement.setAttribute('data-content-theme', 'vanilla');
 
+/*
 //Competition option buttons
 var appDiv = document.getElementById("apps");
 
@@ -64,5 +72,5 @@ function currentClassRemover() {
         currentElements[i].classList.remove("current");
     }
 }
-
+*/
 

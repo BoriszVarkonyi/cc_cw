@@ -262,7 +262,6 @@ tr.table_row_drop {
 }
 
 .table_item.row_title {
-	font-family: var(--light);
 	text-transform: uppercase;
 }
 

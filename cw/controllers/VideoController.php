@@ -5,7 +5,7 @@ class VideoController {
     private $dbConnection;
 
     function __construct() {
-        include "db.php";
+        include "includes/db.php";
         $this->dbConnection = $connection;
     }
 

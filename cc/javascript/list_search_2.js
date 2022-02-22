@@ -13,100 +13,106 @@ function searchButton(x) {
 }
 
 
-var typingTimer;
-var doneTypingInterval = 500;
-
-
-function startTimer() {
-    clearTimeout(typingTimer);
-    typingTimer = setTimeout(searchInLists, doneTypingInterval)
-}
-
-function clearTimer() {
-    //clearTimeout(typingTimer);
-}
-
 var previousSearches = [];
+var searches = document.querySelectorAll("th .search")
+for (j = 0; j < searches.length; j++) {
+    previousSearches.push(searches[j].value)
+}
+
+//Makes database
+var database = []
+var tempArray = []
+
+var test = document.querySelectorAll('tbody tr > td:not(td.square):not(td.small)');
+var tr = document.querySelectorAll('tbody tr')
+
+for (i = 0; i < searches.length; i++) {
+    tempArray = []
+    for (j = i; j < test.length; j += searches.length) {
+        tempArray.push(test[j].querySelector("p"))
+    }
+    database.push(tempArray)
+}
+
+tempArray = []
+for (i = 0; i < tr.length; i++) {
+    tempArray.push(tr[i].id)
+
+}
+database.push(tempArray)
+tempArray = []
+for (i = 0; i < tr.length; i++) {
+    tempArray.push(true)
+
+}
+database.push(tempArray)
+
+
 var hasAdded = false;
 function searchInLists() {
-    var counter = 0;
-    var searches = document.querySelectorAll("th .search")
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
-        // if (previousSearches[j] != searches[j].value || j == 0) {
-        previousSearches.push(searches[j].value)
-        var filter = searches[j].value.toUpperCase();
-        if (j > 0) {
-            var li = document.querySelectorAll('tbody tr:not( .hidden) > td:nth-of-type(' + (j + 1) + ')');
-        }
-        else {
-            var li = document.querySelectorAll('tbody tr > td:nth-of-type(' + (j + 1) + ')');
-        }
-        //Loops throught the rows
-        for (i = li.length; i--;) {
-            a = li[i].querySelector("p");
-            txtValue = a.textContent || a.innerText;
-            //console.log(txtValue)
-            //if the input is a radio button the search is stricter
-            if (searches[j].parentNode.parentNode.classList.contains("option")) {
-                if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
-                    li[i].parentNode.classList.remove("hidden")
-                } else {
-                    li[i].parentNode.classList.add("hidden")
+        if (previousSearches[j] != searches[j].value || j == 0) {
+            previousSearches[j] = searches[j].value
+            var filter = searches[j].value.toUpperCase();
+            //Loops throught the rows
+            for (i = 0; i < database[j].length; i++) {
+                if (database[database.length - 1][i] || j == 0) {
+                    //a = li[i].querySelector("p");
+                    txtValue = database[j][i].textContent || database[j][i].innerText;
+                    //if the input is a radio button the search is stricter
+                    if (searches[j].parentNode.parentNode.classList.contains("option")) {
+                        if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
+                            document.getElementById(database[database.length - 2][i]).classList.remove("hidden")
+                            database[database.length - 1][i] = true
+                        } else {
+                            document.getElementById(database[database.length - 2][i]).classList.add("hidden")
+                            database[database.length - 1][i] = false
+                        }
+                    }
+                    else {
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            document.getElementById(database[database.length - 2][i]).classList.remove("hidden")
+                            database[database.length - 1][i] = true
+                        } else {
+                            document.getElementById(database[database.length - 2][i]).classList.add("hidden")
+                            database[database.length - 1][i] = false
+                        }
+                    }
                 }
+
             }
-            else {
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[i].parentNode.classList.remove("hidden")
-                } else {
-                    li[i].parentNode.classList.add("hidden")
+
+            //If there is the no search found row it removes the hidden class
+            var emptyRow = document.getElementById("emptyRow")
+            if (emptyRow != null) {
+                emptyRow.classList.remove("hidden")
+            }
+            reGenerateRowCloring();
+            //Removes selected class from all item
+            var selectedElements = document.querySelectorAll(".selected")
+            for (i = 0; i < selectedElements.length; i++) {
+                selectedElements[i].classList.remove("selected")
+            }
+            //selectedElementIndexAr is a var from list.js
+            selectedElementIndexAr = 0;
+            //Handles the no search found row
+            var rowLenght = document.querySelectorAll('table tbody tr:not( .hidden)').length
+            if (rowLenght === 0 && !hasAdded) {
+                var tableRowWrapper = document.querySelector("table tbody")
+                tableRowWrapper.innerHTML += '<tr id="emptyRow"><td colspan="4"><p>No result</p></td></tr>'
+                hasAdded = true;
+            }
+            else if (rowLenght > 1 && hasAdded) {
+                if (emptyRow != null) {
+                    var table = document.querySelector("#page_content_panel_main tbody")
+                    table.removeChild(table.lastElementChild)
                 }
+                hasAdded = false;
             }
-            counter++;
+        }
 
-        }
-        //}
-        //else {
-        // continue;
-        //}
     }
-    //If there is the no search found row it removes the hidden class
-    var emptyRow = document.getElementById("emptyRow")
-    if (emptyRow != null) {
-        emptyRow.classList.remove("hidden")
-    }
-    //setas the row bg color
-    var visibleRows = document.querySelectorAll("tr:not( .hidden)")
-    for (i = 0; i < visibleRows.length; i++) {
-        if (i % 2 != 0) {
-            visibleRows[i].style.backgroundColor = "rgb(255, 255, 255)"
-        }
-        else {
-            visibleRows[i].style.backgroundColor = "rgb(246, 246, 246)"
-        }
-    }
-    //Removes elected class from all item
-    var selectedElements = document.querySelectorAll(".selected")
-    for (i = 0; i < selectedElements.length; i++) {
-        selectedElements[i].classList.remove("selected")
-    }
-    //selectedElementIndexAr is a var from list.js
-    selectedElementIndexAr = 0;
-    //Handles the no search found row
-    var rowLenght = document.querySelectorAll('table tbody tr:not( .hidden)').length
-    if (rowLenght === 0 && !hasAdded) {
-        var tableRowWrapper = document.querySelector("table tbody")
-        tableRowWrapper.innerHTML += '<tr id="emptyRow"><td colspan="4"><p>No result</p></td></tr>'
-        hasAdded = true;
-    }
-    else if (rowLenght > 1 && hasAdded) {
-        if (emptyRow != null) {
-            var table = document.querySelector("#page_content_panel_main tbody")
-            table.removeChild(table.lastElementChild)
-        }
-        hasAdded = false;
-    }
-
 }
 
 var radioButtons = document.querySelectorAll("thead .option_container input")
@@ -128,11 +134,23 @@ function closeSearch(x) {
 radioButtons.forEach(item => {
     item.addEventListener("input", function () {
         var searchInput = this.parentNode.previousElementSibling.firstElementChild
-        console
         searchInput.value = this.value;
         searchInLists();
     });
 })
+
+function reGenerateRowCloring() {
+    //setas the row bg color
+    var visibleRows = document.querySelectorAll("tr:not( .hidden)")
+    for (i = 0; i < visibleRows.length; i++) {
+        if (i % 2 != 0) {
+            visibleRows[i].style.backgroundColor = "rgb(255, 255, 255)"
+        }
+        else {
+            visibleRows[i].style.backgroundColor = "rgb(246, 246, 246)"
+        }
+    }
+}
 
 
 //Sort system
@@ -184,6 +202,7 @@ function sortButton(x) {
             rowSort(columnIndex + 1, "Z-A");
             document.cookie = "sortCookie=" + columnIndex + "2"
             x.classList.add("active")
+            reGenerateRowCloring();
             break;
         case "switch_up_black.svg":
             // Current: Z-A Swtiches to: Default
@@ -191,6 +210,7 @@ function sortButton(x) {
             rowSort(columnIndex + 1, "Default");
             document.cookie = "sortCookie=";
             x.classList.remove("active")
+            reGenerateRowCloring();
             break;
         default:
             // Current: Default Swtiches to: A-Z
@@ -198,6 +218,7 @@ function sortButton(x) {
             rowSort(columnIndex + 1, "A-Z");
             x.classList.add("active")
             document.cookie = "sortCookie=" + columnIndex + "1"
+            reGenerateRowCloring();
     }
 }
 
@@ -226,7 +247,7 @@ function rowSort(index, mode) {
         }
     }
     else {
-        sortByArray.sort();
+        sortByArray.sortAbcHu();
     }
     if (sortByArray.length > 1) {
         var rows = document.querySelectorAll("#page_content_panel_main tbody tr")
@@ -285,6 +306,36 @@ function indexFinder(nameSearchFor, index, mode) {
         }
     }
 }
+//abchusort
+Array.prototype.sortAbcHu = function () {
+    this.compareWordAbcHu = function (w1, w2) {
+        var SORT_ORDER = "0123456789aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz";
+        var l1 = w1.length;
+        var l2 = w2.length;
+        var lm = l1 <= l2 ? l1 : l2;
+        for (var i = 0; i < lm; ++i) {
+            var c1 = w1.charAt(i).toLowerCase();
+            var c2 = w2.charAt(i).toLowerCase();
+            if (c1 != c2) {
+                var n1 = SORT_ORDER.indexOf(c1);
+                var n2 = SORT_ORDER.indexOf(c2);
+                if (n1 == -1) {
+                    if (n2 == -1) {
+                        return c1 < c2 ? -1 : 1;
+                    } else {
+                        return c1 < 'A' ? -1 : 1;
+                    }
+                } else if (n2 == -1) {
+                    return c2 < 'A' ? 1 : -1;
+                } else {
+                    return n1 < n2 ? -1 : 1;
+                }
+            }
+        }
+        return l1 == l2 ? 0 : (l1 < l2 ? -1 : 1);
+    };
+    this.sort(this.compareWordAbcHu);
+}
 
 document.addEventListener("keyup", function (e) {
     //somethingisOpened is a var. from main.js
@@ -296,9 +347,3 @@ document.addEventListener("keyup", function (e) {
         }
     }
 })
-
-
-
-
-
-

@@ -220,7 +220,7 @@ function setToVanilla() {
     setColor(vanillaColorButton, "vanilla");
 }
 
-function setColor(colorVar, colorToSet){
+function setColor(colorVar, colorToSet) {
     classRemover();
     colorVar.classList.add("selected")
     document.documentElement.setAttribute('data-content-theme', colorToSet);
@@ -276,18 +276,16 @@ if (suti_list.includes("lastlogin=" + 2)) {
 
 
 //Prevents typing invalid chars. to the number input
-var invalidChars = ["-", "+", "e", "E", ".", ","];
 var numberInputs = document.querySelectorAll("input[type='number']")
 numberInputs.forEach(item => {
-    item.addEventListener("keydown", function (e) {
-        if (invalidChars.includes(e.key)) {
-            e.preventDefault();
-        }
-    }
-    );
+    item.addEventListener("input", function (e) {
+        item.value = item.value.match("[0-9]*$")
+    })
+
 })
 
 var stripeButtons = document.querySelectorAll(".stripe_button")
+var barCodeForm = document.getElementById("barcode_form")
 var canAddHoverClass = true;
 //searchBarClosed is a var. from search.js
 searchBarClosed = true;
@@ -296,6 +294,9 @@ document.addEventListener("keydown", function (e) {
         if (e.shiftKey && canAddHoverClass) {
             for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.add("hover")
+            }
+            if (barCodeForm != undefined) {
+                barCodeForm.classList.add("hover")
             }
             canAddHoverClass = false;
         }
@@ -308,6 +309,9 @@ document.addEventListener("keyup", function (e) {
         if (e.key == "Shift") {
             for (i = 0; i < stripeButtons.length; i++) {
                 stripeButtons[i].classList.remove("hover")
+            }
+            if (barCodeForm != undefined) {
+                barCodeForm.classList.remove("hover")
             }
             canAddHoverClass = true;
         }
@@ -361,9 +365,4 @@ function inputValueLimiter(x, maxValue, minValue) {
 function toggleBarCodeInput(x) {
     var button = x.previousElementSibling;
     button.classList.toggle("active");
-}
-
-function toggleBarCodeButton(x) {
-    var input = x.nextElementSibling;
-    input.focus();
 }

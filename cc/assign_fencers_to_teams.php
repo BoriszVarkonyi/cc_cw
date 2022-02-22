@@ -66,6 +66,31 @@ foreach ($json_teams as $value) {
     }
 }
 
+echo "asd";
+if (isset($_POST['submit_all'])) {
+    //get data from js
+    $string = $_POST['data_from_js'];
+    $json_js = json_decode($string);
+
+    //set up json teamsgit pull origin master
+
+    foreach ($json_teams as $team_name => $team_value) {
+        if (isset($json_js -> $team_name[0])) {
+            for ($i = 0; $i < count($json_js -> $team_name); $i++) {
+                $json_teams -> $team_name -> tireurs[] = $json_js -> $team_name[0];
+            }
+        }
+    }
+    echo "asdasdasd";
+    //update
+    $string_team = json_encode($json_teams, JSON_UNESCAPED_UNICODE);
+    $qry_update = "UPDATE `teams` SET `data` = '$string_team' WHERE `assoc_comp_id` = '$comp_id'";
+    if (!$do_update = mysqli_query($connection, $qry_update)) {
+        echo "fasz";
+    } else {
+        echo "asdgggg";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +116,7 @@ foreach ($json_teams as $value) {
                 <div class="stripe_button_wrapper">
 
                     <?php
-                    
+
                     $teams_members = new stdClass;
 
                     foreach ($json_teams as $team_name => $team) {
@@ -110,7 +135,7 @@ foreach ($json_teams as $value) {
                     ?>
 
                     <form action="" method="POST" id="save_team_assignments">
-                        <input type="text" class="" value='<?php echo $json_attila ?>' placeholder="IDE JÖJJÖN AMI KELL" readonly>
+                        <input type="text" name="data_from_js" class="" value='<?php echo $json_attila ?>' placeholder="IDE JÖJJÖN AMI KELL" readonly>
                     </form>
 
                     <a class="stripe_button bold" href="teams.php?comp_id=<?php echo $comp_id ?>">
@@ -121,7 +146,7 @@ foreach ($json_teams as $value) {
                         <p>Assign Fencers Automatically</p>
                         <img src="../assets/icons/list_alt_black.svg" />
                     </button>
-                    <button class="stripe_button primary" type="submit" form="save_team_assignments">
+                    <button class="stripe_button primary" name="submit_all" type="submit" form="save_team_assignments">
                         <p>Save</p>
                         <img src="../assets/icons/save_black.svg" />
                     </button>
@@ -213,7 +238,7 @@ foreach ($json_teams as $value) {
                                         <p><?php echo $json_obj->club ?></p>
                                     </td>
                                     <td class="square">
-                                        <input onclick="checkFencer(this)" type="checkbox" name="emberek" id="<?php echo $json_obj->id ?>">
+                                        <input onclick="checkFencer(this)" type="checkbox" name="emberek" id="<?php echo $json_obj->id ?>" disabled>
                                         <label for="<?php echo $json_obj->id ?>"></label>
                                     </td>
                                 </tr>

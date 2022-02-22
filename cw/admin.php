@@ -1,4 +1,4 @@
-<?php include "db.php" ?>
+<?php include "includes/db.php" ?>
 <?php include "includes/functions.php" ?>
 <?php include "includes/username_checker.php" ?>
 <?php
@@ -26,6 +26,6 @@
             <button><a href="add_video.php">Add video</a></button>
             <button><a href="video_selector.php">Modify videos</a></button>
       </div>
-      <img id="dictator_image" src="../article_pics/definitely_not_mao_ce_tung.jpg">
+      <img id="dictator_image" src="article_pics/definitely_not_mao_ce_tung.jpg">
 </body>
 </html>

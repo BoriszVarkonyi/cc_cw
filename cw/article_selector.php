@@ -1,4 +1,4 @@
-<?php include "db.php" ?>
+<?php include "includes/db.php" ?>
 <?php include "includes/functions.php" ?>
 <?php include "includes/username_checker.php" ?>
 <?php
@@ -45,7 +45,7 @@
                         <p><?php echo $author ?></p>
                     </td>
                     <td>
-                        <img width="100" height="100" src="../article_pics/<?php echo $id . '.png' ?>"><img>
+                        <img width="100" height="100" src="article_pics/<?php echo $id . '.png' ?>"><img>
                     </td>
                 </tr>
             <?php

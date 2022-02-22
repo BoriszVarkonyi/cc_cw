@@ -1,145 +1,98 @@
 <?php include "includes/headerburger.php"; ?>
 <?php include "includes/db.php" ?>
+<?php include "includes/wc_issues_array.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
 <?php
 
-    class wc {
-        public $array_of_issues;
-        public $notes;
-
-        function  __construct($array_of_issues, $notes) {
-            $this -> array_of_issues = $array_of_issues;
-            $this -> notes = $notes;
-        }
-    }
-
-    //get wc type and page
-    $qry_get_wc_type = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
-    $do_get_wc_type = mysqli_query($connection, $qry_get_wc_type);
-    if ($row = mysqli_fetch_assoc($do_get_wc_type)) {
+    //determine wc back button
+    $qry_get_wc = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
+    $do_get_wc = mysqli_query($connection, $qry_get_wc);
+    if ($row = mysqli_fetch_assoc($do_get_wc)) {
         $wc_type = $row['comp_wc_type'];
-
-        switch ($wc_type) {
-            case 1://immediate
-                $wc_page = "weapon_control_immediate";
-            break;
-            case 2://administrative
-                $wc_page = "weapon_control_administrated";
-            break;
+        if ($wc_type == 1) {
+            $wc_page = "weapon_control_immediate";
+        } else if ($wc_type == 2) {
+            $wc_page = "weapon_control_administrated";
         }
+    } else {
+        echo "stan: " . mysqli_error($connection);
     }
 
-    // array of all issues
-    $array_issues = array(
-        "FIE mark on blade",
-        "Arm gap and weight",
-        "Arm lenght",
-        "Blade lenght",
-        "Grip lenght",
-        "Form and depth of the guard",
-        "Guard oxydation/ deformation",
-        "Excentricity of the blade",
-        "Blade flexibility",
-        "Curve on the blade",
-        "Foucault current device",
-        "point and arm size",
-        "spring of the point",
-        "total travel of the point",
-        "residual travel of the point",
-        "isolation of the point",
-        "resistance of the arm",
-        "length/ condition of body/ mask wire",
-        "resistance of body/ mask wire",
-        "mask: FIE mark",
-        "mask: condition and insulation",
-        "mask: resistance (sabre, foil)",
-        "metallic jacket condition",
-        "metallic jacket resistance",
-        "sabre glove/ overlay condition",
-        "sabre glove/ overlay resistance",
-        "glove condition",
-        "jacket condition",
-        "breeches condition",
-        "under-plastron condition",
-        "foil chest protector",
-        "socks",
-        "incorrect name printing",
-        "incorrect national logo",
-        "commercial",
-        "other items",
-    );
 
     $fencer_id = $_GET['fencer_id'];
+    //get fencer data
+    $qry_get_comptetitors = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+    $do_get_competitors = mysqli_query($connection, $qry_get_comptetitors);
+    if ($row = mysqli_fetch_assoc($do_get_competitors)) {
+        $string = $row['data'];
+        $json_compet = json_decode($string);
+        //search for fencer
+        if (($id_to_find = findObject($json_compet, $fencer_id, "id")) !== false) {
+            $fencer = $json_compet[$id_to_find];
 
-    $qry_get_fencers = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
-    $do_get_f_data = mysqli_query($connection, $qry_get_fencers);
+            $fencer_name = $fencer -> prenom . " " . $fencer -> nom;
 
-    if ($row = mysqli_fetch_assoc($do_get_f_data)) {
-	    	$json_string = $row['data'];
-		    $json_table = json_decode($json_string);
+        } else {
+            echo "Volare!!";
+            header("Location: $wc_page.php?comp_id=$comp_id");
+        }
     }
 
-    // if fencer_id is not set go back to the last page
-    if (findObject($json_table, $fencer_id, "id") === "") {
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-    }
+    //get fencers existing wc
+    $qry_select = "SELECT issues_array FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id' LIMIT 1";
+    $do_select = mysqli_query($connection, $qry_select);
 
-    
-    $id_to_find = findObject($json_table, $fencer_id, "id");
-    $fencer_name = $json_table[$id_to_find] -> nom . " " . $json_table[$id_to_find] -> prenom;
-
-    //check wc
-    $qry_wc = "SELECT data FROM weapon_control WHERE assoc_comp_id = $comp_id";
-    $do_wc = mysqli_query($connection, $qry_wc);
-
-    if ($row = mysqli_fetch_assoc($do_wc)) {
-        $json_string = $row['data'];
-
-        $json_table = json_decode($json_string);
-
+    if (($array_string = mysqli_fetch_assoc($do_select)['issues_array']) === null) {
         $notes = "";
-        $array_of_real_issues = [];
-
-        if (isset($json_table -> $fencer_id)) {
-            $notes = $json_table -> $fencer_id -> notes;
-            $array_of_real_issues = $json_table -> $fencer_id -> array_of_issues;
+        $real_issues_array = [];
+        foreach ($array_issues as $issue) {
+            $real_issues_array[] = 0;
+        }
+    } else {
+        $qry_select2 = "SELECT notes FROM weapon_control WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id' LIMIT 1";
+        $do_select2 = mysqli_query($connection, $qry_select2);
+        if ($row = mysqli_fetch_assoc($do_select2)) {
+            $notes = $row['notes'];
+            $real_issues_array = json_decode($array_string);
+        } else {
+            echo "error: atika matika: " . mysqli_error($connection) . "<br>";
         }
     }
 
     if (isset($_POST['submit_wc'])) {
 
         $notes = $_POST['wc_notes'];
-        $array_to_push = [];
-        for ($i = 0; $i < count($array_issues); $i++) {
-            $error_count = $_POST["issue_n_$i"];
 
-            if ($error_count == "") {
-                $array_to_push[$i] = 0;
+        //compile issues array and test for empty post
+        $real_issues_array = [];
+        $empty = true;
+        for ($i = 0; $i < count($array_issues); $i++) {
+            if ($_POST['issue_n_' . $i] == "") {
+                $real_issues_array[$i] = 0;
             } else {
-                $array_to_push[$i] = $error_count;
+                $real_issues_array[$i] = $_POST['issue_n_' . $i];
             }
         }
 
+        $temps = json_encode($real_issues_array);
+        $notes = addslashes($notes);
+        $qry_update = "UPDATE weapon_control SET notes = '$notes', issues_array = '$temps' WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+        if (!mysqli_query($connection, $qry_update)) {
+            echo "See you again! " . mysqli_error($connection);
 
-        if (!isset($json_table -> $fencer_id)) {
-            $json_object = new wc($array_to_push, $notes);
-            $json_table -> $fencer_id = $json_object;
         } else {
-            $json_table -> $fencer_id -> array_of_issues = $array_to_push;
-            $json_table -> $fencer_id -> notes = $notes;
+            header("Location: ../cc/$wc_page.php?comp_id=$comp_id");
+            //echo "St vitus dance";
         }
+    }
 
 
-        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-
-        $qry_update = "UPDATE weapon_control SET data = '$json_string' WHERE assoc_comp_id = '$comp_id'";
-        $do_update = mysqli_query($connection, $qry_update);
-        echo mysqli_error($connection);
+    if (isset($_POST['delete_wc'])) {
+        $qry_delete = "UPDATE weapon_control SET notes = null, issues_array = null WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+        $do_delete = mysqli_query($connection, $qry_delete);
         header("Location: ../cc/$wc_page.php?comp_id=$comp_id");
-        
-
     }
 
 ?>
@@ -167,6 +120,10 @@
                         <p>Go back to Weapon Control</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
+                    <button name="delete_wc" class="stripe_button red" type="submit" form="fencers_weapon_control_wrapper">
+                        <p>Delete Weapon Control</p>
+                        <img src="../assets/icons/delete_black.svg"/>
+                    </button>
                     <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
                         <p>Save Weapon Control</p>
                         <img src="../assets/icons/save_black.svg"/>
@@ -175,7 +132,7 @@
             </div>
             <div id="page_content_panel_main">
                 <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
-                    <table id="issues_panel">
+                    <table id="issues_panel" class="no_interaction">
                         <thead>
                             <tr>
                                 <th>
@@ -203,11 +160,9 @@
                         <tbody>
 
                             <?php
-                                foreach ($array_issues as $issue) {
-
-                                $issue_id = array_search($issue, $array_issues);
-                                if (isset($array_of_real_issues[$issue_id]) && $array_of_real_issues[$issue_id] != 0) {
-                                    $issue_numbers = $array_of_real_issues[$issue_id];
+                                foreach ($array_issues as $issue_id => $issue) {
+                                if ($real_issues_array[$issue_id] != 0) {
+                                    $issue_numbers = $real_issues_array[$issue_id];
                                 } else {
                                     $issue_numbers = "";
                                 }
@@ -234,5 +189,6 @@
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/list_search_2.js"></script>
+    <script src="javascript/fencers_weapon_control.js"></script>
 </body>
 </html>

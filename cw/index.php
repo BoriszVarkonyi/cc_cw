@@ -1,4 +1,4 @@
-<?php include "db.php"; ?>
+<?php include "includes/db.php"; ?>
 <?php include "includes/functions.php"; ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php include "./controllers/VideoController.php" ?>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
     <link rel="stylesheet" href="../css/cw_homepage_style.min.css">
-    <meta name="description" content="Check and Follow Fencing Competitions around the world with CompetitionView">
+    <meta name="description" content="Check and Follow Fencing Competitions around the world with d'ArtagnanView">
 </head>
 <body class="home">
     <?php include "static/header.php"; ?>
@@ -29,10 +29,10 @@
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="slides">
-                <img src="../article_pics/kovi1.jpg" alt="slide_1" class="slide">
-                <img src="../article_pics/borisz1.jpg" alt="slide_2" class="slide hidden">
-                <img src="../article_pics/atylla1.jpg" alt="slide_3" class="slide hidden">
-                <img src="../article_pics/kris1.jpg" alt="slide_4" class="slide hidden">
+                <img src="article_pics/kovi1.jpg" alt="slide_1" class="slide">
+                <img src="article_pics/borisz1.jpg" alt="slide_2" class="slide hidden">
+                <img src="article_pics/atylla1.jpg" alt="slide_3" class="slide hidden">
+                <img src="article_pics/kris1.jpg" alt="slide_4" class="slide hidden">
             </div>
             <div id="shadow"></div>
             <div id="slide_indicator">

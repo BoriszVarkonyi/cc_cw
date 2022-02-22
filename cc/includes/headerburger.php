@@ -54,10 +54,9 @@ if (isset($_POST["logout"])) {
 
 <header>
     <div id="app_name">
-        <p>Competition Control</p>
-        <p>Alpha</p>
+        <p>d'Artagnan</p>
+        <!-- <p>Alpha Development</p> -->
     </div>
-
 
     <?php
     if (isset($_GET['comp_id'])) {
@@ -78,8 +77,8 @@ if (isset($_POST["logout"])) {
                 </div>
                 <div class="small_scroll">
                     <p>TOURNAMENT'S PAGES</p>
-                    <button class="competition_button separate" onclick="location.href=''">Tournament's Timetable</button>
-                    <button class="competition_button separate" onclick="location.href=''">Manage Weapon Control Bookings</button>
+                    <a href="/cc/tournament_timetable.php?t_id=<?php echo $ass_tourn_id ?>">Tournament's Timetable</a>
+                    <a href="/cc/manage_bookings.php?t_id=<?php echo $ass_tourn_id ?>">Manage Weapon Control Bookings</a>
                     <p>TOURNAMENT'S COMPETITIONS</p>
                     <?php
 
