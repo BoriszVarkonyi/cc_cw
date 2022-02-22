@@ -133,7 +133,14 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 
                                         <?php
 
+                                        //Kijavítani
+                                        //JS eltunteti az osszeset, ha nem fér bele a fencer akkor is ha teljes az óra
+                                        
 
+                                        //INFO
+                                        //A selected button egy atalakitott radiobutton (INPUT)
+                                        //Ha abba az órába nem fér bele az a szövi, folytassa a következő órában
+                                        
 
                                         foreach ($dates as $hourkeys => $hours) {
 
