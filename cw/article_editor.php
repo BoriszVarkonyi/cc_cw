@@ -10,9 +10,9 @@
     $do_get_article = mysqli_query($connection, $qry_get_article);
 
     if ($row = mysqli_fetch_assoc($do_get_article)) {
-        $title = $row['title'];
-        $body = $row['body'];
-        $author = $row['author'];
+        $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+        $body = htmlspecialchars($_POST['body'], ENT_QUOTES);
+        $author = htmlspecialchars($_POST['author'], ENT_QUOTES);
         $date = $row['date'];
         $picture_path = "article_pics/" . $id . ".png";
 

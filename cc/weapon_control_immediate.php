@@ -97,7 +97,18 @@ if (isset($_POST["barcode"])) {
             <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button blue" href="/cc/weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
+                    <?php
+                        $qry_check_for_empty_wc = "SELECT issues_array FROM weapon_control WHERE assoc_comp_id = '$comp_id'";
+                        $do_check_for_empty_wc = mysqli_query($connection, $qry_check_for_empty_wc);
+                        $disabled = "disabled";
+                        while ($row = mysqli_fetch_assoc($do_check_for_empty_wc)) {
+                            if ($row['issues_array'] != null) {
+                                $disabled = "";
+                            }
+                        }
+
+                    ?>
+                    <a class="stripe_button blue <?php echo $disabled ?>" href="/cc/weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg" />
                     </a>
@@ -201,11 +212,11 @@ if (isset($_POST["barcode"])) {
                     </thead>
                     <tbody>
                         <?php
-
+                            $nation = "nation";
                         for ($competitor_counter = 0; $competitor_counter < count($fencers_json_table); $competitor_counter++) {
                             $current_fencer = $fencers_json_table[$competitor_counter];
                             $fencer_name = $current_fencer -> prenom . " " . $current_fencer -> nom;
-                            $fencer_nat = $current_fencer -> nation;
+                            $fencer_nat = $current_fencer -> $nation;
                             $fencer_id = $current_fencer -> id;
                             //get statut
                             $qry_get_statut = "SELECT notes FROM weapon_control WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id' LIMIT 1";
