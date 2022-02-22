@@ -77,8 +77,8 @@ if (isset($_POST["logout"])) {
                 </div>
                 <div class="small_scroll">
                     <p>TOURNAMENT'S PAGES</p>
-                    <button class="competition_button separate" onclick="location.href=''">Tournament's Timetable</button>
-                    <button class="competition_button separate" onclick="location.href=''">Manage Weapon Control Bookings</button>
+                    <a href="">Tournament's Timetable</a>
+                    <a href="">Manage Weapon Control Bookings</a>
                     <p>TOURNAMENT'S COMPETITIONS</p>
                     <?php
 
