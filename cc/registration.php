@@ -213,7 +213,7 @@
                             <button type="button" class="barcode_button">
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>
-                            <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                            <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                             <button type="submit" form="barcode_form"></button>
                         </form>
                     </div>

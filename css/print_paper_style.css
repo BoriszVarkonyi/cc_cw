@@ -33,6 +33,9 @@
 	flex-direction: column;
 	padding: 25pt;
 	box-sizing: border-box;
+	page-break-before: always !important;
+	page-break-after: always !important;
+	page-break-inside: avoid !important;
 }
 
 .title_container {
@@ -119,52 +122,10 @@
 	transition: all var(--t-basic);
 }
 
-.paper.barcodes {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: repeat(13, 1fr);
-	padding: 10.7mm 7.9mm 8.6mm 11.9mm;
-}
-
-.barcode_print {
-	width: 38mm;
-	min-width: 38mm;
-	max-width: 38mm;
-	height: 21.1mm;
-	min-height: 21.1mm;
-	max-height: 21.1mm;
-	font-size: 7pt;
-	line-height: 1;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 1pt solid black;
-	box-sizing: border-box;
-}
-
-.barcode_print p {
-	margin: 0 auto;
-	text-align: center;
-}
-
-/* table style barcode */
-.generated_barcode {
-	width: auto;
-	height: 10mm;
-	border: none !important;
-	margin: 0 auto 3pt;
-}
-
-div.b128 {
-	border-left: 1px black solid;
-	height: 100%;
-}
-
 @media print {
 
 	@page {
-		margin: 0 !important;
+		margin: 15pt 35pt !important;
 	}
 
 	.paper_wrapper {
@@ -180,7 +141,7 @@ div.b128 {
 	.paper {
 		transform: none !important;
 		margin: 0 !important;
-		padding: 10pt 25pt !important;
+		padding: 0 !important;
 		min-width: 21cm !important;
 		width: 21cm !important;
 		max-width: 21cm !important;
@@ -209,13 +170,4 @@ div.b128 {
 	.paper_content.full {
 		height: 100vh !important;
 	}
-
-	.paper.barcodes {
-		display: grid !important;
-		grid-template-columns: repeat(5, 1fr) !important;
-		grid-template-rows: repeat(13, 1fr) !important;
-		padding: 10.7mm 10mm !important;
-		zoom: 100% !important;
-	}
-
 }
