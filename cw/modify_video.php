@@ -2,10 +2,10 @@
 <?php include 'includes/username_checker.php'; ?>
 
 <?php
-    $title = filter_input(INPUT_GET, 'title', FILTER_SANITIZE_STRING);
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $date = date("Y/m/d");
 
-    $qry_get_data = "SELECT URL, author, prev, comp_name, title FROM cw_videos WHERE title = '$title'";
+    $qry_get_data = "SELECT URL, author, prev, comp_name, title FROM cw_videos WHERE id = $id";
     $do_get_data = mysqli_query($connection, $qry_get_data);
 
     if ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -17,15 +17,15 @@
     }
 
     if (isset($_POST['submit'])) {
-        $title_new = $_POST['title'];
-        $url = $_POST['url'];
-        $comp_name = $_POST['comp_name'];
-        $prev_text = $_POST['prev_text'];
+        $title_new = htmlspecialchars($_POST['title'], ENT_QUOTES);
+        $url = htmlspecialchars($_POST['url'], ENT_QUOTES);
+        $comp_name = htmlspecialchars($_POST['comp_name'], ENT_QUOTES);
+        $prev_text = htmlspecialchars($_POST['prev_text'], ENT_QUOTES);
 
         $qry_update = "UPDATE cw_videos SET comp_name = '$comp_name', title = '$title_new', prev = '$prev_text', URL = '$url',  Last_modified_by = '$username', Last_modified = '$date' WHERE title = '$title'";
         $do_update = mysqli_query($connection, $qry_update);
 
-        echo mysqli_error($connection) . "asd";
+        echo mysqli_error($connection);
     }
 
 
