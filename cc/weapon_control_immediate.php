@@ -109,9 +109,13 @@ if (isset($_POST["barcode"])) {
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
-                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=570">
+                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=<?php echo $comp_id; ?>">
                         <p>Print Weapon Control Reports</p>
                         <img src="../assets/icons/print_black.svg" />
+                    </a>
+                    <a class="stripe_button primary" shortcut="" href="/cc/weapon_control_bookings.php?comp_id=<?php echo $comp_id; ?>">
+                        <p>Weapon Control Bookings</p>
+                        <img src="../assets/icons/book_black.svg" />
                     </a>
                     <form id="add_weapon_control_form" method="POST" action="">
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
@@ -124,7 +128,7 @@ if (isset($_POST["barcode"])) {
                         <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
                             <img src="../assets/icons/barcode_black.svg">
                         </button>
-                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
                     </form>
                 </div>
