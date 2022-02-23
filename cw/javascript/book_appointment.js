@@ -1,4 +1,5 @@
 var appointments = document.querySelectorAll(".appointment")
+console.log(appointments)
 function selectAppointment(x) {
     var clickedAppointment = x
     //Removes all class, sets the innertext
@@ -59,6 +60,7 @@ function bookAppointmentsFormValidation() {
         }
     }
     if (valid1 && valid2) {
+        console.log()
         sendButton.disabled = false;
     }
     else {
@@ -86,13 +88,13 @@ fencNumberInput.addEventListener("input", function () {
                 appointmentsDivs[k].style.display = "block";
             }
         }
+
         for (k = 0; k < appointmentsDivs.length; k++) {
             var allHidden = false;
             if (appointmentsDivs[k].style.display == "none") {
                 allHidden = true;
             }
             else {
-                console.log()
                 allHidden = false;
                 break;
             }
