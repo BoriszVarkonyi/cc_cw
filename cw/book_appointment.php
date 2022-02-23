@@ -115,7 +115,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                         <div id="availabe_times_wrapper">
 
                             <!-- min taken up by selexcted -->
-                            <input type="hidden" id="needed_time_input" value="">
+                            <input type="hidden" id="minperfencer" value="">
 
                             <!-- ONE DAY -->
                             <div>
@@ -136,7 +136,6 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                         <p>ERROR</p>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
