@@ -5,18 +5,18 @@
 <?php include "models/TechnicianFactory.php"; ?>
 <?php
 
-
 $lastlogin = $_COOKIE["lastlogin"];
-$comp_id = $_GET["comp_id"];
-
-
-$query_comp = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
-$check_comp_name_query = mysqli_query($connection, $query_comp);
-
-if ($row = mysqli_fetch_assoc($check_comp_name_query)) {
-
-    $comp_name = $row["comp_name"];
-    $ass_tourn_id = $row["ass_tournament_id"];
+//get t_id from comp_id
+if (isset($_GET['comp_id'])) {
+    $comp_id = $_GET["comp_id"];
+    $qry_select_tournament_id = "SELECT ass_tournament_id, comp_name FROM competitions WHERE comp_id = '$comp_id'";
+    $do_select_tournament_id = mysqli_query($connection, $qry_select_tournament_id);
+    if ($row = mysqli_fetch_assoc($do_select_tournament_id)) {
+        $ass_tourn_id = $row['ass_tournament_id'];
+        $comp_name = $row["comp_name"];
+    }
+} else {
+    $ass_tourn_id = $_GET['t_id'];
 }
 
 if ($lastlogin == 1) {
@@ -70,7 +70,7 @@ if (isset($_POST["logout"])) {
         }
     ?>
     </div>
-
+    <?php if (isset($t_id) || isset($_GET['comp_id'])) { ?>
     <div id="header_middle" class="desktop_only">
         <div id="competition_select_wrapper">
             <div id="competition_select" onclick="toggleCompSelect()">
@@ -94,12 +94,12 @@ if (isset($_POST["logout"])) {
                     $c_id = $row["comp_id"];
                     $c_name = $row["comp_name"];
                 ?>
-                    <button class="competition_button <?php if($c_id == $comp_id){echo "selected";} ?>" onclick="location.href='<?php echo $_SERVER['PHP_SELF'] . '?comp_id=' . $c_id ?>'"><?php echo $c_name ?></button>
+                    <a class="competition_button <?php if($c_id == $comp_id){echo "selected";} ?>" href='/cc/index.php?comp_id=<?php echo $c_id ?>'><?php echo $c_name ?></a>
                 <?php } ?>
             </div>
         </div>
     </div>
-
+    <?php } ?>
     <div id="header_right">
         <!-- colormode and language buttons -->
         <div class="settings_section">
