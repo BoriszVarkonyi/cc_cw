@@ -17,6 +17,17 @@ if ($row = mysqli_fetch_assoc($do_get_fencers)) {
     echo "Couldn't get competitiors: " . mysqli_error($connection);
 }
 
+if (isset($_GET['fencer_id'])) {
+    $fencer_id = $_GET['fencer_id'];
+
+    if (($id_tf = findObject($fencers_json_table, $fencer_id, "id")) !== false) {
+        $obj = $fencers_json_table[$id_tf];
+        $fencers_json_table = [];
+        $fencers_json_table[] = $obj;
+    } else {
+        //echo "could not find fencer with id: $fencer_id";
+    }
+}
 ?>
 
 <!DOCTYPE html>

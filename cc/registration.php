@@ -173,6 +173,12 @@
 
                     header("Refresh: 0");
                 }
+
+                if (isset($_POST['print_selected_fencer'])) {
+
+                    $fencer_id = $_POST['fencer_ids'];
+                    header("Location: /cc/print_barcodes.php?comp_id=$comp_id&fencer_id=$fencer_id");
+                }
             ?>
                 <div id="title_stripe">
                     <p class="page_title">Registration</p>
@@ -185,15 +191,15 @@
                             <p>Print Barcodes</p>
                             <img src="../assets/icons/barcode_black.svg"/>
                         </a>
-                        <a type="button" class="stripe_button" id="" shortcut="SHIFT+P" href="print_barcodes.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
+                        <button type="submit" name="print_selected_fencer" form="foo" class="stripe_button" id="" shortcut="SHIFT+P"  target="_blank">
                             <p>Print Selected Fencer's Barcodes</p>
                             <img src="../assets/icons/barcode_black.svg"/>
-                        </a>
+                        </button>
                         <button type="button" class="stripe_button" onclick="window.print()" id="printRegistrationBt" shortcut="SHIFT+P">
                             <p>Print Registration</p>
                             <img src="../assets/icons/print_black.svg"/>
                         </button>
-                        <form method="POST" action="">
+                        <form method="POST" id="foo" action="">
                             <button type="submit" name="remove_fencer" class="stripe_button" shortcut="SHIFT+D" id="delete_fencer_button">
                                 <p>Remove Fencer</p>
                                 <img src="../assets/icons/person_remove_black.svg"/>
