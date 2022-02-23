@@ -106,75 +106,39 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                         </div>
                     </div>
                 </div>
+                <button>Go back</button>
+                <button>Next step</button>
                 <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
                 <div class="column_panel no_top collapsed" id="step2">
                     <div class="column">
                         <b>Available times:</b>
                         <div id="availabe_times_wrapper">
-                            <?php
 
-                            if ($appointments != "") {
-                                foreach ($appointments as $datekey => $dates) {
+                            <!-- min taken up by selexcted -->
+                            <input type="hidden" id="needed_time_input" value="">
 
-                            ?>
-                                    <div>
-                                        <p minperfencer="<?php echo $dates->min_fencer ?>"><?php echo str_replace("-", " ", $datekey)  ?></p>
+                            <!-- ONE DAY -->
+                            <div>
+                                <p>2022/04/20</p>
 
-                                        <?php
-
-                                        //Kijavítani
-                                        //JS eltunteti az osszeset, ha nem fér bele a fencer akkor is ha teljes az óra
-                                        
-
-                                        //INFO
-                                        //A selected button egy atalakitott radiobutton (INPUT)
-                                        //Ha abba az órába nem fér bele az a szövi, folytassa a következő órában
-                                        
-
-                                        foreach ($dates as $hourkeys => $hours) {
-
-                                            if ($hourkeys == "min_fencer") {
-                                                continue;
-                                            }
-
-                                            $allfencersin = 0;
-
-                                            foreach ($hours as $innerdata) {
-
-                                                $allfencersin += $innerdata->fencer;
-                                            }
-
-                                            $talkentime = $allfencersin * $dates->min_fencer;
-                                            $minsleft = 60 - $talkentime;
-
-                                            $starttime = $hourkeys;
-                                            $availtime = strtotime("+$talkentime minutes", strtotime($starttime));
-
-                                            $selectedTime = $hourkeys;
-                                            $endTime = strtotime("+1 hours", strtotime($selectedTime));
-
-                                        ?>
-                                            <div class="appointment_wrapper" minsleft="<?php echo $minsleft ?>">
-                                                <input type="radio" name="appointments" id="appointment<?php echo $counter ?>" value=""/>
-                                                <label for="appointment<?php echo $counter ?>">
-                                                    <div class="appointment" onclick="selectAppointment(this)">
-                                                        <p><?php echo date('H:i', $availtime); ?> - lasts approximately &nbsp</p>
-                                                        <p class="minute"></p>
-                                                        <p>&nbsp minutes</p>
-                                                        <div>Choose</div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        <?php
-                                        }
-
-                                        ?>
+                                <!-- ONE APPOINTMENT -->
+                                <div class="appointment_wrapper">
+                                    <input type="radio" name="appointments" id="appointment" value=""/>
+                                    <label for="appointment">
+                                        <div class="appointment" onclick="selectAppointment(this)">
+                                            <p>12:00 - 17:00</p>
+                                            <div>Choose</div>
+                                        </div>
+                                    </label>
+                                    <div class="appointment_details">
+                                        <input type="time">
+                                        <p>- 17:00</p>
+                                        <p>ERROR</p>
                                     </div>
+                                </div>
 
-                            <?php
-                                }
-                            }
-                            ?>
+                            </div>
+
                         </div>
                     </div>
                 </div>
