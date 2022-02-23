@@ -130,7 +130,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                             <div>Choose</div>
                                         </div>
                                     </label>
-                                    <div class="appointment_details">
+                                    <div class="appointment_details hidden">
                                         <input type="time">
                                         <p>- 17:00</p>
                                         <p>ERROR</p>
@@ -151,7 +151,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     <?php include "static/footer.php"; ?>
     <script src="javascript/main.js"></script>
     <script src="javascript/list.js"></script>
-    <script src="javascript/book_appointment.js"></script>
+    <script src="javascript/book_appointment_2.js"></script>
     <script src="../cc/javascript/search.js"></script>
     <script src="../cc/javascript/modal.js"></script>
 </body>

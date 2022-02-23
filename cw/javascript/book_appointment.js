@@ -27,11 +27,12 @@ function selectAppointment(x) {
 
 //Form validation
 var form = document.getElementById("content_wrapper");
+console.log(form)
 var inputs = form.querySelectorAll(".form_wrapper input");
 var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
 var valid1 = false, valid2 = false;
-sendButton.disabled = true;
+//sendButton.disabled = true;
 function bookAppointmentsFormValidation() {
     var fencNumber = document.getElementById("fencerNumber");
     if (fencNumber.value > 100 || fencNumber.value == 0) {
@@ -61,10 +62,10 @@ function bookAppointmentsFormValidation() {
     }
     if (valid1 && valid2) {
         console.log()
-        sendButton.disabled = false;
+        //sendButton.disabled = false;
     }
     else {
-        sendButton.disabled = true;
+       // sendButton.disabled = true;
     }
 }
 form.addEventListener("input", bookAppointmentsFormValidation)
