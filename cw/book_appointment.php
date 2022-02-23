@@ -21,6 +21,39 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     $appointments = json_decode($row["appointments"]);
 }
 
+if(isset($_POST['submit_form']) ) {
+    var_dump($_POST);
+
+    //for some reason I cannot get the selected start time from $_POST
+    $start_time = '12:00';
+
+    //loop through every day because it's not in $_POST
+    foreach($appointments as $key => $date) {
+        //if start date is found flag is raised to start changing values
+        $flag = false;
+        //number of values changed (CURRENTLY REPLACES EVERY VALUE WHICH IS NOT ACCEPTABLE)
+        $n = 0;
+        foreach($date as $time => $item) {
+            if($n == $_POST['num_fencers']) break;
+            if($time == $start_time) $flag = true;
+
+            if($flag === true) {
+                $appointments->$key->$time = $_POST['f_nat'];
+                $n++;
+            }
+        }
+        if($n == $_POST['num_fencers']) break;
+    }
+
+    foreach($appointments as $date) {
+        foreach($date as $value) {
+            var_dump($value);
+            echo "<br>";
+        }
+    }
+    die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +93,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                 <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
-                    <button type="submit" form="" class="modal_confirmation_button">Submit</button>
+                    <button type="submit" form="" class="">Submit</button>
                 </div>
             </div>
         </div>
@@ -100,7 +133,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                             <div>
                                 <div>
                                     <label>NUMBER OF FENCERS</label>
-                                    <input type="number" name="c_phone" class="number_input centered alt" placeholder="#" id="fencerNumber">
+                                    <input type="number" name="num_fencers" class="number_input centered alt" placeholder="#" id="fencerNumber">
                                 </div>
                             </div>
                         </div>
@@ -131,8 +164,8 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                         </div>
                                     </label>
                                     <div class="appointment_details hidden">
-                                        <input type="time">
-                                        <p>- 17:00</p>
+                                        <input type="time" name="time">
+                                        <p> - 17:00</p>
                                         <p>ERROR</p>
                                     </div>
                                 </div>
@@ -143,6 +176,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                     </div>
                 </div>
                 <div class="send_panel">
+                    <button type="submit" name="submit_form">Submit button working</button>
                     <button type="button" onclick="toggleModal(1)" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>
