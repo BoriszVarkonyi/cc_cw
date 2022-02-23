@@ -1,5 +1,5 @@
-<?php include "includes/header.php"; ?>
-<?php include "includes/db.php" ?>
+<?php include "../includes/headerburger.php"; ?>
+<?php include "../includes/db.php" ?>
 
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
@@ -110,7 +110,7 @@ if (isset($_POST["submit_referees"])) {
 <body>
     <!-- header -->
     <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
+        <?php include "../includes/navbar.php"; ?>
         <!-- navbar -->
         <main>
             <div id="title_stripe">
@@ -472,11 +472,11 @@ if (isset($_POST["submit_referees"])) {
             </div>
         </main>
     </div>
-    <script src="javascript/cookie_monster.js"></script>
-    <script src="javascript/main.js"></script>
-    <script src="javascript/search.js"></script>
-    <script src="javascript/table_config.js"></script>
-    <script src="javascript/table_referees.js"></script>
+    <script src="../js/cookie_monster.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/table_config.js"></script>
+    <script src="../js/table_referees.js"></script>
 </body>
 
 </html>

@@ -4,8 +4,8 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $body = $_POST['body'];
+    $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+    $body = htmlspecialchars($_POST['body'], ENT_QUOTES);
     $time = date("Y/m/d");
 
     if ($title != "" && $body != "") {
@@ -99,8 +99,8 @@ if (isset($_POST['cancel'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
-    <title>CW Admin</title>
+    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <title>d'V Admin</title>
 </head>
 <body>
     <div class="basic_panel">

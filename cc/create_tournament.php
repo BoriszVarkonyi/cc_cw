@@ -34,7 +34,7 @@ if (isset($_POST["create_tournament"])) {
 </head>
 
 <body class="fencers">
-    <?php include "includes/headerburger.php"; ?>
+    <?php include "includes/header.php"; ?>
     <!-- header -->
     <div class="panel">
         <div id="title_stripe">

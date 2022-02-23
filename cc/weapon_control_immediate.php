@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
@@ -97,7 +97,18 @@ if (isset($_POST["barcode"])) {
             <div id="title_stripe">
                 <p class="page_title">Weapon Control</p>
                 <div class="stripe_button_wrapper">
-                    <a class="stripe_button blue" href="/cc/weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
+                    <?php
+                        $qry_check_for_empty_wc = "SELECT issues_array FROM weapon_control WHERE assoc_comp_id = '$comp_id'";
+                        $do_check_for_empty_wc = mysqli_query($connection, $qry_check_for_empty_wc);
+                        $disabled = "disabled";
+                        while ($row = mysqli_fetch_assoc($do_check_for_empty_wc)) {
+                            if ($row['issues_array'] != null) {
+                                $disabled = "";
+                            }
+                        }
+
+                    ?>
+                    <a class="stripe_button blue <?php echo $disabled ?>" href="/cc/weapon_control_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="weaponControlStatisticsBt" shortcut="SHIFT+W">
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg" />
                     </a>
@@ -109,9 +120,13 @@ if (isset($_POST["barcode"])) {
                         <p>Print Weapon Control</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
-                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=570">
+                    <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=<?php echo $comp_id; ?>">
                         <p>Print Weapon Control Reports</p>
                         <img src="../assets/icons/print_black.svg" />
+                    </a>
+                    <a class="stripe_button primary" shortcut="" href="/cc/weapon_control_bookings.php?comp_id=<?php echo $comp_id; ?>">
+                        <p>Weapon Control Bookings</p>
+                        <img src="../assets/icons/book_black.svg" />
                     </a>
                     <form id="add_weapon_control_form" method="POST" action="">
                         <button name="add_wc" class="stripe_button primary" id="wcButton" type="submit" shortcut="SHIFT+A">
@@ -124,12 +139,27 @@ if (isset($_POST["barcode"])) {
                         <button type="button" class="barcode_button" onclick="toggleBarCodeButton(this)">
                             <img src="../assets/icons/barcode_black.svg">
                         </button>
-                        <input type="text" name="barcode" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                        <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
                         <button type="submit" form="barcode_form"></button>
                     </form>
                 </div>
             </div>
             <div id="page_content_panel_main">
+                <?php
+                //set group by
+                $qry_get_formula = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+                $do_get_formula = mysqli_query($connection, $qry_get_formula);
+                if ($row = mysqli_fetch_assoc($do_get_formula)) {
+                    $formula_string = $row['data'];
+                    $formula_table = json_decode($formula_string);
+
+                    $sort_by_num = $formula_table -> groupBy;
+                    $nation = sortByConverter($sort_by_num);
+
+                } else {
+                    echo "error:    " . mysqli_error($connection);
+                }
+                ?>
                 <table class="wrapper">
                     <thead>
                         <tr>
@@ -161,7 +191,7 @@ if (isset($_POST["barcode"])) {
                                     <button type="button" onclick="sortButton(this)">
                                         <img src="../assets/icons/switch_full_black.svg">
                                     </button>
-                                    <p>NATION / CLUB</p>
+                                    <p><?php echo strtoupper($nation) ?></p>
                                     <button type="button" onclick="searchButton(this)">
                                         <img src="../assets/icons/search_black.svg">
                                     </button>
@@ -201,7 +231,7 @@ if (isset($_POST["barcode"])) {
                         for ($competitor_counter = 0; $competitor_counter < count($fencers_json_table); $competitor_counter++) {
                             $current_fencer = $fencers_json_table[$competitor_counter];
                             $fencer_name = $current_fencer -> prenom . " " . $current_fencer -> nom;
-                            $fencer_nat = $current_fencer -> nation;
+                            $fencer_nat = $current_fencer -> $nation;
                             $fencer_id = $current_fencer -> id;
                             //get statut
                             $qry_get_statut = "SELECT notes FROM weapon_control WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id' LIMIT 1";

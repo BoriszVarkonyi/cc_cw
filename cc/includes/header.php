@@ -58,47 +58,47 @@ if (isset($_POST["logout"])) {
         <!-- <p>Alpha Development</p> -->
     </div>
 
+    <!-- hamburger tab for navbar left -->
+    <div id="header_left">
     <?php
-    if (isset($_GET['comp_id'])) {
-    ?>
-        <!-- hamburger tab for navbar left -->
-        <div id="header_left">
+        if (isset($_GET['comp_id'])) {
+        ?>
             <button type="button" onclick="toggle_nav_bar()" id="menu_button">
                 <img src="../assets/icons/menu_black.svg"/>
             </button>
-        </div>
-        <div id="header_middle" class="desktop_only">
-            <div id="competition_select_wrapper">
-                <div id="competition_select" onclick="toggleCompSelect()">
-                    <p><?php echo $comp_name ?></p>
-                    <div>
-                        <img src="../assets/icons/arrow_drop_down_black.svg" id="">
-                    </div>
-                </div>
-                <div class="small_scroll">
-                    <p>TOURNAMENT'S PAGES</p>
-                    <button class="competition_button separate" onclick="location.href=''">Tournament's Timetable</button>
-                    <button class="competition_button separate" onclick="location.href=''">Manage Weapon Control Bookings</button>
-                    <p>TOURNAMENT'S COMPETITIONS</p>
-                    <?php
+        <?php
+        }
+    ?>
+    </div>
 
-                    $get_comps_in_t = "SELECT * FROM competitions WHERE ass_tournament_id = $ass_tourn_id";
-                    $get_comps_in_t_do = mysqli_query($connection, $get_comps_in_t);
-
-                    while ($row = mysqli_fetch_assoc($get_comps_in_t_do)) {
-
-                        $c_id = $row["comp_id"];
-                        $c_name = $row["comp_name"];
-                    ?>
-                        <button class="competition_button <?php if($c_id == $comp_id){echo "selected";} ?>" onclick="location.href='<?php echo $_SERVER['PHP_SELF'] . '?comp_id=' . $c_id ?>'"><?php echo $c_name ?></button>
-                    <?php } ?>
+    <div id="header_middle" class="desktop_only">
+        <div id="competition_select_wrapper">
+            <div id="competition_select" onclick="toggleCompSelect()">
+                <p>ÁTDOLGOZÁS ALATT :)</p>
+                <div>
+                    <img src="../assets/icons/arrow_drop_down_black.svg" id="">
                 </div>
             </div>
-        </div>
+            <div class="small_scroll">
+                <p>TOURNAMENT'S PAGES</p>
+                <a href="/cc/tournament_timetable.php?t_id=<?php echo $ass_tourn_id ?>">Tournament's Timetable</a>
+                <a href="/cc/manage_bookings.php?t_id=<?php echo $ass_tourn_id ?>">Manage Weapon Control Bookings</a>
+                <p>TOURNAMENT'S COMPETITIONS</p>
+                <?php
 
-    <?php
-    }
-    ?>
+                $get_comps_in_t = "SELECT * FROM competitions WHERE ass_tournament_id = $ass_tourn_id";
+                $get_comps_in_t_do = mysqli_query($connection, $get_comps_in_t);
+
+                while ($row = mysqli_fetch_assoc($get_comps_in_t_do)) {
+
+                    $c_id = $row["comp_id"];
+                    $c_name = $row["comp_name"];
+                ?>
+                    <button class="competition_button <?php if($c_id == $comp_id){echo "selected";} ?>" onclick="location.href='<?php echo $_SERVER['PHP_SELF'] . '?comp_id=' . $c_id ?>'"><?php echo $c_name ?></button>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
 
     <div id="header_right">
         <!-- colormode and language buttons -->

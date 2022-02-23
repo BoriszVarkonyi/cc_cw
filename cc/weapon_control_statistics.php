@@ -1,11 +1,23 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php include "includes/wc_issues_array.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
+    //set group by
+    $qry_get_formula = "SELECT data FROM formulas WHERE assoc_comp_id = '$comp_id'";
+    $do_get_formula = mysqli_query($connection, $qry_get_formula);
+    if ($row = mysqli_fetch_assoc($do_get_formula)) {
+        $formula_string = $row['data'];
+        $formula_table = json_decode($formula_string);
 
-    $sort_by = "club";
+        $sort_by_num = $formula_table -> groupBy;
+        $sort_by = sortByConverter($sort_by_num);
+
+    } else {
+        echo "error:    " . mysqli_error($connection);
+    }
+
 
     //check for wc type
     $qry_check = "SELECT comp_wc_type FROM competitions WHERE comp_id = '$comp_id'";
@@ -241,11 +253,10 @@
                             ?>
                         </div>
                     </div>
-                    <?php var_dump($teams_indi_issues); ?>
                     <div class="db_panel">
                         <div class="db_panel_header">
                             <img src="../assets/icons/pie_chart_black.svg" />
-                            <p>Data by Nation and Club</p>
+                            <p>Data by <?php echo strtoupper($sort_by) ?></p>
                         </div>
                         <div class="db_panel_main small entry_wrapper">
                         <?php foreach($teams_sum_issues as $nation => $issues_array) {  if (count($issues_array) > 0) {?>
@@ -254,10 +265,12 @@
                                     <div class="td bold"><p><?php echo $nation ?></p></div>
                                     <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
                                     <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
-                                    <div class="td"><p><?php echo reset($teams_sum_issues[$nation]); echo " " . key($teams_sum_issues[$nation]) ?></p></div>
+                                    <?php if (reset($teams_sum_issues[$nation]) != 0) { ?>
+                                    <div class="td"><p><?php echo key($teams_sum_issues[$nation]) . " (" . reset($teams_sum_issues[$nation]) . ")" ?></p></div>
+                                    <?php } ?>
                                 </div>
                                 <div class="entry_panel split">
-                                    <table class="small">
+                                    <table class="small no_interaction">
                                         <thead class="no_background">
                                             <tr>
                                                 <th><p>ISSUE</p></th>
@@ -280,7 +293,7 @@
                                             <?php } ?>
                                         </tbody>
                                     </table>
-                                    <table class="small">
+                                    <table class="small no_interaction">
                                         <thead class="no_background">
                                             <tr>
                                                 <th><p>FENCER NAME</p></th>
@@ -315,7 +328,7 @@
                             <p>Most to least common equipment issue</p>
                         </div>
                         <div class="db_panel_main small">
-                            <table>
+                            <table class="no_interaction">
                                 <thead>
                                     <tr>
                                         <th>
@@ -351,7 +364,7 @@
                             <p>All additional notes on weapon controls</p>
                         </div>
                         <div class="db_panel_main small">
-                            <table>
+                            <table class="no_interaction">
                                 <thead>
                                     <tr>
                                         <th>
@@ -384,29 +397,36 @@
                 </div>
                 <div class="print_only">
                     <div>
+
                         <p class="print_title">General Weapon Control Statistics</p>
-                        Immidiate
+                        <?php
+                                if ($wc_type == 1) { //immidiate
+                        ?>
                         <div class="print_stat">
                             <img src="../assets/icons/weapon_control_black.svg">
                             <p class="bold">Weapon Controls</p>
-                            <p>150 / 50</p>
+                            <p><?php echo $all_wcs_count . " / " . $submitted_wcs_count ?></p>
                         </div>
                         <div class="print_stat">
                             <img src="../assets/icons/report_problem_black.svg">
                             <p class="bold">Issues Reported</p>
-                            <p>150</p>
+                            <p><?php echo $all_issues_count ?></p>
                         </div>
                         <div class="print_stat">
                             <img src="../assets/icons/report_problem_black.svg">
                             <p class="bold">Fencers without equipment issues</p>
-                            <p>150</p>
+                            <p><?php echo $perfect_fencers_count ?></p>
                         </div>
                         <div class="print_stat">
                             <img src="../assets/icons/report_problem_black.svg">
                             <p class="bold">Fencers with equipment issues</p>
-                            <p>19</p>
+                            <p><?php echo $imperfect_fencers_count ?></p>
                         </div>
-                        Administrated
+
+                        <?php
+                                } else if ($wc_type == 2) { //administrated
+                        ?>
+
                         <div class="print_stat">
                             <img src="../assets/icons/weapon_control_black.svg">
                             <p class="bold">Check-ins</p>
@@ -437,16 +457,23 @@
                             <p class="bold">Fencers with equipment issues</p>
                             <p>19</p>
                         </div>
+                        <?php
+                                }
+                            ?>
+
                     </div>
+
                     <div>
-                        <p class="print_title">Data by Nation and Club</p>
+                        <p class="print_title">Data by <?php echo strtoupper($sort_by) ?></p>
+                        <?php foreach($teams_sum_issues as $nation => $issues_array) {  if (count($issues_array) > 0) {?>
                         <div class="entry">
                             <div class="tr">
-                                <div class="td bold"><p>{NATION}</p></div>
-                                <div class="td bold"><p>{CLUB}</p></div>
-                                <div class="td"><p>{NUMBER OF FENCERS} Fencers</p></div>
-                                <div class="td"><p>{NUMBER OF ISSUES} Issues</p></div>
-                                <div class="td"><p>{Most common issue} (Count)</p></div>
+                                <div class="td bold"><p><?php echo $nation ?></p></div>
+                                <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
+                                <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
+                                <?php if (reset($teams_sum_issues[$nation]) != 0) { ?>
+                                <div class="td"><p><?php echo key($teams_sum_issues[$nation]) . " (" . reset($teams_sum_issues[$nation]) . ")" ?></p></div>
+                                <?php } ?>
                             </div>
                             <div class="entry_panel split">
                                 <table class="small">
@@ -457,14 +484,18 @@
                                         </tr>
                                     </thead>
                                     <tbody class="alt">
+                                        <?php $empty = true; foreach ($teams_sum_issues[$nation] as $key => $value) { if ($value != 0) { $empty = false; ?>
                                         <tr>
-                                            <td><p>Isuename issuename</p></td>
-                                            <td><p>Isuename issuename</p></td>
+                                            <td><p><?php echo $key ?></p></td>
+                                            <td><p><?php echo $value ?></p></td>
                                         </tr>
+                                        <?php }} if ($empty) {  ?>
                                         <tr>
-                                            <td><p>Isuename issuename</p></td>
-                                            <td><p>Isuename issuename</p></td>
+                                            <td colspan="2">
+                                            <p>No known issues!</p>
+                                            </td>
                                         </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                                 <table class="small">
@@ -475,18 +506,22 @@
                                         </tr>
                                     </thead>
                                     <tbody class="alt">
-                                        <tr>
-                                            <td><p>LONG NAMED dimitry</p></td>
-                                            <td><p>Isuename issuename</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><p>LONG NAMED dimitry</p></td>
-                                            <td><p>Isuename issuename</p></td>
-                                        </tr>
-                                    </tbody>
+
+                                        <?php foreach ($teams_indi_issues[$nation] as $name => $value_array){ ?>
+
+                                            <tr>
+                                                <td><p><?php echo $name ?></p></td>
+                                                <td><p><?php echo $value_array["issues"] ?></p></td>
+                                            </tr>
+                                            <?php } ?>
+
+
+
+                                        </tbody>
                                 </table>
                             </div>
                         </div>
+                        <?php }} ?>
                     </div>
                     <div>
                         <p class="print_title">Most to least common equipment issue</p>
@@ -502,23 +537,21 @@
                                 </tr>
                             </thead>
                             <tbody class="alt">
-                                <tr>
-                                    <td>
-                                        <p>{Issue name}</p>
-                                    </td>
-                                    <td>
-                                        <p>{Issue count}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>{Issue name}</p>
-                                    </td>
-                                    <td>
-                                        <p>{Issue count}</p>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                    <?php
+                                        foreach ($assoc_sorted_issues_array as $key => $value) {
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <p><?php echo $key ?></p>
+                                        </td>
+                                        <td>
+                                            <p><?php echo $value ?></p>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </tbody>
                         </table>
                     </div>
                     <div>
@@ -532,17 +565,24 @@
                                 </tr>
                             </thead>
                             <tbody class="alt">
-                                <tr>
-                                    <td>
-                                        <p>{NOTE}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>{NOTE}</p>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                    <?php
+                                        $qry_select_notes = "SELECT `notes`, `fencer_id` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id' AND notes != ''";
+                                        $do_select_notes = mysqli_query($connection, $qry_select_notes);
+                                        echo mysqli_error($connection);
+                                        while ($row = mysqli_fetch_assoc($do_select_notes)) {
+                                            $note_fencer_id = $row['fencer_id'];
+                                            $notes = $row["notes"];
+
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <p fencer_id='<?php echo $note_fencer_id ?>'><?php echo $notes ?></p>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </tbody>
                         </table>
                     </div>
                 </div>

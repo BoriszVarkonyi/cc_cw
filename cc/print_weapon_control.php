@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
@@ -32,7 +32,7 @@
                         <img src="../assets/icons/close_black.svg" />
                     </button>
                     <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
-                        <p>Print Selected Table</p>
+                        <p>Print</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
                 </div>
@@ -47,130 +47,68 @@
                 </div>
             </div>
             <div id="page_content_panel_main" class="loose">
-                <div id="pool_print_wrapper" class="paper_wrapper">
 
-                    <div class="paper">
-                        <div class="paper_content full">
-                            <p class="print_title">{Fencer name}'s Weapon Control</p>
-                            <table class="small">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <p>ISSUE</p>
-                                        </th>
-                                        <th>
-                                            <p>QUANTITY</p>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>{ISSUE NAME}</p>
-                                        </td>
-                                        <td>
-                                            <p>{ISSUE quantity}</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p class="print_title">Notes given by Weapon Control</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus voluptatem veniam iste accusantium quasi.</p>
-                        </div>
-                    </div>
+                <div class="paper">
+                    <p class="print_title">{Fencer name}'s Weapon Control</p>
+                    <table class="small">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>ISSUE</p>
+                                </th>
+                                <th>
+                                    <p>QUANTITY</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>{ISSUE NAME}</p>
+                                </td>
+                                <td>
+                                    <p>{ISSUE quantity}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="print_title">Notes given by Weapon Control</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia
+                        numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus
+                            voluptatem veniam iste accusantium quasi.</p>
+                </div>
 
-
-                    <div class="paper">
-                        <div class="paper_content full">
-                            <p class="print_title">{Fencer name}'s Weapon Control</p>
-                            <table class="small">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <p>ISSUE</p>
-                                        </th>
-                                        <th>
-                                            <p>QUANTITY</p>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>{ISSUE NAME}</p>
-                                        </td>
-                                        <td>
-                                            <p>{ISSUE quantity}</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p class="print_title">Notes given by Weapon Control</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus voluptatem veniam iste accusantium quasi.</p>
-                        </div>
-                    </div>
+                <div class="paper">
+                    <p class="print_title">{Fencer name}'s Weapon Control</p>
+                    <table class="small">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <p>ISSUE</p>
+                                </th>
+                                <th>
+                                    <p>QUANTITY</p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>{ISSUE NAME}</p>
+                                </td>
+                                <td>
+                                    <p>{ISSUE quantity}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="print_title">Notes given by Weapon Control</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia
+                        numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus
+                            voluptatem veniam iste accusantium quasi.</p>
+                </div>
 
 
-                    <div class="paper">
-                        <div class="paper_content full">
-                            <p class="print_title">{Fencer name}'s Weapon Control</p>
-                            <table class="small">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <p>ISSUE</p>
-                                        </th>
-                                        <th>
-                                            <p>QUANTITY</p>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>{ISSUE NAME}</p>
-                                        </td>
-                                        <td>
-                                            <p>{ISSUE quantity}</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p class="print_title">Notes given by Weapon Control</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus voluptatem veniam iste accusantium quasi.</p>
-                        </div>
-                    </div>
-
-
-                    <div class="paper">
-                        <div class="paper_content full">
-                            <p class="print_title">{Fencer name}'s Weapon Control</p>
-                            <table class="small">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <p>ISSUE</p>
-                                        </th>
-                                        <th>
-                                            <p>QUANTITY</p>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>{ISSUE NAME}</p>
-                                        </td>
-                                        <td>
-                                            <p>{ISSUE quantity}</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p class="print_title">Notes given by Weapon Control</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus voluptatem veniam iste accusantium quasi.</p>
-                        </div>
-                    </div>
 
                 </div>
             </div>

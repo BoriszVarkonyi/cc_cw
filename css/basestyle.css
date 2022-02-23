@@ -872,7 +872,7 @@ input[type="time"] {
 	font-family: var(--bold);
 }
 
-/* No shaow on cw seletcts */
+/* No shadow on d'V seletcts */
 .search.select.alt + button + .search_results {
 	box-shadow: none !important;
 }

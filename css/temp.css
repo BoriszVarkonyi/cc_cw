@@ -178,7 +178,7 @@ tbody > tr:nth-child(even) {	/* Coloring of rows */
 	background: var(--c-lightestgray);
 }
 
-/* Alternative Coloring of row, Mostly CW */
+/* Alternative Coloring of row, Mostly d'V */
 .table_row_wrapper.alt > .table_row,
 tbody.alt > tr {
 	background: var(--c-lightestgray);

@@ -60,7 +60,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $comp_name ?></title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
     <link rel="stylesheet" href="../css/invitation_style.min.css">
 </head>
 

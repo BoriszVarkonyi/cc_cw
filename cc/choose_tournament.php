@@ -21,7 +21,7 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body class="fencers">
-    <?php include "includes/headerburger.php" ?>
+    <?php include "includes/header.php" ?>
     <div class="panel">
         <div id="title_stripe">
             <p class="page_title">Your Tournaments</p>

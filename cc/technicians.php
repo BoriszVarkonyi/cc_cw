@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php require_once "models/TechnicianFactory.php"; ?>
 <?php ob_start(); ?>
@@ -33,7 +33,7 @@ if (isset($_POST['submit_import'])) {
 
     $query_select_imported = "SELECT * FROM technicians WHERE assoc_comp_id = '$id'";
     $do_get_imported_techs = mysqli_query($connection, $query_select_imported);
-    
+
     while($row = mysqli_fetch_assoc($do_get_imported_techs)) {
         $username = $row['username'];
         $name = $row['name'];

@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{Comp name}'s final results</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
-    <link rel="stylesheet" href="../css/cw_round_live_style.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/dv_round_live_style.min.css">
 </head>
 <body class="competitions">
     <?php include "static/header.php"; ?>

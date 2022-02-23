@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_barebone_page_style.min.css">
+    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
     <title>Select Video to modify</title>
 </head>
 <body>
@@ -21,14 +21,15 @@
         </thead>
         <tbody class="alt">
             <?php
-                $qry_get_data = "SELECT title, author FROM cw_videos";
+                $qry_get_data = "SELECT id, title, author FROM cw_videos";
                 $do_get_data = mysqli_query($connection, $qry_get_data);
 
                 while ($row = mysqli_fetch_assoc($do_get_data)) {
+                    $id = $row['id'];
                     $title = $row['title'];
                     $author = $row['author'];
             ?>
-            <tr onclick="window.location.href='../cw/modify_video.php?title=<?php echo $title ?>'">
+            <tr onclick="window.location.href='../cw/modify_video.php?id=<?php echo $id ?>'">
                 <td>
                     <p><?php echo $title ?></p>
                 </td>

@@ -1,4 +1,4 @@
-<?php include "includes/headerburger.php"; ?>
+<?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
 <?php include "includes/wc_issues_array.php"; ?>
 <?php ob_start(); ?>
@@ -77,7 +77,7 @@
         }
 
         $temps = json_encode($real_issues_array);
-
+        $notes = addslashes($notes);
         $qry_update = "UPDATE weapon_control SET notes = '$notes', issues_array = '$temps' WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
         if (!mysqli_query($connection, $qry_update)) {
             echo "See you again! " . mysqli_error($connection);

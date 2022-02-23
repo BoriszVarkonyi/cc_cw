@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CompetitionView</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/cw_mainstyle.min.css">
-    <link rel="stylesheet" href="../css/cw_homepage_style.min.css">
+    <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/homepage_style.min.css">
     <meta name="description" content="Check and Follow Fencing Competitions around the world with d'ArtagnanView">
 </head>
 <body class="home">
