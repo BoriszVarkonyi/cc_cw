@@ -70,11 +70,26 @@ if (isset($_POST["logout"])) {
         }
     ?>
     </div>
-    <?php if (isset($t_id) || isset($_GET['comp_id'])) { ?>
+    <?php if (isset($_GET['t_id']) || isset($_GET['comp_id'])) {
+
+        if (isset($_GET['t_id'])) {
+            $t_id = $_GET['t_id'];
+            $qry_get_tournament_name = "SELECT tournament_name FROM tournaments WHERE id = '$t_id'";
+            $do_get_tournament_name = mysqli_query($connection, $qry_get_tournament_name);
+            if ($row = mysqli_fetch_assoc($do_get_tournament_name)) {
+                $title = $row['tournament_name'];
+            } else {
+                echo mysqli_error($connection);
+            }
+        }
+        if (isset($_GET['comp_id'])) {
+            $title = $comp_name;
+        }
+    ?>
     <div id="header_middle" class="desktop_only">
         <div id="competition_select_wrapper">
             <div id="competition_select" onclick="toggleCompSelect()">
-                <p>ÁTDOLGOZÁS ALATT :)</p>
+                <p><?php echo $title ?></p>
                 <div>
                     <img src="../assets/icons/arrow_drop_down_black.svg" id="">
                 </div>
