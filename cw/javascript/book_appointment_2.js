@@ -34,8 +34,6 @@ function intToTime(num){
 
 
 
-
-
 function selectAppointment(x) {
     var clickedAppointment = x
     //Removes all class, sets the innertext
