@@ -148,7 +148,7 @@ if(isset($_POST['submit_form']) ) {
                         <div id="availabe_times_wrapper">
 
                             <!-- min taken up by selexcted -->
-                            <input type="hidden" id="needed_time_input" value="">
+                            <input type="hidden" id="minperfencer" value="">
 
                             <!-- ONE DAY -->
                             <div>
@@ -169,7 +169,6 @@ if(isset($_POST['submit_form']) ) {
                                         <p>ERROR</p>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>

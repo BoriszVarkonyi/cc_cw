@@ -27,7 +27,6 @@ function selectAppointment(x) {
 
 //Form validation
 var form = document.getElementById("content_wrapper");
-console.log(form)
 var inputs = form.querySelectorAll(".form_wrapper input");
 var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");

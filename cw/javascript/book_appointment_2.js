@@ -7,18 +7,28 @@ appointmentDetailInputs.forEach(item => {
         var tillTime = parseInt(item.parentNode.previousElementSibling.querySelector("p").innerText.slice(-5).slice(0, 2) * 60) + parseInt(item.parentNode.previousElementSibling.querySelector("p").innerText.slice(-2))
         var minFencTime = 5
         var time = minFencTime * fencNumberInput.value
-        var starTime = parseInt(item.value.slice(0, 2) * 60) + parseInt(item.value.slice(-2))
+        var starTime = parseInt(item.value.slice(0, 2) * 60) + parseInt(item.value.slice(-2)) 
+        var endTime = item.parentNode.querySelector("p")
 
+        endTime.innerHTML = " - " + intToTime(starTime+time)
         
         if(starTime + time > tillTime || starTime < fromTime){
+            //item.parentNode.querySelector(".error").classList.add("hidden")
             console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         }
         else{
+            //item.parentNode.querySelector(".error").classList.remove("hidden")
             console.log("okes minden jó")
         }
     })
 })
 
+
+function intToTime(num){
+    var hour = parseInt(num/60)
+    var min = num - hour*60
+    return hour + ":" + min;
+}
 
 
 
