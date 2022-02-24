@@ -64,10 +64,9 @@ if (isset($_POST['submit_form'])) {
 		if (mysqli_query($connection, $update_qry)) {
 
 		}
-	} else {
-		echo "szar van a palacsinatban";
-		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");
-		//header("Refresh: 0");
+	} else { //itt pattincsa ki ha nem megy a gos if
+		/*echo "szar van a palacsinatban";
+		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");*/
 	}
 
     /*
@@ -178,6 +177,12 @@ function dealWithTime($string, $whattogive)
                         </div>
                     </div>
                 </div>
+				<!-- iit az if kriskofszk -->
+				<?php
+				if (!$go) {
+
+				}
+				?>
                 <button>Go back</button>
                 <button>Next step</button>
                 <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
