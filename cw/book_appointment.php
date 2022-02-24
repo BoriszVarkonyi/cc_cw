@@ -22,39 +22,38 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     $timetable_obj = json_decode($row['timetable']);
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
-if(isset($_POST['submit_form']) ) {
+if (isset($_POST['submit_form'])) {
     //var_dump($_POST);
 
     //die();
     $start_time = $_POST['time'];
 
     $day_flag = false;
-    foreach($appointments as $key => $date) {
-        if($date == $_POST['current_day']) $day_flag = true;
-        if(!$day_flag) continue;
+    foreach ($appointments as $key => $date) {
+        if ($date == $_POST['current_day']) $day_flag = true;
+        if (!$day_flag) continue;
 
         //if start date is found flag is raised to start changing values
         $flag = false;
         //number of values changed
         $n = 0;
-        foreach($date as $time => $item) {
-            if($n == $_POST['num_fencers']) break;
+        foreach ($date as $time => $item) {
+            if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
             //var_dump($flag);
             //if(!empty($item)) continue;
             // count((array)$item != 0)
-            if(is_array($item)) {
+            if (is_array($item)) {
 
                 continue;
-
             }
 
-            if($flag === true) {
+            if ($flag === true) {
                 $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email'], false);
                 $n++;
             }
         }
-        if($n == $_POST['num_fencers']) break;
+        if ($n == $_POST['num_fencers']) break;
     }
 
     $json_data = json_encode($appointments);
@@ -71,8 +70,9 @@ if(isset($_POST['submit_form']) ) {
     die();
     */
 }
-function dealWithTime($string, $whattogive) {
-    $array = explode(':',$string);
+function dealWithTime($string, $whattogive)
+{
+    $array = explode(':', $string);
 
     if ($whattogive == "h") {
         return $array[0];
@@ -147,7 +147,7 @@ function dealWithTime($string, $whattogive) {
                                 <div>
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="f_nat" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt">
+                                        <input type="text" name="f_nat" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt">
                                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php include "../cc/includes/nations.php"; ?>
@@ -179,15 +179,15 @@ function dealWithTime($string, $whattogive) {
 
 
                             <?php
-                                foreach ($appointments as $day => $value){
+                            foreach ($appointments as $day => $value) {
                             ?>
-                            <!-- ONE DAY -->
-                            <div class="appointment_day" id="day_<?php echo $day ?>">
-                                <p><?php echo $day ?></p>
-                                <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
-                                <!-- min taken up by selexcted -->
-                                <input type="input" id="ati_<?php echo $day ?>" value="<?php echo $value->min_fencer?>" hidden readonly>
-                                <?php /*
+                                <!-- ONE DAY -->
+                                <div class="appointment_day" id="day_<?php echo $day ?>">
+                                    <p><?php echo $day ?></p>
+                                    <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
+                                    <!-- min taken up by selexcted -->
+                                    <input type="input" id="ati_<?php echo $day ?>" value="<?php echo $value->min_fencer ?>" hidden readonly>
+                                    <?php /*
                                     foreach ($appointments->$day as $time => $foo) {
                                         if (is_array($foo)) {
                                             if (isset($start)) {
@@ -208,35 +208,44 @@ function dealWithTime($string, $whattogive) {
 
                                     <div class="appointment_table">
                                         <?php
-                                            $c = 0;
-                                            foreach ($appointments->$day as $time => $foo) {
-                                                $c++;
-                                            }
-                                            $c = $c - 1;
-                                            reset($appointments->$day);
-                                            $start_hour = dealWithTime($timetable_obj -> start_time, "h");
-                                            $end_hour = dealWithTime($timetable_obj -> end_time, "h");
-                                            for ($hour = $start_hour; $hour < $end_hour; $hour++) {
-                                                ?>
-                                                <div class="appointment_row">
-                                                    <?php
+                                        $c = 0;
+                                        foreach ($appointments->$day as $time => $foo) {
+                                            $c++;
+                                        }
+                                        $c = $c - 1;
+                                        reset($appointments->$day);
+                                        $start_hour = dealWithTime($timetable_obj->start_time, "h");
+                                        $end_hour = dealWithTime($timetable_obj->end_time, "h");
+                                        for ($hour = $start_hour; $hour < $end_hour; $hour++) {
+                                        ?>
+                                            <div class="appointment_row">
+                                                <?php
 
-                                                    for ($minute = 0; $minute < 60; $minute += $value->min_fencer) {
-                                                    ?>
-                                                    <div class="appointment">
+                                                for ($minute = 0; $minute < 60; $minute += $value->min_fencer) {
+                                                    if (strlen($minute) == 1) {
+                                                        $foo = $minute;
+                                                        $minute = 0 . $minute;
+                                                    }
+                                                    if (is_array($appointments->$day->{$hour . ":" . $minute})) {
+                                                        $class = "red";
+                                                    } else {
+                                                        $class = "green";
+                                                    }
+                                                ?>
+                                                    <div class="appointment <?php echo $class ?>">
                                                         <p><?php echo $hour . ":" . $minute ?></p>
                                                     </div>
-                                                    <?php
-                                                    }
+                                                <?php
+                                                }
 
                                                 ?>
-                                                </div>
-                                            <?php
-                                            }
+                                            </div>
+                                        <?php
+                                        }
                                         ?>
                                     </div>
 
-                                     <!--
+                                    <!--
                                     <div class="appointment_wrapper">
                                         <input type="radio" name="appointments" id="appointment_1" value=""/>
                                         <label for="appointment_1">
@@ -254,7 +263,7 @@ function dealWithTime($string, $whattogive) {
                                 -->
 
 
-                            </div>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -273,4 +282,5 @@ function dealWithTime($string, $whattogive) {
     <script src="../cc/javascript/search.js"></script>
     <script src="../cc/javascript/modal.js"></script>
 </body>
+
 </html>
