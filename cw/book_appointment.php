@@ -45,7 +45,6 @@ if (isset($_POST['submit_form'])) {
 			if ($time == "min_fencer") $go = false;
 			if ($flag && $day_flag) {
 				if (is_array($item)) {
-					echo "faszkivan";
 					$go = false;
 				}
 			}
@@ -63,10 +62,10 @@ if (isset($_POST['submit_form'])) {
 		$json_data = json_encode($appointments);
 		$update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
 		if (mysqli_query($connection, $update_qry)) {
-
+			header("Refresh: 0");
 		}
 	} else { //itt pattincsa ki ha nem megy a gos if
-		echo "szar van a palacsinatban";/*
+		/*
 		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");*/
 	}
 
@@ -92,7 +91,9 @@ function dealWithTime($string, $whattogive)
         return null;
     }
 }
-
+if (isset($_POST['undo_error'])) {
+	header("Refresh: 0");
+}
 ?>
 
 <!DOCTYPE html>
@@ -119,9 +120,9 @@ function dealWithTime($string, $whattogive)
                     <p class="modal_subtitle">Not enough time in selected period.</p>
                 </div>
                 <div class="modal_footer">
-                    <div class="modal_footer_content">
-                        <button class="modal_decline_button" onclick="toggleModal(2)">Go back</button>
-                    </div>
+                    <form method="POST" class="modal_footer_content">
+                        <button class="modal_decline_button" name="undo_error" type="submit">Go back</button>
+					</form>
                 </div>
             </div>
         </div>
