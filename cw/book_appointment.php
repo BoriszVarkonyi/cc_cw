@@ -19,6 +19,7 @@ $get_appointment_data_do = mysqli_query($connection, $get_appointment_data);
 if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     json_decode($row['appointments']);
     $appointments = json_decode($row["appointments"]);
+    $timetable_obj = json_decode($row['timetable']);
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if(isset($_POST['submit_form']) ) {
@@ -207,19 +208,30 @@ function dealWithTime($string, $whattogive) {
 
                                     <div class="appointment_table">
                                         <?php
+                                            $c = 0;
+                                            foreach ($appointments->$day as $time => $foo) {
+                                                $c++;
+                                            }
+                                            $c = $c - 1;
                                             reset($appointments->$day);
-                                            $hour = dealWithTime(key($appointments->$day),'h');
-                                            $new_row = false;
-                                            foreach ($appointments->$day as $time => $value) {
-                                                if (dealWithTime($time, "m") == 0) {
-                                                ?><div class="appointment_row"><?php
-                                                }
-                                                ?><div class="appointment">
-                                                    <p>ide a idő</p>
-                                                </div><?php
-                                                if (dealWithTime($time, "m") == 0) {
-                                                ?></div><?php
-                                                }
+                                            $start_hour = dealWithTime($timetable_obj -> start_time, "h");
+                                            $end_hour = dealWithTime($timetable_obj -> end_time, "h");
+                                            for ($hour = $start_hour; $hour < $end_hour; $hour++) {
+                                                ?>
+                                                <div class="appointment_row">
+                                                    <?php
+
+                                                    for ($minute = 0; $minute < 60; $minute += $value->min_fencer) {
+                                                    ?>
+                                                    <div class="appointment">
+                                                        <p><?php echo $hour . ":" . $minute ?></p>
+                                                    </div>
+                                                    <?php
+                                                    }
+
+                                                ?>
+                                                </div>
+                                            <?php
                                             }
                                         ?>
                                     </div>

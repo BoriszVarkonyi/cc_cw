@@ -46,6 +46,21 @@ if (isset($_POST["new_weapon_control"])) {
     $exact_date = $_POST["date_to_select"];
     $min_fencer = $_POST["min_fencer"];
 
+    //update timetable with st and ed
+    $get_timet_info = "SELECT * FROM tournaments WHERE id = $t_id";
+    $get_timet_info_do = mysqli_query($connection, $get_timet_info);
+
+    if ($row = mysqli_fetch_assoc($get_timet_info_do)) {
+
+        $dates = json_decode($row["timetable"]);
+    }
+    $date->start_time = $st;
+    $date->end_time = $ed;
+
+    //updatedb
+    $string = json_encode($data);
+    $qry_update = "UPDATE tournaments SET timetable = '$string' WHERE id = '$t_id'";
+    $do_upadte = mysqli_query($connection, $qry_update);
 
     $period = new DatePeriod(
 
