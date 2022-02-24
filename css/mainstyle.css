@@ -191,6 +191,7 @@ header {
 	font-size: var(--f-small);
 	padding: 3px 0;
 	width: 100%;
+	text-align: center;
 }
 
 .competition_button:hover {

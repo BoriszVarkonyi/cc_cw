@@ -36,10 +36,10 @@ strong.green {
 
 main {
 	width: 100%;
-	min-height: calc(100vh - 50px);
+	min-height: calc(100vh - 2.4rem);
 	z-index: 0;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 2.4rem;
 }
 
 main.full {
@@ -295,7 +295,7 @@ footer {
 header {
 	width: 100vw;
 	max-width: calc(100vw - 9px);
-	height: 50px;
+	height: 2.4rem;
 	box-sizing: border-box;
 	background: linear-gradient(90deg, var(--c-primary) 0,var(--c-secondary) 100%);
 	z-index: 2;
@@ -562,7 +562,7 @@ nav#mobile {
 	left: 0;
 	width: 100vw;
 	position: absolute;
-	top: 50px;
+	top: 2.4rem;
 	background: rgba(37, 37, 37, .9);
 	height: 100vh;
 	max-height: 0;
@@ -581,7 +581,7 @@ nav#mobile {
 }
 
 nav#mobile.opened {
-	max-height: calc(100vh - 50px);
+	max-height: calc(100vh - 2.4rem);
 }
 
 nav#mobile > div {
@@ -1319,24 +1319,26 @@ article .info p {
 }
 
 .appointment_table {
-	background: red;
 }
 
 .appointment_row {
 	width: 100%;
-	background: red;
 	display: flex;
+	margin: 6pt 0;
+	gap: 6pt;
 }
 
 .appointment {
-	width: 20pt;
-	height: 20pt;
+	width: 3vw;
+	height: 3vw;
 	aspect-ratio: 1 / 1;
 	font-size: var(--f-xsmall);
 	background: var(--c-lightergray);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	line-height: 1;
+
 }
 
 .appointment.red {
@@ -1364,7 +1366,7 @@ article .info p {
 	transition: all var(--t-basic);
 	cursor: pointer;
 }
-*/
+
 
 .appointment_details {
 	background-color: var(--c-white);
@@ -1405,6 +1407,8 @@ input[type="radio"]:checked + label .appointment {
 	font-family: var(--bold);
 	text-transform: none;
 }
+
+*/
 
 #matches_wrapper {
 	width: 100%;
