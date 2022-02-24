@@ -17,30 +17,39 @@ $get_appointment_data = "SELECT * FROM tournaments WHERE id = $t_id";
 $get_appointment_data_do = mysqli_query($connection, $get_appointment_data);
 
 if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
-    var_dump(json_decode($row['appointments']));
+    json_decode($row['appointments']);
     $appointments = json_decode($row["appointments"]);
 }
-
+//var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if(isset($_POST['submit_form']) ) {
     //var_dump($_POST);
 
     //die();
-
-    //for some reason I cannot get the selected start time from $_POST
     $start_time = $_POST['time'];
 
-    //loop through every day because it's not in $_POST
+    $day_flag = false;
     foreach($appointments as $key => $date) {
+        if($date == $_POST['current_day']) $day_flag = true;
+        if(!$day_flag) continue;
+
         //if start date is found flag is raised to start changing values
         $flag = false;
-        //number of values changed (CURRENTLY REPLACES EVERY VALUE WHICH IS NOT ACCEPTABLE)
+        //number of values changed
         $n = 0;
         foreach($date as $time => $item) {
             if($n == $_POST['num_fencers']) break;
-            if($time == $start_time) $flag = true;
+            if ($time == $start_time) $flag = true;
+            //var_dump($flag);
+            //if(!empty($item)) continue;
+            // count((array)$item != 0)
+            if(is_array($item)) {
+
+                continue;
+
+            }
 
             if($flag === true) {
-                $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email']);
+                $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email'], false);
                 $n++;
             }
         }
@@ -48,7 +57,7 @@ if(isset($_POST['submit_form']) ) {
     }
 
     $json_data = json_encode($appointments);
-    $update_qry = "UPDATE tournaments SET appointments = '$json_data' WHERE id = $t_id";
+    $update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
     mysqli_query($connection, $update_qry);
 
     /*
@@ -60,6 +69,17 @@ if(isset($_POST['submit_form']) ) {
     }
     die();
     */
+}
+function dealWithTime($string, $whattogive) {
+    $array = explode(':',$string);
+
+    if ($whattogive == "h") {
+        return $array[0];
+    } else if ($whattogive == "m") {
+        return $array[1];
+    } else {
+        return null;
+    }
 }
 
 ?>
@@ -155,30 +175,75 @@ if(isset($_POST['submit_form']) ) {
                         <b>Available times:</b>
                         <div id="availabe_times_wrapper">
 
-                            <!-- min taken up by selexcted -->
-                            <input type="hidden" id="minperfencer" value="">
 
+
+                            <?php
+                                foreach ($appointments as $day => $value){
+                            ?>
                             <!-- ONE DAY -->
-                            <div>
-                                <p>2022/04/20</p>
+                            <div class="appointment_day" id="day_<?php echo $day ?>">
+                                <p><?php echo $day ?></p>
+                                <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
+                                <!-- min taken up by selexcted -->
+                                <input type="input" id="ati_<?php echo $day ?>" value="<?php echo $value->min_fencer?>" hidden readonly>
+                                <?php /*
+                                    foreach ($appointments->$day as $time => $foo) {
+                                        if (is_array($foo)) {
+                                            if (isset($start)) {
+                                                $end = $time;
+                                                ?>
 
-                                <!-- ONE APPOINTMENT -->
-                                <div class="appointment_wrapper">
-                                    <input type="radio" name="appointments" id="appointment" value=""/>
-                                    <label for="appointment">
-                                        <div class="appointment" onclick="selectAppointment(this)">
-                                            <p>12:00 - 17:00</p>
-                                            <div>Choose</div>
-                                        </div>
-                                    </label>
-                                    <div class="appointment_details hidden">
-                                        <input type="time" name="time">
-                                        <p> - 17:00</p>
-                                        <p>ERROR</p>
+                                                <?php
+                                                unset($start);
+                                                unset($end);
+                                            }
+                                        } else {
+                                            $start = $time;
+                                        }
+                                    } */ ?>
+                                    <!-- ONE APPOINTMENT-->
+
+                                    <input type="time" name="time">
+
+                                    <div class="appointment_table">
+                                        <?php
+                                            reset($appointments->$day);
+                                            $hour = dealWithTime(key($appointments->$day),'h');
+                                            $new_row = false;
+                                            foreach ($appointments->$day as $time => $value) {
+                                                if (dealWithTime($time, "m") == 0) {
+                                                ?><div class="appointment_row"><?php
+                                                }
+                                                ?><div class="appointment">
+                                                    <p>ide a idő</p>
+                                                </div><?php
+                                                if (dealWithTime($time, "m") == 0) {
+                                                ?></div><?php
+                                                }
+                                            }
+                                        ?>
                                     </div>
-                                </div>
-                            </div>
 
+                                     <!--
+                                    <div class="appointment_wrapper">
+                                        <input type="radio" name="appointments" id="appointment_1" value=""/>
+                                        <label for="appointment_1">
+                                            <div class="appointment" onclick="selectAppointment(this)">
+                                                <p></p>
+                                                <div>Choose</div>
+                                            </div>
+                                        </label>
+                                        <div class="appointment_details hidden">
+                                            <input type="time" name="time">
+                                            <p> - 17:00</p>
+                                            <p>ERROR</p>
+                                        </div>
+                                    </div>
+                                -->
+
+
+                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
