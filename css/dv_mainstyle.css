@@ -671,8 +671,19 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .column_title.centered {
-	margin: 20px 0 10px;
+	margin: 20px 0 0;
 	justify-content: center;
+}
+
+.column_subtitle {
+	font-family: var(--bold);
+	font-size: var(--f-medium);
+	margin-bottom: 20px;
+}
+
+.column_subtitle.centered {
+	text-align: center;
+	margin: 0 0 10px;
 }
 
 .table_item.live {
@@ -1352,6 +1363,27 @@ article .info p {
 
 .appointment.green {
 	background: var(--c-lightgreen);
+}
+
+.appointment_day_title {
+	font-size: var(--f-large);
+	text-decoration: underline;
+	font-family: var(--bold);
+	display: flex;
+	align-items: center;
+}
+
+.appointment_day_title::before {
+	content: '';
+	width: var(--f-large);
+	height: var(--f-large);
+	background: var(--c-black);
+	margin-right: 6px;
+}
+
+.search_wrapper.appointment_select {
+	margin: 20px 0 !important;
+	z-index: 0;
 }
 
 /*

@@ -184,18 +184,9 @@ function dealWithTime($string, $whattogive)
                         </div>
                     </div>
                 </div>
-				<!-- iit az if kriskofszk -->
-				<?php
-				if (isset($go) && $go) {
-
-				}
-				?>
-                <button>Go back</button>
-                <button>Next step</button>
-                <p class="column_title centered">SELECT A SUITABLE APPOINTMENT (STEP 2 / 2)</p>
+                <p class="column_title centered">SELECT A SUITABLE APPOINTMENT</p>
                 <div class="column_panel no_top collapsed" id="step2">
                     <div class="column">
-                        <b>Available times:</b>
                         <div id="availabe_times_wrapper">
 
                             <?php
@@ -203,9 +194,9 @@ function dealWithTime($string, $whattogive)
                             ?>
                                 <!-- ONE DAY -->
                                 <div class="appointment_day" id="day_<?php echo $day ?>">
-                                    <p><?php echo $day ?></p>
+                                    <p class="appointment_day_title"><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
-                                    <div class="search_wrapper wide">
+                                    <div class="search_wrapper wide appointment_select">
                                         <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
                                         <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
@@ -256,9 +247,11 @@ function dealWithTime($string, $whattogive)
 
                                                 for ($minute = 0; $minute < 60; $minute += $value->min_fencer) {
                                                     if (strlen($minute) == 1) {
-                                                        $foo = $minute;
                                                         $minute = 0 . $minute;
                                                     }
+													if (strlen($hour) == 1) {
+														$hour = 0 . $hour;
+													}
                                                     if (is_array($appointments->$day->{$hour . ":" . $minute})) {
                                                         $class = "red";
                                                     } else {
@@ -302,7 +295,7 @@ function dealWithTime($string, $whattogive)
                     </div>
                 </div>
                 <div class="send_panel">
-                <button type="submit"  name="submit_form">gge</button>
+                <button type="submit"  name="submit_form">TEST SUBMIT</button>
                     <button type="button" onclick="toggleModal(1)" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>
