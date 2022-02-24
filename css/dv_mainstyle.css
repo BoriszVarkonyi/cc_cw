@@ -1,5 +1,5 @@
 /* 	Universal */
-
+/*fasz*/
 :root {
 	--c-primary: #00768b;
 	--c-lightprimary: #3391a2;
@@ -1318,6 +1318,37 @@ article .info p {
 	margin-top: 10px;
 }
 
+.appointment_table {
+	background: red;
+}
+
+.appointment_row {
+	width: 100%;
+	background: red;
+	display: flex;
+}
+
+.appointment {
+	width: 20pt;
+	height: 20pt;
+	aspect-ratio: 1 / 1;
+	font-size: var(--f-xsmall);
+	background: var(--c-lightergray);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.appointment.red {
+	background: var(--c-red);
+}
+
+.appointment.green {
+	background: var(--c-green);
+}
+
+
+/*
 .appointment_wrapper {
 	position: relative;
 	box-shadow: var(--s-black);
@@ -1333,6 +1364,7 @@ article .info p {
 	transition: all var(--t-basic);
 	cursor: pointer;
 }
+*/
 
 .appointment_details {
 	background-color: var(--c-white);
@@ -1540,3 +1572,4 @@ input[type="radio"]:checked + label .appointment {
 	font-size: var(--f-large);
 	margin: 10px 0 0;
 }
+
