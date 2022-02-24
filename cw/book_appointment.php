@@ -17,15 +17,17 @@ $get_appointment_data = "SELECT * FROM tournaments WHERE id = $t_id";
 $get_appointment_data_do = mysqli_query($connection, $get_appointment_data);
 
 if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
-
+    var_dump(json_decode($row['appointments']));
     $appointments = json_decode($row["appointments"]);
 }
 
 if(isset($_POST['submit_form']) ) {
-    var_dump($_POST);
+    //var_dump($_POST);
+
+    //die();
 
     //for some reason I cannot get the selected start time from $_POST
-    $start_time = '12:00';
+    $start_time = $_POST['time'];
 
     //loop through every day because it's not in $_POST
     foreach($appointments as $key => $date) {
@@ -38,13 +40,18 @@ if(isset($_POST['submit_form']) ) {
             if($time == $start_time) $flag = true;
 
             if($flag === true) {
-                $appointments->$key->$time = $_POST['f_nat'];
+                $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email']);
                 $n++;
             }
         }
         if($n == $_POST['num_fencers']) break;
     }
 
+    $json_data = json_encode($appointments);
+    $update_qry = "UPDATE tournaments SET appointments = '$json_data' WHERE id = $t_id";
+    mysqli_query($connection, $update_qry);
+
+    /*
     foreach($appointments as $date) {
         foreach($date as $value) {
             var_dump($value);
@@ -52,6 +59,7 @@ if(isset($_POST['submit_form']) ) {
         }
     }
     die();
+    */
 }
 
 ?>
