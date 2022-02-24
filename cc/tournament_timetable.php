@@ -70,7 +70,7 @@ if (isset($_POST["new_weapon_control"])) {
 
         new DateTime($st . ':00'),
         new DateInterval('PT' . $min_fencer . "M"),
-        new DateTime(date('H:i', strtotime($ed . ':00' . "+1 hours")))
+        new DateTime(date('H:i', strtotime($ed . ':00')))
 
 
     );
