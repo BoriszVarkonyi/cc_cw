@@ -236,7 +236,7 @@ function dealWithTime($string, $whattogive)
                                         $c = $c - 1;
                                         reset($appointments->$day);
                                         $start_hour = dealWithTime($timetable_obj->{$day . "_st"}, "h");
-                                        $end_hour = dealWithTime($timetable_obj->$day . "_ed", "h");
+                                        $end_hour = dealWithTime($timetable_obj->{$day . "_ed"}, "h");
                                         for ($hour = $start_hour; $hour < $end_hour; $hour++) {
                                         ?>
                                             <div class="appointment_row">
