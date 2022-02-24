@@ -23,15 +23,19 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if (isset($_POST['submit_form'])) {
-    $start_time = $_POST['time'];
-
     $day_flag = false;
+	$go = true;
     foreach ($appointments as $key => $date) {
-        if ($date == $_POST['current_day']) $day_flag = true;
-        if (!$day_flag) continue;
 
+        if (isset($_POST["time_$key"])) {
+			$day_flag = true;
+			$start_time = $_POST["time_" . $key];
+		}
+
+        if (!$day_flag) continue;
         //if start date is found flag is raised to start changing values
         $flag = false;
+
         //number of values changed
         $n = 0;
         foreach ($date as $time => $item) {
@@ -39,7 +43,8 @@ if (isset($_POST['submit_form'])) {
             if ($time == $start_time) $flag = true;
 
             if (is_array($item)) {
-                header("Refresh: 0");
+
+				$go = false;
             }
 
             if ($flag === true) {
@@ -50,9 +55,18 @@ if (isset($_POST['submit_form'])) {
         if ($n == $_POST['num_fencers']) break;
     }
 
-    $json_data = json_encode($appointments);
-    $update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
-    mysqli_query($connection, $update_qry);
+
+	if ($go) {
+		$json_data = json_encode($appointments);
+		$update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
+		if (mysqli_query($connection, $update_qry)) {
+
+		}
+	} else {
+		echo "szar van a palacsinatban";
+		//header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");
+		//header("Refresh: 0");
+	}
 
     /*
     foreach($appointments as $date) {
@@ -178,7 +192,7 @@ function dealWithTime($string, $whattogive)
                                     <p><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="time" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
+                                        <input type="text" name="time_<?php echo $day ?>" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
                                         <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
 											<?php
