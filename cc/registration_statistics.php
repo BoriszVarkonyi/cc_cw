@@ -12,10 +12,12 @@ if ($row = mysqli_fetch_assoc($do_get_formula)) {
     $formula_string = $row['data'];
     $formula_table = json_decode($formula_string);
 
-    $sort_by_num = $formula_table -> groupBy;
+    if(isset($formula_table -> groupBy)) {
+        $sort_by_num = $formula_table -> groupBy;
 
-    //_-------------------------------------
-    $groupBy = sortByConverter($sort_by_num);
+        //_-------------------------------------
+        $groupBy = sortByConverter($sort_by_num);
+    }
 
 } else {
     echo "error:    " . mysqli_error($connection);

@@ -1310,12 +1310,18 @@ article .info p {
 	align-items: center;
 }
 
-#availabe_times_wrapper input {
+#availabe_times_wrapper input[type="radio"] {
 	display: none;
 }
 
 #availabe_times_wrapper > p {
 	margin-top: 10px;
+}
+
+.appointment_wrapper {
+	position: relative;
+	box-shadow: var(--s-black);
+	display: flex;
 }
 
 .appointment {
@@ -1326,6 +1332,10 @@ article .info p {
 	margin: 3px 0;
 	transition: all var(--t-basic);
 	cursor: pointer;
+}
+
+.appointment_details {
+	background-color: var(--c-white);
 }
 
 input[type="radio"]:checked + label .appointment {
