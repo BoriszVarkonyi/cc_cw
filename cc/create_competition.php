@@ -22,7 +22,7 @@ if ($comp_type == "individual") {
     $is_individual = 0;
 }
 
-        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id, comp_wc_type, comp_sex, comp_weapon, is_individual) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id, $comp_wc_type, $comp_sex, $comp_w_type, $is_individual)";
+        $query = "INSERT INTO competitions (comp_name, comp_status, comp_organiser_id, ass_tournament_id, comp_wc_type, comp_sex, comp_weapon, is_individual, comp_equipment) VALUES ('$comp_name', 1, $org_id, $ass_tourn_id, $comp_wc_type, $comp_sex, $comp_w_type, $is_individual, null)";
         $query_create = mysqli_query($connection, $query);
 
         if (!$query_create) {
