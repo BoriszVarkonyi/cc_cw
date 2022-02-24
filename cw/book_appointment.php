@@ -42,10 +42,12 @@ if (isset($_POST['submit_form'])) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
 
-            if (is_array($item)) {
-
-				$go = false;
-            }
+			if ($flag) {
+				if (is_array($item)) {
+					echo "faszkivan";
+					$go = false;
+				}
+			}
 
             if ($flag === true) {
                 $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email'], false);
