@@ -71,9 +71,10 @@ var inputs = form.querySelectorAll(".form_wrapper input");
 var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
 var appointmentDetailInputs = document.querySelectorAll(".appointment_day .selected_start_time_input")
-var valid1 = false, valid2 = false;
-//sendButton.disabled = true;
+var valid1 = false
+sendButton.disabled = true;
 function bookAppointmentsFormValidation() {
+    valid2 = false;
     var fencNumber = document.getElementById("fencerNumber");
     if (fencNumber.value > 100 || fencNumber.value == 0) {
         fencNumber.value = ""
@@ -105,12 +106,10 @@ function bookAppointmentsFormValidation() {
         break;
     }
     if (valid1 && valid2) {
-        //sendButton.disabled = false;
-        console.log("jejj")
+        sendButton.disabled = false;
     }
     else {
-       // sendButton.disabled = true;
-       console.log("nem")
+       sendButton.disabled = true;
     }
 }
 form.addEventListener("input", bookAppointmentsFormValidation)
@@ -129,4 +128,5 @@ function openTimes(x){
         appointmentDetailInputs[i].value = '';
     }
     searchEngine(x);
+    bookAppointmentsFormValidation();
 }
