@@ -170,7 +170,7 @@
                     $qry_update = "UPDATE competitors SET data = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
                     $do_update = mysqli_query($connection, $qry_update);
                     echo mysqli_error($connection);
-
+s
                     header("Refresh: 0");
                 }
             ?>
@@ -187,11 +187,11 @@
                         </a>
                         <a type="button" class="stripe_button" id="" shortcut="SHIFT+P" href="print_barcodes.php?comp_id=<?php echo $comp_id; ?>" target="_blank">
                             <p>Print Selected Fencer's Barcodes</p>
-                            <img src="../assets/icons/barcode_black.svg"/>
+                           <img src="../assets/icons/barcode_black.svg"/>
                         </a>
                         <button type="button" class="stripe_button" onclick="window.print()" id="printRegistrationBt" shortcut="SHIFT+P">
                             <p>Print Registration</p>
-                            <img src="../assets/icons/print_black.svg"/>
+                            <img src="../asszets/icons/print_black.svg"/>
                         </button>
                         <form method="POST" action="">
                             <button type="submit" name="remove_fencer" class="stripe_button" shortcut="SHIFT+D" id="delete_fencer_button">
