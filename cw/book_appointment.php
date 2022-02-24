@@ -41,7 +41,7 @@ if (isset($_POST['submit_form'])) {
         foreach ($date as $time => $item) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
-
+			if ($time == "min_fencer") $go = false;
 			if ($flag) {
 				if (is_array($item)) {
 					echo "faszkivan";
@@ -66,7 +66,7 @@ if (isset($_POST['submit_form'])) {
 		}
 	} else {
 		echo "szar van a palacsinatban";
-		//header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");
+		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");
 		//header("Refresh: 0");
 	}
 
