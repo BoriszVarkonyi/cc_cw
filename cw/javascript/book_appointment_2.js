@@ -1,3 +1,4 @@
+/*
 var appointments = document.querySelectorAll(".appointment")
 var appointmentDetailInputs = document.querySelectorAll(".appointment_details input")
 var fencNumberInput = document.getElementById("fencerNumber")
@@ -22,7 +23,15 @@ appointmentDetailInputs.forEach(item => {
         }
     })
 })
+*/
+var fencNumberInput = document.getElementById("fencerNumber")
+var appointmentDetailInputs = document.querySelectorAll(".appointment_day .selected_start_time_input")
 
+appointmentDetailInputs.forEach(item => {
+    item.addEventListener("input", function () {
+        console.log(item.parentNode.querySelector("."))
+    })
+})
 
 function intToTime(num){
     var hour = parseInt(num/60)

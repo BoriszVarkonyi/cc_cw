@@ -147,7 +147,7 @@ function dealWithTime($string, $whattogive)
                                 <div>
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="f_nat" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt">
+                                        <input type="text" name="f_nat" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt">
                                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php include "../cc/includes/nations.php"; ?>
