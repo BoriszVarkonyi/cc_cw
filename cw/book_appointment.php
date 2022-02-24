@@ -184,9 +184,9 @@ function dealWithTime($string, $whattogive)
                     </div>
                 </div>
                 <p class="column_title centered">SELECT A SUITABLE APPOINTMENT</p>
+                <p class="column_subtitle centered">Available times:</p>
                 <div class="column_panel no_top collapsed" id="step2">
                     <div class="column">
-                        <b>Available times:</b>
                         <div id="availabe_times_wrapper">
 
                             <?php
@@ -194,7 +194,7 @@ function dealWithTime($string, $whattogive)
                             ?>
                                 <!-- ONE DAY -->
                                 <div class="appointment_day" id="day_<?php echo $day ?>">
-                                    <p><?php echo $day ?></p>
+                                    <p class="appointment_day_title"><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
                                     <div class="search_wrapper wide">
                                         <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
