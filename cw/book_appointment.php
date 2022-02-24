@@ -45,7 +45,6 @@ if (isset($_POST['submit_form'])) {
 			if ($time == "min_fencer") $go = false;
 			if ($flag && $day_flag) {
 				if (is_array($item)) {
-					echo "faszkivan";
 					$go = false;
 				}
 			}
@@ -63,10 +62,10 @@ if (isset($_POST['submit_form'])) {
 		$json_data = json_encode($appointments);
 		$update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
 		if (mysqli_query($connection, $update_qry)) {
-
+			header("Refresh: 0");
 		}
 	} else { //itt pattincsa ki ha nem megy a gos if
-		echo "szar van a palacsinatban";/*
+		/*
 		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");*/
 	}
 
@@ -92,7 +91,9 @@ function dealWithTime($string, $whattogive)
         return null;
     }
 }
-
+if (isset($_POST['undo_error'])) {
+	header("Refresh: 0");
+}
 ?>
 
 <!DOCTYPE html>
@@ -105,23 +106,23 @@ function dealWithTime($string, $whattogive)
     <title>Book Weapon Control Appointemnts</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
+    <link rel="stylesheet" href="../css/modal_style.min.css">
 </head>
 
 <body class="competitions">
     <?php
     if (isset($_POST['submit_form']) && !$go) {
         ?>
-        <div class="modal_wrapper hidden" id="modal_2">
+        <div class="modal_wrapper" id="modal_2">
             <div class="modal">
                 <div class="modal_header primary">
                     <p class="modal_title">Incorrect Weapon Control Booking</p>
                     <p class="modal_subtitle">Not enough time in selected period.</p>
                 </div>
                 <div class="modal_footer">
-                    <div class="modal_footer_content">
-                        <button class="modal_decline_button" onclick="toggleModal(2)">Go back</button>
-
-                    </div>
+                    <form method="POST" class="modal_footer_content">
+                        <button class="modal_decline_button" name="undo_error" type="submit">Go back</button>
+					</form>
                 </div>
             </div>
         </div>
@@ -138,7 +139,7 @@ function dealWithTime($string, $whattogive)
                 <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
-                    <button type="submit" class="modal_confirmation_button">Submit</button>
+                    <button type="submit" form="content_wrapper" name="submit_form" class="modal_confirmation_button" class="modal_confirmation_button">Submit</button>
                 </div>
             </div>
         </div>
@@ -295,7 +296,6 @@ function dealWithTime($string, $whattogive)
                     </div>
                 </div>
                 <div class="send_panel">
-                <button type="submit"  name="submit_form">TEST SUBMIT</button>
                     <button type="button" onclick="toggleModal(1)" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>
