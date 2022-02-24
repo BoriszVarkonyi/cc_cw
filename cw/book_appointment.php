@@ -23,10 +23,10 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if (isset($_POST['submit_form'])) {
-    $day_flag = false;
 	$go = true;
     foreach ($appointments as $key => $date) {
-
+		$go = true;
+		$day_flag = false;
         if (isset($_POST["time_$key"])) {
 			$day_flag = true;
 			$start_time = $_POST["time_" . $key];
@@ -41,6 +41,7 @@ if (isset($_POST['submit_form'])) {
         foreach ($date as $time => $item) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
+			if ($time == $start_time && $_POST["time_$key"] == $date) $flag = true;
 			if ($time == "min_fencer") $go = false;
 			if ($flag && $day_flag) {
 				if (is_array($item)) {
@@ -65,7 +66,7 @@ if (isset($_POST['submit_form'])) {
 
 		}
 	} else { //itt pattincsa ki ha nem megy a gos if
-		/*echo "szar van a palacsinatban";
+		echo "szar van a palacsinatban";/*
 		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");*/
 	}
 
@@ -184,7 +185,6 @@ function dealWithTime($string, $whattogive)
                     </div>
                 </div>
                 <p class="column_title centered">SELECT A SUITABLE APPOINTMENT</p>
-                <p class="column_subtitle centered">Available times:</p>
                 <div class="column_panel no_top collapsed" id="step2">
                     <div class="column">
                         <div id="availabe_times_wrapper">
@@ -196,7 +196,7 @@ function dealWithTime($string, $whattogive)
                                 <div class="appointment_day" id="day_<?php echo $day ?>">
                                     <p class="appointment_day_title"><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
-                                    <div class="search_wrapper wide">
+                                    <div class="search_wrapper wide appointment_select">
                                         <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
                                         <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
@@ -293,7 +293,7 @@ function dealWithTime($string, $whattogive)
                     </div>
                 </div>
                 <div class="send_panel">
-                <button type="submit"  name="submit_form">gge</button>
+                <button type="submit"  name="submit_form">TEST SUBMIT</button>
                     <button type="button" onclick="toggleModal(1)" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>

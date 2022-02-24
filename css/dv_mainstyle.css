@@ -1381,6 +1381,11 @@ article .info p {
 	margin-right: 6px;
 }
 
+.search_wrapper.appointment_select {
+	margin: 20px 0 !important;
+	z-index: 0;
+}
+
 /*
 .appointment_wrapper {
 	position: relative;
