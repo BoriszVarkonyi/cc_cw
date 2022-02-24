@@ -28,12 +28,12 @@
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="slides">
-                <img src="article_pics/slideshow_1.JPG" alt="slide_1" loading="lazy" class="slide">
-                <img src="article_pics/slideshow_2.JPG" alt="slide_2" loading="lazy" class="slide hidden">
-                <img src="article_pics/slideshow_3.JPG" alt="slide_3" loading="lazy" class="slide hidden">
-                <img src="article_pics/slideshow_4.JPG" alt="slide_4" loading="lazy" class="slide hidden">
-                <img src="article_pics/slideshow_5.JPG" alt="slide_5" loading="lazy" class="slide hidden">
-                <img src="article_pics/slideshow_6.JPG" alt="slide_6" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_1.jpg" alt="slide_1" loading="lazy" class="slide">
+                <img src="article_pics/slideshow_2.jpg" alt="slide_2" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_3.jpg" alt="slide_3" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_4.jpg" alt="slide_4" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_5.jpg" alt="slide_5" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_6.jpg" alt="slide_6" loading="lazy" class="slide hidden">
             </div>
             <p class="image_author">Pictures by: Zsolt Nekifor</p>
             <div id="shadow"></div>
