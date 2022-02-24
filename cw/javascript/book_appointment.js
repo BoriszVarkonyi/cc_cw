@@ -60,11 +60,10 @@ function bookAppointmentsFormValidation() {
         }
     }
     if (valid1 && valid2) {
-        console.log()
         //sendButton.disabled = false;
     }
     else {
-       // sendButton.disabled = true;
+        //sendButton.disabled = true;
     }
 }
 form.addEventListener("input", bookAppointmentsFormValidation)
