@@ -1,11 +1,11 @@
 <?php include "includes/get_comp_data.php"; ?>
-<?php include "./controllers/CompetitorController.php" ?>
+<?php //include "./controllers/CompetitorController.php" ?>
 
 <?php
 
 $comp_id = $_GET["comp_id"];
 
-$get_tourn_id = "SELECT * FROM competitions WHERE comp_id = $comp_id";
+$get_tourn_id = "SELECT ass_tournament_id FROM competitions WHERE comp_id = $comp_id";
 $get_tourn_id_do = mysqli_query($connection, $get_tourn_id);
 
 if ($row = mysqli_fetch_assoc($get_tourn_id_do)) {
@@ -17,15 +17,12 @@ $get_appointment_data = "SELECT * FROM tournaments WHERE id = $t_id";
 $get_appointment_data_do = mysqli_query($connection, $get_appointment_data);
 
 if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
-    json_decode($row['appointments']);
+    //json_decode($row['appointments']);
     $appointments = json_decode($row["appointments"]);
     $timetable_obj = json_decode($row['timetable']);
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if (isset($_POST['submit_form'])) {
-    //var_dump($_POST);
-
-    //die();
     $start_time = $_POST['time'];
 
     $day_flag = false;
@@ -40,12 +37,9 @@ if (isset($_POST['submit_form'])) {
         foreach ($date as $time => $item) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
-            //var_dump($flag);
-            //if(!empty($item)) continue;
-            // count((array)$item != 0)
-            if (is_array($item)) {
 
-                continue;
+            if (is_array($item)) {
+                header("Refresh: 0");
             }
 
             if ($flag === true) {
@@ -184,10 +178,17 @@ function dealWithTime($string, $whattogive)
                                     <p><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="f_nat" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
-                                        <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
+                                        <input type="text" name="time" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
+                                        <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
-                                            <a onclick="autoFill(this)">'. $code .'</a>
+											<?php
+												foreach ($value as $time => $array) {
+													if ($time != "min_fencer" && !is_array($array)) {
+											?>
+                                            <a onclick="autoFill(this)"><?php echo $time ?></a>
+											<?php
+												}}
+											?>
                                         </div>
                                     </div>
                                     <!-- min taken up by selexcted -->
