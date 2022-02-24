@@ -183,12 +183,11 @@ function dealWithTime($string, $whattogive)
                                 <div class="appointment_day" id="day_<?php echo $day ?>">
                                     <p><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
-                                    <input type="time" name="time" class="selected_start_time_input">
                                     <div class="search_wrapper wide">
                                         <input type="text" name="f_nat" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
                                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
-                                            <?php include "../cc/includes/nations.php"; ?>
+                                            <a onclick="autoFill(this)">'. $code .'</a>
                                         </div>
                                     </div>
                                     <!-- min taken up by selexcted -->
