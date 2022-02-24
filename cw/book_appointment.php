@@ -247,9 +247,11 @@ function dealWithTime($string, $whattogive)
 
                                                 for ($minute = 0; $minute < 60; $minute += $value->min_fencer) {
                                                     if (strlen($minute) == 1) {
-                                                        $foo = $minute;
                                                         $minute = 0 . $minute;
                                                     }
+													if (strlen($hour) == 1) {
+														$hour = 0 . $hour;
+													}
                                                     if (is_array($appointments->$day->{$hour . ":" . $minute})) {
                                                         $class = "red";
                                                     } else {
