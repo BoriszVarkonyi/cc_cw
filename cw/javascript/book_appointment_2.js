@@ -24,23 +24,16 @@ appointmentDetailInputs.forEach(item => {
     })
 })
 */
+/*
 var fencNumberInput = document.getElementById("fencerNumber")
 var appointmentDetailInputs = document.querySelectorAll(".appointment_day .selected_start_time_input")
 
-appointmentDetailInputs.forEach(item => {
-    item.addEventListener("input", function () {
-        console.log(item.parentNode.querySelector("."))
-    })
-})
 
 function intToTime(num){
     var hour = parseInt(num/60)
     var min = num - hour*60
     return hour + ":" + min;
 }
-
-
-
 
 
 function selectAppointment(x) {
@@ -68,5 +61,57 @@ function selectAppointment(x) {
     clickedAppointment.classList.add("selected")
     //Sets the innertext
     clickedAppointment.querySelector("div").innerText = "Selected"
+
+}
+
+*/
+
+var form = document.getElementById("content_wrapper");
+var inputs = form.querySelectorAll(".form_wrapper input");
+var sendButton = document.querySelector(".send_panel .send_button");
+var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
+var appointmentDetailInputs = document.querySelectorAll(".appointment_day .selected_start_time_input")
+var valid1 = false, valid2 = false;
+function bookAppointmentsFormValidation() {
+    var fencNumber = document.getElementById("fencerNumber");
+    if (fencNumber.value > 100 || fencNumber.value == 0) {
+        fencNumber.value = ""
+    }
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
+            //If it finds an empty input, then it disable the "Save" button.
+            step2.classList.add("collapsed")
+            valid1 = false;
+            break;
+        }
+        else {
+            //If everything has a value then it enable the "Save" Button. The user can save.
+            step2.classList.remove("collapsed")
+            valid1 = true;
+        }
+    }
+    for(i=0; i < appointmentDetailInputs.length; i++){
+        if(appointmentDetailInputs[i].value != ""){
+            var inputValue = appointmentDetailInputs[i].value
+            const regex = new RegExp('[0-9][0-9]:[0-9][0-9]')
+            if(regex.test(inputValue)){
+                valid2 = true;
+            }
+            else{
+                valid2 = false;
+            }
+        }
+        break;
+    }
+    if (valid1 && valid2) {
+        //sendButton.disabled = false;
+    }
+    else {
+       // sendButton.disabled = true;
+    }
+}
+form.addEventListener("input", bookAppointmentsFormValidation)
+
+function selectTime(x){
 
 }

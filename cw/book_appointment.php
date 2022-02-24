@@ -185,7 +185,7 @@ function dealWithTime($string, $whattogive)
 												foreach ($value as $time => $array) {
 													if ($time != "min_fencer" && !is_array($array)) {
 											?>
-                                            <a onclick="autoFill(this)"><?php echo $time ?></a>
+                                            <a onclick="selectTime(this)"><?php echo $time ?></a>
 											<?php
 												}}
 											?>
