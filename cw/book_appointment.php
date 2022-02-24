@@ -23,10 +23,10 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if (isset($_POST['submit_form'])) {
-    $day_flag = false;
 	$go = true;
     foreach ($appointments as $key => $date) {
-
+		$go = true;
+		$day_flag = false;
         if (isset($_POST["time_$key"])) {
 			$day_flag = true;
 			$start_time = $_POST["time_" . $key];
@@ -41,6 +41,7 @@ if (isset($_POST['submit_form'])) {
         foreach ($date as $time => $item) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
+			if ($time == $start_time && $_POST["time_$key"] == $date) $flag = true;
 			if ($time == "min_fencer") $go = false;
 			if ($flag) {
 				if (is_array($item)) {
@@ -65,7 +66,7 @@ if (isset($_POST['submit_form'])) {
 
 		}
 	} else { //itt pattincsa ki ha nem megy a gos if
-		/*echo "szar van a palacsinatban";
+		echo "szar van a palacsinatban";/*
 		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");*/
 	}
 
@@ -179,7 +180,7 @@ function dealWithTime($string, $whattogive)
                 </div>
 				<!-- iit az if kriskofszk -->
 				<?php
-				if (!$go) {
+				if (isset($go) && $go) {
 
 				}
 				?>
