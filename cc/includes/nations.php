@@ -254,7 +254,7 @@ $nations = [
 
 foreach ($nations as $code => $name) { //ha nevet kell kiirnija csak ird at name (Magyarorszag) re vagy code ra(3 betus fasz)
 
-echo '<a onclick="setNation(this)">'. $code .'</a>';
+echo '<a onclick="autoFill(this)">'. $code .'</a>';
 
 }
 
