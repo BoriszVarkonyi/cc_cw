@@ -71,7 +71,8 @@ var inputs = form.querySelectorAll(".form_wrapper input");
 var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
 var appointmentDetailInputs = document.querySelectorAll(".appointment_day .selected_start_time_input")
-var valid1 = false
+console.log(appointmentDetailInputs)
+var valid1 = false, valid2 = false;
 sendButton.disabled = true;
 function bookAppointmentsFormValidation() {
     valid2 = false;
@@ -93,17 +94,22 @@ function bookAppointmentsFormValidation() {
         }
     }
     for(i=0; i < appointmentDetailInputs.length; i++){
+        console.log(appointmentDetailInputs[i])
         if(appointmentDetailInputs[i].value != ""){
             var inputValue = appointmentDetailInputs[i].value
             const regex = new RegExp('[0-9][0-9]:[0-9][0-9]')
             if(regex.test(inputValue)){
+                var min = inputValue.slice(-2)
+                var hour = inputValue.slice(0,2)
+                if(min > -1 && min < 60 && hour > -1 && hour < 24){
                 valid2 = true;
+                }
             }
             else{
                 valid2 = false;
             }
+            break;
         }
-        break;
     }
     if (valid1 && valid2) {
         sendButton.disabled = false;
