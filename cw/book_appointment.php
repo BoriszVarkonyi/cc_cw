@@ -176,8 +176,6 @@ function dealWithTime($string, $whattogive)
                         <b>Available times:</b>
                         <div id="availabe_times_wrapper">
 
-
-
                             <?php
                             foreach ($appointments as $day => $value) {
                             ?>
@@ -185,8 +183,9 @@ function dealWithTime($string, $whattogive)
                                 <div class="appointment_day" id="day_<?php echo $day ?>">
                                     <p><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
+                                    <input type="time" name="time" class="selected_start_time_input">
                                     <!-- min taken up by selexcted -->
-                                    <input type="input" id="ati_<?php echo $day ?>" value="<?php echo $value->min_fencer ?>" hidden readonly>
+                                    <input type="input" id="minferncer_<?php echo $day ?>" value="<?php echo $value->min_fencer ?>" class="minfencer_input" hidden readonly>
                                     <?php /*
                                     foreach ($appointments->$day as $time => $foo) {
                                         if (is_array($foo)) {
@@ -204,7 +203,6 @@ function dealWithTime($string, $whattogive)
                                     } */ ?>
                                     <!-- ONE APPOINTMENT-->
 
-                                    <input type="time" name="time">
 
                                     <div class="appointment_table">
                                         <?php

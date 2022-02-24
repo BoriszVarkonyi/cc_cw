@@ -1304,15 +1304,14 @@ article .info p {
 /* Book appointment */
 
 #availabe_times_wrapper {
-	display: flex;
-	flex-direction: column;
 	margin-top: 5px;
-	align-items: center;
 }
 
+/*
 #availabe_times_wrapper input[type="radio"] {
 	display: none;
 }
+*/
 
 #availabe_times_wrapper > p {
 	margin-top: 10px;
@@ -1324,31 +1323,36 @@ article .info p {
 .appointment_row {
 	width: 100%;
 	display: flex;
-	margin: 6pt 0;
 	gap: 6pt;
+	flex-wrap: wrap;
+	border: 2pt solid var(--c-gray);
+	border-width: 2pt 0 0 0;
+	padding: 7px 0;
+	margin-bottom: 1rem;
 }
 
 .appointment {
-	width: 3vw;
-	height: 3vw;
-	aspect-ratio: 1 / 1;
+	width: clamp(1.5rem, 10vw, 2.5rem);
+	height: clamp(1.5rem, 10vw, 2.5rem);
+	aspect-ratio: 1;
 	font-size: var(--f-xsmall);
 	background: var(--c-lightergray);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	line-height: 1;
+	font-family: var(--bold);
+	border-radius: 5px;
 
 }
 
 .appointment.red {
-	background: var(--c-red);
+	background: var(--c-lightred);
 }
 
 .appointment.green {
-	background: var(--c-green);
+	background: var(--c-lightgreen);
 }
-
 
 /*
 .appointment_wrapper {
