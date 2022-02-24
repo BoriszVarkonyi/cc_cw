@@ -43,7 +43,7 @@ if (isset($_POST['submit_form'])) {
             if ($time == $start_time) $flag = true;
 			if ($time == $start_time && $_POST["time_$key"] == $date) $flag = true;
 			if ($time == "min_fencer") $go = false;
-			if ($flag) {
+			if ($flag && $day_flag) {
 				if (is_array($item)) {
 					echo "faszkivan";
 					$go = false;
@@ -108,31 +108,37 @@ function dealWithTime($string, $whattogive)
 </head>
 
 <body class="competitions">
+    <?php
+    if (isset($_POST['submit_form']) && !$go) {
+        ?>
+        <div class="modal_wrapper hidden" id="modal_2">
+            <div class="modal">
+                <div class="modal_header primary">
+                    <p class="modal_title">Incorrect Weapon Control Booking</p>
+                    <p class="modal_subtitle">Not enough time in selected period.</p>
+                </div>
+                <div class="modal_footer">
+                    <div class="modal_footer_content">
+                        <button class="modal_decline_button" onclick="toggleModal(2)">Go back</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
     <div class="modal_wrapper hidden" id="modal_1">
         <div class="modal">
             <div class="modal_header primary">
                 <p class="modal_title">Are you sure you want to send Weapon Control appointment booking with the following information?</p>
                 <p class="modal_subtitle">Please recheck the informations you given before submitting!</p>
             </div>
-            <div class="modal_main">
-                <p class="modal_main_title big primary margin_bottom">Competition you selected:</p>
-                <p class="modal_paragraph">compname</p>
-                <p class="modal_paragraph">comp date</p>
-                <p class="modal_paragraph">w type</p>
-                <p class="modal_paragraph">w type</p>
-                <p class="modal_main_title big primary margin_bottom">Information you given:</p>
-                <p class="modal_main_title">FEDERATION'S NAME</p>
-                <p class="modal_paragraph">FED NAME</p>
-                <p class="modal_main_title">FEDERATION'S OFFICAL EMAIL ADDRESS</p>
-                <p class="modal_paragraph">g</p>
-                <p class="modal_main_title">NUMBER OF FENCERS</p>
-                <p class="modal_paragraph">grg</p>
-            </div>
             <div class="modal_footer">
                 <p class="modal_footer_text">This change cannot be undone.</p>
                 <div class="modal_footer_content">
                     <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
-                    <button type="submit" form="" class="">Submit</button>
+                    <button type="submit" class="modal_confirmation_button">Submit</button>
                 </div>
             </div>
         </div>
@@ -149,7 +155,7 @@ function dealWithTime($string, $whattogive)
                 </h1>
             </div>
             <form id="content_wrapper" method="POST" action="">
-                <p class="column_title centered">Needed Information: (STEP 1 / 2)</p>
+                <p class="column_title centered">Needed Information:</p>
                 <div id="step1" class="column_panel no_top">
                     <div>
                         <div class="form_wrapper">
@@ -296,7 +302,7 @@ function dealWithTime($string, $whattogive)
                     </div>
                 </div>
                 <div class="send_panel">
-                    <button type="submit" name="submit_form">Submit button working</button>
+                <button type="submit"  name="submit_form">gge</button>
                     <button type="button" onclick="toggleModal(1)" class="send_button">Send Appointment Booking</button>
                 </div>
             </form>
