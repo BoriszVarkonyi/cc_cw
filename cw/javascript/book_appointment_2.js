@@ -113,5 +113,7 @@ function bookAppointmentsFormValidation() {
 form.addEventListener("input", bookAppointmentsFormValidation)
 
 function selectTime(x){
-
+    var input = x.parentNode.previousElementSibling.previousElementSibling;
+    input.value = x.innerHTML;
+    bookAppointmentsFormValidation();
 }
