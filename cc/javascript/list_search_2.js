@@ -25,6 +25,7 @@ var tempArray = []
 
 var test = document.querySelectorAll('tbody tr > td:not(td.square):not(td.small)');
 var tr = document.querySelectorAll('tbody tr')
+console.log(test)
 
 for (i = 0; i < searches.length; i++) {
     tempArray = []
@@ -52,8 +53,9 @@ var hasAdded = false;
 function searchInLists() {
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
-        if (previousSearches[j] != searches[j].value || j == 0) {
+        if (previousSearches[j] != searches[j].value || j == 0 || searches[j].value != "") {
             previousSearches[j] = searches[j].value
+            console.log(j)
             var filter = searches[j].value.toUpperCase();
             //Loops throught the rows
             for (i = 0; i < database[j].length; i++) {

@@ -13,8 +13,8 @@ if (isset($_POST["barcode"])) {
 }
 
     //create table
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NULL DEFAULT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NULL DEFAULT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_create_table = mysqli_query($connection, $qry_create_table);
+    /*$qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NULL DEFAULT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NULL DEFAULT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $do_create_table = mysqli_query($connection, $qry_create_table);*/
 
     //test for fencers from this comp in the database
     $qry_test = "SELECT `assoc_comp_id` FROM `weapon_control` WHERE `assoc_comp_id` LIKE '$comp_id,' LIMIT 1;";

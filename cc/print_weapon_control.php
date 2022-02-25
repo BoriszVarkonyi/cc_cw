@@ -3,6 +3,70 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
+<?php
+    $comp_id = filter_input(INPUT_GET, 'comp_id', FILTER_SANITIZE_NUMBER_INT) ?? 0;
+    $qry_fencers = "SELECT fencer_id, issues_array, notes FROM weapon_control WHERE assoc_comp_id = $comp_id";
+    $do_fencers = mysqli_query($connection, $qry_fencers);
+    $fencers = array();
+    while($row = mysqli_fetch_assoc($do_fencers)) {
+        array_push($fencers, $row);
+    }
+
+    $qry_competitiors = "SELECT data FROM competitors WHERE assoc_comp_id = $comp_id";
+    $do_competitors = mysqli_query($connection, $qry_competitiors);
+    if($row = mysqli_fetch_assoc($do_competitors)) {
+        $competitors = json_decode($row['data']);
+    }
+
+    function findNameById($competitors, $id) {
+        foreach($competitors as $competitor) {
+            if($competitor->id == $id) {
+                return $competitor->nom . " " . $competitor->prenom;
+            }
+        }
+        return "$id";
+    }
+
+    $issue_names = array(
+        "FIE mark on blade",
+        "Arm gap and weight",
+        "Arm lenght",
+        "Blade lenght",
+        "Grip lenght",
+        "Form and depth of the guard",
+        "Guard oxydation/ deformation",
+        "Excentricity of the blade",
+        "Blade flexibility",
+        "Curve on the blade",
+        "Foucault current device",
+        "point and arm size",
+        "spring of the point",
+        "total travel of the point",
+        "residual travel of the point",
+        "isolation of the point",
+        "resistance of the arm",
+        "length/ condition of body/ mask wire",
+        "resistance of body/ mask wire",
+        "mask: FIE mark",
+        "mask: condition and insulation",
+        "mask: resistance (sabre, foil)",
+        "metallic jacket condition",
+        "metallic jacket resistance",
+        "sabre glove/ overlay condition",
+        "sabre glove/ overlay resistance",
+        "glove condition",
+        "jacket condition",
+        "breeches condition",
+        "under-plastron condition",
+        "foil chest protector",
+        "socks",
+        "incorrect name printing",
+        "incorrect national logo",
+        "commercial",
+        "other items",
+    );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,9 +111,9 @@
                 </div>
             </div>
             <div id="page_content_panel_main" class="loose">
-
+            <?php foreach($fencers as $fencer) : ?>
                 <div class="paper">
-                    <p class="print_title">{Fencer name}'s Weapon Control</p>
+                    <p class="print_title"><?php echo findNameById($competitors, $fencer['fencer_id']) ?>'s Weapon Control</p>
                     <table class="small">
                         <thead>
                             <tr>
@@ -62,55 +126,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <p>{ISSUE NAME}</p>
-                                </td>
-                                <td>
-                                    <p>{ISSUE quantity}</p>
-                                </td>
-                            </tr>
+                            <?php if(isset($fencer['issues_array'])) : ?>
+                                <?php foreach(json_decode($fencer['issues_array']) as $i => $issue) : ?>
+                                    <tr>
+                                        <td>
+                                            <p><?php echo $issue_names[$i] ?></p>
+                                        </td>
+                                        <td>
+                                            <p><?php echo $issue ?></p>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            <?php else : ?>
+                                <tr>
+                                    <td colspan="2">Nothing found!</td>
+                                </tr>
+                            <?php endif ?>
                         </tbody>
                     </table>
-                    <p class="print_title">Notes given by Weapon Control</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia
-                        numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus
-                            voluptatem veniam iste accusantium quasi.</p>
+                    <?php if(isset($fencer['notes']) && strlen($fencer['notes']) > 0) : ?>
+                        <p class="print_title">Notes given by Weapon Control</p>
+                        <p><?php echo $fencer['notes'] ?></p>
+                    <?php else : ?>
+                        <p class="print_title">No notes were given by Weapon Control</p>
+                    <?php endif ?>
                 </div>
-
-                <div class="paper">
-                    <p class="print_title">{Fencer name}'s Weapon Control</p>
-                    <table class="small">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <p>ISSUE</p>
-                                </th>
-                                <th>
-                                    <p>QUANTITY</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>{ISSUE NAME}</p>
-                                </td>
-                                <td>
-                                    <p>{ISSUE quantity}</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="print_title">Notes given by Weapon Control</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus consequatur dolorum cum impedit officia
-                        numquam error dignissimos officiis consectetur odio distinctio labore inventore repellat, necessitatibus
-                            voluptatem veniam iste accusantium quasi.</p>
-                </div>
-
-
-
-                </div>
+            <?php endforeach ?>
             </div>
         </main>
     </div>

@@ -46,12 +46,31 @@ if (isset($_POST["new_weapon_control"])) {
     $exact_date = $_POST["date_to_select"];
     $min_fencer = $_POST["min_fencer"];
 
+    //update timetable with st and ed
+    $get_timet_info = "SELECT * FROM tournaments WHERE id = $t_id";
+    $get_timet_info_do = mysqli_query($connection, $get_timet_info);
+
+    if ($row = mysqli_fetch_assoc($get_timet_info_do)) {
+
+        $dates = json_decode($row["timetable"]);
+    }
+    $st_id = $exact_date . "_st";
+    $ed_id = $exact_date . "_ed";
+    $dates->$st_id = $st;
+    $dates->$ed_id = $ed;
+
+    var_dump($dates);
+
+    //updatedb
+    $string = json_encode($dates);
+    $qry_update = "UPDATE tournaments SET timetable = '$string' WHERE id = '$t_id'";
+    $do_upadte = mysqli_query($connection, $qry_update);
 
     $period = new DatePeriod(
 
         new DateTime($st . ':00'),
-        new DateInterval('PT1H'),
-        new DateTime(date('H:i', strtotime($ed . ':00' . "+1 hours")))
+        new DateInterval('PT' . $min_fencer . "M"),
+        new DateTime(date('H:i', strtotime($ed . ':00')))
 
 
     );
@@ -71,7 +90,7 @@ if (isset($_POST["new_weapon_control"])) {
     $qry_update_appointments = "UPDATE tournaments SET appointments = '$appointments' WHERE id = $t_id";
     $qry_update_appointments_do = mysqli_query($connection, $qry_update_appointments);
 
-    header("Location: tournament_timetable.php?t_id=$t_id");
+    //header("Location: tournament_timetable.php?t_id=$t_id");
 }
 
 ?>

@@ -1,4 +1,5 @@
 var appointments = document.querySelectorAll(".appointment")
+console.log(appointments)
 function selectAppointment(x) {
     var clickedAppointment = x
     //Removes all class, sets the innertext
@@ -30,7 +31,7 @@ var inputs = form.querySelectorAll(".form_wrapper input");
 var sendButton = document.querySelector(".send_panel .send_button");
 var opitons = form.querySelectorAll("#availabe_times_wrapper  input");
 var valid1 = false, valid2 = false;
-sendButton.disabled = true;
+//sendButton.disabled = true;
 function bookAppointmentsFormValidation() {
     var fencNumber = document.getElementById("fencerNumber");
     if (fencNumber.value > 100 || fencNumber.value == 0) {
@@ -59,10 +60,10 @@ function bookAppointmentsFormValidation() {
         }
     }
     if (valid1 && valid2) {
-        sendButton.disabled = false;
+        //sendButton.disabled = false;
     }
     else {
-        sendButton.disabled = true;
+        //sendButton.disabled = true;
     }
 }
 form.addEventListener("input", bookAppointmentsFormValidation)
@@ -86,13 +87,13 @@ fencNumberInput.addEventListener("input", function () {
                 appointmentsDivs[k].style.display = "block";
             }
         }
+
         for (k = 0; k < appointmentsDivs.length; k++) {
             var allHidden = false;
             if (appointmentsDivs[k].style.display == "none") {
                 allHidden = true;
             }
             else {
-                console.log()
                 allHidden = false;
                 break;
             }

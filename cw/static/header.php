@@ -1,6 +1,6 @@
 <header>
     <div>
-        <a href="index.php" id="app_name">CompetitionView</a>
+        <a href="index.php" id="app_name">d'Artganan View</a>
     </div>
     <nav id="desktop">
         <div>

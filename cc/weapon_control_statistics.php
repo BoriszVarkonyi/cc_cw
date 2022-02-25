@@ -341,7 +341,9 @@
                                 </thead>
                                 <tbody class="alt">
                                     <?php
+                                        $empty = true;
                                         foreach ($assoc_sorted_issues_array as $key => $value) {
+                                        $empty = false;
                                     ?>
                                     <tr>
                                         <td>
@@ -353,6 +355,16 @@
                                     </tr>
                                     <?php
                                         }
+                                        if ($empty)  {?>
+
+                                    <tr>
+                                        <td colspan="2">
+                                            <p>No known issues yet!</p>
+                                        </td>
+                                    </tr>
+
+
+                                        <?php }
                                     ?>
                                 </tbody>
                             </table>
@@ -374,10 +386,12 @@
                                 </thead>
                                 <tbody class="alt">
                                     <?php
+                                        $empty = true;
                                         $qry_select_notes = "SELECT `notes`, `fencer_id` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id' AND notes != ''";
                                         $do_select_notes = mysqli_query($connection, $qry_select_notes);
                                         echo mysqli_error($connection);
                                         while ($row = mysqli_fetch_assoc($do_select_notes)) {
+                                            $empty = false;
                                             $note_fencer_id = $row['fencer_id'];
                                             $notes = $row["notes"];
 
@@ -389,7 +403,18 @@
                                     </tr>
                                     <?php
                                         }
-                                    ?>
+                                        if ($empty) { ?>
+
+                                        <tr>
+                                            <td>
+                                                <p>No notes yet!</p>
+                                            </td>
+                                        </tr>
+
+
+
+                                        <?php } ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -538,7 +563,9 @@
                             </thead>
                             <tbody class="alt">
                                     <?php
+                                        $empty = true;
                                         foreach ($assoc_sorted_issues_array as $key => $value) {
+                                        $empty = false;
                                     ?>
                                     <tr>
                                         <td>
@@ -550,6 +577,16 @@
                                     </tr>
                                     <?php
                                         }
+                                        if ($empty)  {?>
+
+                                    <tr>
+                                        <td colspan="2">
+                                            <p>No known issues yet!</p>
+                                        </td>
+                                    </tr>
+
+
+                                        <?php }
                                     ?>
                                 </tbody>
                         </table>
@@ -566,10 +603,12 @@
                             </thead>
                             <tbody class="alt">
                                     <?php
+                                        $empty = true;
                                         $qry_select_notes = "SELECT `notes`, `fencer_id` FROM `weapon_control` WHERE `assoc_comp_id` = '$comp_id' AND notes != ''";
                                         $do_select_notes = mysqli_query($connection, $qry_select_notes);
                                         echo mysqli_error($connection);
                                         while ($row = mysqli_fetch_assoc($do_select_notes)) {
+                                            $empty = false;
                                             $note_fencer_id = $row['fencer_id'];
                                             $notes = $row["notes"];
 
@@ -581,7 +620,18 @@
                                     </tr>
                                     <?php
                                         }
-                                    ?>
+                                        if ($empty) { ?>
+
+                                        <tr>
+                                            <td>
+                                                <p>No notes yet!</p>
+                                            </td>
+                                        </tr>
+
+
+
+                                        <?php } ?>
+
                                 </tbody>
                         </table>
                     </div>

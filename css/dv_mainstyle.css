@@ -1,5 +1,5 @@
 /* 	Universal */
-
+/*fasz*/
 :root {
 	--c-primary: #00768b;
 	--c-lightprimary: #3391a2;
@@ -36,10 +36,10 @@ strong.green {
 
 main {
 	width: 100%;
-	min-height: calc(100vh - 50px);
+	min-height: calc(100vh - 2.4rem);
 	z-index: 0;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 2.4rem;
 }
 
 main.full {
@@ -295,7 +295,7 @@ footer {
 header {
 	width: 100vw;
 	max-width: calc(100vw - 9px);
-	height: 50px;
+	height: 2.4rem;
 	box-sizing: border-box;
 	background: linear-gradient(90deg, var(--c-primary) 0,var(--c-secondary) 100%);
 	z-index: 2;
@@ -562,7 +562,7 @@ nav#mobile {
 	left: 0;
 	width: 100vw;
 	position: absolute;
-	top: 50px;
+	top: 2.4rem;
 	background: rgba(37, 37, 37, .9);
 	height: 100vh;
 	max-height: 0;
@@ -581,7 +581,7 @@ nav#mobile {
 }
 
 nav#mobile.opened {
-	max-height: calc(100vh - 50px);
+	max-height: calc(100vh - 2.4rem);
 }
 
 nav#mobile > div {
@@ -671,8 +671,19 @@ footer > div > div:nth-of-type(2) > a, footer > div > div:nth-of-type(3) > a {
 }
 
 .column_title.centered {
-	margin: 20px 0 10px;
+	margin: 20px 0 0;
 	justify-content: center;
+}
+
+.column_subtitle {
+	font-family: var(--bold);
+	font-size: var(--f-medium);
+	margin-bottom: 20px;
+}
+
+.column_subtitle.centered {
+	text-align: center;
+	margin: 0 0 10px;
 }
 
 .table_item.live {
@@ -1304,18 +1315,82 @@ article .info p {
 /* Book appointment */
 
 #availabe_times_wrapper {
-	display: flex;
-	flex-direction: column;
 	margin-top: 5px;
-	align-items: center;
 }
 
-#availabe_times_wrapper input {
+/*
+#availabe_times_wrapper input[type="radio"] {
 	display: none;
 }
+*/
 
 #availabe_times_wrapper > p {
 	margin-top: 10px;
+}
+
+.appointment_table {
+}
+
+.appointment_row {
+	width: 100%;
+	display: flex;
+	gap: 6pt;
+	flex-wrap: wrap;
+	border: 2pt solid var(--c-gray);
+	border-width: 2pt 0 0 0;
+	padding: 7px 0;
+	margin-bottom: 1rem;
+}
+
+.appointment {
+	width: clamp(1.5rem, 10vw, 2.5rem);
+	height: clamp(1.5rem, 10vw, 2.5rem);
+	aspect-ratio: 1;
+	font-size: var(--f-xsmall);
+	background: var(--c-lightergray);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	font-family: var(--bold);
+	border-radius: 5px;
+
+}
+
+.appointment.red {
+	background: var(--c-lightred);
+}
+
+.appointment.green {
+	background: var(--c-lightgreen);
+}
+
+.appointment_day_title {
+	font-size: var(--f-large);
+	text-decoration: underline;
+	font-family: var(--bold);
+	display: flex;
+	align-items: center;
+}
+
+.appointment_day_title::before {
+	content: '';
+	width: var(--f-large);
+	height: var(--f-large);
+	background: var(--c-black);
+	margin-right: 6px;
+}
+
+.search_wrapper.appointment_select {
+	margin: 20px 0 !important;
+	z-index: 0;
+}
+
+/*
+.appointment_wrapper {
+	position: relative;
+	box-shadow: var(--s-black);
+	display: flex;
 }
 
 .appointment {
@@ -1326,6 +1401,11 @@ article .info p {
 	margin: 3px 0;
 	transition: all var(--t-basic);
 	cursor: pointer;
+}
+
+
+.appointment_details {
+	background-color: var(--c-white);
 }
 
 input[type="radio"]:checked + label .appointment {
@@ -1363,6 +1443,8 @@ input[type="radio"]:checked + label .appointment {
 	font-family: var(--bold);
 	text-transform: none;
 }
+
+*/
 
 #matches_wrapper {
 	width: 100%;
@@ -1529,4 +1611,9 @@ input[type="radio"]:checked + label .appointment {
 #wc_status {
 	font-size: var(--f-large);
 	margin: 10px 0 0;
+}
+
+.step_title {
+	font-size: var(--f-large);
+	color: var(--c-primary);
 }

@@ -170,8 +170,14 @@
                     $qry_update = "UPDATE competitors SET data = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
                     $do_update = mysqli_query($connection, $qry_update);
                     echo mysqli_error($connection);
-
+s
                     header("Refresh: 0");
+                }
+
+                if (isset($_POST['print_selected_fencer'])) {
+
+                    $fencer_id = $_POST['fencer_ids'];
+                    header("Location: /cc/print_barcodes.php?comp_id=$comp_id&fencer_id=$fencer_id");
                 }
             ?>
                 <div id="title_stripe">
@@ -185,11 +191,20 @@
                             <p>Print Barcodes</p>
                             <img src="../assets/icons/barcode_black.svg"/>
                         </a>
+                        <button type="submit" name="print_selected_fencer" form="foo" class="stripe_button" id="" shortcut="SHIFT+P"  target="_blank">
+                            <p>Print Selected Fencer's Barcodes</p>
+<<<<<<< HEAD
+                           <img src="../assets/icons/barcode_black.svg"/>
+                        </a>
+=======
+                            <img src="../assets/icons/barcode_black.svg"/>
+                        </button>
+>>>>>>> db0ddd7aa3dfa2217dffd2c915d03d952b18d77b
                         <button type="button" class="stripe_button" onclick="window.print()" id="printRegistrationBt" shortcut="SHIFT+P">
                             <p>Print Registration</p>
-                            <img src="../assets/icons/print_black.svg"/>
+                            <img src="../asszets/icons/print_black.svg"/>
                         </button>
-                        <form method="POST" action="">
+                        <form method="POST" id="foo" action="">
                             <button type="submit" name="remove_fencer" class="stripe_button" shortcut="SHIFT+D" id="delete_fencer_button">
                                 <p>Remove Fencer</p>
                                 <img src="../assets/icons/person_remove_black.svg"/>
