@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CompetitionView</title>
+    <title>d'Artagnan View</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
     <link rel="stylesheet" href="../css/homepage_style.min.css">
@@ -19,8 +19,7 @@
     <main>
         <div id="slideshow">
             <div id="slideshow_content">
-                <!-- Beta fos -->
-                <p id="slideshow_title">CHECK COMPETITIONS</p>
+                <p id="slideshow_title">D'ARTAGNAN VIEW</p>
             </div>
             <button class="slideshow_navigation_button left" aria-label="Slideshow go left" onclick="slideToLeft()">
                 <img src="../assets/icons/chevron_left_black.svg" alt="Slideshow go left">
@@ -29,17 +28,22 @@
                 <img src="../assets/icons/chevron_right_black.svg" alt="Slideshow go right">
             </button>
             <div id="slides">
-                <img src="article_pics/kovi1.jpg" alt="slide_1" class="slide">
-                <img src="article_pics/borisz1.jpg" alt="slide_2" class="slide hidden">
-                <img src="article_pics/atylla1.jpg" alt="slide_3" class="slide hidden">
-                <img src="article_pics/kris1.jpg" alt="slide_4" class="slide hidden">
+                <img src="article_pics/slideshow_1.jpg" alt="slide_1" loading="lazy" class="slide">
+                <img src="article_pics/slideshow_2.jpg" alt="slide_2" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_3.jpg" alt="slide_3" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_4.jpg" alt="slide_4" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_5.jpg" alt="slide_5" loading="lazy" class="slide hidden">
+                <img src="article_pics/slideshow_6.jpg" alt="slide_6" loading="lazy" class="slide hidden">
             </div>
+            <p class="image_author">Pictures by: Zsolt Nekifor</p>
             <div id="shadow"></div>
             <div id="slide_indicator">
                 <button onclick="jumpToSlide(1)" aria-label="Jump to Slide 1" class="current"></button>
                 <button onclick="jumpToSlide(2)" aria-label="Jump to Slide 2"></button>
                 <button onclick="jumpToSlide(3)" aria-label="Jump to Slide 3"></button>
                 <button onclick="jumpToSlide(4)" aria-label="Jump to Slide 4"></button>
+                <button onclick="jumpToSlide(5)" aria-label="Jump to Slide 5"></button>
+                <button onclick="jumpToSlide(6)" aria-label="Jump to Slide 6"></button>
             </div>
         </div>
         <div id="content">
