@@ -130,6 +130,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                         //A selected button egy atalakitott radiobutton (INPUT)
                                         //Ha abba az órába nem fér bele az a szövi, folytassa a következő órában
                                         
+                                        $counter = 0;
 
                                         foreach ($dates as $hourkeys => $hours) {
 
@@ -166,6 +167,9 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
                                                 </label>
                                             </div>
                                         <?php
+
+                                            $counter++;
+
                                         }
 
                                         ?>
