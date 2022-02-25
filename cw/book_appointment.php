@@ -152,7 +152,7 @@ if (isset($_POST['undo_error'])) {
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
-                    Book Weapon Control Appointments for <?php echo $comp_name ?>
+                    Book Weapon Control Appointments as Teams for <?php echo $comp_name ?>
                 </h1>
             </div>
             <form id="content_wrapper" method="POST" action="">
@@ -175,17 +175,25 @@ if (isset($_POST['undo_error'])) {
                                     <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
                                     <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                                 </div>
-                            </div>
-                            <div>
                                 <div>
                                     <label>NUMBER OF FENCERS</label>
                                     <input type="number" name="num_fencers" class="number_input centered alt" placeholder="#" id="fencerNumber">
                                 </div>
                             </div>
+                            <div>
+                                <div>
+                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 1:</p>
+                                    <p>FILL IN THE FEDERATIONS DATA</p>
+                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 2:</p>
+                                    <p>FILL IN THE NUMBER OF FENCERS OF YOUR FEDERATION THAT WILL TAKE PART IN THE COMPETITION</p>
+                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 3:</p>
+                                    <p>SELECT A SUITABLE AND AVAILABLE TIME FOR YOUR WEAPON CONTROL</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <p class="column_title centered">SELECT A SUITABLE APPOINTMENT</p>
+                <p class="column_title centered">SELECT A SUITABLE APPOINTMENT FOR YOUR TEAM</p>
                 <div class="column_panel no_top collapsed" id="step2">
                     <div class="column">
                         <div id="availabe_times_wrapper">
