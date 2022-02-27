@@ -95,7 +95,7 @@
                         <img src="../assets/icons/chat_black.svg"/>
                     </button>
                     <button class="stripe_button" type="button" onclick="window.print()">
-                        <p>Print Weapon Control</p>
+                        <p>Print Weapon Control List</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
 

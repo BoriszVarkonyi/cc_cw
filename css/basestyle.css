@@ -762,23 +762,26 @@ input[type="time"] {
 	border-radius: 5px;
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height var(--t-basic), padding var(--t-basic), opacity var(--t-basic);
+	transition: max-height var(--t-basic), padding var(--t-basic), opacity var(--t-basic), margin-bottom var(--t-basic);
 	font-size: var(--f-small);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 200px;
 	opacity: 0;
-	position: absolute;
-	bottom: 100%;
-	left: 50%;
-	transform: translateX(-50%);
+	max-width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	box-shadow: var(--s-black);
 }
 
 .search_panel.option {
 	background: var(--c-white);
 	padding: 0;
 	flex-direction: column;
+	position: relative;
+	opacity: 0;
+	width: 160px;
 }
 
 .search_panel .search {
@@ -811,12 +814,13 @@ input[type="time"] {
 }
 
 .search_panel > .option_container label {
-	margin-bottom: 3px !important;
+	margin-bottom: 0px !important;
 }
 
 .search_panel_buttons {
 	display: flex;
-	margin-bottom: 3px;
+	position: absolute;
+	left: 5px;
 }
 
 .search_panel_buttons button {
@@ -841,11 +845,13 @@ input[type="time"] {
 .search_panel.opened {
 	max-height: 50px;
 	opacity: 1;
+	margin-bottom: 10px;
 }
 
 .search_panel.option.opened {
 	padding: 10px 0;
 	max-height: 150px;
+	margin-bottom: 10px;
 }
 
 .search.select {
@@ -1101,11 +1107,16 @@ tbody.no_scale tr.selected {}
 th {
 	font-weight: normal !important;
 	position: relative;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
 	background-color: var(--c-lightprimary);
 	padding: 5px 0;
+}
+
+@supports (position: sticky) or (position: -webkit-sticky) {
+	th {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+	}
 }
 
 /* Rounded Corners on the tables top left */

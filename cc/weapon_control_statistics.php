@@ -329,7 +329,7 @@
                         </div>
                         <div class="db_panel_main small">
                             <table class="no_interaction">
-                                <thead>
+                                <thead class="no_stick">
                                     <tr>
                                         <th>
                                             <p>ISSUE NAME</p>
@@ -377,7 +377,7 @@
                         </div>
                         <div class="db_panel_main small">
                             <table class="no_interaction">
-                                <thead>
+                                <thead class="no_stick">
                                     <tr>
                                         <th>
                                             <p>NOTE</p>
@@ -551,7 +551,7 @@
                     <div>
                         <p class="print_title">Most to least common equipment issue</p>
                         <table>
-                            <thead>
+                            <thead class="no_stick">
                                 <tr>
                                     <th>
                                         <p>ISSUE NAME</p>
@@ -594,7 +594,7 @@
                     <div>
                         <p class="print_title">All additional notes on weapon controls</p>
                         <table>
-                            <thead>
+                            <thead class="no_stick">
                                 <tr>
                                     <th>
                                         <p>NOTE</p>

@@ -74,7 +74,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Print Weapon Control</title>
+    <title>Print Weapon Control Reports</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/print_style.min.css" media="print">
@@ -91,16 +91,16 @@
             <div id="title_stripe">
                 <p class="page_title">Print Match Reports</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button bold" onclick="window.close()" shortcut="SHIFT+C">
-                        <p>Close Page</p>
+                    <a class="stripe_button bold" shortcut="SHIFT+C" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id; ?>">
+                        <p>Back to Weapon Control</p>
                         <img src="../assets/icons/close_black.svg" />
-                    </button>
+                    </a>
                     <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
                         <p>Print</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
                 </div>
-
+                <!--
                 <div class="view_button_wrapper first">
                     <button onclick="zoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out_black.svg" />
@@ -109,13 +109,14 @@
                         <img src="../assets/icons/zoom_in_black.svg" />
                     </button>
                 </div>
+                -->
             </div>
             <div id="page_content_panel_main" class="loose">
             <?php foreach($fencers as $fencer) : ?>
                 <div class="paper">
                     <p class="print_title"><?php echo findNameById($competitors, $fencer['fencer_id']) ?>'s Weapon Control</p>
-                    <table class="small">
-                        <thead>
+                    <table class="small no_interaction">
+                        <thead class="no_stick">
                             <tr>
                                 <th>
                                     <p>ISSUE</p>
