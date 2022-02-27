@@ -1095,11 +1095,14 @@ thead tr:hover {
 
 /* Table Row Group */
 
+/*
 tbody {}
+*/
 
 /* Selected rows are not scaled up visually */
+/*
 tbody.no_scale tr.selected {}
-
+*/
 
 
 /* Table Headers */
@@ -1176,9 +1179,11 @@ tr.disqualified.selected td:first-child {
 
 /* Table Items */
 
+/*
 td {
-	/*border: 1.5px solid var(--c-lightgray);*/
+	border: 1.5px solid var(--c-lightgray);
 }
+*/
 
 /* Makes the text bold */
 td.bold {
