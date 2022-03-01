@@ -25,7 +25,6 @@ var tempArray = []
 
 var test = document.querySelectorAll('tbody tr > td:not(td.square):not(td.small)');
 var tr = document.querySelectorAll('tbody tr')
-console.log(test)
 
 for (i = 0; i < searches.length; i++) {
     tempArray = []
@@ -48,15 +47,19 @@ for (i = 0; i < tr.length; i++) {
 }
 database.push(tempArray)
 
+console.log(database)
+
 
 var hasAdded = false;
+let timer;              // Timer identifier
+const waitTime = 500;   // Wait time in milliseconds 
 function searchInLists() {
     //Makes the search for every search input. Creates a filter effect
     for (j = 0; j < searches.length; j++) {
         if (previousSearches[j] != searches[j].value || j == 0 || searches[j].value != "") {
             previousSearches[j] = searches[j].value
-            console.log(j)
             var filter = searches[j].value.toUpperCase();
+            console.log(database[j].length)
             //Loops throught the rows
             for (i = 0; i < database[j].length; i++) {
                 if (database[database.length - 1][i] || j == 0) {
@@ -65,56 +68,61 @@ function searchInLists() {
                     //if the input is a radio button the search is stricter
                     if (searches[j].parentNode.parentNode.classList.contains("option")) {
                         if (txtValue.toUpperCase().indexOf(filter) > -1 && txtValue.toUpperCase().indexOf(filter) < 1) {
-                            document.getElementById(database[database.length - 2][i]).classList.remove("hidden")
                             database[database.length - 1][i] = true
                         } else {
-                            document.getElementById(database[database.length - 2][i]).classList.add("hidden")
                             database[database.length - 1][i] = false
                         }
                     }
                     else {
                         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            document.getElementById(database[database.length - 2][i]).classList.remove("hidden")
                             database[database.length - 1][i] = true
                         } else {
-                            document.getElementById(database[database.length - 2][i]).classList.add("hidden")
                             database[database.length - 1][i] = false
                         }
                     }
                 }
-
             }
-
-            //If there is the no search found row it removes the hidden class
-            var emptyRow = document.getElementById("emptyRow")
-            if (emptyRow != null) {
-                emptyRow.classList.remove("hidden")
+        }
+    }
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        for (i = 0; i < database[0].length; i++) {
+            if (database[database.length - 1][i]) {
+                document.getElementById(database[database.length - 2][i]).classList.remove("hidden")
             }
-            reGenerateRowCloring();
-            //Removes selected class from all item
-            var selectedElements = document.querySelectorAll(".selected")
-            for (i = 0; i < selectedElements.length; i++) {
-                selectedElements[i].classList.remove("selected")
-            }
-            //selectedElementIndexAr is a var from list.js
-            selectedElementIndexAr = 0;
-            //Handles the no search found row
-            var rowLenght = document.querySelectorAll('table tbody tr:not( .hidden)').length
-            if (rowLenght === 0 && !hasAdded) {
-                var tableRowWrapper = document.querySelector("table tbody")
-                tableRowWrapper.innerHTML += '<tr id="emptyRow"><td colspan="4"><p>No result</p></td></tr>'
-                hasAdded = true;
-            }
-            else if (rowLenght > 1 && hasAdded) {
-                if (emptyRow != null) {
-                    var table = document.querySelector("#page_content_panel_main tbody")
-                    table.removeChild(table.lastElementChild)
-                }
-                hasAdded = false;
+            else {
+                document.getElementById(database[database.length - 2][i]).classList.add("hidden")
             }
         }
 
-    }
+        //If there is the no search found row it removes the hidden class
+        var emptyRow = document.getElementById("emptyRow")
+        if (emptyRow != null) {
+            emptyRow.classList.remove("hidden")
+        }
+        reGenerateRowCloring();
+        //Removes selected class from all item
+        var selectedElements = document.querySelectorAll(".selected")
+        for (i = 0; i < selectedElements.length; i++) {
+            selectedElements[i].classList.remove("selected")
+        }
+        //selectedElementIndexAr is a var from list.js
+        selectedElementIndexAr = 0;
+        //Handles the no search found row
+        var rowLenght = document.querySelectorAll('table tbody tr:not( .hidden)').length
+        if (rowLenght === 0 && !hasAdded) {
+            var tableRowWrapper = document.querySelector("table tbody")
+            tableRowWrapper.innerHTML += '<tr id="emptyRow"><td colspan="4"><p>No result</p></td></tr>'
+            hasAdded = true;
+        }
+        else if (rowLenght > 1 && hasAdded) {
+            if (emptyRow != null) {
+                var table = document.querySelector("#page_content_panel_main tbody")
+                table.removeChild(table.lastElementChild)
+            }
+            hasAdded = false;
+        }
+    }, waitTime);
 }
 
 var radioButtons = document.querySelectorAll("thead .option_container input")
