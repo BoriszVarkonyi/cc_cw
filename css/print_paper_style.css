@@ -125,7 +125,8 @@
 @media print {
 
 	@page {
-		margin: 15pt 35pt !important;
+		margin: 0;
+		size: A4;
 	}
 
 	.paper_wrapper {
@@ -141,7 +142,7 @@
 	.paper {
 		transform: none !important;
 		margin: 0 !important;
-		padding: 0 !important;
+		padding: 15pt 35pt !important;
 		min-width: 21cm !important;
 		width: 21cm !important;
 		max-width: 21cm !important;

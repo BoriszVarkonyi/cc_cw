@@ -112,12 +112,14 @@ if (isset($_POST["barcode"])) {
                         <p>Weapon Control Statistics</p>
                         <img src="../assets/icons/pie_chart_black.svg" />
                     </a>
+                    <!--
                     <button class="stripe_button disabled" id="sendMessageButton" type="submit">
                         <p>Message Fencer</p>
                         <img src="../assets/icons/chat_black.svg" />
                     </button>
+                    -->
                     <button class="stripe_button" type="button" onclick="window.print()" id="printWeaponControlBt" shortcut="SHIFT+P">
-                        <p>Print Weapon Control</p>
+                        <p>Print Weapon Control List</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
                     <a class="stripe_button" shortcut="SHIFT+P" href="/cc/print_weapon_control.php?comp_id=<?php echo $comp_id; ?>">

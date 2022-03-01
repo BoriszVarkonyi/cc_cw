@@ -54,16 +54,16 @@ if (isset($_GET['fencer_id'])) {
             <div id="title_stripe">
                 <p class="page_title">Print Fencer Barcodes</p>
                 <div class="stripe_button_wrapper">
-                    <button class="stripe_button bold" onclick="window.close()" shortcut="SHIFT+C">
-                        <p>Close Page</p>
+                    <a class="stripe_button bold" shortcut="SHIFT+C" href="registration.php?comp_id=<?php echo $comp_id; ?>">
+                        <p>Back to Registration</p>
                         <img src="../assets/icons/close_black.svg" />
-                    </button>
+                    </a>
                     <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
                         <p>Print</p>
                         <img src="../assets/icons/print_black.svg" />
                     </button>
                 </div>
-
+                <!--
                 <div class="view_button_wrapper first">
                     <button onclick="zoomOut()" id="zoomOutButton">
                         <img src="../assets/icons/zoom_out_black.svg" />
@@ -72,6 +72,7 @@ if (isset($_GET['fencer_id'])) {
                         <img src="../assets/icons/zoom_in_black.svg" />
                     </button>
                 </div>
+                 -->
             </div>
             <div id="page_content_panel_main" class="loose">
 
