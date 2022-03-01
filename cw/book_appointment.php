@@ -39,6 +39,8 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if (isset($_POST['submit_form'])) {
     $go = true;
+    $last_appointment_date = null;
+    $min_fencer = 0;
     foreach ($appointments as $key => $date) {
         $go = true;
         $day_flag = false;
@@ -57,7 +59,10 @@ if (isset($_POST['submit_form'])) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
             if ($time == $start_time && $_POST["time_$key"] == $date) $flag = true;
-            if ($time == "min_fencer") $go = false;
+            if ($time == "min_fencer") {
+                $go = false;
+                $min_fencer = $item;
+            }
             if ($flag && $day_flag) {
                 if (is_array($item)) {
                     $go = false;
@@ -66,6 +71,7 @@ if (isset($_POST['submit_form'])) {
 
             if ($flag === true) {
                 $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email'], false);
+                $last_appointment_date = $time;
                 $n++;
             }
         }
@@ -77,12 +83,11 @@ if (isset($_POST['submit_form'])) {
         $json_data = json_encode($appointments);
         $update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
         if (mysqli_query($connection, $update_qry)) {
-
             $mail = new PHPMailer(true);
 
             try {
                 //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -94,24 +99,36 @@ if (isset($_POST['submit_form'])) {
                 //Recipients
                 $mail->setFrom('dartagnanfencing@gmail.com', 'Dartagnan');
                 $mail->addAddress($_POST['f_email'], $_POST['f_nat']);     //Add a recipient
-                $mail->addAddress($_POST['f_nat']);               //Name is optional
 
-                //Attachments
-                $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-                $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+                if($n === 1) {
+                    $text = "<h2>Successful booking!</h2><p>You just booked successfully for 1 fencer with d'Artagnan</p>";
+                } else {
+                    $text = "<h2>Successful booking!</h2><p>You just booked successfully for $n fencers with d'Artagnan</p>";
+
+                }
+                $date = $_POST['current_day'];
+                $text = "$text <p>Your weapon control starts at: $date <b>$start_time</b>";
+
+                if($n === 1) {
+                    $text = "$text and lasts for a few minutes</p>";
+                } else {
+                    $min_fencer *= 2;
+                    $ends = date('H:i', strtotime("$last_appointment_date + $min_fencer minute"));
+                    $text = "$text and lasts until: <b>$ends</b></p>";
+                }
+
 
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = 'Here is the subject';
-                $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                $mail->Subject = 'Successful booking!';
+                $mail->Body    = $text;
+                $mail->AltBody = strip_tags($text);
 
                 $mail->send();
-                echo 'Message has been sent';
+                //echo 'Message has been sent';
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
-
 
             //header("Refresh: 0");
         }
