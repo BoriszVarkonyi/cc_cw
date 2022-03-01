@@ -4,79 +4,38 @@
 <?php checkComp($connection); ?>
 
 <?php
+    function dealWithTime($string, $whattogive)
+    {
+        $array = explode(':', $string);
 
-/*
-error_reporting(E_ERROR | E_PARSE);
-//barcode scan
-if (isset($_POST["barcode"])) {
-    $fencer_id = $_POST["barcode"];
-    header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
-}
-
-    //create table
-    $qry_create_table = "CREATE TABLE `ccdatabase`.`weapon_control` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` VARCHAR(255) NOT NULL , `fencer_id` VARCHAR(255) NOT NULL , `issues_array` JSON NULL DEFAULT NULL , `weapons_turned_in` JSON NULL DEFAULT NULL , `notes` VARCHAR(255) NULL DEFAULT NULL , `check_in_date` TIMESTAMP NULL DEFAULT NULL , `check_out_date` TIMESTAMP NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_create_table = mysqli_query($connection, $qry_create_table);
-
-    //test for fencers from this comp in the database
-    $qry_test = "SELECT `assoc_comp_id` FROM `weapon_control` WHERE `assoc_comp_id` LIKE '$comp_id,' LIMIT 1;";
-    $do_test = mysqli_query($connection, $qry_test);
-    if (mysqli_num_rows($do_test) === 0) {
-        $fencers_set = false; //yes
-    } else {
-        $fencers_set = true; //no
-    }
-
-    //update database with the fencers of the competition
-    if (!$fencers_set) {
-        //get fencers from competitors table
-        $qry_get_fencers = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
-        $do_get_fencers = mysqli_query($connection, $qry_get_fencers);
-        if ($row = mysqli_fetch_assoc($do_get_fencers)) {
-            //get string
-            $string = $row['data'];
-            //make json
-            $fencers_json_table = json_decode($string);
-            if (count($fencers_json_table) < 1) {
-                $full_competitors = false;
-            } else {
-                $full_competitors = true;
-            }
+        if ($whattogive == "h") {
+            return $array[0];
+        } else if ($whattogive == "m") {
+            return $array[1];
         } else {
-            echo "Couldn't get competitiors: " . mysqli_error($connection);
-        }
-
-        //get array of fencer ids
-        $fencer_ids_array = [];
-        for ($i = 0; $i < count($fencers_json_table); $i++) {
-            $fencer_ids_array[] = $fencers_json_table[$i] -> id;
-        }
-
-        //function to insert new fencers into weapon control table with assoc_comp_id and fencer_id custom
-        function insertNewFencer($connection, $comp_id, $current_fencer_id) {
-            $qry_insert_new_fencers = "INSERT INTO weapon_control (`assoc_comp_id`,`fencer_id`) VALUES ('$comp_id', '$current_fencer_id')";
-            if (!mysqli_query($connection, $qry_insert_new_fencers)) {
-                echo "Could NOT insert fencer: " . $current_fencer_id . " into database e: " . mysqli_error($connection) . "<br>";
-            }
-        }
-        if ($full_competitors) {
-            //check for first loading
-            $qry_check = "SELECT `id` FROM weapon_control WHERE assoc_comp_id = '$comp_id' LIMIT 1";
-            $do_check = mysqli_query($connection, $qry_check);
-            if (mysqli_num_rows($do_check) === 0) {
-                for ($i = 0; $i < count($fencer_ids_array); $i++) {
-                    $current_fencer_id = $fencer_ids_array[$i];
-                    insertNewFencer($connection, $comp_id, $current_fencer_id);
-                }
-            }
+            return null;
         }
     }
 
-    if (isset($_POST['add_wc'])) {
-        $fencer_id = $_POST['fencer_id'];
-        header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
+    //get tournament id from comp_id
+    $qry_get_tid = "SELECT ass_tournament_id FROM competitions WHERE comp_id = '$comp_id'";
+    $do_get_tid = mysqli_query($connection, $qry_get_tid);
+    if ($row = mysqli_fetch_assoc($do_get_tid)) {
+        $t_id = $row['ass_tournament_id'];
     }
 
-*/
+    //get appointments table
+    $qry_select_app = "SELECT timetable, appointments FROM tournaments WHERE id = '$t_id'";
+    $do_select_app = mysqli_query($connection, $qry_select_app);
+    if ($row = mysqli_fetch_assoc($do_select_app)) {
+        $appointment_string = $row['appointments'];
+        $timetable_string = $row['timetable'];
+
+        $appointments = json_decode($appointment_string);
+        $timetable_obj = json_decode($timetable_string);
+    }
+
+
 ?>
 <html lang="en">
 
@@ -102,7 +61,118 @@ if (isset($_POST["barcode"])) {
             </div>
             <div id="page_content_panel_main">
                 <table class="wrapper">
-                    IDE CSINÁLD HELÓÓÓÓ
+                <?php
+                            foreach ($appointments as $day => $value) {
+                            ?>
+                                <!-- ONE DAY -->
+                                <div class="appointment_day" id="day_<?php echo $day ?>">
+                                    <p class="appointment_day_title"><?php echo $day ?></p>
+                                    <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
+                                    <div class="search_wrapper wide appointment_select">
+                                        <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
+                                        <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
+                                        <div class="search_results">
+                                            <?php
+                                            foreach ($value as $time => $array) {
+                                                if ($time != "min_fencer" && !is_array($array)) {
+                                            ?>
+                                                    <a onclick="selectTime(this)"><?php echo $time ?></a>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <!-- min taken up by selexcted -->
+                                    <input type="input" id="minferncer_<?php echo $day ?>" value="<?php echo $value->min_fencer ?>" class="minfencer_input" hidden readonly>
+                                    <?php /*
+                                    foreach ($appointments->$day as $time => $foo) {
+                                        if (is_array($foo)) {
+                                            if (isset($start)) {
+                                                $end = $time;
+                                                ?>
+
+                                                <?php
+                                                unset($start);
+                                                unset($end);
+                                            }
+                                        } else {
+                                            $start = $time;
+                                        }
+                                    } */ ?>
+                                    <!-- ONE APPOINTMENT-->
+
+
+                                    <div class="appointment_table">
+                                        <?php
+                                        $c = 0;
+                                        foreach ($appointments->$day as $time => $foo) {
+                                            $c++;
+                                        }
+                                        $c = $c - 1;
+                                        reset($appointments->$day);
+                                        $start_hour = dealWithTime($timetable_obj->{$day . "_st"}, "h");
+                                        $end_hour = dealWithTime($timetable_obj->{$day . "_ed"}, "h");
+                                        for ($hour = $start_hour; $hour < $end_hour; $hour++) {
+                                        ?>
+                                            <div class="appointment_row">
+                                                <?php
+
+                                                for ($minute = 0; $minute < 60; $minute += $value->min_fencer) {
+                                                    if (strlen($minute) == 1) {
+                                                        $minute = 0 . $minute;
+                                                    }
+                                                    if (strlen($hour) == 1) {
+                                                        $hour = 0 . $hour;
+                                                    }
+                                                    if (is_array($appointments->$day->{$hour . ":" . $minute})) {
+                                                        $class = "red";
+                                                    } else {
+                                                        $class = "green";
+                                                    }
+                                                    $kell = $hour . ":" . $minute;
+                                                ?>
+                                                    <div style="flex-direction: column;" class="appointment <?php echo $class ?>">
+                                                        <p><?php echo $hour . ":" . $minute ?></p>
+                                                        <p><?php if (gettype($value->$kell) == "object") {
+                                                            echo "";
+                                                        }else{
+                                                            echo $value->$kell[0];
+                                                        }
+
+
+                                                        ?></p>
+                                                    </div>
+                                                <?php
+                                                }
+
+                                                ?>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+
+                                    <!--
+                                    <div class="appointment_wrapper">
+                                        <input type="radio" name="appointments" id="appointment_1" value=""/>
+                                        <label for="appointment_1">
+                                            <div class="appointment" onclick="selectAppointment(this)">
+                                                <p></p>
+                                                <div>Choose</div>
+                                            </div>
+                                        </label>
+                                        <div class="appointment_details hidden">
+                                            <input type="time" name="time">
+                                            <p> - 17:00</p>
+                                            <p>ERROR</p>
+                                        </div>
+                                    </div>
+                                -->
+
+
+                                </div>
+                            <?php } ?>
                 </table>
             </div>
         </main>
