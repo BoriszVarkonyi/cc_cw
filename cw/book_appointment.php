@@ -1,5 +1,19 @@
 <?php include "includes/get_comp_data.php"; ?>
-<?php //include "./controllers/CompetitorController.php" ?>
+<?php //include "./controllers/CompetitorController.php" 
+?>
+<?php
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+require '../cc/phpmailer/src/Exception.php';
+require '../cc/phpmailer/src/PHPMailer.php';
+require '../cc/phpmailer/src/SMTP.php';
+
+?>
 
 <?php
 
@@ -23,14 +37,14 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
 if (isset($_POST['submit_form'])) {
-	$go = true;
+    $go = true;
     foreach ($appointments as $key => $date) {
-		$go = true;
-		$day_flag = false;
+        $go = true;
+        $day_flag = false;
         if (isset($_POST["time_$key"])) {
-			$day_flag = true;
-			$start_time = $_POST["time_" . $key];
-		}
+            $day_flag = true;
+            $start_time = $_POST["time_" . $key];
+        }
 
         if (!$day_flag) continue;
         //if start date is found flag is raised to start changing values
@@ -41,13 +55,13 @@ if (isset($_POST['submit_form'])) {
         foreach ($date as $time => $item) {
             if ($n == $_POST['num_fencers']) break;
             if ($time == $start_time) $flag = true;
-			if ($time == $start_time && $_POST["time_$key"] == $date) $flag = true;
-			if ($time == "min_fencer") $go = false;
-			if ($flag && $day_flag) {
-				if (is_array($item)) {
-					$go = false;
-				}
-			}
+            if ($time == $start_time && $_POST["time_$key"] == $date) $flag = true;
+            if ($time == "min_fencer") $go = false;
+            if ($flag && $day_flag) {
+                if (is_array($item)) {
+                    $go = false;
+                }
+            }
 
             if ($flag === true) {
                 $appointments->$key->$time = array($_POST['f_nat'], $_POST['f_email'], false);
@@ -58,16 +72,52 @@ if (isset($_POST['submit_form'])) {
     }
 
 
-	if ($go) {
-		$json_data = json_encode($appointments);
-		$update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
-		if (mysqli_query($connection, $update_qry)) {
-			header("Refresh: 0");
-		}
-	} else { //itt pattincsa ki ha nem megy a gos if
-		/*
+    if ($go) {
+        $json_data = json_encode($appointments);
+        $update_qry = "UPDATE `tournaments` SET `appointments` = '$json_data' WHERE `id` = $t_id";
+        if (mysqli_query($connection, $update_qry)) {
+
+            $mail = new PHPMailer(true);
+
+            try {
+                //Server settings
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'dartagnanfencing@gmail.com';           //Set the SMTP username                     //SMTP username
+                $mail->Password   = '2022Dartagnan';                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                //Recipients
+                $mail->setFrom('dartagnanfencing@gmail.com', 'Dartagnan');
+                $mail->addAddress($_POST['f_email'], $_POST['f_nat']);     //Add a recipient
+                $mail->addAddress($_POST['f_nat']);               //Name is optional
+
+                //Attachments
+                $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = 'Here is the subject';
+                $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+
+
+            //header("Refresh: 0");
+        }
+    } else { //itt pattincsa ki ha nem megy a gos if
+        /*
 		header("Location: /cw/book_appointment.php?comp_id=$comp_id&error=1");*/
-	}
+    }
 
     /*
     foreach($appointments as $date) {
@@ -92,7 +142,7 @@ function dealWithTime($string, $whattogive)
     }
 }
 if (isset($_POST['undo_error'])) {
-	header("Refresh: 0");
+    header("Refresh: 0");
 }
 ?>
 
@@ -112,7 +162,7 @@ if (isset($_POST['undo_error'])) {
 <body class="competitions">
     <?php
     if (isset($_POST['submit_form']) && !$go) {
-        ?>
+    ?>
         <div class="modal_wrapper" id="modal_2">
             <div class="modal">
                 <div class="modal_header primary">
@@ -122,11 +172,11 @@ if (isset($_POST['undo_error'])) {
                 <div class="modal_footer">
                     <form method="POST" class="modal_footer_content">
                         <button class="modal_decline_button" name="undo_error" type="submit">Go back</button>
-					</form>
+                    </form>
                 </div>
             </div>
         </div>
-        <?php
+    <?php
     }
     ?>
     <div class="modal_wrapper hidden" id="modal_1">
@@ -152,7 +202,7 @@ if (isset($_POST['undo_error'])) {
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
-                    Book Weapon Control Appointments for <?php echo $comp_name; ?>
+                    Book Weapon Control Appointments as Teams for <?php echo $comp_name ?>
                 </h1>
             </div>
             <form id="content_wrapper" method="POST" action="">
@@ -175,17 +225,25 @@ if (isset($_POST['undo_error'])) {
                                     <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
                                     <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
                                 </div>
-                            </div>
-                            <div>
                                 <div>
                                     <label>NUMBER OF FENCERS</label>
                                     <input type="number" name="num_fencers" class="number_input centered alt" placeholder="#" id="fencerNumber">
                                 </div>
                             </div>
+                            <div>
+                                <div>
+                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 1:</p>
+                                    <p>FILL IN THE FEDERATIONS DATA</p>
+                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 2:</p>
+                                    <p>FILL IN THE NUMBER OF FENCERS OF YOUR FEDERATION THAT WILL TAKE PART IN THE COMPETITION</p>
+                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 3:</p>
+                                    <p>SELECT A SUITABLE AND AVAILABLE TIME FOR YOUR WEAPON CONTROL</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <p class="column_title centered">SELECT A SUITABLE APPOINTMENT</p>
+                <p class="column_title centered">SELECT A SUITABLE APPOINTMENT FOR YOUR TEAM</p>
                 <div class="column_panel no_top collapsed" id="step2">
                     <div class="column">
                         <div id="availabe_times_wrapper">
@@ -201,14 +259,15 @@ if (isset($_POST['undo_error'])) {
                                         <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
                                         <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
-											<?php
-												foreach ($value as $time => $array) {
-													if ($time != "min_fencer" && !is_array($array)) {
-											?>
-                                            <a onclick="selectTime(this)"><?php echo $time ?></a>
-											<?php
-												}}
-											?>
+                                            <?php
+                                            foreach ($value as $time => $array) {
+                                                if ($time != "min_fencer" && !is_array($array)) {
+                                            ?>
+                                                    <a onclick="selectTime(this)"><?php echo $time ?></a>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                     <!-- min taken up by selexcted -->
@@ -250,9 +309,9 @@ if (isset($_POST['undo_error'])) {
                                                     if (strlen($minute) == 1) {
                                                         $minute = 0 . $minute;
                                                     }
-													if (strlen($hour) == 1) {
-														$hour = 0 . $hour;
-													}
+                                                    if (strlen($hour) == 1) {
+                                                        $hour = 0 . $hour;
+                                                    }
                                                     if (is_array($appointments->$day->{$hour . ":" . $minute})) {
                                                         $class = "red";
                                                     } else {

@@ -1613,3 +1613,7 @@ input[type="radio"]:checked + label .appointment {
 	margin: 10px 0 0;
 }
 
+.step_title {
+	font-size: var(--f-large);
+	color: var(--c-primary);
+}
