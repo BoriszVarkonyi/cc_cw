@@ -68,38 +68,7 @@
                                 <div class="appointment_day" id="day_<?php echo $day ?>">
                                     <p class="appointment_day_title"><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
-                                    <div class="search_wrapper wide appointment_select">
-                                        <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
-                                        <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
-                                        <div class="search_results">
-                                            <?php
-                                            foreach ($value as $time => $array) {
-                                                if ($time != "min_fencer" && !is_array($array)) {
-                                            ?>
-                                                    <a onclick="selectTime(this)"><?php echo $time ?></a>
-                                            <?php
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <!-- min taken up by selexcted -->
-                                    <input type="input" id="minferncer_<?php echo $day ?>" value="<?php echo $value->min_fencer ?>" class="minfencer_input" hidden readonly>
-                                    <?php /*
-                                    foreach ($appointments->$day as $time => $foo) {
-                                        if (is_array($foo)) {
-                                            if (isset($start)) {
-                                                $end = $time;
-                                                ?>
 
-                                                <?php
-                                                unset($start);
-                                                unset($end);
-                                            }
-                                        } else {
-                                            $start = $time;
-                                        }
-                                    } */ ?>
                                     <!-- ONE APPOINTMENT-->
 
 
