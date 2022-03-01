@@ -5,6 +5,7 @@
 
 <?php
 
+/*
 error_reporting(E_ERROR | E_PARSE);
 //barcode scan
 if (isset($_POST["barcode"])) {
@@ -74,6 +75,8 @@ if (isset($_POST["barcode"])) {
         $fencer_id = $_POST['fencer_id'];
         header("Location: fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id");
     }
+
+*/
 ?>
 <html lang="en">
 
@@ -99,40 +102,7 @@ if (isset($_POST["barcode"])) {
             </div>
             <div id="page_content_panel_main">
                 <table class="wrapper">
-                    <thead>
-                        <tr>
-                            <th>
-                                <p>NATION</p>
-                            </th>
-                            <th>
-                                <p>STARTING TIME</p>
-                            </th>
-                            <th>
-                                <p>ESTIMATED FINISH TIME</p>
-                            </th>
-                            <th>
-                                <p>NUMBER OF FENCERS</p>
-                            </th>
-                            <th class="square"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="" tabindex="0">
-                            <td>
-                                <p>-</p>
-                            </td>
-                            <td>
-                                <p>-</p>
-                            </td>
-                            <td>
-                                <p>-</p>
-                            </td>
-                            <td>
-                                <p>-</p>
-                            </td>
-                            <td class="square <?php echo $color ?>"></td> <!-- red or green style added to small_status item to inidcate status -->
-                        </tr>
-                    </tbody>
+                    IDE CSINÁLD HELÓÓÓÓ
                 </table>
             </div>
         </main>
