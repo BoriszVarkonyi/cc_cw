@@ -2,7 +2,7 @@
 
 use equipe as GlobalEquipe;
 
-include "..\includes\db.php"; ?>
+include "..\cc\includes\db.php"; ?>
 <?php ob_start() ?>
 <?php
 $comp_id = $_GET['comp_id'];
@@ -186,7 +186,7 @@ if ($uploadOk == 0) {
 
             unlink("../uploads/$comp_id.xml");
 
-            header("Location: ../php/competitors_$comptype.php?comp_id=$comp_id");
+            header("Location: ../cc/competitors_$comptype.php?comp_id=$comp_id");
         }
 
         //Redirected from referees upload
@@ -312,7 +312,7 @@ if ($uploadOk == 0) {
 
             unlink("../uploads/$comp_id.xml");
 
-            header("Location: ../php/referees.php?comp_id=$comp_id");
+            header("Location: ../cc/referees.php?comp_id=$comp_id");
 
 
         } 
@@ -408,7 +408,7 @@ if ($uploadOk == 0) {
 
             unlink("../uploads/$comp_id.xml");
 
-            header("Location: ../php/teams.php?comp_id=$comp_id");
+            header("Location: ../cc/teams.php?comp_id=$comp_id");
         }
         else {
 
