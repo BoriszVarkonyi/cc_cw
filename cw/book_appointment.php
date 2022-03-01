@@ -18,7 +18,6 @@ $get_appointment_data_do = mysqli_query($connection, $get_appointment_data);
 
 if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     //json_decode($row['appointments']);
-    $t_name = $row["tournament_name"];
     $appointments = json_decode($row["appointments"]);
     $timetable_obj = json_decode($row['timetable']);
 }
@@ -153,7 +152,7 @@ if (isset($_POST['undo_error'])) {
                     <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
-                    Book Weapon Control Appointments as Teams for <?php echo $t_name ?>
+                    Book Weapon Control Appointments as Teams for <?php echo $comp_name ?>
                 </h1>
             </div>
             <form id="content_wrapper" method="POST" action="">
@@ -267,19 +266,9 @@ if (isset($_POST['undo_error'])) {
                                                     } else {
                                                         $class = "green";
                                                     }
-                                                    $kell = $hour . ":" . $minute;
-
                                                 ?>
-                                                    <div style="flex-direction: column;" class="appointment <?php echo $class ?>">
+                                                    <div class="appointment <?php echo $class ?>">
                                                         <p><?php echo $hour . ":" . $minute ?></p>
-                                                        <p><?php if (gettype($value->$kell) == "object") {
-                                                            echo "";
-                                                        }else{
-                                                            echo $value->$kell[0];
-                                                        }
-                                                        
-                                                        
-                                                        ?></p>
                                                     </div>
                                                 <?php
                                                 }
@@ -287,7 +276,6 @@ if (isset($_POST['undo_error'])) {
                                                 ?>
                                             </div>
                                         <?php
-
                                         }
                                         ?>
                                     </div>
