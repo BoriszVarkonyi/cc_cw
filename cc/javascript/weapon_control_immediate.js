@@ -1,6 +1,7 @@
 var wctable = document.querySelector("#page_content_panel_main tbody")
 var addWeaponControlButton = document.getElementById("wcButton")
-var sendMessageButton = document.getElementById("sendMessageButton")
+var sendMessageButton = document.getElementById("add_weapon_control_form")
+console.log()
 var isselected = false;
 addWeaponControlButton.disabled = true;
 sendMessageButton.disabled = true;
