@@ -97,7 +97,7 @@ if (isset($_POST['submit_form'])) {
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('dartagnanfencing@gmail.com', 'Dartagnan');
+                $mail->setFrom('dartagnanfencing@gmail.com', "d'Artagnan");
                 $mail->addAddress($_POST['f_email'], $_POST['f_nat']);     //Add a recipient
 
                 if($n === 1) {
