@@ -1,5 +1,6 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
+<?php include "includes/sortfunction.php" ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php include 'barcode/barcode.php'; ?>
@@ -13,6 +14,10 @@ if ($row = mysqli_fetch_assoc($do_get_fencers)) {
     $string = $row['data'];
     //make json
     $fencers_json_table = json_decode($string);
+
+    $objects = new ObjSorter($fencers_json_table, 'nation');
+
+    $fencers_json_table = $objects->sorted;
 } else {
     echo "Couldn't get competitiors: " . mysqli_error($connection);
 }
@@ -88,24 +93,28 @@ if (isset($_GET['fencer_id'])) {
                     if ($counter % 65 == 0 || $counter == 0) {
                 ?>
                         <div class="paper barcodes">
-                        <?php
-                    }
-                        ?>
-
-                        <div class="barcode_print">
                             <div>
-                                <?php echo bar128($fencer->id); ?>
-                                <p><?php echo $fencer->id; ?></p>
-                                <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
+                            <?php
+                        }
+                            ?>
+
+                            <div class="barcode_print">
+                                <div>
+                                    <p class="barcode_nat"><?php echo $fencer->nation; ?></p>
+                                    <?php echo bar128($fencer->id); ?>
+                                    <p><?php echo $fencer->id; ?></p>
+                                    <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
+                                </div>
+                            </div>
+
+                            <?php
+                            $counter++;
+                            //Paper change
+                            if ($counter % 65 == 0) {
+                            ?>
                             </div>
                         </div>
 
-                        <?php
-                        $counter++;
-                        //Paper change
-                        if ($counter % 65 == 0) {
-                        ?>
-                        </div>
                 <?php
                         }
                     }
