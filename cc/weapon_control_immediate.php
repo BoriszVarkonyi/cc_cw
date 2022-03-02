@@ -10,6 +10,7 @@ error_reporting(E_ERROR | E_PARSE);
 if (isset($_POST["barcode"])) {
     $fencer_id = $_POST["barcode"];
     header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
+    die();
 }
 
     //create table
