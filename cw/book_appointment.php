@@ -1,5 +1,5 @@
 <?php include "includes/get_comp_data.php"; ?>
-<?php //include "./controllers/CompetitorController.php" 
+<?php //include "./controllers/CompetitorController.php"
 ?>
 <?php
 
@@ -101,26 +101,75 @@ if (isset($_POST['submit_form'])) {
                 $mail->addAddress($_POST['f_email'], $_POST['f_nat']);     //Add a recipient
 
                 if($n === 1) {
-                    $text = "<h2>Successful booking!</h2><p>You just booked successfully for 1 fencer with d'Artagnan</p>";
+                    $header_text = "<h1>Successful booking!</h1><p class='start_text'>You just booked successfully for 1 fencer with <i>d'Artagnan View.</i></p>";
                 } else {
-                    $text = "<h2>Successful booking!</h2><p>You just booked successfully for $n fencers with d'Artagnan</p>";
+                    $header_text = "<h1>Successful booking!</h1><p class='start_text'>You just booked successfully for $n fencers with <i>d'Artagnan View<.i/></p>";
 
                 }
                 $date = $_POST['current_day'];
-                $text = "$text <p>Your weapon control starts at: $date <b>$start_time</b>";
+                $starting_text = "<p>Your weapon control starts at:</p><p><b>$date</b>";
 
                 if($n === 1) {
-                    $text = "$text and lasts for a few minutes</p>";
+                    $ending_text = " ▶ <b>$start_time</b> and lasts for a few minutes.</p>";
                 } else {
                     $min_fencer *= 2;
                     $ends = date('H:i', strtotime("$last_appointment_date + $min_fencer minute"));
-                    $text = "$text and lasts until: <b>$ends</b></p>";
+                    $ending_text = " ▶ <b>$start_time</b> and lasts until <b>$ends</b>.</p>";
                 }
+
+                $goodbye_text = "<p>Best regards,</p><p><i>d'Artagnan Development Team</i></p>";
+
+                //this is not HTML this is genocide against my braincells
+                $text = "
+                <html>
+                    <head>
+                        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+                        <style>
+                            body {
+                                font-family: 'Poppins';
+                                color: #252525 !important;
+                            }
+
+                            h1 {
+                                color: #252525 !important;
+                                font-family: 'Poppins';
+                                font-size: 22px;
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            h1::before {
+                                content: '';
+                                width: 5px;
+                                height: 22px;
+                                background-color: #00758a;
+                            }
+
+                            p {
+                                color: #252525 !important;
+                                font-family: 'Poppins';
+                                font-size: 16px;
+                                line-height: 1.5 !important;
+                                margin: 9px 0 0 !important;
+                            }
+
+                            p.start_text {
+                                margin: 9px 0 14px !important;
+                            }
+
+
+                        </style>
+                    </head>
+                    <body>
+                    " . $header_text . $starting_text . $ending_text . $goodbye_text . "
+                    </body>
+                </html>";
+
 
 
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = 'Successful booking!';
+                $mail->Subject = 'Successful Weapon Control Booking!';
                 $mail->Body    = $text;
                 $mail->AltBody = strip_tags($text);
 

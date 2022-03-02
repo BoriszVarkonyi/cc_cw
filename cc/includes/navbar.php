@@ -104,12 +104,14 @@
             <p>Manage Entries</p>
         </a>
 
+        <!--
         <p id="referee_text" class="nav_bar_title">CCREFEREE</p>
 
         <a href="ccreferee_matches.php" class="nav_bar_item">
             <img src="../assets/icons/leaderboard_black.svg">
             <p>Matches</p>
         </a>
+    -->
 
         <!-- ?help -->
         <a href="user_guide.php?comp_id=<?php echo $comp_id ?>" id="documentation_label">

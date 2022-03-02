@@ -4,7 +4,7 @@
 	/* Changes throughout colormodes */
 
 	/* Needs to be RGB and RGBA because tehse have the most browser support, HEXA is just not there yet :(*/
-	--c-black: rgb(37,37,37);
+	--c-black: rgb(37, 37, 37);
 	--c-transparent-black: rgba(37,37,37,.3);
 	--c-darkgray: rgb(154, 154, 154);
 	--c-gray: rgb(204, 204, 204);
