@@ -54,8 +54,8 @@
         <h1>LOGIN</h1>
         <?php $feedback ?>
         <form id="login" method="POST">
-            <input type="text" name="username" placeholder="username">
-            <input type="password" name="pass" placeholder="password">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="pass" placeholder="Password">
             <button type="submit" name="submit">Login<button>
         </form>
     </div>
