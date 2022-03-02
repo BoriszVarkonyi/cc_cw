@@ -36,6 +36,7 @@ echo $existance = mysqli_num_rows($qry_check_existance_do);
                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
                     </div>
                 </form>
+                                    <!--
                 <div id="call_room" class="cw">
                     <div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()" aria-label="Go to previous Table Column">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
@@ -183,7 +184,7 @@ echo $existance = mysqli_num_rows($qry_check_existance_do);
                     </div>
 
                 <?php } ?>
-                    <!--
+
                     <div id="e_1" class="elimination">
                         <div class="elimination_label">Table of __</div>
                         <div class="table_round_wrapper finished blue">
