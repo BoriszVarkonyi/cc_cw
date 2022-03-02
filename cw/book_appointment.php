@@ -101,9 +101,9 @@ if (isset($_POST['submit_form'])) {
                 $mail->addAddress($_POST['f_email'], $_POST['f_nat']);     //Add a recipient
 
                 if($n === 1) {
-                    $header_text = "<h1>Successful booking!</h1><p class='start_text'>You just booked successfully for 1 fencer with <i>d'Artagnan View.</i></p>";
+                    $header_text = "<h1><div class='box'></div>Successful booking!</h1><p class='start_text'>You just booked successfully for 1 fencer with <i>d'Artagnan.</i></p>";
                 } else {
-                    $header_text = "<h1>Successful booking!</h1><p class='start_text'>You just booked successfully for $n fencers with <i>d'Artagnan View<.i/></p>";
+                    $header_text = "<h1><div class='box'></div>Successful booking!</h1><p class='start_text'>You just booked successfully for $n fencers with <i>d'Artagnan<.i/></p>";
 
                 }
                 $date = $_POST['current_day'];
@@ -112,7 +112,8 @@ if (isset($_POST['submit_form'])) {
                 if($n === 1) {
                     $ending_text = " ▶ <b>$start_time</b> and lasts for a few minutes.</p>";
                 } else {
-                    $min_fencer *= 2;
+                    // ez nem dinamikus :)
+                    $min_fencer *= 3;
                     $ends = date('H:i', strtotime("$last_appointment_date + $min_fencer minute"));
                     $ending_text = " ▶ <b>$start_time</b> and lasts until <b>$ends</b>.</p>";
                 }
@@ -123,38 +124,39 @@ if (isset($_POST['submit_form'])) {
                 $text = "
                 <html>
                     <head>
-                        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
                         <style>
+                        
+                            @import url('https://fonts.googleapis.com/css?family=Poppins');
+
                             body {
-                                font-family: 'Poppins';
                                 color: #252525 !important;
                             }
 
                             h1 {
-                                color: #252525 !important;
-                                font-family: 'Poppins';
-                                font-size: 22px;
-                                display: flex;
+                                font-size: 22px !important;
+                                display: flex !important;
                                 align-items: center;
+                                line-height: 1.5;
+                                color: #252525 !important;
                             }
 
-                            h1::before {
-                                content: '';
-                                width: 5px;
-                                height: 22px;
-                                background-color: #00758a;
+                            .box {
+                                background: linear-gradient(#ff9700, #ffbe5c);
+                                width: 7px;
+                                height: 33px;
+                                margin-right: 10px;
+                                align-self: center;
                             }
 
                             p {
                                 color: #252525 !important;
-                                font-family: 'Poppins';
                                 font-size: 16px;
                                 line-height: 1.5 !important;
                                 margin: 9px 0 0 !important;
                             }
 
                             p.start_text {
-                                margin: 9px 0 14px !important;
+                                margin: 8px 0 24px !important;
                             }
 
 
