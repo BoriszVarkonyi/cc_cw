@@ -12,24 +12,6 @@
 	margin-right: 4mm;
 }
 
-.print_stat {
-	display: flex;
-	align-items: center;
-}
-
-.print_stat p {
-	margin: 0 10pt 0 3pt;
-}
-
-p.bold {
-	font-family: var(--bold);
-}
-
-.print_stat img {
-	width: 16pt;
-	height: 16pt;
-}
-
 .barcode_print {
 	width: 38mm;
 	min-width: 38mm;
