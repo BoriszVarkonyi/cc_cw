@@ -115,7 +115,7 @@
 
     //form root element
     $Competition = $xml_document -> createElement($root_name, "");
-    //set attributes
+    //set attributes for root elemetn
     $Competition -> setAttribute('Championnat', $competition_values_array['comp_host']);
     $Competition -> setAttribute('ID', $competition_values_array['comp_id']);
     $Competition -> setAttribute('NbDePoules', count($fencer_table));
