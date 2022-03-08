@@ -47,7 +47,6 @@ for (i = 0; i < tr.length; i++) {
 }
 database.push(tempArray)
 
-console.log(database)
 
 
 var hasAdded = false;
@@ -162,6 +161,36 @@ function reGenerateRowCloring() {
     }
 }
 
+//abchusort
+Array.prototype.sortAbcHu = function () {
+    this.compareWordAbcHu = function (w1, w2) {
+        var SORT_ORDER = "0123456789aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz";
+        var l1 = w1.length;
+        var l2 = w2.length;
+        var lm = l1 <= l2 ? l1 : l2;
+        for (var i = 0; i < lm; ++i) {
+            var c1 = w1.charAt(i).toLowerCase();
+            var c2 = w2.charAt(i).toLowerCase();
+            if (c1 != c2) {
+                var n1 = SORT_ORDER.indexOf(c1);
+                var n2 = SORT_ORDER.indexOf(c2);
+                if (n1 == -1) {
+                    if (n2 == -1) {
+                        return c1 < c2 ? -1 : 1;
+                    } else {
+                        return c1 < 'A' ? -1 : 1;
+                    }
+                } else if (n2 == -1) {
+                    return c2 < 'A' ? 1 : -1;
+                } else {
+                    return n1 < n2 ? -1 : 1;
+                }
+            }
+        }
+        return l1 == l2 ? 0 : (l1 < l2 ? -1 : 1);
+    };
+    this.sort(this.compareWordAbcHu);
+}
 
 //Sort system
 var defaultArray = [];
@@ -184,10 +213,15 @@ for (i = 0; i < columns.length; i++) {
 }
 
 var allButtons = document.querySelectorAll("#page_content_panel_main th > .table_buttons_wrapper button:first-of-type");
+
 var sortButtonCookie = cookieFinder("sortCookie", "")
+console.log(sortButtonCookie[1])
 for (i = 0; i < sortButtonCookie[1]; i++) {
+    console.log("bfwqjfb")
     sortButton(allButtons[sortButtonCookie[0]])
 }
+
+
 
 function sortButton(x) {
     //Gets the column index
@@ -210,8 +244,8 @@ function sortButton(x) {
             // Current: A-Z Swtiches to: Z-A
             sortImg.src = "../assets/icons/switch_up_black.svg"
             rowSort(columnIndex + 1, "Z-A");
-            document.cookie = "sortCookie=" + columnIndex + "2"
             x.classList.add("active")
+            document.cookie = "sortCookie=" + columnIndex + "2"
             reGenerateRowCloring();
             break;
         case "switch_up_black.svg":
@@ -315,36 +349,6 @@ function indexFinder(nameSearchFor, index, mode) {
             }
         }
     }
-}
-//abchusort
-Array.prototype.sortAbcHu = function () {
-    this.compareWordAbcHu = function (w1, w2) {
-        var SORT_ORDER = "0123456789aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz";
-        var l1 = w1.length;
-        var l2 = w2.length;
-        var lm = l1 <= l2 ? l1 : l2;
-        for (var i = 0; i < lm; ++i) {
-            var c1 = w1.charAt(i).toLowerCase();
-            var c2 = w2.charAt(i).toLowerCase();
-            if (c1 != c2) {
-                var n1 = SORT_ORDER.indexOf(c1);
-                var n2 = SORT_ORDER.indexOf(c2);
-                if (n1 == -1) {
-                    if (n2 == -1) {
-                        return c1 < c2 ? -1 : 1;
-                    } else {
-                        return c1 < 'A' ? -1 : 1;
-                    }
-                } else if (n2 == -1) {
-                    return c2 < 'A' ? 1 : -1;
-                } else {
-                    return n1 < n2 ? -1 : 1;
-                }
-            }
-        }
-        return l1 == l2 ? 0 : (l1 < l2 ? -1 : 1);
-    };
-    this.sort(this.compareWordAbcHu);
 }
 
 document.addEventListener("keyup", function (e) {
