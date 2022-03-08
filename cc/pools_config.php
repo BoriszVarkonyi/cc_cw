@@ -839,12 +839,14 @@
                 <div id="aside_content">
                     <div id="fencer_holder">
 
+                        <!--
                         <div class="fencer">
                             <button type="button" onclick="moveFencerBack(this)">
                                 <img src="../assets/icons/keyboard_double_arrow_left_black.svg">
                             </button>
                             <p>name</p>
                         </div>
+                        -->
 
                     </div>
                 </div>

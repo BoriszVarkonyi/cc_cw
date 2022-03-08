@@ -125,7 +125,7 @@ if (isset($_POST['submit_form'])) {
                 <html>
                     <head>
                         <style>
-                        
+
                             @import url('https://fonts.googleapis.com/css?family=Poppins');
 
                             body {
@@ -229,6 +229,21 @@ if (isset($_POST['undo_error'])) {
 </head>
 
 <body class="competitions">
+    <div class="modal_wrapper hidden" id="modal_1">
+        <div class="modal">
+            <div class="modal_header primary">
+                <p class="modal_title">Are you sure you want to send Weapon Control appointment booking with the following information?</p>
+                <p class="modal_subtitle">Please recheck the informations you given before submitting!</p>
+            </div>
+            <div class="modal_footer">
+                <p class="modal_footer_text">This change cannot be undone.</p>
+                <div class="modal_footer_content">
+                    <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
+                    <button type="submit" form="content_wrapper" name="submit_form" class="modal_confirmation_button" class="modal_confirmation_button">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
     if (isset($_POST['submit_form']) && !$go) {
     ?>
@@ -248,21 +263,6 @@ if (isset($_POST['undo_error'])) {
     <?php
     }
     ?>
-    <div class="modal_wrapper hidden" id="modal_1">
-        <div class="modal">
-            <div class="modal_header primary">
-                <p class="modal_title">Are you sure you want to send Weapon Control appointment booking with the following information?</p>
-                <p class="modal_subtitle">Please recheck the informations you given before submitting!</p>
-            </div>
-            <div class="modal_footer">
-                <p class="modal_footer_text">This change cannot be undone.</p>
-                <div class="modal_footer_content">
-                    <button class="modal_decline_button" onclick="toggleModal(1)">Go back</button>
-                    <button type="submit" form="content_wrapper" name="submit_form" class="modal_confirmation_button" class="modal_confirmation_button">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <?php include "static/header.php"; ?>
     <main>
         <div id="content">
@@ -301,11 +301,11 @@ if (isset($_POST['undo_error'])) {
                             </div>
                             <div>
                                 <div>
-                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 1:</p>
+                                    <p class="step_title">STEP 1:</p>
                                     <p>FILL IN THE FEDERATIONS DATA</p>
-                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 2:</p>
+                                    <p class="step_title">STEP 2:</p>
                                     <p>FILL IN THE NUMBER OF FENCERS OF YOUR FEDERATION THAT WILL TAKE PART IN THE COMPETITION</p>
-                                    <p class="step_title" style="font-size: large; font-family: var(--bold); color: var(--c-primary)">STEP 3:</p>
+                                    <p class="step_title">STEP 3:</p>
                                     <p>SELECT A SUITABLE AND AVAILABLE TIME FOR YOUR WEAPON CONTROL</p>
                                 </div>
                             </div>
@@ -388,7 +388,7 @@ if (isset($_POST['undo_error'])) {
                                                     }
                                                     $kell = $hour . ":" . $minute;
                                                 ?>
-                                                    <div style="flex-direction: column;" class="appointment <?php echo $class ?>">
+                                                    <div class="appointment <?php echo $class ?>">
                                                         <p><?php echo $hour . ":" . $minute ?></p>
                                                         <p><?php if (gettype($value->$kell) == "object") {
                                                             echo "";

@@ -3421,9 +3421,10 @@ div.title_box > button {
 	font-size: var(--f-small);
 	border: 2pt solid var(--c-gray);
 	border-radius: 2pt;
-	display: flex;
-	align-items: center;
-	height: 1.5rem;
+	display: grid;
+	grid-template-columns: max-content max-content;
+	grid-template-rows: 1fr;
+	min-height: 1.5rem;
 }
 
 #fencer_holder .fencer button {
@@ -3441,6 +3442,7 @@ div.title_box > button {
 
 #fencer_holder .fencer p {
 	padding: 3pt;
+	line-height: 1.2;
 
 }
 

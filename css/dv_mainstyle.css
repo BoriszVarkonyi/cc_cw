@@ -1333,6 +1333,12 @@ article .info p {
 }
 */
 
+.step_title {
+	font-family: var(--bold);
+	color: var(--c-primary);
+	font-size: large;
+}
+
 .appointment_row {
 	width: 100%;
 	display: flex;
@@ -1353,6 +1359,7 @@ article .info p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	line-height: 1;
 	font-family: var(--bold);
 	border-radius: 5px;
@@ -1617,5 +1624,6 @@ input[type="radio"]:checked + label .appointment {
 
 .step_title {
 	font-family: var(--bold);
-	color: var(--c-primary)
+	color: var(--c-primary);
+	font-size: large;
 }

@@ -26,7 +26,7 @@ function bar128($text) { // Part 1, make list of widths
     }
     $w.= $char128wid[ $sum % 103 ].$char128wid[106]; //Check Code, then END
     //Part 2, Write rows
-    $html="<table class='generated_barcode' cellpadding=0 cellspacing=0><tr>";
+    $html="<table class='generated_barcode no_interaction' cellpadding=0 cellspacing=0><tr>";
     for($x=0;$x<strlen($w);$x+=2) // code 128 widths: black border, then white space
     $html .= "<td><div class=\"b128\" style=\"border-left-width:{$w[$x]};width:{$w[$x+1]}\"></div></td>";
     return "$html</tr></table>";
