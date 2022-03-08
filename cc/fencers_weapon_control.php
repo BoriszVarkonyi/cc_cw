@@ -114,7 +114,7 @@
         <!-- navbar -->
         <main>
             <div id="title_stripe">
-                <p class="page_title"><?php echo $fencer_name ?>'s weapon control</p>
+                <p class="page_title"><?php echo $fencer_name ?>'s Weapon Control</p>
                 <div class="stripe_button_wrapper">
                     <a class="stripe_button" href="../cc/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
                         <p>Go back to Weapon Control</p>

@@ -85,7 +85,6 @@
 	box-shadow: var(--s-black);
 	position: relative;
 	transition: transform var(--t-basic);
-	will-change: auto;
 	z-index: 0;
 }
 

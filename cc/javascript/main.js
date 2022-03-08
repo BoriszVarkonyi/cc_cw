@@ -366,3 +366,8 @@ function toggleBarCodeInput(x) {
     var button = x.previousElementSibling;
     button.classList.toggle("active");
 }
+
+function closeAside(x) {
+    var aside = x.parentElement;
+    aside.classList.toggle("closed");
+}

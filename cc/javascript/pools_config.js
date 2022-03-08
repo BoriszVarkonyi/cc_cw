@@ -426,14 +426,19 @@ document.addEventListener("keyup", function (e) {
         if (e.shiftKey && e.which == 84) {
             var pistesNTimeButton = document.getElementById("pistesNTimeBt")
             pistesNTimeButton.click();
-        } 
+        }
         if (e.shiftKey && e.which == 84) {
             var savePoolsButton = document.getElementById("savePoolsBt")
             savePoolsButton.click();
-        } 
+        }
         if (e.shiftKey && e.which == 13) {
             var startPoolsButton = document.getElementById("startPoolsBt")
             startPoolsButton.click();
-        } 
+        }
     }
 })
+
+function selectEntry(x) {
+    var selectedEntry = x.parentElement;
+    selectedEntry.classList.toggle("selected")
+}

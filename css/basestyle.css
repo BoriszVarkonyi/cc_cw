@@ -1205,6 +1205,11 @@ td.start {
 	text-align: start;
 }
 
+/* Makes the text bold */
+th.wide_controls, td.wide_controls {
+	width: 120px;
+}
+
 /* Rounded Corners on the tables bottom left */
 tr:last-of-type td:first-of-type {
 	border-bottom-left-radius: var(--roundcorner);
@@ -1224,7 +1229,7 @@ th.square, td.square {
 }
 
 /* Buttons inside square table elements */
-th.square button, td.square button {
+th.square > button, td.square > button {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -1236,6 +1241,29 @@ th.square button, td.square button {
 th.square img, td.square img {
 	width: 65%;
 	height: 65%;
+}
+
+/* Buttons inside square table elements */
+th.wide_controls > button, td.wide_controls > button {
+	width: 1.1rem;
+	height: 1.1rem;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 2pt;
+	padding: 2pt;
+	box-sizing: content-box;
+	overflow: hidden;
+}
+
+th.wide_controls > button:hover, td.wide_controls > button:hover {
+	background: var(--c-lightgray);
+}
+
+/* Icons and Images inside square table elements */
+th.wide_controls img, td.wide_controls img {
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -1309,7 +1337,7 @@ tr.disqualified.selected td:first-child {
 
 
 
-/* Drop Rows */
+/* Drop Rows
 tr.drop {
 	display: none;
 	height: 0;
@@ -1329,6 +1357,7 @@ tr.drop.opened {
 	display: table-row;
 	background: var(--c-lightprimary);
 }
+*/
 
 
 
@@ -1458,11 +1487,6 @@ tbody.altdouble tr:nth-last-of-type(2) {
 
 /* Entry Listing Wrapper */
 
-/* Temporary */
-#pool_listing .entry {
-	margin-bottom: 25px !important;
-}
-
 .entry_wrapper .entry {
 	margin-bottom: 35px;
 }
@@ -1559,18 +1583,21 @@ tbody.altdouble tr:nth-last-of-type(2) {
 }
 
 /* Buttons inside square elements */
-.td.square button {
-	width: 100%;
-	height: 100%;
+.td.square button[type="button"] {
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 2pt;
+	box-sizing: content-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	aspect-ratio: 1 / 1;
 }
 
 /* Icons and Images inside square elements */
-.td.square img {
-	width: 65%;
-	height: 65%;
+.td.square button img {
+	width: 100%;
+	height: 100%;
 }
 
 /* Inputs inside all td elements */
@@ -1580,6 +1607,24 @@ tbody.altdouble tr:nth-last-of-type(2) {
 
 .td input.hidden {
 	display: none;
+}
+
+.td .search_wrapper.narrow   {
+	width: 160px !important;
+}
+
+.tr button[type="submit"]   {
+	border: 2pt solid var(--c-primary);
+	border-radius: 2pt;
+	background: var(--c-lightprimary);
+	font-family: var(--bold);
+	padding: 2pt;
+	line-height: 1;
+	margin-right: 4px;
+}
+
+.tr button[type="submit"]:hover   {
+	filter: brightness(1.1);
 }
 
 .td p.hidden {
@@ -1645,7 +1690,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 }
 
 .entry.selected .tr {
-	background: var(--c-primary) !important;
+	background: var(--c-lightprimary) !important;
 	font-family: var(--bold);
 }
 
