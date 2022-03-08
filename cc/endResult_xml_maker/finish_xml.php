@@ -1,10 +1,9 @@
 <?php
-
     //include dependencies
     $comp_id = $_GET['comp_id'];
-    include "../../includes/functions.php";
-    include "../../includes/db.php";
-    include "../../includes/username_checker.php";
+    include "../includes/functions.php";
+    include "../includes/db.php";
+    //include "../includes/username_checker.php";
 
     /* get data from database
      * competitions
@@ -101,12 +100,12 @@
 
 
     //get base root name
-    if ($competition_values_array['is_individual']) {
+    /*if ($competition_values_array['is_individual']) {
         $root_name = "CompetitionIndividuelle";
     } else {
         $root_name = "CompetitionEquipe";
-    }
-
+    }*/
+    $root_name = "CompetitionEquipe";
     //form document  \version, \encoding
     $set_version = '1.0';
     $set_encoding = 'iso-8859-1';
@@ -114,30 +113,130 @@
     $xml_document -> formatOutput = true;
 
     //form root element
-    $Competition = $xml_document -> createElement($root_name, "");
+    $root_title = $xml_document -> createElement($root_name, "");
+    $xml_document->appendChild($root_title);
     //set attributes for root elemetn
-    $Competition -> setAttribute('Championnat', $competition_values_array['comp_host']);
-    $Competition -> setAttribute('ID', $competition_values_array['comp_id']);
-    $Competition -> setAttribute('NbDePoules', count($fencer_table));
-    $Competition -> setAttribute('PhaseSuivanteDesQualifies', "");
-
-
-
     /*
-    //header("Content-type: text/xml");
-    $xml = new DOMDocument($version = '1.0', $encoding = 'UTF-8');
-    $xml->formatOutput = true;
-    $element = $xml->createElement("foos");
-    $xml->appendChild($element);
-
-    $childElement = $xml->createElement("foo");
-
-    $attribute = $xml->createAttribute("id");
-    $attribute->value = "123";
-
-    $childElement -> appendChild($attribute);
-    $element->appendChild($childElement);
-
-    echo "<xmp>".$xml->saveXML()."</xmp>";
+    $root -> setAttribute('Championnat', $competition_values_array['comp_host']);
+    $root -> setAttribute('ID', $competition_values_array['comp_id']);
+    $root -> setAttribute('NbDePoules', count($fencer_table));
+    $root -> setAttribute('PhaseSuivanteDesQualifies', "");
     */
+
+        //vadészok wrapper
+        $tireurs_node_title = $xml_document -> createElement('Tireurs');
+        //append
+        $root_title->appendChild($tireurs_node_title);
+
+            //make vadász nodes
+                foreach ($competitors_table as $fencer_obj) {
+                    $new_tireur_title = $xml_document->createElement('Tireur', "");
+                    //set attributes
+
+
+                    $tireurs_node_title -> appendChild($new_tireur_title);
+                }
+
+
+        //döntőbíró wrapper
+        $arbitres_node_title = $xml_document->createElement('Arbitres');
+        //append
+        $root_title -> appendChild($arbitres_node_title);
+
+            //make bíró nodes
+                foreach ($referee_table as $ref_obj) {
+                    $new_arbitre_title = $xml_document->createElement('Arbitre', "");
+                    //set attributes
+
+
+                    $arbitres_node_title -> appendChild($new_arbitre_title);
+                }
+
+
+        //Phases wrapper
+        $phases_node_title = $xml_document -> createElement('Phases');
+        //append
+        $root_title -> appendChild($phases_node_title);
+
+
+            //TourDePoules wrapper
+            $tdp_node_title = $xml_document -> createElement('TourDePoules');
+            //append
+            $phases_node_title -> appendChild($tdp_node_title);
+                //list all tiruer
+                foreach ($competitors_table as $fencer_obj) {
+                    $new_tireur_title = $xml_document->createElement('Tireur', "");
+                    //set attributes
+
+
+                    $tdp_node_title -> appendChild($new_tireur_title);
+                }
+                //list all arbitre
+                foreach ($referee_table as $ref_obj) {
+                    $new_arbitre_title = $xml_document->createElement('Arbitre', "");
+                    //set attributes
+
+
+                    $tdp_node_title -> appendChild($new_arbitre_title);
+                }
+
+                //list all pools
+                foreach ($fencer_table as $pool_obj) {
+                    if (!$pool_obj) continue;
+                    $new_poule_title = $xml_document -> createElement('Poule', "");
+                    //set attributes
+
+
+                    $tdp_node_title -> appendChild($new_poule_title);
+                }
+
+
+            //TourDeTableaux wrapper
+            $tdt_node_title = $xml_document->createElement('TourDeTableaux');
+            //append
+            $phases_node_title->appendChild($tdt_node_title);
+                //list all tiruer
+                foreach ($competitors_table as $fencer_obj) {
+                    $new_tireur_title = $xml_document->createElement('Tireur', "");
+                    //set attributes
+
+
+                    $tdt_node_title -> appendChild($new_tireur_title);
+                }
+
+
+                //SuiteDeTableaux wrapper
+                $sdt_node_title = $xml_document->createElement('SuiteDeTableaux');
+                //append
+                $tdt_node_title->appendChild($sdt_node_title);
+                    //list all Tableauxs
+                    foreach ($table_table as $key => $table_obj) {
+                        $title = "Tableau_of_" . substr($key, 2);
+                        $new_table_title = $xml_document->createElement("Tableau", '');
+                        //set attributes
+
+
+                        $sdt_node_title -> appendChild($new_table_title);
+                            //list matches
+                            foreach ($table_obj as $m_key => $match_obj) {
+                                $match_node_title = $xml_document -> createElement('Match');
+                                //set attributes
+
+
+                                $new_table_title -> appendChild($match_node_title);
+                                    //list tireurs in match
+                                    foreach ($match_obj as $key_fencer => $fencer_obj) {
+                                        if ($key_fencer != "referees" && $key_fencer != "pistetime") {
+                                            $new_match_tireur = $xml_document -> createElement('Tireur');
+                                            //set attributes
+
+                                            $match_node_title -> appendChild($new_match_tireur);
+                                        }
+                                    }
+                            }
+
+                    }
+
+    echo "<xmp>".$xml_document->saveXML()."</xmp>";
+
 ?>
