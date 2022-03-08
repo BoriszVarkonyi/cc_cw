@@ -427,7 +427,7 @@
     <div id="content_wrapper">
         <?php include "includes/navbar.php"; ?>
         <!-- navbar -->
-        <main>
+        <main class="with_aside">
             <div id="title_stripe">
                 <p class="page_title">Configure Pools</p>
                 <div class="stripe_button_wrapper">
@@ -446,7 +446,7 @@
                         <img src="../assets/icons/ballot_black.svg"/>
                     </button>
 
-                    <button class="stripe_button primary" type="button" onclick="window.print()" id='printPools' shortcut="SHIFT+P">
+                    <button class="stripe_button" type="button" onclick="window.print()" id='printPools' shortcut="SHIFT+P">
                         <p>Print Pools</p>
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
@@ -591,251 +591,264 @@
 
 
             <div id="page_content_panel_main">
-                <div id="pools_wrapper" class="wrapper">
-                    <div id="pool_listing" class="with_drag">
+                <div class="wrapper entry_wrapper">
+                    <?php
+                        $number_of_pools = count($json_table);
 
-                        <?php
-                            $number_of_pools = count($json_table);
+                        for ($pool_num = 1; $pool_num < $number_of_pools; $pool_num++) {
 
-                            for ($pool_num = 1; $pool_num < $number_of_pools; $pool_num++) {
+                            $ref2name = "";
+                            $ref2nat = "";
+                            $ref2id = "";
+                            if ($json_table[$pool_num] -> ref1 !==  NULL) {
+                                $refname = $json_table[$pool_num] -> ref1 -> prenom . " " . $json_table[$pool_num] -> ref1 -> nom;
+                                $refnat = $json_table[$pool_num] -> ref1 -> $sort_by;
+                                $ref1id = $json_table[$pool_num] -> ref1 -> id;
 
-                                $ref2name = "";
-                                $ref2nat = "";
-                                $ref2id = "";
-                                if ($json_table[$pool_num] -> ref1 !==  NULL) {
-                                    $refname = $json_table[$pool_num] -> ref1 -> prenom . " " . $json_table[$pool_num] -> ref1 -> nom;
-                                    $refnat = $json_table[$pool_num] -> ref1 -> $sort_by;
-                                    $ref1id = $json_table[$pool_num] -> ref1 -> id;
-
-                                    if ($json_table[$pool_num] -> ref2 !==  NULL) {
-                                        $ref2name = $json_table[$pool_num] -> ref2 -> prenom . " " . $json_table[$pool_num] -> ref2 -> nom;
-                                        $ref2nat = $json_table[$pool_num] -> ref2 -> $sort_by;
-                                        $ref2id = $json_table[$pool_num] -> ref2 -> id;
-                                    }
-                                } else {
-                                    $refname = "";
-                                    $refnat = "";
+                                if ($json_table[$pool_num] -> ref2 !==  NULL) {
+                                    $ref2name = $json_table[$pool_num] -> ref2 -> prenom . " " . $json_table[$pool_num] -> ref2 -> nom;
+                                    $ref2nat = $json_table[$pool_num] -> ref2 -> $sort_by;
+                                    $ref2id = $json_table[$pool_num] -> ref2 -> id;
                                 }
+                            } else {
+                                $refname = "";
+                                $refnat = "";
+                            }
 
-                                $piste = $json_table[$pool_num] -> piste;
-                                $time = $json_table[$pool_num] -> time;
-                            ?>
-                            <div class="entry">
-                                <form name="change_ref" class="tr bold" method="POST">
-                                    <input type="text" name="pool_num_input" value="<?php echo $pool_num ?>" class="hidden" readonly>
-                                    <div class="td bold">No.<?php echo $pool_num ?></div>
-                                    <div class="td">
-                                        <p>Piste <?php echo $piste?></p>
+                            $piste = $json_table[$pool_num] -> piste;
+                            $time = $json_table[$pool_num] -> time;
+                        ?>
+                        <div class="entry" id="entry_<?php echo $pool_num ?>">
+                            <form name="change_ref" class="tr bold clickable" method="POST" onclick="selectEntry(this)">
+                                <input type="text" name="pool_num_input" value="<?php echo $pool_num ?>" class="hidden" readonly>
+                                <div class="td bold">No.<?php echo $pool_num ?></div>
+                                <div class="td">
+                                    <p>Piste <?php echo $piste?></p>
 
-                                        <div class="search_wrapper narrow hidden">
-                                            <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+                                    <div class="search_wrapper narrow hidden">
+                                        <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
-                                                <!-- EZ AZ ID -->
-                                                <input type="text" class="hidden" name="piste_id_input" value="<?php echo $piste ?>" readonly>
+                                            <!-- EZ AZ ID -->
+                                            <input type="text" class="hidden" name="piste_id_input" value="<?php echo $piste ?>" readonly>
 
-                                                <!-- IDE KELL BECHOZNI -->
-                                                <input type="text" value="<?php echo $piste ?>" placeholder="Select Piste" readonly>
+                                            <!-- IDE KELL BECHOZNI -->
+                                            <input type="text" value="<?php echo $piste ?>" placeholder="Select Piste" readonly>
 
-                                            </button>
-                                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
-                                            <div class="search_results">
+                                        </button>
+                                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                        <div class="search_results">
 
-                                                    <?php
-                                                        $qry_get_pistes = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
-                                                        $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
-                                                        if ($row = mysqli_fetch_assoc($do_get_pistes)) {
-                                                            $pists_array = json_decode($row['data']);
-                                                        }
+                                                <?php
+                                                    $qry_get_pistes = "SELECT data FROM pistes WHERE assoc_comp_id = '$comp_id'";
+                                                    $do_get_pistes = mysqli_query($connection, $qry_get_pistes);
+                                                    if ($row = mysqli_fetch_assoc($do_get_pistes)) {
+                                                        $pists_array = json_decode($row['data']);
+                                                    }
 
-                                                        foreach ($pists_array as $piste_obj) {
-                                                            $piste_name = $piste_obj -> name;
-                                                            $piste_color = $piste_obj -> color;
-                                                            $piste_url = $piste_obj -> url;
+                                                    foreach ($pists_array as $piste_obj) {
+                                                        $piste_name = $piste_obj -> name;
+                                                        $piste_color = $piste_obj -> color;
+                                                        $piste_url = $piste_obj -> url;
 
-                                                    ?>
-                                                    <button type="button" id="<?php echo $pool_num . "*" . $piste_name ?>" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
-                                                    <?php } ?>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="td">
-                                        <p>
-                                        Ref 1: <?php
-                                        if (isset($refname)) {
-
-                                            echo $refname;
-                                            echo "(" . $refnat . ")";
-                                        } else {
-                                            echo "No ref assigned!";
-                                        }
-                                        ?>
-                                        </p>
-                                        <div class="search_wrapper narrow hidden">
-                                            <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
-
-                                                <!-- EZ AZ ID -->
-                                                <input type="text" name="ref1id_input" value="<?php echo $ref1id ?>" class="hidden" readonly>
-
-                                                <!-- IDE KELL BECHOZNI -->
-                                                <input type="text" placeholder="Select Referee" value="<?php echo $refname ?>" readonly>
-
-                                            </button>
-                                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
-                                            <div class="search_results">
-
-                                                    <?php
-
-
-                                                        $refs_array = [$delete_obj];
-                                                        $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
-                                                        $do_get_refs = mysqli_query($connection, $qry_get_refs);
-                                                        if ($row = mysqli_fetch_assoc($do_get_refs)) {
-                                                            $refs_array += json_decode($row['data']);
-                                                        }
-
-                                                        foreach ($refs_array as $ref_obj) {
-
-                                                            $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
-                                                            $ref_id = $ref_obj -> id;
-                                                            if ($sort_by_class) {
-                                                                $ref_nation = $ref_obj -> club;
-                                                            } else {
-                                                                $ref_nation = $ref_obj -> nation;
-                                                            }
-
-                                                    ?>
-                                                    <button type="button" id="<?php echo "1" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
-                                                    <?php } ?>
-                                            </div>
+                                                ?>
+                                                <button type="button" id="<?php echo $pool_num . "*" . $piste_name ?>" onclick="selectSystemExtended(this)">Piste <?php echo $piste_name ?></button>
+                                                <?php } ?>
                                         </div>
                                     </div>
 
+                                </div>
+                                <div class="td">
+                                    <p>
+                                    Ref 1: <?php
+                                    if (isset($refname)) {
 
-                                    <div class="td">
-                                        <p> Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</p>
-                                        <div class="search_wrapper narrow hidden">
-                                            <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+                                        echo $refname;
+                                        echo "(" . $refnat . ")";
+                                    } else {
+                                        echo "No ref assigned!";
+                                    }
+                                    ?>
+                                    </p>
+                                    <div class="search_wrapper narrow hidden">
+                                        <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
 
-                                                <!-- EZ AZ ID -->
-                                                <input type="text" class="hidden" value="<?php echo $ref2id ?>" name="ref2id_input" readonly>
+                                            <!-- EZ AZ ID -->
+                                            <input type="text" name="ref1id_input" value="<?php echo $ref1id ?>" class="hidden" readonly>
 
-                                                <!-- IDE KELL BECHOZNI -->
-                                                <input type="text" placeholder="Select Referee" value="<?php echo $ref2name ?>" readonly>
+                                            <!-- IDE KELL BECHOZNI -->
+                                            <input type="text" placeholder="Select Referee" value="<?php echo $refname ?>" readonly>
 
-                                            </button>
-                                            <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
-                                            <div class="search_results">
+                                        </button>
+                                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                        <div class="search_results">
 
                                                 <?php
 
-                                                        $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
-                                                        $do_get_refs = mysqli_query($connection, $qry_get_refs);
-                                                        if ($row = mysqli_fetch_assoc($do_get_refs)) {
-                                                            $refs_array = json_decode($row['data']);
+
+                                                    $refs_array = [$delete_obj];
+                                                    $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+                                                    $do_get_refs = mysqli_query($connection, $qry_get_refs);
+                                                    if ($row = mysqli_fetch_assoc($do_get_refs)) {
+                                                        $refs_array += json_decode($row['data']);
+                                                    }
+
+                                                    foreach ($refs_array as $ref_obj) {
+
+                                                        $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
+                                                        $ref_id = $ref_obj -> id;
+                                                        if ($sort_by_class) {
+                                                            $ref_nation = $ref_obj -> club;
+                                                        } else {
+                                                            $ref_nation = $ref_obj -> nation;
                                                         }
 
-                                                        foreach ($refs_array as $ref_obj) {
-
-                                                            $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
-                                                            $ref_id = $ref_obj -> id;
-                                                            if ($sort_by_class) {
-                                                                $ref_nation = $ref_obj -> club;
-                                                            } else {
-                                                                $ref_nation = $ref_obj -> nation;
-                                                            }
-
-                                                    ?>
-                                                    <button type="button" id="<?php echo "2" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
-                                                    <?php } ?>
-                                            </div>
+                                                ?>
+                                                <button type="button" id="<?php echo "1" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                <?php } ?>
                                         </div>
                                     </div>
-
-                                    <div class="td">
-                                        <p><?php echo $time ?></p>
-                                        <input type="time" name="input_time" value="<?php echo $time ?>"  class="pool_time_input centered hidden">
-                                    </div>
-                                    <div class="td square">
-                                        <button type="button" onclick="poolConfig(this)" class="pool_config">
-                                            <img src="../assets/icons/settings_black.svg">
-                                        </button>
-                                        <!--
-                                                                                <button name="sumbit_changes" type="submit">
-                                            Save
-                                        </button>
-                                         -->
-
-                                    </div>
-                                </form>
-                                <div class="entry_panel">
-                                    <table class="small">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <p>NAME</p>
-                                                </th>
-                                                <th>
-                                                    <p>CLUB</p>
-                                                </th>
-                                                <th>
-                                                    <p>CP</p>
-                                                </th>
-                                                <th>
-                                                    <p>PR</p>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="altdouble" ondragover="tableWrapperHoverOn(this)" ondragleave="tableWrapperHoverOff(this)">
-                                            <tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>
-                                            <?php
-                                                for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
-
-                                                    $fencer_name = $json_table[$pool_num] -> $fencer_number -> prenom_nom;
-                                                    $fencer_nat = $json_table[$pool_num] -> $fencer_number -> $sort_by;
-                                                    $fencer_id = $json_table[$pool_num] -> $fencer_number -> id;
-                                                    $fencer_cp = $json_table[$pool_num] -> $fencer_number -> c_pos;
-                                                    $fencer_rp = $json_table[$pool_num] -> $fencer_number -> r_pos;
-
-                                                    $json_string_obj = json_encode($json_table[$pool_num] -> $fencer_number,JSON_UNESCAPED_UNICODE);
-                                            ?>
-
-                                            <tr ondragleave="tableWrapperHoverOff(this)">
-                                                <td>
-                                                    <p class="drag_fencer" draggable="true" ondragstart="drag(event, this)" ondragend="dragEnd(this)" id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
-                                                </td>
-                                                <td>
-                                                    <p><?php echo $fencer_nat ?></p>
-                                                </td>
-                                                <td class="square">
-                                                    <p><?php echo $fencer_cp ?></p>
-                                                </td>
-                                                <td class="square">
-                                                    <p><?php echo $fencer_rp ?></p>
-                                                </td>
-                                            </tr>
-                                            <tr class="drop" ondragover="dropAreaHoverOn(this), allowDrop(event)" ondragleave="dropAreaHoverOff(this)" ondrop="drop2(event, this)"></tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
                                 </div>
+
+
+                                <div class="td">
+                                    <p> Ref 2: <?php echo $ref2name ?> (<?php echo $ref2nat ?>)</p>
+                                    <div class="search_wrapper narrow hidden">
+                                        <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+
+                                            <!-- EZ AZ ID -->
+                                            <input type="text" class="hidden" value="<?php echo $ref2id ?>" name="ref2id_input" readonly>
+
+                                            <!-- IDE KELL BECHOZNI -->
+                                            <input type="text" placeholder="Select Referee" value="<?php echo $ref2name ?>" readonly>
+
+                                        </button>
+                                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                                        <div class="search_results">
+                                            <?php
+                                                    $qry_get_refs = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+                                                    $do_get_refs = mysqli_query($connection, $qry_get_refs);
+                                                    if ($row = mysqli_fetch_assoc($do_get_refs)) {
+                                                        $refs_array = json_decode($row['data']);
+                                                    }
+
+                                                    foreach ($refs_array as $ref_obj) {
+
+                                                        $ref_name = $ref_obj -> prenom . " " . $ref_obj -> nom;
+                                                        $ref_id = $ref_obj -> id;
+                                                        if ($sort_by_class) {
+                                                            $ref_nation = $ref_obj -> club;
+                                                        } else {
+                                                            $ref_nation = $ref_obj -> nation;
+                                                        }
+                                                ?>
+                                                <button type="button" id="<?php echo "2" . $pool_num . "*" . $ref_id ?>" onclick="selectSystemExtended(this)"><?php echo $ref_name . " (" . $ref_nation . ")"  ?></button>
+                                                <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="td">
+                                    <p><?php echo $time ?></p>
+                                    <input type="time" name="input_time" value="<?php echo $time ?>"  class="pool_time_input centered hidden">
+                                </div>
+                                <div class="td square">
+                                    <button type="button" onclick="poolConfig(this)" class="pool_config_button">
+                                        <img src="../assets/icons/settings_black.svg">
+                                    </button>
+                                </div>
+                                <button name="sumbit_changes" type="submit"  class="pool_config_submit hidden">Save</button>
+                            </form>
+                            <div class="entry_panel">
+                                <table class="no_interaction">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <p>NAME</p>
+                                            </th>
+                                            <th>
+                                                <p>CLUB</p>
+                                            </th>
+                                            <th>
+                                                <p>CP</p>
+                                            </th>
+                                            <th>
+                                                <p>PR</p>
+                                            </th>
+                                            <th class="wide_controls">
+                                                <p>CONTROLS</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alt">
+                                        <?php
+                                            for ($fencer_number = 1;$fencer_number <= $pool_of && isset($json_table[$pool_num] -> $fencer_number); $fencer_number++) {
+
+                                                $fencer_name = $json_table[$pool_num] -> $fencer_number -> prenom_nom;
+                                                $fencer_nat = $json_table[$pool_num] -> $fencer_number -> $sort_by;
+                                                $fencer_id = $json_table[$pool_num] -> $fencer_number -> id;
+                                                $fencer_cp = $json_table[$pool_num] -> $fencer_number -> c_pos;
+                                                $fencer_rp = $json_table[$pool_num] -> $fencer_number -> r_pos;
+
+                                                $json_string_obj = json_encode($json_table[$pool_num] -> $fencer_number,JSON_UNESCAPED_UNICODE);
+                                        ?>
+
+                                        <tr>
+                                            <td>
+                                                <p id="<?php echo $fencer_id ?>" x-fencersave="<?php echo $json_string_obj ?>"><?php echo $fencer_name ?></p>
+                                            </td>
+                                            <td>
+                                                <p><?php echo $fencer_nat ?></p>
+                                            </td>
+                                            <td class="square">
+                                                <p><?php echo $fencer_cp ?></p>
+                                            </td>
+                                            <td class="square">
+                                                <p><?php echo $fencer_rp ?></p>
+                                            </td>
+                                            <td class="wide_controls">
+                                                <button type="button" onclick="moveFencer(this, 0)">
+                                                    <img src="../assets/icons/arrow_upward_black.svg">
+                                                </button>
+                                                <button type="button" onclick="moveFencer(this, 1)">
+                                                    <img src="../assets/icons/arrow_downward_black.svg">
+                                                </button>
+                                                <button type="button" onclick="moveFencerAside(this)">
+                                                    <img src="../assets/icons/last_page_black.svg">
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
 
 
-                            <?php
-                        }
-                            ?>
+                        <?php
+                    }
+                        ?>
 
-                        <input type="text" name="pool_of" id="pool_of" class="hidden" value="<?php echo $pool_of ?>" readonly/>
-
-                    </div>
-                    <div id="pools_drag_panel">
-                        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="holder"></div>
-                        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="deleter"></div>
-                    </div>
-                    </div>
+                    <input type="text" name="pool_of" id="pool_of" class="hidden" value="<?php echo $pool_of ?>" readonly/>
                 </div>
             </div>
+            <aside>
+                <button type="button" onclick="closeAside(this)">
+                    <img src="../assets/icons/last_page_black.svg">
+                </button>
+
+                <div id="aside_content">
+                    <div id="fencer_holder">
+
+                        <div class="fencer">
+                            <button type="button" onclick="moveFencerBack(this)">
+                                <img src="../assets/icons/keyboard_double_arrow_left_black.svg">
+                            </button>
+                            <p>name</p>
+                        </div>
+
+                    </div>
+                </div>
+            </aside>
         </main>
     </div>
     <script src="javascript/cookie_monster.js"></script>

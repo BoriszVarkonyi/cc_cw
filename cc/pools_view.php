@@ -97,7 +97,7 @@
                                     }
                                     ?>
                                     <div class="td"><?php echo $time ?></div>
-                                    <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $pool_num ?>'" class="pool_config td">
+                                    <button type="button" onclick="window.location.href='pool_results.php?comp_id=<?php echo $comp_id ?>&poolid=<?php echo $pool_num ?>'" class="pool_config_button td">
                                         <img src="../assets/icons/open_in_new_black.svg">
                                     </button>
                                 </div>
