@@ -222,7 +222,7 @@ if (isset($_POST['submit_import'])) {
                         <p>Print Referee Cards</p>
                         <img src="../assets/icons/print_black.svg" />
                     </a>
-                    <button type="submit" class="stripe_button red" onclick="" form="remove_technician" name="remove_referee" id="remove_technician_button" shortcut="SHIFT+R">
+                    <button type="submit" class="stripe_button red" onclick="" form="remove_referee" name="remove_referee" id="remove_technician_button" shortcut="SHIFT+R">
                         <p>Remove Referee</p>
                         <img src="../assets/icons/delete_black.svg" />
                     </button>
