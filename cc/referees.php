@@ -226,7 +226,7 @@ if (isset($_POST['submit_import'])) {
                 </div>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleImportPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleImportPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_ref" method="POST" class="overlay_panel_form" autocomplete="off">
@@ -284,7 +284,7 @@ if (isset($_POST['submit_import'])) {
                         <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios_black.svg"></button>
                         <p class="overlay_panel_controls_counter">3 / 3</p>
                     </div>
-                    <button class="panel_button" onclick="toggleAddPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleAddPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="referees.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician">

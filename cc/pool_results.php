@@ -187,7 +187,7 @@
                     <div class="overlay_panel_controls">
                         <p>Disqualify</p>
                     </div>
-                    <button class="panel_button" onclick="toggleDisqualifyPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleDisqualifyPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <div class="overlay_panel_form">

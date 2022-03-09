@@ -287,7 +287,22 @@ function checkPoolTable(x) {
         return false;
     }
 }
-var selectedEntry;
+
+function checkSelectedEntry(){
+    var moveFencerBackButtons = document.querySelectorAll(".fencer button")
+    if(selectedEntry != undefined){
+        for(i=0; i< moveFencerBackButtons.length; i++){
+            moveFencerBackButtons[i].disabled = false;
+        }
+    }
+    else{
+        for(i=0; i< moveFencerBackButtons.length; i++){
+            moveFencerBackButtons[i].disabled = true;
+        }
+    }
+}
+
+var selectedEntry = undefined;
 function selectEntry(x) {
     selectedEntry = x.parentElement;
     var entries = document.querySelectorAll(".entry")
@@ -296,12 +311,14 @@ function selectEntry(x) {
             entries[i].classList.remove("selected")
         }
         selectedEntry = undefined;
+        checkSelectedEntry();
     }
     else{
         for(i=0; i< entries.length; i++){
             entries[i].classList.remove("selected")
         }
         selectedEntry.classList.add("selected")
+        checkSelectedEntry();
     }
 }
 
@@ -325,6 +342,7 @@ class Fencer {
 
         // add the newly created element and its content into the DOM
         selectedEntry.querySelector("tbody").appendChild(newDiv)
+        checkSelectedEntry();
     }
     createBox() {
         // create a new div element
@@ -340,6 +358,7 @@ class Fencer {
         
         // add the newly created element and its content into the DOM
         document.getElementById("fencer_holder").appendChild(newDiv)
+        checkSelectedEntry();
 
     }
 
@@ -360,10 +379,28 @@ function findFencer(nameToSearchFor){
     }
 }
 
+function switchDivs(a, b){
+    var tempInner = a.innerHTML;
+    a.innerHTML = b.innerHTML;
+    b.innerHTML = tempInner;
 
+}
 
-function moveFencer(x, num) {
-
+function moveFencer(x, bool) {
+    var currentTr = x.parentNode.parentNode
+    var nextTr;
+    if(bool){
+        nextTr = currentTr.nextElementSibling;
+        if(nextTr != undefined){
+            switchDivs(currentTr, nextTr)
+        }
+    }
+    else{
+        nextTr = currentTr.previousElementSibling;
+        if(nextTr != undefined){
+            switchDivs(currentTr, nextTr)
+        }
+    }
 }
 
 function moveFencerBack(x){
@@ -488,7 +525,8 @@ refereesForm.addEventListener("input", rfrsValidation)
 function poolConfig(x) {
     var searchWrappers = x.parentNode.parentNode.querySelectorAll(".search_wrapper, .pool_time_input")
     var texts = x.parentNode.parentNode.querySelectorAll("p")
-    var saveButton = x.parentNode.querySelector("button:nth-of-type(2)")
+    var saveButton = x.parentNode.parentNode.querySelector(".pool_config_submit")
+    document.querySelector("aside").classList.add("closed")
     for (i = 0; i < searchWrappers.length; i++) {
         searchWrappers[i].classList.remove("hidden")
     }

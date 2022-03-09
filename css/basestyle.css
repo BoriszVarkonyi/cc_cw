@@ -1647,7 +1647,14 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	opacity: 1;
 	overflow: hidden;
 	transition: all ease-in-out .2s;
+	overflow-y: auto;
+	overflow-x: hidden;
 	border-top: 1pt solid var(--c-gray);
+}
+
+/* Overwrites 600px max height */
+.entry_panel.limitless {
+	max-height: unset !important;
 }
 
 .entry_panel.split {

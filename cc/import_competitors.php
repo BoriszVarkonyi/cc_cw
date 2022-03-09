@@ -47,7 +47,7 @@
                         </div>
                         <div class="db_panel_main">
                             <form method="POST" id="delete_logo">
-                                <button id="delete_logo" class="panel_button">
+                                <button id="delete_logo" class="panel_button" name="Close panel">
                                     <img src="../assets/icons/delete_black.svg">
                                 </button>
                             </form>

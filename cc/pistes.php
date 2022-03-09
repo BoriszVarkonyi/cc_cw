@@ -227,7 +227,7 @@ if (isset($_POST["allow_connect"])) {
                 </div>
 
                 <div class="overlay_panel hidden" id="add_piste_panel">
-                    <button class="panel_button" onclick="toggleAddPistePanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleAddPistePanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
 

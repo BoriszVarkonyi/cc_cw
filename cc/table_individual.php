@@ -383,7 +383,7 @@ if (isset($_POST["generate_table"])) {
                 </div>
 
                 <div id="reset_table_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleResetTable()">
+                    <button class="panel_button" name="Close panel" onclick="toggleResetTable()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="" autocomplete="off">
