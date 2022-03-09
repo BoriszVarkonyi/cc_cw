@@ -134,7 +134,7 @@ if(isset($_POST["submit"]) ){
             <div id="page_content_panel_main">
                 <div id="choose_ranking_wrapper">
                     <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()">
-                        <button class="panel_button" onclick="toggleUploadRankingPanel()">
+                        <button class="panel_button" name="Close panel" onclick="toggleUploadRankingPanel()">
                             <img src="../assets/icons/close_black.svg">
                         </button>
                         <div class="desc_box">
@@ -183,7 +183,7 @@ if(isset($_POST["submit"]) ){
                                 </form>
                             </div>
                             <div id="use_this_ranking" class="hidden">
-                                <button class="panel_button" onclick="cancelName()">
+                                <button class="panel_button" name="Close panel" onclick="cancelName()">
                                     <img src="../assets/icons/close_black.svg">
                                 </button>
                                 <p id="ranking_name">Ranking name</p>
@@ -207,7 +207,7 @@ if(isset($_POST["submit"]) ){
                     </div>
 
                     <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
-                        <button class="panel_button" onclick="toggleCreateRankingPanel()">
+                        <button class="panel_button" name="Close panel" onclick="toggleCreateRankingPanel()">
                             <img src="../assets/icons/close_black.svg">
                         </button>
                         <div class="desc_box">

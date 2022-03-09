@@ -202,7 +202,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                                         <div class="table_item invitation"><?php echo $info_title ?></div>
                                                     </div>
                                                     <form class="entry_panel collapsed" id="update" method="POST" action="../cc/invitation.php?comp_id=<?php echo $comp_id ?>">
-                                                        <button class="panel_button" type="submit" name="submit_delete" id="update">
+                                                        <button class="panel_button" name="Close panel" type="submit" name="submit_delete" id="update">
                                                             <img src="../assets/icons/delete_black.svg">
                                                         </button>
                                                         <textarea id="update" name="text_body"><?php echo $info_body ?></textarea>

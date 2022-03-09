@@ -35,7 +35,7 @@
                     <button class="panel_button drag">
                         <img src="../assets/icons/drag_indicator_black.svg">
                     </button>
-                    <button class="panel_button" onclick="closeWcPanel()">
+                    <button class="panel_button" name="Close panel" onclick="closeWcPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form table_row_wrapper" action="" method="POST" id="new_wc_day" autocomplete="off">

@@ -168,7 +168,7 @@ if(mysqli_num_rows($query_do) == 0){
                 <input class="hidden" id="id_to_delete" type="text" name="id_to_delete">
                 </form>
                 <div id="add_fencer_panel" class="overlay_panel hidden">
-                        <button class="panel_button" onclick="toggleAddFencer()">
+                        <button class="panel_button" name="Close panel" onclick="toggleAddFencer()">
                             <img src="../assets/icons/close_black.svg">
                         </button>
                         <!-- add fencers drop-down -->
@@ -189,7 +189,7 @@ if(mysqli_num_rows($query_do) == 0){
                 </div>
                 <!-- ranking info button -->
                 <div id="ranking_info_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleRankingInfo()">
+                    <button class="panel_button" name="Close panel" onclick="toggleRankingInfo()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
 

@@ -141,7 +141,7 @@
                 </div>
 
                 <div id="add_team_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleAddTeamPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleAddTeamPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="add_team" method="POST" class="overlay_panel_form" autocomplete="off">

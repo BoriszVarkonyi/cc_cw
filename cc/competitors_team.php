@@ -171,7 +171,7 @@
 
 
                 <div id="import_competitors_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleImportPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleImportPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_competitors" method="POST" class="overlay_panel_form" autocomplete="off">

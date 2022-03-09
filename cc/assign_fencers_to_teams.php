@@ -153,7 +153,7 @@ if (isset($_POST['submit_all'])) {
                 </div>
 
                 <div id="assign_auto_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleAssignAutoPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleAssignAutoPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="" method="POST" id="assign_auto">

@@ -467,7 +467,7 @@
                     </form>
                 </div>
                 <div id="ref_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleRefPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleRefPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
@@ -527,7 +527,7 @@
                     </form>
                 </div>
                 <div id="pist_time_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="togglePistTimePanel()">
+                    <button class="panel_button" name="Close panel" onclick="togglePistTimePanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" method="post" autocomplete="off" class="overlay_panel_form dense flex">
@@ -806,10 +806,10 @@
                                                 <p><?php echo $fencer_rp ?></p>
                                             </td>
                                             <td class="wide_controls">
-                                                <button type="button" onclick="moveFencer(this, 0)">
+                                                <button type="button" onclick="moveFencer(this, false)">
                                                     <img src="../assets/icons/arrow_upward_black.svg">
                                                 </button>
-                                                <button type="button" onclick="moveFencer(this, 1)">
+                                                <button type="button" onclick="moveFencer(this, true)">
                                                     <img src="../assets/icons/arrow_downward_black.svg">
                                                 </button>
                                                 <button type="button" onclick="moveFencerAside(this)">
@@ -839,12 +839,14 @@
                 <div id="aside_content">
                     <div id="fencer_holder">
 
+                        <!--
                         <div class="fencer">
                             <button type="button" onclick="moveFencerBack(this)">
                                 <img src="../assets/icons/keyboard_double_arrow_left_black.svg">
                             </button>
                             <p>name</p>
                         </div>
+                        -->
 
                     </div>
                 </div>

@@ -91,7 +91,7 @@ header('charset=utf-8');
                 </div>
 
                 <div id="import_technician_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleImportPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleImportPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form action="" id="import_technician" method="POST" class="overlay_panel_form" autocomplete="off">
@@ -140,7 +140,7 @@ header('charset=utf-8');
                 </form>
 
                 <div id="add_technician_panel" class="overlay_panel hidden">
-                    <button class="panel_button" onclick="toggleAddPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleAddPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <form class="overlay_panel_form" autocomplete="off" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">

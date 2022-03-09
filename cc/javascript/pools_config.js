@@ -61,6 +61,7 @@ function selectPistes() {
     selectPistes.classList.remove("disabled")
 }
 
+/*
 //Drag n drop system
 //Allows the drop
 function allowDrop(ev, x) {
@@ -183,7 +184,6 @@ function regenerate() {
             }
         }
     }
-    */
 }
 //Enables/Disables the tableWrapperHoverOff function.
 var active = true;
@@ -262,6 +262,7 @@ function drop2(ev, x) {
         toggleModal(1);
     }
 }
+*/
 
 //Removes the classes (when the pool table is full)
 function removeOpenAndCollapseClass() {
@@ -285,6 +286,131 @@ function checkPoolTable(x) {
     else {
         return false;
     }
+}
+
+function checkSelectedEntry(){
+    var moveFencerBackButtons = document.querySelectorAll(".fencer button")
+    if(selectedEntry != undefined){
+        for(i=0; i< moveFencerBackButtons.length; i++){
+            moveFencerBackButtons[i].disabled = false;
+        }
+    }
+    else{
+        for(i=0; i< moveFencerBackButtons.length; i++){
+            moveFencerBackButtons[i].disabled = true;
+        }
+    }
+}
+
+var selectedEntry = undefined;
+function selectEntry(x) {
+    selectedEntry = x.parentElement;
+    var entries = document.querySelectorAll(".entry")
+    if(selectedEntry.classList.contains("selected")){
+        for(i=0; i< entries.length; i++){
+            entries[i].classList.remove("selected")
+        }
+        selectedEntry = undefined;
+        checkSelectedEntry();
+    }
+    else{
+        for(i=0; i< entries.length; i++){
+            entries[i].classList.remove("selected")
+        }
+        selectedEntry.classList.add("selected")
+        checkSelectedEntry();
+    }
+}
+
+class Fencer {
+    constructor(name, nameP, club, cp, pr) {
+        this.name = name;
+        this.nameP = nameP;
+        this.club = club;
+        this.cp = cp;
+        this.pr = pr;
+    }
+    createRow(selectedEntry) {
+        // create a new div element
+        const newDiv = document.createElement("tr");
+
+        // and give it some content
+        const newContent = '<td>' +  this.nameP + '</td><td><p>' + this.club + '</p></td><td class="square"><p>' + this.cp + '</p></td><td class="square"><p>' + this.pr + '</p></td><td class="wide_controls"><button type="button" onclick="moveFencer(this, 0)"><img src="../assets/icons/arrow_upward_black.svg"></button><button type="button" onclick="moveFencer(this, 1)"><img src="../assets/icons/arrow_downward_black.svg"></button><button type="button" onclick="moveFencerAside(this)"><img src="../assets/icons/last_page_black.svg"></button></td>'
+
+        // add the text node to the newly created div
+        newDiv.innerHTML = newContent
+
+        // add the newly created element and its content into the DOM
+        selectedEntry.querySelector("tbody").appendChild(newDiv)
+        checkSelectedEntry();
+    }
+    createBox() {
+        // create a new div element
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("fencer");
+
+        // and give it some content
+        const newContent = '<button type="button" onclick="moveFencerBack(this)"><img src="../assets/icons/keyboard_double_arrow_left_black.svg"></button><p>' + this.name + '</p>';
+
+        // add the text node to the newly created div
+        newDiv.innerHTML = newContent
+
+        
+        // add the newly created element and its content into the DOM
+        document.getElementById("fencer_holder").appendChild(newDiv)
+        checkSelectedEntry();
+
+    }
+
+}
+
+var allTr = document.querySelectorAll("#page_content_panel_main tbody tr")
+var fencerArray = []
+for(i=0; i<allTr.length; i++){
+    var fencer = new Fencer(allTr[i].querySelectorAll("tbody p")[0].innerHTML, allTr[i].querySelectorAll("tbody p")[0].outerHTML, allTr[i].querySelectorAll("tbody p")[1].innerHTML, allTr[i].querySelectorAll("tbody p")[2].innerHTML, allTr[i].querySelectorAll("tbody p")[3].innerHTML);
+    fencerArray.push(fencer)
+}
+
+function findFencer(nameToSearchFor){
+    for(i=0; i<fencerArray.length; i++){
+        if(fencerArray[i].name == nameToSearchFor){
+            return fencerArray[i]
+        }
+    }
+}
+
+function switchDivs(a, b){
+    var tempInner = a.innerHTML;
+    a.innerHTML = b.innerHTML;
+    b.innerHTML = tempInner;
+
+}
+
+function moveFencer(x, bool) {
+    var currentTr = x.parentNode.parentNode
+    var nextTr;
+    if(bool){
+        nextTr = currentTr.nextElementSibling;
+        if(nextTr != undefined){
+            switchDivs(currentTr, nextTr)
+        }
+    }
+    else{
+        nextTr = currentTr.previousElementSibling;
+        if(nextTr != undefined){
+            switchDivs(currentTr, nextTr)
+        }
+    }
+}
+
+function moveFencerBack(x){
+    findFencer(x.parentNode.querySelector("p").innerHTML).createRow(selectedEntry)
+    x.parentNode.remove()
+}
+
+function moveFencerAside(x){
+    findFencer(x.parentNode.parentNode.querySelector("p").innerHTML).createBox();
+    x.parentNode.parentNode.remove()
 }
 
 //Makes the JSON format string
@@ -399,8 +525,8 @@ refereesForm.addEventListener("input", rfrsValidation)
 function poolConfig(x) {
     var searchWrappers = x.parentNode.parentNode.querySelectorAll(".search_wrapper, .pool_time_input")
     var texts = x.parentNode.parentNode.querySelectorAll("p")
-    var saveButton = x.parentNode.querySelector("button:nth-of-type(2)")
-    console.log(saveButton)
+    var saveButton = x.parentNode.parentNode.querySelector(".pool_config_submit")
+    document.querySelector("aside").classList.add("closed")
     for (i = 0; i < searchWrappers.length; i++) {
         searchWrappers[i].classList.remove("hidden")
     }
@@ -437,8 +563,3 @@ document.addEventListener("keyup", function (e) {
         }
     }
 })
-
-function selectEntry(x) {
-    var selectedEntry = x.parentElement;
-    selectedEntry.classList.toggle("selected")
-}

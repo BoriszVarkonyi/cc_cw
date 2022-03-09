@@ -235,7 +235,7 @@
                         <button type="button" id="overlayPanelButtonRight" onclick="rightButton()"><img src="../assets/icons/arrow_forward_ios_black.svg"></button>
                         <p class="overlay_panel_controls_counter">3 / 3</p>
                     </div>
-                    <button class="panel_button" onclick="toggleAddFencerPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleAddFencerPanel()">
                         <img src="../assets/icons/close_black.svg">
                     </button>
                     <!-- add fencers drop-down -->

@@ -148,7 +148,7 @@ if (isset($_POST["logout"])) {
             <a class="panel_button left" href="your_profile.php" target="_blank" aria-label="Check and edit your profile" name="Edit profile">
                 <img src="../assets/icons/edit_black.svg"/>
             </a>
-            <button class="panel_button" onclick="toggleProfilePanel()" name="Close panel">
+            <button class="panel_button" name="Close panel" onclick="toggleProfilePanel()">
                 <img src="../assets/icons/close_black.svg"/>
             </button>
             <img src="<?php echo $profile_pic ?>" class="profile_picture_big" height="55" width="55">
@@ -166,7 +166,7 @@ if (isset($_POST["logout"])) {
     <!-- language select drop-down -->
     <div id="language_panel" class="header_overlay_panel hidden">
         <div>
-            <button class="panel_button fixed" onclick="toggleLanguagePanel()" name="Close panel">
+            <button class="panel_button fixed" name="Close panel" onclick="toggleLanguagePanel()">
                 <img src="../assets/icons/close_black.svg"/>
             </button>
         </div>
@@ -204,7 +204,7 @@ if (isset($_POST["logout"])) {
 
     <!-- colormode select drop-down -->
     <div id="colormode_panel" class="header_overlay_panel hidden">
-        <button class="panel_button" onclick="toggleColormodePanel()" name="Close panel">
+        <button class="panel_button" name="Close panel" onclick="toggleColormodePanel()">
             <img src="../assets/icons/close_black.svg"/>
         </button>
         <div class="color_mode_wrapper" id="color_mode_wrapper">
