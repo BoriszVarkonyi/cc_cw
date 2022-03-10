@@ -19,13 +19,7 @@
     $competition_values_array = [];
     $qry_get_comp_data = "SELECT * FROM competitions WHERE comp_id = '$comp_id'";
     $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
-    if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
-        foreach ($row as $key => $value) {
-            $competition_values_array[$key] = $value;
-        }
-        //delete unused data to save memory space
-        unset($competition_values_array['comp_equipment']);
-        unset($competition_values_array['comp_info']);
+    if ($competitions_data = mysqli_fetch_assoc($do_get_comp_data)) {
     } else {
         //error
         var_dump("Competitions " . mysqli_error($connection));
@@ -100,12 +94,11 @@
 
 
     //get base root name
-    /*if ($competition_values_array['is_individual']) {
+    if ($competition_values_array['is_individual']) {
         $root_name = "CompetitionIndividuelle";
     } else {
         $root_name = "CompetitionEquipe";
-    }*/
-    $root_name = "CompetitionEquipe";
+    }
     //form document  \version, \encoding
     $set_version = '1.0';
     $set_encoding = 'iso-8859-1';
@@ -116,12 +109,10 @@
     $root_title = $xml_document -> createElement($root_name, "");
     $xml_document->appendChild($root_title);
     //set attributes for root elemetn
-    /*
-    $root -> setAttribute('Championnat', $competition_values_array['comp_host']);
-    $root -> setAttribute('ID', $competition_values_array['comp_id']);
-    $root -> setAttribute('NbDePoules', count($fencer_table));
-    $root -> setAttribute('PhaseSuivanteDesQualifies', "");
-    */
+    $attributes_for_root = ['Champoinnat' => 'comp_host', 'ID' => 'comp_id', ];
+    //set annee, arme, sexe
+    $
+    //competitions_data;
 
         //vadészok wrapper
         $tireurs_node_title = $xml_document -> createElement('Tireurs');
@@ -130,11 +121,17 @@
 
             //make vadász nodes
                 foreach ($competitors_table as $fencer_obj) {
-                    $new_tireur_title = $xml_document->createElement('Tireur', "");
+                    $new_initial_tireur_title = $xml_document->createElement('Tireur', "");
                     //set attributes
+                    $attributes_for_fencers = ['Nom' => 'nom', 'Prenom' => 'prenom', 'DateNaissance' => 'date_naissance', 'Sexe' => 'sexe', 'Lateralite' => 'lateralite', 'Nation' => 'nation', 'Club' => 'club', 'idOrigine' => 'id', 'Statut' => 'reg'];
 
-
-                    $tireurs_node_title -> appendChild($new_tireur_title);
+                    $tiruer_attributes['id'] = new DOMAttr('ID', $fencer_obj->id);
+                    $tiruer_attributes = [];
+                    foreach ($attributes_for_fencers as $key => $value){
+                        $attribute = new DOMAttr($key, $fencer_obj->{$value});
+                        $new_initial_tireur_title -> setAttributeNode($attribute);
+                    }
+                    $tireurs_node_title -> appendChild($new_initial_tireur_title);
                 }
 
 
@@ -145,11 +142,16 @@
 
             //make bíró nodes
                 foreach ($referee_table as $ref_obj) {
-                    $new_arbitre_title = $xml_document->createElement('Arbitre', "");
+                    $new_initial_arbitre_title = $xml_document->createElement('Arbitre', "");
                     //set attributes
+                    $attributes_for_referees = [];
+                    //need new final xml table with arbitres in them
+                    foreach ($attributes_for_referees as $key => $value){
+                        $attribute = new DOMAttr($key, $ref_obj->{$value});
+                        $new_initial_tireur_title -> setAttributeNode($attribute);
+                    }
 
-
-                    $arbitres_node_title -> appendChild($new_arbitre_title);
+                    $arbitres_node_title -> appendChild($new_initial_arbitre_title);
                 }
 
 
@@ -165,29 +167,29 @@
             $phases_node_title -> appendChild($tdp_node_title);
                 //list all tiruer
                 foreach ($competitors_table as $fencer_obj) {
-                    $new_tireur_title = $xml_document->createElement('Tireur', "");
+                    $new_tdp_tireur_title = $xml_document->createElement('Tireur', "");
                     //set attributes
 
 
-                    $tdp_node_title -> appendChild($new_tireur_title);
+                    $tdp_node_title -> appendChild($new_tdp_tireur_title);
                 }
                 //list all arbitre
                 foreach ($referee_table as $ref_obj) {
-                    $new_arbitre_title = $xml_document->createElement('Arbitre', "");
+                    $new_tdp_arbitre_title = $xml_document->createElement('Arbitre', "");
                     //set attributes
 
 
-                    $tdp_node_title -> appendChild($new_arbitre_title);
+                    $tdp_node_title -> appendChild($new_tdp_arbitre_title);
                 }
 
                 //list all pools
                 foreach ($fencer_table as $pool_obj) {
                     if (!$pool_obj) continue;
-                    $new_poule_title = $xml_document -> createElement('Poule', "");
+                    $new_tdp_poule_title = $xml_document -> createElement('Poule', "");
                     //set attributes
 
 
-                    $tdp_node_title -> appendChild($new_poule_title);
+                    $tdp_node_title -> appendChild($new_tdp_poule_title);
                 }
 
 
@@ -197,11 +199,11 @@
             $phases_node_title->appendChild($tdt_node_title);
                 //list all tiruer
                 foreach ($competitors_table as $fencer_obj) {
-                    $new_tireur_title = $xml_document->createElement('Tireur', "");
+                    $new_tdt_tireur_title = $xml_document->createElement('Tireur', "");
                     //set attributes
 
 
-                    $tdt_node_title -> appendChild($new_tireur_title);
+                    $tdt_node_title -> appendChild($new_tdt_tireur_title);
                 }
 
 
@@ -212,25 +214,25 @@
                     //list all Tableauxs
                     foreach ($table_table as $key => $table_obj) {
                         $title = "Tableau_of_" . substr($key, 2);
-                        $new_table_title = $xml_document->createElement("Tableau", '');
+                        $new_tdt_table_title = $xml_document->createElement("Tableau", '');
                         //set attributes
 
 
-                        $sdt_node_title -> appendChild($new_table_title);
+                        $sdt_node_title -> appendChild($new_tdt_table_title);
                             //list matches
                             foreach ($table_obj as $m_key => $match_obj) {
                                 $match_node_title = $xml_document -> createElement('Match');
                                 //set attributes
 
 
-                                $new_table_title -> appendChild($match_node_title);
+                                $new_tdt_table_title -> appendChild($match_node_title);
                                     //list tireurs in match
                                     foreach ($match_obj as $key_fencer => $fencer_obj) {
                                         if ($key_fencer != "referees" && $key_fencer != "pistetime") {
-                                            $new_match_tireur = $xml_document -> createElement('Tireur');
+                                            $new_match_tireur_title = $xml_document -> createElement('Tireur');
                                             //set attributes
 
-                                            $match_node_title -> appendChild($new_match_tireur);
+                                            $match_node_title -> appendChild($new_match_tireur_title);
                                         }
                                     }
                             }

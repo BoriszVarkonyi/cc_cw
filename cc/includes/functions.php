@@ -147,7 +147,17 @@ function sexConverter($sexin) {
     return $sexout;
 
 }
+function sexCodeConverter($sexIn) {
+    $sexout = "";
 
+    if ($sexIn == 1) {
+        $sexout = "M";
+    } else {
+        $sexout = "F";
+    }
+
+    return $sexout;
+}
 //find object with same id from json_table
 function findObject(array $table_of_objects, $id_to_find, string $attribute_name) {
     foreach ($table_of_objects as $object) {
@@ -163,7 +173,28 @@ function findObject(array $table_of_objects, $id_to_find, string $attribute_name
         return FALSE;
     }
 }
+function weaponCodeConverter($weaponIn) {
+    $weaponout = "";
 
+    switch ($weaponIn) {
+
+        case 1:
+            $weaponout = "E";
+        break;
+        case 2:
+            $weaponout = "F";
+        break;
+        case 3:
+            $weaponout = "S";
+        break;
+        default:
+            $weaponout = "Unidentified weapon";
+        break;
+
+    }
+
+    return $weaponout;
+}
 //weapon type converter nem tom melyik melyik kell borsiz
 function weaponConverter($weaponin) {
 
