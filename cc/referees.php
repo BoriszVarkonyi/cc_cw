@@ -261,9 +261,21 @@ if (isset($_POST['submit_import'])) {
                                 $qry_get_comp_names = "SELECT `comp_name`, `comp_id` FROM `competitions` WHERE `comp_organiser_id` = '$org_id' AND comp_id != '$comp_id'";
                                 $do_get_comp_names = mysqli_query($connection, $qry_get_comp_names);
 
+                                //check which comps have referees set up
+                                $qry_contains_referees = "SELECT assoc_comp_id FROM referees WHERE LENGTH(data) > 5";
+                                $do_contains_referees = mysqli_query($connection, $qry_contains_referees);
+                                $contains_referees = mysqli_fetch_all($do_contains_referees);
+
                                 while ($row = mysqli_fetch_assoc($do_get_comp_names)) {
                                     $import_comp_name = $row['comp_name'];
                                     $import_comp_id = $row['comp_id'];
+
+                                    $flag = false;
+                                    foreach($contains_referees as $ref_id) {
+                                        if($ref_id[0] == $row['comp_id'])
+                                            $flag = true;
+                                    }
+                                    if($flag == false) continue;
                                 ?>
 
                                     <tr id="<?php echo $import_comp_id; ?>" onclick="selectForImport(this)">
