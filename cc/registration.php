@@ -146,7 +146,7 @@
                     $lateralite = $_POST['lateralite'];
                     $barcode = $_POST['barcode'] ?? '00000';
 
-                    $tiruer_obj = new tireur($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL, $barcode);
+                    $tiruer_obj = new tireur($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL, NULL);
 
                     array_push($json_table, $tiruer_obj);
 
