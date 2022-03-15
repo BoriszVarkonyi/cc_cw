@@ -3,50 +3,6 @@
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
-    class tireur
-    {
-        public $sexe;
-        public $id;
-        public $image;
-        public $points;
-        public $classement;
-        public $club;
-        public $lateralite;
-        public $date_naissance;
-        public $licence;
-        public $nation;
-        public $prenom;
-        public $nom;
-        public $reg;
-        public $wc;
-        public $comp_rank;
-        public $temp_rank;
-        public $final_rank;
-        public $team;
-
-        function __construct($sexe, $id, $image, $points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, $reg, $wc, $comp_rank, $temp_rank, $final_rank, $team)
-        {
-            $this->sexe = $sexe;
-            $this->id = $id;
-            $this->image = $image;
-            $this->points = $points;
-            $this->classement = $classement;
-            $this->club = $club;
-            $this->lateralite = $lateralite;
-            $this->date_naissance = $date_naissance;
-            $this->licence = $licence;
-            $this->nation = $nation;
-            $this->prenom = $prenom;
-            $this->nom = $nom;
-            $this->reg = $reg;
-            $this->wc = $wc;
-            $this->comp_rank = $comp_rank;
-            $this->temp_rank = $temp_rank;
-            $this->final_rank = $final_rank;
-            $this->team = $team;
-        }
-    }
-
     $qry_create_table = "CREATE TABLE `ccdatabase`.`competitors` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     if (!$do_create_table = mysqli_query($connection, $qry_create_table)) {
         echo mysqli_error($connection);
