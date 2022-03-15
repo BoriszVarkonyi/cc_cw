@@ -2840,7 +2840,7 @@ textarea.standalone {
 
 /* ///FENCERS WEAPON CONTROL/// */
 
-#fencers_weapon_control_wrapper {
+#fencers_weapon_control_wrapper, #fencers_callroom_wrapper {
 	display: flex;
 	flex-wrap: wrap-reverse;
 	gap: 1.5rem;
