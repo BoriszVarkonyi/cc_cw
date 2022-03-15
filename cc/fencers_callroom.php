@@ -5,7 +5,7 @@
 <?php checkComp($connection); ?>
 
 <?php
-
+    $array_issues = ["Missing weapon control mark on weapon","Missing weapon control mark on bodywire/maskwire","Resistance of weapon","Grip condition","Guard condition","Missing tip screw","Weight","Gauge","Bodywie/maskwire condition"];
 ?>
 
 <!DOCTYPE html>
@@ -69,10 +69,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($array_issues as $issue_id => $issue_name) {
+                                $issue_numbers = 0;
+                            ?>
                             <tr>
-                                <td><p>issue name</p></td>
+                                <td><p><?php echo $issue_name ?></p></td>
                                 <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                     <div id="notes_panel">
