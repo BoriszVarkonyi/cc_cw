@@ -588,8 +588,6 @@
                 </div>
             </div>
 
-
-
             <div id="page_content_panel_main">
                 <div class="wrapper entry_wrapper">
                     <?php
