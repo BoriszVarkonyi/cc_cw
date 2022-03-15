@@ -7,52 +7,35 @@ $array_issues = array(
     "Blade lenght",
     "Grip lenght",
     "Form and depth of the guard",
-    "Guard oxydation/ deformation",
+    "Guard oxydation / deformation",
     "Excentricity of the blade",
     "Blade flexibility",
     "Curve on the blade",
     "Foucault current device",
-    "point and arm size",
-    "spring of the point",
-    "total travel of the point",
-    "residual travel of the point",
-    "isolation of the point",
-    "resistance of the arm",
-    "length/ condition of body/ mask wire",
-    "resistance of body/ mask wire",
-    "mask: FIE mark",
-    "mask: condition and insulation",
-    "mask: resistance (sabre, foil)",
-    "metallic jacket condition",
-    "metallic jacket resistance",
-    "sabre glove/ overlay condition",
-    "sabre glove/ overlay resistance",
-    "glove condition",
-    "jacket condition",
-    "breeches condition",
-    "under-plastron condition",
-    "foil chest protector",
-    "socks",
-    "incorrect name printing",
-    "incorrect national logo",
-    "commercial",
-    "other items",
+    "Point and arm size",
+    "Spring of the point",
+    "Total travel of the point",
+    "Residual travel of the point",
+    "Isolation of the point",
+    "Resistance of the arm",
+    "Length / condition of bodywire / maskwire",
+    "Resistance of bodywire / maskwire",
+    "Mask: FIE mark",
+    "Mask: condition and insulation",
+    "Mask: resistance (sabre, foil)",
+    "Metallic jacket condition",
+    "Metallic jacket resistance",
+    "Sabre glove / overlay condition",
+    "Sabre glove / overlay resistance",
+    "Glove condition",
+    "Jacket condition",
+    "Reeches condition",
+    "Under-plastron condition",
+    "Foil chest protector",
+    "Socks",
+    "Incorrect name printing",
+    "Incorrect nation logo",
+    "Commercial",
+    "Other items",
 );
 ?>
-
-<?php if (property_exists($data, $_SESSION['fencer_id'])) : ?>
-    <?php foreach ($data->$fencer_id->equipment as $key => $quantity) : ?>
-        <tr>
-            <td>
-                <p><?php echo $array_issues[$key]; ?></p>
-            </td>
-            <td>
-                <p><?php echo $quantity; ?></p>
-            </td>
-        </tr>
-    <?php endforeach ?>
-<?php else : ?>
-    <tr>
-        <td colspan="2">Nothing found</td>
-    </tr>
-<?php endif ?>

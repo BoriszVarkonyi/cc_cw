@@ -5,7 +5,7 @@
 <?php checkComp($connection); ?>
 
 <?php
-    $array_issues = ["Missing weapon control mark on weapon","Missing weapon control mark on bodywire/maskwire","Resistance of weapon","Grip condition","Guard condition","Missing tip screw","Weight","Gauge","Bodywie/maskwire condition"];
+    $array_issues = ["Missing weapon control mark on weapon","Missing Weapon Control mark on bodywire / maskwire","Resistance of weapon","Grip condition","Guard condition","Missing tip screw","Weight","Gauge","Bodywire / maskwire condition"];
 ?>
 
 <!DOCTYPE html>
