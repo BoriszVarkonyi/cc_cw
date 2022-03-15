@@ -116,7 +116,7 @@
                                                         <p><?php echo isset($tablefencer->name) ? $tablefencer->name : "Not set!" ?></p>
                                                     </div>
                                                     <div class="table_fencer_nat">
-                                                        <p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "" ?></p>
+                                                        <p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "&#9639" ?></p>
                                                     </div>
 
                                                 </div>
