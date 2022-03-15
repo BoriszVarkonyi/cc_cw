@@ -148,6 +148,7 @@
                             <div>
                                 <label for="elimnation_type">USE FENCERS'</label>
                                 <div class="option_container">
+                                    <?php if (!isset($json_table->groupBy)) $json_table->groupBy = 1 ?>
                                     <input type="radio" name="display_type" id="display_nation" value="1" <?php echo $is_checked = ($json_table -> groupBy == 1) ? "checked" : "" ?> />
                                     <label for="display_nation">Nation</label>
                                     <input type="radio" name="display_type" id="display_club" value="2" <?php echo $is_checked = ($json_table -> groupBy == 2) ? "checked" : "" ?> />
