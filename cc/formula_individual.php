@@ -30,7 +30,7 @@
         }
 
         if ($_POST['third_place'] == 1) {
-            $fencing_for_third = TRUE;
+          while  $fencing_for_third = TRUE;
         } else if ($_POST['third_place'] == 0) {
             $fencing_for_third = FALSE;
         }
@@ -42,7 +42,11 @@
                     $call_room .= $number . ",";
                 }
             }
-            $call_room = substr($call_room, 0, -1);
+            if ($call_room == "") {
+                $call_room = substr($call_room, 0, -1);
+            } else {
+                echo "szar van a plaacsintaban";
+            }
         } else {
             $call_room = NULL;
         }
