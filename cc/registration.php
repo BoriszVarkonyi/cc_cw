@@ -210,9 +210,7 @@
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>
                             <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
-                            <!--
                             <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
-                            -->
                             <button type="submit" form="barcode_form"></button>
                         </form>
                     </div>
