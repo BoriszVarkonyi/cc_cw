@@ -33,7 +33,7 @@
 
                 //barcode check in new
                 if(isset($_POST['barcode']) && isset($_POST['fencer_ids'])) {
-                    if(count($_POST['barcode']) === 5) {
+                    if(strlen($_POST['barcode']) === 5) {
                         $fencer_id = $_POST['fencer_ids'];
                         $id_to_change = findObject($json_table, $fencer_id, "id");
 
