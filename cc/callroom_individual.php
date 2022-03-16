@@ -6,7 +6,7 @@
 <?php
 
     //create table
-    $qry_make_table = "CREATE TABLE `ccdatabase`.`call_room_wc` ( `fencer_id` VARCHAR(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `last_table` VARCHAR(3) NULL DEFAULT NULL , `issues_array` VARCHAR(255) NULL DEFAULT NULL , `notes` TEXT NOT NULL , PRIMARY KEY (`fencer_id`, `assoc_comp_id`)) ENGINE = InnoDB;";
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`call_room_wc` ( `fencer_id` VARCHAR(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `last_table` VARCHAR(3) NOT NULL DEFAULT 0 , `issues_array` VARCHAR(255) NULL DEFAULT NULL , `notes` TEXT NOT NULL, PRIMARY KEY (`fencer_id`, `assoc_comp_id`)) ENGINE = InnoDB;";
     $do_make_table = mysqli_query($connection, $qry_make_table);
 
 ?>
@@ -106,22 +106,25 @@
 													continue;
 												}
 
+
 												//check for callroom  in this table
 												$checked = false;
 												if (isset($tablefencer -> id)) {
-													$fencer_id = $tablefencer -> id;
-													$qry_select_last_table = "SELECT last_table FROM call_room_wc WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
-													$do_select_last_table = mysqli_query($connection, $qry_select_last_table);
-													if (mysqli_num_rows($do_select_last_table)) {
-														$checked = mysqli_fetch_assoc($do_select_last_table)['last_table'] <= substr($key,2);
+													if ($tablefencer -> isWinner) {
+														$set = true;
+														$fencer_id = $tablefencer -> id;
+														$qry_select_last_table = "SELECT last_table, issues_array FROM call_room_wc WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+														$do_select_last_table = mysqli_query($connection, $qry_select_last_table);
+														if (mysqli_num_rows($do_select_last_table)) {
+															$checked = mysqli_fetch_assoc($do_select_last_table)['last_table'] <= substr($key,2);
+														}
 													}
 												} else {
-													//not yet assigned
+													$set = false;
 												}
 
 												$foo = substr($key,2);
 											?>
-												<!-- ez lesz a cim kris -->
 												<a class="table_fencer" href='<?php echo "/cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=$foo" ?>'>
 													<div class="table_fencer_number">
 														<p><?php echo $fencerkey ?></p>
@@ -133,16 +136,18 @@
 													<div class="table_fencer_nat">
 														<p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "" ?></p>
 													</div>
-													<?php if ($checked) {?>
-														<div class="table_callroom green">
-															<img src="../assets/icons/check_circle_black.svg">
-														</div>
-													<?php } ?>
-													<?php if (!$checked) {?>
-														<div class="table_callroom red">
-															<img src="../assets/icons/cancel_black.svg">
-														</div>
-													<?php } ?>
+														<?php if ($set) {
+															if ($checked && $tablefencer -> isWinner) {
+														?>
+															<div class="table_callroom green">
+																<img src="../assets/icons/check_circle_black.svg">
+															</div>
+															<?php } elseif ($tablefencer -> isWinner) { ?>
+
+															<div class="table_callroom red">
+																<img src="../assets/icons/cancel_black.svg">
+															</div>
+														<?php }} ?>
 												</a>
 												<?php
 												if ($firstrun == 0) { ?>

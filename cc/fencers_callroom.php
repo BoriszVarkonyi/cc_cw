@@ -31,12 +31,7 @@
     $qry_check_fencer = "SELECT issues_array, notes FROM call_room_wc WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
     $do_check_fencer = mysqli_query($connection, $qry_check_fencer);
     if (mysqli_num_rows($do_check_fencer) === 0) {
-        //make new row
-        $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id) VALUES ('$fencer_id', '$comp_id')";
-        if (!mysqli_query($connection, $qry_add_fencer)) {
-            echo mysqli_error($connection);
-        }
-        $no_data = false;
+        $has_data = false;
     } else {
         //get data from
         if ($row = mysqli_fetch_assoc($do_check_fencer)) {
@@ -44,7 +39,7 @@
             $db_issues_array = explode(',', $db_issues_string);
             $db_notes = $row['notes'];
         }
-        $no_data = true;
+        $has_data = true;
     }
 
     //submitted
@@ -55,7 +50,7 @@
             //isses
             $issues_string = "";
             foreach ($cr_array_issues as $issue_id => $issue_name) {
-                if ($_POST['issue_n_$issue_id'] != "") {
+                if ($_POST["issue_n_$issue_id"] != "") {
                     $issues_string .= $_POST["issue_n_$issue_id"] . ",";
                 } else {
                     $issues_string .= "0,";
@@ -65,6 +60,13 @@
             //notes
             $notes = mysqli_real_escape_string($connection, $_POST['cr_notes']);
 
+            if (!$has_data) {
+                //make new row
+                $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id) VALUES ('$fencer_id', '$comp_id')";
+                if (!mysqli_query($connection, $qry_add_fencer)) {
+                    echo mysqli_error($connection);
+                }
+            }
         //update database;
             $qry_update = "UPDATE call_room_wc SET issues_array = '$issues_string', notes = '$notes', last_table = '$last_table' WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id'";
             if (mysqli_query($connection, $qry_update)) {
@@ -137,7 +139,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($cr_array_issues as $issue_id => $issue_name) {
-                                if ($no_data) {
+                                if ($has_data) {
                                     $issue_numbers = $db_issues_array[$issue_id];
                                 } else {
                                     $issue_numbers = 0;
@@ -157,7 +159,7 @@
                     </table>
                     <div id="notes_panel">
                         <p>NOTES</p>
-                        <textarea name="cr_notes" id="cr_notes" class="notes" placeholder="Type the notes here"><?php echo $no_data ? $db_notes : "" ?></textarea>
+                        <textarea name="cr_notes" id="cr_notes" class="notes" placeholder="Type the notes here"><?php echo $has_data ? $db_notes : "" ?></textarea>
                     </div>
                 </form>
             </div>
