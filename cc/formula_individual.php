@@ -35,21 +35,7 @@
             $fencing_for_third = FALSE;
         }
 
-        if ($_POST['call_room_usage']) {
-            $call_room = "";
-            foreach ($array_numbers as $number) {
-                if (isset($_POST['call_room_' . $number])) {
-                    $call_room .= $number . ",";
-                }
-            }
-            if ($call_room == "") {
-                $call_room = substr($call_room, 0, -1);
-            } else {
-                echo "szar van a plaacsintaban";
-            }
-        } else {
-            $call_room = NULL;
-        }
+        $call_room = $_POST['call_room_number'];
 
         $groupBy = $_POST['display_type'];//1 is nation, 2 is club
 
@@ -199,7 +185,7 @@
                                 ?>
                                 <label for="third_place">USAGE OF CALL ROOM</label>
                                 <div class="option_container">
-                                    <input type="radio" name="call_room_number" id="call_room_dont_use">
+                                    <input type="radio" name="call_room_number" id="call_room_dont_use" value="0" <?php echo $call_room_number == 0 ? "checked" : "" ?>>
                                     <label for="call_room_dont_use">Don't use</label>
                                     <?php
                                         foreach ($array_numbers as $numbers) {
