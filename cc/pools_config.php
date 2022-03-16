@@ -792,7 +792,7 @@
 
                                         <tr>
                                             <td>
-                                                <p id="<?php echo $fencer_id ?>" x-fencersave="<?php echo $json_string_obj ?>"><?php echo $fencer_name ?></p>
+                                                <p id="<?php echo $fencer_id ?>" x-fencersave='<?php echo $json_string_obj ?>'><?php echo $fencer_name ?></p>
                                             </td>
                                             <td>
                                                 <p><?php echo $fencer_nat ?></p>

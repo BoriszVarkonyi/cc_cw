@@ -39,7 +39,7 @@ function automaticWidthTest() {
 */
 // Select System
 
-var selectedRowInput = document.querySelector(".selected_list_item_input");
+var selectedRowInput = document.querySelectorAll(".selected_list_item_input");
 function selectRow(x) {
     //If we clicked the same it removes the selected class
     if (x.classList.contains("selected")) {
@@ -67,7 +67,10 @@ function selectRow(x) {
             }
         }
         //Saves the selected row id.
-        selectedRowInput.value = x.id;
+        for(i=0; i<selectedRowInput.length; i++){
+            console.log(selectedRowInput[i])
+            selectedRowInput[i].value = x.id;
+        }
     }
 }
 //Toggles the selection on clicked searchresult

@@ -155,6 +155,9 @@
                                 <th>
                                     <p>QUANTITY</p>
                                 </th>
+                                <th class="wide_controls">
+                                    <p>CONTROLS</p>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -171,6 +174,11 @@
                             <tr>
                                 <td><p><?php echo $issue ?></p></td>
                                 <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
+                                <td class="wide_controls">
+                                    <button type="button" onclick="addNumber(this, 1)"><img src="../assets/icons/add_black.svg"></button>
+                                    <button type="button" onclick="addNumber(this, -1)"><img src="../assets/icons/remove_black.svg"></button>
+                                    <button type="button" onclick="resetNumber(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </td>
                             </tr>
 
                             <?php

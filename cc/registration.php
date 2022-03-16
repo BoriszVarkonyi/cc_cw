@@ -31,28 +31,9 @@
                     $json_table = [];
                 }
 
-                //barcode check in legacy
-                if(isset($_POST['barcode']) && !isset($_POST['fencer_ids'])) {
-                    $fencer_id = $_POST['barcode'];
-                    $id_to_change = findObject($json_table, $fencer_id, "id");
-
-                    if($id_to_change === false) {
-                        header('refresh: 0');
-                        die();
-                    }
-
-                    $json_table[$id_to_change] -> reg = 1;
-                    $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-                    $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
-                    if (!$do_update = mysqli_query($connection, $qry_update)) {
-                        echo mysqli_error($connection);
-                    }
-                    header('refresh: 0');
-                }
-
                 //barcode check in new
                 if(isset($_POST['barcode']) && isset($_POST['fencer_ids'])) {
-                    if(count($_POST['barcode']) === 5) {
+                    if(strlen($_POST['barcode']) === 5) {
                         $fencer_id = $_POST['fencer_ids'];
                         $id_to_change = findObject($json_table, $fencer_id, "id");
 
@@ -210,9 +191,7 @@
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>
                             <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
-                            <!--
                             <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
-                            -->
                             <button type="submit" form="barcode_form"></button>
                         </form>
                     </div>

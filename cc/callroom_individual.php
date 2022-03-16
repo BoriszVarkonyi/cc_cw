@@ -33,8 +33,8 @@
 				<div class="stripe_button_wrapper">
 					<!-- -->
 					<a class="stripe_button blue " href="/cc/callroom_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="callroom_statistics_button" shortcut="SHIFT+W">
-						<p>Weapon Control Statistics</p>
-						<img src="../assets/icons/pie_chart_black.svg" />
+						<p>Callroom Statistics</p>
+						<img src="../agssets/icons/pie_chart_black.svg" />
 					</a>
 					<button class="stripe_button primary" type="submit">
 						<p>Pass Fencer</p>
@@ -42,34 +42,33 @@
 					</button>
 				</div>
 			</div>
+			<div id="page_content_panel_main">
+				<div id="call_room" class="cc">
+					<div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
+						<img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+					</div>
+					<div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
+						<img src="../assets/icons/arrow_forward_ios_black.svg">
+					</div>
 
-			<div id="call_room" class="cc">
-						<div class="elimination_slider_button left" id="buttonLeft" onclick="buttonLeft()">
-							<img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
-						</div>
-						<div class="elimination_slider_button right" id="buttonRight" onclick="buttonRight()">
-							<img src="../assets/icons/arrow_forward_ios_black.svg">
-						</div>
+					<?php
 
-						<?php
+					$qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
+					$qry_get_table_do = mysqli_query($connection, $qry_get_table);
 
-						$qry_get_table = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
-						$qry_get_table_do = mysqli_query($connection, $qry_get_table);
+					if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
 
-						if ($row = mysqli_fetch_assoc($qry_get_table_do)) {
+						$out_table = json_decode($row["data"]);
+					}
+					$r_counter = 1;
 
-							$out_table = json_decode($row["data"]);
+					foreach ($out_table as $key => $tablerounds) {
+
+						if ($key == "t_1") {
+							break;
 						}
-						$r_counter = 1;
 
-						foreach ($out_table as $key => $tablerounds) {
-
-							if ($key == "t_1") {
-								break;
-							}
-
-						?>
-
+					?>
 							<div id="e_<?php echo $r_counter ?>" class="elimination">
 								<div class="elimination_label">Table of <?php echo ltrim($key, "t_") ?></div>
 								<?php
@@ -150,27 +149,29 @@
 						}
 						?>
 
-						<div id="winner" class="elimination">
-							<div class="elimination_label">Table of __</div>
-							<div class="table_round_wrapper finished purple">
-								<div class="table_round" onclick="tableRoundConfig(this)">
-									<div class="table_fencer">
-										<div class="table_fencer_number">
-											<p>1</p>
-										</div>
-										<div class="table_fencer_name">
-											<p><?php
-												$firstplace = "1";
-												echo isset($out_table->t_1->m_1->$firstplace->name) ? $out_table->t_1->m_1->$firstplace->name : "" ?></p>
-										</div>
-										<div class="table_fencer_nat">
-											<p><?php echo isset($out_table->t_1->m_1->$firstplace->nation) ? $out_table->t_1->m_1->$firstplace->nation : "" ?></p>
-										</div>
+					<div id="winner" class="elimination">
+						<div class="elimination_label">Table of __</div>
+						<div class="table_round_wrapper finished purple">
+							<div class="table_round" onclick="tableRoundConfig(this)">
+								<div class="table_fencer">
+									<div class="table_fencer_number">
+										<p>1</p>
+									</div>
+									<div class="table_fencer_name">
+										<p><?php
+											$firstplace = "1";
+											echo isset($out_table->t_1->m_1->$firstplace->name) ? $out_table->t_1->m_1->$firstplace->name : "" ?></p>
+									</div>
+									<div class="table_fencer_nat">
+										<p><?php echo isset($out_table->t_1->m_1->$firstplace->nation) ? $out_table->t_1->m_1->$firstplace->nation : "" ?></p>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					
+				</div>
+					
+			</div>
 		</main>
 	</div>
 	<script src="javascript/cookie_monster.js"></script>
