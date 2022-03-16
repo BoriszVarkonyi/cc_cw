@@ -30,7 +30,7 @@
         }
 
         if ($_POST['third_place'] == 1) {
-          while  $fencing_for_third = TRUE;
+            $fencing_for_third = TRUE;
         } else if ($_POST['third_place'] == 0) {
             $fencing_for_third = FALSE;
         }
