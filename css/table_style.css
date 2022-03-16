@@ -223,6 +223,7 @@
 	transition: transform var(--t-basic);
 	color: var(--cs-black);
 	/*box-shadow: var(--s-black);*/
+	position: relative;
 }
 
 .table_fencer > div {
@@ -281,8 +282,32 @@
 	border-radius: 0 5px 5px 0;
 }
 
-.table_fencer_nat > img {
+.table_fencer_nat img {
 	max-height: var(--f-xxsmall);
+}
+
+.table_callroom {
+	position: absolute;
+	right: -25px;
+	width: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.table_callroom.red {
+	background: var(--c-red);
+}
+
+.table_callroom.green {
+	background: var(--c-green);
+}
+
+
+.table_callroom img {
+	aspect-ratio: 1 / 1;
+	width: 1rem;
+	height: 1rem;
 }
 
 /* Coloring */

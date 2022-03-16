@@ -96,7 +96,7 @@
 									}
 								?>
 
-									<div class="table_round_wrapper finished <?php echo $writecolor ?>" id="<?php echo $key . "_" . $keyofmatch ?>" tabindex="1" onclick="selectRound(this), window.location.href='match_results_individual.php?comp_id=<?php echo $comp_id ?>&table_round=<?php echo $key ?>&match_id=<?php echo $keyofmatch ?>'">
+									<div class="table_round_wrapper finished <?php echo $writecolor ?>" id="<?php echo $key . "_" . $keyofmatch ?>" tabindex="1">
 										<div class="table_round">
 
 											<?php
@@ -134,8 +134,13 @@
 														<p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "" ?></p>
 													</div>
 													<?php if ($checked) {?>
-														<div class="table_callroom">
-															<img src="../assets/icons/pie_chart_black.svg">
+														<div class="table_callroom green">
+															<img src="../assets/icons/check_circle_black.svg">
+														</div>
+													<?php } ?>
+													<?php if (!$checked) {?>
+														<div class="table_callroom red">
+															<img src="../assets/icons/cancel_black.svg">
 														</div>
 													<?php } ?>
 												</a>
