@@ -27,7 +27,7 @@ function dontUseOption() {
         useOptions[i].disabled = true;
     }
 }
-dontUseOption();
+//dontUseOption();
 
 var pointsInPools = document.getElementById("pIP");
 pointsInPools.addEventListener("input", function () {
