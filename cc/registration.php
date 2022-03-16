@@ -1,3 +1,4 @@
+<?php include 'models/Tireur.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +31,8 @@
                     $json_table = [];
                 }
 
-                //barcode check in
-                if(isset($_POST['barcode'])) {
+                //barcode check in legacy
+                if(isset($_POST['barcode']) && !isset($_POST['fencer_ids'])) {
                     $fencer_id = $_POST['barcode'];
                     $id_to_change = findObject($json_table, $fencer_id, "id");
 
@@ -45,6 +46,28 @@
                     $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
                     if (!$do_update = mysqli_query($connection, $qry_update)) {
                         echo mysqli_error($connection);
+                    }
+                    header('refresh: 0');
+                }
+
+                //barcode check in new
+                if(isset($_POST['barcode']) && isset($_POST['fencer_ids'])) {
+                    if(count($_POST['barcode']) === 5) {
+                        $fencer_id = $_POST['fencer_ids'];
+                        $id_to_change = findObject($json_table, $fencer_id, "id");
+
+                        if($id_to_change === false) {
+                            header('refresh: 0');
+                            die();
+                        }
+
+                        $json_table[$id_to_change] -> reg = 1;
+                        $json_table[$id_to_change] -> barcode = $_POST['barcode'];
+                        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
+                        $qry_update = "UPDATE `competitors` SET `data` = '$json_string' WHERE `assoc_comp_id` = '$comp_id'";
+                        if (!$do_update = mysqli_query($connection, $qry_update)) {
+                            echo mysqli_error($connection);
+                        }
                     }
                     header('refresh: 0');
                 }
@@ -75,45 +98,7 @@
                     }
                 }
 
-                class tireur {
-                    public $sexe;
-                    public $id;
-                    public $image;
-                    public $points;
-                    public $classement;
-                    public $club;
-                    public $lateralite;
-                    public $date_naissance;
-                    public $licence;
-                    public $nation;
-                    public $prenom;
-                    public $nom;
-                    public $reg;
-                    public $wc;
-                    public $comp_rank;
-                    public $temp_rank;
-                    public $final_rank;
 
-                    function __construct($sexe, $id, $image, $points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, $reg, $wc, $comp_rank, $temp_rank, $final_rank) {
-                        $this->sexe = $sexe;
-                        $this->id = $id;
-                        $this->image = $image;
-                        $this->points = $points;
-                        $this->classement = $classement;
-                        $this->club = $club;
-                        $this->lateralite = $lateralite;
-                        $this->date_naissance = $date_naissance;
-                        $this->licence = $licence;
-                        $this->nation = $nation;
-                        $this->prenom = $prenom;
-                        $this->nom = $nom;
-                        $this->reg = $reg;
-                        $this->wc = $wc;
-                        $this->comp_rank = $comp_rank;
-                        $this->temp_rank = $temp_rank;
-                        $this->final_rank = $final_rank;
-                    }
-                }
 
                 //remove fencer
                 if (isset($_POST['remove_fencer'])) {
@@ -159,8 +144,9 @@
                     $nation = $_POST['nation'];
                     $classement = $_POST['fencer_classement'];
                     $lateralite = $_POST['lateralite'];
+                    $barcode = $_POST['barcode'] ?? '00000';
 
-                    $tiruer_obj = new tireur($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL);
+                    $tiruer_obj = new tireur($sexe, $id, $fencer_image, $fencer_points, $classement, $club, $lateralite, $date_naissance, $licence, $nation, $prenom, $nom, false, false, NULL, NULL, NULL, NULL);
 
                     array_push($json_table, $tiruer_obj);
 
@@ -216,7 +202,7 @@
                                 <p>Register in</p>
                                 <img src="../assets/icons/how_to_reg_black.svg"/>
                             </button>
-                            <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
+                                <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
                         </form>
 
                         <form id="barcode_form" method="POST" action="" shortcut="SHIFT+B">
@@ -224,6 +210,9 @@
                                 <img src="../assets/icons/barcode_black.svg">
                             </button>
                             <input type="text" name="barcode" autocomplete="off" class="barcode_input" placeholder="Barcode" onfocus="toggleBarCodeInput(this)" onblur="toggleBarCodeInput(this)">
+                            <!--
+                            <input type="text" class="hidden selected_list_item_input" name="fencer_ids" id="fencer_ids" readonly>
+                            -->
                             <button type="submit" form="barcode_form"></button>
                         </form>
                     </div>
@@ -318,6 +307,9 @@
                                     </div>
                                 </th>
                                 <th>
+                                    <p>BARCODE</p>
+                                </th>
+                                <th>
                                     <div class="search_panel">
                                         <div class="search_wrapper">
                                             <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
@@ -396,11 +388,13 @@
                                 $club = $json_object -> club;
                                 $stat = $json_object -> reg;
                                 $id = $json_object -> id;
+                                $barcode = $json_object -> barcode ?? 'NOT SET';
 
                             ?>
 
                             <tr id="<?php echo $id ?>" onclick="selectRow(this)" tabindex="0">
                                 <td><p><?php echo $name . "(" . $id . ")" ?></p></td>
+                                <td><p><?php echo $barcode ?></p></td>
                                 <td><p><?php echo $nat ?></p></td>
                                 <td><p><?php echo $club ?></p></td>
                                 <td><p><?php if($stat == 0){echo "Not registered";}else{echo "Registered";} ?></p></td>

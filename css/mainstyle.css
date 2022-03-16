@@ -1,5 +1,29 @@
 @charset "UTF-8";
 
+/*▧*/
+
+/*
+body {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: 2.5rem 1fr;	
+}
+
+header {
+	grid-area: 1 / 1 / 2 / 3;
+}
+
+nav {
+	grid-area: 2 / 1 / 3 / 2;
+}
+
+main {
+	grid-area: 2 / 2 / 3 / 3;
+}
+
+content_wrapper
+*/
+
 /* ///UNIVERSAL/// */
 
 body, html {	/* Gives placeholder background and default font*/
@@ -2840,7 +2864,7 @@ textarea.standalone {
 
 /* ///FENCERS WEAPON CONTROL/// */
 
-#fencers_weapon_control_wrapper {
+#fencers_weapon_control_wrapper, #fencers_callroom_wrapper {
 	display: flex;
 	flex-wrap: wrap-reverse;
 	gap: 1.5rem;

@@ -194,11 +194,6 @@ body, html {	/* Gives placeholder background and default font */
 	overflow-x: hidden;
 }
 
-tr {	/* Gives placeholder background and default font */
-	content-visibility: auto !important;
-	contain-intrinsic-size: calc(1.4em + 1.25vmin);
-}
-
 /* Extra small devices (phones, 532px and down) */
 @media only screen and (min-width: 0px) and (max-width: 440px) {
 	body, html {
@@ -309,6 +304,10 @@ button, input[type="button"] {
 
 input[type="submit"] {
 	cursor: pointer;
+}
+
+img {
+	max-width: 100%;
 }
 
 button, input, textarea {
@@ -1145,6 +1144,9 @@ tr {
 	transition: transform var(--t-basic), border-radius var(--t-basic), box-shadow var(--t-basic);
 	outline: none;
 	box-shadow: 0 0 0 rgba(37, 37, 37, .1);
+	/* Gives placeholder background and default font */
+	content-visibility: auto !important;
+	contain-intrinsic-size: calc(1.4em + 1.25vmin);
 }
 
 tbody tr:first-of-type {

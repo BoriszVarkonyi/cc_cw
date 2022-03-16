@@ -62,7 +62,7 @@
             $real_issues_array = json_decode($real_issues_string);
             //loop through fencers issues
             $all_zero = true;
-            for ($issues_id = 0; $issues_id < count($array_issues); $issues_id++) {
+            for ($issues_id = 0; $issues_id < count($wc_array_issues); $issues_id++) {
                 $count_issue = $real_issues_array[$issues_id];
                 if ($count_issue > 0) {
                     $all_issues_count += $real_issues_array[$issues_id];
@@ -86,10 +86,10 @@
     //make sorted issues array
     $assoc_sorted_issues_array = [];
     foreach ($sorted_issues_array as $issue_id => $issue_value) {
-        if (isset($assoc_sorted_issues_array[$array_issues[$issue_id]])) {
-            $assoc_sorted_issues_array[$array_issues[$issue_id]] += $issue_value;
+        if (isset($assoc_sorted_issues_array[$wc_array_issues[$issue_id]])) {
+            $assoc_sorted_issues_array[$wc_array_issues[$issue_id]] += $issue_value;
         } else {
-            $assoc_sorted_issues_array[$array_issues[$issue_id]] = $issue_value;
+            $assoc_sorted_issues_array[$wc_array_issues[$issue_id]] = $issue_value;
         }
     }
     arsort($assoc_sorted_issues_array, 1);
@@ -120,7 +120,7 @@
                 if ($real_issues_array != null) {
                     for ($i = 0; $i < count($real_issues_array); $i++) {
                         $current_issues_value = $real_issues_array[$i];
-                        $current_issues_name = $array_issues[$i];
+                        $current_issues_name = $wc_array_issues[$i];
                         $fencers_sum_issues += $current_issues_value;
                         $issue_num_teams[$nation] += $current_issues_value;
                         if (isset($teams_sum_issues[$nation][$current_issues_name])) {

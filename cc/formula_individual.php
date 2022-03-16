@@ -42,7 +42,11 @@
                     $call_room .= $number . ",";
                 }
             }
-            $call_room = substr($call_room, 0, -1);
+            if ($call_room == "") {
+                $call_room = substr($call_room, 0, -1);
+            } else {
+                echo "szar van a plaacsintaban";
+            }
         } else {
             $call_room = NULL;
         }
@@ -148,6 +152,7 @@
                             <div>
                                 <label for="elimnation_type">USE FENCERS'</label>
                                 <div class="option_container">
+                                    <?php if (!isset($json_table->groupBy)) $json_table->groupBy = 1 ?>
                                     <input type="radio" name="display_type" id="display_nation" value="1" <?php echo $is_checked = ($json_table -> groupBy == 1) ? "checked" : "" ?> />
                                     <label for="display_nation">Nation</label>
                                     <input type="radio" name="display_type" id="display_club" value="2" <?php echo $is_checked = ($json_table -> groupBy == 2) ? "checked" : "" ?> />
@@ -210,8 +215,8 @@
                                                 $call_room_numbers_checked = "";
                                             }
                                     ?>
-                                    <input type="radio" name="call_room_<?php echo $numbers ?>" id="<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
-                                    <label for="<?php echo $numbers ?>"><?php echo $numbers ?></label>
+                                    <input type="radio" name="call_room_number" id="call_room_<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
+                                    <label for="call_room_<?php echo $numbers ?>"><?php echo $numbers ?></label>
                                     <?php } ?>
                                 </div>
                             </div>
