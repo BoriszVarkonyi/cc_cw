@@ -79,6 +79,8 @@
 								if ($check >= 8) {
 
 									$change_every = $check / 8;
+								} else {
+									$change_every = 0;
 								}
 								$innercounter = 0;
 								$changecounter = 1;
@@ -114,10 +116,10 @@
 													</div>
 
 													<div class="table_fencer_name">
-														<p><?php echo isset($tablefencer->name) ? $tablefencer->name : "Not set!" ?></p>
+														<p><?php echo isset($tablefencer->name) ? $tablefencer->name : "" ?></p>
 													</div>
 													<div class="table_fencer_nat">
-														<p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "&#9639" ?></p>
+														<p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "" ?></p>
 													</div>
 
 												</div>
@@ -159,10 +161,10 @@
 										<div class="table_fencer_name">
 											<p><?php
 												$firstplace = "1";
-												echo $out_table->t_1->m_1->$firstplace->name; ?></p>
+												echo isset($out_table->t_1->m_1->$firstplace->name) ? $out_table->t_1->m_1->$firstplace->name : "" ?></p>
 										</div>
 										<div class="table_fencer_nat">
-											<p><?php echo $out_table->t_1->m_1->$firstplace->nation; ?></p>
+											<p><?php echo isset($out_table->t_1->m_1->$firstplace->nation) ? $out_table->t_1->m_1->$firstplace->nation : "" ?></p>
 										</div>
 									</div>
 								</div>
