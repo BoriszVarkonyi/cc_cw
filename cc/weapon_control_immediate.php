@@ -8,7 +8,28 @@
 error_reporting(E_ERROR | E_PARSE);
 //barcode scan
 if (isset($_POST["barcode"])) {
-    $fencer_id = $_POST["barcode"];
+    $qry_get_data = "SELECT `data` FROM `competitors` WHERE `assoc_comp_id` = '$comp_id'";
+    $do_get_data = mysqli_query($connection, $qry_get_data);
+
+    if ($row = mysqli_fetch_assoc($do_get_data)) {
+        $json_string = $row['data'];
+        $json_table = json_decode($json_string);
+    } else {
+        header('Location: weapon_control_immediate.php?comp_id=' . $comp_id);
+    }
+
+    $selected_fencer = null;
+    foreach($json_table as $item) {
+        if(isset($item->barcode) && $item->barcode === $_POST['barcode']) {
+            $selected_fencer = $item;
+        }
+    }
+    if($selected_fencer == null) {
+        header('refresh: 0');
+        die();
+    }
+
+    $fencer_id = $selected_fencer->id;
     header("location:fencers_weapon_control.php?comp_id=$comp_id&fencer_id=$fencer_id&type=immediate");
     die();
 }
