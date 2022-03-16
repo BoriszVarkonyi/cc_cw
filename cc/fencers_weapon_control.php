@@ -163,6 +163,7 @@
                         <tbody>
 
                             <?php
+                                $counter = 0;
                                 foreach ($wc_array_issues as $issue_id => $issue) {
                                 if ($real_issues_array[$issue_id] != 0) {
                                     $issue_numbers = $real_issues_array[$issue_id];
@@ -171,7 +172,7 @@
                                 }
                             ?>
 
-                            <tr>
+                            <tr id="<?php echo $counter /*needed for js*/ ?>">
                                 <td><p><?php echo $issue ?></p></td>
                                 <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
                                 <td class="wide_controls">
@@ -182,6 +183,7 @@
                             </tr>
 
                             <?php
+                                $counter++;
                                 }
                             ?>
                         </tbody>
