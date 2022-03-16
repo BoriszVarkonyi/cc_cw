@@ -36,10 +36,6 @@
 						<p>Callroom Statistics</p>
 						<img src="../agssets/icons/pie_chart_black.svg" />
 					</a>
-					<button class="stripe_button primary" type="submit">
-						<p>Pass Fencer</p>
-						<img src="../assets/icons/send_black.svg"/>
-					</button>
 				</div>
 			</div>
 			<div id="page_content_panel_main">
@@ -108,7 +104,24 @@
 												if ($fencerkey == "referees" || $fencerkey == "pistetime") {
 													continue;
 												}
+
+												//check for callroom  in this table
+												$checked = false;
+												if (isset($tablefencer -> id)) {
+													$fencer_id = $tablefencer -> id;
+													$qry_select_last_table = "SELECT last_table FROM call_room_wc WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+													$do_select_last_table = mysqli_query($connection, $qry_select_last_table);
+													if (mysqli_num_rows($do_select_last_table)) {
+														$checked = mysqli_fetch_assoc($do_select_last_table)['last_table'] <= substr($key,2);
+													}
+												} else {
+													//not yet assigned
+												}
+
+
 											?>
+												<!-- ez lesz a cim kris -->
+												<?php //echo "cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=substr($key,2)" ?>
 												<div class="table_fencer">
 													<div class="table_fencer_number">
 														<p><?php echo $fencerkey ?></p>
@@ -120,7 +133,9 @@
 													<div class="table_fencer_nat">
 														<p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "" ?></p>
 													</div>
-
+													<?php if ($checked) {?>
+														<!-- ide krist -->
+													<?php } ?>
 												</div>
 												<?php
 												if ($firstrun == 0) { ?>
@@ -168,9 +183,9 @@
 								</div>
 							</div>
 						</div>
-					
+
 				</div>
-					
+
 			</div>
 		</main>
 	</div>
