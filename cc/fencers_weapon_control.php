@@ -47,7 +47,7 @@
     if (($array_string = mysqli_fetch_assoc($do_select)['issues_array']) === null) {
         $notes = "";
         $real_issues_array = [];
-        foreach ($cr_array_issues as $issue) {
+        foreach ($wc_array_issues as $issue) {
             $real_issues_array[] = 0;
         }
     } else {
@@ -68,7 +68,7 @@
         //compile issues array and test for empty post
         $real_issues_array = [];
         $empty = true;
-        for ($i = 0; $i < count($cr_array_issues); $i++) {
+        for ($i = 0; $i < count($wc_array_issues); $i++) {
             if ($_POST['issue_n_' . $i] == "") {
                 $real_issues_array[$i] = 0;
             } else {
@@ -160,7 +160,7 @@
                         <tbody>
 
                             <?php
-                                foreach ($cr_array_issues as $issue_id => $issue) {
+                                foreach ($wc_array_issues as $issue_id => $issue) {
                                 if ($real_issues_array[$issue_id] != 0) {
                                     $issue_numbers = $real_issues_array[$issue_id];
                                 } else {
