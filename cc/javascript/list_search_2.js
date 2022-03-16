@@ -25,10 +25,11 @@ var tempArray = []
 
 var test = document.querySelectorAll('tbody tr > td:not(td.square):not(td.small)');
 var tr = document.querySelectorAll('tbody tr')
+var th = document.querySelectorAll("thead tr > th:not(th.square)")
 
 for (i = 0; i < searches.length; i++) {
     tempArray = []
-    for (j = i; j < test.length; j += searches.length) {
+    for (j = i; j < test.length; j += th.length) {
         tempArray.push(test[j].querySelector("p"))
     }
     database.push(tempArray)
@@ -46,6 +47,7 @@ for (i = 0; i < tr.length; i++) {
 
 }
 database.push(tempArray)
+console.log(database)
 
 
 
@@ -58,11 +60,11 @@ function searchInLists() {
         if (previousSearches[j] != searches[j].value || j == 0 || searches[j].value != "") {
             previousSearches[j] = searches[j].value
             var filter = searches[j].value.toUpperCase();
-            console.log(database[j].length)
             //Loops throught the rows
             for (i = 0; i < database[j].length; i++) {
                 if (database[database.length - 1][i] || j == 0) {
                     //a = li[i].querySelector("p");
+                    console.log(database[j][i])
                     txtValue = database[j][i].textContent || database[j][i].innerText;
                     //if the input is a radio button the search is stricter
                     if (searches[j].parentNode.parentNode.classList.contains("option")) {
