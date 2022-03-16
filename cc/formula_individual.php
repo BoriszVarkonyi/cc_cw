@@ -176,7 +176,7 @@
                                 <label for="third_place">FENCING FOR 3RD PLACE</label>
                                 <div class="option_container">
                                     <input type="radio" name="third_place" id="third_place_yes" value="1" <?php echo $is_checked = ($json_table -> fencingThird == 1) ? "checked" : "" ?> />
-                                    <label for="third_place_no">Yes</label>
+                                    <label for="third_place_yes">Yes</label>
 
                                     <input type="radio" name="third_place" id="third_place_no" value="0" <?php echo $is_checked = ($json_table -> fencingThird == 0) ? "checked" : "" ?> />
                                     <label for="third_place_no">No</label>
@@ -198,14 +198,9 @@
 
                                 ?>
                                 <label for="third_place">USAGE OF CALL ROOM</label>
-                                <div class="option_container row no_bottom">
-                                    <input type="radio" name="call_room_usage" id="used" onclick="useOption()" value="true" <?php echo $call_room_check ?>/>
-                                    <label for="used">Use</label>
-
-                                    <input type="radio" name="call_room_usage" id="not_used" onclick="dontUseOption()" value="false" <?php echo $call_room_n_check ?>/>
-                                    <label for="not_used">Don't use</label>
-                                </div>
-                                <div class="option_container" id="useOptionContainer">
+                                <div class="option_container">
+                                    <input type="radio" name="call_room_number" id="call_room_dont_use">
+                                    <label for="call_room_dont_use">Don't use</label>
                                     <?php
                                         foreach ($array_numbers as $numbers) {
 
@@ -214,10 +209,11 @@
                                             } else {
                                                 $call_room_numbers_checked = "";
                                             }
+                                            ?>
+                                            <input type="radio" name="call_room_number" id="call_room_<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
+                                            <label for="call_room_<?php echo $numbers ?>"><?php echo $numbers ?></label>
+                                        <?php }
                                     ?>
-                                    <input type="radio" name="call_room_number" id="call_room_<?php echo $numbers ?>" value="<?php echo $numbers ?>" <?php echo $call_room_numbers_checked ?>/>
-                                    <label for="call_room_<?php echo $numbers ?>"><?php echo $numbers ?></label>
-                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

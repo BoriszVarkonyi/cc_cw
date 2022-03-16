@@ -6,7 +6,7 @@
 body {
 	display: grid;
 	grid-template-columns: auto 1fr;
-	grid-template-rows: 2.5rem 1fr;	
+	grid-template-rows: 2.5rem 1fr;
 }
 
 header {
@@ -21,7 +21,7 @@ main {
 	grid-area: 2 / 2 / 3 / 3;
 }
 
-content_wrapper
+content_wrapper goes to kuka
 */
 
 /* ///UNIVERSAL/// */
