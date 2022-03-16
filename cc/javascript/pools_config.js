@@ -247,7 +247,10 @@ function idloader() {
     poolsId = poolsId + "]"
     hiddenInput = document.getElementById("savePoolsHiddenInput")
     hiddenInput.value = poolsId
+}
+idloader()
 
+function cookieDealer(){
     var fencers = document.querySelectorAll("aside .fencer")
     asideId = '"';
     for(i=0; i<fencers.length; i++){
@@ -259,11 +262,10 @@ function idloader() {
         }
     }
     asideId += '"'
-    console.log(poolsId.length)
-    document.cookie = "pool = " + poolsId + ";" + setExpireDay(365);
     document.cookie = "aside = " + asideId + ";" + setExpireDay(365)
+
+
 }
-idloader()
 
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
 hiddenInput.value = poolsId
