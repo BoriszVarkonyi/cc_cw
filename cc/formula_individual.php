@@ -42,7 +42,11 @@
                     $call_room .= $number . ",";
                 }
             }
-            $call_room = substr($call_room, 0, -1);
+            if ($call_room == "") {
+                $call_room = substr($call_room, 0, -1);
+            } else {
+                echo "szar van a plaacsintaban";
+            }
         } else {
             $call_room = NULL;
         }
