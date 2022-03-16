@@ -122,7 +122,7 @@
 												$foo = substr($key,2);
 											?>
 												<!-- ez lesz a cim kris -->
-												<a class="table_fencer" href='<?php echo "/cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=$foo" ?>)'>
+												<a class="table_fencer" href='<?php echo "/cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=$foo" ?>'>
 													<div class="table_fencer_number">
 														<p><?php echo $fencerkey ?></p>
 													</div>
