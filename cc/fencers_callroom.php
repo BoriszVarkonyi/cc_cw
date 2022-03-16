@@ -55,7 +55,11 @@
             //isses
             $issues_string = "";
             foreach ($cr_array_issues as $issue_id => $issue_name) {
-                $issues_string .= $_POST["issue_n_$issue_id"] . ",";
+                if ($_POST['issue_n_$issue_id'] != "") {
+                    $issues_string .= $_POST["issue_n_$issue_id"] . ",";
+                } else {
+                    $issues_string .= "0,";
+                }
             }
             $issues_string = substr_replace($issues_string ,"", -1, 1);
             //notes
@@ -78,7 +82,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fencername's Callroom</title>
+    <title><?php echo $fencer_obj -> prenom . " " . $fencer_obj->nom ?>'s Callroom</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
@@ -145,7 +149,7 @@
                     </table>
                     <div id="notes_panel">
                         <p>NOTES</p>
-                        <textarea name="cr_notes" id="cr_notes" placeholder="Type the notes here"><?php echo $db_notes ?></textarea>
+                        <textarea name="cr_notes" id="cr_notes" placeholder="Type the notes here"><?php echo $no_data ? $db_notes : "" ?></textarea>
                     </div>
                 </form>
             </div>
