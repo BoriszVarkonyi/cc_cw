@@ -68,7 +68,6 @@ function selectRow(x) {
         }
         //Saves the selected row id.
         for(i=0; i<selectedRowInput.length; i++){
-            console.log(selectedRowInput[i])
             selectedRowInput[i].value = x.id;
         }
     }

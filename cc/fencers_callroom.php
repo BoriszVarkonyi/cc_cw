@@ -5,9 +5,6 @@
 <?php checkComp($connection); ?>
 
 <?php
-    //create table
-    $qry_make_table = "CREATE TABLE `ccdatabase`.`call_room_wc` ( `fencer_id` VARCHAR(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `last_table` VARCHAR(3) NULL DEFAULT NULL , `issues_array` VARCHAR(255) NULL DEFAULT NULL , `notes` TEXT NOT NULL , PRIMARY KEY (`fencer_id`, `assoc_comp_id`)) ENGINE = InnoDB;";
-    $do_make_table = mysqli_query($connection, $qry_make_table);
 
     //get GET[] info
     $fencer_id = $_GET['fencer_id'];

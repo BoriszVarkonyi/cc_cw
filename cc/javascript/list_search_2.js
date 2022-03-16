@@ -215,7 +215,6 @@ for (i = 0; i < columns.length; i++) {
 var allButtons = document.querySelectorAll("#page_content_panel_main th > .table_buttons_wrapper button:first-of-type");
 
 var sortButtonCookie = cookieFinder("sortCookie", "")
-console.log(sortButtonCookie[1])
 for (i = 0; i < sortButtonCookie[1]; i++) {
     console.log("bfwqjfb")
     sortButton(allButtons[sortButtonCookie[0]])
