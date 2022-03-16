@@ -5,7 +5,9 @@
 
 <?php
 
-
+    //create table
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`call_room_wc` ( `fencer_id` VARCHAR(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `last_table` VARCHAR(3) NULL DEFAULT NULL , `issues_array` VARCHAR(255) NULL DEFAULT NULL , `notes` TEXT NOT NULL , PRIMARY KEY (`fencer_id`, `assoc_comp_id`)) ENGINE = InnoDB;";
+    $do_make_table = mysqli_query($connection, $qry_make_table);
 
 ?>
 
@@ -31,10 +33,9 @@
 			<div id="title_stripe">
 				<p class="page_title">Callroom</p>
 				<div class="stripe_button_wrapper">
-					<!-- -->
 					<a class="stripe_button blue " href="/cc/callroom_statistics.php?comp_id=<?php echo $comp_id; ?>" target="_blank" id="callroom_statistics_button" shortcut="SHIFT+W">
 						<p>Callroom Statistics</p>
-						<img src="../agssets/icons/pie_chart_black.svg" />
+						<img src="../assets/icons/pie_chart_black.svg" />
 					</a>
 				</div>
 			</div>
@@ -118,11 +119,10 @@
 													//not yet assigned
 												}
 
-
+												$foo = substr($key,2);
 											?>
 												<!-- ez lesz a cim kris -->
-												<?php //echo "cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=substr($key,2)" ?>
-												<div class="table_fencer">
+												<a class="table_fencer" href='<?php echo "/cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=$foo" ?>)'>
 													<div class="table_fencer_number">
 														<p><?php echo $fencerkey ?></p>
 													</div>
@@ -134,9 +134,11 @@
 														<p><?php echo isset($tablefencer->nation) ? $tablefencer->nation : "" ?></p>
 													</div>
 													<?php if ($checked) {?>
-														<!-- ide krist -->
+														<div class="table_callroom">
+															<img src="../assets/icons/pie_chart_black.svg">
+														</div>
 													<?php } ?>
-												</div>
+												</a>
 												<?php
 												if ($firstrun == 0) { ?>
 													<div class="table_round_info">
