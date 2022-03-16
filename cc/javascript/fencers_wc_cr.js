@@ -1,7 +1,7 @@
 var selectedInputIndex = 0;
 var inputs = document.querySelectorAll("tbody input");
 
-numberInputs.forEach(item => {
+inputs.forEach(item => {
     item.addEventListener("keydown", function (e) {
         if (e.key == "ArrowUp" && inputs.length > 0) {
             if (selectedInputIndex == 0) {
@@ -33,6 +33,12 @@ numberInputs.forEach(item => {
     }
     );
 })
+inputs.forEach(item => {
+    item.addEventListener("input", function (e) {
+        inputValueLimiter(this, 20)
+    })
+
+})
 
 function addNumber(x, numberToAdd) {
     var input = x.parentNode.parentNode.querySelector("input")
@@ -44,8 +50,10 @@ function addNumber(x, numberToAdd) {
             input.value = parseInt(input.value) + numberToAdd
         }
     }
-    else{
-        input.value = parseInt(input.value) + numberToAdd
+    else {
+        if (input.value < 20) {
+            input.value = parseInt(input.value) + numberToAdd
+        }
     }
 
 }
