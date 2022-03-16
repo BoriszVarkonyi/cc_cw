@@ -1,11 +1,13 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
-<?php include "includes/cr_issues_array.php"; ?>
+<?php include "includes/issues_array.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 
 <?php
-    $array_issues = ["Missing weapon control mark on weapon","Missing weapon control mark on bodywire/maskwire","Resistance of weapon","Grip condition","Guard condition","Missing tip screw","Weight","Gauge","Bodywie/maskwire condition"];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +71,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($array_issues as $issue_id => $issue_name) {
+                            <?php foreach ($cr_array_issues as $issue_id => $issue_name) {
                                 $issue_numbers = 0;
                             ?>
                             <tr>
