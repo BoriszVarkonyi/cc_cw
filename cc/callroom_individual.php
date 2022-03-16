@@ -110,8 +110,9 @@
 												//check for callroom  in this table
 												$checked = false;
 												if (isset($tablefencer -> id)) {
+													$set = true;
 													if ($tablefencer -> isWinner) {
-														$set = true;
+
 														$fencer_id = $tablefencer -> id;
 														$qry_select_last_table = "SELECT last_table, issues_array FROM call_room_wc WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
 														$do_select_last_table = mysqli_query($connection, $qry_select_last_table);
