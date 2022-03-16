@@ -188,7 +188,7 @@
                     </table>
                     <div id="notes_panel">
                         <p>NOTES</p>
-                        <textarea name="wc_notes" id="wc_notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
+                        <textarea name="wc_notes" id="wc_notes" class="notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
                     </div>
                 </form>
             </div>

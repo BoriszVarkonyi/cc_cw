@@ -130,6 +130,9 @@
                                 <th>
                                     <p>QUANTITY</p>
                                 </th>
+                                <th class="wide_controls">
+                                    <p>CONTROLS</p>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -143,13 +146,18 @@
                             <tr>
                                 <td><p><?php echo $issue_name ?></p></td>
                                 <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
+                                <td class="wide_controls">
+                                    <button type="button" onclick="addNumber(this, 1)"><img src="../assets/icons/add_black.svg"></button>
+                                    <button type="button" onclick="addNumber(this, -1)"><img src="../assets/icons/remove_black.svg"></button>
+                                    <button type="button" onclick="resetNumber(this)"><img src="../assets/icons/close_black.svg"></button>
+                                </td>
                             </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                     <div id="notes_panel">
                         <p>NOTES</p>
-                        <textarea name="cr_notes" id="cr_notes" placeholder="Type the notes here"><?php echo $no_data ? $db_notes : "" ?></textarea>
+                        <textarea name="cr_notes" id="cr_notes" class="notes" placeholder="Type the notes here"><?php echo $no_data ? $db_notes : "" ?></textarea>
                     </div>
                 </form>
             </div>

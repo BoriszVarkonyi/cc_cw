@@ -2854,14 +2854,6 @@ textarea.standalone {
 
 /* ///INVITION IN SEPARATE FILE/// */
 
-/* ///WEAPON CONTROL/// */
-
-#wc_notes {
-	width: 100%;
-	min-height: 200px;
-	resize: vertical;
-}
-
 /* ///FENCERS WEAPON CONTROL/// */
 
 #fencers_weapon_control_wrapper, #fencers_callroom_wrapper {
@@ -2878,7 +2870,7 @@ textarea.standalone {
 	flex: 0 0 200px;
 }
 
-#wc_notes {
+textarea.notes {
 	aspect-ratio: 1 / 1;
 	background: LightGoldenrodYellow;
 	border: 1pt solid Bisque;
@@ -2886,6 +2878,9 @@ textarea.standalone {
 	box-sizing: border-box;
 	padding: 0.1rem 0.2rem;
 	line-height: 1.2;
+	width: 100%;
+	min-height: 200px;
+	resize: vertical;
 }
 
 /* ///CHOOSE RANKING/// */
