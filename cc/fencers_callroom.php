@@ -5,9 +5,72 @@
 <?php checkComp($connection); ?>
 
 <?php
+    //create table
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`call_room_wc` ( `fencer_id` VARCHAR(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `last_table` VARCHAR(3) NULL DEFAULT NULL , `issues_array` VARCHAR(255) NULL DEFAULT NULL , `notes` TEXT NOT NULL , PRIMARY KEY (`fencer_id`, `assoc_comp_id`)) ENGINE = InnoDB;";
+    $do_make_table = mysqli_query($connection, $qry_make_table);
 
+    //get GET[] info
+    $fencer_id = $_GET['fencer_id'];
+    $t_id = $_GET['t'];
 
+    //get fencers data
+    $qry_get_fencer_data = "SELECT data FROM competitors WHERE assoc_comp_id = '$comp_id'";
+    $do_get_fencer_data = mysqli_query($connection, $qry_get_fencer_data);
+    if ($row = mysqli_fetch_assoc($do_get_fencer_data)) {
+        $json_string = $row['data'];
+        $compet_table = json_decode($json_string);
 
+        //search for fencer
+        if (($id_to_find = findObject($compet_table,$fencer_id,"id")) !== false) {
+            $fencer_obj = $compet_table[$id_to_find];
+        } else {
+            echo "cant find fencer ID!!";
+        }
+    } else {
+        echo "cant find fencer!";
+    }
+
+    //make callroom row for fencer if there is not one
+    $qry_check_fencer = "SELECT issues_array, notes FROM call_room_wc WHERE assoc_comp_id = '$comp_id' AND fencer_id = '$fencer_id'";
+    $do_check_fencer = mysqli_query($connection, $qry_check_fencer);
+    if (mysqli_num_rows($do_check_fencer) === 0) {
+        //make new row
+        $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id) VALUES ('$fencer_id', '$comp_id')";
+        if (!mysqli_query($connection, $qry_add_fencer)) {
+            echo mysqli_error($connection);
+        }
+    } else {
+        //get data from
+        if ($row = mysqli_fetch_assoc($do_check_fencer)) {
+            $db_issues_string = $row['issues_array'];
+            $db_issues_array = explode(',', $db_issues_string);
+            $db_notes = $row['notes'];
+        }
+    }
+
+    //submitted
+    if (isset($_POST['submit_cr'])) {
+        //update last table
+            $last_table = mysqli_real_escape_string($connection, $t_id);
+        //get data from FORM
+            //isses
+            $issues_string = "";
+            foreach ($cr_array_issues as $issue_id => $issue_name) {
+                $issues_string .= $_POST["issue_n_$issue_id"] . ",";
+            }
+            $issues_string = substr_replace($issues_string ,"", -1, 1);
+            //notes
+            $notes = mysqli_real_escape_string($connection, $_POST['cr_notes']);
+
+        //update database;
+            $qry_update = "UPDATE call_room_wc SET issues_array = '$issues_string', notes = '$notes', last_table = '$last_table' WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id'";
+            if (mysqli_query($connection, $qry_update)) {
+                echo "OK";
+                header("Refresh: 0");
+            } else {
+                echo "error: " . mysqli_error($connection);
+            }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -26,17 +89,13 @@
         <?php include "includes/navbar.php"; ?>
         <main>
             <div id="title_stripe">
-                <p class="page_title">Fencername's Callroom for {Table}</p>
+                <p class="page_title"><?php echo $fencer_obj -> prenom . " " . $fencer_obj->nom ?>'s Callroom for #<?php echo $t_id ?> table</p>
                 <div class="stripe_button_wrapper">
                     <!-- callroom_indiviudal vagy callroom_teams -->
-                    <a class="stripe_button" href="../cc/<?php echo $cr_page?>.php?comp_id=<?php echo $comp_id ?>">
+                    <a class="stripe_button" href="../cc/<?php echo $navbar -> call_room -> href ?>">
                         <p>Go back to Callroom</p>
                         <img src="../assets/icons/arrow_back_ios_black.svg"/>
                     </a>
-                    <button name="delete_cr" class="stripe_button red" type="submit" form="fencers_callroom_wrapper">
-                        <p>Delete Callroom</p>
-                        <img src="../assets/icons/delete_black.svg"/>
-                    </button>
                     <button name="submit_cr" class="stripe_button primary" type="submit" form="fencers_callroom_wrapper">
                         <p>Save Callroom</p>
                         <img src="../assets/icons/save_black.svg"/>
@@ -72,7 +131,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($cr_array_issues as $issue_id => $issue_name) {
-                                $issue_numbers = 0;
+                                $issue_numbers = $db_issues_array[$issue_id];
                             ?>
                             <tr>
                                 <td><p><?php echo $issue_name ?></p></td>
@@ -83,7 +142,7 @@
                     </table>
                     <div id="notes_panel">
                         <p>NOTES</p>
-                        <textarea name="cr_notes" id="cr_notes" placeholder="Type the notes here"><?php /*echo $notes */ ?></textarea>
+                        <textarea name="cr_notes" id="cr_notes" placeholder="Type the notes here"><?php echo $db_notes ?></textarea>
                     </div>
                 </form>
             </div>
