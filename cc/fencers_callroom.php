@@ -5,9 +5,6 @@
 <?php checkComp($connection); ?>
 
 <?php
-    //create table
-    $qry_make_table = "CREATE TABLE `ccdatabase`.`call_room_wc` ( `fencer_id` VARCHAR(11) NOT NULL , `assoc_comp_id` INT(11) NOT NULL , `last_table` VARCHAR(3) NULL DEFAULT NULL , `issues_array` VARCHAR(255) NULL DEFAULT NULL , `notes` TEXT NOT NULL , PRIMARY KEY (`fencer_id`, `assoc_comp_id`)) ENGINE = InnoDB;";
-    $do_make_table = mysqli_query($connection, $qry_make_table);
 
     //get GET[] info
     $fencer_id = $_GET['fencer_id'];
@@ -39,6 +36,7 @@
         if (!mysqli_query($connection, $qry_add_fencer)) {
             echo mysqli_error($connection);
         }
+        $no_data = false;
     } else {
         //get data from
         if ($row = mysqli_fetch_assoc($do_check_fencer)) {
@@ -46,6 +44,7 @@
             $db_issues_array = explode(',', $db_issues_string);
             $db_notes = $row['notes'];
         }
+        $no_data = true;
     }
 
     //submitted
@@ -131,7 +130,11 @@
                         </thead>
                         <tbody>
                             <?php foreach ($cr_array_issues as $issue_id => $issue_name) {
-                                $issue_numbers = $db_issues_array[$issue_id];
+                                if ($no_data) {
+                                    $issue_numbers = $db_issues_array[$issue_id];
+                                } else {
+                                    $issue_numbers = 0;
+                                }
                             ?>
                             <tr>
                                 <td><p><?php echo $issue_name ?></p></td>
