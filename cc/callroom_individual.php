@@ -126,7 +126,7 @@
 
 												$foo = substr($key,2);
 											?>
-												<a class="table_fencer" href='<?php echo "/cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=$foo" ?>'>
+												<a class="table_fencer" <?php if ($set) { if ($tablefencer -> isWinner) { ?>href='<?php echo "/cc/fencers_callroom.php?comp_id=$comp_id&fencer_id=$fencer_id&t=$foo" ?>'<?php }} ?>>
 													<div class="table_fencer_number">
 														<p><?php echo $fencerkey ?></p>
 													</div>
