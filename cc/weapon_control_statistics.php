@@ -37,10 +37,12 @@
     $sorted_teams_array = [];
 
     for ($i = 0; $i < count($competit_table); $i++) {
-        $fencers_nat = $competit_table[$i] -> $sort_by;
+        if(isset($competit_table[$i]->$sort_by))
+            $fencers_nat = $competit_table[$i] -> $sort_by;
         $fencers_id = $competit_table[$i] -> id;
 
-        $sorted_teams_array[$fencers_nat][] = $fencers_id;
+        if(isset($fencers_nat))
+            $sorted_teams_array[$fencers_nat][] = $fencers_id;
     }
 
 
@@ -61,25 +63,26 @@
             $real_issues_string = $row['issues_array'];
             $real_issues_array = json_decode($real_issues_string);
             //loop through fencers issues
-            $all_zero = true;
+
+            $has_issues = false;
+            foreach($real_issues_array as $item) {
+                $all_issues_count += $item;
+                if($has_issues == false && $item != 0) {
+                    $has_issues = true;
+                    $imperfect_fencers_count++;
+                }
+            }
+            if($has_issues == false) $perfect_fencers_count++;
+
             for ($issues_id = 0; $issues_id < count($wc_array_issues); $issues_id++) {
                 $count_issue = $real_issues_array[$issues_id];
                 if ($count_issue > 0) {
-                    $all_issues_count += $real_issues_array[$issues_id];
-                    $all_zero = false;
                     if (isset($sorted_issues_array[$issues_id])) {
                         $sorted_issues_array[$issues_id] += $count_issue;
                     } else {
                         $sorted_issues_array[$issues_id] = $count_issue;
                     }
                 }
-            }
-            if ($all_zero) {
-                //no issues
-                $perfect_fencers_count++;
-            } else {
-                //had issues
-                $imperfect_fencers_count++;
             }
         }
     }
