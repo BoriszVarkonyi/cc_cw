@@ -7,12 +7,13 @@
     <title>Page not available</title>
 </head>
 <body>
-    <p>This page is not available!</p>
-    <!--
-    <img src="#" alt="Random cute kitty cat">     
-    -->
+    <main>
+        <h1>This page is not available!</h1>
+        <a href="javascript:history.back()">Go Back</a>
+        <br/>
+        <img src="#" alt="Random cute kitty cat">     
+    </main>
    
-    <!--
     <script>
         const img = document.querySelector('img');
 
@@ -26,7 +27,22 @@
             getImage();
         };
     </script>        
-    -->
-
+<style>
+    @font-face {
+        font-family: Poppins-Regular;
+        font-style: normal;
+        src: url(assets/fonts/Poppins-Regular.ttf);
+        font-display: swap;
+    }
+    main {
+        font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
+        margin: 0 auto;
+        text-align: center;
+    }
+    img { width: 50vw; }
+    @media screen and (max-width: 800px) {
+        img { width: 90vw };
+    }
+</style>
 </body>
 </html>
