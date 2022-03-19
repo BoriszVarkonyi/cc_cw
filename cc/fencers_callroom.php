@@ -66,13 +66,15 @@
                 $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id) VALUES ('$fencer_id', '$comp_id')";
                 if (!mysqli_query($connection, $qry_add_fencer)) {
                     echo mysqli_error($connection);
+                } else {
+                    echo "OK!!"
                 }
             }
         //update database;
             $qry_update = "UPDATE call_room_wc SET issues_array = '$issues_string', notes = '$notes', last_table = '$last_table' WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id'";
             if (mysqli_query($connection, $qry_update)) {
                 echo "OK";
-                header("Refresh: 0");
+                //header("Refresh: 0");
             } else {
                 echo "error: " . mysqli_error($connection);
             }
