@@ -268,9 +268,6 @@
                                     <div class="td bold"><p><?php echo $nation ?></p></div>
                                     <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
                                     <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
-                                    <?php if (reset($teams_sum_issues[$nation]) != 0) { ?>
-                                    <div class="td"><p><?php echo key($teams_sum_issues[$nation]) . " (" . reset($teams_sum_issues[$nation]) . ")" ?></p></div>
-                                    <?php } ?>
                                 </div>
                                 <div class="entry_panel split">
                                     <table class="small no_interaction">
@@ -499,9 +496,6 @@
                                 <div class="td bold"><p><?php echo $nation ?></p></div>
                                 <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
                                 <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
-                                <?php if (reset($teams_sum_issues[$nation]) != 0) { ?>
-                                <div class="td"><p><?php echo key($teams_sum_issues[$nation]) . " (" . reset($teams_sum_issues[$nation]) . ")" ?></p></div>
-                                <?php } ?>
                             </div>
                             <div class="entry_panel split">
                                 <table class="small">
