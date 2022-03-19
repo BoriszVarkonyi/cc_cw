@@ -63,7 +63,7 @@
 
             if (!$has_data) {
                 //make new row
-                $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id) VALUES ('$fencer_id', '$comp_id')";
+                $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id, notes) VALUES ('$fencer_id', '$comp_id', '')";
                 if (!mysqli_query($connection, $qry_add_fencer)) {
                     echo mysqli_error($connection);
                 } else {
