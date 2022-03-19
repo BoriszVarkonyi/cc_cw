@@ -42,6 +42,7 @@
         $has_data = true;
     }
 
+    var_dump($has_data);
     //submitted
     if (isset($_POST['submit_cr'])) {
         //update last table
