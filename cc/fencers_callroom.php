@@ -42,7 +42,7 @@
         $has_data = true;
     }
 
-    var_dump($has_data);
+    //var_dump($has_data);
     //submitted
     if (isset($_POST['submit_cr'])) {
         //update last table
@@ -74,7 +74,7 @@
             $qry_update = "UPDATE call_room_wc SET issues_array = '$issues_string', notes = '$notes', last_table = '$last_table' WHERE fencer_id = '$fencer_id' AND assoc_comp_id = '$comp_id'";
             if (mysqli_query($connection, $qry_update)) {
                 echo "OK";
-                //header("Refresh: 0");
+                header("Refresh: 0");
             } else {
                 echo "error: " . mysqli_error($connection);
             }
