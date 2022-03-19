@@ -67,7 +67,7 @@
                 if (!mysqli_query($connection, $qry_add_fencer)) {
                     echo mysqli_error($connection);
                 } else {
-                    echo "OK!!"
+                    echo "OK!!";
                 }
             }
         //update database;
