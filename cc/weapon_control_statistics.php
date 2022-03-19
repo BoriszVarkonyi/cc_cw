@@ -1,6 +1,6 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
-<?php include "includes/wc_issues_array.php"; ?>
+<?php include "includes/issues_array.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
