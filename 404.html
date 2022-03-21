@@ -8,13 +8,17 @@
 </head>
 <body>
     <main>
-        <h1>This page is not available!</h1>
+        <h1><span>d'</span>ARTAGNAN</h1>
+        <p>Page not found. <b>ERROR 404</b></p>
         <a href="javascript:history.back()">Go Back</a>
-        <br/>
-        <img src="#" alt="Random cute kitty cat">     
+
+        <!-- <img src="#" alt="Random cute kitty cat"> -->
+
     </main>
-   
+
     <script>
+        /*
+        Sorry, boss says its not acceptable too use on this page
         const img = document.querySelector('img');
 
         async function getImage() {
@@ -26,23 +30,79 @@
         window.onload = (event) => {
             getImage();
         };
-    </script>        
+        */
+    </script>
 <style>
     @font-face {
         font-family: Poppins-Regular;
+        src: url(https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap) format("truetype");
+        unicode-range: initial;
+        font-variant: normal;
+        font-stretch: normal;
+        font-weight: initial;
         font-style: normal;
-        src: url(assets/fonts/Poppins-Regular.ttf);
+        size-adjust: initial;
+        line-gap-override: initial;
         font-display: swap;
     }
-    main {
-        font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
-        margin: 0 auto;
-        text-align: center;
+
+    @font-face {
+        font-family: Poppins-SemiBold;
+        src: url(https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap) format("truetype");
+        unicode-range: initial;
+        font-variant: normal;
+        font-stretch: normal;
+        font-weight: initial;
+        font-style: normal;
+        size-adjust: initial;
+        line-gap-override: initial;
+        font-display: swap;
     }
+
+
+    @font-face {
+        font-family: Poppins-Bold;
+        src: url(https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap) format("truetype");
+        unicode-range: initial;
+        font-variant: normal;
+        font-stretch: normal;
+        font-weight: initial;
+        font-style: normal;
+        size-adjust: initial;
+        line-gap-override: initial;
+        font-display: swap;
+    }
+
+    body, html {
+        background: var(--c-white);
+        font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
+        color: var(--c-black);
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        line-height: 1 !important;
+    }
+
+
+    body * {
+        font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        line-height: 1 !important;
+    }
+
+    h1 {
+        font-family: Poppins-Bold;
+    }
+
+    /*
     img { width: 50vw; }
     @media screen and (max-width: 800px) {
         img { width: 90vw };
     }
+    */
+
 </style>
 </body>
 </html>
