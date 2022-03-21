@@ -4,7 +4,6 @@
 	/* Changes throughout colormodes */
 
 	/* Needs to be RGB and RGBA because tehse have the most browser support, HEXA is just not there yet :(*/
-	--c-black: rgb(37, 37, 37);
 	--c-transparent-black: rgba(37,37,37,.3);
 	--c-darkgray: rgb(154, 154, 154);
 	--c-gray: rgb(204, 204, 204);
@@ -83,6 +82,18 @@
 	/*Icons*/
 	--ci-staticblack: saturation(71%);
 	--ci-staticwhite: invert();
+}
+
+@supports (not (-moz-appearance: none)) {
+	:root {
+		--c-black: rgb(0, 0, 0);	
+	}
+}
+
+@supports ((-moz-appearance: none)) {
+	:root {
+		--c-black: rgb(37, 37, 37);	
+	}
 }
 
 [data-content-theme="danube"]:root {
