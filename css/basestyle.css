@@ -1226,6 +1226,11 @@ td.bold {
 	font-family: var(--bold);
 }
 
+
+td.hidden {
+	display: none;
+}
+
 /* Makes the first letter caps */
 td.capitalize p::first-letter {
 	text-transform: uppercase;

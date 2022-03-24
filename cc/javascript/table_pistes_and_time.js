@@ -7,7 +7,7 @@ var use_all = document.getElementById("all")
 var use_not_all = document.getElementById("not_all")
 var different_time = document.getElementById("diff_time")
 var different_piste = document.getElementById("diff_piste")
-var table_wrapper = document.getElementById("table_row_wrapper")
+var table_wrapper = document.getElementById("tbody")
 var datafield = document.getElementById("data_to_upload")
 
 //TRY IN PISTES AND TIME
@@ -38,7 +38,7 @@ function tryConfig() {
     var roundnum = table_wrapper.childElementCount
 
     //Get table match table elemets in array
-    var matchesArray = table_wrapper.querySelectorAll(".table_row")
+    var matchesArray = table_wrapper.querySelectorAll("tr")
 
     //Main filler function
 

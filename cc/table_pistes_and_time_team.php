@@ -240,13 +240,21 @@ if (isset($_POST["save_piste_time"])) {
                                     <p>Preview matches</p>
                                 </div>
                                 <div class="db_panel_main list">
-                                    <div class="table fixed">
-                                        <div class="table_header">
-                                            <div class="table_header_text"><p>MATCH ID</p></div>
-                                            <div class="table_header_text"><p>PISTE</p></div>
-                                            <div class="table_header_text"><p>STARTING TIME</p></div>
-                                        </div>
-                                        <div class="table_row_wrapper alt" id="table_row_wrapper">
+                                    <table class="fixed no_interaction">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <p>MATCH ID</p>
+                                                </th>
+                                                <th>
+                                                    <p>PISTE</p>
+                                                </th>
+                                                <th>
+                                                    <p>STARTING TIME</p>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="alt" id="tbody">
 
                                             <?php
 
@@ -272,23 +280,30 @@ if (isset($_POST["save_piste_time"])) {
 
                                             ?>
 
-                                                <div class="table_row <?php
+                                                <tr class="<?php
 
-                                                                        if ($canskip == true) {
-                                                                            echo "skip";
-                                                                        }
+                                                        if ($canskip == true) {
+                                                            echo "skip";
+                                                        }
 
-                                                                        ?>">
-                                                    <div class="table_item key"><?php echo $matchkey ?></div>
-                                                    <div class="table_item pistes"><?php echo $matches->pistetime->pistename ?></div>
-                                                    <div class="table_item time"><?php echo $matches->pistetime->time ?></div>
-                                                </div>
+                                                        ?>">
+
+                                                    <td>
+                                                        <p><?php echo $matchkey ?></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><?php echo $matches->pistetime->pistename ?></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><?php echo $matches->pistetime->time ?></p>
+                                                    </td>
+                                                </tr>
 
                                             <?php
                                             }
                                             ?>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
