@@ -1200,6 +1200,7 @@ tr.bold {
 	font-family: var(--bold);
 }
 
+/*hello*/
 /* Special case of disqualification, makes the first item line-through */
 tr.disqualified td:first-child {
 	text-decoration: line-through;
