@@ -8,7 +8,7 @@
         <div>
             <p>CONTACTS</p>
             <a href="mailto:dartagnanfencing@gmail.com">Email</a>
-            <a href="" class="about_us">About us</a>
+            <a href="about.php" class="about_us">About us</a>
         </div>
         <div>
             <p>OTHER APPLICATIONS</p>

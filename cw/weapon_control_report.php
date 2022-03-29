@@ -4,29 +4,23 @@ include "includes/db.php";
     $comp_id = filter_input(INPUT_GET, "comp_id");
 
     session_start();
+
+    $fencer_id = $_SESSION['fencer_id'];
     if(!isset($_SESSION['fencer_name'])) {
         header("Location: competition.php?comp_id=$comp_id");
     }
 
-    $qry_get_weapon_control = "SELECT data FROM weapon_control WHERE assoc_comp_id = $comp_id;";
+    $qry_get_weapon_control = "SELECT * FROM weapon_control WHERE assoc_comp_id = $comp_id AND fencer_id = $fencer_id;";
     $do_get_weapon_control = mysqli_query($connection, $qry_get_weapon_control);
 
-
-    $weapon_control_set = false;
-    $checked_out = false;
-    $weapons = array();
-
     if($do_get_weapon_control) {
-        $json_data = mysqli_fetch_assoc($do_get_weapon_control)["data"];
-        $data = json_decode($json_data);
-        if(property_exists($data, $_SESSION['fencer_id'])) {
-            $fencer_id = $_SESSION['fencer_id'];
-            $checked_out = $data->$fencer_id->checked_out;
-            $weapon_control_set = true;
-            $weapons = $data->{$fencer_id}->array_of_issues;
-        }
+        $data = mysqli_fetch_assoc($do_get_weapon_control);
+        $issues_array = json_decode($data['issues_array']) ?? [];
+        $turned_in_array = json_decode($data['weapons_turned_in']);
     } else {
         echo mysqli_error($connection);
+        $issues_array = [];
+        $turned_in_array = [];
     }
 ?>
 
@@ -50,11 +44,12 @@ include "includes/db.php";
             <div id="content_wrapper">
                 <div id="weapon_control_info" class="red">
                     <p id="fencer_name"><?php echo $_SESSION['fencer_name'] ?>'s Weapon Control</p>
-                    <p id="wc_status">Status: <?php if($weapon_control_set) echo "Set"; else echo "Unset"; ?></p>
-                    <p><?php if($checked_out) echo "Checked Out"; else echo "Not checked out"; ?></p>
+                    <p id="wc_status">Status: <?php if($issues_array !== []) echo "Set"; else echo "Unset"; ?></p>
+                    <p><?php if($data['check_out_date'] !== null)  echo "Checked Out"; else echo "Not checked out"; ?></p>
                 </div>
 
-                <!-- only if administrated weapo control -->
+                <!-- only if administrated weapon control -->
+                <?php if($turned_in_array !== null) : ?>
                 <h1>EQUIPMENT GIVEN FOR CONTROL</h1>
                 <table class="no_interaction">
                     <thead>
@@ -64,9 +59,11 @@ include "includes/db.php";
                         </tr>
                     </thead>
                     <tbody class="alt">
-                        <?php include "views/WeaponControl.php" ?>
+                        <?php include "views/AdministeredWeaponControl.php" ?>
                     </tbody>
                 </table>
+                <?php endif ?>
+                
 
                 <h1>WEAPON CONTROL RESULTS</h1>
                 <table class="no_interaction">
@@ -77,14 +74,7 @@ include "includes/db.php";
                         </tr>
                     </thead>
                     <tbody class="alt">
-                        <tr>
-                            <td>
-                                <p>Issue name</p>
-                            </td>
-                            <td>
-                                <p>quantritxy</p>
-                            </td>
-                        </tr>
+                        <?php include "views/WeaponControl.php" ?>
                     </tbody>
                 </table>
 
