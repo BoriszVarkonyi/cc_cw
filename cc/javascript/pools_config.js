@@ -198,29 +198,27 @@ function moveFencer(x, bool) {
             switchDivs(currentTr, nextTr)
         }
     }
+    cookieDealer();
     idloader();
 }
 
 function moveFencerBack(x) {
     findFencer(x.parentNode.querySelector("p").innerHTML).createRow(selectedEntry)
     x.parentNode.remove()
+    cookieDealer();
     idloader();
 }
 
 function moveFencerAside(x) {
     findFencer(x.parentNode.parentNode.querySelector("p").innerHTML).createBox();
     x.parentNode.parentNode.remove()
+    cookieDealer();
     idloader();
 }
 
-var poolCookie = cookieFinder("pool", "", false, 365)
-var asideCookie = cookieFinder("aside", "", false, 365)
-console.log(poolCookie)
-console.log(asideCookie)
 
 //Makes the JSON format string
 var poolsId = ""
-var asideId = ""
 function idloader() {
     poolsId = "["
     var entries = document.querySelectorAll(".entry")
@@ -252,20 +250,35 @@ idloader()
 
 function cookieDealer(){
     var fencers = document.querySelectorAll("aside .fencer")
-    asideId = '"';
+    var asideId = []
+    var plsWork;
     for(i=0; i<fencers.length; i++){
-        if(i == fencers.length -1){
-            asideId += fencers[i].querySelector("p").innerHTML;
-        }
-        else{
-            asideId += fencers[i].querySelector("p").innerHTML + ", "; 
-        }
+        asideId.push(fencers[i].querySelector("p").innerHTML)
     }
-    asideId += '"'
+    plsWork = JSON.stringify(asideId)
     document.cookie = "aside = " + asideId + ";" + setExpireDay(365)
 
-
+    var entries = document.querySelectorAll("#page_content_panel_main .entry")
+    for(i=0; i<entries.length; i++){
+        fencers = entries[i].querySelectorAll("tbody tr > td:first-of-type p")
+        var tempArray = []
+        for(j=0; j<fencers.length; j++){
+            tempArray.push(fencers[j].innerHTML)
+            plsWork = JSON.stringify(tempArray)
+        }
+        document.cookie = 'pool'+ i +' = ' + plsWork + ';' + setExpireDay(365)
+    }
 }
+
+var poolCookies = []
+for(i=0; i<document.querySelectorAll(".entry").length; i++){
+    var cookie = cookieFinder("pool" + i, "", false, 365)
+    poolCookies.push(cookie)
+}
+var asideCookie = cookieFinder("aside", "", false, 365)
+
+console.log(JSON.parse("[" + poolCookies + "]"))
+
 
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
 hiddenInput.value = poolsId

@@ -1,6 +1,6 @@
 //Get html elements for further use
 
-var table_wrapper = document.getElementById("table_row_wrapper")
+var table_wrapper = document.getElementById("tbody")
 var head1 = document.getElementById("f1_head")
 var head2 = document.getElementById("f2_head")
 var vr_name = document.getElementById("vr_name_head")
@@ -39,7 +39,7 @@ function shuffle(array) {
 
 function nation_to_club() {
 
-    var table_rows = table_wrapper.querySelectorAll(".table_row")
+    var table_rows = table_wrapper.querySelectorAll("tr")
 
     for (let h = 0; h < table_rows.length; h++) {
 
@@ -119,7 +119,7 @@ function nation_to_club() {
 
 function club_to_nation() {
 
-    var table_rows = table_wrapper.querySelectorAll(".table_row")
+    var table_rows = table_wrapper.querySelectorAll("tr")
 
     for (let h = 0; h < table_rows.length; h++) {
 

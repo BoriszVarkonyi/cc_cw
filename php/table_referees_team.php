@@ -288,31 +288,33 @@ if (isset($_POST["submit_referees"])) {
                                     <button id="preview_button" onclick="nation_to_club(this)">Preview Referees</button>
                                 </div>
                                 <div class="db_panel_main list">
-                                    <div class="table fixed">
-                                        <div class="table_header">
-                                            <div class="table_header_text">
-                                                <p>MATCH ID</p>
-                                            </div>
-                                            <div class="table_header_text">
-                                                <p>PISTE</p>
-                                            </div>
-                                            <div class="table_header_text">
-                                                <p>STARTING TIME</p>
-                                            </div>
-                                            <div class="table_header_text" id="f1_head">
-                                                <p>F1 NATION</p>
-                                            </div>
-                                            <div class="table_header_text" id="f2_head">
-                                                <p>F2 NATION</p>
-                                            </div>
-                                            <div class="table_header_text" id="vr_name_head">
-                                                <p>REFEREE</p>
-                                            </div>
-                                            <div class="table_header_text" id="vr_nat_head">
-                                                <p>REFEREE NATION</p>
-                                            </div>
-                                        </div>
-                                        <div class="table_row_wrapper alt" id="table_row_wrapper">
+                                    <table class="fixed no_interaction">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <p>MATCH ID</p>
+                                                </th>
+                                                <th>
+                                                    <p>PISTE</p>
+                                                </th>
+                                                <th>
+                                                    <p>STARTING TIME</p>
+                                                </th>
+                                                <th id="f1_head">
+                                                    <p>F1 NATION</p>
+                                                </th>
+                                                <th id="f2_head">
+                                                    <p>F2 NATION</p>
+                                                </th>
+                                                <th id="vr_name_head">
+                                                    <p>REFEREE</p>
+                                                </th>
+                                                <th id="vr_nat_head">
+                                                    <p>REFEREE NATION</p>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="alt" id="tbody">
 
                                             <?php
 
@@ -341,84 +343,91 @@ if (isset($_POST["submit_referees"])) {
 
                                             ?>
 
-                                                <div class="table_row <?php
+                                                    <tr class="<?php
 
-                                                                        if ($canskip == true) {
-                                                                            echo "skip";
-                                                                        }
+                                                    if ($canskip == true) {
+                                                        echo "skip";
+                                                    }
 
-                                                                        ?>">
-                                                    <div class="table_item id">
-                                                        <p><?php echo $matchkey ?></p>
-                                                    </div>
-                                                    <div class="table_item pistes">
-                                                        <p><?php if ($canskip == true) {
-                                                                echo "FINISHED";
-                                                            } else {
-                                                                echo $matches->pistetime->pistename;
-                                                            } ?></p>
-                                                    </div>
-                                                    <div class="table_item time">
-                                                        <p><?php
-                                                            if ($canskip == true) {
-                                                                echo "FINISHED";
-                                                            } else {
-                                                                echo $matches->pistetime->time;
-                                                            } ?></p>
-                                                    </div>
-                                                    <div class="table_item nation n_for_ref">
-                                                        <p><?php if ($canskip == true) {
-                                                                echo "FINISHED";
-                                                            } else {
-                                                                echo $fencersnat[0];
-                                                            } ?></p>
-                                                    </div>
-                                                    <div class="table_item nation n_for_ref">
-                                                        <p><?php if ($canskip == true) {
-                                                                echo "FINISHED";
-                                                            } else {
-                                                                echo $fencersnat[1];
-                                                            } ?></p>
-                                                    </div>
-                                                    <div class="table_item club c_for_ref hidden">
-                                                        <p><?php if ($canskip == true) {
-                                                                echo "FINISHED";
-                                                            } else {
-                                                                echo $fencersclub[0];
-                                                            } ?></p>
-                                                    </div>
-                                                    <div class="table_item club c_for_ref hidden">
-                                                        <p><?php if ($canskip == true) {
-                                                                echo "FINISHED";
-                                                            } else {
-                                                                echo $fencersclub[1];
-                                                            } ?></p>
-                                                    </div>
-                                                    <div class="table_item referee refname">
+                                                    ?>">
+                                                        <td class="id">
+                                                            <p><?php echo $matchkey ?></p>
+                                                        </td>
+
+                                                        <td class="pistes">
+                                                            <p><?php if ($canskip == true) {
+                                                                    echo "FINISHED";
+                                                                } else {
+                                                                    echo $matches->pistetime->pistename;
+                                                                } ?></p>
+                                                        </td>
+
+                                                        <td class="time">
+                                                            <p><?php
+                                                                if ($canskip == true) {
+                                                                    echo "FINISHED";
+                                                                } else {
+                                                                    echo $matches->pistetime->time;
+                                                                } ?></p>
+                                                        </td>
+
+                                                        <td class="nation n_for_ref">
+                                                            <p><?php if ($canskip == true) {
+                                                                    echo "FINISHED";
+                                                                } else {
+                                                                    echo $fencersnat[0];
+                                                                } ?></p>
+                                                        </td>
+
+                                                        <td class="nation n_for_ref">
+                                                            <p><?php if ($canskip == true) {
+                                                                    echo "FINISHED";
+                                                                } else {
+                                                                    echo $fencersnat[1];
+                                                                } ?></p>
+                                                        </td>
+
+                                                        <td class="club c_for_ref hidden">
+                                                            <p><?php if ($canskip == true) {
+                                                                    echo "FINISHED";
+                                                                } else {
+                                                                    echo $fencersclub[0];
+                                                                } ?></p>
+                                                        </td>
+
+                                                        <td class="club c_for_ref hidden">
+                                                            <p><?php if ($canskip == true) {
+                                                                    echo "FINISHED";
+                                                                } else {
+                                                                    echo $fencersclub[1];
+                                                                } ?></p>
+                                                        </td>
+
+                                                    <td class="referee refname">
                                                         <p><?php echo $matches->referees->ref->name ?></p>
-                                                    </div>
-                                                    <div class="table_item nation referee refnat">
+                                                    </td>
+                                                    <td class="nation referee refnat">
                                                         <p><?php echo $matches->referees->ref->nation ?></p>
-                                                    </div>
-                                                    <div class="table_item club referee refclub hidden">
+                                                    </td>
+                                                    <td class="club referee refclub hidden">
                                                         <p><?php echo $matches->referees->ref->club ?></p>
-                                                    </div>
-                                                    <div class="table_item video hidden vrefname">
+                                                    </td>
+                                                    <td class="video hidden vrefname">
                                                         <p><?php echo $matches->referees->vref->name ?></p>
-                                                    </div>
-                                                    <div class="table_item nation video vrefnat hidden">
+                                                    </td>
+                                                    <td class="nation video vrefnat hidden">
                                                         <p><?php echo $matches->referees->vref->nation ?></p>
-                                                    </div>
-                                                    <div class="table_item club video vrefclub hidden">
+                                                    </td>
+                                                    <td class="club video vrefclub hidden">
                                                         <p><?php echo $matches->referees->vref->club ?></p>
-                                                    </div>
+                                                    </td>
                                                 </div>
 
                                             <?php
                                             }
                                             ?>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="db_panel full hidden" id="referees_preview_panel">

@@ -1,6 +1,6 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/db.php" ?>
-<?php include "includes/wc_issues_array.php"; ?>
+<?php include "includes/issues_array.php"; ?>
 <?php ob_start(); ?>
 <?php checkComp($connection); ?>
 <?php
@@ -37,10 +37,12 @@
     $sorted_teams_array = [];
 
     for ($i = 0; $i < count($competit_table); $i++) {
-        $fencers_nat = $competit_table[$i] -> $sort_by;
+        if(isset($competit_table[$i]->$sort_by))
+            $fencers_nat = $competit_table[$i] -> $sort_by;
         $fencers_id = $competit_table[$i] -> id;
 
-        $sorted_teams_array[$fencers_nat][] = $fencers_id;
+        if(isset($fencers_nat))
+            $sorted_teams_array[$fencers_nat][] = $fencers_id;
     }
 
 
@@ -61,25 +63,26 @@
             $real_issues_string = $row['issues_array'];
             $real_issues_array = json_decode($real_issues_string);
             //loop through fencers issues
-            $all_zero = true;
+
+            $has_issues = false;
+            foreach($real_issues_array as $item) {
+                $all_issues_count += $item;
+                if($has_issues == false && $item != 0) {
+                    $has_issues = true;
+                    $imperfect_fencers_count++;
+                }
+            }
+            if($has_issues == false) $perfect_fencers_count++;
+
             for ($issues_id = 0; $issues_id < count($wc_array_issues); $issues_id++) {
                 $count_issue = $real_issues_array[$issues_id];
                 if ($count_issue > 0) {
-                    $all_issues_count += $real_issues_array[$issues_id];
-                    $all_zero = false;
                     if (isset($sorted_issues_array[$issues_id])) {
                         $sorted_issues_array[$issues_id] += $count_issue;
                     } else {
                         $sorted_issues_array[$issues_id] = $count_issue;
                     }
                 }
-            }
-            if ($all_zero) {
-                //no issues
-                $perfect_fencers_count++;
-            } else {
-                //had issues
-                $imperfect_fencers_count++;
             }
         }
     }
@@ -265,9 +268,6 @@
                                     <div class="td bold"><p><?php echo $nation ?></p></div>
                                     <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
                                     <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
-                                    <?php if (reset($teams_sum_issues[$nation]) != 0) { ?>
-                                    <div class="td"><p><?php echo key($teams_sum_issues[$nation]) . " (" . reset($teams_sum_issues[$nation]) . ")" ?></p></div>
-                                    <?php } ?>
                                 </div>
                                 <div class="entry_panel split">
                                     <table class="small no_interaction">
@@ -496,9 +496,6 @@
                                 <div class="td bold"><p><?php echo $nation ?></p></div>
                                 <div class="td"><p><?php echo $fencer_in_team[$nation] ?> Fencers</p></div>
                                 <div class="td"><p><?php echo $issue_num_teams[$nation] ?> Issues</p></div>
-                                <?php if (reset($teams_sum_issues[$nation]) != 0) { ?>
-                                <div class="td"><p><?php echo key($teams_sum_issues[$nation]) . " (" . reset($teams_sum_issues[$nation]) . ")" ?></p></div>
-                                <?php } ?>
                             </div>
                             <div class="entry_panel split">
                                 <table class="small">
