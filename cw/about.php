@@ -15,6 +15,5 @@
         <h1>About us</h1>
     </main>
     <?php include "static/footer.php"; ?>
-    <script src="javascript/main.js"></script>
 </body>
 </html>
