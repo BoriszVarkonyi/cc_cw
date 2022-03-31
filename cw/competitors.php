@@ -43,7 +43,14 @@
                     </div>
                     <input name="submit_search" type="submit" value="Search">
                 </form>
-
+                <div id="competition_color_legend">
+                    <button id="fencing_lengend" value="Registration Finished" aria-label="Select Still Fencing"></button>
+                    <p>Still fencing</p>
+                    <button id="eliminated_lengend" value="Ongoing Pools" aria-label="Select Eliminated"></button>
+                    <p>Eliminated</p>
+                    <button id="passed_lengend" value="Ongoing Table" aria-label="Select Passsed"></button>
+                    <p>Passed</p>
+                </div>
                 <table>
                     <?php
                         $competitionController = new CompetitionController($comp_id);
