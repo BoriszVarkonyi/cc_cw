@@ -37,7 +37,6 @@ if (isset($_GET['fencer_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,83 +48,77 @@ if (isset($_GET['fencer_id'])) {
     <link rel="stylesheet" href="../css/print_paper_style.min.css">
     <link rel="stylesheet" href="../css/print_barcode_style.min.css">
 </head>
-
 <body>
-    <!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Print Fencer Barcodes</p>
-                <div class="stripe_button_wrapper">
-                    <a class="stripe_button bold" shortcut="SHIFT+C" href="registration.php?comp_id=<?php echo $comp_id; ?>">
-                        <p>Back to Registration</p>
-                        <img src="../assets/icons/close_black.svg" />
-                    </a>
-                    <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
-                        <p>Print</p>
-                        <img src="../assets/icons/print_black.svg" />
-                    </button>
-                </div>
-                <!--
-                <div class="view_button_wrapper first">
-                    <button onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out_black.svg" />
-                    </button>
-                    <button onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in_black.svg" />
-                    </button>
-                </div>
-                 -->
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Print Fencer Barcodes</p>
+            <div class="stripe_button_wrapper">
+                <a class="stripe_button bold" shortcut="SHIFT+C" href="registration.php?comp_id=<?php echo $comp_id; ?>">
+                    <p>Back to Registration</p>
+                    <img src="../assets/icons/close_black.svg" />
+                </a>
+                <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
+                    <p>Print</p>
+                    <img src="../assets/icons/print_black.svg" />
+                </button>
             </div>
-            <div id="page_content_panel_main" class="loose">
+            <!--
+            <div class="view_button_wrapper first">
+                <button onclick="zoomOut()" id="zoomOutButton">
+                    <img src="../assets/icons/zoom_out_black.svg" />
+                </button>
+                <button onclick="zoomIn()" id="zoomInButton">
+                    <img src="../assets/icons/zoom_in_black.svg" />
+                </button>
+            </div>
+                -->
+        </div>
+        <div id="page_content_panel_main" class="loose">
 
-                <?php
+            <?php
 
-                $counter = 0;
-                //Counter for page switch
-                //Page changes every at 65 fencers
+            $counter = 0;
+            //Counter for page switch
+            //Page changes every at 65 fencers
 
-                foreach ($fencers_json_table as $fencer) {
+            foreach ($fencers_json_table as $fencer) {
 
-                    //Paper change
-                    if ($counter % 65 == 0 || $counter == 0) {
-                ?>
-                        <div class="paper barcodes">
+                //Paper change
+                if ($counter % 65 == 0 || $counter == 0) {
+            ?>
+                    <div class="paper barcodes">
+                        <div>
+                        <?php
+                    }
+                        ?>
+
+                        <div class="barcode_print">
                             <div>
-                            <?php
-                        }
-                            ?>
-
-                            <div class="barcode_print">
-                                <div>
-                                    <p class="barcode_nat"><?php echo $fencer->nation; ?></p>
-                                    <?php echo bar128($fencer->id); ?>
-                                    <p><?php echo $fencer->id; ?></p>
-                                    <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
-                                </div>
-                            </div>
-
-                            <?php
-                            $counter++;
-                            //Paper change
-                            if ($counter % 65 == 0) {
-                            ?>
+                                <p class="barcode_nat"><?php echo $fencer->nation; ?></p>
+                                <?php echo bar128($fencer->id); ?>
+                                <p><?php echo $fencer->id; ?></p>
+                                <p><?php echo $fencer->prenom . " " . $fencer->nom; ?></p>
                             </div>
                         </div>
 
-                <?php
-                        }
+                        <?php
+                        $counter++;
+                        //Paper change
+                        if ($counter % 65 == 0) {
+                        ?>
+                        </div>
+                    </div>
+
+            <?php
                     }
-                ?>
-            </div>
-        </main>
-    </div>
+                }
+            ?>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/search.js"></script>
     <script src="javascript/print.js"></script>
 </body>
-
 </html>

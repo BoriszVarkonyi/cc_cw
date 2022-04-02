@@ -189,59 +189,55 @@ if (isset($_POST['submit_import'])) {
     <link rel="stylesheet" href="../css/print_referee_cards_style.min.css">
 </head>
 <body>
-    <!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Print Referee Cards</p>
-                <div class="stripe_button_wrapper">
-                    <a class="stripe_button bold" href="referees.php?comp_id=<?php echo $comp_id ?>">
-                        <p>Go back to Referees</p>
-                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
-                    </a>
-                    <button class="stripe_button primary" onclick="printPage()">
-                        <p>Print Cards</p>
-                        <img src="../assets/icons/print_black.svg" />
-                    </button>
-                </div>
-                <div class="view_button_wrapper first">
-                    <button onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out_black.svg"/>
-                    </button>
-                    <button onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in_black.svg"/>
-                    </button>
-                </div>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Print Referee Cards</p>
+            <div class="stripe_button_wrapper">
+                <a class="stripe_button bold" href="referees.php?comp_id=<?php echo $comp_id ?>">
+                    <p>Go back to Referees</p>
+                    <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                </a>
+                <button class="stripe_button primary" onclick="printPage()">
+                    <p>Print Cards</p>
+                    <img src="../assets/icons/print_black.svg" />
+                </button>
             </div>
-            <div id="page_content_panel_main" class="loose">
-                <div id="pool_print_wrapper" class="paper_wrapper">
+            <div class="view_button_wrapper first">
+                <button onclick="zoomOut()" id="zoomOutButton">
+                    <img src="../assets/icons/zoom_out_black.svg"/>
+                </button>
+                <button onclick="zoomIn()" id="zoomInButton">
+                    <img src="../assets/icons/zoom_in_black.svg"/>
+                </button>
+            </div>
+        </div>
+        <div id="page_content_panel_main" class="loose">
+            <div id="pool_print_wrapper" class="paper_wrapper">
 
-                    <div class="paper">
-                        <div class="paper_content full">
-                            <div class="referee_card_wrapper">
-                                <div class="referee_card">
-                                    g
-                                </div>
+                <div class="paper">
+                    <div class="paper_content full">
+                        <div class="referee_card_wrapper">
+                            <div class="referee_card">
+                                g
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="paper">
-                        <div class="paper_content full">
-                            <div class="referee_card_wrapper">
-                                <div class="referee_card">
-                                    g
-                                </div>
+                <div class="paper">
+                    <div class="paper_content full">
+                        <div class="referee_card_wrapper">
+                            <div class="referee_card">
+                                g
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/print.js"></script>
