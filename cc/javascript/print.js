@@ -1,5 +1,4 @@
 var paperWrapper = document.querySelector(".paper_wrapper");
-console.log(paperWrapper)
 var zoomNumber = 0.5;
 
 function zoomOut() {

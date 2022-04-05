@@ -528,5 +528,6 @@ if (isset($_POST['submit_import'])) {
     <script src="javascript/controls_2.js"></script>
     <script src="javascript/importoverlay.js"></script>
     <script src="javascript/list_search_2.js"></script>
+    <script src="javascript/search.js"></script>
 </body>
 </html>

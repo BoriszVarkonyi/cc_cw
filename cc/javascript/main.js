@@ -284,6 +284,8 @@ numberInputs.forEach(item => {
 
 })
 
+
+
 var stripeButtons = document.querySelectorAll(".stripe_button")
 var barCodeForm = document.getElementById("barcode_form")
 var canAddHoverClass = true;
@@ -303,6 +305,7 @@ document.addEventListener("keydown", function (e) {
     }
 })
 
+
 document.addEventListener("keyup", function (e) {
     //searchBarClosed is a var. from search.js
     if (searchBarClosed && !somethingIsFocused) {
@@ -317,6 +320,7 @@ document.addEventListener("keyup", function (e) {
         }
     }
 })
+
 
 var loadingBar = document.getElementById("loading_bar");
 document.addEventListener('DOMContentLoaded', function () {

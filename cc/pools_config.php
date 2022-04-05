@@ -448,12 +448,25 @@
                     <img src="../assets/icons/print_black.svg"/>
                 </button>
 
+<<<<<<< HEAD
+                    <button class="stripe_button" type="button" onclick="reloadByCooke()">
+                        <p>Test Button</p>
+                    </button>
+
+                    <form action="" method="POST">
+                        <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
+                            <p>Start Pools</p>
+                            <img src="../assets/icons/outlined_flag_black.svg"/>
+                        </button>
+                    </form>
+=======
                 <form action="" method="POST">
                     <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
                         <p>Start Pools</p>
                         <img src="../assets/icons/outlined_flag_black.svg"/>
                     </button>
                 </form>
+>>>>>>> 908d44c10a622aeb5ae7664be8d022cc7ec28ec9
 
                 <form method="POST" action="">
                     <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" readonly>
