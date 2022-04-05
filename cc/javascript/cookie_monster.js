@@ -1,3 +1,4 @@
+
 //gets the cookie
 function getCookie(cname) {
     var name = cname + "=";
@@ -46,4 +47,3 @@ function setExpireDay(exdays) {
     var expires = "expires=" + d.toUTCString();
     return expires;
 }
-

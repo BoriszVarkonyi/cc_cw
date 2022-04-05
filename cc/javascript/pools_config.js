@@ -1,3 +1,4 @@
+
 function useAllReferees() {
     var selectReferees = document.getElementById("select_referees_panel");
     selectReferees.classList.add("disabled");
@@ -248,37 +249,58 @@ function idloader() {
 }
 idloader()
 
-function cookieDealer(){
+function cookieDealer() {
     var fencers = document.querySelectorAll("aside .fencer")
     var asideId = []
-    var plsWork;
-    for(i=0; i<fencers.length; i++){
+    var stringifyString;
+    for (i = 0; i < fencers.length; i++) {
         asideId.push(fencers[i].querySelector("p").innerHTML)
     }
-    plsWork = JSON.stringify(asideId)
-    document.cookie = "aside = " + asideId + ";" + setExpireDay(365)
+    stringifyString = JSON.stringify(asideId)
+    document.cookie = "aside = " + stringifyString + ";" + setExpireDay(365)
 
     var entries = document.querySelectorAll("#page_content_panel_main .entry")
-    for(i=0; i<entries.length; i++){
+    for (i = 0; i < entries.length; i++) {
         fencers = entries[i].querySelectorAll("tbody tr > td:first-of-type p")
         var tempArray = []
-        for(j=0; j<fencers.length; j++){
+        for (j = 0; j < fencers.length; j++) {
             tempArray.push(fencers[j].innerHTML)
-            plsWork = JSON.stringify(tempArray)
+            stringifyString = JSON.stringify(tempArray)
         }
-        document.cookie = 'pool'+ i +' = ' + plsWork + ';' + setExpireDay(365)
+        document.cookie = 'pool' + i + ' = ' + stringifyString + ';' + setExpireDay(365)
     }
 }
 
 var poolCookies = []
-for(i=0; i<document.querySelectorAll(".entry").length; i++){
+for (i = 0; i < document.querySelectorAll(".entry").length; i++) {
     var cookie = cookieFinder("pool" + i, "", false, 365)
     poolCookies.push(cookie)
 }
 var asideCookie = cookieFinder("aside", "", false, 365)
 
-console.log(JSON.parse("[" + poolCookies + "]"))
+function reloadByCooke() {
+    var trs = document.querySelectorAll("tbody tr")
+    for (i = 0; i < trs.length; i++) {
+        trs[i].remove();
+    }
+    
+    var poolsToRegenerate = JSON.parse("[" + poolCookies + "]")
+    var entries = document.querySelectorAll(".entry")
+    for (k = 0; k < entries.length; k++) {
+        for (j = 0; j < poolsToRegenerate[k].length; j++) {
+            var name = poolsToRegenerate[k][j]
+            findFencer(name).createRow(entries[k])
+        }
+    }
 
+    var asideToRegenerate =  JSON.parse("[" + asideCookie + "]")
+
+    for(k=0; k<asideToRegenerate[0].length; k++){
+        findFencer(asideToRegenerate[0][k]).createBox();
+    }
+    
+
+}
 
 var hiddenInput = document.getElementById("savePoolsHiddenInput")
 hiddenInput.value = poolsId
@@ -400,3 +422,8 @@ document.addEventListener("keyup", function (e) {
         }
     }
 })
+
+
+
+
+

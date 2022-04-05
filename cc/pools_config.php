@@ -451,6 +451,10 @@
                         <img src="../assets/icons/print_black.svg"/>
                     </button>
 
+                    <button class="stripe_button" type="button" onclick="reloadByCooke()">
+                        <p>Test Button</p>
+                    </button>
+
                     <form action="" method="POST">
                         <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
                             <p>Start Pools</p>
