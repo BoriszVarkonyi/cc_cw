@@ -1,10 +1,17 @@
 <?php include "includes/db.php" ?>
 <?php include "./controllers/VideoController.php" ?>
 <?php
-    $id = filter_input(INPUT_GET, 'vid_id', FILTER_SANITIZE_NUMBER_INT);
-
     $videoController = new VideoController();
-    $video = $videoController->getVideoById($id);
+
+    if(isset($_GET['v_id'])) {
+        $id = filter_input(INPUT_GET, 'v_id', FILTER_SANITIZE_NUMBER_INT);
+        $video = $videoController->getVideoById($id);
+    }
+    if(isset($_GET['comp_id']) && !isset($_GET['v_id'])) {
+        $comp_id = filter_input(INPUT_GET, 'comp_id', FILTER_SANITIZE_NUMBER_INT);
+        $video = $videoController->getVideoByCompId($comp_id);
+    }
+
     if(!$video) {
         header("Location: videos.php");
     }

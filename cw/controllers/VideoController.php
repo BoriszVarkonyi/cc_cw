@@ -55,6 +55,19 @@ class VideoController {
         } else {
             echo mysqli_error($this->dbConnection);
         }
+        return null;
+    }
+
+    function getVideoByCompId($comp_id) {
+        $get_video_data = "SELECT * FROM cw_videos WHERE comp_id = '$comp_id'";
+        $do_get_video_data = mysqli_query($this->dbConnection, $get_video_data);
+
+        if ($row = mysqli_fetch_assoc($do_get_video_data)) {
+            return new Video($row);
+        } else {
+            echo mysqli_error($this->dbConnection);
+        }
+        return null;
     }
 }
 ?>
