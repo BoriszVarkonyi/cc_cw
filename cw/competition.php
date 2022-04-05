@@ -219,6 +219,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                     </div>
 
                     <!-- weapon control panel -->
+                    <!--
                     <div id="weapon_control_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Weapon Control appointments and bookings:</p>
                         <div>
@@ -231,6 +232,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                             </div>
                         </div>
                     </div>
+                    -->
 
                     <div id="plus_information_panel" class="column_panel breakpoint">
                         <p class="column_panel_title">Plus Information:</p>
@@ -268,16 +270,15 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                         <p class="column_panel_title">For Viewers:</p>
                         <div class="competition_controls_wrapper">
                             <button onclick="location.href='competitors.php?comp_id=<?php echo $comp_id ?>'">Competitors</button>
-                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
+                            <button onclick="location.href='pools.php?comp_id=<?php echo $comp_id ?>'">Pools</button>
                             <?php if ($is_individual) : ?>
-                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_individual.php?comp_id=<?php echo $comp_id ?>'">Table</button>
+                                <button onclick="location.href='table_individual.php?comp_id=<?php echo $comp_id ?>'">Table</button>
                             <?php else : ?>
-                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='table_team.php?comp_id=<?php echo $comp_id ?>'">Table</button>
-
+                                <button onclick="location.href='table_team.php?comp_id=<?php echo $comp_id ?>'">Table</button>
                             <?php endif ?>
-                            <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
-                            <button onclick="printPage()">Print</a>
-                                <button <?php echo $test = ($comp_status  == 2) ? "disabled" : "" ?> onclick="location.href=''" class="red">Watch Video / Watch Live</a>
+                            <button onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                            <button onclick="printPage()">Print</button>
+                            <button onclick="location.href=''" class="red">Watch Video / Watch Live</a>
                         </div>
                     </div>
                     <div id="competition_controls" class="column_panel">
