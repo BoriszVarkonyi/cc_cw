@@ -39,7 +39,6 @@ if ($lastlogin == 1) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +59,6 @@ if ($lastlogin == 1) {
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-
 <body class="fencers">
     <?php include "includes/header.php" ?>
     <div class="panel">
@@ -146,5 +144,4 @@ if ($lastlogin == 1) {
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
 </body>
-
 </html>

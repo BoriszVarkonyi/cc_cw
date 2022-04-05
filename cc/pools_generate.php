@@ -345,98 +345,94 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-    <!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Generate Pools</p>
-                <div class="stripe_button_wrapper">
-                    <button name="submit" form="generate_pools" class="stripe_button primary" type="submit" shortcut="SHIFT+G">
-                        <p>Generate Pools</p>
-                        <img src="../assets/icons/save_black.svg"/>
-                    </button>
-                </div>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Generate Pools</p>
+            <div class="stripe_button_wrapper">
+                <button name="submit" form="generate_pools" class="stripe_button primary" type="submit" shortcut="SHIFT+G">
+                    <p>Generate Pools</p>
+                    <img src="../assets/icons/save_black.svg"/>
+                </button>
             </div>
-            <div id="page_content_panel_main">
-                <div id="basic_information_wrapper" class="db_panel form_page_flex">
-                    <div class="db_panel_header">
-                        <img src="../assets/icons/build_black.svg">
-                        <p>Set propeties of Pools</p>
+        </div>
+        <div id="page_content_panel_main">
+            <div id="basic_information_wrapper" class="db_panel form_page_flex">
+                <div class="db_panel_header">
+                    <img src="../assets/icons/build_black.svg">
+                    <p>Set propeties of Pools</p>
+                </div>
+                <div class="db_panel_main">
+
+                <form id="generate_pools" action="../cc/pools_generate.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
+                    <div>
+                        <div>
+                            <label for="starting_time">STRIVE FOR</label>
+                            <div class="option_container">
+                                <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $number_of_fencers ?>">
+
+                                <input type="radio" class="option_button" name="pools_of" id="7" value="7"/>
+                                <label for="7" class="complex">Pools of 7 <p id="p_7"></p></label>
+
+                                <input type="radio" class="option_button" name="pools_of" id="6" value="6"/>
+                                <label for="6" class="complex">Pools of 6 <p id="p_6"></p></label>
+
+                                <input type="radio" class="option_button" name="pools_of" id="5" value="5"/>
+                                <label for="5" class="complex">Pools of 5 <p id="p_5"></p></label>
+
+                                <input type="radio" class="option_button" name="pools_of" id="4" value="4"/>
+                                <label for="4" class="complex">Pools of 4 <p id="p_4"></p></label>
+
+                            </div>
+                        </div>
+                        <div>
+                            <label for="starting_time">SORT BY</label>
+                            <div class="option_container">
+
+                                <input type="radio" class="option_button" name="sort_by" id="sb_club" value="club" checked/>
+                                <label for="sb_club">Club</label>
+
+                                <input type="radio" class="option_button" name="sort_by" id="sb_nationality" value="nation"/>
+                                <label for="sb_nationality">Nationality</label>
+
+                            </div>
+                        </div>
+                        <div>
+                            <label for="interval_of_match">NUMBER OF QUALIFIERS AFTER POOLS</label>
+                            <input type="number" name="qualifiers" placeholder="#" class="number_input centered" value="<?php echo $quilifiers_a_p ?>">
+                        </div>
                     </div>
-                    <div class="db_panel_main">
-
-                    <form id="generate_pools" action="../cc/pools_generate.php?comp_id=<?php echo $comp_id ?>" class="form_wrapper" method="POST">
+                    <div>
                         <div>
-                            <div>
-                                <label for="starting_time">STRIVE FOR</label>
-                                <div class="option_container">
-                                    <input type="text" class="hidden" id="fencer_quantity" value="<?php echo $number_of_fencers ?>">
-
-                                    <input type="radio" class="option_button" name="pools_of" id="7" value="7"/>
-                                    <label for="7" class="complex">Pools of 7 <p id="p_7"></p></label>
-
-                                    <input type="radio" class="option_button" name="pools_of" id="6" value="6"/>
-                                    <label for="6" class="complex">Pools of 6 <p id="p_6"></p></label>
-
-                                    <input type="radio" class="option_button" name="pools_of" id="5" value="5"/>
-                                    <label for="5" class="complex">Pools of 5 <p id="p_5"></p></label>
-
-                                    <input type="radio" class="option_button" name="pools_of" id="4" value="4"/>
-                                    <label for="4" class="complex">Pools of 4 <p id="p_4"></p></label>
-
-                                </div>
-                            </div>
-                            <div>
-                                <label for="starting_time">SORT BY</label>
-                                <div class="option_container">
-
-                                    <input type="radio" class="option_button" name="sort_by" id="sb_club" value="club" checked/>
-                                    <label for="sb_club">Club</label>
-
-                                    <input type="radio" class="option_button" name="sort_by" id="sb_nationality" value="nation"/>
-                                    <label for="sb_nationality">Nationality</label>
-
-                                </div>
-                            </div>
-                            <div>
-                                <label for="interval_of_match">NUMBER OF QUALIFIERS AFTER POOLS</label>
-                                <input type="number" name="qualifiers" placeholder="#" class="number_input centered" value="<?php echo $quilifiers_a_p ?>">
-                            </div>
+                            <label for="pistes_type">STATISTICS</label>
+                            <table class="pools_stat_table">
+                                <thead>
+                                    <tr>
+                                        <th>Percent</th>
+                                        <th>Number of Fencers</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="alt">
+                                    <tr>
+                                        <td>All</td>
+                                        <td><?php echo $number_of_fencers ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>80%</td>
+                                        <td><?php echo $number_of_fencers * 0.8?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>70%</td>
+                                        <td><?php echo $number_of_fencers * 0.7?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div>
-                            <div>
-                                <label for="pistes_type">STATISTICS</label>
-                                <table class="pools_stat_table">
-                                    <thead>
-                                        <tr>
-                                            <th>Percent</th>
-                                            <th>Number of Fencers</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="alt">
-                                        <tr>
-                                            <td>All</td>
-                                            <td><?php echo $number_of_fencers ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>80%</td>
-                                            <td><?php echo $number_of_fencers * 0.8?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>70%</td>
-                                            <td><?php echo $number_of_fencers * 0.7?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/list.js"></script>

@@ -10,7 +10,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,10 +18,8 @@
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-
 <body class="fencers">
     <?php include "includes/header.php"; ?>
-    <!-- header -->
     <div class="panel">
         <div id="title_stripe">
             <p class="page_title">Manage Weapon Control Bookings</p>

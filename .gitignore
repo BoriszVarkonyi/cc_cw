@@ -1,4 +1,6 @@
-uploads/
+uploads/.png
+uploads/.jpg
 profile_pics/
 workspace.code-workspace
 php/testfile.txt
+.vscode/

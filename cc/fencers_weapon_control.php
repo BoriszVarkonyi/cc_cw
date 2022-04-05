@@ -108,94 +108,90 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title"><?php echo $fencer_name ?>'s Weapon Control</p>
-                <div class="stripe_button_wrapper">
-                    <a class="stripe_button" href="../cc/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
-                        <p>Go back to Weapon Control</p>
-                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
-                    </a>
-                    <button name="delete_wc" class="stripe_button red" type="submit" form="fencers_weapon_control_wrapper">
-                        <p>Delete Weapon Control</p>
-                        <img src="../assets/icons/delete_black.svg"/>
-                    </button>
-                    <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
-                        <p>Save Weapon Control</p>
-                        <img src="../assets/icons/save_black.svg"/>
-                    </button>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title"><?php echo $fencer_name ?>'s Weapon Control</p>
+            <div class="stripe_button_wrapper">
+                <a class="stripe_button" href="../cc/<?php echo $wc_page?>.php?comp_id=<?php echo $comp_id ?>">
+                    <p>Go back to Weapon Control</p>
+                    <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                </a>
+                <button name="delete_wc" class="stripe_button red" type="submit" form="fencers_weapon_control_wrapper">
+                    <p>Delete Weapon Control</p>
+                    <img src="../assets/icons/delete_black.svg"/>
+                </button>
+                <button name="submit_wc" class="stripe_button primary" type="submit" form="fencers_weapon_control_wrapper">
+                    <p>Save Weapon Control</p>
+                    <img src="../assets/icons/save_black.svg"/>
+                </button>
+            </div>
+        </div>
+        <div id="page_content_panel_main">
+            <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
+                <table id="issues_panel" class="no_interaction">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>ISSUE</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                <p>QUANTITY</p>
+                            </th>
+                            <th class="wide_controls">
+                                <p>CONTROLS</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                            $counter = 0;
+                            foreach ($wc_array_issues as $issue_id => $issue) {
+                            if ($real_issues_array[$issue_id] != 0) {
+                                $issue_numbers = $real_issues_array[$issue_id];
+                            } else {
+                                $issue_numbers = "";
+                            }
+                        ?>
+
+                        <tr id="<?php echo $counter /*needed for js*/ ?>">
+                            <td><p><?php echo $issue ?></p></td>
+                            <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
+                            <td class="wide_controls">
+                                <button type="button" onclick="addNumber(this, 1)"><img src="../assets/icons/add_black.svg"></button>
+                                <button type="button" onclick="addNumber(this, -1)"><img src="../assets/icons/remove_black.svg"></button>
+                                <button type="button" onclick="resetNumber(this)"><img src="../assets/icons/close_black.svg"></button>
+                            </td>
+                        </tr>
+
+                        <?php
+                            $counter++;
+                            }
+                        ?>
+                    </tbody>
+                </table>
+                <div id="notes_panel">
+                    <p>NOTES</p>
+                    <textarea name="wc_notes" id="wc_notes" class="notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
                 </div>
-            </div>
-            <div id="page_content_panel_main">
-                <form action="" id="fencers_weapon_control_wrapper" class="wrapper" method="POST">
-                    <table id="issues_panel" class="no_interaction">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <div class="search_panel">
-                                        <div class="search_wrapper">
-                                            <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                        </div>
-                                    </div>
-                                    <div class="table_buttons_wrapper">
-                                        <button type="button" onclick="sortButton(this)">
-                                            <img src="../assets/icons/switch_full_black.svg">
-                                        </button>
-                                        <p>ISSUE</p>
-                                        <button type="button" onclick="searchButton(this)">
-                                            <img src="../assets/icons/search_black.svg">
-                                        </button>
-                                    </div>
-                                </th>
-                                <th>
-                                    <p>QUANTITY</p>
-                                </th>
-                                <th class="wide_controls">
-                                    <p>CONTROLS</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <?php
-                                $counter = 0;
-                                foreach ($wc_array_issues as $issue_id => $issue) {
-                                if ($real_issues_array[$issue_id] != 0) {
-                                    $issue_numbers = $real_issues_array[$issue_id];
-                                } else {
-                                    $issue_numbers = "";
-                                }
-                            ?>
-
-                            <tr id="<?php echo $counter /*needed for js*/ ?>">
-                                <td><p><?php echo $issue ?></p></td>
-                                <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
-                                <td class="wide_controls">
-                                    <button type="button" onclick="addNumber(this, 1)"><img src="../assets/icons/add_black.svg"></button>
-                                    <button type="button" onclick="addNumber(this, -1)"><img src="../assets/icons/remove_black.svg"></button>
-                                    <button type="button" onclick="resetNumber(this)"><img src="../assets/icons/close_black.svg"></button>
-                                </td>
-                            </tr>
-
-                            <?php
-                                $counter++;
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                    <div id="notes_panel">
-                        <p>NOTES</p>
-                        <textarea name="wc_notes" id="wc_notes" class="notes" placeholder="Type the notes here"><?php echo $notes ?></textarea>
-                    </div>
-                </form>
-            </div>
-        </main>
-    </div>
+            </form>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/list_search_2.js"></script>

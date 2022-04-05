@@ -69,7 +69,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,81 +80,76 @@
     <link rel="stylesheet" href="../css/print_paper_style.min.css">
     <link rel="stylesheet" href="../css/print_list_style.min.css">
 </head>
-
 <body>
-    <!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Print Match Reports</p>
-                <div class="stripe_button_wrapper">
-                    <a class="stripe_button bold" shortcut="SHIFT+C" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id; ?>">
-                        <p>Back to Weapon Control</p>
-                        <img src="../assets/icons/close_black.svg" />
-                    </a>
-                    <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
-                        <p>Print</p>
-                        <img src="../assets/icons/print_black.svg" />
-                    </button>
-                </div>
-                <!--
-                <div class="view_button_wrapper first">
-                    <button onclick="zoomOut()" id="zoomOutButton">
-                        <img src="../assets/icons/zoom_out_black.svg" />
-                    </button>
-                    <button onclick="zoomIn()" id="zoomInButton">
-                        <img src="../assets/icons/zoom_in_black.svg" />
-                    </button>
-                </div>
-                -->
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Print Match Reports</p>
+            <div class="stripe_button_wrapper">
+                <a class="stripe_button bold" shortcut="SHIFT+C" href="weapon_control_immediate.php?comp_id=<?php echo $comp_id; ?>">
+                    <p>Back to Weapon Control</p>
+                    <img src="../assets/icons/close_black.svg" />
+                </a>
+                <button class="stripe_button primary" onclick="printPage()" shortcut="SHIFT+P">
+                    <p>Print</p>
+                    <img src="../assets/icons/print_black.svg" />
+                </button>
             </div>
-            <div id="page_content_panel_main" class="loose">
-            <?php foreach($fencers as $fencer) : ?>
-                <div class="paper">
-                    <p class="print_title"><?php echo findNameById($competitors, $fencer['fencer_id']) ?>'s Weapon Control</p>
-                    <table class="small no_interaction">
-                        <thead class="no_stick">
-                            <tr>
-                                <th>
-                                    <p>ISSUE</p>
-                                </th>
-                                <th>
-                                    <p>QUANTITY</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if(isset($fencer['issues_array'])) : ?>
-                                <?php foreach(json_decode($fencer['issues_array']) as $i => $issue) : ?>
-                                    <tr>
-                                        <td>
-                                            <p><?php echo $issue_names[$i] ?></p>
-                                        </td>
-                                        <td>
-                                            <p><?php echo $issue ?></p>
-                                        </td>
-                                    </tr>
-                                <?php endforeach ?>
-                            <?php else : ?>
+            <!--
+            <div class="view_button_wrapper first">
+                <button onclick="zoomOut()" id="zoomOutButton">
+                    <img src="../assets/icons/zoom_out_black.svg" />
+                </button>
+                <button onclick="zoomIn()" id="zoomInButton">
+                    <img src="../assets/icons/zoom_in_black.svg" />
+                </button>
+            </div>
+            -->
+        </div>
+        <div id="page_content_panel_main" class="loose">
+        <?php foreach($fencers as $fencer) : ?>
+            <div class="paper">
+                <p class="print_title"><?php echo findNameById($competitors, $fencer['fencer_id']) ?>'s Weapon Control</p>
+                <table class="small no_interaction">
+                    <thead class="no_stick">
+                        <tr>
+                            <th>
+                                <p>ISSUE</p>
+                            </th>
+                            <th>
+                                <p>QUANTITY</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if(isset($fencer['issues_array'])) : ?>
+                            <?php foreach(json_decode($fencer['issues_array']) as $i => $issue) : ?>
                                 <tr>
-                                    <td colspan="2">Nothing found!</td>
+                                    <td>
+                                        <p><?php echo $issue_names[$i] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?php echo $issue ?></p>
+                                    </td>
                                 </tr>
-                            <?php endif ?>
-                        </tbody>
-                    </table>
-                    <?php if(isset($fencer['notes']) && strlen($fencer['notes']) > 0) : ?>
-                        <p class="print_title">Notes given by Weapon Control</p>
-                        <p><?php echo $fencer['notes'] ?></p>
-                    <?php else : ?>
-                        <p class="print_title">No notes were given by Weapon Control</p>
-                    <?php endif ?>
-                </div>
-            <?php endforeach ?>
+                            <?php endforeach ?>
+                        <?php else : ?>
+                            <tr>
+                                <td colspan="2">Nothing found!</td>
+                            </tr>
+                        <?php endif ?>
+                    </tbody>
+                </table>
+                <?php if(isset($fencer['notes']) && strlen($fencer['notes']) > 0) : ?>
+                    <p class="print_title">Notes given by Weapon Control</p>
+                    <p><?php echo $fencer['notes'] ?></p>
+                <?php else : ?>
+                    <p class="print_title">No notes were given by Weapon Control</p>
+                <?php endif ?>
             </div>
-        </main>
-    </div>
+        <?php endforeach ?>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/search.js"></script>

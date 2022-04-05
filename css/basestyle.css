@@ -4,7 +4,6 @@
 	/* Changes throughout colormodes */
 
 	/* Needs to be RGB and RGBA because tehse have the most browser support, HEXA is just not there yet :(*/
-	--c-black: rgb(37, 37, 37);
 	--c-transparent-black: rgba(37,37,37,.3);
 	--c-darkgray: rgb(154, 154, 154);
 	--c-gray: rgb(204, 204, 204);
@@ -83,6 +82,18 @@
 	/*Icons*/
 	--ci-staticblack: saturation(71%);
 	--ci-staticwhite: invert();
+}
+
+@supports (not (-moz-appearance: none)) {
+	:root {
+		--c-black: rgb(0, 0, 0);
+	}
+}
+
+@supports ((-moz-appearance: none)) {
+	:root {
+		--c-black: rgb(37, 37, 37);
+	}
 }
 
 [data-content-theme="danube"]:root {
@@ -164,23 +175,41 @@
 /*
 @font-face {
 	font-family: Poppins-Light;
+	src: url(../assets/fonts/Poppins-Light.ttf) format("ttf");
+	unicode-range: initial;
+	font-variant: normal;
+	font-stretch: normal;
+	font-weight: 200;
 	font-style: normal;
-	src: url(../assets/fonts/Poppins-Light.ttf);
+	size-adjust: initial;
+	line-gap-override: initial;
 	font-display: swap;
 }
 */
 
 @font-face {
 	font-family: Poppins-Regular;
+	src: url(../assets/fonts/Poppins-Regular.ttf) format("truetype");
+	unicode-range: initial;
+	font-variant: normal;
+	font-stretch: normal;
+	font-weight: initial;
 	font-style: normal;
-	src: url(../assets/fonts/Poppins-Regular.ttf);
+	size-adjust: initial;
+	line-gap-override: initial;
 	font-display: swap;
 }
 
 @font-face {
 	font-family: Poppins-SemiBold;
+	src: url(../assets/fonts/Poppins-SemiBold.ttf) format("truetype");
+	unicode-range: initial;
+	font-variant: normal;
+	font-stretch: normal;
+	font-weight: initial;
 	font-style: normal;
-	src: url(../assets/fonts/Poppins-SemiBold.ttf);
+	size-adjust: initial;
+	line-gap-override: initial;
 	font-display: swap;
 }
 
@@ -1195,6 +1224,11 @@ td {
 /* Makes the text bold */
 td.bold {
 	font-family: var(--bold);
+}
+
+
+td.hidden {
+	display: none;
 }
 
 /* Makes the first letter caps */

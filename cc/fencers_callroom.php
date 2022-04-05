@@ -42,6 +42,7 @@
         $has_data = true;
     }
 
+    //var_dump($has_data);
     //submitted
     if (isset($_POST['submit_cr'])) {
         //update last table
@@ -62,9 +63,11 @@
 
             if (!$has_data) {
                 //make new row
-                $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id) VALUES ('$fencer_id', '$comp_id')";
+                $qry_add_fencer = "INSERT INTO call_room_wc (fencer_id, assoc_comp_id, notes) VALUES ('$fencer_id', '$comp_id', '')";
                 if (!mysqli_query($connection, $qry_add_fencer)) {
                     echo mysqli_error($connection);
+                } else {
+                    echo "OK!!";
                 }
             }
         //update database;
@@ -89,82 +92,79 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <main>
-            <div id="title_stripe">
-                <p class="page_title"><?php echo $fencer_obj -> prenom . " " . $fencer_obj->nom ?>'s Callroom for #<?php echo $t_id ?> table</p>
-                <div class="stripe_button_wrapper">
-                    <!-- callroom_indiviudal vagy callroom_teams -->
-                    <a class="stripe_button" href="../cc/<?php echo $navbar -> call_room -> href ?>">
-                        <p>Go back to Callroom</p>
-                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
-                    </a>
-                    <button name="submit_cr" class="stripe_button primary" type="submit" form="fencers_callroom_wrapper">
-                        <p>Save Callroom</p>
-                        <img src="../assets/icons/save_black.svg"/>
-                    </button>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title"><?php echo $fencer_obj -> prenom . " " . $fencer_obj->nom ?>'s Callroom for #<?php echo $t_id ?> table</p>
+            <div class="stripe_button_wrapper">
+                <!-- callroom_indiviudal vagy callroom_teams -->
+                <a class="stripe_button" href="../cc/<?php echo $navbar -> call_room -> href ?>">
+                    <p>Go back to Callroom</p>
+                    <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                </a>
+                <button name="submit_cr" class="stripe_button primary" type="submit" form="fencers_callroom_wrapper">
+                    <p>Save Callroom</p>
+                    <img src="../assets/icons/save_black.svg"/>
+                </button>
+            </div>
+        </div>
+        <div id="page_content_panel_main">
+            <form action="" id="fencers_callroom_wrapper" class="wrapper" method="POST">
+                <table id="issues_panel" class="no_interaction">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="search_panel">
+                                    <div class="search_wrapper">
+                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
+                                    </div>
+                                </div>
+                                <div class="table_buttons_wrapper">
+                                    <button type="button" onclick="sortButton(this)">
+                                        <img src="../assets/icons/switch_full_black.svg">
+                                    </button>
+                                    <p>ISSUE</p>
+                                    <button type="button" onclick="searchButton(this)">
+                                        <img src="../assets/icons/search_black.svg">
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                <p>QUANTITY</p>
+                            </th>
+                            <th class="wide_controls">
+                                <p>CONTROLS</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($cr_array_issues as $issue_id => $issue_name) {
+                            if ($has_data) {
+                                $issue_numbers = $db_issues_array[$issue_id];
+                            } else {
+                                $issue_numbers = 0;
+                            }
+                        ?>
+                        <tr>
+                            <td><p><?php echo $issue_name ?></p></td>
+                            <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
+                            <td class="wide_controls">
+                                <button type="button" onclick="addNumber(this, 1)"><img src="../assets/icons/add_black.svg"></button>
+                                <button type="button" onclick="addNumber(this, -1)"><img src="../assets/icons/remove_black.svg"></button>
+                                <button type="button" onclick="resetNumber(this)"><img src="../assets/icons/close_black.svg"></button>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <div id="notes_panel">
+                    <p>NOTES</p>
+                    <textarea name="cr_notes" id="cr_notes" class="notes" placeholder="Type the notes here"><?php echo $has_data ? $db_notes : "" ?></textarea>
                 </div>
-            </div>
-            <div id="page_content_panel_main">
-                <form action="" id="fencers_callroom_wrapper" class="wrapper" method="POST">
-                    <table id="issues_panel" class="no_interaction">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <div class="search_panel">
-                                        <div class="search_wrapper">
-                                            <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                            <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                        </div>
-                                    </div>
-                                    <div class="table_buttons_wrapper">
-                                        <button type="button" onclick="sortButton(this)">
-                                            <img src="../assets/icons/switch_full_black.svg">
-                                        </button>
-                                        <p>ISSUE</p>
-                                        <button type="button" onclick="searchButton(this)">
-                                            <img src="../assets/icons/search_black.svg">
-                                        </button>
-                                    </div>
-                                </th>
-                                <th>
-                                    <p>QUANTITY</p>
-                                </th>
-                                <th class="wide_controls">
-                                    <p>CONTROLS</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($cr_array_issues as $issue_id => $issue_name) {
-                                if ($has_data) {
-                                    $issue_numbers = $db_issues_array[$issue_id];
-                                } else {
-                                    $issue_numbers = 0;
-                                }
-                            ?>
-                            <tr>
-                                <td><p><?php echo $issue_name ?></p></td>
-                                <td><input value="<?php echo $issue_numbers?>" name="issue_n_<?php echo $issue_id ?>" type="number" placeholder="#"></td>
-                                <td class="wide_controls">
-                                    <button type="button" onclick="addNumber(this, 1)"><img src="../assets/icons/add_black.svg"></button>
-                                    <button type="button" onclick="addNumber(this, -1)"><img src="../assets/icons/remove_black.svg"></button>
-                                    <button type="button" onclick="resetNumber(this)"><img src="../assets/icons/close_black.svg"></button>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                    <div id="notes_panel">
-                        <p>NOTES</p>
-                        <textarea name="cr_notes" id="cr_notes" class="notes" placeholder="Type the notes here"><?php echo $has_data ? $db_notes : "" ?></textarea>
-                    </div>
-                </form>
-            </div>
-        </main>
-    </div>
+            </form>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/list_search_2.js"></script>

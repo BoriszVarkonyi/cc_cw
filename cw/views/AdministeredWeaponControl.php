@@ -38,15 +38,15 @@ $issue_names = array(
     "other items",
 );
 
-if(count($issues_array) > 0) :
-foreach($issue_names as $i => $issue) : ?>
-    <tr>
-        <td><?php echo $issue ?></td>
-        <td><?php echo $issues_array[$i] ?></td>
-    </tr>
-<?php endforeach ?>
-<?php else : ?>
-    <tr>
-        <td colspan="2">No data</td>
-    </tr>
-<?php endif ?>
+if(count($turned_in_array) > 0) :
+    foreach($issue_names as $i => $issue) : ?>
+        <tr>
+            <td><?php echo $issue ?></td>
+            <td><?php echo $turned_in_array[$i] ?></td>
+        </tr>
+    <?php endforeach ?>
+    <?php else : ?>
+        <tr>
+            <td colspan="2">No weapons were turned in.</td>
+        </tr>
+    <?php endif ?>

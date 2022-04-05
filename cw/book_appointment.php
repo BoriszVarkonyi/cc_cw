@@ -37,7 +37,7 @@ if ($row = mysqli_fetch_assoc($get_appointment_data_do)) {
     $timetable_obj = json_decode($row['timetable']);
 }
 //var_dump($appointments->{'2022-02-24'}->{'10:00'});
-if (isset($_POST['submit_form'])) {
+if (isset($_POST['submit_form']) && isset($_POST['num_fencers']) && isset($_POST['f_nat']) && isset($_POST['f_email'])) {
     $go = true;
     $last_appointment_date = null;
     $min_fencer = 0;
@@ -283,7 +283,7 @@ if (isset($_POST['undo_error'])) {
                                 <div>
                                     <label>COUNTRY / FENCING CLUB</label>
                                     <div class="search_wrapper wide">
-                                        <input type="text" name="f_nat" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt">
+                                        <input type="text" name="f_nat" onfocus="isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Search Country by Name" class="search input alt" required>
                                         <button type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php include "../cc/includes/nations.php"; ?>
@@ -292,11 +292,11 @@ if (isset($_POST['undo_error'])) {
                                 </div>
                                 <div>
                                     <label>FEDERATION'S OFFICAL EMAIL ADDRESS</label>
-                                    <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt">
+                                    <input type="email" name="f_email" placeholder="Type in the email address" class="email_input alt" required>
                                 </div>
                                 <div>
                                     <label>NUMBER OF FENCERS</label>
-                                    <input type="number" name="num_fencers" class="number_input centered alt" placeholder="#" id="fencerNumber">
+                                    <input type="number" name="num_fencers" class="number_input centered alt" placeholder="#" id="fencerNumber" required>
                                 </div>
                             </div>
                             <div>
@@ -325,7 +325,7 @@ if (isset($_POST['undo_error'])) {
                                     <p class="appointment_day_title"><?php echo $day ?></p>
                                     <input type="date" name="current_day" value="<?php echo $day ?>" hidden readonly>
                                     <div class="search_wrapper wide appointment_select">
-                                        <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input">
+                                        <input type="text" name="time_<?php echo $day ?>" onfocus="openTimes(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" placeholder="Select Time" class="search input alt selected_start_time_input" required>
                                         <button type="button" autocomplete="off" onclick=""><img src="../assets/icons/close_black.svg" alt="Close search"></button>
                                         <div class="search_results">
                                             <?php

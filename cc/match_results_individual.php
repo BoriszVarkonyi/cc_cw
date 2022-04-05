@@ -288,7 +288,6 @@ if (isset($_POST["time_change"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -297,282 +296,277 @@ if (isset($_POST["time_change"])) {
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
-
 <body>
-    <!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <?php
-                $fencer12 = 1;
-                foreach ($json_table->$tableround->$matchid as $key => $value) {
-                    if ($key == "referees" || $key == "pistetime") {
-                        continue;
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <?php
+            $fencer12 = 1;
+            foreach ($json_table->$tableround->$matchid as $key => $value) {
+                if ($key == "referees" || $key == "pistetime") {
+                    continue;
+                } else {
+
+                    if ($value == NULL) {
+                        ${'fencer_' . $fencer12} = new stdClass;
+                        ${'fencer_' . $fencer12}->name = "";
+                        ${'fencer_' . $fencer12}->nation = "";
                     } else {
-
-                        if ($value == NULL) {
-                            ${'fencer_' . $fencer12} = new stdClass;
-                            ${'fencer_' . $fencer12}->name = "";
-                            ${'fencer_' . $fencer12}->nation = "";
-                        } else {
-                            ${'fencer_' . $fencer12} = $value;
-                        }
-                        $fencer12++;
+                        ${'fencer_' . $fencer12} = $value;
                     }
+                    $fencer12++;
                 }
+            }
 
-                ?>
-                <p class="page_title"><?php echo $fencer_1->name . " (" . $fencer_1->nation . ")" ?> vs <?php echo $fencer_2->name . " (" . $fencer_2->nation . ")" ?></p>
-                <div class="stripe_button_wrapper">
-                    <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
-                        <p>Save Match</p>
-                        <img src="../assets/icons/save_black.svg" />
-                    </button>
-                </div>
+            ?>
+            <p class="page_title"><?php echo $fencer_1->name . " (" . $fencer_1->nation . ")" ?> vs <?php echo $fencer_2->name . " (" . $fencer_2->nation . ")" ?></p>
+            <div class="stripe_button_wrapper">
+                <button class="stripe_button primary" name="save_match" type="submit" form="save_match">
+                    <p>Save Match</p>
+                    <img src="../assets/icons/save_black.svg" />
+                </button>
             </div>
-            <div id="page_content_panel_main">
-                <div class="wrapper" id="match_result_wrapper">
-                    <div class="match_fencers_wrapper">
-                        <div>
-                            <p><?php echo $fencer_1->name . " (" . $fencer_1->nation . ")" ?></p>
-                            <button>
-                                <img src="../assets/icons/message_black.svg">
-                            </button>
-                        </div>
-
-                        <div>
-                            <p><?php echo $fencer_2->name . " (" . $fencer_2->nation . ")"  ?></p>
-                            <button>
-                                <img src="../assets/icons/message_black.svg">
-                            </button>
-                        </div>
+        </div>
+        <div id="page_content_panel_main">
+            <div class="wrapper" id="match_result_wrapper">
+                <div class="match_fencers_wrapper">
+                    <div>
+                        <p><?php echo $fencer_1->name . " (" . $fencer_1->nation . ")" ?></p>
+                        <button>
+                            <img src="../assets/icons/message_black.svg">
+                        </button>
                     </div>
-                    <div class="match_settings_wrapper">
-                        <form class="match_settings_form" method="POST">
-                            <p class="setting_title">Referee:</p>
-                            <p class="setting"><?php echo $actualobject->referees->ref->name . "(" . $actualobject->referees->ref->nation . ")"  ?></p>
-                            <button class="underlined_button" type="button" onclick="changeThis(this)">
-                                <p>Change</p>
-                            </button>
-                            <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close_black.svg">
-                                </button>
-                                <div class="search_wrapper wide">
-                                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="rfrInput" placeholder="Search and Select referee" class="search input has_icon">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
-                                    <div class="search_results">
 
-                                        <?php
-
-                                        foreach ($refereearray as $referee) {
-
-                                        ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setSetting(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
-                                        <?php }
-                                        ?>
-                                    </div>
-                                </div>
-                                <input type="text" name="ref_change_data">
-                                <input type="submit" name="ref_change" class="save_change_button" value="Save">
-                            </div>
-                        </form>
-                        <form class="match_settings_form" method="POST">
-                            <p class="setting_title">Video Referee:</p>
-                            <p class="setting"><?php echo $actualobject->referees->vref->name . "(" . $actualobject->referees->vref->nation . ")" ?></p>
-                            <button class="underlined_button" type="button" onclick="changeThis(this)">
-                                <p>Change</p>
-                            </button>
-                            <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close_black.svg">
-                                </button>
-                                <div class="search_wrapper wide">
-                                    <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="vdrfrInput" placeholder="Search and Select referee" class="search input has_icon">
-                                    <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
-                                    <div class="search_results">
-                                        <?php
-
-                                        foreach ($refereearray as $referee) {
-
-                                        ?>
-                                            <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setSetting(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
-                                        <?php }
-                                        ?>
-                                    </div>
-                                </div>
-                                <input type="text" name="vref_change_data">
-                                <input type="submit" name="vref_change" class="save_change_button" value="Save">
-                            </div>
-                        </form>
-                        <form class="match_settings_form" method="POST">
-                            <p class="setting_title">Piste:</p>
-                            <p class="setting"><?php echo $actualobject->pistetime->pistename ?></p>
-                            <button class="underlined_button" type="button" onclick="changeThis(this)">
-                                <p>Change</p>
-                            </button>
-                            <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close_black.svg">
-                                </button>
-                                <div class="search_wrapper narrow">
-                                    <button type="button" class="search select input" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
-                                        <input type="text" name="date_to_select" placeholder="Select Date">
-                                    </button>
-                                    <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
-                                    <div class="search_results">
-                                        <?php
-
-                                        foreach ($pistearray as $piste) {
-
-                                        ?>
-
-                                            <button type="button" id="<?php echo $piste->name ?>" onclick="setSetting(this)"><?php echo $piste->name ?></button>
-
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                                <input type="text" name="piste_change_data">
-                                <input type="submit" name="piste_change" class="save_change_button" value="Save">
-                            </div>
-                        </form>
-                        <form class="match_settings_form" method="POST">
-                            <p class="setting_title">Time:</p>
-                            <p class="setting"><?php echo $actualobject->pistetime->time ?></p>
-                            <button class="underlined_button" type="button" onclick="changeThis(this)">
-                                <p>Change</p>
-                            </button>
-                            <div class="collapsed">
-                                <button class="change_back_button" type="button" onclick="closeWrapper(this)">
-                                    <img src="../assets/icons/close_black.svg">
-                                </button>
-                                <input type="time" name="time_change_data">
-                                <input type="submit" name="time_change" class="save_change_button" value="Save">
-                            </div>
-                        </form>
+                    <div>
+                        <p><?php echo $fencer_2->name . " (" . $fencer_2->nation . ")"  ?></p>
+                        <button>
+                            <img src="../assets/icons/message_black.svg">
+                        </button>
                     </div>
-                    <form class="match_fencers_results" id="save_match" method="POST">
-                        <div id="fencer_1" class="fencer_wrapper">
-                            <div>
-                                <p class="fencer_name"><?php
-                                                        if ($fencer_1->name == "") {
-                                                            echo "No opponent yet";
-                                                        } else {
-                                                            echo $fencer_1->name . "(" . $fencer_1->nation . ")";
-                                                        }
-                                                        ?></p>
-                                <input type="number" name="fencid_1" class="hidden" placeholder="fencers id" value="<?php echo $fencer_1->id ?>">
-                                <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_1->score)) {
-                                                                                                        echo $fencer_1->score;
-                                                                                                    } else {
-                                                                                                        echo "";
-                                                                                                    } ?>" name="points_f1" id="points_f1">
-                                <div class="result_advanced_choice">
-                                    <p class="winner_text" id="winner_f1"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
-                                    <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
+                </div>
+                <div class="match_settings_wrapper">
+                    <form class="match_settings_form" method="POST">
+                        <p class="setting_title">Referee:</p>
+                        <p class="setting"><?php echo $actualobject->referees->ref->name . "(" . $actualobject->referees->ref->nation . ")"  ?></p>
+                        <button class="underlined_button" type="button" onclick="changeThis(this)">
+                            <p>Change</p>
+                        </button>
+                        <div class="collapsed">
+                            <button class="change_back_button" type="button" onclick="closeWrapper(this)">
+                                <img src="../assets/icons/close_black.svg">
+                            </button>
+                            <div class="search_wrapper wide">
+                                <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="rfrInput" placeholder="Search and Select referee" class="search input has_icon">
+                                <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
+                                <div class="search_results">
+
+                                    <?php
+
+                                    foreach ($refereearray as $referee) {
+
+                                    ?>
+                                        <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setSetting(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                    <?php }
+                                    ?>
                                 </div>
                             </div>
-                            <div class="fencers_cards_wrapper">
-                                <div>
-                                    Regular
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_yellow.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[0] ?>" name="f1_y">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_red.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[1] ?>" name="f1_r">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_black.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[2] ?>" name="f1_b" id="f1_b">
-                                    </div>
-                                </div>
-                                <div>
-                                    Passive
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_yellow.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[3] ?>" name="f1_y_p">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_red.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[4] ?>" name="f1_r_p">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_black.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[5] ?>" name="f1_b_p" id="f1_b_p">
-                                    </div>
-                                </div>
-                                <button type="button" name="1" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
-                            </div>
+                            <input type="text" name="ref_change_data">
+                            <input type="submit" name="ref_change" class="save_change_button" value="Save">
                         </div>
+                    </form>
+                    <form class="match_settings_form" method="POST">
+                        <p class="setting_title">Video Referee:</p>
+                        <p class="setting"><?php echo $actualobject->referees->vref->name . "(" . $actualobject->referees->vref->nation . ")" ?></p>
+                        <button class="underlined_button" type="button" onclick="changeThis(this)">
+                            <p>Change</p>
+                        </button>
+                        <div class="collapsed">
+                            <button class="change_back_button" type="button" onclick="closeWrapper(this)">
+                                <img src="../assets/icons/close_black.svg">
+                            </button>
+                            <div class="search_wrapper wide">
+                                <input type="text" name="" onfocus="resultChecker(this), isOpen(this)" onblur="isClosed(this)" onkeyup="searchEngine(this)" id="vdrfrInput" placeholder="Search and Select referee" class="search input has_icon">
+                                <button type="button" class="clear_search_button" onclick=""><img src="../assets/icons/close_black.svg"></button>
+                                <div class="search_results">
+                                    <?php
 
-                        <div id="fencer_2" class="fencer_wrapper">
-                            <div>
-                                <p class="fencer_name"><?php
+                                    foreach ($refereearray as $referee) {
 
-                                                        if ($fencer_2->name == "") {
-                                                            echo "No opponent yet";
-                                                        } else {
-                                                            echo $fencer_2->name . "(" . $fencer_2->nation . ")";
-                                                        }
-                                                        ?></p>
-                                <input type="number" name="fencid_2" class="hidden" placeholder="fencers id" value="<?php echo $fencer_2->id ?>">
-                                <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_2->score)) {
-                                                                                                        echo $fencer_2->score;
-                                                                                                    } else {
-                                                                                                        echo "";
-                                                                                                    } ?>" name="points_f2" id="points_f2">
-                                <div class="result_advanced_choice">
-                                    <p class="winner_text" id="winner_f2"></p>
-                                    <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
-                                    <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
+                                    ?>
+                                        <button type="button" id="<?php echo $referee->id . "," . $referee->prenom . " " . $referee->nom . "," . $referee->nation . "," . $referee->club ?>" onclick="setSetting(this)"><?php echo $referee->prenom . " " . $referee->nom . " (" . $referee->nation . ")" ?></button>
+                                    <?php }
+                                    ?>
                                 </div>
                             </div>
-                            <div class="fencers_cards_wrapper">
-                                <div>
-                                    Regular
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_yellow.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[0] ?>" name="f2_y">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_red.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[1] ?>" name="f2_r">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_black.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[2] ?>" name="f2_b" id="f2_b">
-                                    </div>
+                            <input type="text" name="vref_change_data">
+                            <input type="submit" name="vref_change" class="save_change_button" value="Save">
+                        </div>
+                    </form>
+                    <form class="match_settings_form" method="POST">
+                        <p class="setting_title">Piste:</p>
+                        <p class="setting"><?php echo $actualobject->pistetime->pistename ?></p>
+                        <button class="underlined_button" type="button" onclick="changeThis(this)">
+                            <p>Change</p>
+                        </button>
+                        <div class="collapsed">
+                            <button class="change_back_button" type="button" onclick="closeWrapper(this)">
+                                <img src="../assets/icons/close_black.svg">
+                            </button>
+                            <div class="search_wrapper narrow">
+                                <button type="button" class="search select input" tabindex="3" onfocus="isOpen(this)" onblur="isClosed(this)">
+                                    <input type="text" name="date_to_select" placeholder="Select Date">
+                                </button>
+                                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
+                                <div class="search_results">
+                                    <?php
+
+                                    foreach ($pistearray as $piste) {
+
+                                    ?>
+
+                                        <button type="button" id="<?php echo $piste->name ?>" onclick="setSetting(this)"><?php echo $piste->name ?></button>
+
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
-                                <div>
-                                    Passive
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_yellow.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[3] ?>" name="f2_y_p">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_red.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[4] ?>" name="f2_r_p">
-                                    </div>
-                                    <div class="card_wrapper">
-                                        <img src="../assets/icons/card_black.svg">
-                                        <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[5] ?>" name="f2_b_p" id="f2_b_p">
-                                    </div>
-                                </div>
-                                <button type="button" name="2" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
                             </div>
+                            <input type="text" name="piste_change_data">
+                            <input type="submit" name="piste_change" class="save_change_button" value="Save">
+                        </div>
+                    </form>
+                    <form class="match_settings_form" method="POST">
+                        <p class="setting_title">Time:</p>
+                        <p class="setting"><?php echo $actualobject->pistetime->time ?></p>
+                        <button class="underlined_button" type="button" onclick="changeThis(this)">
+                            <p>Change</p>
+                        </button>
+                        <div class="collapsed">
+                            <button class="change_back_button" type="button" onclick="closeWrapper(this)">
+                                <img src="../assets/icons/close_black.svg">
+                            </button>
+                            <input type="time" name="time_change_data">
+                            <input type="submit" name="time_change" class="save_change_button" value="Save">
                         </div>
                     </form>
                 </div>
+                <form class="match_fencers_results" id="save_match" method="POST">
+                    <div id="fencer_1" class="fencer_wrapper">
+                        <div>
+                            <p class="fencer_name"><?php
+                                                    if ($fencer_1->name == "") {
+                                                        echo "No opponent yet";
+                                                    } else {
+                                                        echo $fencer_1->name . "(" . $fencer_1->nation . ")";
+                                                    }
+                                                    ?></p>
+                            <input type="number" name="fencid_1" class="hidden" placeholder="fencers id" value="<?php echo $fencer_1->id ?>">
+                            <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_1->score)) {
+                                                                                                    echo $fencer_1->score;
+                                                                                                } else {
+                                                                                                    echo "";
+                                                                                                } ?>" name="points_f1" id="points_f1">
+                            <div class="result_advanced_choice">
+                                <p class="winner_text" id="winner_f1"></p>
+                                <input type="radio" name="draw_winner" id="draw_winner_f11" value="1" />
+                                <label style="display: none;" id="draw_winner_f1" for="draw_winner_f11">Winner</label>
+                            </div>
+                        </div>
+                        <div class="fencers_cards_wrapper">
+                            <div>
+                                Regular
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_yellow.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[0] ?>" name="f1_y">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_red.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[1] ?>" name="f1_r">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_black.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[2] ?>" name="f1_b" id="f1_b">
+                                </div>
+                            </div>
+                            <div>
+                                Passive
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_yellow.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[3] ?>" name="f1_y_p">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_red.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[4] ?>" name="f1_r_p">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_black.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_1->cards[5] ?>" name="f1_b_p" id="f1_b_p">
+                                </div>
+                            </div>
+                            <button type="button" name="1" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
+                        </div>
+                    </div>
+
+                    <div id="fencer_2" class="fencer_wrapper">
+                        <div>
+                            <p class="fencer_name"><?php
+
+                                                    if ($fencer_2->name == "") {
+                                                        echo "No opponent yet";
+                                                    } else {
+                                                        echo $fencer_2->name . "(" . $fencer_2->nation . ")";
+                                                    }
+                                                    ?></p>
+                            <input type="number" name="fencid_2" class="hidden" placeholder="fencers id" value="<?php echo $fencer_2->id ?>">
+                            <input type="text" class="match_fencer_input number_input" value="<?php if (isset($fencer_2->score)) {
+                                                                                                    echo $fencer_2->score;
+                                                                                                } else {
+                                                                                                    echo "";
+                                                                                                } ?>" name="points_f2" id="points_f2">
+                            <div class="result_advanced_choice">
+                                <p class="winner_text" id="winner_f2"></p>
+                                <input type="radio" name="draw_winner" id="draw_winner_f22" value="2" />
+                                <label style="display: none;" id="draw_winner_f2" for="draw_winner_f22">Winner</label>
+                            </div>
+                        </div>
+                        <div class="fencers_cards_wrapper">
+                            <div>
+                                Regular
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_yellow.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[0] ?>" name="f2_y">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_red.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[1] ?>" name="f2_r">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_black.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[2] ?>" name="f2_b" id="f2_b">
+                                </div>
+                            </div>
+                            <div>
+                                Passive
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_yellow.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[3] ?>" name="f2_y_p">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_red.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[4] ?>" name="f2_r_p">
+                                </div>
+                                <div class="card_wrapper">
+                                    <img src="../assets/icons/card_black.svg">
+                                    <input type="number" class="match_fencer_input number_input" value="<?php echo $fencer_2->cards[5] ?>" name="f2_b_p" id="f2_b_p">
+                                </div>
+                            </div>
+                            <button type="button" name="2" onclick="abandonment(this)" class="disqualify_button">Abandonment</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/match_results_individual.js"></script>
@@ -580,5 +574,4 @@ if (isset($_POST["time_change"])) {
     <script src="javascript/controls.js"></script>
     <script src="javascript/overlay_panel.js"></script>
 </body>
-
 </html>

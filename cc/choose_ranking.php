@@ -123,121 +123,117 @@ if(isset($_POST["submit"]) ){
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Choose Ranking Creating Method</p>
-            </div>
-            <div id="page_content_panel_main">
-                <div id="choose_ranking_wrapper">
-                    <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()">
-                        <button class="panel_button" name="Close panel" onclick="toggleUploadRankingPanel()">
-                            <img src="../assets/icons/close_black.svg">
-                        </button>
-                        <div class="desc_box">
-                            <p>Use existing Ranking</p>
-                            <p>You can choose a ranking from our database.</p>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Choose Ranking Creating Method</p>
+        </div>
+        <div id="page_content_panel_main">
+            <div id="choose_ranking_wrapper">
+                <div id="upload_ranking_panel" onclick="toggleUploadRankingPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleUploadRankingPanel()">
+                        <img src="../assets/icons/close_black.svg">
+                    </button>
+                    <div class="desc_box">
+                        <p>Use existing Ranking</p>
+                        <p>You can choose a ranking from our database.</p>
+                    </div>
+                    <div id="ranking_search" class="closed">
+                        <div>
+                            <form id="browse_ranking">
+                                <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
+                                <input type="text" name="" placeholder="Search by Title" class="search">
+                                <input type="button" name="" value="Search">
+                            </form>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>NAME</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+
+                                $select_ranking_rows = "SELECT * FROM ranking WHERE ass_comp_id = 0";
+                                $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
+
+                                while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
+
+                                    $ranking_name = $row['name'];
+                                    $ranking_id = $row['id'];
+
+                                ?>
+
+                                    <tr>
+                                        <td id="<?php echo $ranking_id ?>" onclick="selectRanking(this)">
+                                            <p><?php echo $ranking_name ?></p>
+                                        </td>
+                                    </tr>
+
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                            <form>
+                                <input type="button" value="Use Ranking" onclick="getName()">
+                            </form>
                         </div>
-                        <div id="ranking_search" class="closed">
-                            <div>
-                                <form id="browse_ranking">
-                                    <input type="text" class="hidden"> <!-- IF storing the search is nedded in text form-->
-                                    <input type="text" name="" placeholder="Search by Title" class="search">
-                                    <input type="button" name="" value="Search">
-                                </form>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <p>NAME</p>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-
-                                    $select_ranking_rows = "SELECT * FROM ranking WHERE ass_comp_id = 0";
-                                    $select_ranking_rows_do = mysqli_query($connection, $select_ranking_rows);
-
-                                    while($row = mysqli_fetch_assoc($select_ranking_rows_do)){
-
-                                        $ranking_name = $row['name'];
-                                        $ranking_id = $row['id'];
-
-                                    ?>
-
-                                        <tr>
-                                            <td id="<?php echo $ranking_id ?>" onclick="selectRanking(this)">
-                                                <p><?php echo $ranking_name ?></p>
-                                            </td>
-                                        </tr>
-
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
-                                <form>
-                                    <input type="button" value="Use Ranking" onclick="getName()">
-                                </form>
-                            </div>
-                            <div id="use_this_ranking" class="hidden">
-                                <button class="panel_button" name="Close panel" onclick="cancelName()">
-                                    <img src="../assets/icons/close_black.svg">
-                                </button>
-                                <p id="ranking_name">Ranking name</p>
-                                <form name="ranking_password" method="POST" action="" id="use_this_ranking_form" autocomplete="off">
-                                <input id="ranking_id_hidden" type="text" class="hidden" name="ranking_id">
-                                    <label for="ranking_name">PASSWORD</label>
-                                    <input id="ranking_password_input" type="password" name="ranking_password">
-                                    <input type="submit" name="valid_ranking" value="Use this Ranking">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="icon_box">
-                            <svg>
-                                <circle cx="50%" cy="50%" r="47.5%"/>
-                            </svg>
-                            <img src="../assets/icons/cloud_download_black.svg">
-                        </div>
-                        <div class="title_box">
-                            <button value="Choose Ranking" id="choose_ranking_button" onclick="chooseRankingSearch()">Choose Ranking</button>
+                        <div id="use_this_ranking" class="hidden">
+                            <button class="panel_button" name="Close panel" onclick="cancelName()">
+                                <img src="../assets/icons/close_black.svg">
+                            </button>
+                            <p id="ranking_name">Ranking name</p>
+                            <form name="ranking_password" method="POST" action="" id="use_this_ranking_form" autocomplete="off">
+                            <input id="ranking_id_hidden" type="text" class="hidden" name="ranking_id">
+                                <label for="ranking_name">PASSWORD</label>
+                                <input id="ranking_password_input" type="password" name="ranking_password">
+                                <input type="submit" name="valid_ranking" value="Use this Ranking">
+                            </form>
                         </div>
                     </div>
+                    <div class="icon_box">
+                        <svg>
+                            <circle cx="50%" cy="50%" r="47.5%"/>
+                        </svg>
+                        <img src="../assets/icons/cloud_download_black.svg">
+                    </div>
+                    <div class="title_box">
+                        <button value="Choose Ranking" id="choose_ranking_button" onclick="chooseRankingSearch()">Choose Ranking</button>
+                    </div>
+                </div>
 
-                    <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
-                        <button class="panel_button" name="Close panel" onclick="toggleCreateRankingPanel()">
-                            <img src="../assets/icons/close_black.svg">
-                        </button>
-                        <div class="desc_box">
-                            <p>Create Ranking</p>
-                            <p>You can create your own ranking to use for this competition.</p>
-                        </div>
-                        <form name="submit" method="POST" id="ranking_create" class="closed" autocomplete="off">
-                            <label for="ranking_name">NAME OF THE RANKING</label>
-                            <input type="text" name="ranking_name">
-                            <label for="ranking_name">PASSWORD</label>
-                            <input type="password" name="ranking_password">
-                            <input type="submit" name="submit" value="Create Ranking" class="ranking_creation_button">
-                        </form>
-                        <div class="icon_box">
-                            <svg>
-                                <circle cx="50%" cy="50%" r="47.5%"/>
-                            </svg>
-                            <img src="../assets/icons/create_black.svg">
-                        </div>
-                        <div class="title_box">
-                            <button type="button" value="Create Ranking" onclick="chooseRankingCreate()">Create Ranking</button>
-                        </div>
+                <div id="create_ranking_panel" onclick="toggleCreateRankingPanel()">
+                    <button class="panel_button" name="Close panel" onclick="toggleCreateRankingPanel()">
+                        <img src="../assets/icons/close_black.svg">
+                    </button>
+                    <div class="desc_box">
+                        <p>Create Ranking</p>
+                        <p>You can create your own ranking to use for this competition.</p>
+                    </div>
+                    <form name="submit" method="POST" id="ranking_create" class="closed" autocomplete="off">
+                        <label for="ranking_name">NAME OF THE RANKING</label>
+                        <input type="text" name="ranking_name">
+                        <label for="ranking_name">PASSWORD</label>
+                        <input type="password" name="ranking_password">
+                        <input type="submit" name="submit" value="Create Ranking" class="ranking_creation_button">
+                    </form>
+                    <div class="icon_box">
+                        <svg>
+                            <circle cx="50%" cy="50%" r="47.5%"/>
+                        </svg>
+                        <img src="../assets/icons/create_black.svg">
+                    </div>
+                    <div class="title_box">
+                        <button type="button" value="Create Ranking" onclick="chooseRankingCreate()">Create Ranking</button>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
+    <script src="javascript/choose_ranking.js"></script>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/list.js"></script>
 </body>
-<script src="javascript/choose_ranking.js"></script>
-<script src="javascript/cookie_monster.js"></script>
-<script src="javascript/main.js"></script>
-<script src="javascript/list.js"></script>
 </html>
