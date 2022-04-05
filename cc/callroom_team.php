@@ -20,30 +20,26 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Callroom</p>
-                <div class="stripe_button_wrapper">
-                    <button class="stripe_button" type="submit">
-                        <p>Message Fencer</p>
-                        <img src="../assets/icons/message_black.svg"/>
-                    </button>
-                    <button class="stripe_button primary" type="submit">
-                        <p>Pass Fencer</p>
-                        <img src="../assets/icons/send_black.svg"/>
-                    </button>
-                </div>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Callroom</p>
+            <div class="stripe_button_wrapper">
+                <button class="stripe_button" type="submit">
+                    <p>Message Fencer</p>
+                    <img src="../assets/icons/message_black.svg"/>
+                </button>
+                <button class="stripe_button primary" type="submit">
+                    <p>Pass Fencer</p>
+                    <img src="../assets/icons/send_black.svg"/>
+                </button>
             </div>
-            <div id="page_content_panel_main">
+        </div>
+        <div id="page_content_panel_main">
 
-            </div>
-        </main>
-    </div>
+        </div>
+    </main>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
 </body>
-<script src="javascript/cookie_monster.js"></script>
-<script src="javascript/main.js"></script>
 </html>

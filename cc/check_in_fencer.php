@@ -110,156 +110,152 @@
     <link rel="stylesheet" href="../css/print_paper_style.min.css" media="print">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Check in <?php echo $name ?></p>
-                <div class="stripe_button_wrapper">
-                    <a class="stripe_button" shortcut="SHIFT+P" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
-                        <p>Go back to Weapon Control</p>
-                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
-                    </a>
-                    <button class="stripe_button" shortcut="SHIFT+P" onclick="window.print()">
-                        <p>Print Check In</p>
-                        <img src="../assets/icons/print_black.svg"/>
-                    </button>
-                    <button name="submit_check_in" class="stripe_button primary" type="submit" form="check_in" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
-                        <p>Save Check In</p>
-                        <img src="../assets/icons/save_black.svg"/>
-                    </button>
-                </div>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Check in <?php echo $name ?></p>
+            <div class="stripe_button_wrapper">
+                <a class="stripe_button" shortcut="SHIFT+P" href="weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>">
+                    <p>Go back to Weapon Control</p>
+                    <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                </a>
+                <button class="stripe_button" shortcut="SHIFT+P" onclick="window.print()">
+                    <p>Print Check In</p>
+                    <img src="../assets/icons/print_black.svg"/>
+                </button>
+                <button name="submit_check_in" class="stripe_button primary" type="submit" form="check_in" shortcut="SHIFT+S" onclick="location.href='weapon_control_administrated.php?comp_id=<?php echo $comp_id ?>'">
+                    <p>Save Check In</p>
+                    <img src="../assets/icons/save_black.svg"/>
+                </button>
             </div>
-            <div id="page_content_panel_main">
-                <?php
-                    //get comp_data for printing
-                    $qry_get_comp_data = "SELECT * FROM `competitions` WHERE `comp_id` = '$comp_id'";
-                    $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
+        </div>
+        <div id="page_content_panel_main">
+            <?php
+                //get comp_data for printing
+                $qry_get_comp_data = "SELECT * FROM `competitions` WHERE `comp_id` = '$comp_id'";
+                $do_get_comp_data = mysqli_query($connection, $qry_get_comp_data);
 
-                    if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
-                        $sex = $row['comp_sex'];
-                        $w_type = $row['comp_weapon'];
-                    }
+                if ($row = mysqli_fetch_assoc($do_get_comp_data)) {
+                    $sex = $row['comp_sex'];
+                    $w_type = $row['comp_weapon'];
+                }
 
-                    //from basic info
-                    $qry_get_bi = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
-                    $do_get_bi = mysqli_query($connection, $qry_get_bi);
+                //from basic info
+                $qry_get_bi = "SELECT data FROM basic_info WHERE assoc_comp_id = '$comp_id'";
+                $do_get_bi = mysqli_query($connection, $qry_get_bi);
 
-                    if ($row = mysqli_fetch_assoc($do_get_bi)) {
-                        $json_string = $row['data'];
-                        $json_table = json_decode($json_string);
-                        $start_time = $json_table -> starting_date;
-                    } else {
-                        $start_time = "start time: Not defined!";
-                    }
-                ?>
-                <div class="title_container hidden">
-                    <div><p class="title"><?php echo $name ?>'S CHECKING IN CERTIFICATE</p></div>
-                    <div class="comp_info small">
-                        <p class="info_label"><?php echo $comp_name ?></p>
-                        <div>
-                            <p><?php echo sexConverter($sex) ?></p>
-                            <p><?php echo weaponConverter($w_type) ?></p>
-                        </div>
-                        <p><?php echo $start_time ?></p>
+                if ($row = mysqli_fetch_assoc($do_get_bi)) {
+                    $json_string = $row['data'];
+                    $json_table = json_decode($json_string);
+                    $start_time = $json_table -> starting_date;
+                } else {
+                    $start_time = "start time: Not defined!";
+                }
+            ?>
+            <div class="title_container hidden">
+                <div><p class="title"><?php echo $name ?>'S CHECKING IN CERTIFICATE</p></div>
+                <div class="comp_info small">
+                    <p class="info_label"><?php echo $comp_name ?></p>
+                    <div>
+                        <p><?php echo sexConverter($sex) ?></p>
+                        <p><?php echo weaponConverter($w_type) ?></p>
                     </div>
-                </div>
-                <div class="wrapper">
-                    <form action=""  id="check_in" method="POST" class="db_panel">
-                        <div class="db_panel_header">
-                            <img src="../assets/icons/backpack_black.svg"/>
-                            Contents of Fencer's Bag
-                        </div>
-                        <div class="db_panel_main">
-                            <input type="text" value="ide kéne a max valuek minden eggyes inpurta">
-                            <table class="no_interaction">
-                                <thead>
-                                    <tr>
-                                        <th><p>ISSUE</p></th>
-                                        <th><p>QUANTITY</p></th>
-                                    </tr>
-                                </thead>
-                                <tbody class="alt">
-
-                                    <?php
-                                        //get already set value from database
-
-                                        $saved_equipment_array = $wc_table->$fencer_id -> equipment;
-
-
-
-                                        foreach ($given_equipment as $key => $value) {
-
-                                            if ($value != 0) {
-                                                $eqname = $all_equipment[$key];
-                                                //USE THIS ATIKÁM A MAX BEIRÁSHOZ
-                                                /**/$max = $value;//*************
-                                                /*   így:    id ="<?php echo $max ?>"   */
-                                                //ha kellek buta js es vagy
-                                                //ja de amugy sem tudsz olvasni lma o
-
-                                                if ($saved_equipment_array != null) {
-                                                    $saved_value = $saved_equipment_array[$key];
-
-                                                }
-
-
-
-                                    ?>
-
-                                    <tr>
-                                        <td><p><?php echo $eqname ?></p></td>
-                                        <td><input form="check_in" value="<?php echo $saved_value ?>" name="<?php echo $key ?>" type="number" placeholder="#"></td>
-                                    </tr>
-                                    <?php
-                                            }
-                                        }
-                                    ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </form>
-                </div>
-                <div class="signatures hidden">
-                    <p class="label">SIGNATURES</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    <p>NAME</p>
-                                </th>
-                                <th>
-                                    <p>SIGNATURE</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p><?php echo $name ?></p>
-                                </td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                            <div class="grid_header">
-                                <div class="grid_header_text"></div>
-                                <div class="grid_header_text signature"></div>
-                            </div>
-                            <div class="grid_row_wrapper">
-                                <div class="grid_row">
-                                    <div class="grid_item"></div>
-                                    <div class="grid_item signature"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </table>
+                    <p><?php echo $start_time ?></p>
                 </div>
             </div>
-        </main>
-    </div>
+            <div class="wrapper">
+                <form action=""  id="check_in" method="POST" class="db_panel">
+                    <div class="db_panel_header">
+                        <img src="../assets/icons/backpack_black.svg"/>
+                        Contents of Fencer's Bag
+                    </div>
+                    <div class="db_panel_main">
+                        <input type="text" value="ide kéne a max valuek minden eggyes inpurta">
+                        <table class="no_interaction">
+                            <thead>
+                                <tr>
+                                    <th><p>ISSUE</p></th>
+                                    <th><p>QUANTITY</p></th>
+                                </tr>
+                            </thead>
+                            <tbody class="alt">
+
+                                <?php
+                                    //get already set value from database
+
+                                    $saved_equipment_array = $wc_table->$fencer_id -> equipment;
+
+
+
+                                    foreach ($given_equipment as $key => $value) {
+
+                                        if ($value != 0) {
+                                            $eqname = $all_equipment[$key];
+                                            //USE THIS ATIKÁM A MAX BEIRÁSHOZ
+                                            /**/$max = $value;//*************
+                                            /*   így:    id ="<?php echo $max ?>"   */
+                                            //ha kellek buta js es vagy
+                                            //ja de amugy sem tudsz olvasni lma o
+
+                                            if ($saved_equipment_array != null) {
+                                                $saved_value = $saved_equipment_array[$key];
+
+                                            }
+
+
+
+                                ?>
+
+                                <tr>
+                                    <td><p><?php echo $eqname ?></p></td>
+                                    <td><input form="check_in" value="<?php echo $saved_value ?>" name="<?php echo $key ?>" type="number" placeholder="#"></td>
+                                </tr>
+                                <?php
+                                        }
+                                    }
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="signatures hidden">
+                <p class="label">SIGNATURES</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>NAME</p>
+                            </th>
+                            <th>
+                                <p>SIGNATURE</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><?php echo $name ?></p>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                        <div class="grid_header">
+                            <div class="grid_header_text"></div>
+                            <div class="grid_header_text signature"></div>
+                        </div>
+                        <div class="grid_row_wrapper">
+                            <div class="grid_row">
+                                <div class="grid_item"></div>
+                                <div class="grid_item signature"></div>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/check_fencer.js"></script>

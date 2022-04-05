@@ -64,263 +64,259 @@
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-    <!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Competitors</p>
-                <div class="stripe_button_wrapper">
-                    <button class="stripe_button disabled" type="button">
-                        <p>Message Fencer</p>
-                        <img src="../assets/icons/message_black.svg"/>
-                    </button>
-                    <form action="" method="POST" id="IDE KELL A FORM IDJE">
-                        <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
-                    </form>
-                    <button class="stripe_button red" name="remove_fencer" type="submit" form="IDE KELL A FORM IDJE" shortcut="SHIFT+R">
-                        <p>Remove Fencer</p>
-                        <img src="../assets/icons/delete_black.svg"/>
-                    </button>
-                    <button class="stripe_button primary" type="button" onclick="window.print()" id="prtComp" shortcut="SHIFT+P">
-                        <p>Print Competitors</p>
-                        <img src="../assets/icons/print_black.svg"/>
-                    </button>
-                    <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=individual" id="importComp" shortcut="SHIFT+I">
-                        <p>Import Competitors from XML</p>
-                        <img src="../assets/icons/get_app_black.svg"/>
-                    </a>
-                </div>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Competitors</p>
+            <div class="stripe_button_wrapper">
+                <button class="stripe_button disabled" type="button">
+                    <p>Message Fencer</p>
+                    <img src="../assets/icons/message_black.svg"/>
+                </button>
+                <form action="" method="POST" id="IDE KELL A FORM IDJE">
+                    <input type="text" class="selected_list_item_input hidden" name="selected_id" readonly>
+                </form>
+                <button class="stripe_button red" name="remove_fencer" type="submit" form="IDE KELL A FORM IDJE" shortcut="SHIFT+R">
+                    <p>Remove Fencer</p>
+                    <img src="../assets/icons/delete_black.svg"/>
+                </button>
+                <button class="stripe_button primary" type="button" onclick="window.print()" id="prtComp" shortcut="SHIFT+P">
+                    <p>Print Competitors</p>
+                    <img src="../assets/icons/print_black.svg"/>
+                </button>
+                <a class="stripe_button primary" href="import_competitors.php?comp_id=<?php echo $comp_id ?>&type=individual" id="importComp" shortcut="SHIFT+I">
+                    <p>Import Competitors from XML</p>
+                    <img src="../assets/icons/get_app_black.svg"/>
+                </a>
             </div>
-            <div id="page_content_panel_main">
+        </div>
+        <div id="page_content_panel_main">
 
-                <?php if (isset($json_table[0])) {
+            <?php if (isset($json_table[0])) {
 
-                    function cmp($a, $b)
-                    {
-                        return strcmp($a->nation, $b->nation);
-                    }
+                function cmp($a, $b)
+                {
+                    return strcmp($a->nation, $b->nation);
+                }
 
-                    usort($json_table, "cmp");
+                usort($json_table, "cmp");
 
-                ?>
-                <table class="wrapper small w90">
-                    <thead>
-                        <tr>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Competition Position" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
+            ?>
+            <table class="wrapper small w90">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Competition Position" class="search page">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>C. POS</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>C. POS</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Classement Position" class="search page">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                            </th>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Classement Position" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>R. POS</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>R. POS</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NAME</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                            </th>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Name" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>NATION</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="search_panel">
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>NAME</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>CLUB</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="search_panel option">
+                                <div class="search_panel_buttons">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                            </th>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Nation" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-                                </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>NATION</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="search_panel">
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" placeholder="Search by Club" class="search page">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-                                </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>CLUB</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="search_panel option">
-                                    <div class="search_panel_buttons">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
 
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
-                                    </div>
-                                    <div class="option_container">
-                                        <input type="radio" name="reg_status" id="listsearch_reg_ready" value="Ready"/>
-                                        <label for="listsearch_reg_ready">Ready</label>
-                                        <input type="radio" name="reg_status" id="listsearch_reg_not_ready" value="Not ready"/>
-                                        <label for="listsearch_reg_not_ready">Not ready</label>
-                                    </div>
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" class="search hidden">
                                 </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>REGISTRATION</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
+                                <div class="option_container">
+                                    <input type="radio" name="reg_status" id="listsearch_reg_ready" value="Ready"/>
+                                    <label for="listsearch_reg_ready">Ready</label>
+                                    <input type="radio" name="reg_status" id="listsearch_reg_not_ready" value="Not ready"/>
+                                    <label for="listsearch_reg_not_ready">Not ready</label>
                                 </div>
-                            </th>
-                            <th class="square"></th>
-                            <th>
-                                <div class="search_panel option">
-                                    <div class="search_panel_buttons">
-                                        <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
-                                    </div>
-
-                                    <div class="search_wrapper">
-                                        <input type="text" onkeyup="searchInLists()" class="search hidden">
-                                    </div>
-                                    <div class="option_container">
-                                        <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready"/>
-                                        <label for="listsearch_wc_ready">Ready</label>
-                                        <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Not ready"/>
-                                        <label for="listsearch_wc_not_ready">Not ready</label>
-                                    </div>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>REGISTRATION</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th class="square"></th>
+                        <th>
+                            <div class="search_panel option">
+                                <div class="search_panel_buttons">
+                                    <button type="button" onclick="closeSearch(this)"><img src="../assets/icons/close_black.svg"></button>
                                 </div>
-                                <div class="table_buttons_wrapper">
-                                    <button type="button" onclick="sortButton(this)">
-                                        <img src="../assets/icons/switch_full_black.svg">
-                                    </button>
-                                    <p>WEAPON CONTROL</p>
-                                    <button type="button" onclick="searchButton(this)">
-                                        <img src="../assets/icons/search_black.svg">
-                                    </button>
+
+                                <div class="search_wrapper">
+                                    <input type="text" onkeyup="searchInLists()" class="search hidden">
                                 </div>
-                            </th>
-                            <th class="square"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($json_table as $json_obj) {
-                        ?>
-                            <tr id="<?php echo $json_obj -> id ?>" onclick="selectRow(this)" loading="lazy">
-                                <td>
-                                    <p><?php echo $json_obj->comp_rank ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $json_obj->classement ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $json_obj->prenom . " " . $json_obj->nom ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $json_obj->nation ?></p>
-                                </td>
-                                <td>
-                                    <p><?php echo $json_obj->club ?></p>
-                                </td>
-                                <td>
-                                    <p><?php
-
-                                        if ($json_obj->reg == 0) {
-
-                                            echo "Not ready";
-                                        } else {
-
-                                            echo "Ready";
-                                        }
-                                        ?></p>
-                                </td>
-                                <td class="square <?php
-                                                    if ($json_obj->reg == 0) {
-
-                                                        echo "red";
-                                                    } else {
-
-                                                        echo "green";
-                                                    }
-                                                    ?>">
-                                </td>
-                                <td>
-                                    <p><?php
-                                        if ($json_obj->wc == 0) {
-
-                                            echo "Not ready";
-                                        } else {
-
-                                            echo "Ready";
-                                        }
-                                        ?></p>
-                                </td>
-                                <td class="square <?php
-                                                                if ($json_obj->wc == 0) {
-
-                                                                    echo "red";
-                                                                } else {
-
-                                                                    echo "green";
-                                                                }
-                                                                ?>">
-                                </td>
-                            </tr>
-
+                                <div class="option_container">
+                                    <input type="radio" name="wc_status" id="listsearch_wc_ready" value="Ready"/>
+                                    <label for="listsearch_wc_ready">Ready</label>
+                                    <input type="radio" name="wc_status" id="listsearch_wc_not_ready" value="Not ready"/>
+                                    <label for="listsearch_wc_not_ready">Not ready</label>
+                                </div>
+                            </div>
+                            <div class="table_buttons_wrapper">
+                                <button type="button" onclick="sortButton(this)">
+                                    <img src="../assets/icons/switch_full_black.svg">
+                                </button>
+                                <p>WEAPON CONTROL</p>
+                                <button type="button" onclick="searchButton(this)">
+                                    <img src="../assets/icons/search_black.svg">
+                                </button>
+                            </div>
+                        </th>
+                        <th class="square"></th>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php
-                        }
-                    }
+                    foreach ($json_table as $json_obj) {
                     ?>
-                    </tbody>
-                </table>
-            </div>
+                        <tr id="<?php echo $json_obj -> id ?>" onclick="selectRow(this)" loading="lazy">
+                            <td>
+                                <p><?php echo $json_obj->comp_rank ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $json_obj->classement ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $json_obj->prenom . " " . $json_obj->nom ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $json_obj->nation ?></p>
+                            </td>
+                            <td>
+                                <p><?php echo $json_obj->club ?></p>
+                            </td>
+                            <td>
+                                <p><?php
+
+                                    if ($json_obj->reg == 0) {
+
+                                        echo "Not ready";
+                                    } else {
+
+                                        echo "Ready";
+                                    }
+                                    ?></p>
+                            </td>
+                            <td class="square <?php
+                                                if ($json_obj->reg == 0) {
+
+                                                    echo "red";
+                                                } else {
+
+                                                    echo "green";
+                                                }
+                                                ?>">
+                            </td>
+                            <td>
+                                <p><?php
+                                    if ($json_obj->wc == 0) {
+
+                                        echo "Not ready";
+                                    } else {
+
+                                        echo "Ready";
+                                    }
+                                    ?></p>
+                            </td>
+                            <td class="square <?php
+                                                            if ($json_obj->wc == 0) {
+
+                                                                echo "red";
+                                                            } else {
+
+                                                                echo "green";
+                                                            }
+                                                            ?>">
+                            </td>
+                        </tr>
+
+                <?php
+                    }
+                }
+                ?>
+                </tbody>
+            </table>
         </div>
     </main>
     <script src="javascript/cookie_monster.js"></script>

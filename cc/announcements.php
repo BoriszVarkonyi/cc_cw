@@ -102,107 +102,103 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Announcements</p>
-            </div>
-            <div id="page_content_panel_main">
-                <div id="announcements_wrapper">
-                    <?php
-                        for ($annoNum = 0; $annoNum < 3; $annoNum++){
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Announcements</p>
+        </div>
+        <div id="page_content_panel_main">
+            <div id="announcements_wrapper">
+                <?php
+                    for ($annoNum = 0; $annoNum < 3; $annoNum++){
 
-                            $deleteButton = true;
-                            if (!isset($json_table[$annoNum])) {
-                            //NOT USED
-                                $class = "not_used";
-                                $title = "Add an Announcement!";
-                                $body = "This announcement will be publicly visible on the competition's dedicated page!";
-                                $deleteButton = false;
-                                $enableDisabledButtonTxt = null;
-                            /********/
-                            } else if ($json_table[$annoNum] -> is_disabled) {
-                            //DISABLED
-                                $class = "disabled";
-                                $title = $json_table[$annoNum] -> title;
-                                $body = $json_table[$annoNum] -> body;
-                                $enableDisabledButtonTxt = "Enable";
-                            /********/
-                            } else {
-                            //ACTIVE
-                                $class = "active";
-                                $title = $json_table[$annoNum] -> title;
-                                $body = $json_table[$annoNum] -> body;
-                                $enableDisabledButtonTxt = "Disable";
-                            /******/
-                            }
-                    ?>
-                            <div class="annoucement <?php echo $class ?>">
-                                <div class="annoucement_image">
-                                    <img src="../assets/icons/announcement_black.svg">
+                        $deleteButton = true;
+                        if (!isset($json_table[$annoNum])) {
+                        //NOT USED
+                            $class = "not_used";
+                            $title = "Add an Announcement!";
+                            $body = "This announcement will be publicly visible on the competition's dedicated page!";
+                            $deleteButton = false;
+                            $enableDisabledButtonTxt = null;
+                        /********/
+                        } else if ($json_table[$annoNum] -> is_disabled) {
+                        //DISABLED
+                            $class = "disabled";
+                            $title = $json_table[$annoNum] -> title;
+                            $body = $json_table[$annoNum] -> body;
+                            $enableDisabledButtonTxt = "Enable";
+                        /********/
+                        } else {
+                        //ACTIVE
+                            $class = "active";
+                            $title = $json_table[$annoNum] -> title;
+                            $body = $json_table[$annoNum] -> body;
+                            $enableDisabledButtonTxt = "Disable";
+                        /******/
+                        }
+                ?>
+                        <div class="annoucement <?php echo $class ?>">
+                            <div class="annoucement_image">
+                                <img src="../assets/icons/announcement_black.svg">
+                            </div>
+                            <form class="annoucement_content" method="POST" action="" id="annoForm_<?php echo $annoNum ?>">
+                                <input name="announcementTitle" value="<?php echo $title ?>" type="text" class="edit_annoucement_title title_input alt" placeholder="Type in the announcement's title">
+                                <textarea name="announcementBody" class="edit_annoucement_body" cols="30" rows="10" placeholder="Type in the announcement"><?php echo $body ?></textarea>
+                                <p class="annoucement_title"><?php echo $title ?></p>
+                                <p class="annoucement_body"><?php echo $body ?></p>
+                            </form>
+                            <div class="annoucement_controls">
+                                <div class="button_wrapper">
+                                    <p>Edit</p>
+                                    <button onclick="editAnnouncement(this)">
+                                        <img src="../assets/icons/edit_black.svg">
+                                    </button>
                                 </div>
-                                <form class="annoucement_content" method="POST" action="" id="annoForm_<?php echo $annoNum ?>">
-                                    <input name="announcementTitle" value="<?php echo $title ?>" type="text" class="edit_annoucement_title title_input alt" placeholder="Type in the announcement's title">
-                                    <textarea name="announcementBody" class="edit_annoucement_body" cols="30" rows="10" placeholder="Type in the announcement"><?php echo $body ?></textarea>
-                                    <p class="annoucement_title"><?php echo $title ?></p>
-                                    <p class="annoucement_body"><?php echo $body ?></p>
-                                </form>
-                                <div class="annoucement_controls">
-                                    <div class="button_wrapper">
-                                        <p>Edit</p>
-                                        <button onclick="editAnnouncement(this)">
-                                            <img src="../assets/icons/edit_black.svg">
-                                        </button>
-                                    </div>
-                                    <?php
-                                        if ($deleteButton) {
-                                    ?>
-                                            <div class="button_wrapper">
-                                                <p>Delete</p>
-                                                <button form="annoForm_<?php echo $annoNum ?>" name="deleteAnnouncement" type="submit" value="<?php echo $annoNum ?>">
-                                                    <img src="../assets/icons/delete_black.svg">
-                                                </button>
-                                            </div>
-                                    <?php
-                                        }
-                                        if ($enableDisabledButtonTxt !== null) {
-                                    ?>
-                                            <div class="button_wrapper">
-                                                <p><?php echo $enableDisabledButtonTxt ?></p>
-                                                <button form="annoForm_<?php echo $annoNum ?>" name="enableDisableAnnouncement" type="submit" value="<?php echo $annoNum ?>">
-                                                    <img src="../assets/icons/visibility_black.svg">
-                                                </button>
-                                            </div>
-                                    <?php
-                                        }
-                                    ?>
-                                    <div class="button_wrapper save" onclick="cancelEditAnnouncement(this)">
-                                        <p>Cancel</p>
-                                        <button>
-                                            <img src="../assets/icons/close_black.svg">
-                                        </button>
-                                    </div>
-                                    <div class="button_wrapper save">
-                                        <p>Save</p>
-                                        <button form="annoForm_<?php echo $annoNum ?>" name="saveAnnouncement" type="submit" value="<?php echo $annoNum ?>">
-                                            <img src="../assets/icons/save_black.svg">
-                                        </button>
-                                    </div>
+                                <?php
+                                    if ($deleteButton) {
+                                ?>
+                                        <div class="button_wrapper">
+                                            <p>Delete</p>
+                                            <button form="annoForm_<?php echo $annoNum ?>" name="deleteAnnouncement" type="submit" value="<?php echo $annoNum ?>">
+                                                <img src="../assets/icons/delete_black.svg">
+                                            </button>
+                                        </div>
+                                <?php
+                                    }
+                                    if ($enableDisabledButtonTxt !== null) {
+                                ?>
+                                        <div class="button_wrapper">
+                                            <p><?php echo $enableDisabledButtonTxt ?></p>
+                                            <button form="annoForm_<?php echo $annoNum ?>" name="enableDisableAnnouncement" type="submit" value="<?php echo $annoNum ?>">
+                                                <img src="../assets/icons/visibility_black.svg">
+                                            </button>
+                                        </div>
+                                <?php
+                                    }
+                                ?>
+                                <div class="button_wrapper save" onclick="cancelEditAnnouncement(this)">
+                                    <p>Cancel</p>
+                                    <button>
+                                        <img src="../assets/icons/close_black.svg">
+                                    </button>
+                                </div>
+                                <div class="button_wrapper save">
+                                    <p>Save</p>
+                                    <button form="annoForm_<?php echo $annoNum ?>" name="saveAnnouncement" type="submit" value="<?php echo $annoNum ?>">
+                                        <img src="../assets/icons/save_black.svg">
+                                    </button>
                                 </div>
                             </div>
-                    <?php
-                        }
-                    ?>
+                        </div>
+                <?php
+                    }
+                ?>
 
-                </div>
             </div>
         </div>
     </main>
+    <script src="javascript/cookie_monster.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/announcements.js"></script>
 </body>
-<script src="javascript/cookie_monster.js"></script>
-<script src="javascript/main.js"></script>
-<script src="javascript/announcements.js"></script>
 </html>

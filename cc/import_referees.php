@@ -20,74 +20,70 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-<!-- header -->
-    <div id="content_wrapper">
-        <?php include "includes/navbar.php"; ?>
-        <!-- navbar -->
-        <main>
-            <div id="title_stripe">
-                <p class="page_title">Import Referees from XML</p>
-                <div class="stripe_button_wrapper">
-                    <a class="stripe_button bold" href="referees.php?comp_id=<?php echo $comp_id ?>">
-                        <p>Go back to Referees</p>
-                        <img src="../assets/icons/arrow_back_ios_black.svg"/>
-                    </a>
-                    <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">
-                        <p>Import</p>
-                        <img src="../assets/icons/get_app_black.svg"/>
-                    </button>
-                </div>
+    <?php include "includes/navbar.php"; ?>
+    <main>
+        <div id="title_stripe">
+            <p class="page_title">Import Referees from XML</p>
+            <div class="stripe_button_wrapper">
+                <a class="stripe_button bold" href="referees.php?comp_id=<?php echo $comp_id ?>">
+                    <p>Go back to Referees</p>
+                    <img src="../assets/icons/arrow_back_ios_black.svg"/>
+                </a>
+                <button class="stripe_button primary" type="submit" form="import_competitors_from_xml_form" id="import_button">
+                    <p>Import</p>
+                    <img src="../assets/icons/get_app_black.svg"/>
+                </button>
             </div>
-            <div id="page_content_panel_main">
-                <div class="wrapper">
-                    <div class="db_panel other">
-                        <div class="db_panel_header">
-                            <img src="../assets/icons/build_black.svg">
-                            <p>Import Competitors</p>
-                        </div>
-                        <div class="db_panel_main">
-                            <form method="POST" id="delete_logo">
-                                <button id="delete_logo" class="panel_button" name="Close panel">
-                                    <img src="../assets/icons/delete_black.svg">
-                                </button>
-                            </form>
-                            <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
-                                <input type="file" name="fileToUpload" id="fileToUpload">
-                                <label for="fileToUpload">Upload XML File</label>
-                                 <p id="file_text"></p>
-                                <input type="text" name="type" class="hidden" value="referees">
-                            </form>
-                        </div>
+        </div>
+        <div id="page_content_panel_main">
+            <div class="wrapper">
+                <div class="db_panel other">
+                    <div class="db_panel_header">
+                        <img src="../assets/icons/build_black.svg">
+                        <p>Import Competitors</p>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    <p>ID</p>
-                                </th>
-                                <th>
-                                    <p>FIRST NAME</p>
-                                </th>
-                                <th>
-                                    <p>LAST NAME</p>
-                                </th>
-                                <th>
-                                    <p>NATION</p>
-                                </th>
-                                <th>
-                                    <p>CLUB</p>
-                                </th>
-                                <th>
-                                    <p>CATEGORIE</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+                    <div class="db_panel_main">
+                        <form method="POST" id="delete_logo">
+                            <button id="delete_logo" class="panel_button" name="Close panel">
+                                <img src="../assets/icons/delete_black.svg">
+                            </button>
+                        </form>
+                        <form action="../uploads/uploadxml.php?comp_id=<?php echo $comp_id ?>" method="POST" id="import_competitors_from_xml_form" enctype="multipart/form-data" class="invitation_file_wrapper">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <label for="fileToUpload">Upload XML File</label>
+                                <p id="file_text"></p>
+                            <input type="text" name="type" class="hidden" value="referees">
+                        </form>
+                    </div>
                 </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>ID</p>
+                            </th>
+                            <th>
+                                <p>FIRST NAME</p>
+                            </th>
+                            <th>
+                                <p>LAST NAME</p>
+                            </th>
+                            <th>
+                                <p>NATION</p>
+                            </th>
+                            <th>
+                                <p>CLUB</p>
+                            </th>
+                            <th>
+                                <p>CATEGORIE</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
     <script src="javascript/controls.js"></script>
