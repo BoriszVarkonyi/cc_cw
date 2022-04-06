@@ -4,91 +4,38 @@
 <?php checkComp($connection); ?>
 
 <?php
+    $qry_make_table = "CREATE TABLE `ccdatabase`.`announcements` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `title` VARCHAR(255) NOT NULL , `body` TEXT NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $make_table = mysqli_query($connection, $qry_make_table);
 
+    //update plusinfo table with new title from form
+    if (isset($_POST['info_submit']) && 0 < strlen($_POST['info_title'])) {
 
-    class announcement {
-        public $title;
-        public $body;
-        public $is_disabled = false;
+    $title = mysqli_real_escape_string($connection, $_POST['info_title']);
 
-        function __construct ($title, $body) {
-            $this -> title = $title;
-            $this -> body = $body;
-        }
-    }
-
-    //make announcements table
-    $qry_make_table = "CREATE TABLE `ccdatabase`.`announcements` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `assoc_comp_id` INT(11) NOT NULL , `data` LONGTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_make_table = mysqli_query($connection, $qry_make_table);
-
-    //get data from table
-    $qry_get_data = "SELECT * FROM announcements WHERE assoc_comp_id = '$comp_id'";
-    $do_get_data = mysqli_query($connection, $qry_get_data);
-    if ($row = mysqli_fetch_assoc($do_get_data)) {
-        $test_row = TRUE;
-        $json_string = $row['data'];
-        $json_table = json_decode($json_string);
+    //insert row
+    $qry_insert_new_row = "INSERT INTO announcements (assoc_comp_id, title) VALUES ('$comp_id', '$title')";
+    if ($do_insert_new_row = mysqli_query($connection, $qry_insert_new_row)) {
+        header("Refresh: 0");
     } else {
-        $test_row = FALSE;
-        //make template row
-        $json_table = [];
-        $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
-        $qry_make_template = "INSERT INTO `announcements` (assoc_comp_id, data) VALUES ('$comp_id', '$json_string')";
-        $do_make_template = mysqli_query($connection, $qry_make_template);
+        echo mysqli_error($connection);
+    }
+}
+
+
+//updateing info_body from text areas
+if (isset($_POST['submit_body'])) {
+    $body = mysqli_escape_string($connection, $_POST['text_body']);
+    $id = $_POST['entry_id'];
+    $title = "";
+
+    $qry_update_with_body = "UPDATE announcements SET body = '$body' WHERE id = '$id'";
+    if ($do_update_with_body = mysqli_query($connection, $qry_update_with_body)) {
+        header("Refresh: 0");
+    } else {
+        echo mysqli_error($connection);
     }
 
-    //function to update database & sort by disabled & get rid of keys
-    function updateDB($data, $comp_id, $connection) {
-        //sort by disabledness
-        $temp = [];
-        for ($i = 0; $i < count($data); $i++) {
-            if (!$data[$i] -> is_disabled) {
-                $temp[] = $data[$i];
-            }
-        }
-        for ($i = 0; $i < count($data); $i++) {
-            if ($data[$i] -> is_disabled) {
-                $temp[] = $data[$i];
-            }
-        }
-        $data = $temp;
-        $data_s = json_encode($data, JSON_UNESCAPED_UNICODE);
-        $qry_update = "UPDATE `announcements` SET `data` = '$data_s' WHERE assoc_comp_id = '$comp_id'";
-        if ($do_update = mysqli_query($connection, $qry_update)) {
-            header("Refresh:0");
-        } else {
-            echo "MINDEN SZAR GECKI FOS uindormany datbase error";
-        }
-
-    }
-    //add announcement
-    if (isset($_POST['saveAnnouncement'])) {
-        $annoNum = $_POST["saveAnnouncement"];
-        $title = $_POST["announcementTitle"];
-        $body = $_POST["announcementBody"];
-        $json_table[$annoNum] = new announcement($title, $body);
-        updateDB($json_table, $comp_id, $connection);
-    }
-
-    //delete announcement
-    if (isset($_POST['deleteAnnouncement'])) {
-        $annoNum = $_POST["deleteAnnouncement"];
-        $temp = [];
-        for ($i = 0; $i < count($json_table); $i++) {
-            if ($i != $annoNum) {
-                $temp[] = $json_table[$i];
-            }
-        }
-        $json_table = array_values($temp);
-        updateDB($json_table, $comp_id, $connection);
-    }
-
-    //disableEnable announcement
-    if (isset($_POST['enableDisableAnnouncement'])) {
-        $annoNum = $_POST["enableDisableAnnouncement"];
-        $json_table[$annoNum] -> is_disabled = !$json_table[$annoNum] -> is_disabled;
-        updateDB($json_table, $comp_id, $connection);
-    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -109,96 +56,73 @@
         </div>
         <div id="page_content_panel_main">
             <div id="announcements_wrapper">
-                <?php
-                    for ($annoNum = 0; $annoNum < 3; $annoNum++){
+            <div class="db_panel other">
+                    <div class="db_panel_header">
+                        <img src="../assets/icons/build_black.svg">
+                        <p>Announcements</p>
+                    </div>
+                    <div class="db_panel_main table">
+                        <div class="table t_c_0" id="plus_info_wrapper">
+                            <div class="table t_c_0">
+                                <div class="table_header">
+                                    <div class="table_header_text">TITLE</div>
+                                </div>
+                                <div class="table_row_wrapper alt">
+                                    <?php
 
-                        $deleteButton = true;
-                        if (!isset($json_table[$annoNum])) {
-                        //NOT USED
-                            $class = "not_used";
-                            $title = "Add an Announcement!";
-                            $body = "This announcement will be publicly visible on the competition's dedicated page!";
-                            $deleteButton = false;
-                            $enableDisabledButtonTxt = null;
-                        /********/
-                        } else if ($json_table[$annoNum] -> is_disabled) {
-                        //DISABLED
-                            $class = "disabled";
-                            $title = $json_table[$annoNum] -> title;
-                            $body = $json_table[$annoNum] -> body;
-                            $enableDisabledButtonTxt = "Enable";
-                        /********/
-                        } else {
-                        //ACTIVE
-                            $class = "active";
-                            $title = $json_table[$annoNum] -> title;
-                            $body = $json_table[$annoNum] -> body;
-                            $enableDisabledButtonTxt = "Disable";
-                        /******/
-                        }
-                ?>
-                        <div class="annoucement <?php echo $class ?>">
-                            <div class="annoucement_image">
-                                <img src="../assets/icons/announcement_black.svg">
-                            </div>
-                            <form class="annoucement_content" method="POST" action="" id="annoForm_<?php echo $annoNum ?>">
-                                <input name="announcementTitle" value="<?php echo $title ?>" type="text" class="edit_annoucement_title title_input alt" placeholder="Type in the announcement's title">
-                                <textarea name="announcementBody" class="edit_annoucement_body" cols="30" rows="10" placeholder="Type in the announcement"><?php echo $body ?></textarea>
-                                <p class="annoucement_title"><?php echo $title ?></p>
-                                <p class="annoucement_body"><?php echo $body ?></p>
-                            </form>
-                            <div class="annoucement_controls">
-                                <div class="button_wrapper">
-                                    <p>Edit</p>
-                                    <button onclick="editAnnouncement(this)">
-                                        <img src="../assets/icons/edit_black.svg">
-                                    </button>
-                                </div>
-                                <?php
-                                    if ($deleteButton) {
-                                ?>
-                                        <div class="button_wrapper">
-                                            <p>Delete</p>
-                                            <button form="annoForm_<?php echo $annoNum ?>" name="deleteAnnouncement" type="submit" value="<?php echo $annoNum ?>">
-                                                <img src="../assets/icons/delete_black.svg">
-                                            </button>
+                                        $qry_display = "SELECT id, title, body FROM announcements WHERE assoc_comp_id = '$comp_id'";
+                                        $do_display = mysqli_query($connection, $qry_display);
+                                        echo mysqli_error($connection);
+                                        while ($row = mysqli_fetch_assoc($do_display)) {
+                                    ?>
+
+                                            <div class="entry">
+                                                <div class="table_row" onclick="toggleEntry(this)">
+                                                    <!-- ezt át lehetne pakolni egy inputra es akkor tudna megvaltoztatni mostmar a titlet is az nber ##KRIS -->
+                                                    <div class="table_item invitation"><?php echo $row['title'] ?></div>
+                                                </div>
+                                                <form class="entry_panel collapsed" id="update" method="POST" action="">
+                                                    <input id='Announcements_id' name='entry_id' type='text' value='<?php echo $row['id'] ?>' class='hidden' >
+                                                    <button class="panel_button" type="submit" name="submit_delete" id="update">
+                                                        <img src="../assets/icons/delete_black.svg">
+                                                    </button>
+                                                    <textarea placeholder='Type your information here...' id="update" name="text_body"><?php echo $row['body'] ?></textarea>
+                                                    <input id="update" name="text_title_to_change" type="text" value="<?php echo $row['body'] ?>" class="hidden">
+                                                    <input id="update" name="submit_body" type="submit" value="Save" class="panel_submit">
+                                                </form>
+                                            </div>
+                                    <?php
+                                        }
+                                    ?>
+                                    <div id="add_entry" onclick="hideNshow()">
+                                        <div class="table_row" onclick="">
+                                            <div class="table_item">
+                                                Add announcement
+                                                <img src="../assets/icons/add_black.svg">
+                                            </div>
                                         </div>
-                                <?php
-                                    }
-                                    if ($enableDisabledButtonTxt !== null) {
-                                ?>
-                                        <div class="button_wrapper">
-                                            <p><?php echo $enableDisabledButtonTxt ?></p>
-                                            <button form="annoForm_<?php echo $annoNum ?>" name="enableDisableAnnouncement" type="submit" value="<?php echo $annoNum ?>">
-                                                <img src="../assets/icons/visibility_black.svg">
-                                            </button>
+                                    </div>
+
+                                    <form action="../cc/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
+                                        <div class="table_row">
+                                            <div class="table_item">
+                                                <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
+                                                <input name="info_submit" type="submit" class="save_entry" value="Create">
+                                            </div>
                                         </div>
-                                <?php
-                                    }
-                                ?>
-                                <div class="button_wrapper save" onclick="cancelEditAnnouncement(this)">
-                                    <p>Cancel</p>
-                                    <button>
-                                        <img src="../assets/icons/close_black.svg">
-                                    </button>
-                                </div>
-                                <div class="button_wrapper save">
-                                    <p>Save</p>
-                                    <button form="annoForm_<?php echo $annoNum ?>" name="saveAnnouncement" type="submit" value="<?php echo $annoNum ?>">
-                                        <img src="../assets/icons/save_black.svg">
-                                    </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                <?php
-                    }
-                ?>
-
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
-    <script src="javascript/announcements.js"></script>
+    <script src="javascript/invitation.js"></script>
+
+    <script src="javascript/entry_controls.js"></script>
 </body>
 </html>
