@@ -350,7 +350,7 @@ if (file_exists("../uploads/$comp_id.png")) {
                                     <p class="column_panel_title">Additional information for Fencers:</p>
 
                                     <div>
-                                        <p><?php echo "????" ?></p>
+                                        <p><?php echo $comp_info ?></p>
                                     </div>
                                 </div>
 
