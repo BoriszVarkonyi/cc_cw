@@ -371,7 +371,12 @@ function toggleBarCodeInput(x) {
     button.classList.toggle("active");
 }
 
-function closeAside(x) {
-    var aside = x.parentElement;
+
+function closeAside() {
+    /* Variables declared inside so pages without aside dont store unused nd undefined variables */
+    /* Decalred with varibles so it doesn't rely on html nesting relations */
+    var aside = document.querySelector("aside");
+    var asideButton = document.querySelector(".aside_button");
     aside.classList.toggle("closed");
+    asideButton.classList.toggle("closed");
 }

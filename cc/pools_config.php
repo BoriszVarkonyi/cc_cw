@@ -428,9 +428,10 @@
         <div id="title_stripe">
             <p class="page_title">Configure Pools</p>
             <div class="stripe_button_wrapper">
-                <button class="stripe_button disabled" type="button">
-                    <p>Message Fencer</p>
-                    <img src="../assets/icons/message_black.svg"/>
+
+                <button class="stripe_button" type="button" onclick="window.print()" id='printPools' shortcut="SHIFT+P">
+                    <p>Print Pools</p>
+                    <img src="../assets/icons/print_black.svg"/>
                 </button>
 
                 <button class="stripe_button bold" type="button" onclick="toggleRefPanel()" id="referees" shortcut="SHIFT+R">
@@ -443,30 +444,24 @@
                     <img src="../assets/icons/ballot_black.svg"/>
                 </button>
 
-                <button class="stripe_button" type="button" onclick="window.print()" id='printPools' shortcut="SHIFT+P">
-                    <p>Print Pools</p>
-                    <img src="../assets/icons/print_black.svg"/>
+                <button class="stripe_button bold" type="button" onclick="reloadByCookie()">
+                    <p>Restore changes</p>
+                    <img src="../assets/icons/restore_page_black.svg"/>
                 </button>
 
-<<<<<<< HEAD
-                    <button class="stripe_button" type="button" onclick="reloadByCooke()">
-                        <p>Test Button</p>
-                    </button>
-
-                    <form action="" method="POST">
-                        <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
-                            <p>Start Pools</p>
-                            <img src="../assets/icons/outlined_flag_black.svg"/>
-                        </button>
-                    </form>
-=======
                 <form action="" method="POST">
                     <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
                         <p>Start Pools</p>
                         <img src="../assets/icons/outlined_flag_black.svg"/>
                     </button>
                 </form>
->>>>>>> 908d44c10a622aeb5ae7664be8d022cc7ec28ec9
+
+                <form action="" method="POST">
+                    <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
+                        <p>Start Pools</p>
+                        <img src="../assets/icons/outlined_flag_black.svg"/>
+                    </button>
+                </form>
 
                 <form method="POST" action="">
                     <input class="hidden" type="text" name="save_pools_hidden_input" id="savePoolsHiddenInput" readonly>
@@ -840,10 +835,6 @@
             </div>
         </div>
         <aside>
-            <button type="button" onclick="closeAside(this)">
-                <img src="../assets/icons/last_page_black.svg">
-            </button>
-
             <div id="aside_content">
                 <div id="fencer_holder">
 
@@ -859,6 +850,9 @@
                 </div>
             </div>
         </aside>
+        <button class="aside_button" type="button" onclick="closeAside()">
+            <img src="../assets/icons/last_page_black.svg">
+        </button>
     </main>
     <script src="javascript/cookie_monster.js"></script>
     <script src="javascript/main.js"></script>
