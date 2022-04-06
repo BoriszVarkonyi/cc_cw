@@ -278,7 +278,7 @@ for (i = 0; i < document.querySelectorAll(".entry").length; i++) {
 }
 var asideCookie = cookieFinder("aside", "", false, 365)
 
-function reloadByCooke() {
+function reloadByCookie() {
     var trs = document.querySelectorAll("tbody tr")
     for (i = 0; i < trs.length; i++) {
         trs[i].remove();
