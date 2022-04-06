@@ -390,8 +390,16 @@
         } else {
             echo mysqli_error($connection);
         }
+    }
 
-
+    //revert poool
+    if (isset($_POST['revert_pool'])) {
+        $qry_del_row = "DELETE FROM pools WHERE assoc_comp_id = '$comp_id'";
+        if (mysqli_query($connection, $qry_del_row)) {
+            header("Location: pools_generate.php?comp_id=$comp_id");
+        } else {
+            echo "error";
+        }
 
     }
 ?>
@@ -457,8 +465,8 @@
                 </form>
 
                 <form action="" method="POST">
-                    <button class="stripe_button primary" type="submit" name="start_pools" id="startPoolsBt" shortcut="SHIFT+ENTER">
-                        <p>Start Pools</p>
+                    <button class="stripe_button primary" type="submit" name="revert_pool" id="startPoolsBt" shortcut="SHIFT+ENTER">
+                        <p>Revert Pool</p>
                         <img src="../assets/icons/outlined_flag_black.svg"/>
                     </button>
                 </form>

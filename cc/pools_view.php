@@ -22,7 +22,14 @@
         echo mysqli_error($connection);
     }
 
-
+    if (isset($_POST['revert_pool'])) {
+        $qry_revert = "UPDATE pools SET matches = NULL WHERE assoc_comp_id = '$comp_id'";
+        if (mysqli_query($connection, $qry_revert)) {
+            header("Location: pools_config.php?comp_id=$comp_id");
+        } else {
+            echo "error";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +52,12 @@
                     <p>Print Pool Matches</p>
                     <img src="../assets/icons/print_black.svg"/>
                 </a>
+                <form action="" method="POST">
+                    <button class="stripe_button primary" type="submit" name="revert_pool" id="startPoolsBt" shortcut="SHIFT+ENTER">
+                        <p>Revert Pool</p>
+                        <img src="../assets/icons/outlined_flag_black.svg"/>
+                    </button>
+                </form>
                 <a class="stripe_button primary <?php echo $is_disabled ?>" href="pools_process.php?comp_id=<?php echo $comp_id ?>" target="_blank" id="finishPools" shortcut="SHIFT+F">
                     <p>Finish Pools</p>
                     <img src="../assets/icons/save_black.svg"/><!-- ide kell majd egy másik icon pls krisz segits-->
