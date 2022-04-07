@@ -3,7 +3,7 @@
     class navbar {
 
         function __construct($connection, $comp_id) {
-            $array_names = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+            $array_names = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','staff','referees','pistes','formula','ranking','manage_entries'];
 
             //get competition state
             $qry_get_state = "SELECT `comp_status`, `is_individual` FROM `competitions` WHERE `comp_id` = '$comp_id'";
@@ -108,16 +108,16 @@
         protected function setByTechnician() {
             switch ($this -> role) {
                 case 1: //semi
-                    $disabled_buttons = ['call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+                    $disabled_buttons = ['call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','staff','referees','pistes','formula','ranking','manage_entries'];
                 break;
                 case 2: //DT
-                    $disabled_buttons = ['call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+                    $disabled_buttons = ['call_room','registration','weapon_control','announcements','basic_information','information_for_fencers','invitation','staff','referees','pistes','formula','ranking','manage_entries'];
                 break;
                 case 3: // weapon control
-                    $disabled_buttons = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','registration','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+                    $disabled_buttons = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','registration','announcements','basic_information','information_for_fencers','invitation','staff','referees','pistes','formula','ranking','manage_entries'];
                 break;
                 case 4: //registration
-                    $disabled_buttons = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','weapon_control','announcements','basic_information','information_for_fencers','invitation','technicians','referees','pistes','formula','ranking','manage_entries'];
+                    $disabled_buttons = ['teams','overview','table','temporary_ranking','pools','competitors','call_room','weapon_control','announcements','basic_information','information_for_fencers','invitation','staff','referees','pistes','formula','ranking','manage_entries'];
                 break;
 
                 $this -> setHrefClass($disabled_buttons);

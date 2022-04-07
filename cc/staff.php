@@ -138,7 +138,7 @@ header('charset=utf-8');
 				<button class="panel_button" name="Close panel" onclick="toggleAddPanel()">
 					<img src="../assets/icons/close_black.svg">
 				</button>
-				<form class="overlay_panel_form" autocomplete="off" action="technicians.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
+				<form class="overlay_panel_form" autocomplete="off" action="staff.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
 					<label for="name">NAME</label>
 					<input type="text" placeholder="Type the technician's name" class="username_input" name="name">
 

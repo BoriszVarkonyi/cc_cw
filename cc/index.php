@@ -283,7 +283,7 @@
     <main>
         <!-- dashboard header -->
         <div id="title_stripe">
-            <button type="button" class="back_button" onclick="location.href='choose_tournament.php'">
+            <button type="button" class="back_button" onclick="location.href='select_tournament.php'">
                 <img src="../assets/icons/arrow_back_ios_black.svg"/>
             </button>
             <img src="<?php echo $logo ?>" class="comp_logo" width="50" height="50"/>
@@ -499,17 +499,17 @@
                         ?>
                         <p class="stat_wrapper_title" onclick="toggleWrapper(this)" >TECHNICIANS<button><img src="../assets/icons/arrow_drop_down_black.svg"></button></p>
                         <div class="stats_wrapper">
-                            <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
+                            <a class="stat" href="staff.php?comp_id=<?php echo $comp_id ?>">
                                 <img src="../assets/icons/badge_black.svg">
                                 <p class="stat_title">Total Technicians</p>
                                 <p class="stat_number"><?php echo $num_technicians ?></p>
                             </a>
-                            <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
+                            <a class="stat" href="staff.php?comp_id=<?php echo $comp_id ?>">
                                 <img src="../assets/icons/check_circle_outline_black.svg">
                                 <p class="stat_title">Online</p>
                                 <p class="stat_number"><?php echo $num_tech_online ?></p>
                             </a>
-                            <a class="stat" href="technicians.php?comp_id=<?php echo $comp_id ?>">
+                            <a class="stat" href="staff.php?comp_id=<?php echo $comp_id ?>">
                                 <img src="../assets/icons/highlight_off_black.svg">
                                 <p class="stat_title">Offline</p>
                                 <p class="stat_number"><?php echo $num_technicians - $num_tech_online ?></p>
@@ -637,7 +637,7 @@
                             </button>
                             <div class="to_do_sublist">
                                 <div>
-                                    <a href="technicians.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
+                                    <a href="staff.php?comp_id=<?php echo $comp_id ?>"><img src="../assets/icons/open_in_new_black.svg"></a>
                                     <p>Technicians</p>
                                     <img src="<?php // echo $assoc_comp_table_elements['t_technicians'] ?>../assets/icons/close_black.svg">
                                 </div>

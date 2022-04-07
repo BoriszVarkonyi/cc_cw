@@ -15,7 +15,7 @@ if (isset($_POST["create_tournament"])) {
 		echo mysqli_error($connection);
 	}
 
-	header("Location: choose_tournament.php");
+	header("Location: select_tournament.php");
 
 }
 
@@ -37,7 +37,7 @@ if (isset($_POST["create_tournament"])) {
 		<div id="title_stripe">
 			<p class="page_title">Create new Tournament</p>
 			<div class="stripe_button_wrapper">
-				<button class="stripe_button" onclick="location.href='choose_tournament.php'">
+				<button class="stripe_button" onclick="location.href='select_tournament.php'">
 					<p>Cancel</p>
 					<img src="../assets/icons/close_black.svg"/>
 				</button>
@@ -54,7 +54,14 @@ if (isset($_POST["create_tournament"])) {
 						<label for="comp_name">NAME</label>
 						<input type="text" placeholder="Type in the title" class="title_input" name="tournament_name" class="name_input" onblur="errorChecker(this)">
 					</div>
-
+					<div>
+						<label for="">STARTING DATE</label>
+						<input type="date" class="start_date_input" name="start_date_input" value="<?php echo $dates->start_date; ?>">
+					</div>
+					<div>
+						<label for="">ENDING DATE</label>
+						<input type="date" class="end_date_input" name="end_date_input" value="<?php echo $dates->end_date; ?>">
+					</div>
 				</div>
 			</form>
 		</div>

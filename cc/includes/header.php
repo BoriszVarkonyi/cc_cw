@@ -155,7 +155,7 @@ if (isset($_POST["logout"])) {
             <p class="username_big"><?php echo $username; ?></p>
             <p class="role_big"><?php echo $role; ?></p>
             <div class="profile_controls">
-                <a href="choose_tournament.php">Your Tournaments</a>
+                <a href="select_tournament.php">Your Tournaments</a>
             </div>
             <form action="" method="POST" id="logout_form">
                 <button type="submit" name="logout" class="logout_button">Log out</button>
