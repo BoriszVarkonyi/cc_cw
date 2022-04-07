@@ -16,16 +16,39 @@
             <p>Competitions</p>
         </a>
         <a href="<?php echo $navbar -> staff -> href ?>" class="nav_bar_item <?php echo $navbar -> staff -> class ?>">
-            <img src="../assets/icons/dashboard_black.svg">
+            <img src="../assets/icons/badge_black.svg">
             <p>Staff</p>
         </a>
         <a href="timetable.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
-            <img src="../assets/icons/timetable_black.svg">
+            <img src="../assets/icons/date_range_black.svg">
             <p>Timetable</p>
         </a>
 
 
-        <p id="overview_text" class="nav_bar_title">OVERVIEW</p>
+        <div id="competition_select_wrapper">
+            <div id="competition_select" onclick="toggleCompSelect()">
+                <p><?php echo $title ?></p>
+                <div>
+                    <img src="../assets/icons/arrow_drop_down_black.svg" id="">
+                </div>
+            </div>
+            <div class="small_scroll">
+                <?php
+
+                $get_comps_in_t = "SELECT * FROM competitions WHERE ass_tournament_id = $ass_tourn_id";
+                $get_comps_in_t_do = mysqli_query($connection, $get_comps_in_t);
+
+                while ($row = mysqli_fetch_assoc($get_comps_in_t_do)) {
+
+                    $c_id = $row["comp_id"];
+                    $c_name = $row["comp_name"];
+                ?>
+                    <a class="competition_button <?php if($c_id == $comp_id){echo "selected";} ?>" href='/cc/index.php?comp_id=<?php echo $c_id ?>'><?php echo $c_name ?></a>
+                <?php } ?>
+            </div>
+        </div>
+
+        <p id="overview_text" class="nav_bar_title">COMPETITION</p>
         <!-- dashboard -->
         <a href="index.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
             <img src="../assets/icons/dashboard_black.svg">
@@ -38,7 +61,7 @@
         </a>
         -->
 
-        
+
         <p id="controls_text" class="nav_bar_title">CONTROLS</p>
         <button class="nav_bar_item" onclick="toggleDropdown(this)" type="button">
             <img src="../assets/icons/list_alt_black.svg">
@@ -105,7 +128,7 @@
         </a>
 
 
-        <p id="referee_text" class="nav_bar_title">DOTOR</p>
+        <p id="referee_text" class="nav_bar_title">DOCTOR</p>
         <a href="referee_matches.php?comp_id=<?php echo $comp_id ?>" class="nav_bar_item">
             <img src="../assets/icons/leaderboard_black.svg">
             <p>Matches</p>

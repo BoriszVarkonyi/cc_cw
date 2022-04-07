@@ -87,6 +87,7 @@ if (isset($_POST["logout"])) {
         }
     ?>
     <div id="header_middle" class="desktop_only">
+        <!--
         <div id="competition_select_wrapper">
             <div id="competition_select" onclick="toggleCompSelect()">
                 <p><?php echo $title ?></p>
@@ -113,6 +114,7 @@ if (isset($_POST["logout"])) {
                 <?php } ?>
             </div>
         </div>
+        -->
     </div>
     <?php } ?>
     <div id="header_right">

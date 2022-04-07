@@ -55,7 +55,7 @@ header('charset=utf-8');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Technicians</title>
+	<title>Tournament's Staff</title>
 	<link rel="stylesheet" href="../css/basestyle.min.css">
 	<link rel="stylesheet" href="../css/mainstyle.min.css">
 	<link rel="stylesheet" href="../css/print_style.min.css" media="print">
@@ -65,22 +65,22 @@ header('charset=utf-8');
 	<?php include "includes/navbar.php"; ?>
 	<main>
 		<div id="title_stripe">
-			<p class="page_title">Technicians</p>
+			<p class="page_title">Tournament's Staff</p>
 			<div class="stripe_button_wrapper">
 				<button name="import_tech" form="import_tech_button" type="submit" class="stripe_button" onclick="toggleImportPanel()" shortcut="SHIFT+I" id="importTechBt">
-					<p>Import Technicians from Your Competitions</p>
+					<p>Import Staff from Your Competitions</p>
 					<img src="../assets/icons/save_alt_black.svg" />
 				</button>
 				<button class="stripe_button primary" type="button" onclick="window.print()" id="printTechBt" shortcut="SHIFT+P">
-					<p>Print Technicians</p>
+					<p>Print Staff</p>
 					<img src="../assets/icons/print_black.svg" />
 				</button>
 				<button class="stripe_button red" form="remove_technician" name="remove_technician" id="remove_technician_button" shortcut="SHIFT+R">
-					<p>Remove Technician</p>
+					<p>Remove Staff</p>
 					<img src="../assets/icons/delete_black.svg" />
 				</button>
 				<button class="stripe_button primary" onclick="toggleAddPanel()" id="addTechBt" shortcut="SHIFT+A">
-					<p>Add Technician</p>
+					<p>Add Staff</p>
 					<img src="../assets/icons/add_black.svg" />
 				</button>
 			</div>

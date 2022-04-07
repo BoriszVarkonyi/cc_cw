@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tournament's Competitions</title>
+    <title>Tournament's Timetable</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/mainstyle.min.css">
     <link rel="stylesheet" href="../css/list_style.min.css">
@@ -21,31 +21,79 @@
         <div id="title_stripe">
             <p class="page_title">Tournament's Competitions</p>
             <div class="stripe_button_wrapper">
-                <form action="">
-                    <input type="text" name="id" class="selected_list_item_input" readonly>
-                    <button type="submit" class="stripe_button red" name="remove_competition" id="remove_competition_button" shortcut="SHIFT+R">
-                        <p>Remove Competition</p>
-                        <img src="../assets/icons/delete_black.svg" />
-                    </button>
-                </form>
-
-                <form action="">
-                    <input type="text" name="id" class="selected_list_item_input" readonly>
-                    <button type="submit" class="stripe_button bold" name="edit_competition" id="edit_competition_button" shortcut="SHIFT+R">
-                        <p>Edit Competition</p>
-                        <img src="../assets/icons/edit_black.svg" />
-                    </button>
-                </form>
-
-                <form action="">
-                    <button type="submit" class="stripe_button primary" name="create_competition" id="create_competition_button" shortcut="SHIFT+R">
-                        <p>Create Competition</p>
-                        <img src="../assets/icons/create_black.svg" />
-                    </button>
-                </form>
-
+                <button type="button" class="stripe_button primary" name="add_wc_phase" id="add_wc_phase_button" onclick="toggleAddPanel()" shortcut="SHIFT+A">
+                    <p>Add Weapon Control Phase</p>
+                    <img src="../assets/icons/add_black.svg" />
+                </button>
             </div>
 
+			<div id="add_technician_panel" class="overlay_panel hidden">
+				<button class="panel_button" name="Close panel" onclick="toggleAddPanel()">
+					<img src="../assets/icons/close_black.svg">
+				</button>
+				<form class="overlay_panel_form" autocomplete="off" action="staff.php?comp_id=<?php echo $comp_id; ?>" method="POST" id="new_technician" autocomplete="off">
+
+                    <label for="">DATE</label>
+                    <div class="search_wrapper narrow">
+                        <button type="button" class="search select input" onfocus="isOpen(this)" onblur="isClosed(this)" tabindex="3">
+                            <input type="text" name="date_to_select" placeholder="Select Date">
+                        </button>
+                        <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg"></button>
+                        <div class="search_results">
+
+                            <?php
+
+                            $period = new DatePeriod(
+
+                                new DateTime($dates->start_date),
+                                new DateInterval('P1D'),
+                                new DateTime(date('Y-m-d', strtotime($dates->end_date . "+1 days")))
+                            );
+
+                            foreach ($period as $key => $value) {
+
+                                if ($key == "min_fencer") {
+                                    continue;
+                                }
+
+                                $checker = 0;
+
+                                $dateshow = $value->format('Y-m-d');
+
+                                if ($appointments != "") {
+
+                                    foreach ($appointments as $keydate => $timevalue) {
+
+                                        if ($keydate == $dateshow) {
+
+                                            $checker++;
+                                        }
+                                    }
+                                }
+
+                                if ($checker == 0) {
+                            ?>
+
+                                    <button type="button" onclick="selectSystem(this)"><?php echo $dateshow; ?></button>
+
+                            <?php }
+                            } ?>
+                        </div>
+                    </div>
+
+                    <label for="">STARTING TIME</label>
+                    <input type="time" class="" name="st_t" step="3600">
+
+                    <label for="">ENDING TIME</label>
+                    <input type="time" class="" name="ed_t" step="3600">
+
+                    <label for="">MINUTE / FENCER</label>
+                    <input type="number" class="number_input centered" placeholder="#" name="min_fencer" step="1">
+
+
+					<button type="submit" name="submit_tech" class="panel_submit" form="new_technician">Save</button>
+				</form>
+			</div>
         </div>
         <div id="page_content_panel_main">
 
