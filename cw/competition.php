@@ -277,7 +277,9 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                                 <button onclick="location.href='table_team.php?comp_id=<?php echo $comp_id ?>'">Table</button>
                             <?php endif ?>
                             <button onclick="location.href='final_results.php?comp_id=<?php echo $comp_id ?>'">Final Results</button>
+                            <!--
                             <button onclick="printPage()">Print</button>
+                            -->
                             <button onclick="location.href='video.php?comp_id=<?php echo $comp_id ?>'" class="red">Watch Video / Watch Live</button>
                         </div>
                     </div>
