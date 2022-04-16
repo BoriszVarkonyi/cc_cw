@@ -66,9 +66,9 @@
         <button class="navigation_item" onclick="toggleDropdown(this)" type="button">
             <img src="../assets/icons/list_alt_black.svg">
             <p>DT</p>
-            <img src="../assets/icons/arrow_drop_down_black.svg" id="dt_dropdown_icon" class="dropdown_icon">
+            <img src="../assets/icons/arrow_drop_down_black.svg" id="dt_navigation_dropdown_icon" class="navigation_dropdown_icon">
         </button>
-        <div id="dt_dropdown_menu" class="dropdown_menu hidden">
+        <div id="dt_navigation_dropdown_menu" class="navigation_dropdown_menu hidden">
             <a href="<?php echo $navbar -> competitors -> href ?>" class="navigation_item <?php echo $navbar -> competitors -> class ?>">Competitors</a>
             <a href="<?php echo $navbar -> teams -> href ?>" class="navigation_item <?php echo $navbar -> teams -> class ?>">Teams</a>
             <a href="<?php echo $navbar -> pools -> href ?>" class="navigation_item <?php echo $navbar -> pools -> class ?>">Pools</a>
@@ -98,9 +98,9 @@
         <button type="button"class="navigation_item" onclick="toggleDropdown(this)">
             <img src="../assets/icons/widgets_black.svg">
             <p>General</p>
-            <img src="../assets/icons/arrow_drop_down_black.svg" id="general_dropdown_icon" class="dropdown_icon">
+            <img src="../assets/icons/arrow_drop_down_black.svg" id="general_navigation_dropdown_icon" class="navigation_dropdown_icon">
         </button>
-        <div id="general_dropdown_menu" class="dropdown_menu hidden">
+        <div id="general_navigation_dropdown_menu" class="navigation_dropdown_menu hidden">
             <a href="<?php echo $navbar -> basic_information -> href ?>" class="navigation_item <?php echo $navbar -> basic_information -> class ?>">Basic Information</a>
             <a href="<?php echo $navbar -> information_for_fencers -> href ?>" class="navigation_item <?php echo $navbar -> information_for_fencers -> class ?>">Information for fencers</a></li>
             <a href="<?php echo $navbar -> invitation -> href ?>" class="navigation_item <?php echo $navbar -> invitation -> class ?>">Invitation</a>
@@ -108,9 +108,9 @@
         <button type="button"class="navigation_item" onclick="toggleDropdown(this)">
             <img src="../assets/icons/home_repair_service_black.svg">
             <p>Technical</p>
-            <img src="../assets/icons/arrow_drop_down_black.svg" id="technical_dropdown_icon" class="dropdown_icon">
+            <img src="../assets/icons/arrow_drop_down_black.svg" id="technical_navigation_dropdown_icon" class="navigation_dropdown_icon">
         </button>
-        <div id="technical_dropdown_menu" class="dropdown_menu hidden">
+        <div id="technical_navigation_dropdown_menu" class="navigation_dropdown_menu hidden">
             <a href="<?php echo $navbar -> referees -> href ?>" class="navigation_item <?php echo $navbar -> referees -> class ?>">Referees</a>
             <a href="<?php echo $navbar -> pistes -> href ?>" class="navigation_item <?php echo $navbar -> pistes -> class ?>">Pistes</a>
             <a href="<?php echo $navbar -> formula -> href ?>" class="navigation_item <?php echo $navbar -> formula -> class ?>">Formula</a>
@@ -127,18 +127,16 @@
             <p>Match</p>
         </a>
 
-
         <p id="referee_text" class="navigation_title">DOCTOR</p>
         <a href="referee_matches.php?comp_id=<?php echo $comp_id ?>" class="navigation_item">
             <img src="../assets/icons/leaderboard_black.svg">
             <p>Matches</p>
         </a>
-        <!-- help -->
+
         <a href="user_guide.php?comp_id=<?php echo $comp_id ?>" id="documentation_label">
             <img src="../assets/icons/help_black.svg">
             <p>Docs and more</p>
         </a>
-
 
     </div>
 </nav>

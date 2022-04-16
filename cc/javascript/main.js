@@ -11,7 +11,7 @@ var menuButton = document.getElementById("menu_button")
 var pin = document.getElementById("navigation_pin");
 
 var navbarItems = document.querySelectorAll("button.navigation_item");
-var dropDownIcons = document.querySelectorAll(".dropdown_icon");
+var dropDownIcons = document.querySelectorAll(".navigation_dropdown_icon");
 
 function toggle_navigation() {
     navBar.classList.toggle("closed");

@@ -273,6 +273,13 @@ footer {
 
 /* ///SCROLL BAR// */
 
+/* MOZILLA */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--c-transparent-white) var(--c-secondary);
+}
+
+/* CHROMIUM */
 ::-webkit-scrollbar { /* Width */
 	width: 9px;
 	height: 9px;
