@@ -297,7 +297,7 @@ if (isset($_POST["time_change"])) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <?php

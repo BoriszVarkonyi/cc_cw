@@ -279,7 +279,7 @@
             </div>
         </div>
     </div>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <!-- dashboard header -->
         <div id="title_stripe">

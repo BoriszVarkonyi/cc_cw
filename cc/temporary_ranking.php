@@ -48,7 +48,7 @@ if ($row = mysqli_fetch_assoc($do_check_row)) {
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
-	<?php include "includes/navbar.php"; ?>
+	<?php include "includes/navigation.php"; ?>
 	<main>
 		<form id="title_stripe" method="POST" action="">
 			<p class="page_title">Temporary Ranking</p>

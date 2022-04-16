@@ -210,7 +210,7 @@ if (isset($_POST["allow_connect"])) {
     <link rel="stylesheet" href="../css/piste_style.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">Pistes</p>

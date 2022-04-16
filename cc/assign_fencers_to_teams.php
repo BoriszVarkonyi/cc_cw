@@ -104,7 +104,7 @@ if (isset($_POST['submit_all'])) {
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">Assign Fencers to Teams</p>

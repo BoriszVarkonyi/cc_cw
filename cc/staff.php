@@ -62,7 +62,7 @@ header('charset=utf-8');
 	<link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-	<?php include "includes/navbar.php"; ?>
+	<?php include "includes/navigation.php"; ?>
 	<main>
 		<div id="title_stripe">
 			<p class="page_title">Tournament's Staff</p>

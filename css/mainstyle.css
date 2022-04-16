@@ -1226,7 +1226,7 @@ nav {
 		scrollbar-gutter: stable;
 	}
 
-	#nav_bar_content {
+	#navigation_content {
 		margin-right: -10px;
 	}
 
@@ -1312,7 +1312,7 @@ nav::-webkit-scrollbar-thumb:hover { /* Handle on hover */
 	background: rgba(255, 255, 255, .5);
 }
 
-#nav_bar_pin {
+#navigation_pin {
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -1333,25 +1333,25 @@ nav img {
 	height: 1em;
 }
 
-#nav_bar_pin:hover {
+#navigation_pin:hover {
 	background: var(--c-transparent-white);
 }
 
-#nav_bar_pin.pinned {
+#navigation_pin.pinned {
 	opacity: 1 !important;
 	background: var(--c-transparent-white);
 }
 
-#nav_bar_pin.pinned:hover {
+#navigation_pin.pinned:hover {
 	opacity: 1 !important;
 	background: rgb(255, 255, 255);
 }
 
-nav:hover #nav_bar_pin {
+nav:hover #navigation_pin {
 	opacity: 1;
 }
 
-#nav_bar_pin img {
+#navigation_pin img {
 	width: 1rem;
 	height: 1rem;
 }
@@ -1392,7 +1392,7 @@ nav:hover #nav_bar_pin {
 }
 */
 
-#nav_bar_content {
+#navigation_content {
 	width: 100%;
 	box-sizing: border-box;
 	padding: 0 10%;
@@ -1403,7 +1403,7 @@ nav:hover #nav_bar_pin {
 	color: var(--cd-primarycontrast);
 }
 
-.nav_bar_title {
+.navigation_title {
 	font-family: var(--bold);
 	text-transform: uppercase;
 	padding: 0;
@@ -1411,7 +1411,7 @@ nav:hover #nav_bar_pin {
 	transition: transform var(--t-basic);
 }
 
-.nav_bar_item {
+.navigation_item {
 	width: 100%;
 	display: flex;
 	flex-wrap: nowrap;
@@ -1428,34 +1428,28 @@ nav:hover #nav_bar_pin {
 	font-size: inherit;
 }
 
-#nav_bar_content > .nav_bar_item:nth-last-child(2) {
-	margin-bottom: 20px;
-}
-
-.nav_bar_item:hover {
+.navigation_item:hover {
 	background: var(--c-transparent-white);
 }
 
-.nav_bar_item.disabled {
+.navigation_item.disabled {
 	cursor: default;
 	pointer-events: none;
 	-webkit-filter: contrast(50%);
 	filter: contrast(50%);
 }
 
-.nav_bar_item.hidden {
+.navigation_item.hidden {
 	display: none;
 }
 
-.nav_bar_item p {
+.navigation_item p {
 	padding: 1.5px 0 1.5px 5px;
-	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-.nav_bar_item img:not(.dropdown_icon) {
+.navigation_item img:not(.dropdown_icon) {
 	height: 1.05em;
 	width: 1.05em;
 }
@@ -1467,9 +1461,7 @@ nav:hover #nav_bar_pin {
 	margin-right: 0;
 	transform: rotate(0deg);
 	transition: transform var(--t-basic);
-	-webkit-animation: showDropdown var(--t-basic);
 	animation: showDropdown var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
@@ -1553,9 +1545,7 @@ nav:hover #nav_bar_pin {
 }
 
 #documentation_label p {
-	-webkit-animation: showNavTitles var(--t-basic);
 	animation: showNavTitles var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
@@ -1567,7 +1557,7 @@ nav:hover #nav_bar_pin {
 
 /* Closed states  */
 
-nav.closed #nav_bar_pin {
+nav.closed #navigation_pin {
 	display: none;
 }
 
@@ -1575,41 +1565,37 @@ nav.closed #nav_bar_pin {
 	left: -500px;
 }
 
-nav.closed #nav_bar_content {
+nav.closed #navigation_content {
 	min-width: 40px;
 	width: 2vw;
 	max-width: 80px;
 }
 
-nav.closed .nav_bar_title {
+nav.closed .navigation_title {
 	white-space: nowrap;
 	width: 100%;
 	text-align: center;
 }
 
-nav.closed .nav_bar_item p {
-	-webkit-animation: hideNavTitles var(--t-basic);
+nav.closed .navigation_item p {
 	animation: hideNavTitles var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
-nav.closed .nav_bar_item {
+nav.closed .navigation_item {
 	padding: 0;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 }
 
-nav.closed .nav_bar_item img {
+nav.closed .navigation_item img {
 	padding: 0;
 	margin: 0;
 }
 
-nav.closed .nav_bar_item .dropdown_icon {
-	-webkit-animation: hideDropdown var(--t-basic);
+nav.closed .navigation_item .dropdown_icon {
 	animation: hideDropdown var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 
@@ -1618,9 +1604,7 @@ nav.closed #documentation_label {
 }
 
 nav.closed #documentation_label p {
-	-webkit-animation: hideNavTitles var(--t-basic);
 	animation: hideNavTitles var(--t-basic);
-	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 

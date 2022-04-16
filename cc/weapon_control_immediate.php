@@ -109,7 +109,7 @@ if (isset($_POST["barcode"])) {
 	<link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-	<?php include "includes/navbar.php"; ?>
+	<?php include "includes/navigation.php"; ?>
 	<main>
 		<div id="title_stripe">
 			<p class="page_title">Weapon Control</p>

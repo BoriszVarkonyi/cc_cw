@@ -431,7 +431,7 @@
             </div>
         </div>
     </div>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main class="with_aside">
         <div id="title_stripe">
             <p class="page_title">Configure Pools</p>

@@ -63,7 +63,7 @@ if (isset($_POST["logout"])) {
     <?php
         if (isset($_GET['comp_id'])) {
         ?>
-            <button type="button" onclick="toggle_nav_bar()" id="menu_button">
+            <button type="button" onclick="toggle_navigation()" id="menu_button">
                 <img src="../assets/icons/menu_black.svg"/>
             </button>
         <?php
