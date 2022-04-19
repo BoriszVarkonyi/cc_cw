@@ -40,7 +40,7 @@
                 <form action="">
                     <button type="submit" class="stripe_button primary" name="create_competition" id="create_competition_button" shortcut="SHIFT+R">
                         <p>Create Competition</p>
-                        <img src="../assets/icons/create_black.svg" />
+                        <img src="../assets/icons/add_black.svg" />
                     </button>
                 </form>
 

@@ -19,7 +19,7 @@
     <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
-            <p class="page_title">Tournament's Competitions</p>
+            <p class="page_title">Tournament's Timetable</p>
             <div class="stripe_button_wrapper">
                 <button type="button" class="stripe_button primary" name="add_wc_phase" id="add_wc_phase_button" onclick="toggleAddPanel()" shortcut="SHIFT+A">
                     <p>Add Weapon Control Phase</p>

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .paper.barcodes {
 	display: flex;
 	justify-content: center;

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	--c-white90: rgba(255,255,255,.9);
 	--c-white80: rgba(255,255,255,.8);

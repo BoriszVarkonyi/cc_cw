@@ -15,13 +15,21 @@
             <img src="../assets/icons/dashboard_black.svg">
             <p>Competitions</p>
         </a>
+        <a href="timetable.php?comp_id=<?php echo $comp_id ?>" class="navigation_item">
+            <img src="../assets/icons/date_range_black.svg">
+            <p>Timetable</p>
+        </a>
         <a href="<?php echo $navbar -> staff -> href ?>" class="navigation_item <?php echo $navbar -> staff -> class ?>">
             <img src="../assets/icons/badge_black.svg">
             <p>Staff</p>
         </a>
-        <a href="timetable.php?comp_id=<?php echo $comp_id ?>" class="navigation_item">
-            <img src="../assets/icons/date_range_black.svg">
-            <p>Timetable</p>
+        <a href="<?php echo $navbar -> staff -> href ?>" class="navigation_item <?php echo $navbar -> staff -> class ?>">
+            <img src="../assets/icons/badge_black.svg">
+            <p>Doctors</p>
+        </a>
+        <a href="<?php echo $navbar -> staff -> href ?>" class="navigation_item <?php echo $navbar -> staff -> class ?>">
+            <img src="../assets/icons/badge_black.svg">
+            <p>Piste tech.</p>
         </a>
 
 
@@ -102,7 +110,7 @@
         </button>
         <div id="general_navigation_dropdown_menu" class="navigation_dropdown_menu hidden">
             <a href="<?php echo $navbar -> basic_information -> href ?>" class="navigation_item <?php echo $navbar -> basic_information -> class ?>">Basic Information</a>
-            <a href="<?php echo $navbar -> information_for_fencers -> href ?>" class="navigation_item <?php echo $navbar -> information_for_fencers -> class ?>">Information for fencers</a></li>
+            <a href="<?php echo $navbar -> information_for_fencers -> href ?>" class="navigation_item <?php echo $navbar -> information_for_fencers -> class ?>">Info. for fencers</a></li>
             <a href="<?php echo $navbar -> invitation -> href ?>" class="navigation_item <?php echo $navbar -> invitation -> class ?>">Invitation</a>
         </div>
         <button type="button"class="navigation_item" onclick="toggleDropdown(this)">
