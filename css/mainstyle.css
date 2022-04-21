@@ -1207,8 +1207,6 @@ nav {
 	#navigation_content {
 		margin-right: -10px;
 	}
-
-
 }
 
 nav.closed {
@@ -2960,7 +2958,6 @@ textarea.notes {
 #fencer_holder .fencer button img {
 	width: 100%;
 	height: 100%;
-
 }
 
 #fencer_holder .fencer p {
@@ -3272,35 +3269,6 @@ textarea.notes {
 	overflow: hidden;
 	padding: 0 20px;
 	opacity: 0;
-}
-
-/* Tournaments timatable */
-
-#tournament_timetable, #tournament_weapon_control {
-	margin-bottom: 25px;
-}
-
-#wc_phrases_table {
-	margin-top: 15px;
-}
-
-#add_new_wc_button {
-	background: var(--c-primary);
-	color: var(--cd-primarycontrast);
-	padding: 5px 10px;
-	border-radius: 5px;
-	font-family: var(--bold);
-}
-
-.table_wrapper {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-#tournament_timetable.hidden, #tournament_weapon_control.hidden, #wc_phases_table.hidden {
-	display: none;
 }
 
 /*  Team order report*/
@@ -3744,7 +3712,6 @@ textarea.notes {
 }
 
 /* Normal */
-
 .annoucement.active .edit_annoucement_body, .annoucement.active .edit_annoucement_title  {
 	display: none !important;
 }
