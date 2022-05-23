@@ -1,14 +1,6 @@
 <?php include 'includes/db.php'; ?>
 <?php include 'includes/username_checker.php'; ?>
 <?php
-
-
-    //create table
-    $qry_table = "CREATE TABLE `ccdatabase`.`cw_videos` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `URL` VARCHAR(255) NOT NULL , `title` VARCHAR(255) NOT NULL , `comp_name` VARCHAR(255) NOT NULL , `prev` TEXT NOT NULL , `author` VARCHAR(255) NOT NULL , `Last_modified_by` VARCHAR(255) NOT NULL , `Date_of_creation` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `Last_modified` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_table = mysqli_query($connection, $qry_table);
-    //echo mysqli_error($connection);
-
-
     if (isset($_POST['submit'])) {
         $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
         $url = htmlspecialchars($_POST['url'], ENT_QUOTES);
@@ -18,7 +10,7 @@
 
         if ($title != "" && $url != "" && $comp_name != "" && $prev_text != "") {
             $date = date("y-m-d");
-            $qry_insert = "INSERT INTO cw_videos (URL, title, comp_name, prev, author, comp_id, Last_modified_by, Date_of_creation) VALUES ('$url', '$title', '$comp_name', '$prev_text', '$username', '$comp_id', '$username', '$date')";
+            $qry_insert = "INSERT INTO cw_videos (url, title, comp_name, prev, author, comp_id, created) VALUES ('$url', '$title', '$comp_name', '$prev_text', '$username', '$comp_id', '$date')";
             $do_insert = mysqli_query($connection, $qry_insert);
             echo mysqli_error($connection);
         }

@@ -2,12 +2,12 @@
 class Video {
     public $url;
     public $comp_name;
-    public $id;
-    public $title;
+    public $prev;
+    public $author;
     public $video_id;
 
     function __construct($row) {
-        $this->url = $row['URL'];
+        $this->url = $row['url'];
         $this->comp_name = $row['comp_name'];
         $this->id = $row['id'];
         $this->title = $row['title'];

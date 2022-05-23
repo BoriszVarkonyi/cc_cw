@@ -13,7 +13,7 @@ class VideoController {
         if($desc_limit == -1) {
             $qry_get_videos = "SELECT * FROM cw_videos;";
         } else {
-            $qry_get_videos = "SELECT * FROM cw_videos ORDER BY Date_of_creation DESC LIMIT $desc_limit;";
+            $qry_get_videos = "SELECT * FROM cw_videos ORDER BY created DESC LIMIT $desc_limit;";
 
         }
         $do_get_videos = mysqli_query($this->dbConnection, $qry_get_videos);
