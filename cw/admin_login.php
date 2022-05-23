@@ -1,8 +1,9 @@
 <?php include "includes/db.php" ?>
-<?php include "includes/functions.php" ?>
+<?php include "controllers/AdminController.php" ?>
 <?php
     session_start();
-    $feedback = "";
+
+    $adminController = new AdminController($connection);
 
     //register new admin
     if (isset($_POST['r_submit']) ) {
@@ -12,29 +13,19 @@
 
         if ($rpass != "" && $rpassa != "" && $rusername != "") {
             if ($rpassa == $rpass) {
-                $qry_name_test = "SELECT * FROM `cw_admin` WHERE name = '$rusername'";
-                $do_name_test = mysqli_query($connection, $qry_name_test);
-                $row_num = mysqli_num_rows($do_name_test);
-
-                if ($row_num == 0) {
+                if (!$adminController->adminExists($rusername)) {
                     $pass_crypt = password_hash($rpass, PASSWORD_DEFAULT);
 
                     $qry_new_admin = "INSERT INTO `cw_admin` (`name`, `password`) VALUES ('$rusername', '$pass_crypt')";
-                    if (!$do_new_admin = mysqli_query($connection, $qry_new_admin)) {
+                    $success = $adminController->insert($rusername, $pass_crypt);
+                    if (!$success) {
                         $feedback = mysqli_error($connection);
                     } else {
                         $_SESSION['usernameblog'] = $rusername;
                         header('Location: ../cw/admin.php');
                     }
-                } else {
-                    $feedback = 3;
-                }
-
-            } else {
-                $feedback = 2;
-            }
-        } else {
-            $feedback = 1;
+                } 
+            } 
         }
     }
 
@@ -43,20 +34,12 @@
         $username = $_POST['username'];
         $password = $_POST['pass'];
 
-        $qry_get_pass = "SELECT `password` FROM cw_admin WHERE name = '$username'";
-        $do_get_pass = mysqli_query($connection, $qry_get_pass);
-        if ($row = mysqli_fetch_assoc($do_get_pass)) {
-            $pass_crypt = $row['password'];
-            if (password_verify($password, $pass_crypt)) {
-                $feedback = "ok!";
-                $_SESSION['usernameblog'] = $username;
-
+        $admin = $adminController->getAdminByName($username);
+        if($admin) {
+            if (password_verify($password, $admin->Password)) {
+                $_SESSION['usernameblog'] = $admin->Name;
                 header('Location: ../cw/admin.php');
-            } else {
-                $feedback = "error with password or username!";
-            }
-        } else {
-            $feedback = "ERROR " . mysqli_error($connection);
+            } 
         }
     }
 ?>
@@ -75,18 +58,17 @@
 <body>
     <div class="basic_panel">
         <h1>LOGIN</h1>
-        <?php $feedback ?>
         <form id="login" method="POST">
-            <input type="text" name="username" placeholder="username">
-            <input type="password" name="pass" placeholder="password">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="pass" placeholder="Password">
             <button type="submit" name="submit">Login<button>
         </form>
 
         <h1>REGISTER</h1>
-        <form id="login" method="POST">
-            <input type="text" name="r_username" placeholder="username">
-            <input type="password" name="r_pass" placeholder="password">
-            <input type="password" name="r_passa" placeholder="password again">
+        <form id="register" method="POST">
+            <input type="text" name="r_username" placeholder="Username">
+            <input type="password" name="r_pass" placeholder="Password">
+            <input type="password" name="r_passa" placeholder="Confirm password">
             <button type="submit" name="r_submit">Register</button>
         </form>
     </div>
