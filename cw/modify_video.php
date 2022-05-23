@@ -5,11 +5,11 @@
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $date = date("Y/m/d");
 
-    $qry_get_data = "SELECT URL, author, prev, comp_name, comp_id, title FROM cw_videos WHERE id = $id";
+    $qry_get_data = "SELECT url, author, prev, comp_name, comp_id, title FROM cw_videos WHERE id = $id";
     $do_get_data = mysqli_query($connection, $qry_get_data);
 
     if ($row = mysqli_fetch_assoc($do_get_data)) {
-        $url = $row['URL'];
+        $url = $row['url'];
         $title = $row['title'];
         $comp_name = $row['comp_name'];
         $comp_id = $row['comp_id'];
@@ -25,7 +25,7 @@
         $prev_text = htmlspecialchars($_POST['prev_text'], ENT_QUOTES);
 
         $qry_update = "UPDATE cw_videos
-            SET comp_name = '$comp_name', comp_id = '$comp_id', title = '$title_new', prev = '$prev_text', URL = '$url',  Last_modified_by = '$username', Last_modified = '$date'
+            SET comp_name = '$comp_name', comp_id = '$comp_id', title = '$title_new', prev = '$prev_text', url = '$url', 
             WHERE id = '$id'";
         $do_update = mysqli_query($connection, $qry_update);
 
