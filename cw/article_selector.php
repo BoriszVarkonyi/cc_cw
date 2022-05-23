@@ -37,7 +37,7 @@
 
             ?>
             <!-- ne bánts kristóf nem értem a htmlt :( -->
-                <tr onclick="window.location.href='../cw/article_editor.php?article_id=<?php echo $id ?>'">
+                <tr onclick="window.location.href='../cw/modify_article.php?article_id=<?php echo $id ?>'">
                     <td>
                         <p><?php echo $title ?></p>
                     </td>
