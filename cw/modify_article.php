@@ -10,12 +10,11 @@
     $do_get_article = mysqli_query($connection, $qry_get_article);
 
     if ($row = mysqli_fetch_assoc($do_get_article)) {
-        $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
-        $body = htmlspecialchars($_POST['body'], ENT_QUOTES);
-        $author = htmlspecialchars($_POST['author'], ENT_QUOTES);
+        $title = htmlspecialchars($row['title'], ENT_QUOTES);
+        $body = htmlspecialchars($row['body'], ENT_QUOTES);
+        $author = htmlspecialchars($row['author'], ENT_QUOTES);
         $date = $row['date'];
         $picture_path = "article_pics/" . $id . ".png";
-
     }
 
 
@@ -128,7 +127,7 @@
         $date = new DateTime();
         $date = $date->format("Y-m-d");
 
-        $qry_update = "UPDATE cw_articles SET title='$title', body='$body', last_edit='$date' WHERE id = '$id';";
+        $qry_update = "UPDATE cw_articles SET title='$title', body='$body' WHERE id = '$id';";
         $do_update = mysqli_query($connection, $qry_update);
         if(!$do_update) {
             echo mysqli_error($connection);
