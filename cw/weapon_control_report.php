@@ -39,7 +39,12 @@ include "includes/db.php";
     <main>
         <div id="content">
             <div id="title_stripe">
-                <h1>My Weapon Control Report</h1>
+                <h1>
+                    <a class="back_button" href=".php" aria-label="Go back to Competition's page">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                    </a>
+                    My Weapon Control Report
+                </h1>
             </div>
             <div id="content_wrapper">
                 <div id="weapon_control_info" class="red">
@@ -63,7 +68,7 @@ include "includes/db.php";
                     </tbody>
                 </table>
                 <?php endif ?>
-                
+
 
                 <h1>WEAPON CONTROL RESULTS</h1>
                 <table class="no_interaction">

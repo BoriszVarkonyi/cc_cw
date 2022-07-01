@@ -42,7 +42,7 @@ main {
 /* MOZILLA */
 * {
 	scrollbar-width: thin;
-	scrollbar-color: var(--c-darkgray) transparent; 
+	scrollbar-color: var(--c-darkgray) transparent;
 }
 
 /* CHROMIUM */
