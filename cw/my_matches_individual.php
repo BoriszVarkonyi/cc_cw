@@ -80,7 +80,7 @@
         <div id="content">
             <div id="title_stripe">
                 <h1>
-                    <a class="back_button" href=".php" aria-label="Go back to Competition's page">
+                    <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to Competition's page">
                         <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
                     </a>
                     My Matches
