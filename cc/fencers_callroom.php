@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title"><?php echo $fencer_obj -> prenom . " " . $fencer_obj->nom ?>'s Callroom for #<?php echo $t_id ?> table</p>

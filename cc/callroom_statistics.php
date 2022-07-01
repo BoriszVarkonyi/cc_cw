@@ -161,7 +161,7 @@
     <link rel="stylesheet" href="../css/print_list_style.min.css" media="print">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <form id="title_stripe" method="POST" action="">
             <p class="page_title">Callroom Statistics</p>

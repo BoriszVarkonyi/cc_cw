@@ -160,7 +160,7 @@
             </div>
         </div>
     </div>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">Pool No. <?php echo $pool_num ?>'s results</p>

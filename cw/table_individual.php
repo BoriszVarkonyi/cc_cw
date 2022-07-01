@@ -4,7 +4,7 @@
 $qry_check_existance = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
 $qry_check_existance_do = mysqli_query($connection, $qry_check_existance);
 
-echo $existance = mysqli_num_rows($qry_check_existance_do);
+$existance = mysqli_num_rows($qry_check_existance_do);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +37,11 @@ echo $existance = mysqli_num_rows($qry_check_existance_do);
                     </div>
                 </form>
             </div>
+            <?php if(!$existance) : ?>
+            <div>
+                <h1>Tables are not set up yet!</h1>
+            </div>
+            <?php endif ?>
         </div>
     </main>
     <?php include "static/footer.php"; ?>

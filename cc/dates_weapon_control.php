@@ -31,7 +31,7 @@ if($row = mysqli_fetch_assoc($query_get_max_do)){
 	<link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-	<?php include "includes/navbar.php"; ?>
+	<?php include "includes/navigation.php"; ?>
 	<main>
 		<div id="title_stripe">
 			<p class="page_title"><?php echo $title ?>'s weapon control</p>

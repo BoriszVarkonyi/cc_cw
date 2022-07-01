@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 #call_room,
 .call_room {
 	margin: 0 50px;
@@ -207,7 +209,8 @@
 
 /* Winner cloumn */
 
-.elimination:last-of-type .table_round_wrapper::before, .elimination:last-of-type .table_round::after {
+.elimination:last-of-type .table_round_wrapper::before,
+.elimination:last-of-type .table_round::after {
 	content: none !important;
 }
 
@@ -344,7 +347,8 @@
 	background: var(--c-lightblue);
 }
 
-.table_round_wrapper.purple .table_fencer_number, .table_round_wrapper.purple .table_fencer_name {
+.table_round_wrapper.purple .table_fencer_number,
+.table_round_wrapper.purple .table_fencer_name {
 	color: var(--cs-white);
 }
 

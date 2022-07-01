@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {		/* Used colors, shadows, transitions, font sizes, fint families saved as css variables */
 	--c-white90: rgba(255,255,255,.9);
 	--c-white80: rgba(255,255,255,.8);
@@ -58,7 +60,6 @@ body {
 	position: relative;
 	background: linear-gradient(-45deg, rgb(0,118,139), rgb(51,145,162), rgb(86,187,121), rgb(44,170,88));
 	background-size: 400% 400%;
-	-webkit-animation: gradient 10s ease infinite;
 	animation: gradient 10s ease infinite;
 	font-family: Poppins-Regular, Arial, Helvetica, sans-serif;
 	padding: 0;

@@ -8,12 +8,12 @@ var navBar = document.querySelector("nav");
 var appName = document.getElementById("app_name");
 var menuSection = document.getElementById("header_left");
 var menuButton = document.getElementById("menu_button")
-var pin = document.getElementById("nav_bar_pin");
+var pin = document.getElementById("navigation_pin");
 
-var navbarItems = document.querySelectorAll("button.nav_bar_item");
-var dropDownIcons = document.querySelectorAll(".dropdown_icon");
+var navbarItems = document.querySelectorAll("button.navigation_item");
+var dropDownIcons = document.querySelectorAll(".navigation_dropdown_icon");
 
-function toggle_nav_bar() {
+function toggle_navigation() {
     navBar.classList.toggle("closed");
     appName.classList.toggle("closed");
     menuSection.classList.toggle("closed");
@@ -56,7 +56,7 @@ function pinChecker() {
 var navbar_status = cookieFinder('navbar_status', 'pinned', false, 365)
 
 //Opens the navbar
-function closed_nav_bar() {
+function closed_navigation() {
     navBar.classList.add("closed");
     appName.classList.add("closed");
     menuSection.classList.add("closed");
@@ -70,9 +70,9 @@ function closed_nav_bar() {
         dropDownIcons[i].classList.remove("closed");
     }
 }
-//Checks the saved pin status. If the status is "pinned" it calls the opened_nav_bar function.
+//Checks the saved pin status. If the status is "pinned" it calls the opened_navigation function.
 if (navbar_status == "notPinned" && navBar != null) {
-    closed_nav_bar();
+    closed_navigation();
     pin.classList.remove("pinned")
 }
 

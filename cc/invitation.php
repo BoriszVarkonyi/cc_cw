@@ -120,7 +120,7 @@ if (file_exists("../uploads/$comp_id.png")) {
     <link rel="stylesheet" href="../css/invitation_style.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
 
         <div id="title_stripe">

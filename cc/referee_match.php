@@ -14,7 +14,7 @@
 </head>
 <!DOCTYPE html>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">{MATCH NAME}</p>

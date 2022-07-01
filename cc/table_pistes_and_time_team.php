@@ -78,7 +78,7 @@ if (isset($_POST["save_piste_time"])) {
 	<link rel="stylesheet" href="../css/table_config_style.min.css">
 </head>
 <body>
-	<?php include "includes/navbar.php"; ?>
+	<?php include "includes/navigation.php"; ?>
 	<main>
 		<div id="title_stripe">
 			<p class="page_title">Table Pistes & Time setup</p>

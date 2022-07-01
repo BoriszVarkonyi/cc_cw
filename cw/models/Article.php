@@ -5,7 +5,6 @@ class Article {
     public $body;
     public $author;
     public $date;
-    public $lastEdit;
     public $pic;
 
     function __construct($row) {
@@ -14,7 +13,6 @@ class Article {
         $this->body =  $row['body'];
         $this->author = $row['author'];
         $this->date = $row['date'];
-        $this->lastEdit = $row['last_edit'];
         $this->pic =  "article_pics/" . $row['id'] . ".png";
     }
 }

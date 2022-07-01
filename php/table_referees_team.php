@@ -106,7 +106,7 @@ if (isset($_POST["submit_referees"])) {
     <link rel="stylesheet" href="../css/table_config_style.min.css">
 </head>
 <body>
-    <?php include "../includes/navbar.php"; ?>
+    <?php include "../includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">Table Referees setup</p>

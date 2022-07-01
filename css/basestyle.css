@@ -643,11 +643,13 @@ input[type="number"] {
 	}
 }
 
+/*
 @supports (-moz-appearance: textfield) {
 	input[type="number"] {
 		-moz-appearance: textfield
 	}
 }
+*/
 
 input[type="number"]:not(.number_input):focus {
 	border: 3px solid var(--c-primary);
@@ -956,7 +958,8 @@ label + .search_wrapper {
 	margin: 3px 0 30px;
 }
 
-label + .search_wrapper.wide .search, .search.has_icon  {
+label + .search_wrapper.wide .search,
+.search.has_icon  {
 	background-image: url(../assets/icons/search_black.svg);
 }
 
@@ -1516,10 +1519,7 @@ tbody.altdouble tr:nth-last-of-type(2) {
 	background: var(--c-lightergray);
 }
 
-
 /* ENTRIES STYLING */
-
-
 
 /* Entry Listing Wrapper */
 

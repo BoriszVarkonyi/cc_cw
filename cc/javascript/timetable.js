@@ -32,7 +32,7 @@ function toggleWcPanel(x) {
     //Timetable form placer
     var clickedDateBounding = clickedDate.getBoundingClientRect()
     var setWcPanelBounding = setWcPanel.getBoundingClientRect()
-    var navbar = document.getElementById("nav_bar").getBoundingClientRect()
+    var navbar = document.getElementById("navigation").getBoundingClientRect()
     var headerbar = document.getElementById("header").getBoundingClientRect()
     var page = document.getElementById("page_content_panel_main").getBoundingClientRect()
     if (page.width > clickedDateBounding.right - navbar.width + setWcPanelBounding.width) {

@@ -41,7 +41,7 @@ $json_table = json_decode($json_string);
     <link rel="stylesheet" href="../css/print_match_reports_style.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">Print Match Reports</p>

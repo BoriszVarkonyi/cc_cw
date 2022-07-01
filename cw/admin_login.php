@@ -4,10 +4,6 @@
     session_start();
     $feedback = "";
 
-    //create admin table
-    $qry_table = "CREATE TABLE `ccdatabase`.`cw_admin` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    $do_table = mysqli_query($connection, $qry_table);
-
     //register new admin
     if (isset($_POST['r_submit']) ) {
         $rpass = $_POST['r_pass'];

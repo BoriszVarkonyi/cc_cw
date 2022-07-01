@@ -49,7 +49,7 @@ $select_tournaments_query_do = mysqli_query($connection, $select_tournaments_que
 
                     ?>
 
-                    <tr onclick="location.href='choose_competition.php?t_id=<?php echo $t_id ?>'">
+                    <tr onclick="location.href='select_competition.php?t_id=<?php echo $t_id ?>'">
                         <td><p><?php echo $t_name?></td>
                     </tr>
 

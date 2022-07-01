@@ -67,7 +67,7 @@ if (isset($_POST["submit"])) {
 
         if($choose == 1) {
             $_SESSION['role'] = "organisers";
-            header("Location: cc/choose_tournament.php");
+            header("Location: cc/select_tournament.php");
             setcookie("lastlogin", 1, time() + 31536000);
         } else if($choose == 2) {
             $_SESSION['role'] = "technicians";

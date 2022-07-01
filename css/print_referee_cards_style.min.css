@@ -1,1 +1,1 @@
-.referee_card_wrapper{display:grid;width:100%;height:100%;display:grid;grid-template-columns:33% 33% 33%;grid-template-rows:repeat(11,1fr)}.referee_card{border:1pt solid #000}
+@charset "UTF-8";.referee_card_wrapper{display:grid;width:100%;height:100%;display:grid;grid-template-columns:33% 33% 33%;grid-template-rows:repeat(11,1fr)}.referee_card{border:1pt solid #000}

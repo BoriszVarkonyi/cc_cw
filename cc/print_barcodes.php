@@ -49,7 +49,7 @@ if (isset($_GET['fencer_id'])) {
     <link rel="stylesheet" href="../css/print_barcode_style.min.css">
 </head>
 <body>
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navigation.php"; ?>
     <main>
         <div id="title_stripe">
             <p class="page_title">Print Fencer Barcodes</p>
