@@ -31,22 +31,22 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
 
     $json_table = json_decode($json_string);
 
-    $host_country = $json_table->host_country ?? "";
-    $city_street = $json_table->city_street ?? "";
-    $zip_code = $json_table->zip_code ?? "";
-    $entry_fee = $json_table->entry_fee ?? "";
-    $starting_date = $json_table->starting_date ?? "";
-    $ending_date = $json_table->ending_date ?? "";
+    $host_country = $json_table->host_country ?? "No host country given";
+    $city_street = $json_table->city_street ?? "No street given";
+    $zip_code = $json_table->zip_code ?? "No zip code given";
+    $entry_fee = $json_table->entry_fee ?? "No entry fee given";
+    $starting_date = $json_table->starting_date ?? "No starting date given";
+    $ending_date = $json_table->ending_date ?? "No ending date given";
     $end_of_pre_reg = $json_table->end_of_pre_reg ?? "";
-    //$comp_equipment = $json_table->
+    $comp_equipment = $json_table->$comp_equipment ?? "No comp equipment given";
 } else {
-    $host_country = "No information given";
-    $city_street = "No information given";
-    $zip_code = "No information given";
-    $entry_fee = "No information given";
-    $starting_date = "No information given";
-    $ending_date = "No information given";
-    $end_of_pre_reg = "No information given";
+    $host_country = "No host country given";
+    $city_street = "No street given";
+    $zip_code = "No zip code given";
+    $entry_fee = "No entry fee given";
+    $starting_date = "No starting date given";
+    $ending_date = "No ending date given";
+    $end_of_pre_reg = "No comp equipment given";
 }
 
 ?>
@@ -181,31 +181,54 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                                 </tr>
                             </thead>
                             <tbody class="alt">
-                                <?php
-                                $equipment = array("Epee", "Foil", "Sabre", "Electric Jacket", "Plastron", "Under-Plastron", "Socks", "Mask", "Gloves", "Bodywire", "Maskwire", "Chest protector", "Metallic glove");
+                            <?php
+                                $equipment = array(
+                                    "FIE mark on blade",
+                                    "Arm gap and weight",
+                                    "Arm lenght",
+                                    "Blade lenght",
+                                    "Grip lenght",
+                                    "Form and depth of the guard",
+                                    "Guard oxydation/ deformation",
+                                    "Excentricity of the blade",
+                                    "Blade flexibility",
+                                    "Curve on the blade",
+                                    "Foucault current device",
+                                    "point and arm size",
+                                    "spring of the point",
+                                    "total travel of the point",
+                                    "residual travel of the point",
+                                    "isolation of the point",
+                                    "resistance of the arm",
+                                    "length/ condition of body/ mask wire",
+                                    "resistance of body/ mask wire",
+                                    "mask: FIE mark",
+                                    "mask: condition and insulation",
+                                    "mask: resistance (sabre, foil)",
+                                    "metallic jacket condition",
+                                    "metallic jacket resistance",
+                                    "sabre glove/ overlay condition",
+                                    "sabre glove/ overlay resistance",
+                                    "glove condition",
+                                    "jacket condition",
+                                    "breeches condition",
+                                    "under-plastron condition",
+                                    "foil chest protector",
+                                    "socks",
+                                    "incorrect name printing",
+                                    "incorrect national logo",
+                                    "commercial",
+                                    "other items",
+                                );
 
                                 $array_equipment = explode(",", $comp_equipment);
 
-                                if (count($array_equipment) > 0) {
-                                    for ($i = 0; $i < count($equipment); $i++) {
-                                        if ($array_equipment[$i] != 0) {
-                                ?>
-                                            <tr>
-                                                <td><?php echo $equipment[$i] ?></td>
-                                                <td><?php echo $array_equipment[$i] ?></td>
-                                            </tr>
-                                    <?php
-                                        }
-                                    }
-                                } else {
-                                    ?>
-
-                                    <!-- if empty -->
-
+                                foreach($equipment as $i => $item) : ?>
                                     <tr>
-                                        <td colspan="2">No equipment</td>
+                                        <td><?php echo $item ?></td>
+                                        <td><?php echo $array_equipment[$i] ?? 0 ?></td>
                                     </tr>
-                                <?php } ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -241,6 +264,7 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
 
                             //display plus info from DB
 
+                            /*
                             $get_plsuinfo_qry = "SELECT * FROM info_$comp_id";
                             if (!$get_plsuinfo_do = mysqli_query($connection, $get_plsuinfo_qry)) {
                                 $feedback = "ERROR: " . mysqli_error($connection);
@@ -262,6 +286,8 @@ if ($row = mysqli_fetch_assoc($do_get_basic_info)) {
                                 <p>This competition has no plus information!</p>
 
                             <?php endif ?>
+                            */
+                            ?>
                         </div>
                     </div>
                 </div>
