@@ -70,7 +70,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Finished competitions</title>
+    <title>My Matches</title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
@@ -79,7 +79,12 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <h1>My Matches</h1>
+                <h1>
+                    <a class="back_button" href="competition.php?comp_id=<?php echo $comp_id ?>" aria-label="Go back to Competition's page">
+                        <img src="../assets/icons/arrow_back_ios_black.svg" alt="Go back button">
+                    </a>
+                    My Matches
+                </h1>
             </div>
             <div id="content_wrapper">
                 <div id="browsing_bar">
