@@ -36,6 +36,20 @@ if (isset($_POST['submit_body'])) {
     }
 
 }
+
+//deleting w/ del button
+if (isset($_POST['submit_delete'])) {
+    $id_to_delete = $_POST['entry_id'];
+
+    $qry_delete = "DELETE FROM announcements WHERE id = '$id_to_delete'";
+    if (!$do_delete = mysqli_query($connection, $qry_delete)) {
+        echo mysqli_error($connection);
+    } else {
+        header("Refresh: 0");
+    }
+
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +93,7 @@ if (isset($_POST['submit_body'])) {
                                             <div class="entry">
                                                 <div class="table_row" onclick="toggleEntry(this)">
                                                     <!-- ezt át lehetne pakolni egy inputra es akkor tudna megvaltoztatni mostmar a titlet is az nber ##KRIS -->
-                                                    <div class="table_item invitation"><?php echo $row['title'] ?></div>
+                                                    <input class="table_item invitation"><?php echo $row['title'] ?></input>
                                                 </div>
                                                 <form class="entry_panel collapsed" id="update" method="POST" action="">
                                                     <input id='Announcements_id' name='entry_id' type='text' value='<?php echo $row['id'] ?>' class='hidden' >
@@ -103,7 +117,7 @@ if (isset($_POST['submit_body'])) {
                                         </div>
                                     </div>
 
-                                    <form action="../cc/invitation.php?comp_id=<?php echo $comp_id ?>" id="adding_entry" class="hidden" method="POST">
+                                    <form action="" id="adding_entry" class="hidden" method="POST">
                                         <div class="table_row">
                                             <div class="table_item">
                                                 <input name="info_title" type="text" class="title_input" placeholder="Type in the title">
