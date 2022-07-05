@@ -65,7 +65,10 @@
     <link rel="stylesheet" href="../css/mainstyle.min.css">
 </head>
 <body>
-    <div class="modal_wrapper hidden" id="modal_4">
+<!-- template modals
+    4 & 5 are already used for the retractment of competitions
+
+    <div class="modal_wrapper hidden" id="modal_6">
         <div class="modal">
             <div class="modal_header gray">
                 <p class="modal_title">Confieramtion</p>
@@ -110,7 +113,7 @@
             </div>
         </div>
     </div>
-    <div class="modal_wrapper hidden" id="modal_5">
+    <div class="modal_wrapper hidden" id="modal_7">
         <div class="modal">
             <div class="modal_header red">
                 <p class="modal_title">Confieramtion</p>
@@ -125,6 +128,8 @@
             </div>
         </div>
     </div>
+
+-->
     <?php include "includes/navigation.php"; ?>
     <main>
         <!-- dashboard header -->
