@@ -6,7 +6,7 @@ CREATE TABLE `cw_articles` (
   `author` varchar(255) NOT NULL,
   `date` date NOT NULL DEFAULT (curdate()),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 INSERT INTO cw_articles (title, body, author) VALUES 
     ('First article', 'Hello World', 'szeto'),
