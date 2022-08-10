@@ -14,11 +14,11 @@
       <h1>Hi there <?php echo $username ?>!</h1>
       <div class="basic_panel">
             <h2>Blog control:</h2>
-            <button><a href="new_article.php">New article</a></button>
-            <button><a href="article_selector.php">Modify article</a></button>
+            <button><a href="articles/new.php">New article</a></button>
+            <button><a href="articles/select.php">Modify article</a></button>
             <h2>Video control:</h2>
-            <button><a href="add_video.php">Add video</a></button>
-            <button><a href="video_selector.php">Modify videos</a></button>
+            <button><a href="videos/new.php">Add video</a></button>
+            <button><a href="videos/select.php">Modify videos</a></button>
       </div>
       <img id="dictator_image" src="article_pics/definitely_not_mao_ce_tung.jpg">
 </body>

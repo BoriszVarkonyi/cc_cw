@@ -1,13 +1,13 @@
-<?php include "includes/db.php"; ?>
-<?php include 'includes/username_checker.php'; ?>
+<?php include "../includes/db.php"; ?>
+<?php include '../includes/username_checker.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <link rel="stylesheet" href="../../css/basestyle.min.css">
+    <link rel="stylesheet" href="../../css/barebone_page_style.min.css">
     <title>Select Video to modify</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
                     $title = $row['title'];
                     $author = $row['author'];
             ?>
-            <tr onclick="window.location.href='../cw/modify_video.php?id=<?php echo $id ?>'">
+            <tr onclick="window.location.href='modify.php?id=<?php echo $id ?>'">
                 <td>
                     <p><?php echo $title ?></p>
                 </td>
@@ -42,6 +42,6 @@
             ?>
         </tbody>
     </table>
-    <a href="admin.php">Go back</a>
+    <a href="../admin.php">Go back</a>
 </body>
 </html>

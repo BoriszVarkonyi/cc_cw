@@ -1,11 +1,11 @@
-<?php include "includes/db.php"; ?>
-<?php include 'includes/username_checker.php'; ?>
+<?php include "../includes/db.php"; ?>
+<?php include '../includes/username_checker.php'; ?>
 
 <?php
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $date = date("Y/m/d");
 
-    $qry_get_data = "SELECT url, author, prev, comp_name, comp_id, title FROM cw_videos WHERE id = $id";
+    $qry_get_data = "SELECT * FROM cw_videos WHERE id = $id";
     $do_get_data = mysqli_query($connection, $qry_get_data);
 
     if ($row = mysqli_fetch_assoc($do_get_data)) {
@@ -25,7 +25,7 @@
         $prev_text = htmlspecialchars($_POST['prev_text'], ENT_QUOTES);
 
         $qry_update = "UPDATE cw_videos
-            SET comp_name = '$comp_name', comp_id = '$comp_id', title = '$title_new', prev = '$prev_text', url = '$url', 
+            SET comp_name = '$comp_name', comp_id = '$comp_id', title = '$title_new', prev = '$prev_text', url = '$url'
             WHERE id = '$id'";
         $do_update = mysqli_query($connection, $qry_update);
 
@@ -42,8 +42,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <link rel="stylesheet" href="../../css/basestyle.min.css">
+    <link rel="stylesheet" href="../../css/barebone_page_style.min.css">
     <title>Modify '<?php echo $title ?>'</title>
 </head>
 <body>
@@ -63,7 +63,7 @@
             <input name="submit" type="submit" value="Submit">
         </from>
         <button>
-            <a href="video_selector.php">Go back</a>
+            <a href="select.php">Go back</a>
         </button>
     </div>
 </body>

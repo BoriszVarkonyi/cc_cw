@@ -1,5 +1,5 @@
-<?php include 'includes/db.php'; ?>
-<?php include 'includes/username_checker.php'; ?>
+<?php include '../includes/db.php'; ?>
+<?php include '../includes/username_checker.php'; ?>
 <?php
     if (isset($_POST['submit'])) {
         $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
@@ -22,8 +22,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <link rel="stylesheet" href="../../css/basestyle.min.css">
+    <link rel="stylesheet" href="../../css/barebone_page_style.min.css">
     <title>Add Video</title>
 </head>
 <body>
@@ -42,6 +42,9 @@
             <input id="prev_text" name="prev_text" type="text" placeholder="Type your preview text here!"><br>
             <input name="submit" type="submit" placeholder="Submit">
         </form>
+        <button>
+            <a href="select.php">Go back</a>
+        </button>
     </div>
 </body>
 </html>
