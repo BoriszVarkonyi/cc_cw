@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Saved Competitions</title>
+    <title><?= $i18n->get('saved_competitions') ?></title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
@@ -19,7 +19,7 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <h1>Saved competitions</h1>
+                <h1><?= $i18n->get('saved_competitions') ?></h1>
             </div>
             <div id="content_wrapper">
                 <div id="page_info_wrapper">
@@ -27,16 +27,22 @@
                         <img src="../assets/icons/help_black.svg" alt="Page Information and Help Icon">
                     </div>
                     <div class="page_info">
-                        <p>You can bookmark competitions by clicking the <strong>bookmark button</strong><span><img src="../assets/icons/bookmark_border_black.svg" alt="Bookmark Icon"></span>.</p>
-                        <p>These are only stored in your browser and will be deleted after the removal of <a href="https://www.allaboutcookies.org/cookies/">cookies</a>.</p>
+                        <p>
+                            <?= $i18n->get('bookmark_1_text') ?> <strong><?= $i18n->get('bookmark_1_span') ?></strong>
+                            <span><img src="../assets/icons/bookmark_border_black.svg" alt="Bookmark Icon"></span>.
+                        </p>
+                        <p>
+                            <?= $i18n->get('bookmark_2_text') ?>
+                            <a href="https://www.allaboutcookies.org/cookies/"><?= $i18n->get('bookmark_2_span') ?></a>.
+                        </p>
                     </div>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th><p>COMPETITION'S NAME</p></th>
-                            <th><p>STARTING AND ENDING DATE</p></th>
-                            <th><p>STATUS</p></th>
+                            <th><p><?= $i18n->get('competition_name') ?></p></th>
+                            <th><p><?= $i18n->get('start_and_end_date') ?></p></th>
+                            <th><p><?= $i18n->get('status') ?></p></th>
                             <th class="square"></th>
                         </tr>
                     </thead>
@@ -85,7 +91,7 @@
                                     ?>
                                     <tr>
                                         <td colspan="4">
-                                            <p>You have no Competitions bookmarked</p>
+                                            <p><?= $i18n->get('no_bookmarked') ?></p>
                                         </td>
                                     </tr>
                                     <?php
@@ -94,7 +100,7 @@
                                 ?>
                                 <tr>
                                     <td colspan="4">
-                                        <p>You have no Competitions bookmarked</p>
+                                        <p><?= $i18n->get('no_bookmarked') ?></p>
                                     </td>
                                 </tr>
                                 <?php
