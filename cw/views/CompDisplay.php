@@ -2,13 +2,13 @@
     <thead>
         <tr>
             <th>
-                <p>COMPETITION'S NAME</p>
+                <p><?= $i18n->get('competition_name') ?></p>
             </th>
             <th>
-                <p>STARTING AND ENDING DATE</p>
+                <p><?= $i18n->get('start_and_end_date') ?></p>
             </th>
             <th>
-                <p>HOSTING COUNTRY</p>
+                <p><?= $i18n->get('host_country') ?></p>
             </th>
             <th class="square"></th>
             <th class="square"></th>

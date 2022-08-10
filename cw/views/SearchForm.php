@@ -1,12 +1,12 @@
 <form method="GET" id="browsing_bar">
     <!-- search by name box -->
     <div class="search_wrapper wide">
-        <input type="text" name="q" placeholder="Search by Title" class="search page alt" value="<?php if (isset($_GET['q'])) echo $q ?>">
+        <input type="text" name="q" placeholder="<?= $i18n->get('search_by_title') ?>" class="search page alt" value="<?php if (isset($_GET['q'])) echo $q ?>">
         <button class="clear_search_button" type="button" onclick=""><img src="../assets/icons/close_black.svg" alt="Close Search"></button>
     </div>
     <!-- year drop-down -->
     <div class="search_wrapper narrow">
-        <label for="type">Status</label>
+        <label for="type"><?= $i18n->get('status') ?></label>
         <select name="type" id="type">
             <option value="0">-</option>
             <option value="2">Upcoming</option>
@@ -15,7 +15,7 @@
         </select>
     </div>
     <div class="search_wrapper narrow">
-        <label for="year">Year</label>
+        <label for="year"><?= $i18n->get('year') ?></label>
         <select name="year" id="year">
             <option value="Every" selected>-</option>
             <?php for ($i = -1; $i <= 10; $i++) : ?>
@@ -28,7 +28,7 @@
         </select>
     </div>
     <div class="search_wrapper narrow">
-        <label for="sex">Sex</label>
+        <label for="sex"><?= $i18n->get('sex') ?></label>
         <select name="sex" id="sex">
             <?php foreach (array("Both", "Male", "Female") as $gender) : ?>
                 <?php if (isset($sex) && $sex == $gender) : ?>
@@ -41,7 +41,7 @@
     </div>
     <!-- weapon type drop-down -->
     <div class="search_wrapper narrow">
-        <label for="weapon">Weapon</label>
+        <label for="weapon"><?= $i18n->get('weapon') ?></label>
         <select name="weapon" id="weapon">
             <?php foreach (array("All", "Epee", "Foil", "Sabre") as $weapon_type) : ?>
                 <?php if (isset($weapon) && $weapon == $weapon_type) : ?>
@@ -52,5 +52,5 @@
             <?php endforeach ?>
         </select>
     </div>
-    <input name="submit_search" type="submit" value="Search">
+    <input class="submit_search" name="submit_search" type="submit" value="<?=  $i18n->get('search') ?>">
 </form>

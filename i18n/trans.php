@@ -25,7 +25,21 @@ $TRANS = [
     'latest_videos' => 'latest videos',
     'latest_blog' => 'latest blog posts',
     'name' => 'Name',
-    'no_ongoing_competitions' => 'There are no ongoing competitions'
+    'no_ongoing_competitions' => 'There are no ongoing competitions',
+    //Search
+    'ongoing competitions' => 'Ongoing competitions',
+    'search_by_title' => 'Search By Title',
+    'status' => 'status',
+    'year' => 'year',
+    'sex' => 'sex',
+    'weapon' => 'weapon',
+    'search_btn' => 'search',
+    'registration_finished' => 'Registration finished',
+    'ongoing_pools' => 'Ongoing Pools',
+    'ongoing_tables' => 'Ongoing Tables',
+    'competition_name' => 'Competition\' name',
+    'start_and_end_date' => 'Starting and Ending Date',
+    'host_country' => 'Hosting Country'
   ],
   'hu' =>  [
     //Header
@@ -47,6 +61,20 @@ $TRANS = [
     'latest_videos' => 'Legújabb videók',
     'latest_blog' => 'Legújabb posztok',
     'name' => 'Verseny neve',
-    'no_ongoing_competitions' => 'Jelenleg nincs folyamatban verseny'
+    'no_ongoing_competitions' => 'Jelenleg nincs folyamatban verseny',
+    //Search
+    'ongoing competitions' => 'Folyamatban lévő verseny',
+    'search_by_title' => 'Név alapján keresés',
+    'status' => 'státusz',
+    'year' => 'év',
+    'sex' => 'nem',
+    'weapon' => 'fegyver',
+    'search_btn' => 'Keresés',
+    'registration_finished' => 'A regisztráció befejeződött',
+    'ongoing_pools' => 'Ongoing Pools',
+    'ongoing_tables' => 'Ongoing Tables',
+    'competition_name' => 'Verseny neve',
+    'start_and_end_date' => 'Esemény kezdete és vége',
+    'host_country' => 'Szervező ország'
   ]
 ];

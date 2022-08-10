@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ongoing competitions</title>
+    <title><?= $i18n->get('ongoing_competitions') ?></title>
     <link rel="stylesheet" href="../css/basestyle.min.css">
     <link rel="stylesheet" href="../css/dv_mainstyle.min.css">
 </head>
@@ -37,18 +37,18 @@
     <main>
         <div id="content">
             <div id="title_stripe">
-                <h1>Ongoing competitions</h1>
+                <h1><?= $i18n->get('ongoing_competitions') ?></h1>
             </div>
             <div id="content_wrapper">
                 <?php include "views/SearchForm.php" ?>
                 <!-- buttons menu -->
                 <div id="competition_color_legend">
                     <button id="registration_lengend" value="Registration Finished" aria-label="Select Registration Finished"></button>
-                    <p>Registration Finished</p>
+                    <p><?= $i18n->get('registration_finished') ?></p>
                     <button id="pools_lengend" value="Ongoing Pools" aria-label="Select Ongoing Pools"></button>
-                    <p>Ongoing Pools</p>
+                    <p><?= $i18n->get('ongoing_pools') ?></p>
                     <button id="table_lengend" value="Ongoing Table" aria-label="Select Ongoing Table"></button>
-                    <p>Ongoing Table</p>
+                    <p><?= $i18n->get('ongoing_tables') ?></p>
                 </div>
                 <?php include "views/CompDisplay.php" ?>
             </div>
