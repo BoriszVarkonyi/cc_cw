@@ -11,6 +11,8 @@ if(isset($_SESSION["login_error"]) && $_SESSION["login_error"] == true) {
 session_destroy();
 session_start();
 
+$error = false;
+
 if (isset($_POST["submit"])) {
 
     $user_error = "";
@@ -59,8 +61,6 @@ if (isset($_POST["submit"])) {
     }
     if(!$row)
         $error = true;
-    else
-        $error = false;
     if(!$error && password_verify($password, $row["password"])) {
         setcookie("org_id", $row["id"], time() + 31536000);
         setcookie("year", date("Y"), time() + 31556926);
