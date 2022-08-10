@@ -57,7 +57,11 @@ if (isset($_POST["submit"])) {
         $_SESSION["login_error"] = true;
         header("Location: index.php");
     }
-    if(password_verify($password, $row["password"])) {
+    if(!$row)
+        $error = true;
+    else
+        $error = false;
+    if(!$error && password_verify($password, $row["password"])) {
         setcookie("org_id", $row["id"], time() + 31536000);
         setcookie("year", date("Y"), time() + 31556926);
         setcookie("month", date("m"), time() + 31556926);
@@ -96,8 +100,15 @@ if (isset($_POST["submit"])) {
     <div id="login_panel">
         <div id="title_stripe">
             <p class="page_title">Login</p>
+
         </div>
+        <?php if($error) : ?>
+        <div id="error_panel">
+            <p>An error occured</p>
+        </div>
+        <?php endif ?>
         <div id="panel_main">
+
             <!-- login form -->
             <form action="index.php" method="POST" autocomplete="off" class="overlay_panel_form <?php if(isset($login_error)) echo "error"; ?>">
                 <label for="username">LOGIN ID</label>
