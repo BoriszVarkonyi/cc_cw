@@ -22,16 +22,21 @@
 
 */
 
-.paper_content .match_report {
+@page {
+	margin: 0;
+}
+
+.paper_content {
+	display: grid !important;
+	grid-template-columns: 100% !important;
+	grid-template-rows: repeat(3, 1fr) !important;
+}
+
+.match_report {
 	page-break-inside: avoid !important;
 	page-break-after: auto;
 	page-break-before: avoid !important;
-}
-
-.paper_content .match_report:nth-child(3) {
-	page-break-inside: avoid !important;
-	page-break-after: always !important;
-	page-break-before: avoid !important;
+	width: 100%;
 }
 
 .match_report > div {

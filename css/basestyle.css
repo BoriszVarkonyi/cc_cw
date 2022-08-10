@@ -1143,7 +1143,7 @@ tbody.no_scale tr.selected {}
 /* Table Headers */
 
 th {
-	font-weight: normal !important;
+	font-weight: 400 !important;
 	position: relative;
 	background-color: var(--c-lightprimary);
 	padding: 5px 0;

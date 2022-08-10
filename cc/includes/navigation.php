@@ -135,10 +135,16 @@
             <p>Match</p>
         </a>
 
-        <p id="referee_text" class="navigation_title">DOCTOR</p>
-        <a href="referee_matches.php?comp_id=<?php echo $comp_id ?>" class="navigation_item">
+        <p id="doctor_text" class="navigation_title">DOCTOR</p>
+        <a href="doctor_dashboard.php?comp_id=<?php echo $comp_id ?>" class="navigation_item">
             <img src="../assets/icons/leaderboard_black.svg">
-            <p>Matches</p>
+            <p>Dashboard</p>
+        </a>
+
+        <p id="piste_technician_text" class="navigation_title">PISTE TECHNICIAN</p>
+        <a href="piste_technician_dashboard.php?comp_id=<?php echo $comp_id ?>" class="navigation_item">
+            <img src="../assets/icons/leaderboard_black.svg">
+            <p>Dashboard</p>
         </a>
 
         <a href="user_guide.php?comp_id=<?php echo $comp_id ?>" id="documentation_label">

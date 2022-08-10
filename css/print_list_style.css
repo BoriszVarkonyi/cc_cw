@@ -19,19 +19,19 @@ table, thead, tbody, tr, th, td {
 }
 
 table {		/* Whole table */
-	--lineheight: 22pt !important;
+	--lineheight: 22px !important;
 }
 
 table.small {		/* Whole table */
-	--lineheight: 18pt !important;
+	--lineheight: 18px !important;
 }
 
-table p, tr p {		/* Whole table */
-	font-size: 11pt !important;
+table, table * {		/* Whole table */
+	font-size: 12px !important;
 }
 
-table.small p, tr.small p {		/* Whole table */
-	font-size: 9pt !important;
+table.small, table.small *, tr.small, tr.small * {		/* Whole table */
+	font-size: 9px !important;
 }
 
 tbody {	/* Wraps table_row elements */
