@@ -1,11 +1,35 @@
 var languagesPanel = document.getElementById("change_language_panel");
-var currentLang;
+
+function getLanguageFromCookie() {
+    let cookies = document.cookie.split(';').map((cookie) => cookie.trim());
+    let lang = 'en';
+    cookies.forEach(c => {
+        if(c.includes('lang='))
+            lang = c.split('=')[1];
+    });
+    return lang;
+}
+const currentLang = getLanguageFromCookie().toUpperCase();
+selected_language.textContent = currentLang;
 
 function toggleLanguagesPanel(x) {
     var languagesButton = x;
     languagesButton.classList.toggle("opened");
-    languagesButton.innerHTML = "Select Language";
     languagesPanel.classList.toggle("opened")
+    if(languagesButton.classList.contains("opened"))
+        languagesButton.innerHTML = "Select Language";
+    else
+        languagesButton.innerHTML = currentLang;
+}
+
+function btn_en() {
+    document.cookie = "lang=en";
+    window.location.reload();
+}
+
+function btn_hu() {
+    document.cookie = "lang=hu";
+    window.location.reload();
 }
 
 var mobileNavigation = document.querySelector("nav#mobile");
