@@ -1,5 +1,9 @@
 <?php include "includes/get_comp_data.php"; ?>
 <?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
+<?php
 
 $qry_check_existance = "SELECT * FROM tables WHERE ass_comp_id = $comp_id";
 $qry_check_existance_do = mysqli_query($connection, $qry_check_existance);

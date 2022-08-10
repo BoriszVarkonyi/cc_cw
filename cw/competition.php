@@ -1,6 +1,10 @@
 <?php include "includes/get_comp_data.php"; ?>
 <?php include "includes/db.php"; ?>
 <?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
+<?php
 session_start();
 
 /*

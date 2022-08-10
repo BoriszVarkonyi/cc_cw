@@ -1,4 +1,8 @@
 <?php include "includes/get_comp_data.php"; ?>
+<?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

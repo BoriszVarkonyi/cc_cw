@@ -1,4 +1,8 @@
 <?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
+<?php
     session_start();
     if(!isset($_SESSION["fencer_id"])) {
         session_destroy();

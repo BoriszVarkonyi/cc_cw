@@ -1,6 +1,10 @@
 <?php include "includes/db.php" ?>
 <?php include "./controllers/VideoController.php" ?>
 <?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
+<?php
     $videoController = new VideoController();
 
     if(isset($_GET['v_id'])) {

@@ -1,4 +1,8 @@
 <?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
+<?php
 include "includes/db.php";
 
     $comp_id = filter_input(INPUT_GET, "comp_id");
