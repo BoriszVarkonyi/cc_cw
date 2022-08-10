@@ -64,33 +64,36 @@ $json_table = json_decode($json_string);
                     <img src="../assets/icons/zoom_in_black.svg" />
                 </button>
             </div>
-        </div>
-        <div id="page_content_panel_main" class="loose">
-            <div class="search_wrapper wide fixed">
 
-                <button type="button" class="search select altalt" onfocus="isOpen(this)" onblur="isClosed(this)">
-                    <input type="text" name="" placeholder="Select Table" value="<?php
+            <div class="view_dropdown center">
+                <div class="search_wrapper wide fixed">
 
-                                                                                    //Checks if there is any table selected
+                    <button type="button" class="search select altalt" onfocus="isOpen(this)" onblur="isClosed(this)">
+                        <input type="text" name="" placeholder="Select Table" value="<?php
 
-                                                                                    if (isset($_GET["table_round"])) {
-                                                                                        echo 'Table of ' . ltrim($_GET["table_round"], 't_');
-                                                                                    } else {
-                                                                                        echo 'Please select a round';
-                                                                                    }
+                                                                                        //Checks if there is any table selected
 
-                                                                                    ?>">
-                </button>
-                <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
-                <div class="search_results">
-                    <?php
-                    foreach ($out_table as $round_name => $tableround) { ?>
-                        <a type="button" id="gr" href="print_match_reports.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
-                    <?php
-                    }
-                    ?>
+                                                                                        if (isset($_GET["table_round"])) {
+                                                                                            echo 'Table of ' . ltrim($_GET["table_round"], 't_');
+                                                                                        } else {
+                                                                                            echo 'Please select a round';
+                                                                                        }
+
+                                                                                        ?>">
+                    </button>
+                    <button type="button"><img src="../assets/icons/arrow_drop_down_black.svg" alt="Dropdown Icon"></button>
+                    <div class="search_results">
+                        <?php
+                        foreach ($out_table as $round_name => $tableround) { ?>
+                            <a type="button" id="gr" href="print_match_reports.php?comp_id=<?php echo $comp_id . "&table_round=" . $round_name ?>"><?php echo "Table of " . ltrim($round_name, "t_") ?></a>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div id="page_content_panel_main" class="loose">
             <?php
 
             if (isset($_GET["table_round"])) {

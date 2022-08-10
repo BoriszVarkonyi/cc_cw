@@ -910,7 +910,7 @@ form#barcode_form {
 	border: 2pt solid var(--c-primary) !important;
 }
 
-/* View Chnager Butgtons */
+/* View Chnager Buttons */
 
 .view_button_wrapper {
 	position: absolute;
@@ -978,6 +978,22 @@ form#barcode_form {
 .view_button_wrapper img {
 	height: 1.25rem;
 	width: 1.25rem;
+}
+
+.view_dropdown {
+	position: absolute;
+	top: 100%;
+	z-index: 1;
+}
+
+.view_dropdown .search_wrapper {
+	position: relative !important;
+	top: 0 !important;
+}
+
+.view_dropdown.center {
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .view_panel {
