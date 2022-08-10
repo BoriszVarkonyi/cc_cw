@@ -39,7 +39,7 @@
                 <img src="article_pics/slideshow_5.jpg" alt="slide_5" loading="lazy" class="slide hidden">
                 <img src="article_pics/slideshow_6.jpg" alt="slide_6" loading="lazy" class="slide hidden">
             </div>
-            <p class="image_author">Pictures by: Zsolt Nekifor</p>
+            <p class="image_author"><?= $i18n->get('pictures_by') ?>: Zsolt Nekifor</p>
             <div id="shadow"></div>
             <div id="slide_indicator">
                 <button onclick="jumpToSlide(1)" aria-label="Jump to Slide 1" class="current"></button>
@@ -53,11 +53,11 @@
         <div id="content">
             <div id="content_wrapper" class="columns">
                 <div class="column">
-                    <p class="column_title">Ongoing Competitions</p>
+                    <p class="column_title"><?= $i18n->get('ongoing_competitions') ?></p>
                     <table>
                         <thead>
                             <tr>
-                                <th><p>NAME</p></th>
+                                <th><p><?= $i18n->get('name') ?></p></th>
                                 <th></th>
                                 <th class="square"></th>
                             </tr>
@@ -98,7 +98,7 @@
                             <!-- eztat else ágra -->
                             <tr>
                                 <td colspan="3">
-                                    <p>There are no ongoing competitions</p>
+                                    <p><?= $i18n->get('no_ongoing_competitions') ?></p>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -107,7 +107,7 @@
                 </div>
                 <!-- latest videos (right) (placeholder)  -->
                 <div class="column">
-                    <p class="column_title">Latest Videos</p>
+                    <p class="column_title"><?= $i18n->get('latest_videos') ?></p>
                     <?php
                         $videoController = new VideoController();
                         $videos = $videoController->getVideos(5);
@@ -116,7 +116,7 @@
                     ?>
                 </div>
                 <div class="column">
-                    <p class="column_title">Latest Blog Posts</p>
+                    <p class="column_title"><?= $i18n->get('latest_blog') ?></p>
                     <?php
 
                         $articleController = new ArticleController();

@@ -23,7 +23,9 @@ $TRANS = [
     'saved_competitions' => 'Saved Competitions',
     'ongoing_competitions' => 'ongoing competitions',
     'latest_videos' => 'latest videos',
-    'latest_blog' => 'latest blog posts'
+    'latest_blog' => 'latest blog posts',
+    'name' => 'Name',
+    'no_ongoing_competitions' => 'There are no ongoing competitions'
   ],
   'hu' =>  [
     //Header
@@ -43,6 +45,8 @@ $TRANS = [
     'saved_competitions' => 'Mentett versenyek',
     'ongoing_competitions' => 'Folyamatban lévő versenyek',
     'latest_videos' => 'Legújabb videók',
-    'latest_blog' => 'Legújabb posztok'
+    'latest_blog' => 'Legújabb posztok',
+    'name' => 'Verseny neve',
+    'no_ongoing_competitions' => 'Jelenleg nincs folyamatban verseny'
   ]
 ];
