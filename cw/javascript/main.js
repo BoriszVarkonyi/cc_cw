@@ -20,15 +20,14 @@ function toggleLanguagesPanel(x) {
         languagesButton.innerHTML = "Select Language";
     else
         languagesButton.innerHTML = currentLang;
+    Array.from(document.getElementsByClassName("btn")).forEach(button => {
+        if(button.classList.contains(`btn-${currentLang.toLowerCase()}`))
+            button.classList.add('selected');
+    });
 }
 
-function btn_en() {
-    document.cookie = "lang=en";
-    window.location.reload();
-}
-
-function btn_hu() {
-    document.cookie = "lang=hu";
+function btnChangeLang(newLang) {
+    document.cookie = `lang=${newLang}`;
     window.location.reload();
 }
 

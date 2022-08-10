@@ -32,13 +32,11 @@
             </button>
             <div id="change_language_panel">
                 <div>
-                    <button onclick="btn_en()" class="selected">English</button>
-                    <!--
-                    <button onclick="btn_de()" >German</button>
-                    <button onclick="btn_fr()" >French</button>
-                    <button onclick="btn_ru()" >Russian</button>
-                    -->
-                    <button onclick="btn_hu()" >Hungarian</button>
+                    <button onclick="btnChangeLang('en')" class="btn btn-en">English</button>
+                    <button onclick="btnChangeLang('de')" class="btn btn-de">German</button>
+                    <button onclick="btnChangeLang('fr')" class="btn btn-fr">French</button>
+                    <button onclick="btnChangeLang('ru')" class="btn btn-ru">Russian</button>
+                    <button onclick="btnChangeLang('hu')" class="btn btn-hu">Hungarian</button>
                 </div>
             </div>
         </div>
