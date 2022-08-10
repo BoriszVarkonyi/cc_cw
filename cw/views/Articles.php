@@ -10,15 +10,15 @@
             <?= explode("\n", $article->body)[0] ?>
         </p>
         <div class="article_info">
-            <p>POSTED:
+            <p>
                 <?= $article->date ?>
             </p>
-            <p>BY:
+            <p>
                 <?= $article->author ?>
             </p>
         </div>
     </div>
 <?php endforeach ?>
 <?php if(count($articles) == 0) : ?>
-    <p>Nothing found.</p>
+    <p><?= $i18n->get('nothing_found') ?>.</p>
 <?php endif ?>

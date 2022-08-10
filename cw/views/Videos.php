@@ -8,5 +8,5 @@
     </div>
 <?php endforeach ?>
 <?php if(count($videos) == 0) : ?>
-    <p>Nothing found.</p>
+    <p><?= $i18n->get('nothing_found') ?>.</p>
 <?php endif ?>

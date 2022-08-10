@@ -52,5 +52,5 @@
             <?php endforeach ?>
         </select>
     </div>
-    <input class="submit_search" name="submit_search" type="submit" value="<?=  $i18n->get('search') ?>">
+    <input class="submit_search" name="submit_search" type="submit" value="<?=  $i18n->get('search_btn') ?>">
 </form>

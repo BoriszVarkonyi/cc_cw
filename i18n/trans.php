@@ -33,13 +33,14 @@ $TRANS = [
     'year' => 'year',
     'sex' => 'sex',
     'weapon' => 'weapon',
-    'search_btn' => 'search',
+    'search_btn' => 'Search',
     'registration_finished' => 'Registration finished',
     'ongoing_pools' => 'Ongoing Pools',
     'ongoing_tables' => 'Ongoing Tables',
     'competition_name' => 'Competition\' name',
     'start_and_end_date' => 'Starting and Ending Date',
-    'host_country' => 'Hosting Country'
+    'host_country' => 'Hosting Country',
+    'nothing_found' => 'Nothing found',
   ],
   'hu' =>  [
     //Header
@@ -75,6 +76,7 @@ $TRANS = [
     'ongoing_tables' => 'Ongoing Tables',
     'competition_name' => 'Verseny neve',
     'start_and_end_date' => 'Esemény kezdete és vége',
-    'host_country' => 'Szervező ország'
+    'host_country' => 'Szervező ország',
+    'nothing_found' => 'Nincs találat'
   ]
 ];
