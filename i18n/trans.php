@@ -2,7 +2,8 @@
 
 /**
  * Collection of translations.
- * Keys MUST NOT contain lower case letters.
+ * Keys MUST NOT contain upper case letters.
+ * Keys MUST NOT contain spaces.
  */
 
 $TRANS = [

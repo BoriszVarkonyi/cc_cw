@@ -27,15 +27,34 @@ class I18N {
 
   /**
    * @param string $key searched key from translation
+   * @param Options $options (optional)
    * @return string
    * @throws KeyNotFoundError if key does not exists in the translation
    */
-  function get($key) {
+  function get($key, $options = null) {
     $key = strtolower($key);
     if(!array_key_exists($key, $this->trans))
       throw new KeyNotFoundError();
+    if($options != null) {
+      switch ($options) {
+        case Options::UPPERCASE:
+          return mb_strtoupper($this->trans[$key]);
+        case Options::CAPFIRST:
+          return ucfirst($this->trans[$key]);
+        case Options::CAPALL:
+          return ucwords($this->trans[$key]);
+        default:
+          return $this->trans[$key];
+      }
+    }
     return $this->trans[$key];
   }
+}
+
+enum Options {
+  case UPPERCASE;
+  case CAPFIRST;
+  case CAPALL;
 }
 
 class KeyNotFoundError extends Exception {}
