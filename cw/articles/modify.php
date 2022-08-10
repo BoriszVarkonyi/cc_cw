@@ -1,6 +1,6 @@
-<?php include "includes/db.php" ?>
-<?php include "includes/functions.php" ?>
-<?php include "includes/username_checker.php" ?>
+<?php include "../includes/db.php" ?>
+<?php include "../includes/functions.php" ?>
+<?php include "../includes/username_checker.php" ?>
 <?php
     //get article by id
     $id = filter_input(INPUT_GET, 'article_id', FILTER_SANITIZE_NUMBER_INT);
@@ -14,7 +14,7 @@
         $body = htmlspecialchars($row['body'], ENT_QUOTES);
         $author = htmlspecialchars($row['author'], ENT_QUOTES);
         $date = $row['date'];
-        $picture_path = "article_pics/" . $id . ".png";
+        $picture_path = "../article_pics/" . $id . ".png";
     }
 
 
@@ -23,7 +23,7 @@
         $qry_delete = "DELETE FROM `cw_articles` WHERE `id` = '$id'";
         $do_delete = mysqli_query($connection, $qry_delete);
         echo mysqli_error($connection);
-        header("Location: ../cw/admin.php");
+        header("Location: /cw/admin.php");
     }
 
 
@@ -38,7 +38,7 @@
 
             if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != null) {
 
-                $target_dir = "article_pics/";
+                $target_dir = "../article_pics/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -102,7 +102,7 @@
 
 
 
-                        if (rename("article_pics/" . $_FILES["fileToUpload"]["name"], "article_pics/" . $id . ".png")) {
+                        if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "article_pics/" . $id . ".png")) {
 
                             echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
 
@@ -139,8 +139,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <link rel="stylesheet" href="../../css/basestyle.min.css">
+    <link rel="stylesheet" href="../../css/barebone_page_style.min.css">
     <title>Edit '<?php echo $title; ?>'</title>
 </head>
 <body>
@@ -164,7 +164,7 @@
             <input type="submit" name="delete" value="DELETE">
         </form>
         <button>
-            <a href="article_selector.php">Go back</a>
+            <a href="select.php">Go back</a>
         </button>
     </div>
 </body>

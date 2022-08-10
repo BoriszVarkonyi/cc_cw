@@ -1,6 +1,6 @@
-<?php include "includes/db.php" ?>
-<?php include "includes/functions.php" ?>
-<?php include "includes/username_checker.php" ?>
+<?php include "../includes/db.php" ?>
+<?php include "../includes/functions.php" ?>
+<?php include "../includes/username_checker.php" ?>
 <?php
 
 ?>
@@ -10,8 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <link rel="stylesheet" href="../../css/basestyle.min.css">
+    <link rel="stylesheet" href="../../css/barebone_page_style.min.css">
     <title>Select Article to modify</title>
 </head>
 <body>
@@ -37,7 +37,7 @@
 
             ?>
             <!-- ne bánts kristóf nem értem a htmlt :( -->
-                <tr onclick="window.location.href='../cw/modify_article.php?article_id=<?php echo $id ?>'">
+                <tr onclick="window.location.href='modify.php?article_id=<?php echo $id ?>'">
                     <td>
                         <p><?php echo $title ?></p>
                     </td>
@@ -45,7 +45,7 @@
                         <p><?php echo $author ?></p>
                     </td>
                     <td>
-                        <img width="100" height="100" src="article_pics/<?php echo $id . '.png' ?>"><img>
+                        <img width="100" height="100" src="../article_pics/<?php echo $id . '.png' ?>"><img>
                     </td>
                 </tr>
             <?php
@@ -53,6 +53,6 @@
             ?>
         </tbody>
     </table>
-    <a href="admin.php">Go back</a>
+    <a href="../admin.php">Go back</a>
 </body>
 </html>

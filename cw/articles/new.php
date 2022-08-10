@@ -1,6 +1,6 @@
-<?php include "includes/db.php" ?>
-<?php include "includes/functions.php" ?>
-<?php include "includes/username_checker.php" ?>
+<?php include "../includes/db.php" ?>
+<?php include "../includes/functions.php" ?>
+<?php include "../includes/username_checker.php" ?>
 <?php
 
 if (isset($_POST['submit'])) {
@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
 
     if ($title != "" && $body != "") {
 
-        $target_dir = "article_pics/";
+        $target_dir = "../article_pics/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
                 $date = new DateTime();
                 $date = $date->format("Y-m-d");
 
-                $qry_create_article = "INSERT INTO `cw_articles` VALUES (NULL, '$title', '$body', '$username', '$date', '$date');";
+                $qry_create_article = "INSERT INTO `cw_articles` (title, body, author, date) VALUES ('$title', '$body', '$username', '$date');";
                 $do_create_articel = mysqli_query($connection, $qry_create_article);
                 if(!$do_create_articel) {
                     echo mysqli_error($connection);
@@ -74,13 +74,12 @@ if (isset($_POST['submit'])) {
                     $id = $row['id'];
                 }
 
-                if (rename("article_pics/" . $_FILES["fileToUpload"]["name"], "article_pics/" . $id . ".png")) {
+                if (rename("../article_pics/" . $_FILES["fileToUpload"]["name"], "../article_pics/" . $id . ".png")) {
                     echo $_FILES["fileToUpload"]["name"] . " 's name has been changed";
-
                 } else {
                     echo "minden szar ÁÁÁÁÁÁÁÁÁÁÁÁ";
                 }
-                header("Location: ../cw/admin.php");
+                header("Location: /cw/admin.php");
             } else {
                 echo "<p>Sorry, there was an error uploading your file.</p>";
             }
@@ -89,7 +88,7 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['cancel'])) {
-    header("Location: ../cw/admin.php");
+    header("Location: /cw/admin.php");
 }
 ?>
 
@@ -98,8 +97,8 @@ if (isset($_POST['cancel'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/basestyle.min.css">
-    <link rel="stylesheet" href="../css/barebone_page_style.min.css">
+    <link rel="stylesheet" href="../../css/basestyle.min.css">
+    <link rel="stylesheet" href="../../css/barebone_page_style.min.css">
     <title>d'V Admin</title>
 </head>
 <body>
