@@ -1,7 +1,10 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/functions.php"; ?>
 <?php include "./controllers/VideoController.php"; ?>
-
+<?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
 <?php
     if(isset($_GET['q'])) {
         $q = filter_input(INPUT_GET, 'q', FILTER_SANITIZE_SPECIAL_CHARS);

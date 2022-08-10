@@ -1,4 +1,8 @@
 <?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
+<?php
     if(isset($_GET['type'])) {
         $type = filter_input(INPUT_GET, 'type');
     } else {

@@ -2,6 +2,10 @@
 <?php include "includes/functions.php"; ?>
 <?php include "./controllers/ArticleController.php" ?>
 <?php include "./controllers/VideoController.php" ?>
+<?php
+    include "../i18n/i18n.php";
+    $i18n = new I18N();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
