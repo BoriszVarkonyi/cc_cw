@@ -66,7 +66,6 @@
             if ($gotten == "") {
                 $gotten = 0;
             }
-
             //get winner
             if ($given > $gotten) {
                 $winner = $match_obj -> id;
@@ -75,6 +74,11 @@
             } else { //draw radio button decides
                 if (isset($_POST[$match_counter])) {
                     $winner_id_draw = $_POST[$match_counter];
+
+                    //if might not be needed, too afraid to delete
+                    if ($winner_id_draw === null) {
+                        continue;
+                    }
                     $winner = $match_obj -> $winner_id_draw;
                 }
             }
@@ -84,6 +88,9 @@
             $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> gotten = $gotten;
 
             $matches_table[$pool_num-1] -> {$match_id_array[0]} -> {$match_id_array[1]} -> w_id = $winner;
+
+            //reset winner
+            $winner = null;
 
             //update database
             $matches_string = json_encode($matches_table);
