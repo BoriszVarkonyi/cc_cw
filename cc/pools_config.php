@@ -67,6 +67,12 @@
             return $output;
         }
     }
+    $ref_query = "SELECT data FROM referees WHERE assoc_comp_id = '$comp_id'";
+    $ref_query_do = mysqli_query($connection, $ref_query);
+    if ($row = mysqli_fetch_assoc($ref_query_do)) {
+        $ref_string = $row['data'];
+        $ref_table = json_decode($ref_string);
+    }
 
     $qry_check_row = "SELECT `fencers`, `pool_of`, `sort_by_club` FROM `pools` WHERE `assoc_comp_id` = '$comp_id'";
     $do_check_row = mysqli_query($connection, $qry_check_row);
@@ -101,7 +107,6 @@
         }
 
         $json_table = array_values($json_table);
-        print_r($json_table);
         //update db
         $json_string = json_encode($json_table, JSON_UNESCAPED_UNICODE);
 
@@ -109,8 +114,6 @@
         $do_update = mysqli_query($connection, $qry_update);
 
         header("Refresh:0");
-
-        //print_r($json_table);
     }
 
     //only after piste drawing
@@ -120,7 +123,6 @@
         $ref_can = $_POST['ref_can'];
         $referees = $_POST['ref_select'];
         $number_of_refs = $_POST['number_of_refs'];
-
         //get referees from db
         $qry_get_refs = "SELECT `data` FROM `referees` WHERE `assoc_comp_id` = $comp_id";
         $do_get_refs = mysqli_query($connection, $qry_get_refs);
@@ -133,11 +135,13 @@
         //choose referees
         if ($referees == "manual_select_ref") {
             for ($i = 0; $i < $number_of_refs; $i++) {
-                $ref_id = $_POST["ref_$i"];
-                if ($id_to_find = findObject($refs_table, $ref_id, "id") !== false) {
-                    array_push($selected_refs_array, $ref_table[$id_to_find]);
-                } else {
-                    $fail = "couldn't find id among referees";
+                if (isset($_POST["ref_$i"])) {
+                    $ref_id = $_POST["ref_$i"];
+                    if (($id_to_find = findObject($refs_table, $ref_id, "id")) !== false) {
+                        array_push($selected_refs_array, $refs_table[$id_to_find]);
+                    } else {
+                        $fail = "couldn't find id among referees";
+                    }
                 }
             }
         } else {
@@ -146,16 +150,21 @@
 
         //draw refs
         if ($ref_can == 1) {
-
             $ref_counter = 0;
             //go through pools
             for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
-
+    
                 //assigne ref to pools then go to next ref
                 $json_table[$pool_num] -> ref1 = $selected_refs_array[$ref_counter];
-                $ref_counter++;
-            }
 
+				if (count($selected_refs_array) > $ref_counter + 1) {
+                    $ref_counter++;
+                } else {
+                    $ref_counter = 0;
+                }
+                           
+			}
+	
         } else {
             //referees can't match with own nationality
             for ($pool_num = 1; $pool_num < count($json_table); $pool_num++) {
@@ -525,7 +534,7 @@
                         ?>
 
                             <div class="piste_select">
-                                <input type="checkbox" name="ref_<?php echo $ref_counter ?>" id="ref_<?php echo $refid ?>" value="<?php echo $value_array ?>"/>
+                                <input type="checkbox" name="ref_<?php echo $ref_counter ?>" id="ref_<?php echo $refid ?>" value="<?php echo $refid ?>"/>
                                 <label for="ref_<?php echo $refid ?>"><?php echo $prenom_nom ?></label>
                             </div>
 
