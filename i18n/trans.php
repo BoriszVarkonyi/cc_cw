@@ -4,6 +4,7 @@
  * Collection of translations.
  * Keys MUST NOT contain upper case letters.
  * Keys MUST NOT contain spaces.
+ * RFC 2119: https://www.ietf.org/rfc/rfc2119.txt
  */
 
 $TRANS = [
