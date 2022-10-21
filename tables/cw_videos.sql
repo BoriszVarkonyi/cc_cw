@@ -9,7 +9,7 @@ CREATE TABLE `cw_videos` (
   `comp_id` int DEFAULT NULL,
   `created` date NOT NULL DEFAULT (curdate()),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 
 INSERT INTO cw_videos (url, title, comp_name, comp_id, prev, author) VALUES
